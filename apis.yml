@@ -33,10 +33,6 @@ apis:
       - FN: Cloud Gateway Support
         url: https://cloud.google.com/api-gateway/docs/support
         email: ''
-    overlays:
-      - type: APIs.io Search
-        url: >-
-          overlays/https://api.apis.guru/v2/specs/googleapis.com/apigateway/v1alpha2/openapi.json-openapi-search.yml
     aid: google:google-cloud-api-gateway
   - name: Books API
     description: >-
@@ -60,10 +56,6 @@ apis:
       - FN: Google Help
         url: https://support.google.com/
         email: ''
-    overlays:
-      - type: APIs.io Search
-        url: >-
-          overlays/https://api.apis.guru/v2/specs/googleapis.com/books/v1/openapi.json-openapi-search.yml
     aid: google:books-api
 common:
   - type: Google Cloud
