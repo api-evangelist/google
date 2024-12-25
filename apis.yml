@@ -1,4 +1,3 @@
-
 name: Google
 description: >-
   Google Cloud APIs are programmatic interfaces to Google Cloud Platform
@@ -86,9 +85,4 @@ maintainers:
   - FN: API Evangelist
     url: https://apievangelist.com
     email: info@apievangelist.com
-overlays:
-  - type: APIs.io Search
-    url: overlays/apis-io-search.yml
-  - type: API Evangelist Ratings
-    url: overlays/apis-io-search.yml
 aid: google
