@@ -58,7 +58,9 @@ apis:
       content, organize an authenticated user's personal library and modify it
       as well.
 name: Google
-tags: []
+tags:
+  - Search
+  - Advertising
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 common:
   - url: https://cloud.google.com
@@ -78,7 +80,7 @@ common:
   - url: https://developers.google.com/community
     type: Community
 created: 2023/11/8
-modified: '2024-12-30'
+modified: '2025-07-18'
 description: |-
 
   Google Cloud APIs are programmatic interfaces to Google Cloud Platform
