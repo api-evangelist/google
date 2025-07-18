@@ -73,6 +73,11 @@ paths:
       tags:
         - about
       summary: Get  About
+      parameters:
+        - in: header
+          name: Authorization
+          schema:
+            type: string
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -118,6 +123,10 @@ paths:
           name: languageCode
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -154,6 +163,10 @@ paths:
           in: path
           name: appId
           required: true
+          schema:
+            type: string
+        - in: header
+          name: Authorization
           schema:
             type: string
       responses:
@@ -311,6 +324,10 @@ paths:
           name: teamDriveId
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -389,6 +406,10 @@ paths:
         - description: 'Deprecated: Use `driveId` instead.'
           in: query
           name: teamDriveId
+          schema:
+            type: string
+        - in: header
+          name: Authorization
           schema:
             type: string
       responses:
@@ -558,6 +579,10 @@ paths:
           name: teamDriveId
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -658,6 +683,11 @@ paths:
       tags:
         - channels
       summary: Post  Channels Stop
+      parameters:
+        - in: header
+          name: Authorization
+          schema:
+            type: string
   /drives:
     get:
       description: ' Lists the user''s shared drives. This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information, see the [Search for shared drives](/drive/api/guides/search-shareddrives) guide.'
@@ -688,6 +718,10 @@ paths:
           name: useDomainAdminAccess
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -733,6 +767,10 @@ paths:
           in: query
           name: requestId
           required: true
+          schema:
+            type: string
+        - in: header
+          name: Authorization
           schema:
             type: string
       requestBody:
@@ -784,6 +822,10 @@ paths:
           name: useDomainAdminAccess
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -813,6 +855,10 @@ paths:
           name: useDomainAdminAccess
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -862,6 +908,10 @@ paths:
           name: useDomainAdminAccess
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -905,6 +955,10 @@ paths:
           required: true
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -941,6 +995,10 @@ paths:
           in: path
           name: driveId
           required: true
+          schema:
+            type: string
+        - in: header
+          name: Authorization
           schema:
             type: string
       responses:
@@ -1072,6 +1130,10 @@ paths:
           name: teamDriveId
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -1111,6 +1173,7 @@ paths:
       tags:
         - files
       summary: Get  Files
+      x-api-evangelist-certified: '2025-07-18'
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -1191,6 +1254,10 @@ paths:
           name: useContentAsIndexableText
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/octet-stream:
@@ -1248,6 +1315,10 @@ paths:
           name: type
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -1301,6 +1372,10 @@ paths:
           name: enforceSingleParent
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -1359,6 +1434,10 @@ paths:
           name: supportsTeamDrives
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -1422,6 +1501,10 @@ paths:
           name: supportsTeamDrives
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -1547,6 +1630,10 @@ paths:
           name: useContentAsIndexableText
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/octet-stream:
@@ -1623,6 +1710,10 @@ paths:
           name: startModifiedTime
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -1668,6 +1759,10 @@ paths:
           required: true
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1709,6 +1804,10 @@ paths:
           required: true
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -1747,6 +1846,10 @@ paths:
           name: includeDeleted
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -1796,6 +1899,10 @@ paths:
           in: path
           name: commentId
           required: true
+          schema:
+            type: string
+        - in: header
+          name: Authorization
           schema:
             type: string
       requestBody:
@@ -1861,6 +1968,10 @@ paths:
           name: pageToken
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -1912,6 +2023,10 @@ paths:
           required: true
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1959,6 +2074,10 @@ paths:
           required: true
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -2003,6 +2122,10 @@ paths:
           name: includeDeleted
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -2058,6 +2181,10 @@ paths:
           in: path
           name: replyId
           required: true
+          schema:
+            type: string
+        - in: header
+          name: Authorization
           schema:
             type: string
       requestBody:
@@ -2168,6 +2295,10 @@ paths:
           name: supportsTeamDrives
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -2218,6 +2349,10 @@ paths:
           in: query
           name: mimeType
           required: true
+          schema:
+            type: string
+        - in: header
+          name: Authorization
           schema:
             type: string
       responses:
@@ -2277,6 +2412,10 @@ paths:
             response.
           in: query
           name: pageToken
+          schema:
+            type: string
+        - in: header
+          name: Authorization
           schema:
             type: string
       responses:
@@ -2345,6 +2484,10 @@ paths:
           in: path
           name: fileId
           required: true
+          schema:
+            type: string
+        - in: header
+          name: Authorization
           schema:
             type: string
       requestBody:
@@ -2433,6 +2576,10 @@ paths:
           name: useDomainAdminAccess
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -2551,6 +2698,10 @@ paths:
           name: useDomainAdminAccess
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -2615,6 +2766,10 @@ paths:
           name: useDomainAdminAccess
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -2667,6 +2822,10 @@ paths:
           name: useDomainAdminAccess
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -2767,6 +2926,10 @@ paths:
           name: useDomainAdminAccess
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -2815,6 +2978,10 @@ paths:
             response.
           in: query
           name: pageToken
+          schema:
+            type: string
+        - in: header
+          name: Authorization
           schema:
             type: string
       responses:
@@ -2889,6 +3056,10 @@ paths:
           required: true
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -2932,6 +3103,10 @@ paths:
           name: acknowledgeAbuse
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -2997,6 +3172,10 @@ paths:
           in: path
           name: revisionId
           required: true
+          schema:
+            type: string
+        - in: header
+          name: Authorization
           schema:
             type: string
       requestBody:
@@ -3084,6 +3263,10 @@ paths:
           name: supportsTeamDrives
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -3158,6 +3341,10 @@ paths:
           name: useDomainAdminAccess
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -3205,6 +3392,10 @@ paths:
           required: true
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -3236,6 +3427,10 @@ paths:
           required: true
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -3265,6 +3460,10 @@ paths:
           name: useDomainAdminAccess
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -3314,6 +3513,10 @@ paths:
           name: useDomainAdminAccess
           schema:
             type: boolean
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
