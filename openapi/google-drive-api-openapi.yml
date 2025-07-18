@@ -16,17 +16,17 @@ info:
 externalDocs:
   url: https://developers.google.com/drive/
 tags:
-  - name: about
-  - name: apps
-  - name: changes
-  - name: channels
-  - name: comments
-  - name: drives
-  - name: files
-  - name: permissions
-  - name: replies
-  - name: revisions
-  - name: teamdrives
+  - name: About
+  - name: Apps
+  - name: Changes
+  - name: Channels
+  - name: Comments
+  - name: Drives
+  - name: Files
+  - name: Permissions
+  - name: Replies
+  - name: Revisions
+  - name: Teamdrives
 paths:
   /about:
     get:
@@ -72,6 +72,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - about
+      summary: Get  About
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -131,6 +132,7 @@ paths:
             - https://www.googleapis.com/auth/drive.apps.readonly
       tags:
         - apps
+      summary: Get  Apps
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -192,6 +194,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - apps
+      summary: Get  Apps Appid
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -346,6 +349,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - changes
+      summary: Get  Changes
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -425,6 +429,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - changes
+      summary: Get  Changes Startpagetoken
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -596,6 +601,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - changes
+      summary: Post  Changes Watch
   /channels/stop:
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
@@ -651,6 +657,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - channels
+      summary: Post  Channels Stop
   /drives:
     get:
       description: ' Lists the user''s shared drives. This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information, see the [Search for shared drives](/drive/api/guides/search-shareddrives) guide.'
@@ -699,6 +706,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - drives
+      summary: Get  Drives
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -746,6 +754,7 @@ paths:
             - https://www.googleapis.com/auth/drive
       tags:
         - drives
+      summary: Post  Drives
   /drives/{driveId}:
     delete:
       description: >-
@@ -785,6 +794,7 @@ paths:
             - https://www.googleapis.com/auth/drive
       tags:
         - drives
+      summary: Delete  Drives Driveid
     get:
       description: Gets a shared drive's metadata by ID.
       operationId: drive.drives.get
@@ -821,6 +831,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - drives
+      summary: Get  Drives Driveid
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -870,6 +881,7 @@ paths:
             - https://www.googleapis.com/auth/drive
       tags:
         - drives
+      summary: Patch  Drives Driveid
   /drives/{driveId}/hide:
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
@@ -907,6 +919,7 @@ paths:
             - https://www.googleapis.com/auth/drive
       tags:
         - drives
+      summary: Post  Drives Driveid Hide
   /drives/{driveId}/unhide:
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
@@ -944,6 +957,7 @@ paths:
             - https://www.googleapis.com/auth/drive
       tags:
         - drives
+      summary: Post  Drives Driveid Unhide
   /files:
     get:
       description: ' Lists the user''s files. This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information, see the [Search for files & folders](/drive/api/guides/search-files) guide. *Note:* This method returns *all* files by default, including trashed files. If you don''t want trashed files to appear in the list, use the `trashed=false` query parameter to remove trashed files from the results.'
@@ -1096,6 +1110,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - files
+      summary: Get  Files
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -1203,6 +1218,7 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - files
+      summary: Post  Files
   /files/generateIds:
     get:
       description: >-
@@ -1254,6 +1270,7 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - files
+      summary: Get  Files Generateids
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -1294,6 +1311,7 @@ paths:
             - https://www.googleapis.com/auth/drive
       tags:
         - files
+      summary: Delete  Files Trash
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -1359,6 +1377,7 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - files
+      summary: Delete  Files Fileid
     get:
       description: ' Gets a file''s metadata or content by ID. If you provide the URL parameter `alt=media`, then the response includes the file contents in the response body. Downloading content with `alt=media` only works if the file is stored in Drive. To download Google Docs, Sheets, and Slides use [`files.export`](/drive/api/reference/rest/v3/files/export) instead. For more information, see [Download & export files](/drive/api/guides/manage-downloads).'
       operationId: drive.files.get
@@ -1441,6 +1460,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - files
+      summary: Get  Files Fileid
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -1562,6 +1582,7 @@ paths:
             - https://www.googleapis.com/auth/drive.scripts
       tags:
         - files
+      summary: Patch  Files Fileid
   /files/{fileId}/comments:
     get:
       description: Lists a file's comments.
@@ -1624,6 +1645,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - comments
+      summary: Get  Files Fileid Comments
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -1669,6 +1691,7 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - comments
+      summary: Post  Files Fileid Comments
   /files/{fileId}/comments/{commentId}:
     delete:
       description: Deletes a comment.
@@ -1700,6 +1723,7 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - comments
+      summary: Delete  Files Fileid Comments Commentid
     get:
       description: Gets a comment by ID.
       operationId: drive.comments.get
@@ -1745,6 +1769,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - comments
+      summary: Get  Files Fileid Comments Commentid
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -1796,6 +1821,7 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - comments
+      summary: Patch  Files Fileid Comments Commentid
   /files/{fileId}/comments/{commentId}/replies:
     get:
       description: Lists a comment's replies.
@@ -1857,6 +1883,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - replies
+      summary: Get  Files Fileid Comments Commentid Replies
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -1908,6 +1935,7 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - replies
+      summary: Post  Files Fileid Comments Commentid Replies
   /files/{fileId}/comments/{commentId}/replies/{replyId}:
     delete:
       description: Deletes a reply.
@@ -1945,6 +1973,7 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - replies
+      summary: Delete  Files Fileid Comments Commentid Replies Replyid
     get:
       description: Gets a reply by ID.
       operationId: drive.replies.get
@@ -1996,6 +2025,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - replies
+      summary: Get  Files Fileid Comments Commentid Replies Replyid
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -2053,6 +2083,7 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - replies
+      summary: Patch  Files Fileid Comments Commentid Replies Replyid
   /files/{fileId}/copy:
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
@@ -2168,6 +2199,7 @@ paths:
             - https://www.googleapis.com/auth/drive.photos.readonly
       tags:
         - files
+      summary: Post  Files Fileid Copy
   /files/{fileId}/export:
     get:
       description: >-
@@ -2206,6 +2238,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - files
+      summary: Get  Files Fileid Export
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -2276,6 +2309,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - files
+      summary: Get  Files Fileid Listlabels
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -2340,6 +2374,7 @@ paths:
             - https://www.googleapis.com/auth/drive.metadata
       tags:
         - files
+      summary: Post  Files Fileid Modifylabels
   /files/{fileId}/permissions:
     get:
       description: Lists a file's or shared drive's permissions.
@@ -2432,6 +2467,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - permissions
+      summary: Get  Files Fileid Permissions
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -2538,6 +2574,7 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - permissions
+      summary: Post  Files Fileid Permissions
   /files/{fileId}/permissions/{permissionId}:
     delete:
       description: >-
@@ -2592,6 +2629,7 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - permissions
+      summary: Delete  Files Fileid Permissions Permissionid
     get:
       description: Gets a permission by ID.
       operationId: drive.permissions.get
@@ -2663,6 +2701,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - permissions
+      summary: Get  Files Fileid Permissions Permissionid
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -2751,6 +2790,7 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - permissions
+      summary: Patch  Files Fileid Permissions Permissionid
   /files/{fileId}/revisions:
     get:
       description: Lists a file's revisions.
@@ -2815,6 +2855,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - revisions
+      summary: Get  Files Fileid Revisions
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -2866,6 +2907,7 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - revisions
+      summary: Delete  Files Fileid Revisions Revisionid
     get:
       description: Gets a revision's metadata or content by ID.
       operationId: drive.revisions.get
@@ -2928,6 +2970,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - revisions
+      summary: Get  Files Fileid Revisions Revisionid
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -2983,6 +3026,7 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - revisions
+      summary: Patch  Files Fileid Revisions Revisionid
   /files/{fileId}/watch:
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
@@ -3083,6 +3127,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - files
+      summary: Post  Files Fileid Watch
   /teamdrives:
     get:
       description: 'Deprecated: Use `drives.list` instead.'
@@ -3131,6 +3176,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - teamdrives
+      summary: Get  Teamdrives
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -3178,6 +3224,7 @@ paths:
             - https://www.googleapis.com/auth/drive
       tags:
         - teamdrives
+      summary: Post  Teamdrives
   /teamdrives/{teamDriveId}:
     delete:
       description: 'Deprecated: Use `drives.delete` instead.'
@@ -3199,6 +3246,7 @@ paths:
             - https://www.googleapis.com/auth/drive
       tags:
         - teamdrives
+      summary: Delete  Teamdrives Teamdriveid
     get:
       description: 'Deprecated: Use `drives.get` instead.'
       operationId: drive.teamdrives.get
@@ -3235,6 +3283,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - teamdrives
+      summary: Get  Teamdrives Teamdriveid
     parameters:
       - $ref: '#/components/parameters/_.xgafv'
       - $ref: '#/components/parameters/access_token'
@@ -3284,6 +3333,7 @@ paths:
             - https://www.googleapis.com/auth/drive
       tags:
         - teamdrives
+      summary: Patch  Teamdrives Teamdriveid
 components:
   parameters:
     _.xgafv:
