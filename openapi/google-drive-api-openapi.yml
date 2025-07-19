@@ -1202,6 +1202,7 @@ paths:
         - drives
       summary: Get  Drives
       x-api-evangelist-certified: '2025-07-18'
+      x-api-naftiko-published: '2025-07-18'
     post:
       description: Creates a shared drive.
       operationId: drive.drives.create
@@ -1532,6 +1533,7 @@ paths:
         - drives
       summary: Get  Drives Driveid
       x-api-evangelist-certified: '2025-07-18'
+      x-api-naftiko-published: '2025-07-18'
     patch:
       description: Updates the metadate for a shared drive.
       operationId: drive.drives.update
@@ -2064,6 +2066,7 @@ paths:
         - files
       summary: Get  Files
       x-api-evangelist-certified: '2025-07-18'
+      x-api-naftiko-published: '2025-07-18'
     post:
       description: ' Creates a new file. This method supports an */upload* URI and accepts uploaded media with the following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*/*` Note: Specify a valid MIME type, rather than the literal `*/*` value. The literal `*/*` is only used to indicate that any valid MIME type can be uploaded. For more information on uploading files, see [Upload file data](/drive/api/guides/manage-uploads). Apps creating shortcuts with `files.create` must specify the MIME type `application/vnd.google-apps.shortcut`. Apps should specify a file extension in the `name` property when inserting files with the API. For example, an operation to insert a JPEG file should specify something like `"name": "cat.jpg"` in the metadata. Subsequent `GET` requests include the read-only `fileExtension` property populated with the extension originally specified in the `title` property. When a Google Drive user requests to download a file, or when the file is downloaded through the sync client, Drive builds a full filename (with extension) based on the title. In cases where the extension is missing, Drive attempts to determine the extension based on the file''s MIME type.'
       operationId: drive.files.create
@@ -2739,6 +2742,7 @@ paths:
         - files
       summary: Get  Files Fileid
       x-api-evangelist-certified: '2025-07-18'
+      x-api-naftiko-published: '2025-07-18'
     patch:
       description: ' Updates a file''s metadata and/or content. When calling this method, only populate fields in the request that you want to modify. When updating fields, some fields might be changed automatically, such as `modifiedDate`. This method supports patch semantics. This method supports an */upload* URI and accepts uploaded media with the following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*/*` Note: Specify a valid MIME type, rather than the literal `*/*` value. The literal `*/*` is only used to indicate that any valid MIME type can be uploaded. For more information on uploading files, see [Upload file data](/drive/api/guides/manage-uploads).'
       operationId: drive.files.update
@@ -4513,6 +4517,7 @@ paths:
         - files
       summary: Get  Files Fileid Listlabels
       x-api-evangelist-certified: '2025-07-18'
+      x-api-naftiko-published: '2025-07-18'
   /files/{fileId}/modifyLabels:
     post:
       description: >-
@@ -4792,6 +4797,7 @@ paths:
         - permissions
       summary: Get  Files Fileid Permissions
       x-api-evangelist-certified: '2025-07-18'
+      x-api-naftiko-published: '2025-07-18'
     post:
       description: >-
         Creates a permission for a file or shared drive. **Warning:** Concurrent
@@ -5517,6 +5523,7 @@ paths:
         - revisions
       summary: Get  Files Fileid Revisions
       x-api-evangelist-certified: '2025-07-18'
+      x-api-naftiko-published: '2025-07-18'
   /files/{fileId}/revisions/{revisionId}:
     delete:
       description: >-
@@ -6163,6 +6170,7 @@ paths:
         - teamdrives
       summary: Get  Teamdrives
       x-api-evangelist-certified: '2025-07-18'
+      x-api-naftiko-published: '2025-07-18'
     post:
       description: 'Deprecated: Use `drives.create` instead.'
       operationId: drive.teamdrives.create
