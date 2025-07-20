@@ -25,18 +25,6 @@ tags:
   - name: activity
 paths:
   /v2/activity:query:
-    parameters:
-      - $ref: '#/components/parameters/_.xgafv'
-      - $ref: '#/components/parameters/access_token'
-      - $ref: '#/components/parameters/alt'
-      - $ref: '#/components/parameters/callback'
-      - $ref: '#/components/parameters/fields'
-      - $ref: '#/components/parameters/key'
-      - $ref: '#/components/parameters/oauth_token'
-      - $ref: '#/components/parameters/prettyPrint'
-      - $ref: '#/components/parameters/quotaUser'
-      - $ref: '#/components/parameters/upload_protocol'
-      - $ref: '#/components/parameters/uploadType'
     post:
       description: Query past activity in Google Drive.
       operationId: driveactivity.activity.query
@@ -64,6 +52,75 @@ paths:
       tags:
         - activity
       summary: Post  V2 Activity:query
+      parameters:
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: >-
+            Available to use for quota purposes for server-side applications.
+            Can be any arbitrary string assigned to a user, but should not
+            exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
 components:
   parameters:
     _.xgafv:
