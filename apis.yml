@@ -106,7 +106,7 @@ common:
     type: Google Cloud
   - url: https://developers.google.com/
     type: Developer Portal
-  - url: https://googledevelopers.blogspot.com/
+  - url: https://developers.googleblog.com/en/
     type: Blog
   - url: >-
       https://console.cloud.google.com/apis/dashboard?project=api-project-111046942866
@@ -125,6 +125,14 @@ common:
     description: 'null'
     url: https://developers.google.com/
     type: Portal
+  - name: Discord
+    description: 'null'
+    url: https://discord.com/invite/google-dev-community
+    type: Discord
+  - name: Videos
+    description: 'null'
+    url: https://www.youtube.com/channel/UC_x5XG1OV2P6uZZ5FSM9Ttw
+    type: Videos
 created: 2023/11/8
 modified: '2025-07-20'
 description: |-
