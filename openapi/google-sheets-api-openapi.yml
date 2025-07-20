@@ -2,10 +2,8 @@ openapi: 3.0.0
 info:
   title: Google Sheets API
   description: >-
-    The Google Sheets API enables developers to read, write, and manage their
-    Google Sheets data programmatically. It provides capabilities such as
-    modifying spreadsheet content, formatting, and settings and managing
-    individual sheets within a spreadsheet.
+    The Google Sheets API is a RESTful interface that lets you read and modify a
+    spreadsheet's data..
   version: 1.0.0
 servers:
   - url: http://{{baseurl}}
