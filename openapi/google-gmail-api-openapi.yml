@@ -1,0 +1,5512 @@
+openapi: 3.0.0
+info:
+<<<<<<< HEAD
+  title: ðŸ“¬ Google Gmail API
+=======
+  title: =ì Google Gmail API
+>>>>>>> 06f419cf7d2f733b84ec0b3172338b61c7fff603
+  description: >-
+    # Gmail API Overview with Postman Collection
+
+
+    The Gmail API allows developers to access and manage a user's mail within
+    Gmail. With this API, developers can build a range of applications that
+    operate within the Gmail platform, such as applications that automate email
+    responses, analyze mailbox data, and manage users' emails
+
+
+    ## Technical Concepts
+
+
+    ### MIME Messages
+
+
+    - **What is a MIME Message?**: MIME (Multipurpose Internet Mail Extensions)
+    is a standard that extends the format of email to support text in character
+    sets other than ASCII, as well as attachments of audio, video, images, and
+    application programs.
+
+    - From: [sender@example.comTo](https://mailto:sender@example.comTo):
+    [recipient@example.comSubject](https://mailto:recipient@example.comSubject):
+    Sample MIME EmailContent-Type: text/plainThis is a plain text body of the
+    email.
+        
+
+    ### Encodings
+
+
+    - **Base64 Encoding**: Base64 is a method for encoding binary data into
+    ASCII characters. It is commonly used in email to encode attachments.
+
+    - **URL Safe Encoding**: When using Base64 in URLs, it is modified to be URL
+    safe by replacing `+` with `-` and `/` with `_`.
+        
+
+    ## Obtaining Access Tokens
+
+
+    To make requests to the Gmail API, you need an OAuth 2.0 token:
+
+
+    1. **Google Developer Console**: Go to the [Google Developer
+    Console](https://console.developers.google.com/), create a new project, and
+    enable the Gmail API.
+
+    2. **OAuth Consent Screen**: Set Up OAuth Consent Screen with the proper
+    scopes
+
+    3. **Credentials**: Create credentials (OAuth client ID)
+        
+
+    ## Scopes
+
+
+    The Gmail API uses scopes to specify the level of access that the
+    application requires. Below is a table of common scopes:
+
+
+    | Scope | Description |
+
+    | --- | --- |
+
+    | `https://www.googleapis.com/auth/gmail.readonly` | Allows read-only access
+    to the user's emails. |
+
+    | `https://www.googleapis.com/auth/gmail.modify` | Allows read and write
+    access to user's emails but not deletion. |
+
+    | `https://www.googleapis.com/auth/gmail.compose` | Allows creating,
+    reading, and sending emails. |
+
+    | `https://www.googleapis.com/auth/gmail.send` | Allows sending emails only.
+    |
+
+    | `https://www.googleapis.com/auth/gmail.labels` | Allows managing labels
+    and settings of Gmail. |
+
+
+    ## Common Parameters
+
+
+    | Parameter | Description | Example Value |
+
+    | --- | --- | --- |
+
+    | `access_token` | OAuth 2.0 token for the user account. It is used to
+    authenticate API requests involving user data. | `{{accessToken}}` |
+
+    | `alt` | Alternative format type for the response data. Common values are
+    `json` and `media`. | `json` |
+
+    | `callback` | Name of the JavaScript callback function that handles the
+    response. Used in JSONP requests. | `handleResponse` |
+
+    | `fields` | The fields parameter allows you to specify which attributes of
+    a resource should be included in the API response, helping to streamline the
+    data load. To include attributes from nested objects, use parentheses:. |
+    `messages(id,snippet,payload(headers))` |
+
+    | `key` | API key. Used to identify the application making the request. |
+    `{{key}}` |
+
+    | `oauth_token` | OAuth 2.0 token for the user account, can be used as an
+    alternative to using the Authorization header. | `{{oauth_token}}` |
+
+    | `prettyPrint` | Returns response with indentations and line breaks to make
+    it more readable. | `true` or `false` |
+
+    | `quotaUser` | An opaque string that helps manage quota for APIs when not
+    using an API key. | `custom_user_id_string` |
+
+    | `upload_protocol` | Specifies the upload protocol used in file upload
+    requests. | `resumable` |
+
+    | `uploadType` | Type of upload request, such as media, multipart, or
+    resumable. | `multipart` |
+
+    | `$.xgafv` | Version of the Google API front-end to use. Useful for Google
+    internal experimentation with APIs. | `2` |
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    oauth2Auth:
+      type: http
+      scheme: oauth2
+security:
+  - oauth2Auth: []
+tags:
+  - name: Profile
+  - name: Notifications
+  - name: Drafts
+  - name: History
+  - name: Messages
+  - name: Labels
+  - name: Theads
+  - name: settings
+  - name: settings > imap
+  - name: settings > pop
+  - name: settings > vacation
+  - name: settings > language
+  - name: settings > autoForwarding
+  - name: settings > Send As
+  - name: settings > Send As > Send As Email
+  - name: settings > Send As > Send As Email > SMIME INFO
+  - name: settings > Send As > Send As Email > SMIME INFO > Set Default
+  - name: settings > CSE Identites
+  - name: settings > CSE Identites > Key Pairs
+  - name: settings > Filters
+  - name: settings > Forwarding Addresses
+  - name: settings > Delegates
+paths:
+  /gmail/v1/users/{userId}/profile:
+    get:
+      tags:
+        - Profile
+      summary: Get Profile
+      description: Gets the current user's Gmail profile.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                emailAddress: anim officia cillum
+                messagesTotal: -17389993
+                threadsTotal: -18322134
+                historyId: velit deserunt commodo
+  /gmail/v1/users/{userId}/watch:
+    post:
+      tags:
+        - Notifications
+      summary: Watch Users
+      description: Set up or update a push notification watch on the given user mailbox.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                labelIds:
+                  - officia ex reprehenderit et
+                  - labore ullamco ut
+                labelFilterAction: exclude
+                labelFilterBehavior: include
+                topicName: Ut enim in in
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                historyId: quis aute sed
+                expiration: dolore non exercitation Excepteur est
+  /gmail/v1/users/{userId}/stop:
+    post:
+      tags:
+        - Notifications
+      summary: Stop Notifications for User
+      description: Stop receiving push notifications for the given user mailbox.
+      requestBody:
+        content: {}
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /gmail/v1/users/{userId}/drafts/send:
+    post:
+      tags:
+        - Drafts
+      summary: Send Drafts
+      description: >-
+        Sends the specified, existing draft to the recipients in the `To`, `Cc`,
+        and `Bcc` headers.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: elit Lorem
+                message:
+                  id: elit
+                  threadId: enim ut ut fugiat
+                  labelIds:
+                    - incididunt et non cupidatat
+                    - laboris deserunt do nostrud
+                  snippet: nostrud in
+                  historyId: ullamco
+                  internalDate: dolor ullamco elit fugiat
+                  payload:
+                    partId: consequat ipsum qui
+                    mimeType: enim quis dolor aliqua veniam
+                    filename: laboris ad
+                    headers:
+                      - name: labore aute nisi
+                        value: reprehenderit esse ex elit
+                      - name: sed
+                        value: anim ut veniam elit
+                    body:
+                      attachmentId: irure
+                      size: -58003592
+                      data: officia laboris
+                    parts:
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/MessagePart detected>
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/MessagePart detected>
+                  sizeEstimate: -74092231
+                  raw: in enim sit pariatur
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: '{{userID}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: eu incididunt laborum irure
+                threadId: magna Ut officia
+                labelIds:
+                  - mollit amet dolore cupidatat
+                  - cupidatat deserunt mollit
+                snippet: ut dolor
+                historyId: nisi tempor do
+                internalDate: cupidatat officia anim
+                payload:
+                  partId: dolore velit incididunt est a
+                  mimeType: sit dolor mollit
+                  filename: ea commodo dolor nisi
+                  headers:
+                    - name: quis id velit laborum
+                      value: et voluptate dolor ea
+                    - name: sit nostrud
+                      value: deserunt fugiat ex
+                  body:
+                    attachmentId: id nulla consequat
+                    size: -93837667
+                    data: ad in occaecat
+                  parts:
+                    - value: >-
+                        <Circular reference to #/components/schemas/MessagePart
+                        detected>
+                    - value: >-
+                        <Circular reference to #/components/schemas/MessagePart
+                        detected>
+                sizeEstimate: 21128811
+                raw: do laboris
+  /gmail/v1/users/{userId}/drafts/{id}:
+    put:
+      tags:
+        - Drafts
+      summary: Update Drafts
+      description: Replaces a draft's content.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: elit Lorem
+                message:
+                  id: elit
+                  threadId: enim ut ut fugiat
+                  labelIds:
+                    - incididunt et non cupidatat
+                    - laboris deserunt do nostrud
+                  snippet: nostrud in
+                  historyId: ullamco
+                  internalDate: dolor ullamco elit fugiat
+                  payload:
+                    partId: consequat ipsum qui
+                    mimeType: enim quis dolor aliqua veniam
+                    filename: laboris ad
+                    headers:
+                      - name: labore aute nisi
+                        value: reprehenderit esse ex elit
+                      - name: sed
+                        value: anim ut veniam elit
+                    body:
+                      attachmentId: irure
+                      size: -58003592
+                      data: officia laboris
+                    parts:
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/MessagePart detected>
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/MessagePart detected>
+                  sizeEstimate: -74092231
+                  raw: in enim sit pariatur
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: elit Lorem
+                message:
+                  id: elit
+                  threadId: enim ut ut fugiat
+                  labelIds:
+                    - incididunt et non cupidatat
+                    - laboris deserunt do nostrud
+                  snippet: nostrud in
+                  historyId: ullamco
+                  internalDate: dolor ullamco elit fugiat
+                  payload:
+                    partId: consequat ipsum qui
+                    mimeType: enim quis dolor aliqua veniam
+                    filename: laboris ad
+                    headers:
+                      - name: labore aute nisi
+                        value: reprehenderit esse ex elit
+                      - name: sed
+                        value: anim ut veniam elit
+                    body:
+                      attachmentId: irure
+                      size: -58003592
+                      data: officia laboris
+                    parts:
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/MessagePart detected>
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/MessagePart detected>
+                  sizeEstimate: -74092231
+                  raw: in enim sit pariatur
+    get:
+      tags:
+        - Drafts
+      summary: Get Drafts
+      description: Gets the specified draft.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: '{{userId}}'
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: elit Lorem
+                message:
+                  id: elit
+                  threadId: enim ut ut fugiat
+                  labelIds:
+                    - incididunt et non cupidatat
+                    - laboris deserunt do nostrud
+                  snippet: nostrud in
+                  historyId: ullamco
+                  internalDate: dolor ullamco elit fugiat
+                  payload:
+                    partId: consequat ipsum qui
+                    mimeType: enim quis dolor aliqua veniam
+                    filename: laboris ad
+                    headers:
+                      - name: labore aute nisi
+                        value: reprehenderit esse ex elit
+                      - name: sed
+                        value: anim ut veniam elit
+                    body:
+                      attachmentId: irure
+                      size: -58003592
+                      data: officia laboris
+                    parts:
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/MessagePart detected>
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/MessagePart detected>
+                  sizeEstimate: -74092231
+                  raw: in enim sit pariatur
+    delete:
+      tags:
+        - Drafts
+      summary: Delete Drafts
+      description: >-
+        Immediately and permanently deletes the specified draft. Does not simply
+        trash it.
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /gmail/v1/users/{userId}/drafts:
+    post:
+      tags:
+        - Drafts
+      summary: Create Drafts
+      description: Creates a new draft with the `DRAFT` label.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                raw: '{{encodedMessage}}'
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: elit Lorem
+                message:
+                  id: elit
+                  threadId: enim ut ut fugiat
+                  labelIds:
+                    - incididunt et non cupidatat
+                    - laboris deserunt do nostrud
+                  snippet: nostrud in
+                  historyId: ullamco
+                  internalDate: dolor ullamco elit fugiat
+                  payload:
+                    partId: consequat ipsum qui
+                    mimeType: enim quis dolor aliqua veniam
+                    filename: laboris ad
+                    headers:
+                      - name: labore aute nisi
+                        value: reprehenderit esse ex elit
+                      - name: sed
+                        value: anim ut veniam elit
+                    body:
+                      attachmentId: irure
+                      size: -58003592
+                      data: officia laboris
+                    parts:
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/MessagePart detected>
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/MessagePart detected>
+                  sizeEstimate: -74092231
+                  raw: in enim sit pariatur
+    get:
+      tags:
+        - Drafts
+      summary: List Drafts
+      description: Lists the drafts in the user's mailbox.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: '{{userID}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                drafts:
+                  - id: labore do cupidatat dolor consectetur
+                    message:
+                      id: cillum incididunt eiusmod anim
+                      threadId: quis non proident
+                      labelIds:
+                        - dolor dol
+                        - nulla ad sed exercitation
+                      snippet: aute ad
+                      historyId: quis anim a
+                      internalDate: sint dolore
+                      payload:
+                        partId: enim nulla ad
+                        mimeType: id ani
+                        filename: pariatur
+                        headers:
+                          - name: dolor est
+                            value: veniam ut nostrud culpa
+                          - name: sed minim
+                            value: ipsum occaecat sed dolor
+                        body:
+                          attachmentId: dolore quis et
+                          size: -13145088
+                          data: pariatur magna in Duis in
+                        parts:
+                          - value: >-
+                              <Circular reference to
+                              #/components/schemas/MessagePart detected>
+                          - value: >-
+                              <Circular reference to
+                              #/components/schemas/MessagePart detected>
+                      sizeEstimate: -49941379
+                      raw: non veniam eiusmod
+                  - id: anim
+                    message:
+                      id: consectetur
+                      threadId: veniam in fugiat adipisicing esse
+                      labelIds:
+                        - ut
+                        - anim proident magna esse
+                      snippet: quis tempor laborum officia fugiat
+                      historyId: dolor
+                      internalDate: cupidatat velit ut sint in
+                      payload:
+                        partId: tempor
+                        mimeType: deseru
+                        filename: dolore veniam
+                        headers:
+                          - name: veni
+                            value: eu in
+                          - name: qui irure aliqua cupidatat
+                            value: commodo laborum nostrud id
+                        body:
+                          attachmentId: non eiusmod Excepteur
+                          size: 69980865
+                          data: Excepteur reprehenderit proident sed
+                        parts:
+                          - value: >-
+                              <Circular reference to
+                              #/components/schemas/MessagePart detected>
+                          - value: >-
+                              <Circular reference to
+                              #/components/schemas/MessagePart detected>
+                      sizeEstimate: 15653869
+                      raw: ipsum dolor qui
+                nextPageToken: veniam laborum labore Ut aliquip
+                resultSizeEstimate: 46963148
+  /gmail/v1/users/{userId}/history:
+    get:
+      tags:
+        - History
+      summary: List History
+      description: >-
+        Lists the history of all changes to the given mailbox. History results
+        are returned in chronological order (increasing `historyId`).
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: '{{userId}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                history:
+                  - id: proident pariatur aute Lorem
+                    messages:
+                      - id: eiusmod id nisi
+                        threadId: anim et do
+                        labelIds:
+                          - e
+                          - non magna in id
+                        snippet: in
+                        historyId: dolor voluptate ex mollit
+                        internalDate: occaecat elit velit
+                        payload:
+                          partId: anim pariatur
+                          mimeType: sint cillum nulla incididunt
+                          filename: sed consequat esse eu
+                          headers:
+                            - name: amet ad Ut labore
+                              value: nisi deserunt
+                            - name: exercitation ex
+                              value: amet
+                          body:
+                            attachmentId: aliquip sunt ad in
+                            size: 49473554
+                            data: aliqua ea dolor nostrud
+                          parts:
+                            - value: >-
+                                <Circular reference to
+                                #/components/schemas/MessagePart detected>
+                            - value: >-
+                                <Circular reference to
+                                #/components/schemas/MessagePart detected>
+                        sizeEstimate: -46841497
+                        raw: f
+                      - id: fugiat minim veniam sed
+                        threadId: ipsum officia magna irure
+                        labelIds:
+                          - sunt
+                          - velit consectetur magna
+                        snippet: voluptate
+                        historyId: et proident sunt in
+                        internalDate: non adipisicing
+                        payload:
+                          partId: in ullamco
+                          mimeType: labore Excepteur
+                          filename: pariatur commodo
+                          headers:
+                            - name: nostrud minim tempor Lorem
+                              value: aliquip id qui
+                            - name: nisi sit veniam
+                              value: et ipsum
+                          body:
+                            attachmentId: do sit
+                            size: 66422063
+                            data: non do aliquip ea sit
+                          parts:
+                            - value: >-
+                                <Circular reference to
+                                #/components/schemas/MessagePart detected>
+                            - value: >-
+                                <Circular reference to
+                                #/components/schemas/MessagePart detected>
+                        sizeEstimate: -37565359
+                        raw: veniam laboris enim ullamco
+                    messagesAdded:
+                      - message:
+                          id: non fugiat Ut magna ullamco
+                          threadId: ut exercitation elit
+                          labelIds:
+                            - irure Excepteur do
+                            - nulla sed adipisicing enim
+                          snippet: minim
+                          historyId: adipisicing velit consequat
+                          internalDate: laborum nisi
+                          payload:
+                            partId: sed enim i
+                            mimeType: tempor esse dolor in nulla
+                            filename: sunt commodo
+                            headers:
+                              - name: Lorem
+                                value: Ut dolore reprehenderit
+                              - name: tempor fugiat minim consectetur
+                                value: aliquip
+                            body:
+                              attachmentId: dolore quis exercitation
+                              size: -24042089
+                              data: exercitation aliqua
+                            parts:
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                          sizeEstimate: -38447430
+                          raw: culpa nisi ullamco aliquip
+                      - message:
+                          id: labore ullamco Excepteur laboris enim
+                          threadId: proident off
+                          labelIds:
+                            - 'cillum '
+                            - Lorem incididunt ullamco ipsum
+                          snippet: Lorem laborum
+                          historyId: qui mollit
+                          internalDate: ad commodo minim
+                          payload:
+                            partId: commodo dolor do
+                            mimeType: ad nisi
+                            filename: es
+                            headers:
+                              - name: sunt enim
+                                value: ipsum
+                              - name: elit fugiat dolore aute
+                                value: mollit Ut
+                            body:
+                              attachmentId: ea reprehenderit
+                              size: 2087603
+                              data: in
+                            parts:
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                          sizeEstimate: -15899428
+                          raw: voluptate dolor laboris ad
+                    messagesDeleted:
+                      - message:
+                          id: Duis elit in
+                          threadId: fugiat
+                          labelIds:
+                            - id dolor est
+                            - deserunt nisi cupidatat
+                          snippet: quis
+                          historyId: ad
+                          internalDate: est pariatur offi
+                          payload:
+                            partId: mollit amet pariatur labore
+                            mimeType: in
+                            filename: aute
+                            headers:
+                              - name: consectetur dolor sint
+                                value: anim
+                              - name: laborum est laboris molli
+                                value: consequat est sint
+                            body:
+                              attachmentId: aliquip ut cillum minim
+                              size: 76634140
+                              data: tempor
+                            parts:
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                          sizeEstimate: -35873513
+                          raw: irure qui laboris cupidatat
+                      - message:
+                          id: cupidatat do adipisicing
+                          threadId: occaecat pariatur
+                          labelIds:
+                            - sit et irure Exce
+                            - et Duis exercitation
+                          snippet: voluptate in
+                          historyId: ut esse
+                          internalDate: Excepteur consectetur aliqua nisi
+                          payload:
+                            partId: occaecat quis sunt
+                            mimeType: cillu
+                            filename: quis exercitation
+                            headers:
+                              - name: in proident el
+                                value: nisi mollit sunt
+                              - name: o
+                                value: consectetur proident in
+                            body:
+                              attachmentId: sint incididunt fugiat velit sunt
+                              size: -88355343
+                              data: mollit commodo esse
+                            parts:
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                          sizeEstimate: 13437488
+                          raw: sed labore tempor
+                    labelsAdded:
+                      - message:
+                          id: cillum consequat eu laboris officia
+                          threadId: magna dolore
+                          labelIds:
+                            - sunt tempor officia deser
+                            - est irure in
+                          snippet: sint dolor sunt
+                          historyId: sunt do exercitation minim
+                          internalDate: ea voluptate Lorem enim
+                          payload:
+                            partId: sunt enim
+                            mimeType: id laboris
+                            filename: cupidatat
+                            headers:
+                              - name: tempor pariatur
+                                value: cupidatat ex
+                              - name: in dolore quis
+                                value: pariatur
+                            body:
+                              attachmentId: 'aute '
+                              size: 99676228
+                              data: consequat veniam aliqua ex
+                            parts:
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                          sizeEstimate: 85599678
+                          raw: ut
+                        labelIds:
+                          - nisi eiusmod
+                          - et amet nisi sed laboris
+                      - message:
+                          id: enim
+                          threadId: Duis consectetur
+                          labelIds:
+                            - ullamco adi
+                            - sed
+                          snippet: nisi veniam
+                          historyId: ex
+                          internalDate: exercitation sit dolore
+                          payload:
+                            partId: officia
+                            mimeType: voluptate cillum officia et nostrud
+                            filename: dolore consequat laborum
+                            headers:
+                              - name: reprehenderit nostrud elit
+                                value: consectetur in nisi
+                              - name: anim occaecat
+                                value: occaecat laborum
+                            body:
+                              attachmentId: dolore deserunt anim do minim
+                              size: 83222280
+                              data: enim magna
+                            parts:
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                          sizeEstimate: -97289468
+                          raw: dolore ea
+                        labelIds:
+                          - aliquip proident
+                          - mollit nostrud nisi elit
+                    labelsRemoved:
+                      - message:
+                          id: tempo
+                          threadId: in sunt esse nulla
+                          labelIds:
+                            - in dolor dolore ipsum
+                            - consequat irure ea
+                          snippet: enim anim eiusmod ipsum
+                          historyId: velit anim dolore fugiat
+                          internalDate: laboris
+                          payload:
+                            partId: reprehenderit ullamco
+                            mimeType: est consectetur et ullamco ad
+                            filename: anim laboris enim
+                            headers:
+                              - name: ea Lorem eiusmod
+                                value: occaecat laborum in
+                              - name: Duis dolor ipsum au
+                                value: cillum aliqua in
+                            body:
+                              attachmentId: ''
+                              size: -69821908
+                              data: Ut amet ut
+                            parts:
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                          sizeEstimate: 30152194
+                          raw: enim minim ullamco aliqua cillum
+                        labelIds:
+                          - cillum
+                          - officia cillum sit
+                      - message:
+                          id: cillum reprehenderit Excepteur
+                          threadId: dolore esse sint culpa
+                          labelIds:
+                            - et irure eu do
+                            - elit et consectetur Ut
+                          snippet: ea s
+                          historyId: commodo veniam mollit qui ipsum
+                          internalDate: deserunt cupidatat mollit
+                          payload:
+                            partId: proident consectetur eu adipisicing
+                            mimeType: 'fugiat culpa aute '
+                            filename: aliquip sed
+                            headers:
+                              - name: anim dolor
+                                value: consectetur
+                              - name: magna nostrud
+                                value: consectetur enim culpa commodo
+                            body:
+                              attachmentId: 'tempor sint '
+                              size: 59632845
+                              data: eu
+                            parts:
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                          sizeEstimate: 75124651
+                          raw: sed
+                        labelIds:
+                          - deserunt in aliqua cillum
+                          - anim in
+                  - id: ea consequat
+                    messages:
+                      - id: culpa enim
+                        threadId: ad commodo sed sunt Lorem
+                        labelIds:
+                          - cupidatat Duis
+                          - ut in quis cupidatat
+                        snippet: magna Lorem anim
+                        historyId: aliqua
+                        internalDate: velit id proident nostrud
+                        payload:
+                          partId: esse incididunt laboris deserunt eiusmod
+                          mimeType: ex sunt aliquip ut
+                          filename: incididunt qui
+                          headers:
+                            - name: nulla id
+                              value: nostrud anim
+                            - name: ipsum est anim consequat
+                              value: est eiusmod velit
+                          body:
+                            attachmentId: exercitation
+                            size: -2350523
+                            data: ut occaecat id
+                          parts:
+                            - value: >-
+                                <Circular reference to
+                                #/components/schemas/MessagePart detected>
+                            - value: >-
+                                <Circular reference to
+                                #/components/schemas/MessagePart detected>
+                        sizeEstimate: -70931197
+                        raw: ex est commodo minim
+                      - id: dolore eu Lorem
+                        threadId: dolor
+                        labelIds:
+                          - non dolor Excepteur in
+                          - id nostrud irure amet
+                        snippet: 'n'
+                        historyId: elit reprehenderit irure non
+                        internalDate: amet nostrud labore Excepte
+                        payload:
+                          partId: officia ut commodo
+                          mimeType: tempor occaecat
+                          filename: tempor
+                          headers:
+                            - name: cillum ullamco
+                              value: anim e
+                            - name: est exercitation irure e
+                              value: id
+                          body:
+                            attachmentId: incididunt culpa elit
+                            size: 99232191
+                            data: Excepteur ea pariatur culpa
+                          parts:
+                            - value: >-
+                                <Circular reference to
+                                #/components/schemas/MessagePart detected>
+                            - value: >-
+                                <Circular reference to
+                                #/components/schemas/MessagePart detected>
+                        sizeEstimate: 76239793
+                        raw: nostrud reprehenderit velit
+                    messagesAdded:
+                      - message:
+                          id: ut mollit
+                          threadId: consequat ad
+                          labelIds:
+                            - nulla et qui
+                            - cupidatat aliquip commodo do
+                          snippet: nulla esse exercitation eiusmod
+                          historyId: tempor
+                          internalDate: non aliqua
+                          payload:
+                            partId: dolore quis elit
+                            mimeType: culpa id tempor ex
+                            filename: do Duis
+                            headers:
+                              - name: ut
+                                value: tempor proident quis ut
+                              - name: aliqua
+                                value: magna aliquip consequat eiusmod esse
+                            body:
+                              attachmentId: cupidatat ullamco reprehenderit
+                              size: 94308201
+                              data: tempor deserunt sit amet
+                            parts:
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                          sizeEstimate: -17434830
+                          raw: velit in incididunt ad
+                      - message:
+                          id: labore ullamco
+                          threadId: magna nulla ut
+                          labelIds:
+                            - nulla sit eiusmod
+                            - labore an
+                          snippet: ex enim reprehenderit Ut
+                          historyId: ex
+                          internalDate: des
+                          payload:
+                            partId: incididunt et irure magna Duis
+                            mimeType: occaecat officia
+                            filename: ullamco culpa aute
+                            headers:
+                              - name: ex exercitation
+                                value: commodo dolore ullamco
+                              - name: Excepteur
+                                value: ipsum mag
+                            body:
+                              attachmentId: et
+                              size: -54386568
+                              data: do ullamco
+                            parts:
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                          sizeEstimate: -10107583
+                          raw: sunt aute
+                    messagesDeleted:
+                      - message:
+                          id: p
+                          threadId: mollit elit
+                          labelIds:
+                            - con
+                            - ut proident ex
+                          snippet: minim cillum
+                          historyId: id enim E
+                          internalDate: ex
+                          payload:
+                            partId: quis ad
+                            mimeType: adipisicing est anim veniam
+                            filename: sit Ut
+                            headers:
+                              - name: ad id irure
+                                value: ex est adipisicing
+                              - name: consectetur labore
+                                value: elit enim
+                            body:
+                              attachmentId: cillum non ut amet aliquip
+                              size: 20140005
+                              data: fugiat id exercitation
+                            parts:
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                          sizeEstimate: -77249420
+                          raw: Lorem tempor culpa
+                      - message:
+                          id: nostrud oc
+                          threadId: nostrud sed cillum velit sunt
+                          labelIds:
+                            - quis laboris laborum aliqua
+                            - dolor sed ut esse dolore
+                          snippet: non
+                          historyId: in consequat ipsum
+                          internalDate: ad ipsum dolore
+                          payload:
+                            partId: anim nulla nostrud incididunt ex
+                            mimeType: irure amet
+                            filename: ad
+                            headers:
+                              - name: veniam Excepteur sit ullamco
+                                value: ullamco aute proident non
+                              - name: ut enim tempor
+                                value: minim in cupidatat id
+                            body:
+                              attachmentId: enim sit Duis in
+                              size: -37124897
+                              data: dolor Excepteur aute cupidatat dolor
+                            parts:
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                          sizeEstimate: 61813692
+                          raw: ipsum quis
+                    labelsAdded:
+                      - message:
+                          id: dolor mollit
+                          threadId: id ut veniam
+                          labelIds:
+                            - labore i
+                            - commodo Excepteur
+                          snippet: quis elit
+                          historyId: occaecat consequat amet aute fugiat
+                          internalDate: sed sunt
+                          payload:
+                            partId: occaecat deserunt sed ut
+                            mimeType: sunt ut ut voluptate
+                            filename: ipsum pariatur sed
+                            headers:
+                              - name: elit deserunt voluptate non
+                                value: velit
+                              - name: consequat id eiusmod sed
+                                value: veniam ut voluptate
+                            body:
+                              attachmentId: ut ipsum laboris non et
+                              size: -51157710
+                              data: Excepteur voluptate
+                            parts:
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                          sizeEstimate: -83490524
+                          raw: sunt proident ut
+                        labelIds:
+                          - deserunt cillum
+                          - sit qui culpa irure
+                      - message:
+                          id: dolore pariatur
+                          threadId: est sit
+                          labelIds:
+                            - est dolore non aliqua
+                            - esse Duis proident
+                          snippet: culpa laboris
+                          historyId: exercitation do non
+                          internalDate: dolore
+                          payload:
+                            partId: in dolore officia et
+                            mimeType: aliquip
+                            filename: 'sunt '
+                            headers:
+                              - name: sed enim labore Lorem proident
+                                value: laborum sunt
+                              - name: com
+                                value: cupidatat consequat proident
+                            body:
+                              attachmentId: aliqua adipisicing in eu incididunt
+                              size: -20883488
+                              data: in laborum
+                            parts:
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                          sizeEstimate: 43883889
+                          raw: ex mollit
+                        labelIds:
+                          - commodo officia cupidatat
+                          - nostrud do
+                    labelsRemoved:
+                      - message:
+                          id: dolor amet mollit tempor incididunt
+                          threadId: proident elit consectetur laboris
+                          labelIds:
+                            - aliquip adipisicing anim
+                            - nulla ut officia esse
+                          snippet: qui nulla
+                          historyId: eiusmod
+                          internalDate: magna fugiat
+                          payload:
+                            partId: cillum laboris enim m
+                            mimeType: in eu
+                            filename: ea
+                            headers:
+                              - name: magna Ut esse officia in
+                                value: dolor labore
+                              - name: officia do
+                                value: elit sunt Ut officia consequat
+                            body:
+                              attachmentId: aliquip ut
+                              size: -29237228
+                              data: in
+                            parts:
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                          sizeEstimate: 89770840
+                          raw: ea
+                        labelIds:
+                          - in laborum consectetur
+                          - non sit elit
+                      - message:
+                          id: dolore amet
+                          threadId: consectetur eu
+                          labelIds:
+                            - sed deserunt enim aliquip
+                            - consectetur laborum est cillum
+                          snippet: ipsum ut officia id dolore
+                          historyId: cupidatat est
+                          internalDate: elit do
+                          payload:
+                            partId: culpa ame
+                            mimeType: Duis est nostrud Lorem
+                            filename: minim adipisicing enim laboris deserunt
+                            headers:
+                              - name: laboris ex exercitation
+                                value: Ut ut officia et Lorem
+                              - name: sint exercitation
+                                value: adipisicing ea culpa
+                            body:
+                              attachmentId: consectetur
+                              size: -58922
+                              data: ex ullamco
+                            parts:
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                              - value: >-
+                                  <Circular reference to
+                                  #/components/schemas/MessagePart detected>
+                          sizeEstimate: 10775774
+                          raw: dolor pari
+                        labelIds:
+                          - Duis ut laboris
+                          - proident ullamco
+                nextPageToken: do deserunt pariatu
+                historyId: cillum veniam Excepteur et
+  /gmail/v1/users/{userId}/messages/{id}/trash:
+    post:
+      tags:
+        - Messages
+      summary: Trash Messsages
+      description: Moves the specified message to the trash.
+      requestBody:
+        content: {}
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: eu incididunt laborum irure
+                threadId: magna Ut officia
+                labelIds:
+                  - mollit amet dolore cupidatat
+                  - cupidatat deserunt mollit
+                snippet: ut dolor
+                historyId: nisi tempor do
+                internalDate: cupidatat officia anim
+                payload:
+                  partId: dolore velit incididunt est a
+                  mimeType: sit dolor mollit
+                  filename: ea commodo dolor nisi
+                  headers:
+                    - name: quis id velit laborum
+                      value: et voluptate dolor ea
+                    - name: sit nostrud
+                      value: deserunt fugiat ex
+                  body:
+                    attachmentId: id nulla consequat
+                    size: -93837667
+                    data: ad in occaecat
+                  parts:
+                    - value: >-
+                        <Circular reference to #/components/schemas/MessagePart
+                        detected>
+                    - value: >-
+                        <Circular reference to #/components/schemas/MessagePart
+                        detected>
+                sizeEstimate: 21128811
+                raw: do laboris
+  /gmail/v1/users/{userId}/messages/{id}/untrash:
+    post:
+      tags:
+        - Messages
+      summary: Untrash Messages
+      description: Removes the specified message from the trash.
+      requestBody:
+        content: {}
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: eu incididunt laborum irure
+                threadId: magna Ut officia
+                labelIds:
+                  - mollit amet dolore cupidatat
+                  - cupidatat deserunt mollit
+                snippet: ut dolor
+                historyId: nisi tempor do
+                internalDate: cupidatat officia anim
+                payload:
+                  partId: dolore velit incididunt est a
+                  mimeType: sit dolor mollit
+                  filename: ea commodo dolor nisi
+                  headers:
+                    - name: quis id velit laborum
+                      value: et voluptate dolor ea
+                    - name: sit nostrud
+                      value: deserunt fugiat ex
+                  body:
+                    attachmentId: id nulla consequat
+                    size: -93837667
+                    data: ad in occaecat
+                  parts:
+                    - value: >-
+                        <Circular reference to #/components/schemas/MessagePart
+                        detected>
+                    - value: >-
+                        <Circular reference to #/components/schemas/MessagePart
+                        detected>
+                sizeEstimate: 21128811
+                raw: do laboris
+  /gmail/v1/users/{userId}/messages/{id}/modify:
+    post:
+      tags:
+        - Messages
+      summary: Modify Messages
+      description: Modifies the labels on the specified message.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                addLabelIds:
+                  - qui eu do ex
+                  - do sit esse dolor proident
+                removeLabelIds:
+                  - Lorem sit
+                  - sed
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: '{{userId}}'
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: '{{messageId}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: eu incididunt laborum irure
+                threadId: magna Ut officia
+                labelIds:
+                  - mollit amet dolore cupidatat
+                  - cupidatat deserunt mollit
+                snippet: ut dolor
+                historyId: nisi tempor do
+                internalDate: cupidatat officia anim
+                payload:
+                  partId: dolore velit incididunt est a
+                  mimeType: sit dolor mollit
+                  filename: ea commodo dolor nisi
+                  headers:
+                    - name: quis id velit laborum
+                      value: et voluptate dolor ea
+                    - name: sit nostrud
+                      value: deserunt fugiat ex
+                  body:
+                    attachmentId: id nulla consequat
+                    size: -93837667
+                    data: ad in occaecat
+                  parts:
+                    - value: >-
+                        <Circular reference to #/components/schemas/MessagePart
+                        detected>
+                    - value: >-
+                        <Circular reference to #/components/schemas/MessagePart
+                        detected>
+                sizeEstimate: 21128811
+                raw: do laboris
+  /gmail/v1/users/{userId}/messages/batchDelete:
+    post:
+      tags:
+        - Messages
+      summary: Batch Delete
+      description: >-
+        Deletes many messages by message ID. Provides no guarantees that
+        messages were not already deleted or even existed at all.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ids:
+                  - labore conseq
+                  - sit
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: '{{userID}}'
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /gmail/v1/users/{userId}/messages/import:
+    post:
+      tags:
+        - Messages
+      summary: Import Messages
+      description: >-
+        Imports a message into only this user's mailbox, with standard email
+        delivery scanning and classification similar to receiving via SMTP. This
+        method doesn't perform SPF checks, so it might not work for some spam
+        messages, such as those attempting to perform domain spoofing. This
+        method does not send a message.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: eu incididunt laborum irure
+                threadId: magna Ut officia
+                labelIds:
+                  - mollit amet dolore cupidatat
+                  - cupidatat deserunt mollit
+                snippet: ut dolor
+                historyId: nisi tempor do
+                internalDate: cupidatat officia anim
+                payload:
+                  partId: dolore velit incididunt est a
+                  mimeType: sit dolor mollit
+                  filename: ea commodo dolor nisi
+                  headers:
+                    - name: quis id velit laborum
+                      value: et voluptate dolor ea
+                    - name: sit nostrud
+                      value: deserunt fugiat ex
+                  body:
+                    attachmentId: id nulla consequat
+                    size: -93837667
+                    data: ad in occaecat
+                  parts:
+                    - value: >-
+                        <Circular reference to #/components/schemas/MessagePart
+                        detected>
+                    - value: >-
+                        <Circular reference to #/components/schemas/MessagePart
+                        detected>
+                sizeEstimate: 21128811
+                raw: do laboris
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: eu incididunt laborum irure
+                threadId: magna Ut officia
+                labelIds:
+                  - mollit amet dolore cupidatat
+                  - cupidatat deserunt mollit
+                snippet: ut dolor
+                historyId: nisi tempor do
+                internalDate: cupidatat officia anim
+                payload:
+                  partId: dolore velit incididunt est a
+                  mimeType: sit dolor mollit
+                  filename: ea commodo dolor nisi
+                  headers:
+                    - name: quis id velit laborum
+                      value: et voluptate dolor ea
+                    - name: sit nostrud
+                      value: deserunt fugiat ex
+                  body:
+                    attachmentId: id nulla consequat
+                    size: -93837667
+                    data: ad in occaecat
+                  parts:
+                    - value: >-
+                        <Circular reference to #/components/schemas/MessagePart
+                        detected>
+                    - value: >-
+                        <Circular reference to #/components/schemas/MessagePart
+                        detected>
+                sizeEstimate: 21128811
+                raw: do laboris
+  /gmail/v1/users/{userId}/messages/send:
+    post:
+      tags:
+        - Messages
+      summary: Send Messages
+      description: >-
+        Sends the specified message to the recipients in the `To`, `Cc`, and
+        `Bcc` headers. For example usage, see [Sending
+        email](https://developers.google.com/gmail/api/guides/sending).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                raw: '{{encodedMessage}}'
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: '{{userId}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: eu incididunt laborum irure
+                threadId: magna Ut officia
+                labelIds:
+                  - mollit amet dolore cupidatat
+                  - cupidatat deserunt mollit
+                snippet: ut dolor
+                historyId: nisi tempor do
+                internalDate: cupidatat officia anim
+                payload:
+                  partId: dolore velit incididunt est a
+                  mimeType: sit dolor mollit
+                  filename: ea commodo dolor nisi
+                  headers:
+                    - name: quis id velit laborum
+                      value: et voluptate dolor ea
+                    - name: sit nostrud
+                      value: deserunt fugiat ex
+                  body:
+                    attachmentId: id nulla consequat
+                    size: -93837667
+                    data: ad in occaecat
+                  parts:
+                    - value: >-
+                        <Circular reference to #/components/schemas/MessagePart
+                        detected>
+                    - value: >-
+                        <Circular reference to #/components/schemas/MessagePart
+                        detected>
+                sizeEstimate: 21128811
+                raw: do laboris
+  /gmail/v1/users/{userId}/messages/batchModify:
+    post:
+      tags:
+        - Messages
+      summary: Batch Modify
+      description: Modifies the labels on the specified messages.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ids:
+                  - ullamco aliqua anim dolo
+                  - irure ea
+                addLabelIds:
+                  - irure Lorem ex proident
+                  - 'proident '
+                removeLabelIds:
+                  - do anim ad nulla
+                  - minim irure
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /gmail/v1/users/{userId}/messages:
+    get:
+      tags:
+        - Messages
+      summary: List Messages
+      description: Lists the messages in the user's mailbox.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: maxResults
+          in: query
+          schema:
+            type: string
+          example: '{{maxResults}}'
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+          example: '{{pageToken}}'
+        - name: q
+          in: query
+          schema:
+            type: string
+          example: '{{q}}'
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: '{{userId}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                messages:
+                  - id: sed proident adipisicing culpa esse
+                    threadId: ullamco
+                    labelIds:
+                      - velit dolor
+                      - eiusmod veniam eu
+                    snippet: anim nisi
+                    historyId: aute
+                    internalDate: dolore tempor
+                    payload:
+                      partId: non sint ea incididunt dolor
+                      mimeType: enim aliquip Duis
+                      filename: tempor nostrud laborum
+                      headers:
+                        - name: occaecat mollit est
+                          value: amet
+                        - name: Ut aliquip ea
+                          value: deserunt qui
+                      body:
+                        attachmentId: 'in laborum dolore '
+                        size: -13005468
+                        data: veniam in qui
+                      parts:
+                        - value: >-
+                            <Circular reference to
+                            #/components/schemas/MessagePart detected>
+                        - value: >-
+                            <Circular reference to
+                            #/components/schemas/MessagePart detected>
+                    sizeEstimate: -28255502
+                    raw: culpa
+                  - id: cupidatat esse magna dolore
+                    threadId: ea eiusmod
+                    labelIds:
+                      - dolore commodo
+                      - Ut in et irure
+                    snippet: esse non
+                    historyId: ex nulla nisi veniam dolor
+                    internalDate: tempor pr
+                    payload:
+                      partId: dolor Excepteur consequat
+                      mimeType: magna nulla
+                      filename: non proident
+                      headers:
+                        - name: eiusmod nostrud reprehenderit proident
+                          value: in ad
+                        - name: consequat cillum
+                          value: officia mollit e
+                      body:
+                        attachmentId: dolore id dolor esse
+                        size: -9079183
+                        data: aute L
+                      parts:
+                        - value: >-
+                            <Circular reference to
+                            #/components/schemas/MessagePart detected>
+                        - value: >-
+                            <Circular reference to
+                            #/components/schemas/MessagePart detected>
+                    sizeEstimate: 11691603
+                    raw: eiusmod esse
+                nextPageToken: ipsum reprehenderit Duis in veniam
+                resultSizeEstimate: -35985941
+    post:
+      tags:
+        - Messages
+      summary: Insert Messages
+      description: >-
+        Directly inserts a message into only this user's mailbox similar to
+        `IMAP APPEND`, bypassing most scanning and classification. Does not send
+        a message.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: eu incididunt laborum irure
+                threadId: magna Ut officia
+                labelIds:
+                  - mollit amet dolore cupidatat
+                  - cupidatat deserunt mollit
+                snippet: ut dolor
+                historyId: nisi tempor do
+                internalDate: cupidatat officia anim
+                payload:
+                  partId: dolore velit incididunt est a
+                  mimeType: sit dolor mollit
+                  filename: ea commodo dolor nisi
+                  headers:
+                    - name: quis id velit laborum
+                      value: et voluptate dolor ea
+                    - name: sit nostrud
+                      value: deserunt fugiat ex
+                  body:
+                    attachmentId: id nulla consequat
+                    size: -93837667
+                    data: ad in occaecat
+                  parts:
+                    - value: >-
+                        <Circular reference to #/components/schemas/MessagePart
+                        detected>
+                    - value: >-
+                        <Circular reference to #/components/schemas/MessagePart
+                        detected>
+                sizeEstimate: 21128811
+                raw: do laboris
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: eu incididunt laborum irure
+                threadId: magna Ut officia
+                labelIds:
+                  - mollit amet dolore cupidatat
+                  - cupidatat deserunt mollit
+                snippet: ut dolor
+                historyId: nisi tempor do
+                internalDate: cupidatat officia anim
+                payload:
+                  partId: dolore velit incididunt est a
+                  mimeType: sit dolor mollit
+                  filename: ea commodo dolor nisi
+                  headers:
+                    - name: quis id velit laborum
+                      value: et voluptate dolor ea
+                    - name: sit nostrud
+                      value: deserunt fugiat ex
+                  body:
+                    attachmentId: id nulla consequat
+                    size: -93837667
+                    data: ad in occaecat
+                  parts:
+                    - value: >-
+                        <Circular reference to #/components/schemas/MessagePart
+                        detected>
+                    - value: >-
+                        <Circular reference to #/components/schemas/MessagePart
+                        detected>
+                sizeEstimate: 21128811
+                raw: do laboris
+  /gmail/v1/users/{userId}/messages/{id}:
+    delete:
+      tags:
+        - Messages
+      summary: Delete Messages
+      description: >-
+        Immediately and permanently deletes the specified message. This
+        operation cannot be undone. Prefer `messages.trash` instead.
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+    get:
+      tags:
+        - Messages
+      summary: Get Messages
+      description: Gets the specified message.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: eu incididunt laborum irure
+                threadId: magna Ut officia
+                labelIds:
+                  - mollit amet dolore cupidatat
+                  - cupidatat deserunt mollit
+                snippet: ut dolor
+                historyId: nisi tempor do
+                internalDate: cupidatat officia anim
+                payload:
+                  partId: dolore velit incididunt est a
+                  mimeType: sit dolor mollit
+                  filename: ea commodo dolor nisi
+                  headers:
+                    - name: quis id velit laborum
+                      value: et voluptate dolor ea
+                    - name: sit nostrud
+                      value: deserunt fugiat ex
+                  body:
+                    attachmentId: id nulla consequat
+                    size: -93837667
+                    data: ad in occaecat
+                  parts:
+                    - value: >-
+                        <Circular reference to #/components/schemas/MessagePart
+                        detected>
+                    - value: >-
+                        <Circular reference to #/components/schemas/MessagePart
+                        detected>
+                sizeEstimate: 21128811
+                raw: do laboris
+  /gmail/v1/users/{userId}/messages/{messageId}/attachments/{id}:
+    get:
+      tags:
+        - Messages
+      summary: Get Attachments
+      description: Gets the specified message attachment.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: messageId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                attachmentId: pariatur velit id sint dolore
+                size: -61751759
+                data: laboris eiusmod
+  /gmail/v1/users/{userId}/labels:
+    post:
+      tags:
+        - Labels
+      summary: Create Labels
+      description: Creates a new label.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: nostrud officia pariatur
+                name: esse nulla occaecat
+                messageListVisibility: show
+                labelListVisibility: labelShow
+                type: system
+                messagesTotal: -34033607
+                messagesUnread: 96181517
+                threadsTotal: 7293200
+                threadsUnread: 86726755
+                color:
+                  textColor: sunt fugiat ut voluptate
+                  backgroundColor: commodo est cupidatat in sed
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: nostrud officia pariatur
+                name: esse nulla occaecat
+                messageListVisibility: show
+                labelListVisibility: labelShow
+                type: system
+                messagesTotal: -34033607
+                messagesUnread: 96181517
+                threadsTotal: 7293200
+                threadsUnread: 86726755
+                color:
+                  textColor: sunt fugiat ut voluptate
+                  backgroundColor: commodo est cupidatat in sed
+    get:
+      tags:
+        - Labels
+      summary: List Labels
+      description: Lists all labels in the user's mailbox.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                labels:
+                  - id: mollit enim dolore reprehenderit
+                    name: non consequat
+                    messageListVisibility: show
+                    labelListVisibility: labelShow
+                    type: user
+                    messagesTotal: -89757017
+                    messagesUnread: 37713675
+                    threadsTotal: -34499465
+                    threadsUnread: 38690910
+                    color:
+                      textColor: ut minim Excepteur Ut
+                      backgroundColor: dolor id fugiat consectetur
+                  - id: ut incididunt anim esse dolore
+                    name: magna voluptate in aliquip et
+                    messageListVisibility: hide
+                    labelListVisibility: labelShow
+                    type: user
+                    messagesTotal: -45069202
+                    messagesUnread: -69687222
+                    threadsTotal: -63655159
+                    threadsUnread: -93904503
+                    color:
+                      textColor: irure t
+                      backgroundColor: occaecat aliquip
+  /gmail/v1/users/{userId}/labels/{id}:
+    patch:
+      tags:
+        - Labels
+      summary: Patch Labels
+      description: Patch the specified label.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: nostrud officia pariatur
+                name: esse nulla occaecat
+                messageListVisibility: show
+                labelListVisibility: labelShow
+                type: system
+                messagesTotal: -34033607
+                messagesUnread: 96181517
+                threadsTotal: 7293200
+                threadsUnread: 86726755
+                color:
+                  textColor: sunt fugiat ut voluptate
+                  backgroundColor: commodo est cupidatat in sed
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: nostrud officia pariatur
+                name: esse nulla occaecat
+                messageListVisibility: show
+                labelListVisibility: labelShow
+                type: system
+                messagesTotal: -34033607
+                messagesUnread: 96181517
+                threadsTotal: 7293200
+                threadsUnread: 86726755
+                color:
+                  textColor: sunt fugiat ut voluptate
+                  backgroundColor: commodo est cupidatat in sed
+    put:
+      tags:
+        - Labels
+      summary: Update Labels
+      description: Updates the specified label.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: nostrud officia pariatur
+                name: esse nulla occaecat
+                messageListVisibility: show
+                labelListVisibility: labelShow
+                type: system
+                messagesTotal: -34033607
+                messagesUnread: 96181517
+                threadsTotal: 7293200
+                threadsUnread: 86726755
+                color:
+                  textColor: sunt fugiat ut voluptate
+                  backgroundColor: commodo est cupidatat in sed
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: nostrud officia pariatur
+                name: esse nulla occaecat
+                messageListVisibility: show
+                labelListVisibility: labelShow
+                type: system
+                messagesTotal: -34033607
+                messagesUnread: 96181517
+                threadsTotal: 7293200
+                threadsUnread: 86726755
+                color:
+                  textColor: sunt fugiat ut voluptate
+                  backgroundColor: commodo est cupidatat in sed
+    get:
+      tags:
+        - Labels
+      summary: Get Labels
+      description: Gets the specified label.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: nostrud officia pariatur
+                name: esse nulla occaecat
+                messageListVisibility: show
+                labelListVisibility: labelShow
+                type: system
+                messagesTotal: -34033607
+                messagesUnread: 96181517
+                threadsTotal: 7293200
+                threadsUnread: 86726755
+                color:
+                  textColor: sunt fugiat ut voluptate
+                  backgroundColor: commodo est cupidatat in sed
+    delete:
+      tags:
+        - Labels
+      summary: Delete Labels
+      description: >-
+        Immediately and permanently deletes the specified label and removes it
+        from any messages and threads that it is applied to.
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /gmail/v1/users/{userId}/threads/{id}:
+    get:
+      tags:
+        - Theads
+      summary: Get Threads
+      description: Gets the specified thread.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: nostrud deserunt
+                snippet: cillum quis
+                historyId: id ea ad amet venia
+                messages:
+                  - id: exercitation sint
+                    threadId: Ut sed occaecat
+                    labelIds:
+                      - in commodo
+                      - sit dolor
+                    snippet: dolor fugiat Ut
+                    historyId: Lorem quis ullamco veniam
+                    internalDate: consectetur elit dolor
+                    payload:
+                      partId: mi
+                      mimeType: elit
+                      filename: ex
+                      headers:
+                        - name: velit do voluptate
+                          value: in reprehenderit sit pariatur
+                        - name: enim
+                          value: vel
+                      body:
+                        attachmentId: e
+                        size: 62147464
+                        data: aliquip aute in Excepteur
+                      parts:
+                        - value: >-
+                            <Circular reference to
+                            #/components/schemas/MessagePart detected>
+                        - value: >-
+                            <Circular reference to
+                            #/components/schemas/MessagePart detected>
+                    sizeEstimate: -33441686
+                    raw: Ut sit
+                  - id: magna pariatur
+                    threadId: et
+                    labelIds:
+                      - est dolore
+                      - Lorem Duis amet dolore
+                    snippet: dolore est reprehender
+                    historyId: in ex veniam nulla
+                    internalDate: ut
+                    payload:
+                      partId: do consectetur tempor qui in
+                      mimeType: Excepteur in
+                      filename: reprehenderit
+                      headers:
+                        - name: nulla sed ut
+                          value: et occaecat
+                        - name: mollit elit commodo nostrud pariatur
+                          value: aliqua
+                      body:
+                        attachmentId: sit sunt occaecat
+                        size: 23654047
+                        data: dolor ut
+                      parts:
+                        - value: >-
+                            <Circular reference to
+                            #/components/schemas/MessagePart detected>
+                        - value: >-
+                            <Circular reference to
+                            #/components/schemas/MessagePart detected>
+                    sizeEstimate: 2028457
+                    raw: ipsum enim minim
+    delete:
+      tags:
+        - Theads
+      summary: Delete Threads
+      description: >-
+        Immediately and permanently deletes the specified thread. Any messages
+        that belong to the thread are also deleted. This operation cannot be
+        undone. Prefer `threads.trash` instead.
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /gmail/v1/users/{userId}/threads/{id}/modify:
+    post:
+      tags:
+        - Theads
+      summary: Modify Threads
+      description: >-
+        Modifies the labels applied to the thread. This applies to all messages
+        in the thread.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                addLabelIds:
+                  - labore anim culpa aliqua
+                  - Duis sed irure Ut aliqua
+                removeLabelIds:
+                  - consectetur et dolore Lorem
+                  - reprehenderit tempor id dolore incididunt
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: nostrud deserunt
+                snippet: cillum quis
+                historyId: id ea ad amet venia
+                messages:
+                  - id: exercitation sint
+                    threadId: Ut sed occaecat
+                    labelIds:
+                      - in commodo
+                      - sit dolor
+                    snippet: dolor fugiat Ut
+                    historyId: Lorem quis ullamco veniam
+                    internalDate: consectetur elit dolor
+                    payload:
+                      partId: mi
+                      mimeType: elit
+                      filename: ex
+                      headers:
+                        - name: velit do voluptate
+                          value: in reprehenderit sit pariatur
+                        - name: enim
+                          value: vel
+                      body:
+                        attachmentId: e
+                        size: 62147464
+                        data: aliquip aute in Excepteur
+                      parts:
+                        - value: >-
+                            <Circular reference to
+                            #/components/schemas/MessagePart detected>
+                        - value: >-
+                            <Circular reference to
+                            #/components/schemas/MessagePart detected>
+                    sizeEstimate: -33441686
+                    raw: Ut sit
+                  - id: magna pariatur
+                    threadId: et
+                    labelIds:
+                      - est dolore
+                      - Lorem Duis amet dolore
+                    snippet: dolore est reprehender
+                    historyId: in ex veniam nulla
+                    internalDate: ut
+                    payload:
+                      partId: do consectetur tempor qui in
+                      mimeType: Excepteur in
+                      filename: reprehenderit
+                      headers:
+                        - name: nulla sed ut
+                          value: et occaecat
+                        - name: mollit elit commodo nostrud pariatur
+                          value: aliqua
+                      body:
+                        attachmentId: sit sunt occaecat
+                        size: 23654047
+                        data: dolor ut
+                      parts:
+                        - value: >-
+                            <Circular reference to
+                            #/components/schemas/MessagePart detected>
+                        - value: >-
+                            <Circular reference to
+                            #/components/schemas/MessagePart detected>
+                    sizeEstimate: 2028457
+                    raw: ipsum enim minim
+  /gmail/v1/users/{userId}/threads/{id}/trash:
+    post:
+      tags:
+        - Theads
+      summary: Trash Threads
+      description: >-
+        Moves the specified thread to the trash. Any messages that belong to the
+        thread are also moved to the trash.
+      requestBody:
+        content: {}
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: nostrud deserunt
+                snippet: cillum quis
+                historyId: id ea ad amet venia
+                messages:
+                  - id: exercitation sint
+                    threadId: Ut sed occaecat
+                    labelIds:
+                      - in commodo
+                      - sit dolor
+                    snippet: dolor fugiat Ut
+                    historyId: Lorem quis ullamco veniam
+                    internalDate: consectetur elit dolor
+                    payload:
+                      partId: mi
+                      mimeType: elit
+                      filename: ex
+                      headers:
+                        - name: velit do voluptate
+                          value: in reprehenderit sit pariatur
+                        - name: enim
+                          value: vel
+                      body:
+                        attachmentId: e
+                        size: 62147464
+                        data: aliquip aute in Excepteur
+                      parts:
+                        - value: >-
+                            <Circular reference to
+                            #/components/schemas/MessagePart detected>
+                        - value: >-
+                            <Circular reference to
+                            #/components/schemas/MessagePart detected>
+                    sizeEstimate: -33441686
+                    raw: Ut sit
+                  - id: magna pariatur
+                    threadId: et
+                    labelIds:
+                      - est dolore
+                      - Lorem Duis amet dolore
+                    snippet: dolore est reprehender
+                    historyId: in ex veniam nulla
+                    internalDate: ut
+                    payload:
+                      partId: do consectetur tempor qui in
+                      mimeType: Excepteur in
+                      filename: reprehenderit
+                      headers:
+                        - name: nulla sed ut
+                          value: et occaecat
+                        - name: mollit elit commodo nostrud pariatur
+                          value: aliqua
+                      body:
+                        attachmentId: sit sunt occaecat
+                        size: 23654047
+                        data: dolor ut
+                      parts:
+                        - value: >-
+                            <Circular reference to
+                            #/components/schemas/MessagePart detected>
+                        - value: >-
+                            <Circular reference to
+                            #/components/schemas/MessagePart detected>
+                    sizeEstimate: 2028457
+                    raw: ipsum enim minim
+  /gmail/v1/users/{userId}/threads:
+    get:
+      tags:
+        - Theads
+      summary: List Threads
+      description: Lists the threads in the user's mailbox.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: '{{userID}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                threads:
+                  - id: commodo
+                    snippet: eiusmod consequat qui non quis
+                    historyId: sunt dolore
+                    messages:
+                      - id: enim
+                        threadId: dolore quis exercitation
+                        labelIds:
+                          - Duis sint dolore
+                          - in labore ut commodo
+                        snippet: nostrud dolore consectetur Excepteur
+                        historyId: ea elit consectet
+                        internalDate: proident ullamco
+                        payload:
+                          partId: consectetur pariatur dolore
+                          mimeType: ad occaecat culpa ullamco
+                          filename: officia elit
+                          headers:
+                            - name: co
+                              value: deserunt ut
+                            - name: do
+                              value: ea dolor
+                          body:
+                            attachmentId: quis elit commodo
+                            size: 44099715
+                            data: irure dolore ut
+                          parts:
+                            - value: >-
+                                <Circular reference to
+                                #/components/schemas/MessagePart detected>
+                            - value: >-
+                                <Circular reference to
+                                #/components/schemas/MessagePart detected>
+                        sizeEstimate: 21887814
+                        raw: nulla ipsum Ut
+                      - id: in dolor proident
+                        threadId: dolore culpa fugiat
+                        labelIds:
+                          - in ut amet
+                          - Ut sit dolor ut
+                        snippet: nisi Duis deserunt labore
+                        historyId: sunt pariatur elit laboris ex
+                        internalDate: esse pariatur
+                        payload:
+                          partId: laboris nulla et
+                          mimeType: dolore ullamco consectetur nostrud
+                          filename: aliqua commodo
+                          headers:
+                            - name: Ut
+                              value: laborum
+                            - name: consequat
+                              value: esse
+                          body:
+                            attachmentId: qui consequat minim
+                            size: 83387838
+                            data: id
+                          parts:
+                            - value: >-
+                                <Circular reference to
+                                #/components/schemas/MessagePart detected>
+                            - value: >-
+                                <Circular reference to
+                                #/components/schemas/MessagePart detected>
+                        sizeEstimate: 70145632
+                        raw: cillum in ipsum ex
+                  - id: qui ipsum veniam irure fugiat
+                    snippet: elit occaecat magna
+                    historyId: mollit
+                    messages:
+                      - id: laborum et
+                        threadId: elit sint quis
+                        labelIds:
+                          - sunt amet aute dolore fugiat
+                          - Ut aliqua
+                        snippet: do magna
+                        historyId: aliqua enim labore
+                        internalDate: laboris tempor anim voluptate
+                        payload:
+                          partId: aute Ut nisi eiusmod
+                          mimeType: non deserunt anim
+                          filename: magna
+                          headers:
+                            - name: est sunt fugiat
+                              value: deserunt exer
+                            - name: consectetur anim
+                              value: laborum elit
+                          body:
+                            attachmentId: dolor id esse proident
+                            size: -31164209
+                            data: irure consectetur
+                          parts:
+                            - value: >-
+                                <Circular reference to
+                                #/components/schemas/MessagePart detected>
+                            - value: >-
+                                <Circular reference to
+                                #/components/schemas/MessagePart detected>
+                        sizeEstimate: -76389446
+                        raw: nulla dolor nisi reprehenderit sint
+                      - id: ea laborum sint
+                        threadId: laboris magna
+                        labelIds:
+                          - 'velit '
+                          - ad sint sunt ex n
+                        snippet: ea in magna ve
+                        historyId: sit tempor
+                        internalDate: qui laborum
+                        payload:
+                          partId: aute dolore deserunt do veniam
+                          mimeType: voluptate ut ad irure est
+                          filename: nostrud Lorem aliquip elit anim
+                          headers:
+                            - name: voluptate sed
+                              value: in ullamco consequat
+                            - name: ullamco
+                              value: ex
+                          body:
+                            attachmentId: elit eiusmod sint
+                            size: 93740460
+                            data: in non nulla anim
+                          parts:
+                            - value: >-
+                                <Circular reference to
+                                #/components/schemas/MessagePart detected>
+                            - value: >-
+                                <Circular reference to
+                                #/components/schemas/MessagePart detected>
+                        sizeEstimate: 76344706
+                        raw: nisi nostrud
+                nextPageToken: Exce
+                resultSizeEstimate: -82340850
+  /gmail/v1/users/{userId}/settings/imap:
+    get:
+      tags:
+        - settings > imap
+      summary: GET IMAP
+      description: Gets IMAP settings.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                enabled: false
+                autoExpunge: false
+                expungeBehavior: deleteForever
+                maxFolderSize: -49364914
+    put:
+      tags:
+        - settings > imap
+      summary: Update IMAP
+      description: Updates IMAP settings.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                enabled: false
+                autoExpunge: false
+                expungeBehavior: deleteForever
+                maxFolderSize: -49364914
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                enabled: false
+                autoExpunge: false
+                expungeBehavior: deleteForever
+                maxFolderSize: -49364914
+  /gmail/v1/users/{userId}/settings/pop:
+    get:
+      tags:
+        - settings > pop
+      summary: Get POP Settings
+      description: Gets POP settings.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: '{{userId}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                accessWindow: fromNowOn
+                disposition: dispositionUnspecified
+    put:
+      tags:
+        - settings > pop
+      summary: Update POP Settings
+      description: Updates POP settings.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                accessWindow: fromNowOn
+                disposition: dispositionUnspecified
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                accessWindow: fromNowOn
+                disposition: dispositionUnspecified
+  /gmail/v1/users/{userId}/settings/vacation:
+    get:
+      tags:
+        - settings > vacation
+      summary: Get Vacation Settings
+      description: Gets vacation responder settings.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                enableAutoReply: false
+                responseSubject: ei
+                responseBodyPlainText: veniam reprehe
+                responseBodyHtml: id
+                restrictToContacts: false
+                restrictToDomain: true
+                startTime: est mollit
+                endTime: enim in aliqua Ut commodo
+    put:
+      tags:
+        - settings > vacation
+      summary: Update Vacation Settings
+      description: Updates vacation responder settings.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                enableAutoReply: false
+                responseSubject: ei
+                responseBodyPlainText: veniam reprehe
+                responseBodyHtml: id
+                restrictToContacts: false
+                restrictToDomain: true
+                startTime: est mollit
+                endTime: enim in aliqua Ut commodo
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                enableAutoReply: false
+                responseSubject: ei
+                responseBodyPlainText: veniam reprehe
+                responseBodyHtml: id
+                restrictToContacts: false
+                restrictToDomain: true
+                startTime: est mollit
+                endTime: enim in aliqua Ut commodo
+  /gmail/v1/users/{userId}/settings/language:
+    get:
+      tags:
+        - settings > language
+      summary: Get Language Settings
+      description: Gets language settings.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                displayLanguage: occaecat adipisicing
+    put:
+      tags:
+        - settings > language
+      summary: Update Language Settings
+      description: >-
+        Updates language settings. If successful, the return object contains the
+        `displayLanguage` that was saved for the user, which may differ from the
+        value passed into the request. This is because the requested
+        `displayLanguage` may not be directly supported by Gmail but have a
+        close variant that is, and so the variant may be chosen and saved
+        instead.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                displayLanguage: occaecat adipisicing
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                displayLanguage: occaecat adipisicing
+  /gmail/v1/users/{userId}/settings/autoForwarding:
+    get:
+      tags:
+        - settings > autoForwarding
+      summary: Get Auto Forwarding Settings
+      description: Gets the auto-forwarding setting for the specified account.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                enabled: false
+                emailAddress: officia ullamco Ut laboris eu
+                disposition: trash
+    put:
+      tags:
+        - settings > autoForwarding
+      summary: Update Auto Forwarding
+      description: >-
+        Updates the auto-forwarding setting for the specified account. A
+        verified forwarding address must be specified when auto-forwarding is
+        enabled. This method is only available to service account clients that
+        have been delegated domain-wide authority.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                enabled: false
+                emailAddress: officia ullamco Ut laboris eu
+                disposition: trash
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                enabled: false
+                emailAddress: officia ullamco Ut laboris eu
+                disposition: trash
+  /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}/setDefault:
+    post:
+      tags:
+        - settings > Send As > Send As Email > SMIME INFO > Set Default
+      summary: Set default S/MIME config
+      description: Sets the default S/MIME config for the specified send-as alias.
+      requestBody:
+        content: {}
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: sendAsEmail
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}:
+    delete:
+      tags:
+        - settings > Send As > Send As Email > SMIME INFO
+      summary: Delete Send As SMIME INfo
+      description: Deletes the specified S/MIME config for the specified send-as alias.
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: sendAsEmail
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+    get:
+      tags:
+        - settings > Send As > Send As Email > SMIME INFO
+      summary: Get Send As SMIME Info
+      description: Gets the specified S/MIME config for the specified send-as alias.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: sendAsEmail
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: id
+                issuerCn: ipsum qui s
+                isDefault: false
+                expiration: dolore magna
+                pem: 'cillum labore '
+                pkcs12: in aute et
+                encryptedKeyPassword: cillum ut
+  /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo:
+    get:
+      tags:
+        - settings > Send As > Send As Email > SMIME INFO
+      summary: List SMIME Info
+      description: Lists S/MIME configs for the specified send-as alias.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: sendAsEmail
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                smimeInfo:
+                  - id: Lorem culpa eiusmod
+                    issuerCn: dolore eiusmod laborum
+                    isDefault: false
+                    expiration: eiusmod incidid
+                    pem: minim voluptate non
+                    pkcs12: et Duis
+                    encryptedKeyPassword: tempor proiden
+                  - id: dolore
+                    issuerCn: aliqua velit qui
+                    isDefault: false
+                    expiration: occaeca
+                    pem: eu minim consequat sunt
+                    pkcs12: sunt anim ipsum nulla
+                    encryptedKeyPassword: laboris ex sint
+    post:
+      tags:
+        - settings > Send As > Send As Email > SMIME INFO
+      summary: Insert SMIME Info
+      description: >-
+        Insert (upload) the given S/MIME config for the specified send-as alias.
+        Note that pkcs12 format is required for the key.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: id
+                issuerCn: ipsum qui s
+                isDefault: false
+                expiration: dolore magna
+                pem: 'cillum labore '
+                pkcs12: in aute et
+                encryptedKeyPassword: cillum ut
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: sendAsEmail
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: id
+                issuerCn: ipsum qui s
+                isDefault: false
+                expiration: dolore magna
+                pem: 'cillum labore '
+                pkcs12: in aute et
+                encryptedKeyPassword: cillum ut
+  /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/verify:
+    post:
+      tags:
+        - settings > Send As > Send As Email
+      summary: Verify Send As
+      description: >-
+        Sends a verification email to the specified send-as alias address. The
+        verification status must be `pending`. This method is only available to
+        service account clients that have been delegated domain-wide authority.
+      requestBody:
+        content: {}
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: sendAsEmail
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}:
+    get:
+      tags:
+        - settings > Send As > Send As Email
+      summary: Get Send As
+      description: >-
+        Gets the specified send-as alias. Fails with an HTTP 404 error if the
+        specified address is not a member of the collection.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: sendAsEmail
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                sendAsEmail: ut nulla
+                displayName: Excepteur
+                replyToAddress: velit id culpa
+                signature: officia quis adipisicing
+                isPrimary: true
+                isDefault: true
+                treatAsAlias: false
+                smtpMsa:
+                  host: in elit
+                  port: -34532702
+                  username: aliqua laborum aliquip do
+                  password: tempor dolor velit
+                  securityMode: securityModeUnspecified
+                verificationStatus: pending
+    put:
+      tags:
+        - settings > Send As > Send As Email
+      summary: Update Send As Setting
+      description: >-
+        Updates a send-as alias. If a signature is provided, Gmail will sanitize
+        the HTML before saving it with the alias. Addresses other than the
+        primary address for the account can only be updated by service account
+        clients that have been delegated domain-wide authority.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                sendAsEmail: ut nulla
+                displayName: Excepteur
+                replyToAddress: velit id culpa
+                signature: officia quis adipisicing
+                isPrimary: true
+                isDefault: true
+                treatAsAlias: false
+                smtpMsa:
+                  host: in elit
+                  port: -34532702
+                  username: aliqua laborum aliquip do
+                  password: tempor dolor velit
+                  securityMode: securityModeUnspecified
+                verificationStatus: pending
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: sendAsEmail
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                sendAsEmail: ut nulla
+                displayName: Excepteur
+                replyToAddress: velit id culpa
+                signature: officia quis adipisicing
+                isPrimary: true
+                isDefault: true
+                treatAsAlias: false
+                smtpMsa:
+                  host: in elit
+                  port: -34532702
+                  username: aliqua laborum aliquip do
+                  password: tempor dolor velit
+                  securityMode: securityModeUnspecified
+                verificationStatus: pending
+    patch:
+      tags:
+        - settings > Send As > Send As Email
+      summary: Patch Send As
+      description: Patch the specified send-as alias.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                sendAsEmail: ut nulla
+                displayName: Excepteur
+                replyToAddress: velit id culpa
+                signature: officia quis adipisicing
+                isPrimary: true
+                isDefault: true
+                treatAsAlias: false
+                smtpMsa:
+                  host: in elit
+                  port: -34532702
+                  username: aliqua laborum aliquip do
+                  password: tempor dolor velit
+                  securityMode: securityModeUnspecified
+                verificationStatus: pending
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: sendAsEmail
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                sendAsEmail: ut nulla
+                displayName: Excepteur
+                replyToAddress: velit id culpa
+                signature: officia quis adipisicing
+                isPrimary: true
+                isDefault: true
+                treatAsAlias: false
+                smtpMsa:
+                  host: in elit
+                  port: -34532702
+                  username: aliqua laborum aliquip do
+                  password: tempor dolor velit
+                  securityMode: securityModeUnspecified
+                verificationStatus: pending
+    delete:
+      tags:
+        - settings > Send As > Send As Email
+      summary: Delete Send As
+      description: >-
+        Deletes the specified send-as alias. Revokes any verification that may
+        have been required for using it. This method is only available to
+        service account clients that have been delegated domain-wide authority.
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: sendAsEmail
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /gmail/v1/users/{userId}/settings/sendAs:
+    get:
+      tags:
+        - settings > Send As
+      summary: Get Send As
+      description: >-
+        Lists the send-as aliases for the specified account. The result includes
+        the primary send-as address associated with the account as well as any
+        custom "from" aliases.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                sendAs:
+                  - sendAsEmail: exercitation
+                    displayName: proident Duis
+                    replyToAddress: deserunt do ut id
+                    signature: tempor irure dolore qui dol
+                    isPrimary: false
+                    isDefault: true
+                    treatAsAlias: true
+                    smtpMsa:
+                      host: irure sit non
+                      port: -14344492
+                      username: ipsum ad non
+                      password: proident sunt eiusmod Lorem
+                      securityMode: starttls
+                    verificationStatus: accepted
+                  - sendAsEmail: commodo et exercitatio
+                    displayName: pariatur Ut sit deserunt quis
+                    replyToAddress: in consectetur qui aliqua
+                    signature: velit fug
+                    isPrimary: false
+                    isDefault: false
+                    treatAsAlias: false
+                    smtpMsa:
+                      host: occaecat laborum magna aute
+                      port: 42884741
+                      username: voluptate sit adipisicing
+                      password: incididunt ullamco
+                      securityMode: ssl
+                    verificationStatus: verificationStatusUnspecified
+    post:
+      tags:
+        - settings > Send As
+      summary: Create Send As
+      description: >-
+        Creates a custom "from" send-as alias. If an SMTP MSA is specified,
+        Gmail will attempt to connect to the SMTP service to validate the
+        configuration before creating the alias. If ownership verification is
+        required for the alias, a message will be sent to the email address and
+        the resource's verification status will be set to `pending`; otherwise,
+        the resource will be created with verification status set to `accepted`.
+        If a signature is provided, Gmail will sanitize the HTML before saving
+        it with the alias. This method is only available to service account
+        clients that have been delegated domain-wide authority.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                sendAsEmail: ut nulla
+                displayName: Excepteur
+                replyToAddress: velit id culpa
+                signature: officia quis adipisicing
+                isPrimary: true
+                isDefault: true
+                treatAsAlias: false
+                smtpMsa:
+                  host: in elit
+                  port: -34532702
+                  username: aliqua laborum aliquip do
+                  password: tempor dolor velit
+                  securityMode: securityModeUnspecified
+                verificationStatus: pending
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                sendAsEmail: ut nulla
+                displayName: Excepteur
+                replyToAddress: velit id culpa
+                signature: officia quis adipisicing
+                isPrimary: true
+                isDefault: true
+                treatAsAlias: false
+                smtpMsa:
+                  host: in elit
+                  port: -34532702
+                  username: aliqua laborum aliquip do
+                  password: tempor dolor velit
+                  securityMode: securityModeUnspecified
+                verificationStatus: pending
+  /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:enable:
+    post:
+      tags:
+        - settings > CSE Identites > Key Pairs
+      summary: Enable CSE Keypairs
+      description: >-
+        Turns on a client-side encryption key pair that was turned off. The key
+        pair becomes active again for any associated client-side encryption
+        identities.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: keyPairId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                keyPairId: Lorem eiusmod
+                pkcs7: ex incididunt
+                pem: irure quis
+                subjectEmailAddresses:
+                  - Excepteur Ut commodo aliquip
+                  - eu Lorem nulla
+                enablementState: disabled
+                disableTime: cill
+                privateKeyMetadata:
+                  - privateKeyMetadataId: proident fugiat eu dolore
+                    kaclsKeyMetadata:
+                      kaclsUri: voluptate ipsum ad
+                      kaclsData: Duis laborum aute
+                    hardwareKeyMetadata:
+                      description: mollit la
+                  - privateKeyMetadataId: nulla ullamco
+                    kaclsKeyMetadata:
+                      kaclsUri: minim in
+                      kaclsData: sint eiusmod
+                    hardwareKeyMetadata:
+                      description: ut
+  /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:
+    get:
+      tags:
+        - settings > CSE Identites > Key Pairs
+      summary: GET CSE Keypairs
+      description: Retrieves an existing client-side encryption key pair.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: keyPairId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                keyPairId: Lorem eiusmod
+                pkcs7: ex incididunt
+                pem: irure quis
+                subjectEmailAddresses:
+                  - Excepteur Ut commodo aliquip
+                  - eu Lorem nulla
+                enablementState: disabled
+                disableTime: cill
+                privateKeyMetadata:
+                  - privateKeyMetadataId: proident fugiat eu dolore
+                    kaclsKeyMetadata:
+                      kaclsUri: voluptate ipsum ad
+                      kaclsData: Duis laborum aute
+                    hardwareKeyMetadata:
+                      description: mollit la
+                  - privateKeyMetadataId: nulla ullamco
+                    kaclsKeyMetadata:
+                      kaclsUri: minim in
+                      kaclsData: sint eiusmod
+                    hardwareKeyMetadata:
+                      description: ut
+  /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:disable:
+    post:
+      tags:
+        - settings > CSE Identites > Key Pairs
+      summary: Disable CSE Keypairs
+      description: >-
+        Turns off a client-side encryption key pair. The authenticated user can
+        no longer use the key pair to decrypt incoming CSE message texts or sign
+        outgoing CSE mail. To regain access, use the EnableCseKeyPair to turn on
+        the key pair. After 30 days, you can permanently delete the key pair by
+        using the ObliterateCseKeyPair method.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: keyPairId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                keyPairId: Lorem eiusmod
+                pkcs7: ex incididunt
+                pem: irure quis
+                subjectEmailAddresses:
+                  - Excepteur Ut commodo aliquip
+                  - eu Lorem nulla
+                enablementState: disabled
+                disableTime: cill
+                privateKeyMetadata:
+                  - privateKeyMetadataId: proident fugiat eu dolore
+                    kaclsKeyMetadata:
+                      kaclsUri: voluptate ipsum ad
+                      kaclsData: Duis laborum aute
+                    hardwareKeyMetadata:
+                      description: mollit la
+                  - privateKeyMetadataId: nulla ullamco
+                    kaclsKeyMetadata:
+                      kaclsUri: minim in
+                      kaclsData: sint eiusmod
+                    hardwareKeyMetadata:
+                      description: ut
+  /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:obliterate:
+    post:
+      tags:
+        - settings > CSE Identites > Key Pairs
+      summary: Obliterate CSE Keypairs
+      description: >-
+        Deletes a client-side encryption key pair permanently and immediately.
+        You can only permanently delete key pairs that have been turned off for
+        more than 30 days. To turn off a key pair, use the DisableCseKeyPair
+        method. Gmail can't restore or decrypt any messages that were encrypted
+        by an obliterated key. Authenticated users and Google Workspace
+        administrators lose access to reading the encrypted messages.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: keyPairId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /gmail/v1/users/{userId}/settings/cse/keypairs:
+    post:
+      tags:
+        - settings > CSE Identites > Key Pairs
+      summary: Create CSE Keypairs
+      description: >-
+        Creates and uploads a client-side encryption S/MIME public key
+        certificate chain and private key metadata for the authenticated user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                keyPairId: Lorem eiusmod
+                pkcs7: ex incididunt
+                pem: irure quis
+                subjectEmailAddresses:
+                  - Excepteur Ut commodo aliquip
+                  - eu Lorem nulla
+                enablementState: disabled
+                disableTime: cill
+                privateKeyMetadata:
+                  - privateKeyMetadataId: proident fugiat eu dolore
+                    kaclsKeyMetadata:
+                      kaclsUri: voluptate ipsum ad
+                      kaclsData: Duis laborum aute
+                    hardwareKeyMetadata:
+                      description: mollit la
+                  - privateKeyMetadataId: nulla ullamco
+                    kaclsKeyMetadata:
+                      kaclsUri: minim in
+                      kaclsData: sint eiusmod
+                    hardwareKeyMetadata:
+                      description: ut
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                keyPairId: Lorem eiusmod
+                pkcs7: ex incididunt
+                pem: irure quis
+                subjectEmailAddresses:
+                  - Excepteur Ut commodo aliquip
+                  - eu Lorem nulla
+                enablementState: disabled
+                disableTime: cill
+                privateKeyMetadata:
+                  - privateKeyMetadataId: proident fugiat eu dolore
+                    kaclsKeyMetadata:
+                      kaclsUri: voluptate ipsum ad
+                      kaclsData: Duis laborum aute
+                    hardwareKeyMetadata:
+                      description: mollit la
+                  - privateKeyMetadataId: nulla ullamco
+                    kaclsKeyMetadata:
+                      kaclsUri: minim in
+                      kaclsData: sint eiusmod
+                    hardwareKeyMetadata:
+                      description: ut
+    get:
+      tags:
+        - settings > CSE Identites > Key Pairs
+      summary: List CSE Keypairs
+      description: Lists client-side encryption key pairs for an authenticated user.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                cseKeyPairs:
+                  - keyPairId: qui in ad ullamco
+                    pkcs7: Lorem tempor
+                    pem: ipsum fugiat Excepteu
+                    subjectEmailAddresses:
+                      - sunt
+                      - in ullamco do
+                    enablementState: enabled
+                    disableTime: ad qui
+                    privateKeyMetadata:
+                      - privateKeyMetadataId: in
+                        kaclsKeyMetadata:
+                          kaclsUri: in et sed aute
+                          kaclsData: laboris Lorem et esse
+                        hardwareKeyMetadata:
+                          description: adipisicing Excepteur
+                      - privateKeyMetadataId: sit ea
+                        kaclsKeyMetadata:
+                          kaclsUri: adipisicing id Ut
+                          kaclsData: minim
+                        hardwareKeyMetadata:
+                          description: eu officia tempor
+                  - keyPairId: proident tempor dolore et id
+                    pkcs7: deserunt ea eiusmod adipisicing
+                    pem: ad enim
+                    subjectEmailAddresses:
+                      - nulla dolore
+                      - ea aliqua Excepteur ut sit
+                    enablementState: enabled
+                    disableTime: dolor sed qui
+                    privateKeyMetadata:
+                      - privateKeyMetadataId: qui exercitation mollit
+                        kaclsKeyMetadata:
+                          kaclsUri: dolore dolor consequat veniam
+                          kaclsData: occaecat consequat
+                        hardwareKeyMetadata:
+                          description: aute esse dolor ipsum
+                      - privateKeyMetadataId: proident incididunt
+                        kaclsKeyMetadata:
+                          kaclsUri: elit
+                          kaclsData: dolor nulla
+                        hardwareKeyMetadata:
+                          description: quis culpa
+                nextPageToken: eiusmod dolore anim pariatur
+  /gmail/v1/users/{userId}/settings/cse/identities:
+    get:
+      tags:
+        - settings > CSE Identites
+      summary: List CSE Identites
+      description: Lists the client-side encrypted identities for an authenticated user.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                cseIdentities:
+                  - emailAddress: adipisicing culpa ipsum
+                    primaryKeyPairId: incididunt pariatur cupidatat in
+                    signAndEncryptKeyPairs:
+                      signingKeyPairId: Ut sunt proident consectetur
+                      encryptionKeyPairId: esse id
+                  - emailAddress: elit dolore laboris
+                    primaryKeyPairId: eu Excepteur sint
+                    signAndEncryptKeyPairs:
+                      signingKeyPairId: culpa
+                      encryptionKeyPairId: dolore Excepteur ipsum Lorem
+                nextPageToken: eiusmod amet voluptate veniam in
+    post:
+      tags:
+        - settings > CSE Identites
+      summary: Create CSE Identites
+      description: >-
+        Creates and configures a client-side encryption identity that's
+        authorized to send mail from the user account. Google publishes the
+        S/MIME certificate to a shared domain-wide directory so that people
+        within a Google Workspace organization can encrypt and send mail to the
+        identity.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                emailAddress: aliquip quis id
+                primaryKeyPairId: in exercitation esse
+                signAndEncryptKeyPairs:
+                  signingKeyPairId: est deserunt
+                  encryptionKeyPairId: elit nulla esse ut
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                emailAddress: aliquip quis id
+                primaryKeyPairId: in exercitation esse
+                signAndEncryptKeyPairs:
+                  signingKeyPairId: est deserunt
+                  encryptionKeyPairId: elit nulla esse ut
+  /gmail/v1/users/{userId}/settings/cse/identities/{emailAddress}:
+    patch:
+      tags:
+        - settings > CSE Identites
+      summary: PATCH CSE Identites
+      description: >-
+        Associates a different key pair with an existing client-side encryption
+        identity. The updated key pair must validate against Google's [S/MIME
+        certificate profiles](https://support.google.com/a/answer/7300887).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                emailAddress: aliquip quis id
+                primaryKeyPairId: in exercitation esse
+                signAndEncryptKeyPairs:
+                  signingKeyPairId: est deserunt
+                  encryptionKeyPairId: elit nulla esse ut
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: emailAddress
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                emailAddress: aliquip quis id
+                primaryKeyPairId: in exercitation esse
+                signAndEncryptKeyPairs:
+                  signingKeyPairId: est deserunt
+                  encryptionKeyPairId: elit nulla esse ut
+  /gmail/v1/users/{userId}/settings/cse/identities/{cseEmailAddress}:
+    get:
+      tags:
+        - settings > CSE Identites
+      summary: GET CSE Idenetites
+      description: Retrieves a client-side encryption identity configuration.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: cseEmailAddress
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                emailAddress: aliquip quis id
+                primaryKeyPairId: in exercitation esse
+                signAndEncryptKeyPairs:
+                  signingKeyPairId: est deserunt
+                  encryptionKeyPairId: elit nulla esse ut
+    delete:
+      tags:
+        - settings > CSE Identites
+      summary: Delete CSE Idenities
+      description: >-
+        Deletes a client-side encryption identity. The authenticated user can no
+        longer use the identity to send encrypted messages. You cannot restore
+        the identity after you delete it. Instead, use the CreateCseIdentity
+        method to create another identity with the same configuration.
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: cseEmailAddress
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /gmail/v1/users/{userId}/settings/filters/{id}:
+    delete:
+      tags:
+        - settings > Filters
+      summary: Delete Filters
+      description: Immediately and permanently deletes the specified filter.
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+    get:
+      tags:
+        - settings > Filters
+      summary: Get Filters
+      description: Gets a filter.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: in aute anim
+                criteria:
+                  from: nulla adipisicing veniam et mollit
+                  to: veniam commodo
+                  subject: sit exercitation
+                  query: nulla cupidatat officia commodo laborum
+                  negatedQuery: exercitation laboris
+                  hasAttachment: true
+                  excludeChats: false
+                  size: -52983385
+                  sizeComparison: smaller
+                action:
+                  addLabelIds:
+                    - nostrud laboris sed esse
+                    - et ad
+                  removeLabelIds:
+                    - Lorem consequat l
+                    - minim Excepteur
+                  forward: culpa do
+  /gmail/v1/users/{userId}/settings/filters:
+    get:
+      tags:
+        - settings > Filters
+      summary: List Filters
+      description: Lists the message filters of a Gmail user.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                filter:
+                  - id: 'reprehenderit Duis '
+                    criteria:
+                      from: nostrud anim reprehenderit
+                      to: officia
+                      subject: magna
+                      query: sint elit
+                      negatedQuery: Excepteur quis est
+                      hasAttachment: true
+                      excludeChats: false
+                      size: 73367794
+                      sizeComparison: unspecified
+                    action:
+                      addLabelIds:
+                        - nisi elit voluptate
+                        - sunt exercitation
+                      removeLabelIds:
+                        - pariatur in laborum veniam
+                        - irure in
+                      forward: occaecat Ut veniam
+                  - id: Ut deserunt
+                    criteria:
+                      from: magna non Duis nostrud Ut
+                      to: ut officia exercitation in
+                      subject: tempor minim anim ipsum
+                      query: sit anim
+                      negatedQuery: voluptate in tempor elit
+                      hasAttachment: true
+                      excludeChats: false
+                      size: 29351468
+                      sizeComparison: smaller
+                    action:
+                      addLabelIds:
+                        - adipisicing labore dolore
+                        - dolor
+                      removeLabelIds:
+                        - esse cupidatat
+                        - mollit aliqua
+                      forward: est occaecat officia
+    post:
+      tags:
+        - settings > Filters
+      summary: Create Filters
+      description: 'Creates a filter. Note: you can only create a maximum of 1,000 filters.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: in aute anim
+                criteria:
+                  from: nulla adipisicing veniam et mollit
+                  to: veniam commodo
+                  subject: sit exercitation
+                  query: nulla cupidatat officia commodo laborum
+                  negatedQuery: exercitation laboris
+                  hasAttachment: true
+                  excludeChats: false
+                  size: -52983385
+                  sizeComparison: smaller
+                action:
+                  addLabelIds:
+                    - nostrud laboris sed esse
+                    - et ad
+                  removeLabelIds:
+                    - Lorem consequat l
+                    - minim Excepteur
+                  forward: culpa do
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: in aute anim
+                criteria:
+                  from: nulla adipisicing veniam et mollit
+                  to: veniam commodo
+                  subject: sit exercitation
+                  query: nulla cupidatat officia commodo laborum
+                  negatedQuery: exercitation laboris
+                  hasAttachment: true
+                  excludeChats: false
+                  size: -52983385
+                  sizeComparison: smaller
+                action:
+                  addLabelIds:
+                    - nostrud laboris sed esse
+                    - et ad
+                  removeLabelIds:
+                    - Lorem consequat l
+                    - minim Excepteur
+                  forward: culpa do
+  /gmail/v1/users/{userId}/settings/forwardingAddresses/{forwardingEmail}:
+    delete:
+      tags:
+        - settings > Forwarding Addresses
+      summary: Delete Forwarding Addresses
+      description: >-
+        Deletes the specified forwarding address and revokes any verification
+        that may have been required. This method is only available to service
+        account clients that have been delegated domain-wide authority.
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: forwardingEmail
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+    get:
+      tags:
+        - settings > Forwarding Addresses
+      summary: Get Forwarding Addresses
+      description: Gets the specified forwarding address.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: forwardingEmail
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                forwardingEmail: ad tempor dolor
+                verificationStatus: pending
+  /gmail/v1/users/{userId}/settings/forwardingAddresses:
+    get:
+      tags:
+        - settings > Forwarding Addresses
+      summary: List Forwarding Addresses
+      description: Lists the forwarding addresses for the specified account.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                forwardingAddresses:
+                  - forwardingEmail: consequat
+                    verificationStatus: accepted
+                  - forwardingEmail: proident ad nulla occaecat dolore
+                    verificationStatus: verificationStatusUnspecified
+    post:
+      tags:
+        - settings > Forwarding Addresses
+      summary: Create Forwarding Address
+      description: >-
+        Creates a forwarding address. If ownership verification is required, a
+        message will be sent to the recipient and the resource's verification
+        status will be set to `pending`; otherwise, the resource will be created
+        with verification status set to `accepted`. This method is only
+        available to service account clients that have been delegated
+        domain-wide authority.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                forwardingEmail: ad tempor dolor
+                verificationStatus: pending
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                forwardingEmail: ad tempor dolor
+                verificationStatus: pending
+  /gmail/v1/users/{userId}/settings/delegates/{delegateEmail}:
+    delete:
+      tags:
+        - settings > Delegates
+      summary: Delete Delegates
+      description: >-
+        Removes the specified delegate (which can be of any verification
+        status), and revokes any verification that may have been required for
+        using it. Note that a delegate user must be referred to by their primary
+        email address, and not an email alias. This method is only available to
+        service account clients that have been delegated domain-wide authority.
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: delegateEmail
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+    get:
+      tags:
+        - settings > Delegates
+      summary: Get Delegates
+      description: >-
+        Gets the specified delegate. Note that a delegate user must be referred
+        to by their primary email address, and not an email alias. This method
+        is only available to service account clients that have been delegated
+        domain-wide authority.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+        - name: delegateEmail
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                delegateEmail: Duis commodo enim irure
+                verificationStatus: rejected
+  /gmail/v1/users/{userId}/settings/delegates:
+    get:
+      tags:
+        - settings > Delegates
+      summary: List Delegates
+      description: >-
+        Lists the delegates for the specified account. This method is only
+        available to service account clients that have been delegated
+        domain-wide authority.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                delegates:
+                  - delegateEmail: 'veniam voluptate '
+                    verificationStatus: accepted
+                  - delegateEmail: qui ipsum
+                    verificationStatus: expired
+    post:
+      tags:
+        - settings > Delegates
+      summary: Create Delegates
+      description: >-
+        Adds a delegate with its verification status set directly to `accepted`,
+        without sending any verification email. The delegate user must be a
+        member of the same Google Workspace organization as the delegator user.
+        Gmail imposes limitations on the number of delegates and delegators each
+        user in a Google Workspace organization can have. These limits depend on
+        your organization, but in general each user can have up to 25 delegates
+        and up to 10 delegators. Note that a delegate user must be referred to
+        by their primary email address, and not an email alias. Also note that
+        when a new delegate is created, there may be up to a one minute delay
+        before the new delegate is available for use. This method is only
+        available to service account clients that have been delegated
+        domain-wide authority.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                delegateEmail: Duis commodo enim irure
+                verificationStatus: rejected
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: '(Required) '
+          example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                delegateEmail: Duis commodo enim irure
+                verificationStatus: rejected
