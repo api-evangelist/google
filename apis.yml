@@ -120,12 +120,14 @@ apis:
   - aid: google:google-sheets-api
     name: Google Sheets API
     humanURL: https://developers.google.com/workspace/sheets/api/guides/concepts
-    description: >-
-      The Google Sheets API is a RESTful interface that lets you read and modify
-      a spreadsheet's data..
     properties:
       - url: https://developers.google.com/workspace/sheets/api/guides/concepts
         type: Documentation
+      - type: OpenAPI
+        url: properties/google-sheets-api-openapi.yml
+    description: >-
+      The Google Sheets API is a RESTful interface that lets you read and modify
+      a spreadsheet's data..
   - aid: google:google-docs-api
     name: Google Docs API
     humanURL: https://developers.google.com/workspace/docs/api/reference/rest
