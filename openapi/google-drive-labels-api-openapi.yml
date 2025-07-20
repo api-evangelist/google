@@ -188,6 +188,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels.readonly
       tags:
         - labels
+      summary: Get  V2 Labels
     post:
       description: Creates a new Label.
       operationId: drivelabels.labels.create
@@ -298,6 +299,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
+      summary: Post  V2 Labels
   /v2/limits/label:
     get:
       description: >-
@@ -404,6 +406,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels.readonly
       tags:
         - limits
+      summary: Get  V2 Limits Label
   /v2/{name}:
     delete:
       description: >-
@@ -519,6 +522,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
+      summary: Delete  V2 Name
     get:
       description: Gets the user capabilities.
       operationId: drivelabels.users.getCapabilities
@@ -651,6 +655,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels.readonly
       tags:
         - users
+      summary: Get  V2 Name
   /v2/{name}:delta:
     post:
       description: >-
@@ -760,6 +765,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
+      summary: Post  V2 Name:delta
   /v2/{name}:disable:
     post:
       description: >-
@@ -867,6 +873,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
+      summary: Post  V2 Name:disable
   /v2/{name}:enable:
     post:
       description: >-
@@ -973,6 +980,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
+      summary: Post  V2 Name:enable
   /v2/{name}:publish:
     post:
       description: >-
@@ -1089,6 +1097,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
+      summary: Post  V2 Name:publish
   /v2/{name}:updateLabelCopyMode:
     post:
       description: >-
@@ -1194,6 +1203,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
+      summary: Post  V2 Name:updatelabelcopymode
   /v2/{parent}/locks:
     get:
       description: Lists the LabelLocks on a Label.
@@ -1310,6 +1320,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels.readonly
       tags:
         - labels
+      summary: Get  V2 Parent Locks
   /v2/{parent}/permissions:
     get:
       description: Lists a Label's permissions.
@@ -1438,6 +1449,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels.readonly
       tags:
         - labels
+      summary: Get  V2 Parent Permissions
     patch:
       description: >-
         Updates a Label's permissions. If a permission for the indicated
@@ -1551,6 +1563,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
+      summary: Patch  V2 Parent Permissions
     post:
       description: >-
         Updates a Label's permissions. If a permission for the indicated
@@ -1666,6 +1679,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
+      summary: Post  V2 Parent Permissions
   /v2/{parent}/permissions:batchDelete:
     post:
       description: >-
@@ -1775,6 +1789,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
+      summary: Post  V2 Parent Permissions:batchdelete
   /v2/{parent}/permissions:batchUpdate:
     post:
       description: >-
@@ -1887,6 +1902,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
+      summary: Post  V2 Parent Permissions:batchupdate
 components:
   parameters:
     _.xgafv:
