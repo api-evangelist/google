@@ -1,101 +1,11 @@
 openapi: 3.0.0
 info:
-  title: =Ê Google Sheets API
+  title: Google Sheets API
   description: >-
     The Google Sheets API enables developers to read, write, and manage their
     Google Sheets data programmatically. It provides capabilities such as
     modifying spreadsheet content, formatting, and settings and managing
     individual sheets within a spreadsheet.
-
-
-    ## Technical Concepts
-
-
-    ### Spreadsheet ID
-
-
-    - **What is a Spreadsheet ID?**: A unique identifier for a Google Sheets
-    spreadsheet, used to specify which spreadsheet to operate on with API calls.
-        - It can be found in the url of a Google Spreadsheet
-            
-
-    ### Range
-
-
-    - **What is a Range?**: Specifies a group of cells in a sheet, which can be
-    a single cell (e.g., "B4"), a row (e.g., "2"), a column (e.g., "B"), or a
-    range spanning multiple rows and columns (e.g., "B2:H4").
-        
-
-    ## Obtaining Access Tokens
-
-
-    To interact with the Google Sheets API, you will need an OAuth 2.0 token:
-
-
-    1. **Google Developer Console**: Visit the [Google Developer
-    Console](https://console.developers.google.com/), create a new project, and
-    enable the Google Sheets API.
-        
-    2. **OAuth Consent Screen**: Configure the OAuth consent screen to fit the
-    required scopes.
-        
-    3. **Credentials**: Create credentials (OAuth client ID).
-        
-
-    <img
-    src="https://content.pstmn.io/f5b1da22-d217-42bc-a4c0-b6e114e895e7/ZXpnaWYtNy0yM2JkOGUyNzNjLmdpZg=="
-    alt="">
-
-
-    ## Scopes
-
-
-    The Google Sheets API uses scopes to define the level of access that
-    applications require:
-
-
-    | Scope | Description |
-
-    | --- | --- |
-
-    | `https://www.googleapis.com/auth/spreadsheets` | Full read/write access to
-    sheets and their properties. |
-
-    | `https://www.googleapis.com/auth/spreadsheets.readonly` | Read-only access
-    to sheets and their properties. |
-
-    | `https://www.googleapis.com/auth/drive` | Full access to files in Google
-    Drive, including sheets. |
-
-    | `https://www.googleapis.com/auth/drive.file` | Access to files created by
-    this application. |
-
-    | `https://www.googleapis.com/auth/drive.readonly` | Read-only access to
-    files in Google Drive, including sheets. |
-
-
-    ## Common Parameters
-
-
-    | Parameter | Description | Example Value |
-
-    | --- | --- | --- |
-
-    | `spreadsheetId` | The ID of the spreadsheet to operate on. |
-    `{{spreadsheetId}}` |
-
-    | `range` | The range of cells to operate on. | `'Sheet1!A1:D5'` |
-
-    | `valueInputOption` | Determines how input data should be interpreted. |
-    `'USER_ENTERED'` |
-
-    | `includeGridData` | Indicates whether to include grid data (cell values
-    and formatting). | `true` or `false` |
-
-
-    For a detailed guide and additional examples, please refer to our [Developer
-    Portal](https://developers.google.com/sheets/api).
   version: 1.0.0
 servers:
   - url: http://{{baseurl}}
