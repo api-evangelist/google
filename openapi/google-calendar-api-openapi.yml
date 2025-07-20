@@ -1,0 +1,3510 @@
+openapi: 3.0.0
+info:
+  title: =Ó Google Calendar API
+  description: >-
+    ## Google Calendar API Overview with Postman Collection
+
+
+    The Google Calendar API allows developers to integrate their applications
+    with Google Calendar, enabling them to create, modify, and manage events and
+    settings programmatically. This API is robust, offering functionalities like
+    managing calendar lists, events, access permissions, and user settings.
+
+
+    ## Technical Concepts
+
+
+    ### Calendar ID
+
+
+    - **What is a Calendar ID?**: A unique identifier for a Google Calendar,
+    used in API calls to specify which calendar to operate on.
+        
+
+    ### Event ID
+
+
+    - **What is an Event ID?**: A unique identifier for an event within a
+    calendar. It's used to specify which event to manage in the API calls.
+        
+
+    ## Obtaining Access Tokens
+
+
+    To use the Google Calendar API, an OAuth 2.0 token is necessary:
+
+
+    1. **Google Developer Console**: Access the [Google Developer
+    Console](https://console.developers.google.com/), create a new project, and
+    enable the Google Calendar API.
+        
+    2. **OAuth Consent Screen**: Set up the OAuth consent screen with the
+    appropriate scopes.
+        
+    3. **Credentials**: Generate credentials (OAuth client ID).
+        
+
+    ## Scopes
+
+
+    The API uses scopes to determine the level of access that the application
+    requires:
+
+
+    | Scope | Description |
+
+    | --- | --- |
+
+    | `https://www.googleapis.com/auth/calendar` | Full access to calendars and
+    their events. |
+
+    | `https://www.googleapis.com/auth/calendar.events` | Access to events on
+    all calendars. |
+
+    | `https://www.googleapis.com/auth/calendar.events.readonly` | Read-only
+    access to events on all calendars. |
+
+    | `https://www.googleapis.com/auth/calendar.readonly` | Read-only access to
+    calendar information. |
+
+    | `https://www.googleapis.com/auth/calendar.settings.readonly` | Read-only
+    access to calendar settings. |
+
+
+    ## Common Parameters
+
+
+    | Parameter | Description | Example Value |
+
+    | --- | --- | --- |
+
+    | `calendarId` | The ID of the calendar to operate on. | `{{calendarId}}` |
+
+    | `eventId` | The ID of the event within the calendar. | `{{eventId}}` |
+
+    | `timeMin` | The minimum time for event instances. Used in list and
+    freeBusy queries. | `'2024-01-01T00:00:00Z'` |
+
+    | `timeMax` | The maximum time for event instances. Used in list and
+    freeBusy queries. | `'2024-12-31T23:59:59Z'` |
+
+
+    For more information and detailed guides, please visit our [Developer
+    Portal](https://developers.google.com/calendar).
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    oauth2Auth:
+      type: http
+      scheme: oauth2
+tags:
+  - name: calendars
+  - name: calendars > {calendarId}
+  - name: calendars > {calendarId} > acl
+  - name: calendars > {calendarId} > acl > {ruleId}
+  - name: calendars > {calendarId} > events
+  - name: calendars > {calendarId} > events > {eventId}
+  - name: users/me
+  - name: users/me > Calendar List
+  - name: users/me > settings
+paths:
+  /calendars/{calendarId}/acl/{ruleId}:
+    delete:
+      tags:
+        - calendars > {calendarId} > acl > {ruleId}
+      summary: Delete Access Control Rule
+      description: Deletes an access control rule.
+      parameters:
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: ruleId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '204':
+          description: No Content
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: text/plain
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+    get:
+      tags:
+        - calendars > {calendarId} > acl > {ruleId}
+      summary: Get Access Control Rule
+      description: Returns an access control rule.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: ruleId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                etag: velit eu voluptate
+                id: ex dolore in sint
+                kind: calendar#aclRule
+                role: et
+                scope:
+                  type: sit eiusmod culpa do
+                  value: quis esse
+    patch:
+      tags:
+        - calendars > {calendarId} > acl > {ruleId}
+      summary: Patch Access Control Rule
+      description: Updates an access control rule. This method supports patch semantics.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                etag: velit eu voluptate
+                id: ex dolore in sint
+                kind: calendar#aclRule
+                role: et
+                scope:
+                  type: sit eiusmod culpa do
+                  value: quis esse
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: sendNotifications
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: ruleId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                etag: velit eu voluptate
+                id: ex dolore in sint
+                kind: calendar#aclRule
+                role: et
+                scope:
+                  type: sit eiusmod culpa do
+                  value: quis esse
+    put:
+      tags:
+        - calendars > {calendarId} > acl > {ruleId}
+      summary: Update Access Control Rule
+      description: Updates an access control rule.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                etag: velit eu voluptate
+                id: ex dolore in sint
+                kind: calendar#aclRule
+                role: et
+                scope:
+                  type: sit eiusmod culpa do
+                  value: quis esse
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: sendNotifications
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: ruleId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                etag: velit eu voluptate
+                id: ex dolore in sint
+                kind: calendar#aclRule
+                role: et
+                scope:
+                  type: sit eiusmod culpa do
+                  value: quis esse
+  /calendars/{calendarId}/acl:
+    post:
+      tags:
+        - calendars > {calendarId} > acl
+      summary: Insert Access Control Rule
+      description: Creates an access control rule.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                etag: velit eu voluptate
+                id: ex dolore in sint
+                kind: calendar#aclRule
+                role: et
+                scope:
+                  type: sit eiusmod culpa do
+                  value: quis esse
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: sendNotifications
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                etag: velit eu voluptate
+                id: ex dolore in sint
+                kind: calendar#aclRule
+                role: et
+                scope:
+                  type: sit eiusmod culpa do
+                  value: quis esse
+    get:
+      tags:
+        - calendars > {calendarId} > acl
+      summary: Return Access Control Rules
+      description: Returns the rules in the access control list for the calendar.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: maxResults
+          in: query
+          schema:
+            type: integer
+          example: '54806309'
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: showDeleted
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: syncToken
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                etag: laborum ea d
+                items:
+                  - etag: in in qui non dolore
+                    id: occaecat dolor qui eu ut
+                    kind: calendar#aclRule
+                    role: culpa magna tempor Excepteur
+                    scope:
+                      type: culpa qui sint velit
+                      value: Lorem consectetur aliquip
+                  - etag: quis id Lorem la
+                    id: quis
+                    kind: calendar#aclRule
+                    role: culpa deserunt officia commodo
+                    scope:
+                      type: irure in quis ea
+                      value: ex dolore
+                kind: calendar#acl
+                nextPageToken: dolore ex
+                nextSyncToken: amet labore quis
+  /calendars/{calendarId}/acl/watch:
+    post:
+      tags:
+        - calendars > {calendarId} > acl
+      summary: Watch Access Control Rules
+      description: Watch for changes to ACL resources.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                address: incididunt sed consequat
+                expiration: velit ad aliq
+                id: velit eiusmod
+                kind: api#channel
+                params:
+                  reprehenderit5c: non
+                  sint_b: cupidatat do
+                payload: false
+                resourceId: aute
+                resourceUri: fugiat consequat
+                token: ullamco officia in
+                type: ex eiusmod adipisicing mollit
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: maxResults
+          in: query
+          schema:
+            type: integer
+          example: '54806309'
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: showDeleted
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: syncToken
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                address: incididunt sed consequat
+                expiration: velit ad aliq
+                id: velit eiusmod
+                kind: api#channel
+                params:
+                  reprehenderit5c: non
+                  sint_b: cupidatat do
+                payload: false
+                resourceId: aute
+                resourceUri: fugiat consequat
+                token: ullamco officia in
+                type: ex eiusmod adipisicing mollit
+  /calendars/{calendarId}/events/{eventId}:
+    delete:
+      tags:
+        - calendars > {calendarId} > events > {eventId}
+      summary: Delete Event
+      description: Deletes an event.
+      parameters:
+        - name: sendNotifications
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: sendUpdates
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: eventId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '204':
+          description: No Content
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: text/plain
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+    get:
+      tags:
+        - calendars > {calendarId} > events > {eventId}
+      summary: Get Event
+      description: >-
+        Returns an event based on its Google Calendar ID. To retrieve an event
+        using its iCalendar ID, call the events.list method using the iCalUID
+        parameter.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: alwaysIncludeEmail
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: maxAttendees
+          in: query
+          schema:
+            type: integer
+          example: '54806309'
+        - name: timeZone
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: eventId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: null
+    patch:
+      tags:
+        - calendars > {calendarId} > events > {eventId}
+      summary: Patch Event
+      description: Updates an event. This method supports patch semantics.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: null
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: alwaysIncludeEmail
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: conferenceDataVersion
+          in: query
+          schema:
+            type: integer
+          example: '54806309'
+        - name: maxAttendees
+          in: query
+          schema:
+            type: integer
+          example: '54806309'
+        - name: sendNotifications
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: sendUpdates
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: supportsAttachments
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: eventId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: null
+    put:
+      tags:
+        - calendars > {calendarId} > events > {eventId}
+      summary: Update Event
+      description: Updates an event.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: null
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: alwaysIncludeEmail
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: conferenceDataVersion
+          in: query
+          schema:
+            type: integer
+          example: '54806309'
+        - name: maxAttendees
+          in: query
+          schema:
+            type: integer
+          example: '54806309'
+        - name: sendNotifications
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: sendUpdates
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: supportsAttachments
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: eventId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: null
+  /calendars/{calendarId}/events/{eventId}/instances:
+    get:
+      tags:
+        - calendars > {calendarId} > events > {eventId}
+      summary: Insert Event
+      description: Returns instances of the specified recurring event.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: alwaysIncludeEmail
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: maxAttendees
+          in: query
+          schema:
+            type: integer
+          example: '54806309'
+        - name: maxResults
+          in: query
+          schema:
+            type: integer
+          example: '54806309'
+        - name: originalStart
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: showDeleted
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: timeMax
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: timeMin
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: timeZone
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: eventId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: null
+  /calendars/{calendarId}/events/{eventId}/move:
+    post:
+      tags:
+        - calendars > {calendarId} > events > {eventId}
+      summary: Move Event
+      description: >-
+        Moves an event to another calendar, i.e. changes an event's organizer.
+        Note that only default events can be moved; outOfOffice, focusTime and
+        workingLocation events cannot be moved.
+      requestBody:
+        content: {}
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: destination
+          in: query
+          schema:
+            type: string
+          description: '(Required) '
+          example: amet in
+        - name: sendNotifications
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: sendUpdates
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: eventId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: null
+  /calendars/{calendarId}/events:
+    post:
+      tags:
+        - calendars > {calendarId} > events
+      summary: Create an Event
+      description: Creates an event.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: null
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: conferenceDataVersion
+          in: query
+          schema:
+            type: integer
+          example: '54806309'
+        - name: maxAttendees
+          in: query
+          schema:
+            type: integer
+          example: '54806309'
+        - name: sendNotifications
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: sendUpdates
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: supportsAttachments
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: null
+    get:
+      tags:
+        - calendars > {calendarId} > events
+      summary: Return Events from Calendar
+      description: Returns events on the specified calendar.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: alwaysIncludeEmail
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: eventTypes
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: iCalUID
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: maxAttendees
+          in: query
+          schema:
+            type: integer
+          example: '54806309'
+        - name: maxResults
+          in: query
+          schema:
+            type: integer
+          example: '54806309'
+        - name: orderBy
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: privateExtendedProperty
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: q
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: sharedExtendedProperty
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: showDeleted
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: showHiddenInvitations
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: singleEvents
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: syncToken
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: timeMax
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: timeMin
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: timeZone
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: updatedMin
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: null
+  /calendars/{calendarId}/events/import:
+    post:
+      tags:
+        - calendars > {calendarId} > events
+      summary: Import Event
+      description: >-
+        Imports an event. This operation is used to add a private copy of an
+        existing event to a calendar.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: null
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: conferenceDataVersion
+          in: query
+          schema:
+            type: integer
+          example: '54806309'
+        - name: supportsAttachments
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: null
+  /calendars/{calendarId}/events/quickAdd:
+    post:
+      tags:
+        - calendars > {calendarId} > events
+      summary: Quick Add Event
+      description: Creates an event based on a simple text string.
+      requestBody:
+        content: {}
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: text
+          in: query
+          schema:
+            type: string
+          description: '(Required) '
+          example: amet in
+        - name: sendNotifications
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: sendUpdates
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: null
+  /calendars/{calendarId}/events/watch:
+    post:
+      tags:
+        - calendars > {calendarId} > events
+      summary: Watch Events
+      description: Watch for changes to Events resources.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                address: incididunt sed consequat
+                expiration: velit ad aliq
+                id: velit eiusmod
+                kind: api#channel
+                params:
+                  reprehenderit5c: non
+                  sint_b: cupidatat do
+                payload: false
+                resourceId: aute
+                resourceUri: fugiat consequat
+                token: ullamco officia in
+                type: ex eiusmod adipisicing mollit
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: alwaysIncludeEmail
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: eventTypes
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: iCalUID
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: maxAttendees
+          in: query
+          schema:
+            type: integer
+          example: '54806309'
+        - name: maxResults
+          in: query
+          schema:
+            type: integer
+          example: '54806309'
+        - name: orderBy
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: privateExtendedProperty
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: q
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: sharedExtendedProperty
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: showDeleted
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: showHiddenInvitations
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: singleEvents
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: syncToken
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: timeMax
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: timeMin
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: timeZone
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: updatedMin
+          in: query
+          schema:
+            type: string
+          example: amet in
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                address: incididunt sed consequat
+                expiration: velit ad aliq
+                id: velit eiusmod
+                kind: api#channel
+                params:
+                  reprehenderit5c: non
+                  sint_b: cupidatat do
+                payload: false
+                resourceId: aute
+                resourceUri: fugiat consequat
+                token: ullamco officia in
+                type: ex eiusmod adipisicing mollit
+  /calendars/{calendarId}:
+    delete:
+      tags:
+        - calendars > {calendarId}
+      summary: Delete Calendar
+      description: >-
+        Deletes a secondary calendar. Use calendars.clear for clearing all
+        events on primary calendars.
+      parameters:
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '204':
+          description: No Content
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: text/plain
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+    get:
+      tags:
+        - calendars > {calendarId}
+      summary: Get Calendar
+      description: Returns metadata for a calendar.
+      security:
+        - oauth2Auth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                conferenceProperties:
+                  allowedConferenceSolutionTypes:
+                    - anim enim ut veniam
+                    - sit labore
+                description: officia enim aliquip ex
+                etag: labore adipisicing fugiat
+                id: est pro
+                kind: calendar#calendar
+                location: in voluptate commodo
+                summary: labore adipisicing enim
+                timeZone: cupidatat sed
+    patch:
+      tags:
+        - calendars > {calendarId}
+      summary: Patch Calendar
+      description: Updates metadata for a calendar. This method supports patch semantics.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                conferenceProperties:
+                  allowedConferenceSolutionTypes:
+                    - anim enim ut veniam
+                    - sit labore
+                description: officia enim aliquip ex
+                etag: labore adipisicing fugiat
+                id: est pro
+                kind: calendar#calendar
+                location: in voluptate commodo
+                summary: labore adipisicing enim
+                timeZone: cupidatat sed
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                conferenceProperties:
+                  allowedConferenceSolutionTypes:
+                    - anim enim ut veniam
+                    - sit labore
+                description: officia enim aliquip ex
+                etag: labore adipisicing fugiat
+                id: est pro
+                kind: calendar#calendar
+                location: in voluptate commodo
+                summary: labore adipisicing enim
+                timeZone: cupidatat sed
+    put:
+      tags:
+        - calendars > {calendarId}
+      summary: Update Calendar
+      description: Updates metadata for a calendar.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                conferenceProperties:
+                  allowedConferenceSolutionTypes:
+                    - anim enim ut veniam
+                    - sit labore
+                description: officia enim aliquip ex
+                etag: labore adipisicing fugiat
+                id: est pro
+                kind: calendar#calendar
+                location: in voluptate commodo
+                summary: labore adipisicing enim
+                timeZone: cupidatat sed
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                conferenceProperties:
+                  allowedConferenceSolutionTypes:
+                    - anim enim ut veniam
+                    - sit labore
+                description: officia enim aliquip ex
+                etag: labore adipisicing fugiat
+                id: est pro
+                kind: calendar#calendar
+                location: in voluptate commodo
+                summary: labore adipisicing enim
+                timeZone: cupidatat sed
+  /calendars/{calendarId}/clear:
+    post:
+      tags:
+        - calendars > {calendarId}
+      summary: Clear Calendar
+      description: >-
+        Clears a primary calendar. This operation deletes all events associated
+        with the primary calendar of an account.
+      requestBody:
+        content: {}
+      parameters:
+        - name: alt
+          in: query
+          schema:
+            type: string
+          description: Data format for the response.
+          example: json
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Selector specifying which fields to include in a partial response.
+          example: amet in
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          example: amet in
+        - name: oauth_token
+          in: query
+          schema:
+            type: string
+          description: OAuth 2.0 token for the current user.
+          example: amet in
+        - name: prettyPrint
+          in: query
+          schema:
+            type: boolean
+          description: Returns response with indentations and line breaks.
+          example: 'true'
+        - name: quotaUser
+          in: query
+          schema:
+            type: string
+          description: >-
+            An opaque string that represents a user for quota purposes. Must not
+            exceed 40 characters.
+          example: amet in
+        - name: userIp
+          in: query
+          schema:
+            type: string
+          description: Deprecated. Please use quotaUser instead.
+          example: amet in
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '204':
+          description: No Content
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: text/plain
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /calendars:
+    post:
+      tags:
+        - calendars
+      summary: Calendar
+      description: Creates a secondary calendar.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                conferenceProperties:
+                  allowedConferenceSolutionTypes:
+                    - anim enim ut veniam
+                    - sit labore
+                description: officia enim aliquip ex
+                etag: labore adipisicing fugiat
+                id: est pro
+                kind: calendar#calendar
+                location: in voluptate commodo
+                summary: labore adipisicing enim
+                timeZone: cupidatat sed
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                conferenceProperties:
+                  allowedConferenceSolutionTypes:
+                    - anim enim ut veniam
+                    - sit labore
+                description: officia enim aliquip ex
+                etag: labore adipisicing fugiat
+                id: est pro
+                kind: calendar#calendar
+                location: in voluptate commodo
+                summary: labore adipisicing enim
+                timeZone: cupidatat sed
+  /users/me/calendarList/{calendarId}:
+    delete:
+      tags:
+        - users/me > Calendar List
+      summary: Remove Calendar on List
+      description: Removes a calendar from the user's calendar list.
+      parameters:
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '204':
+          description: No Content
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: text/plain
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+    get:
+      tags:
+        - users/me > Calendar List
+      summary: Get Calendar List
+      description: Returns a calendar from the user's calendar list.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                accessRole: dolore deserunt nisi sunt
+                backgroundColor: consequat tempor esse voluptate
+                colorId: eiusmod pariatur et
+                conferenceProperties:
+                  allowedConferenceSolutionTypes:
+                    - culpa elit
+                    - cillum
+                defaultReminders:
+                  - method: Excepteur
+                    minutes: 35541699
+                  - method: in magna culpa consequat
+                    minutes: 74169785
+                deleted: 'false'
+                description: nulla
+                etag: incididunt elit in
+                foregroundColor: labore fugiat
+                hidden: 'false'
+                id: nulla
+                kind: calendar#calendarListEntry
+                location: aliqua
+                notificationSettings:
+                  notifications:
+                    - method: id dolor minim
+                      type: ut occaecat sit e
+                    - method: consequat minim nisi consecte
+                      type: nulla id
+                primary: 'false'
+                selected: 'false'
+                summary: anim Duis culpa quis consequ
+                summaryOverride: deserunt elit reprehenderit
+                timeZone: minim commodo incididunt reprehenderit sed
+    patch:
+      tags:
+        - users/me > Calendar List
+      summary: Patch Calendar List
+      description: >-
+        Updates an existing calendar on the user's calendar list. This method
+        supports patch semantics.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                accessRole: dolore deserunt nisi sunt
+                backgroundColor: consequat tempor esse voluptate
+                colorId: eiusmod pariatur et
+                conferenceProperties:
+                  allowedConferenceSolutionTypes:
+                    - culpa elit
+                    - cillum
+                defaultReminders:
+                  - method: Excepteur
+                    minutes: 35541699
+                  - method: in magna culpa consequat
+                    minutes: 74169785
+                deleted: 'false'
+                description: nulla
+                etag: incididunt elit in
+                foregroundColor: labore fugiat
+                hidden: 'false'
+                id: nulla
+                kind: calendar#calendarListEntry
+                location: aliqua
+                notificationSettings:
+                  notifications:
+                    - method: id dolor minim
+                      type: ut occaecat sit e
+                    - method: consequat minim nisi consecte
+                      type: nulla id
+                primary: 'false'
+                selected: 'false'
+                summary: anim Duis culpa quis consequ
+                summaryOverride: deserunt elit reprehenderit
+                timeZone: minim commodo incididunt reprehenderit sed
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                accessRole: dolore deserunt nisi sunt
+                backgroundColor: consequat tempor esse voluptate
+                colorId: eiusmod pariatur et
+                conferenceProperties:
+                  allowedConferenceSolutionTypes:
+                    - culpa elit
+                    - cillum
+                defaultReminders:
+                  - method: Excepteur
+                    minutes: 35541699
+                  - method: in magna culpa consequat
+                    minutes: 74169785
+                deleted: 'false'
+                description: nulla
+                etag: incididunt elit in
+                foregroundColor: labore fugiat
+                hidden: 'false'
+                id: nulla
+                kind: calendar#calendarListEntry
+                location: aliqua
+                notificationSettings:
+                  notifications:
+                    - method: id dolor minim
+                      type: ut occaecat sit e
+                    - method: consequat minim nisi consecte
+                      type: nulla id
+                primary: 'false'
+                selected: 'false'
+                summary: anim Duis culpa quis consequ
+                summaryOverride: deserunt elit reprehenderit
+                timeZone: minim commodo incididunt reprehenderit sed
+    put:
+      tags:
+        - users/me > Calendar List
+      summary: Update Calendar List
+      description: Updates an existing calendar on the user's calendar list.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                accessRole: dolore deserunt nisi sunt
+                backgroundColor: consequat tempor esse voluptate
+                colorId: eiusmod pariatur et
+                conferenceProperties:
+                  allowedConferenceSolutionTypes:
+                    - culpa elit
+                    - cillum
+                defaultReminders:
+                  - method: Excepteur
+                    minutes: 35541699
+                  - method: in magna culpa consequat
+                    minutes: 74169785
+                deleted: 'false'
+                description: nulla
+                etag: incididunt elit in
+                foregroundColor: labore fugiat
+                hidden: 'false'
+                id: nulla
+                kind: calendar#calendarListEntry
+                location: aliqua
+                notificationSettings:
+                  notifications:
+                    - method: id dolor minim
+                      type: ut occaecat sit e
+                    - method: consequat minim nisi consecte
+                      type: nulla id
+                primary: 'false'
+                selected: 'false'
+                summary: anim Duis culpa quis consequ
+                summaryOverride: deserunt elit reprehenderit
+                timeZone: minim commodo incididunt reprehenderit sed
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: calendarId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                accessRole: dolore deserunt nisi sunt
+                backgroundColor: consequat tempor esse voluptate
+                colorId: eiusmod pariatur et
+                conferenceProperties:
+                  allowedConferenceSolutionTypes:
+                    - culpa elit
+                    - cillum
+                defaultReminders:
+                  - method: Excepteur
+                    minutes: 35541699
+                  - method: in magna culpa consequat
+                    minutes: 74169785
+                deleted: 'false'
+                description: nulla
+                etag: incididunt elit in
+                foregroundColor: labore fugiat
+                hidden: 'false'
+                id: nulla
+                kind: calendar#calendarListEntry
+                location: aliqua
+                notificationSettings:
+                  notifications:
+                    - method: id dolor minim
+                      type: ut occaecat sit e
+                    - method: consequat minim nisi consecte
+                      type: nulla id
+                primary: 'false'
+                selected: 'false'
+                summary: anim Duis culpa quis consequ
+                summaryOverride: deserunt elit reprehenderit
+                timeZone: minim commodo incididunt reprehenderit sed
+  /users/me/calendarList:
+    post:
+      tags:
+        - users/me > Calendar List
+      summary: Insert Calendar on List
+      description: Inserts an existing calendar into the user's calendar list.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                accessRole: dolore deserunt nisi sunt
+                backgroundColor: consequat tempor esse voluptate
+                colorId: eiusmod pariatur et
+                conferenceProperties:
+                  allowedConferenceSolutionTypes:
+                    - culpa elit
+                    - cillum
+                defaultReminders:
+                  - method: Excepteur
+                    minutes: 35541699
+                  - method: in magna culpa consequat
+                    minutes: 74169785
+                deleted: 'false'
+                description: nulla
+                etag: incididunt elit in
+                foregroundColor: labore fugiat
+                hidden: 'false'
+                id: nulla
+                kind: calendar#calendarListEntry
+                location: aliqua
+                notificationSettings:
+                  notifications:
+                    - method: id dolor minim
+                      type: ut occaecat sit e
+                    - method: consequat minim nisi consecte
+                      type: nulla id
+                primary: 'false'
+                selected: 'false'
+                summary: anim Duis culpa quis consequ
+                summaryOverride: deserunt elit reprehenderit
+                timeZone: minim commodo incididunt reprehenderit sed
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                accessRole: dolore deserunt nisi sunt
+                backgroundColor: consequat tempor esse voluptate
+                colorId: eiusmod pariatur et
+                conferenceProperties:
+                  allowedConferenceSolutionTypes:
+                    - culpa elit
+                    - cillum
+                defaultReminders:
+                  - method: Excepteur
+                    minutes: 35541699
+                  - method: in magna culpa consequat
+                    minutes: 74169785
+                deleted: 'false'
+                description: nulla
+                etag: incididunt elit in
+                foregroundColor: labore fugiat
+                hidden: 'false'
+                id: nulla
+                kind: calendar#calendarListEntry
+                location: aliqua
+                notificationSettings:
+                  notifications:
+                    - method: id dolor minim
+                      type: ut occaecat sit e
+                    - method: consequat minim nisi consecte
+                      type: nulla id
+                primary: 'false'
+                selected: 'false'
+                summary: anim Duis culpa quis consequ
+                summaryOverride: deserunt elit reprehenderit
+                timeZone: minim commodo incididunt reprehenderit sed
+  /users/{userId}/calendarList:
+    get:
+      tags:
+        - users/me > Calendar List
+      summary: List Calendars
+      description: Returns the calendars on the user's calendar list.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          description: (Required)
+          example: '{{userId}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                etag: qui labore aliqua in
+                items:
+                  - accessRole: qui incididunt do Excepteur
+                    backgroundColor: ad esse nulla labore adipisicing
+                    colorId: ipsum
+                    conferenceProperties:
+                      allowedConferenceSolutionTypes:
+                        - adipisici
+                        - Duis of
+                    defaultReminders:
+                      - method: id cupidatat
+                        minutes: -16296761
+                      - method: magna mollit proident
+                        minutes: -16227132
+                    deleted: 'false'
+                    description: cupidatat Excepteur
+                    etag: 'ea '
+                    foregroundColor: amet enim velit in
+                    hidden: 'false'
+                    id: sunt ad ipsum dolore
+                    kind: calendar#calendarListEntry
+                    location: deserunt ullamco proident occaecat id
+                    notificationSettings:
+                      notifications:
+                        - method: aliquip
+                          type: Lorem reprehenderit
+                        - method: pariatur incididunt
+                          type: anim consectetur deserunt
+                    primary: 'false'
+                    selected: 'false'
+                    summary: qui
+                    summaryOverride: velit id eiusmod minim amet
+                    timeZone: nisi Ut cillum sunt sit
+                  - accessRole: ea dolor ex sunt ut
+                    backgroundColor: dolore enim officia amet
+                    colorId: laborum amet nostrud ipsum deserunt
+                    conferenceProperties:
+                      allowedConferenceSolutionTypes:
+                        - anim consequat
+                        - dolor Ut ut
+                    defaultReminders:
+                      - method: sit qui
+                        minutes: 60974334
+                      - method: in culpa
+                        minutes: 48454696
+                    deleted: 'false'
+                    description: eiusmod do minim
+                    etag: adipisicing ut laborum ea
+                    foregroundColor: ipsum cillum
+                    hidden: 'false'
+                    id: quis Excepteur deserunt
+                    kind: calendar#calendarListEntry
+                    location: consequat Excepteur dolor
+                    notificationSettings:
+                      notifications:
+                        - method: nostrud aliquip non
+                          type: dolor laboris
+                        - method: fugiat voluptate mollit
+                          type: officia veniam
+                    primary: 'false'
+                    selected: 'false'
+                    summary: sit ex exercitation aliqua
+                    summaryOverride: aute exercitation
+                    timeZone: fugiat do ut
+                kind: calendar#calendarList
+                nextPageToken: sit ea
+                nextSyncToken: labore consectetur proident occaecat
+  /users/me/calendarList/watch:
+    post:
+      tags:
+        - users/me > Calendar List
+      summary: Watch Calendar List
+      description: Watch for changes to CalendarList resources.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                address: incididunt sed consequat
+                expiration: velit ad aliq
+                id: velit eiusmod
+                kind: api#channel
+                params:
+                  reprehenderit5c: non
+                  sint_b: cupidatat do
+                payload: false
+                resourceId: aute
+                resourceUri: fugiat consequat
+                token: ullamco officia in
+                type: ex eiusmod adipisicing mollit
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                address: incididunt sed consequat
+                expiration: velit ad aliq
+                id: velit eiusmod
+                kind: api#channel
+                params:
+                  reprehenderit5c: non
+                  sint_b: cupidatat do
+                payload: false
+                resourceId: aute
+                resourceUri: fugiat consequat
+                token: ullamco officia in
+                type: ex eiusmod adipisicing mollit
+  /users/me/settings:
+    get:
+      tags:
+        - users/me > settings
+      summary: List Calendar Settings
+      description: Returns all user settings for the authenticated user.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                etag: in officia sed exercitation sit
+                items:
+                  - etag: do commodo
+                    id: dolor Ut
+                    kind: calendar#setting
+                    value: non labore occaecat ut
+                  - etag: culpa labore ut
+                    id: ullamco ut quis
+                    kind: calendar#setting
+                    value: laborum consectetur eu in
+                kind: calendar#settings
+                nextPageToken: ullamco
+                nextSyncToken: mag
+  /users/me/settings/{setting}:
+    get:
+      tags:
+        - users/me > settings
+      summary: Get Calendar Settings
+      description: Returns a single user setting.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: setting
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                etag: nisi cupidatat non dolor
+                id: sint velit sit
+                kind: calendar#setting
+                value: in
+  /users/me/settings/watch:
+    post:
+      tags:
+        - users/me > settings
+      summary: Watch Calendar Settings
+      description: Watch for changes to Settings resources.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                address: incididunt sed consequat
+                expiration: velit ad aliq
+                id: velit eiusmod
+                kind: api#channel
+                params:
+                  reprehenderit5c: non
+                  sint_b: cupidatat do
+                payload: false
+                resourceId: aute
+                resourceUri: fugiat consequat
+                token: ullamco officia in
+                type: ex eiusmod adipisicing mollit
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                address: incididunt sed consequat
+                expiration: velit ad aliq
+                id: velit eiusmod
+                kind: api#channel
+                params:
+                  reprehenderit5c: non
+                  sint_b: cupidatat do
+                payload: false
+                resourceId: aute
+                resourceUri: fugiat consequat
+                token: ullamco officia in
+                type: ex eiusmod adipisicing mollit
+  /channels/stop:
+    post:
+      tags:
+        - default
+      summary: Stop Calendar Channel
+      description: Stop watching resources through this channel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                address: incididunt sed consequat
+                expiration: velit ad aliq
+                id: velit eiusmod
+                kind: api#channel
+                params:
+                  reprehenderit5c: non
+                  sint_b: cupidatat do
+                payload: false
+                resourceId: aute
+                resourceUri: fugiat consequat
+                token: ullamco officia in
+                type: ex eiusmod adipisicing mollit
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '204':
+          description: No Content
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: text/plain
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /colors:
+    get:
+      tags:
+        - default
+      summary: Get Calendar Colors
+      description: Returns the color definitions for calendars and events.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                calendar:
+                  qui_15:
+                    background: dolore et occaecat
+                    foreground: et est cupidatat ullamco
+                  nulla_2:
+                    background: cupidatat ipsum Duis
+                    foreground: officia elit Excepteur dolore
+                  laborisaf:
+                    background: ex proident culpa consectetur veniam
+                    foreground: cupidatat dolore mollit laborum
+                event:
+                  Excepteure8:
+                    background: in
+                    foreground: Ut reprehenderit officia Duis
+                kind: calendar#colors
+                updated: '1990-01-21T16:25:35.908Z'
+  /freeBusy:
+    post:
+      tags:
+        - default
+      summary: Query Free Busy
+      description: Returns free/busy information for a set of calendars.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                calendarExpansionMax: -12276786
+                groupExpansionMax: 73067826
+                items:
+                  - id: aliqua in
+                  - id: pariatur do et
+                timeMax: '1974-03-05T08:59:00.048Z'
+                timeMin: '1992-03-30T15:21:47.410Z'
+                timeZone: UTC
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                calendars:
+                  ea8_a:
+                    busy:
+                      - end: '2015-07-24T01:15:56.179Z'
+                        start: '1981-06-16T20:23:49.974Z'
+                      - end: '1957-12-14T21:19:55.990Z'
+                        start: '2012-06-19T05:53:57.552Z'
+                    errors:
+                      - domain: l
+                        reason: qui minim in
+                      - domain: ea proident non ad aliquip
+                        reason: non mollit ad dolore
+                  tempor__:
+                    busy:
+                      - end: '2012-06-15T15:09:24.939Z'
+                        start: '2008-07-23T06:48:49.875Z'
+                      - end: '2001-10-07T01:39:27.884Z'
+                        start: '1962-01-18T06:39:30.566Z'
+                    errors:
+                      - domain: nostrud ad enim
+                        reason: cupidatat Lorem velit et quis
+                      - domain: consectetur repr
+                        reason: Ut
+                groups:
+                  amet_0:
+                    calendars:
+                      - veniam ad est tempor
+                      - eu qui proident
+                    errors:
+                      - domain: do
+                        reason: exercitation
+                      - domain: exer
+                        reason: dolor
+                  occaecat_3:
+                    calendars:
+                      - ipsum nulla
+                      - ad nisi dolor
+                    errors:
+                      - domain: ad dolor tempor sunt reprehenderit
+                        reason: in tempor deserunt
+                      - domain: consectetur eu ea
+                        reason: est exercitation
+                kind: calendar#freeBusy
+                timeMax: '2011-01-28T06:05:22.021Z'
+                timeMin: '1978-06-06T06:26:44.109Z'
