@@ -136,6 +136,8 @@ apis:
       - Spreadsheets
   - aid: google:google-docs-api
     name: Google Docs API
+    tags:
+      - Documents
     humanURL: https://developers.google.com/workspace/docs/api/reference/rest
     properties:
       - url: https://developers.google.com/workspace/docs/api/reference/rest
@@ -143,8 +145,6 @@ apis:
       - url: properties/google-docs-api-openapi.yml
         type: OpenAPI
     description: Reads and writes Google Docs documents.
-    tags:
-      - Documents
 name: Google
 tags:
   - Search
