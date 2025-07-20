@@ -1,11 +1,17 @@
 openapi: 3.0.0
 servers:
-  - url: https://driveactivity.googleapis.com/
+  - url: '{protocol}://{hostname}'
+    variables:
+      hostname:
+        description: Self-hosted Enterprise Server hostname
+        default: api.github.com
+      protocol:
+        description: Self-hosted Enterprise Server protocol
+        default: https
 info:
   contact:
     name: Google
     url: https://google.com
-    x-twitter: youtube
   description: Provides a historical view of activity in Google Drive.
   license:
     name: Creative Commons Attribution 3.0
@@ -13,23 +19,6 @@ info:
   termsOfService: https://developers.google.com/terms/
   title: Drive Activity API
   version: v2
-  x-apiClientRegistration:
-    url: https://console.developers.google.com
-  x-apisguru-categories:
-    - analytics
-    - media
-  x-logo:
-    url: >-
-      https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png
-  x-origin:
-    - converter:
-        url: https://github.com/mermade/oas-kit
-        version: 7.0.4
-      format: google
-      url: https://driveactivity.googleapis.com/$discovery/rest?version=v2
-      version: v1
-  x-providerName: googleapis.com
-  x-serviceName: driveactivity
 externalDocs:
   url: https://developers.google.com/drive/activity/
 tags:
