@@ -162,6 +162,10 @@ paths:
           name: uploadType
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -188,7 +192,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels.readonly
       tags:
         - labels
-      summary: Get  V2 Labels
+      summary: Retrieve Labels
     post:
       description: Creates a new Label.
       operationId: drivelabels.labels.create
@@ -276,6 +280,10 @@ paths:
           name: uploadType
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -299,7 +307,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
-      summary: Post  V2 Labels
+      summary: Create Labels
   /v2/limits/label:
     get:
       description: >-
@@ -380,6 +388,10 @@ paths:
           name: uploadType
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -406,7 +418,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels.readonly
       tags:
         - limits
-      summary: Get  V2 Limits Label
+      summary: Retrieve Limits Label
   /v2/{name}:
     delete:
       description: >-
@@ -502,6 +514,10 @@ paths:
         - description: Legacy upload protocol for media (e.g. "media", "multipart").
           in: query
           name: uploadType
+          schema:
+            type: string
+        - in: header
+          name: Authorization
           schema:
             type: string
       responses:
@@ -629,6 +645,10 @@ paths:
           name: uploadType
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -655,7 +675,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels.readonly
       tags:
         - users
-      summary: Get  V2 Name
+      summary: Retrieve Name
   /v2/{name}:delta:
     post:
       description: >-
@@ -740,6 +760,10 @@ paths:
           name: uploadType
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -765,7 +789,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
-      summary: Post  V2 Name:delta
+      summary: Create Name:delta
   /v2/{name}:disable:
     post:
       description: >-
@@ -850,6 +874,10 @@ paths:
           name: uploadType
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -873,7 +901,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
-      summary: Post  V2 Name:disable
+      summary: Create Name:disable
   /v2/{name}:enable:
     post:
       description: >-
@@ -957,6 +985,10 @@ paths:
           name: uploadType
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -980,7 +1012,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
-      summary: Post  V2 Name:enable
+      summary: Create Name:enable
   /v2/{name}:publish:
     post:
       description: >-
@@ -1074,6 +1106,10 @@ paths:
           name: uploadType
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1097,7 +1133,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
-      summary: Post  V2 Name:publish
+      summary: Create Name:publish
   /v2/{name}:updateLabelCopyMode:
     post:
       description: >-
@@ -1179,6 +1215,10 @@ paths:
           name: uploadType
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1203,7 +1243,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
-      summary: Post  V2 Name:updatelabelcopymode
+      summary: Create Name:updatelabelcopymode
   /v2/{parent}/locks:
     get:
       description: Lists the LabelLocks on a Label.
@@ -1293,6 +1333,10 @@ paths:
           name: uploadType
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -1320,7 +1364,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels.readonly
       tags:
         - labels
-      summary: Get  V2 Parent Locks
+      summary: Retrieve Parent Locks
   /v2/{parent}/permissions:
     get:
       description: Lists a Label's permissions.
@@ -1422,6 +1466,10 @@ paths:
           name: uploadType
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -1449,7 +1497,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels.readonly
       tags:
         - labels
-      summary: Get  V2 Parent Permissions
+      summary: Retrieve Parent Permissions
     patch:
       description: >-
         Updates a Label's permissions. If a permission for the indicated
@@ -1538,6 +1586,10 @@ paths:
         - description: Legacy upload protocol for media (e.g. "media", "multipart").
           in: query
           name: uploadType
+          schema:
+            type: string
+        - in: header
+          name: Authorization
           schema:
             type: string
       requestBody:
@@ -1656,6 +1708,10 @@ paths:
           name: uploadType
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1679,7 +1735,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
-      summary: Post  V2 Parent Permissions
+      summary: Create Parent Permissions
   /v2/{parent}/permissions:batchDelete:
     post:
       description: >-
@@ -1765,6 +1821,10 @@ paths:
           name: uploadType
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1789,7 +1849,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
-      summary: Post  V2 Parent Permissions:batchdelete
+      summary: Create Parent Permissions:batchdelete
   /v2/{parent}/permissions:batchUpdate:
     post:
       description: >-
@@ -1877,6 +1937,10 @@ paths:
           name: uploadType
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1902,7 +1966,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
-      summary: Post  V2 Parent Permissions:batchupdate
+      summary: Create Parent Permissions:batchupdate
 components:
   parameters:
     _.xgafv:
