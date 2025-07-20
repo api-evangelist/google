@@ -1,13 +1,6 @@
 openapi: 3.0.0
 servers:
-  - url: '{protocol}://{hostname}'
-    variables:
-      hostname:
-        description: Self-hosted Enterprise Server hostname
-        default: api.github.com
-      protocol:
-        description: Self-hosted Enterprise Server protocol
-        default: https
+  - url: https://driveactivity.googleapis.com/
 info:
   contact:
     name: Google
