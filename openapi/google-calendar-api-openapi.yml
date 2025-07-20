@@ -1,96 +1,11 @@
 openapi: 3.0.0
 info:
-  title: =Ó Google Calendar API
+  title: Google Calendar API
   description: >-
-    ## Google Calendar API Overview with Postman Collection
-
-
     The Google Calendar API allows developers to integrate their applications
     with Google Calendar, enabling them to create, modify, and manage events and
     settings programmatically. This API is robust, offering functionalities like
     managing calendar lists, events, access permissions, and user settings.
-
-
-    ## Technical Concepts
-
-
-    ### Calendar ID
-
-
-    - **What is a Calendar ID?**: A unique identifier for a Google Calendar,
-    used in API calls to specify which calendar to operate on.
-        
-
-    ### Event ID
-
-
-    - **What is an Event ID?**: A unique identifier for an event within a
-    calendar. It's used to specify which event to manage in the API calls.
-        
-
-    ## Obtaining Access Tokens
-
-
-    To use the Google Calendar API, an OAuth 2.0 token is necessary:
-
-
-    1. **Google Developer Console**: Access the [Google Developer
-    Console](https://console.developers.google.com/), create a new project, and
-    enable the Google Calendar API.
-        
-    2. **OAuth Consent Screen**: Set up the OAuth consent screen with the
-    appropriate scopes.
-        
-    3. **Credentials**: Generate credentials (OAuth client ID).
-        
-
-    ## Scopes
-
-
-    The API uses scopes to determine the level of access that the application
-    requires:
-
-
-    | Scope | Description |
-
-    | --- | --- |
-
-    | `https://www.googleapis.com/auth/calendar` | Full access to calendars and
-    their events. |
-
-    | `https://www.googleapis.com/auth/calendar.events` | Access to events on
-    all calendars. |
-
-    | `https://www.googleapis.com/auth/calendar.events.readonly` | Read-only
-    access to events on all calendars. |
-
-    | `https://www.googleapis.com/auth/calendar.readonly` | Read-only access to
-    calendar information. |
-
-    | `https://www.googleapis.com/auth/calendar.settings.readonly` | Read-only
-    access to calendar settings. |
-
-
-    ## Common Parameters
-
-
-    | Parameter | Description | Example Value |
-
-    | --- | --- | --- |
-
-    | `calendarId` | The ID of the calendar to operate on. | `{{calendarId}}` |
-
-    | `eventId` | The ID of the event within the calendar. | `{{eventId}}` |
-
-    | `timeMin` | The minimum time for event instances. Used in list and
-    freeBusy queries. | `'2024-01-01T00:00:00Z'` |
-
-    | `timeMax` | The maximum time for event instances. Used in list and
-    freeBusy queries. | `'2024-12-31T23:59:59Z'` |
-
-
-    For more information and detailed guides, please visit our [Developer
-    Portal](https://developers.google.com/calendar).
   version: 1.0.0
 servers:
   - url: http://{{baseurl}}
