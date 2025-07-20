@@ -89,6 +89,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '204':
           description: No Content
@@ -171,6 +175,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -283,6 +291,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -395,6 +407,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -503,6 +519,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -607,6 +627,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -747,6 +771,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -847,6 +875,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '204':
           description: No Content
@@ -947,6 +979,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -1070,6 +1106,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -1193,6 +1233,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -1321,6 +1365,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -1425,6 +1473,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -1539,6 +1591,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -1706,6 +1762,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -1807,6 +1867,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -1903,6 +1967,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -2094,6 +2162,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -2181,6 +2253,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '204':
           description: No Content
@@ -2213,6 +2289,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -2323,6 +2403,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -2433,6 +2517,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -2521,6 +2609,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '204':
           description: No Content
@@ -2569,6 +2661,10 @@ paths:
           schema:
             type: string
           example: application/json
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -2606,6 +2702,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '204':
           description: No Content
@@ -2636,6 +2736,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -2681,6 +2785,7 @@ paths:
                 summaryOverride: deserunt elit reprehenderit
                 timeZone: minim commodo incididunt reprehenderit sed
       operationId: getCalendarList
+      x-api-evangelist-certified: '2025-07-20'
     patch:
       tags:
         - UsersMeCalendarList
@@ -2741,6 +2846,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -2844,6 +2953,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -2943,6 +3056,10 @@ paths:
           schema:
             type: string
           example: application/json
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -3007,6 +3124,10 @@ paths:
           required: true
           description: (Required)
           example: '{{userId}}'
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -3088,6 +3209,7 @@ paths:
                 nextPageToken: sit ea
                 nextSyncToken: labore consectetur proident occaecat
       operationId: listCalendars
+      x-api-evangelist-certified: '2025-07-20'
   /users/me/calendarList/watch:
     post:
       tags:
@@ -3123,6 +3245,10 @@ paths:
           schema:
             type: string
           example: application/json
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -3161,6 +3287,10 @@ paths:
           schema:
             type: string
           example: application/json
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -3205,6 +3335,10 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -3258,6 +3392,10 @@ paths:
           schema:
             type: string
           example: application/json
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -3314,6 +3452,10 @@ paths:
           schema:
             type: string
           example: application/json
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '204':
           description: No Content
@@ -3340,6 +3482,10 @@ paths:
           schema:
             type: string
           example: application/json
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -3401,6 +3547,10 @@ paths:
           schema:
             type: string
           example: application/json
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: OK
