@@ -133,6 +133,15 @@ common:
     description: 'null'
     url: https://www.youtube.com/channel/UC_x5XG1OV2P6uZZ5FSM9Ttw
     type: Videos
+  - name: APIs & Services  APIs & Services  API Evangelist  Google Cloud console
+    description: 'null'
+    url: >-
+      https://console.cloud.google.com/apis/dashboard?pli=1&inv=1&invt=Ab3RcQ&project=api-project-111046942866
+    type: Explorer
+  - name: "Google Developers Site Terms of Service \_|\_ Google for Developers"
+    description: 'null'
+    url: https://developers.google.com/terms/site-terms
+    type: TermsOfService
 created: 2023/11/8
 modified: '2025-07-20'
 description: |-
