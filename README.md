@@ -17,7 +17,7 @@ machine-learning-based data analysis to your applications.
 ## Timestamps
 
 - **Created:** 2023/11/8 
-- **Modified:** 2025-07-18 
+- **Modified:** 2025-07-20 
 
 ## APIs
 
@@ -36,7 +36,7 @@ can make a request to an HTTP endpoint.
 
 #### Tags:
 
- - No Tags
+ - API Gateway
 
 #### Properties
 
@@ -69,26 +69,35 @@ Google Drive is a cloud-based storage service that lets users store, access, and
 **Human URL:** [https://workspace.google.com/products/drive/](https://workspace.google.com/products/drive/)
 
 
+#### Tags:
+
+ - Documents, Storage
 
 #### Properties
 
 - [Documentation](https://developers.google.com/workspace/drive/api/guides/about-sdk)
-### Introduction to Google Drive Activity API
+### Google Drive Activity API
 The Google Drive Activity API consists of the DriveActivity resource, which represents changes made to objects within a user's Google Drive, and the activity.query method, which allows you to retrieve information about those changes.
 
 **Human URL:** [https://workspace.google.com/products/drive/](https://workspace.google.com/products/drive/)
 
 
+#### Tags:
+
+ - Documents, Activity
 
 #### Properties
 
 - [Documentation](https://developers.google.com/workspace/drive/activity/v2)
-### Drive Labels API
-Labels are metadata that you define to help users organize, find, and apply policy to files in Google Drive. The Drive Labels API is a RESTful API that supports business processes by attaching metadata to your Drive files.   
+### Google Drive Labels API
+Labels are metadata that you define to help users organize, find, and apply policy to files in Google Drive. The Drive Labels API is a RESTful API that supports business processes by attaching metadata to your Drive files.  
 
 **Human URL:** [https://workspace.google.com/products/drive/](https://workspace.google.com/products/drive/)
 
 
+#### Tags:
+
+ - Documents, Labels
 
 #### Properties
 
@@ -98,11 +107,17 @@ Labels are metadata that you define to help users organize, find, and apply poli
 
 - [Google Cloud](https://cloud.google.com)
 - [Developer Portal](https://developers.google.com/)
-- [Blog](https://googledevelopers.blogspot.com/)
+- [Blog](https://developers.googleblog.com/en/)
 - [Console](https://console.cloud.google.com/apis/dashboard?project=api-project-111046942866)
 - [LinkedIn](https://www.linkedin.com/showcase/googledevelopers/)
 - [Events](https://developers.google.com/events)
 - [Community](https://developers.google.com/community)
+- [PrivacyPolicy](https://policies.google.com/privacy)
+- [Portal](https://developers.google.com/)
+- [Discord](https://discord.com/invite/google-dev-community)
+- [Videos](https://www.youtube.com/channel/UC_x5XG1OV2P6uZZ5FSM9Ttw)
+- [Explorer](https://console.cloud.google.com/apis/dashboard?pli=1&inv=1&invt=Ab3RcQ&project=api-project-111046942866)
+- [TermsOfService](https://developers.google.com/terms/site-terms)
 
 ## Maintainers
 
