@@ -11,21 +11,8 @@ info:
     name: Creative Commons Attribution 3.0
     url: http://creativecommons.org/licenses/by/3.0/
   termsOfService: https://developers.google.com/terms/
-  title: Drive Labels API
+  title: Google Drive Labels API
   version: v2
-  x-apisguru-categories:
-    - analytics
-    - media
-  x-logo:
-    url: >-
-      https://upload.wikimedia.org/wikipedia/commons/e/e1/YouTube_play_buttom_icon_%282013-2017%29.svg
-  x-origin:
-    - format: google
-      url: https://drivelabels.googleapis.com/$discovery/rest?version=v2
-      version: v1
-  x-preferred: false
-  x-providerName: googleapis.com
-  x-serviceName: drivelabels
 externalDocs:
   url: https://developers.google.com/drive/labels
 tags:
@@ -107,6 +94,74 @@ paths:
               - LABEL_VIEW_BASIC
               - LABEL_VIEW_FULL
             type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: >-
+            Available to use for quota purposes for server-side applications.
+            Can be any arbitrary string assigned to a user, but should not
+            exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -133,18 +188,6 @@ paths:
             - https://www.googleapis.com/auth/drive.labels.readonly
       tags:
         - labels
-    parameters:
-      - $ref: '#/components/parameters/_.xgafv'
-      - $ref: '#/components/parameters/access_token'
-      - $ref: '#/components/parameters/alt'
-      - $ref: '#/components/parameters/callback'
-      - $ref: '#/components/parameters/fields'
-      - $ref: '#/components/parameters/key'
-      - $ref: '#/components/parameters/oauth_token'
-      - $ref: '#/components/parameters/prettyPrint'
-      - $ref: '#/components/parameters/quotaUser'
-      - $ref: '#/components/parameters/upload_protocol'
-      - $ref: '#/components/parameters/uploadType'
     post:
       description: Creates a new Label.
       operationId: drivelabels.labels.create
@@ -164,6 +207,74 @@ paths:
           name: useAdminAccess
           schema:
             type: boolean
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: >-
+            Available to use for quota purposes for server-side applications.
+            Can be any arbitrary string assigned to a user, but should not
+            exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -199,6 +310,74 @@ paths:
           name: name
           schema:
             type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: >-
+            Available to use for quota purposes for server-side applications.
+            Can be any arbitrary string assigned to a user, but should not
+            exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -225,18 +404,6 @@ paths:
             - https://www.googleapis.com/auth/drive.labels.readonly
       tags:
         - limits
-    parameters:
-      - $ref: '#/components/parameters/_.xgafv'
-      - $ref: '#/components/parameters/access_token'
-      - $ref: '#/components/parameters/alt'
-      - $ref: '#/components/parameters/callback'
-      - $ref: '#/components/parameters/fields'
-      - $ref: '#/components/parameters/key'
-      - $ref: '#/components/parameters/oauth_token'
-      - $ref: '#/components/parameters/prettyPrint'
-      - $ref: '#/components/parameters/quotaUser'
-      - $ref: '#/components/parameters/upload_protocol'
-      - $ref: '#/components/parameters/uploadType'
   /v2/{name}:
     delete:
       description: >-
@@ -264,6 +431,74 @@ paths:
             will not be processed and will return a 400 Bad Request error.
           in: query
           name: writeControl.requiredRevisionId
+          schema:
+            type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: >-
+            Available to use for quota purposes for server-side applications.
+            Can be any arbitrary string assigned to a user, but should not
+            exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
           schema:
             type: string
       responses:
@@ -322,6 +557,74 @@ paths:
               - LABEL_VIEW_BASIC
               - LABEL_VIEW_FULL
             type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: >-
+            Available to use for quota purposes for server-side applications.
+            Can be any arbitrary string assigned to a user, but should not
+            exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -348,31 +651,7 @@ paths:
             - https://www.googleapis.com/auth/drive.labels.readonly
       tags:
         - users
-    parameters:
-      - $ref: '#/components/parameters/_.xgafv'
-      - $ref: '#/components/parameters/access_token'
-      - $ref: '#/components/parameters/alt'
-      - $ref: '#/components/parameters/callback'
-      - $ref: '#/components/parameters/fields'
-      - $ref: '#/components/parameters/key'
-      - $ref: '#/components/parameters/oauth_token'
-      - $ref: '#/components/parameters/prettyPrint'
-      - $ref: '#/components/parameters/quotaUser'
-      - $ref: '#/components/parameters/upload_protocol'
-      - $ref: '#/components/parameters/uploadType'
   /v2/{name}:delta:
-    parameters:
-      - $ref: '#/components/parameters/_.xgafv'
-      - $ref: '#/components/parameters/access_token'
-      - $ref: '#/components/parameters/alt'
-      - $ref: '#/components/parameters/callback'
-      - $ref: '#/components/parameters/fields'
-      - $ref: '#/components/parameters/key'
-      - $ref: '#/components/parameters/oauth_token'
-      - $ref: '#/components/parameters/prettyPrint'
-      - $ref: '#/components/parameters/quotaUser'
-      - $ref: '#/components/parameters/upload_protocol'
-      - $ref: '#/components/parameters/uploadType'
     post:
       description: >-
         Updates a single Label by applying a set of update requests resulting in
@@ -386,6 +665,74 @@ paths:
           in: path
           name: name
           required: true
+          schema:
+            type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: >-
+            Available to use for quota purposes for server-side applications.
+            Can be any arbitrary string assigned to a user, but should not
+            exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
           schema:
             type: string
       requestBody:
@@ -414,18 +761,6 @@ paths:
       tags:
         - labels
   /v2/{name}:disable:
-    parameters:
-      - $ref: '#/components/parameters/_.xgafv'
-      - $ref: '#/components/parameters/access_token'
-      - $ref: '#/components/parameters/alt'
-      - $ref: '#/components/parameters/callback'
-      - $ref: '#/components/parameters/fields'
-      - $ref: '#/components/parameters/key'
-      - $ref: '#/components/parameters/oauth_token'
-      - $ref: '#/components/parameters/prettyPrint'
-      - $ref: '#/components/parameters/quotaUser'
-      - $ref: '#/components/parameters/upload_protocol'
-      - $ref: '#/components/parameters/uploadType'
     post:
       description: >-
         Disable a published Label. Disabling a Label will result in a new
@@ -439,6 +774,74 @@ paths:
           in: path
           name: name
           required: true
+          schema:
+            type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: >-
+            Available to use for quota purposes for server-side applications.
+            Can be any arbitrary string assigned to a user, but should not
+            exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
           schema:
             type: string
       requestBody:
@@ -465,18 +868,6 @@ paths:
       tags:
         - labels
   /v2/{name}:enable:
-    parameters:
-      - $ref: '#/components/parameters/_.xgafv'
-      - $ref: '#/components/parameters/access_token'
-      - $ref: '#/components/parameters/alt'
-      - $ref: '#/components/parameters/callback'
-      - $ref: '#/components/parameters/fields'
-      - $ref: '#/components/parameters/key'
-      - $ref: '#/components/parameters/oauth_token'
-      - $ref: '#/components/parameters/prettyPrint'
-      - $ref: '#/components/parameters/quotaUser'
-      - $ref: '#/components/parameters/upload_protocol'
-      - $ref: '#/components/parameters/uploadType'
     post:
       description: >-
         Enable a disabled Label and restore it to its published state. This will
@@ -489,6 +880,74 @@ paths:
           in: path
           name: name
           required: true
+          schema:
+            type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: >-
+            Available to use for quota purposes for server-side applications.
+            Can be any arbitrary string assigned to a user, but should not
+            exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
           schema:
             type: string
       requestBody:
@@ -515,18 +974,6 @@ paths:
       tags:
         - labels
   /v2/{name}:publish:
-    parameters:
-      - $ref: '#/components/parameters/_.xgafv'
-      - $ref: '#/components/parameters/access_token'
-      - $ref: '#/components/parameters/alt'
-      - $ref: '#/components/parameters/callback'
-      - $ref: '#/components/parameters/fields'
-      - $ref: '#/components/parameters/key'
-      - $ref: '#/components/parameters/oauth_token'
-      - $ref: '#/components/parameters/prettyPrint'
-      - $ref: '#/components/parameters/quotaUser'
-      - $ref: '#/components/parameters/upload_protocol'
-      - $ref: '#/components/parameters/uploadType'
     post:
       description: >-
         Publish all draft changes to the Label. Once published, the Label may
@@ -549,6 +996,74 @@ paths:
           in: path
           name: name
           required: true
+          schema:
+            type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: >-
+            Available to use for quota purposes for server-side applications.
+            Can be any arbitrary string assigned to a user, but should not
+            exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
           schema:
             type: string
       requestBody:
@@ -575,18 +1090,6 @@ paths:
       tags:
         - labels
   /v2/{name}:updateLabelCopyMode:
-    parameters:
-      - $ref: '#/components/parameters/_.xgafv'
-      - $ref: '#/components/parameters/access_token'
-      - $ref: '#/components/parameters/alt'
-      - $ref: '#/components/parameters/callback'
-      - $ref: '#/components/parameters/fields'
-      - $ref: '#/components/parameters/key'
-      - $ref: '#/components/parameters/oauth_token'
-      - $ref: '#/components/parameters/prettyPrint'
-      - $ref: '#/components/parameters/quotaUser'
-      - $ref: '#/components/parameters/upload_protocol'
-      - $ref: '#/components/parameters/uploadType'
     post:
       description: >-
         Updates a Label's `CopyMode`. Changes to this policy are not revisioned,
@@ -597,6 +1100,74 @@ paths:
           in: path
           name: name
           required: true
+          schema:
+            type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: >-
+            Available to use for quota purposes for server-side applications.
+            Can be any arbitrary string assigned to a user, but should not
+            exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
           schema:
             type: string
       requestBody:
@@ -644,6 +1215,74 @@ paths:
           name: pageToken
           schema:
             type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: >-
+            Available to use for quota purposes for server-side applications.
+            Can be any arbitrary string assigned to a user, but should not
+            exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -671,18 +1310,6 @@ paths:
             - https://www.googleapis.com/auth/drive.labels.readonly
       tags:
         - labels
-    parameters:
-      - $ref: '#/components/parameters/_.xgafv'
-      - $ref: '#/components/parameters/access_token'
-      - $ref: '#/components/parameters/alt'
-      - $ref: '#/components/parameters/callback'
-      - $ref: '#/components/parameters/fields'
-      - $ref: '#/components/parameters/key'
-      - $ref: '#/components/parameters/oauth_token'
-      - $ref: '#/components/parameters/prettyPrint'
-      - $ref: '#/components/parameters/quotaUser'
-      - $ref: '#/components/parameters/upload_protocol'
-      - $ref: '#/components/parameters/uploadType'
   /v2/{parent}/permissions:
     get:
       description: Lists a Label's permissions.
@@ -716,6 +1343,74 @@ paths:
           name: useAdminAccess
           schema:
             type: boolean
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: >-
+            Available to use for quota purposes for server-side applications.
+            Can be any arbitrary string assigned to a user, but should not
+            exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -743,18 +1438,6 @@ paths:
             - https://www.googleapis.com/auth/drive.labels.readonly
       tags:
         - labels
-    parameters:
-      - $ref: '#/components/parameters/_.xgafv'
-      - $ref: '#/components/parameters/access_token'
-      - $ref: '#/components/parameters/alt'
-      - $ref: '#/components/parameters/callback'
-      - $ref: '#/components/parameters/fields'
-      - $ref: '#/components/parameters/key'
-      - $ref: '#/components/parameters/oauth_token'
-      - $ref: '#/components/parameters/prettyPrint'
-      - $ref: '#/components/parameters/quotaUser'
-      - $ref: '#/components/parameters/upload_protocol'
-      - $ref: '#/components/parameters/uploadType'
     patch:
       description: >-
         Updates a Label's permissions. If a permission for the indicated
@@ -777,6 +1460,74 @@ paths:
           name: useAdminAccess
           schema:
             type: boolean
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: >-
+            Available to use for quota purposes for server-side applications.
+            Can be any arbitrary string assigned to a user, but should not
+            exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -824,6 +1575,74 @@ paths:
           name: useAdminAccess
           schema:
             type: boolean
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: >-
+            Available to use for quota purposes for server-side applications.
+            Can be any arbitrary string assigned to a user, but should not
+            exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -848,18 +1667,6 @@ paths:
       tags:
         - labels
   /v2/{parent}/permissions:batchDelete:
-    parameters:
-      - $ref: '#/components/parameters/_.xgafv'
-      - $ref: '#/components/parameters/access_token'
-      - $ref: '#/components/parameters/alt'
-      - $ref: '#/components/parameters/callback'
-      - $ref: '#/components/parameters/fields'
-      - $ref: '#/components/parameters/key'
-      - $ref: '#/components/parameters/oauth_token'
-      - $ref: '#/components/parameters/prettyPrint'
-      - $ref: '#/components/parameters/quotaUser'
-      - $ref: '#/components/parameters/upload_protocol'
-      - $ref: '#/components/parameters/uploadType'
     post:
       description: >-
         Deletes Label permissions. Permissions affect the Label resource as a
@@ -874,6 +1681,74 @@ paths:
           in: path
           name: parent
           required: true
+          schema:
+            type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: >-
+            Available to use for quota purposes for server-side applications.
+            Can be any arbitrary string assigned to a user, but should not
+            exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
           schema:
             type: string
       requestBody:
@@ -901,18 +1776,6 @@ paths:
       tags:
         - labels
   /v2/{parent}/permissions:batchUpdate:
-    parameters:
-      - $ref: '#/components/parameters/_.xgafv'
-      - $ref: '#/components/parameters/access_token'
-      - $ref: '#/components/parameters/alt'
-      - $ref: '#/components/parameters/callback'
-      - $ref: '#/components/parameters/fields'
-      - $ref: '#/components/parameters/key'
-      - $ref: '#/components/parameters/oauth_token'
-      - $ref: '#/components/parameters/prettyPrint'
-      - $ref: '#/components/parameters/quotaUser'
-      - $ref: '#/components/parameters/upload_protocol'
-      - $ref: '#/components/parameters/uploadType'
     post:
       description: >-
         Updates Label permissions. If a permission for the indicated principal
@@ -929,6 +1792,74 @@ paths:
           in: path
           name: parent
           required: true
+          schema:
+            type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: >-
+            API key. Your API key identifies your project and provides you with
+            API access, quota, and reports. Required unless you provide an OAuth
+            2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: >-
+            Available to use for quota purposes for server-side applications.
+            Can be any arbitrary string assigned to a user, but should not
+            exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
           schema:
             type: string
       requestBody:
