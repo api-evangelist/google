@@ -8,7 +8,7 @@ info:
     managing calendar lists, events, access permissions, and user settings.
   version: 1.0.0
 servers:
-  - url: http://{{baseurl}}
+  - url: https://www.googleapis.com/calendar/v3
 components:
   securitySchemes:
     oauth2Auth:
@@ -28,7 +28,7 @@ paths:
   /calendars/{calendarId}/acl/{ruleId}:
     delete:
       tags:
-        - calendars > {calendarId} > acl > {ruleId}
+        - CalendarsCalendarIdAclRuleId
       summary: Delete Access Control Rule
       description: Deletes an access control rule.
       parameters:
@@ -102,9 +102,10 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: deleteAccessControlRule
     get:
       tags:
-        - calendars > {calendarId} > acl > {ruleId}
+        - CalendarsCalendarIdAclRuleId
       summary: Get Access Control Rule
       description: Returns an access control rule.
       parameters:
@@ -190,9 +191,10 @@ paths:
                 scope:
                   type: sit eiusmod culpa do
                   value: quis esse
+      operationId: getAccessControlRule
     patch:
       tags:
-        - calendars > {calendarId} > acl > {ruleId}
+        - CalendarsCalendarIdAclRuleId
       summary: Patch Access Control Rule
       description: Updates an access control rule. This method supports patch semantics.
       requestBody:
@@ -301,9 +303,10 @@ paths:
                 scope:
                   type: sit eiusmod culpa do
                   value: quis esse
+      operationId: patchAccessControlRule
     put:
       tags:
-        - calendars > {calendarId} > acl > {ruleId}
+        - CalendarsCalendarIdAclRuleId
       summary: Update Access Control Rule
       description: Updates an access control rule.
       requestBody:
@@ -412,10 +415,11 @@ paths:
                 scope:
                   type: sit eiusmod culpa do
                   value: quis esse
+      operationId: updateAccessControlRule
   /calendars/{calendarId}/acl:
     post:
       tags:
-        - calendars > {calendarId} > acl
+        - CalendarsCalendarIdAcl
       summary: Insert Access Control Rule
       description: Creates an access control rule.
       requestBody:
@@ -519,9 +523,10 @@ paths:
                 scope:
                   type: sit eiusmod culpa do
                   value: quis esse
+      operationId: insertAccessControlRule
     get:
       tags:
-        - calendars > {calendarId} > acl
+        - CalendarsCalendarIdAcl
       summary: Return Access Control Rules
       description: Returns the rules in the access control list for the calendar.
       parameters:
@@ -634,10 +639,11 @@ paths:
                 kind: calendar#acl
                 nextPageToken: dolore ex
                 nextSyncToken: amet labore quis
+      operationId: returnAccessControlRules
   /calendars/{calendarId}/acl/watch:
     post:
       tags:
-        - calendars > {calendarId} > acl
+        - CalendarsCalendarIdAcl
       summary: Watch Access Control Rules
       description: Watch for changes to ACL resources.
       requestBody:
@@ -766,10 +772,11 @@ paths:
                 resourceUri: fugiat consequat
                 token: ullamco officia in
                 type: ex eiusmod adipisicing mollit
+      operationId: watchAccessControlRules
   /calendars/{calendarId}/events/{eventId}:
     delete:
       tags:
-        - calendars > {calendarId} > events > {eventId}
+        - CalendarsCalendarIdEventsEventId
       summary: Delete Event
       description: Deletes an event.
       parameters:
@@ -853,9 +860,10 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: deleteEvent
     get:
       tags:
-        - calendars > {calendarId} > events > {eventId}
+        - CalendarsCalendarIdEventsEventId
       summary: Get Event
       description: >-
         Returns an event based on its Google Calendar ID. To retrieve an event
@@ -952,9 +960,10 @@ paths:
               schema:
                 type: object
               example: null
+      operationId: getEvent
     patch:
       tags:
-        - calendars > {calendarId} > events > {eventId}
+        - CalendarsCalendarIdEventsEventId
       summary: Patch Event
       description: Updates an event. This method supports patch semantics.
       requestBody:
@@ -1074,9 +1083,10 @@ paths:
               schema:
                 type: object
               example: null
+      operationId: patchEvent
     put:
       tags:
-        - calendars > {calendarId} > events > {eventId}
+        - CalendarsCalendarIdEventsEventId
       summary: Update Event
       description: Updates an event.
       requestBody:
@@ -1196,10 +1206,11 @@ paths:
               schema:
                 type: object
               example: null
+      operationId: updateEvent
   /calendars/{calendarId}/events/{eventId}/instances:
     get:
       tags:
-        - calendars > {calendarId} > events > {eventId}
+        - CalendarsCalendarIdEventsEventId
       summary: Insert Event
       description: Returns instances of the specified recurring event.
       parameters:
@@ -1323,10 +1334,11 @@ paths:
               schema:
                 type: object
               example: null
+      operationId: insertEvent
   /calendars/{calendarId}/events/{eventId}/move:
     post:
       tags:
-        - calendars > {calendarId} > events > {eventId}
+        - CalendarsCalendarIdEventsEventId
       summary: Move Event
       description: >-
         Moves an event to another calendar, i.e. changes an event's organizer.
@@ -1426,10 +1438,11 @@ paths:
               schema:
                 type: object
               example: null
+      operationId: moveEvent
   /calendars/{calendarId}/events:
     post:
       tags:
-        - calendars > {calendarId} > events
+        - CalendarsCalendarIdEvents
       summary: Create an Event
       description: Creates an event.
       requestBody:
@@ -1539,9 +1552,10 @@ paths:
               schema:
                 type: object
               example: null
+      operationId: createAnEvent
     get:
       tags:
-        - calendars > {calendarId} > events
+        - CalendarsCalendarIdEvents
       summary: Return Events from Calendar
       description: Returns events on the specified calendar.
       parameters:
@@ -1705,10 +1719,11 @@ paths:
               schema:
                 type: object
               example: null
+      operationId: returnEventsFromCalendar
   /calendars/{calendarId}/events/import:
     post:
       tags:
-        - calendars > {calendarId} > events
+        - CalendarsCalendarIdEvents
       summary: Import Event
       description: >-
         Imports an event. This operation is used to add a private copy of an
@@ -1805,10 +1820,11 @@ paths:
               schema:
                 type: object
               example: null
+      operationId: importEvent
   /calendars/{calendarId}/events/quickAdd:
     post:
       tags:
-        - calendars > {calendarId} > events
+        - CalendarsCalendarIdEvents
       summary: Quick Add Event
       description: Creates an event based on a simple text string.
       requestBody:
@@ -1900,10 +1916,11 @@ paths:
               schema:
                 type: object
               example: null
+      operationId: quickAddEvent
   /calendars/{calendarId}/events/watch:
     post:
       tags:
-        - calendars > {calendarId} > events
+        - CalendarsCalendarIdEvents
       summary: Watch Events
       description: Watch for changes to Events resources.
       requestBody:
@@ -2102,10 +2119,11 @@ paths:
                 resourceUri: fugiat consequat
                 token: ullamco officia in
                 type: ex eiusmod adipisicing mollit
+      operationId: watchEvents
   /calendars/{calendarId}:
     delete:
       tags:
-        - calendars > {calendarId}
+        - CalendarsCalendarId
       summary: Delete Calendar
       description: >-
         Deletes a secondary calendar. Use calendars.clear for clearing all
@@ -2176,9 +2194,10 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: deleteCalendar
     get:
       tags:
-        - calendars > {calendarId}
+        - CalendarsCalendarId
       summary: Get Calendar
       description: Returns metadata for a calendar.
       security:
@@ -2218,9 +2237,10 @@ paths:
                 location: in voluptate commodo
                 summary: labore adipisicing enim
                 timeZone: cupidatat sed
+      operationId: getCalendar
     patch:
       tags:
-        - calendars > {calendarId}
+        - CalendarsCalendarId
       summary: Patch Calendar
       description: Updates metadata for a calendar. This method supports patch semantics.
       requestBody:
@@ -2327,9 +2347,10 @@ paths:
                 location: in voluptate commodo
                 summary: labore adipisicing enim
                 timeZone: cupidatat sed
+      operationId: patchCalendar
     put:
       tags:
-        - calendars > {calendarId}
+        - CalendarsCalendarId
       summary: Update Calendar
       description: Updates metadata for a calendar.
       requestBody:
@@ -2436,10 +2457,11 @@ paths:
                 location: in voluptate commodo
                 summary: labore adipisicing enim
                 timeZone: cupidatat sed
+      operationId: updateCalendar
   /calendars/{calendarId}/clear:
     post:
       tags:
-        - calendars > {calendarId}
+        - CalendarsCalendarId
       summary: Clear Calendar
       description: >-
         Clears a primary calendar. This operation deletes all events associated
@@ -2512,10 +2534,11 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: clearCalendar
   /calendars:
     post:
       tags:
-        - calendars
+        - Calendars
       summary: Calendar
       description: Creates a secondary calendar.
       requestBody:
@@ -2570,10 +2593,11 @@ paths:
                 location: in voluptate commodo
                 summary: labore adipisicing enim
                 timeZone: cupidatat sed
+      operationId: calendar
   /users/me/calendarList/{calendarId}:
     delete:
       tags:
-        - users/me > Calendar List
+        - UsersMeCalendarList
       summary: Remove Calendar on List
       description: Removes a calendar from the user's calendar list.
       parameters:
@@ -2595,9 +2619,10 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: removeCalendarOnList
     get:
       tags:
-        - users/me > Calendar List
+        - UsersMeCalendarList
       summary: Get Calendar List
       description: Returns a calendar from the user's calendar list.
       parameters:
@@ -2655,9 +2680,10 @@ paths:
                 summary: anim Duis culpa quis consequ
                 summaryOverride: deserunt elit reprehenderit
                 timeZone: minim commodo incididunt reprehenderit sed
+      operationId: getCalendarList
     patch:
       tags:
-        - users/me > Calendar List
+        - UsersMeCalendarList
       summary: Patch Calendar List
       description: >-
         Updates an existing calendar on the user's calendar list. This method
@@ -2759,9 +2785,10 @@ paths:
                 summary: anim Duis culpa quis consequ
                 summaryOverride: deserunt elit reprehenderit
                 timeZone: minim commodo incididunt reprehenderit sed
+      operationId: patchCalendarList
     put:
       tags:
-        - users/me > Calendar List
+        - UsersMeCalendarList
       summary: Update Calendar List
       description: Updates an existing calendar on the user's calendar list.
       requestBody:
@@ -2861,10 +2888,11 @@ paths:
                 summary: anim Duis culpa quis consequ
                 summaryOverride: deserunt elit reprehenderit
                 timeZone: minim commodo incididunt reprehenderit sed
+      operationId: updateCalendarList
   /users/me/calendarList:
     post:
       tags:
-        - users/me > Calendar List
+        - UsersMeCalendarList
       summary: Insert Calendar on List
       description: Inserts an existing calendar into the user's calendar list.
       requestBody:
@@ -2959,10 +2987,11 @@ paths:
                 summary: anim Duis culpa quis consequ
                 summaryOverride: deserunt elit reprehenderit
                 timeZone: minim commodo incididunt reprehenderit sed
+      operationId: insertCalendarOnList
   /users/{userId}/calendarList:
     get:
       tags:
-        - users/me > Calendar List
+        - UsersMeCalendarList
       summary: List Calendars
       description: Returns the calendars on the user's calendar list.
       parameters:
@@ -3058,10 +3087,11 @@ paths:
                 kind: calendar#calendarList
                 nextPageToken: sit ea
                 nextSyncToken: labore consectetur proident occaecat
+      operationId: listCalendars
   /users/me/calendarList/watch:
     post:
       tags:
-        - users/me > Calendar List
+        - UsersMeCalendarList
       summary: Watch Calendar List
       description: Watch for changes to CalendarList resources.
       requestBody:
@@ -3118,10 +3148,11 @@ paths:
                 resourceUri: fugiat consequat
                 token: ullamco officia in
                 type: ex eiusmod adipisicing mollit
+      operationId: watchCalendarList
   /users/me/settings:
     get:
       tags:
-        - users/me > settings
+        - UsersMeSettings
       summary: List Calendar Settings
       description: Returns all user settings for the authenticated user.
       parameters:
@@ -3156,10 +3187,11 @@ paths:
                 kind: calendar#settings
                 nextPageToken: ullamco
                 nextSyncToken: mag
+      operationId: listCalendarSettings
   /users/me/settings/{setting}:
     get:
       tags:
-        - users/me > settings
+        - UsersMeSettings
       summary: Get Calendar Settings
       description: Returns a single user setting.
       parameters:
@@ -3190,10 +3222,11 @@ paths:
                 id: sint velit sit
                 kind: calendar#setting
                 value: in
+      operationId: getCalendarSettings
   /users/me/settings/watch:
     post:
       tags:
-        - users/me > settings
+        - UsersMeSettings
       summary: Watch Calendar Settings
       description: Watch for changes to Settings resources.
       requestBody:
@@ -3250,10 +3283,11 @@ paths:
                 resourceUri: fugiat consequat
                 token: ullamco officia in
                 type: ex eiusmod adipisicing mollit
+      operationId: watchCalendarSettings
   /channels/stop:
     post:
       tags:
-        - default
+        - Default
       summary: Stop Calendar Channel
       description: Stop watching resources through this channel
       requestBody:
@@ -3293,10 +3327,11 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: stopCalendarChannel
   /colors:
     get:
       tags:
-        - default
+        - Default
       summary: Get Calendar Colors
       description: Returns the color definitions for calendars and events.
       parameters:
@@ -3334,10 +3369,11 @@ paths:
                     foreground: Ut reprehenderit officia Duis
                 kind: calendar#colors
                 updated: '1990-01-21T16:25:35.908Z'
+      operationId: getCalendarColors
   /freeBusy:
     post:
       tags:
-        - default
+        - Default
       summary: Query Free Busy
       description: Returns free/busy information for a set of calendars.
       requestBody:
@@ -3423,3 +3459,4 @@ paths:
                 kind: calendar#freeBusy
                 timeMax: '2011-01-28T06:05:22.021Z'
                 timeMin: '1978-06-06T06:26:44.109Z'
+      operationId: queryFreeBusy
