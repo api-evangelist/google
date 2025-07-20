@@ -17,7 +17,7 @@ info:
     name: Creative Commons Attribution 3.0
     url: http://creativecommons.org/licenses/by/3.0/
   termsOfService: https://developers.google.com/terms/
-  title: Drive Activity API
+  title: Google Drive Activity API
   version: v2
 externalDocs:
   url: https://developers.google.com/drive/activity/
@@ -119,6 +119,10 @@ paths:
         - description: Legacy upload protocol for media (e.g. "media", "multipart").
           in: query
           name: uploadType
+          schema:
+            type: string
+        - in: header
+          name: Authorization
           schema:
             type: string
 components:
