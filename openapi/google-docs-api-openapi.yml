@@ -138,7 +138,12 @@ paths:
           name: uploadType
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       summary: Post  V1 Documents
+      x-api-evangelist-certified: '2025-07-20'
   /v1/documents/{documentId}:
     get:
       description: Gets the latest version of the specified document.
@@ -232,6 +237,10 @@ paths:
           name: uploadType
           schema:
             type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -263,6 +272,7 @@ paths:
       tags:
         - documents
       summary: Get  V1 Documents Documentid
+      x-api-evangelist-certified: '2025-07-20'
   /v1/documents/{documentId}:batchUpdate:
     post:
       description: >-
@@ -354,6 +364,10 @@ paths:
         - description: Legacy upload protocol for media (e.g. "media", "multipart").
           in: query
           name: uploadType
+          schema:
+            type: string
+        - in: header
+          name: Authorization
           schema:
             type: string
       requestBody:
