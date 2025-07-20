@@ -63,6 +63,7 @@ paths:
             - https://www.googleapis.com/auth/drive.activity.readonly
       tags:
         - activity
+      summary: Post  V2 Activity:query
 components:
   parameters:
     _.xgafv:
