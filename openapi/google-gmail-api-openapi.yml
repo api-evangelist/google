@@ -1,134 +1,14 @@
 openapi: 3.0.0
 info:
-<<<<<<< HEAD
-  title: ðŸ“¬ Google Gmail API
-=======
-  title: =ì Google Gmail API
->>>>>>> 06f419cf7d2f733b84ec0b3172338b61c7fff603
+  title: Google Gmail API
   description: >-
-    # Gmail API Overview with Postman Collection
-
-
     The Gmail API allows developers to access and manage a user's mail within
     Gmail. With this API, developers can build a range of applications that
     operate within the Gmail platform, such as applications that automate email
     responses, analyze mailbox data, and manage users' emails
-
-
-    ## Technical Concepts
-
-
-    ### MIME Messages
-
-
-    - **What is a MIME Message?**: MIME (Multipurpose Internet Mail Extensions)
-    is a standard that extends the format of email to support text in character
-    sets other than ASCII, as well as attachments of audio, video, images, and
-    application programs.
-
-    - From: [sender@example.comTo](https://mailto:sender@example.comTo):
-    [recipient@example.comSubject](https://mailto:recipient@example.comSubject):
-    Sample MIME EmailContent-Type: text/plainThis is a plain text body of the
-    email.
-        
-
-    ### Encodings
-
-
-    - **Base64 Encoding**: Base64 is a method for encoding binary data into
-    ASCII characters. It is commonly used in email to encode attachments.
-
-    - **URL Safe Encoding**: When using Base64 in URLs, it is modified to be URL
-    safe by replacing `+` with `-` and `/` with `_`.
-        
-
-    ## Obtaining Access Tokens
-
-
-    To make requests to the Gmail API, you need an OAuth 2.0 token:
-
-
-    1. **Google Developer Console**: Go to the [Google Developer
-    Console](https://console.developers.google.com/), create a new project, and
-    enable the Gmail API.
-
-    2. **OAuth Consent Screen**: Set Up OAuth Consent Screen with the proper
-    scopes
-
-    3. **Credentials**: Create credentials (OAuth client ID)
-        
-
-    ## Scopes
-
-
-    The Gmail API uses scopes to specify the level of access that the
-    application requires. Below is a table of common scopes:
-
-
-    | Scope | Description |
-
-    | --- | --- |
-
-    | `https://www.googleapis.com/auth/gmail.readonly` | Allows read-only access
-    to the user's emails. |
-
-    | `https://www.googleapis.com/auth/gmail.modify` | Allows read and write
-    access to user's emails but not deletion. |
-
-    | `https://www.googleapis.com/auth/gmail.compose` | Allows creating,
-    reading, and sending emails. |
-
-    | `https://www.googleapis.com/auth/gmail.send` | Allows sending emails only.
-    |
-
-    | `https://www.googleapis.com/auth/gmail.labels` | Allows managing labels
-    and settings of Gmail. |
-
-
-    ## Common Parameters
-
-
-    | Parameter | Description | Example Value |
-
-    | --- | --- | --- |
-
-    | `access_token` | OAuth 2.0 token for the user account. It is used to
-    authenticate API requests involving user data. | `{{accessToken}}` |
-
-    | `alt` | Alternative format type for the response data. Common values are
-    `json` and `media`. | `json` |
-
-    | `callback` | Name of the JavaScript callback function that handles the
-    response. Used in JSONP requests. | `handleResponse` |
-
-    | `fields` | The fields parameter allows you to specify which attributes of
-    a resource should be included in the API response, helping to streamline the
-    data load. To include attributes from nested objects, use parentheses:. |
-    `messages(id,snippet,payload(headers))` |
-
-    | `key` | API key. Used to identify the application making the request. |
-    `{{key}}` |
-
-    | `oauth_token` | OAuth 2.0 token for the user account, can be used as an
-    alternative to using the Authorization header. | `{{oauth_token}}` |
-
-    | `prettyPrint` | Returns response with indentations and line breaks to make
-    it more readable. | `true` or `false` |
-
-    | `quotaUser` | An opaque string that helps manage quota for APIs when not
-    using an API key. | `custom_user_id_string` |
-
-    | `upload_protocol` | Specifies the upload protocol used in file upload
-    requests. | `resumable` |
-
-    | `uploadType` | Type of upload request, such as media, multipart, or
-    resumable. | `multipart` |
-
-    | `$.xgafv` | Version of the Google API front-end to use. Useful for Google
-    internal experimentation with APIs. | `2` |
   version: 1.0.0
 servers:
-  - url: http://{{baseurl}}
+  - url: https://gmail.googleapis.com
 components:
   securitySchemes:
     oauth2Auth:
