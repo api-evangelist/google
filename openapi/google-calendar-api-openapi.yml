@@ -997,6 +997,7 @@ paths:
                 type: object
               example: null
       operationId: getEvent
+      x-api-evangelist-certified: '2025-07-20'
     patch:
       tags:
         - CalendarsCalendarIdEventsEventId
@@ -1780,6 +1781,7 @@ paths:
                 type: object
               example: null
       operationId: returnEventsFromCalendar
+      x-api-evangelist-certified: '2025-07-20'
   /calendars/{calendarId}/events/import:
     post:
       tags:
@@ -2318,6 +2320,7 @@ paths:
                 summary: labore adipisicing enim
                 timeZone: cupidatat sed
       operationId: getCalendar
+      x-api-evangelist-certified: '2025-07-20'
     patch:
       tags:
         - CalendarsCalendarId
@@ -2546,6 +2549,7 @@ paths:
                 summary: labore adipisicing enim
                 timeZone: cupidatat sed
       operationId: updateCalendar
+      x-api-evangelist-certified: '2025-07-20'
   /calendars/{calendarId}/clear:
     post:
       tags:
@@ -3318,6 +3322,7 @@ paths:
                 nextPageToken: ullamco
                 nextSyncToken: mag
       operationId: listCalendarSettings
+      x-api-evangelist-certified: '2025-07-20'
   /users/me/settings/{setting}:
     get:
       tags:
@@ -3516,6 +3521,7 @@ paths:
                 kind: calendar#colors
                 updated: '1990-01-21T16:25:35.908Z'
       operationId: getCalendarColors
+      x-api-evangelist-certified: '2025-07-20'
   /freeBusy:
     post:
       tags:
