@@ -65,8 +65,6 @@ apis:
     properties:
       - url: https://developers.google.com/workspace/drive/api/guides/about-sdk
         type: Documentation
-      - url: properties/google-drive-api-openapi.yml
-        type: OpenAPI
     description: >-
       Google Drive is a cloud-based storage service that lets users store,
       access, and share files from any device with an internet connection.
@@ -79,8 +77,6 @@ apis:
     properties:
       - url: https://developers.google.com/workspace/drive/activity/v2
         type: Documentation
-      - url: properties/google-drive-activity-api-openapi.yml
-        type: OpenAPI
     description: >-
       The Google Drive Activity API consists of the DriveActivity resource,
       which represents changes made to objects within a user's Google Drive, and
@@ -95,8 +91,6 @@ apis:
     properties:
       - url: https://developers.google.com/workspace/drive
         type: Documentation
-      - url: properties/google-drive-labels-api-openapi.yml
-        type: OpenAPI
     description: >-
       Labels are metadata that you define to help users organize, find, and
       apply policy to files in Google Drive. The Drive Labels API is a RESTful
@@ -123,8 +117,16 @@ common:
     type: Events
   - url: https://developers.google.com/community
     type: Community
+  - name: Privacy Policy  Privacy & Terms  Google
+    description: 'null'
+    url: https://policies.google.com/privacy
+    type: PrivacyPolicy
+  - name: Google for Developers - from AI and Cloud to Mobile and Web
+    description: 'null'
+    url: https://developers.google.com/
+    type: Portal
 created: 2023/11/8
-modified: '2025-07-18'
+modified: '2025-07-20'
 description: |-
 
   Google Cloud APIs are programmatic interfaces to Google Cloud Platform
