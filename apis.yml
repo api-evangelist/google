@@ -102,6 +102,8 @@ apis:
     properties:
       - url: https://developers.google.com/workspace/calendar/api/guides/overview
         type: Documentation
+      - type: OpenAPI
+        url: properties/google-calendar-api-openapi.yml
     description: >-
       The Google Calendar API is a RESTful API that can be accessed through
       explicit HTTP calls or using the Google Client Libraries. The API exposes
