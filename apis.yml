@@ -270,6 +270,8 @@ apis:
     properties:
       - url: https://developers.google.com/maps/documentation/address-validation
         type: Documentation
+      - type: OpenAPI
+        url: properties/google-address-validation-api-openapi.yml
     description: >-
       The Google Address Validation API standardizes, validates, and enriches
       postal addresses by checking them against authoritative data sources,
