@@ -302,6 +302,9 @@ apis:
       pollutant details, health recommendations, and heatmap tiles for
       visualizing atmospheric conditions at a high (500//500/m) resolution
       across more than 100 countries. 
+    tags:
+      - Environment
+      - Air Quality
   - aid: google:google-pollen-api
     name: Google Pollen API
     humanURL: https://developers.google.com/maps/documentation/pollen
