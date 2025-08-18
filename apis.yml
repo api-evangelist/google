@@ -266,20 +266,20 @@ apis:
       requiring GPS. 
   - aid: google:google-address-validation-api
     name: Google Address Validation API
+    tags:
+      - Addresses
+      - Locations
     humanURL: https://developers.google.com/maps/documentation/address-validation
     properties:
       - url: https://developers.google.com/maps/documentation/address-validation
         type: Documentation
-      - type: OpenAPI
-        url: properties/google-address-validation-api-openapi.yml
+      - url: properties/google-address-validation-api-openapi.yml
+        type: OpenAPI
     description: >-
       The Google Address Validation API standardizes, validates, and enriches
       postal addresses by checking them against authoritative data sources,
       ensuring accuracy and deliverability for shipping, billing, and
       location-based services. 
-    tags:
-      - Addresses
-      - Locations
   - aid: google:google-time-zone-api
     name: Google Time Zone API
     humanURL: https://developers.google.com/maps/documentation/timezone
