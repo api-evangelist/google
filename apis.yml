@@ -344,6 +344,9 @@ apis:
       dataincluding current conditions, hourly and 10day forecasts, and the past
       24 hours of historyfor any location worldwide, with information refreshed
       every 1530 minutes. 
+    tags:
+      - Environment
+      - Weather
   - aid: google:google-gemini-api
     name: Google Gemini API
     tags:
