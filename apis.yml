@@ -180,6 +180,8 @@ apis:
     properties:
       - url: https://developers.google.com/maps/documentation/places-aggregate
         type: Documentation
+      - type: OpenAPI
+        url: properties/google-aggregate-places-api-openapi.yml
     description: >-
       The Google Places Aggregate API delivers aggregated insightssuch as the
       count or list of Place IDsfor places within a defined area, based on
