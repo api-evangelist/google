@@ -161,17 +161,19 @@ apis:
       developers everywhere.
   - aid: google:google-places-api
     name: Google Places API
+    tags:
+      - Places
     humanURL: https://developers.google.com/maps/documentation/places/web-service
     properties:
       - url: https://developers.google.com/maps/documentation/places/web-service
         type: Documentation
+      - type: OpenAPI
+        url: properties/google-places-api-openapi.yml
     description: >-
       The Google Places API provides programmatic access to detailed information
       about millions of places, including names, addresses, reviews, photos, and
       geographic coordinates, enabling location-based search and discovery in
       applications.      
-    tags:
-      - Places
   - aid: google:google-aggregate-places-api
     name: Google Aggregate Places API
     humanURL: https://developers.google.com/maps/documentation/places-aggregate
