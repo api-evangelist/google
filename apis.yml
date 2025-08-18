@@ -275,6 +275,9 @@ apis:
       postal addresses by checking them against authoritative data sources,
       ensuring accuracy and deliverability for shipping, billing, and
       location-based services. 
+    tags:
+      - Addresses
+      - Locations
   - aid: google:google-time-zone-api
     name: Google Time Zone API
     humanURL: https://developers.google.com/maps/documentation/timezone
