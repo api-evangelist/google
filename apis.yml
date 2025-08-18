@@ -251,19 +251,19 @@ apis:
       locations and perform location-based queries. 
   - aid: google:google-geolocation-api
     name: Google Geolocation API
+    tags:
+      - Places
+      - Location
     humanURL: https://developers.google.com/maps/documentation/geolocation
     properties:
       - url: https://developers.google.com/maps/documentation/geolocation
         type: Documentation
-      - type: OpenAPI
-        url: properties/google-geolocation-api-openapi.yml
+      - url: properties/google-geolocation-api-openapi.yml
+        type: OpenAPI
     description: >-
       The Google Geolocation API determines a devices approximate location based
       on nearby cell towers, Wi-Fi nodes, or Bluetooth beacons, without
       requiring GPS. 
-    tags:
-      - Places
-      - Location
   - aid: google:google-address-validation-api
     name: Google Address Validation API
     humanURL: https://developers.google.com/maps/documentation/address-validation
