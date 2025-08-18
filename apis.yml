@@ -296,6 +296,8 @@ apis:
     properties:
       - url: https://developers.google.com/maps/documentation/air-quality
         type: Documentation
+      - type: OpenAPI
+        url: properties/google-air-quality-api-openapi.yml
     description: >-
       The Google Air Quality API allows applications to access real-time,
       historical, and forecasted air quality dataencompassing over 70 indices,
