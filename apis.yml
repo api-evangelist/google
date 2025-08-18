@@ -245,6 +245,8 @@ apis:
       The Google Geocoding API converts addresses into geographic coordinates
       (latitude and longitude) and vice versa, enabling applications to map
       locations and perform location-based queries. 
+    tags:
+      - Places
   - aid: google:google-geolocation-api
     name: Google Geolocation API
     humanURL: https://developers.google.com/maps/documentation/geolocation
