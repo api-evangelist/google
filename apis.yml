@@ -339,6 +339,8 @@ apis:
     properties:
       - url: https://developers.google.com/maps/documentation/weather
         type: Documentation
+      - type: OpenAPI
+        url: properties/google-weather-api-openapi.yml
     description: >-
       The Google Weather API delivers hyperlocal, real-time weather
       dataincluding current conditions, hourly and 10day forecasts, and the past
