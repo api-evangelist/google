@@ -185,6 +185,8 @@ apis:
       count or list of Place IDsfor places within a defined area, based on
       filters like type (e.g., restaurants), price level, user ratings, or
       operational status.  
+    tags:
+      - Places
   - aid: google:google-places-insights-api
     name: Google Places Insights API
     humanURL: https://developers.google.com/maps/documentation/placesinsights
