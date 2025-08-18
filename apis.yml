@@ -201,6 +201,9 @@ apis:
       places or lists of Place IDswithin a defined geographic area, filtered by
       attributes like place type, ratings, price, or operating status, to help
       analyze local density and distribution.  
+    tags:
+      - Places
+      - Insights
   - aid: google:google-street-view-imagery-api
     name: Google Street View Imagery API
     humanURL: https://developers.google.com/maps/documentation/streetview
