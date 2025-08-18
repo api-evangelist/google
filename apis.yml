@@ -241,6 +241,8 @@ apis:
     properties:
       - url: https://developers.google.com/maps/documentation/geocoding
         type: Documentation
+      - type: OpenAPI
+        url: properties/google-geocoding-api-openapi.yml
     description: >-
       The Google Geocoding API converts addresses into geographic coordinates
       (latitude and longitude) and vice versa, enabling applications to map
