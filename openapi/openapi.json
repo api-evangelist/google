@@ -1615,7 +1615,7 @@ components:
           description: The properties of this inline object.
         objectId:
           description: >-
-            The ID of this inline object. Can be used to update an objects
+            The ID of this inline object. Can be used to update an objects
             properties.
           type: string
         suggestedDeletionIds:
