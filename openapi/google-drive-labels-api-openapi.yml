@@ -23,7 +23,7 @@ paths:
   /v2/labels:
     get:
       description: List labels.
-      operationId: drivelabels.labels.list
+      operationId: googleDrivelabelsLabelsList
       parameters:
         - description: >-
             The customer to scope this list request to. For example:
@@ -195,7 +195,7 @@ paths:
       summary: Retrieve Labels
     post:
       description: Creates a new Label.
-      operationId: drivelabels.labels.create
+      operationId: googleDrivelabelsLabelsCreate
       parameters:
         - description: >-
             The BCP-47 language code to use for evaluating localized Field
@@ -313,7 +313,7 @@ paths:
       description: >-
         Get the constraints on the structure of a Label; such as, the maximum
         number of Fields allowed and maximum length of the label title.
-      operationId: drivelabels.limits.getLabel
+      operationId: googleDrivelabelsLimitsGetlabel
       parameters:
         - description: 'Required. Label revision resource name Must be: "limits/label"'
           in: query
@@ -424,7 +424,7 @@ paths:
       description: >-
         Deletes a Label's permission. Permissions affect the Label resource as a
         whole, are not revisioned, and do not require publishing.
-      operationId: drivelabels.labels.revisions.permissions.delete
+      operationId: googleDrivelabelsLabelsRevisionsPermissionsDelete
       parameters:
         - description: Required. Label Permission resource name.
           in: path
@@ -538,10 +538,10 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
-      summary: Delete  V2 Name
+      summary: Delete  Name
     get:
       description: Gets the user capabilities.
-      operationId: drivelabels.users.getCapabilities
+      operationId: googleDrivelabelsUsersGetcapabilities
       parameters:
         - description: >-
             Required. The resource name of the user. Only
@@ -684,7 +684,7 @@ paths:
         update requests are invalid, no changes are applied. The resulting draft
         revision must be published before the changes may be used with Drive
         Items.
-      operationId: drivelabels.labels.delta
+      operationId: googleDrivelabelsLabelsDelta
       parameters:
         - description: Required. The resource name of the Label to update.
           in: path
@@ -798,7 +798,7 @@ paths:
         there is a draft revision, a new disabled draft revision will be created
         based on the latest draft revision. Older draft revisions will be
         deleted. Once disabled, a label may be deleted with `DeleteLabel`.
-      operationId: drivelabels.labels.disable
+      operationId: googleDrivelabelsLabelsDisable
       parameters:
         - description: Required. Label resource name.
           in: path
@@ -909,7 +909,7 @@ paths:
         result in a new published revision based on the current disabled
         published revision. If there is an existing disabled draft revision, a
         new revision will be created based on that draft and will be enabled.
-      operationId: drivelabels.labels.enable
+      operationId: googleDrivelabelsLabelsEnable
       parameters:
         - description: Required. Label resource name.
           in: path
@@ -1030,7 +1030,7 @@ paths:
         Field.FieldType cannot be changed. * Changes to Field validation options
         cannot reject something that was previously accepted. * Reducing the max
         entries.
-      operationId: drivelabels.labels.publish
+      operationId: googleDrivelabelsLabelsPublish
       parameters:
         - description: Required. Label resource name.
           in: path
@@ -1139,7 +1139,7 @@ paths:
       description: >-
         Updates a Label's `CopyMode`. Changes to this policy are not revisioned,
         do not require publishing, and take effect immediately.
-      operationId: drivelabels.labels.updateLabelCopyMode
+      operationId: googleDrivelabelsLabelsUpdatelabelcopymode
       parameters:
         - description: Required. The resource name of the Label to update.
           in: path
@@ -1247,7 +1247,7 @@ paths:
   /v2/{parent}/locks:
     get:
       description: Lists the LabelLocks on a Label.
-      operationId: drivelabels.labels.revisions.locks.list
+      operationId: googleDrivelabelsLabelsRevisionsLocksList
       parameters:
         - description: 'Required. Label on which Locks are applied. Format: labels/{label}'
           in: path
@@ -1368,7 +1368,7 @@ paths:
   /v2/{parent}/permissions:
     get:
       description: Lists a Label's permissions.
-      operationId: drivelabels.labels.revisions.permissions.list
+      operationId: googleDrivelabelsLabelsRevisionsPermissionsList
       parameters:
         - description: >-
             Required. The parent Label resource name on which Label Permission
@@ -1504,7 +1504,7 @@ paths:
         principal doesn't exist, a new Label Permission is created, otherwise
         the existing permission is updated. Permissions affect the Label
         resource as a whole, are not revisioned, and do not require publishing.
-      operationId: drivelabels.labels.revisions.updatePermissions
+      operationId: googleDrivelabelsLabelsRevisionsUpdatepermissions
       parameters:
         - description: Required. The parent Label resource name.
           in: path
@@ -1615,14 +1615,14 @@ paths:
             - https://www.googleapis.com/auth/drive.labels
       tags:
         - labels
-      summary: Patch  V2 Parent Permissions
+      summary: Patch  Parent Permissions
     post:
       description: >-
         Updates a Label's permissions. If a permission for the indicated
         principal doesn't exist, a new Label Permission is created, otherwise
         the existing permission is updated. Permissions affect the Label
         resource as a whole, are not revisioned, and do not require publishing.
-      operationId: drivelabels.labels.revisions.permissions.create
+      operationId: googleDrivelabelsLabelsRevisionsPermissionsCreate
       parameters:
         - description: >-
             Required. The parent Label resource name on the Label Permission is
@@ -1741,7 +1741,7 @@ paths:
       description: >-
         Deletes Label permissions. Permissions affect the Label resource as a
         whole, are not revisioned, and do not require publishing.
-      operationId: drivelabels.labels.revisions.permissions.batchDelete
+      operationId: googleDrivelabelsLabelsRevisionsPermissionsBatchdelete
       parameters:
         - description: >-
             Required. The parent Label resource name shared by all permissions
@@ -1857,7 +1857,7 @@ paths:
         doesn't exist, a new Label Permission is created, otherwise the existing
         permission is updated. Permissions affect the Label resource as a whole,
         are not revisioned, and do not require publishing.
-      operationId: drivelabels.labels.revisions.permissions.batchUpdate
+      operationId: googleDrivelabelsLabelsRevisionsPermissionsBatchupdate
       parameters:
         - description: >-
             Required. The parent Label resource name shared by all permissions

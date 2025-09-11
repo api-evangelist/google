@@ -106,7 +106,7 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: deleteAccessControlRule
+      operationId: googleDeleteaccesscontrolrule
     get:
       tags:
         - CalendarsCalendarIdAclRuleId
@@ -199,7 +199,7 @@ paths:
                 scope:
                   type: sit eiusmod culpa do
                   value: quis esse
-      operationId: getAccessControlRule
+      operationId: googleGetaccesscontrolrule
     patch:
       tags:
         - CalendarsCalendarIdAclRuleId
@@ -315,7 +315,7 @@ paths:
                 scope:
                   type: sit eiusmod culpa do
                   value: quis esse
-      operationId: patchAccessControlRule
+      operationId: googlePatchaccesscontrolrule
     put:
       tags:
         - CalendarsCalendarIdAclRuleId
@@ -431,7 +431,7 @@ paths:
                 scope:
                   type: sit eiusmod culpa do
                   value: quis esse
-      operationId: updateAccessControlRule
+      operationId: googleUpdateaccesscontrolrule
   /calendars/{calendarId}/acl:
     post:
       tags:
@@ -543,7 +543,7 @@ paths:
                 scope:
                   type: sit eiusmod culpa do
                   value: quis esse
-      operationId: insertAccessControlRule
+      operationId: googleInsertaccesscontrolrule
     get:
       tags:
         - CalendarsCalendarIdAcl
@@ -663,7 +663,7 @@ paths:
                 kind: calendar#acl
                 nextPageToken: dolore ex
                 nextSyncToken: amet labore quis
-      operationId: returnAccessControlRules
+      operationId: googleReturnaccesscontrolrules
   /calendars/{calendarId}/acl/watch:
     post:
       tags:
@@ -800,7 +800,7 @@ paths:
                 resourceUri: fugiat consequat
                 token: ullamco officia in
                 type: ex eiusmod adipisicing mollit
-      operationId: watchAccessControlRules
+      operationId: googleWatchaccesscontrolrules
   /calendars/{calendarId}/events/{eventId}:
     delete:
       tags:
@@ -892,7 +892,7 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: deleteEvent
+      operationId: googleDeleteevent
     get:
       tags:
         - CalendarsCalendarIdEventsEventId
@@ -996,7 +996,7 @@ paths:
               schema:
                 type: object
               example: null
-      operationId: getEvent
+      operationId: googleGetevent
       x-api-evangelist-certified: '2025-07-20'
     patch:
       tags:
@@ -1124,7 +1124,7 @@ paths:
               schema:
                 type: object
               example: null
-      operationId: patchEvent
+      operationId: googlePatchevent
     put:
       tags:
         - CalendarsCalendarIdEventsEventId
@@ -1251,7 +1251,7 @@ paths:
               schema:
                 type: object
               example: null
-      operationId: updateEvent
+      operationId: googleUpdateevent
   /calendars/{calendarId}/events/{eventId}/instances:
     get:
       tags:
@@ -1383,7 +1383,7 @@ paths:
               schema:
                 type: object
               example: null
-      operationId: insertEvent
+      operationId: googleInsertevent
   /calendars/{calendarId}/events/{eventId}/move:
     post:
       tags:
@@ -1491,12 +1491,12 @@ paths:
               schema:
                 type: object
               example: null
-      operationId: moveEvent
+      operationId: googleMoveevent
   /calendars/{calendarId}/events:
     post:
       tags:
         - CalendarsCalendarIdEvents
-      summary: Create an Event
+      summary: Create An Event
       description: Creates an event.
       requestBody:
         content:
@@ -1609,11 +1609,11 @@ paths:
               schema:
                 type: object
               example: null
-      operationId: createAnEvent
+      operationId: googleCreateanevent
     get:
       tags:
         - CalendarsCalendarIdEvents
-      summary: Return Events from Calendar
+      summary: Return Events From Calendar
       description: Returns events on the specified calendar.
       parameters:
         - name: Accept
@@ -1780,7 +1780,7 @@ paths:
               schema:
                 type: object
               example: null
-      operationId: returnEventsFromCalendar
+      operationId: googleReturneventsfromcalendar
       x-api-evangelist-certified: '2025-07-20'
   /calendars/{calendarId}/events/import:
     post:
@@ -1886,7 +1886,7 @@ paths:
               schema:
                 type: object
               example: null
-      operationId: importEvent
+      operationId: googleImportevent
   /calendars/{calendarId}/events/quickAdd:
     post:
       tags:
@@ -1986,7 +1986,7 @@ paths:
               schema:
                 type: object
               example: null
-      operationId: quickAddEvent
+      operationId: googleQuickaddevent
   /calendars/{calendarId}/events/watch:
     post:
       tags:
@@ -2193,7 +2193,7 @@ paths:
                 resourceUri: fugiat consequat
                 token: ullamco officia in
                 type: ex eiusmod adipisicing mollit
-      operationId: watchEvents
+      operationId: googleWatchevents
   /calendars/{calendarId}:
     delete:
       tags:
@@ -2272,7 +2272,7 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: deleteCalendar
+      operationId: googleDeletecalendar
     get:
       tags:
         - CalendarsCalendarId
@@ -2319,7 +2319,7 @@ paths:
                 location: in voluptate commodo
                 summary: labore adipisicing enim
                 timeZone: cupidatat sed
-      operationId: getCalendar
+      operationId: googleGetcalendar
       x-api-evangelist-certified: '2025-07-20'
     patch:
       tags:
@@ -2434,7 +2434,7 @@ paths:
                 location: in voluptate commodo
                 summary: labore adipisicing enim
                 timeZone: cupidatat sed
-      operationId: patchCalendar
+      operationId: googlePatchcalendar
     put:
       tags:
         - CalendarsCalendarId
@@ -2548,7 +2548,7 @@ paths:
                 location: in voluptate commodo
                 summary: labore adipisicing enim
                 timeZone: cupidatat sed
-      operationId: updateCalendar
+      operationId: googleUpdatecalendar
       x-api-evangelist-certified: '2025-07-20'
   /calendars/{calendarId}/clear:
     post:
@@ -2630,7 +2630,7 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: clearCalendar
+      operationId: googleClearcalendar
   /calendars:
     post:
       tags:
@@ -2693,12 +2693,12 @@ paths:
                 location: in voluptate commodo
                 summary: labore adipisicing enim
                 timeZone: cupidatat sed
-      operationId: calendar
+      operationId: googleCalendar
   /users/me/calendarList/{calendarId}:
     delete:
       tags:
         - UsersMeCalendarList
-      summary: Remove Calendar on List
+      summary: Remove Calendar On List
       description: Removes a calendar from the user's calendar list.
       parameters:
         - name: calendarId
@@ -2723,7 +2723,7 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: removeCalendarOnList
+      operationId: googleRemovecalendaronlist
     get:
       tags:
         - UsersMeCalendarList
@@ -2788,7 +2788,7 @@ paths:
                 summary: anim Duis culpa quis consequ
                 summaryOverride: deserunt elit reprehenderit
                 timeZone: minim commodo incididunt reprehenderit sed
-      operationId: getCalendarList
+      operationId: googleGetcalendarlist
       x-api-evangelist-certified: '2025-07-20'
     patch:
       tags:
@@ -2898,7 +2898,7 @@ paths:
                 summary: anim Duis culpa quis consequ
                 summaryOverride: deserunt elit reprehenderit
                 timeZone: minim commodo incididunt reprehenderit sed
-      operationId: patchCalendarList
+      operationId: googlePatchcalendarlist
     put:
       tags:
         - UsersMeCalendarList
@@ -3005,12 +3005,12 @@ paths:
                 summary: anim Duis culpa quis consequ
                 summaryOverride: deserunt elit reprehenderit
                 timeZone: minim commodo incididunt reprehenderit sed
-      operationId: updateCalendarList
+      operationId: googleUpdatecalendarlist
   /users/me/calendarList:
     post:
       tags:
         - UsersMeCalendarList
-      summary: Insert Calendar on List
+      summary: Insert Calendar On List
       description: Inserts an existing calendar into the user's calendar list.
       requestBody:
         content:
@@ -3108,7 +3108,7 @@ paths:
                 summary: anim Duis culpa quis consequ
                 summaryOverride: deserunt elit reprehenderit
                 timeZone: minim commodo incididunt reprehenderit sed
-      operationId: insertCalendarOnList
+      operationId: googleInsertcalendaronlist
   /users/{userId}/calendarList:
     get:
       tags:
@@ -3212,7 +3212,7 @@ paths:
                 kind: calendar#calendarList
                 nextPageToken: sit ea
                 nextSyncToken: labore consectetur proident occaecat
-      operationId: listCalendars
+      operationId: googleListcalendars
       x-api-evangelist-certified: '2025-07-20'
   /users/me/calendarList/watch:
     post:
@@ -3278,7 +3278,7 @@ paths:
                 resourceUri: fugiat consequat
                 token: ullamco officia in
                 type: ex eiusmod adipisicing mollit
-      operationId: watchCalendarList
+      operationId: googleWatchcalendarlist
   /users/me/settings:
     get:
       tags:
@@ -3321,7 +3321,7 @@ paths:
                 kind: calendar#settings
                 nextPageToken: ullamco
                 nextSyncToken: mag
-      operationId: listCalendarSettings
+      operationId: googleListcalendarsettings
       x-api-evangelist-certified: '2025-07-20'
   /users/me/settings/{setting}:
     get:
@@ -3361,7 +3361,7 @@ paths:
                 id: sint velit sit
                 kind: calendar#setting
                 value: in
-      operationId: getCalendarSettings
+      operationId: googleGetcalendarsettings
   /users/me/settings/watch:
     post:
       tags:
@@ -3426,7 +3426,7 @@ paths:
                 resourceUri: fugiat consequat
                 token: ullamco officia in
                 type: ex eiusmod adipisicing mollit
-      operationId: watchCalendarSettings
+      operationId: googleWatchcalendarsettings
   /channels/stop:
     post:
       tags:
@@ -3474,7 +3474,7 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: stopCalendarChannel
+      operationId: googleStopcalendarchannel
   /colors:
     get:
       tags:
@@ -3520,7 +3520,7 @@ paths:
                     foreground: Ut reprehenderit officia Duis
                 kind: calendar#colors
                 updated: '1990-01-21T16:25:35.908Z'
-      operationId: getCalendarColors
+      operationId: googleGetcalendarcolors
       x-api-evangelist-certified: '2025-07-20'
   /freeBusy:
     post:
@@ -3615,4 +3615,4 @@ paths:
                 kind: calendar#freeBusy
                 timeMax: '2011-01-28T06:05:22.021Z'
                 timeMin: '1978-06-06T06:26:44.109Z'
-      operationId: queryFreeBusy
+      operationId: googleQueryfreebusy

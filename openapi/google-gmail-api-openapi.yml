@@ -74,6 +74,7 @@ paths:
                 messagesTotal: -17389993
                 threadsTotal: -18322134
                 historyId: velit deserunt commodo
+      operationId: googleGetProfile
   /gmail/v1/users/{userId}/watch:
     post:
       tags:
@@ -125,11 +126,12 @@ paths:
               example:
                 historyId: quis aute sed
                 expiration: dolore non exercitation Excepteur est
+      operationId: googleWatchUsers
   /gmail/v1/users/{userId}/stop:
     post:
       tags:
         - Notifications
-      summary: Stop Notifications for User
+      summary: Stop Notifications For User
       description: Stop receiving push notifications for the given user mailbox.
       requestBody:
         content: {}
@@ -149,6 +151,7 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: googleStopNotificationsForUser
   /gmail/v1/users/{userId}/drafts/send:
     post:
       tags:
@@ -256,6 +259,7 @@ paths:
                         detected>
                 sizeEstimate: 21128811
                 raw: do laboris
+      operationId: googleSendDrafts
   /gmail/v1/users/{userId}/drafts/{id}:
     put:
       tags:
@@ -370,6 +374,7 @@ paths:
                           #/components/schemas/MessagePart detected>
                   sizeEstimate: -74092231
                   raw: in enim sit pariatur
+      operationId: googleUpdateDrafts
     get:
       tags:
         - Drafts
@@ -439,6 +444,7 @@ paths:
                           #/components/schemas/MessagePart detected>
                   sizeEstimate: -74092231
                   raw: in enim sit pariatur
+      operationId: googleGetDrafts
     delete:
       tags:
         - Drafts
@@ -469,6 +475,7 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: googleDeleteDrafts
   /gmail/v1/users/{userId}/drafts:
     post:
       tags:
@@ -545,6 +552,7 @@ paths:
                           #/components/schemas/MessagePart detected>
                   sizeEstimate: -74092231
                   raw: in enim sit pariatur
+      operationId: googleCreateDrafts
     get:
       tags:
         - Drafts
@@ -643,6 +651,7 @@ paths:
                       raw: ipsum dolor qui
                 nextPageToken: veniam laborum labore Ut aliquip
                 resultSizeEstimate: 46963148
+      operationId: googleListDrafts
   /gmail/v1/users/{userId}/history:
     get:
       tags:
@@ -1332,6 +1341,7 @@ paths:
                           - proident ullamco
                 nextPageToken: do deserunt pariatu
                 historyId: cillum veniam Excepteur et
+      operationId: googleListHistory
   /gmail/v1/users/{userId}/messages/{id}/trash:
     post:
       tags:
@@ -1403,6 +1413,7 @@ paths:
                         detected>
                 sizeEstimate: 21128811
                 raw: do laboris
+      operationId: googleTrashMesssages
   /gmail/v1/users/{userId}/messages/{id}/untrash:
     post:
       tags:
@@ -1474,6 +1485,7 @@ paths:
                         detected>
                 sizeEstimate: 21128811
                 raw: do laboris
+      operationId: googleUntrashMessages
   /gmail/v1/users/{userId}/messages/{id}/modify:
     post:
       tags:
@@ -1560,6 +1572,7 @@ paths:
                         detected>
                 sizeEstimate: 21128811
                 raw: do laboris
+      operationId: googleModifyMessages
   /gmail/v1/users/{userId}/messages/batchDelete:
     post:
       tags:
@@ -1598,6 +1611,7 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: googleBatchDelete
   /gmail/v1/users/{userId}/messages/import:
     post:
       tags:
@@ -1706,6 +1720,7 @@ paths:
                         detected>
                 sizeEstimate: 21128811
                 raw: do laboris
+      operationId: googleImportMessages
   /gmail/v1/users/{userId}/messages/send:
     post:
       tags:
@@ -1783,6 +1798,7 @@ paths:
                         detected>
                 sizeEstimate: 21128811
                 raw: do laboris
+      operationId: googleSendMessages
   /gmail/v1/users/{userId}/messages/batchModify:
     post:
       tags:
@@ -1825,6 +1841,7 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: googleBatchModify
   /gmail/v1/users/{userId}/messages:
     get:
       tags:
@@ -1935,6 +1952,7 @@ paths:
                     raw: eiusmod esse
                 nextPageToken: ipsum reprehenderit Duis in veniam
                 resultSizeEstimate: -35985941
+      operationId: googleListMessages
     post:
       tags:
         - Messages
@@ -2040,6 +2058,7 @@ paths:
                         detected>
                 sizeEstimate: 21128811
                 raw: do laboris
+      operationId: googleInsertMessages
   /gmail/v1/users/{userId}/messages/{id}:
     delete:
       tags:
@@ -2071,6 +2090,7 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: googleDeleteMessages
     get:
       tags:
         - Messages
@@ -2139,6 +2159,7 @@ paths:
                         detected>
                 sizeEstimate: 21128811
                 raw: do laboris
+      operationId: googleGetMessages
   /gmail/v1/users/{userId}/messages/{messageId}/attachments/{id}:
     get:
       tags:
@@ -2188,6 +2209,7 @@ paths:
                 attachmentId: pariatur velit id sint dolore
                 size: -61751759
                 data: laboris eiusmod
+      operationId: googleGetAttachments
   /gmail/v1/users/{userId}/labels:
     post:
       tags:
@@ -2255,6 +2277,7 @@ paths:
                 color:
                   textColor: sunt fugiat ut voluptate
                   backgroundColor: commodo est cupidatat in sed
+      operationId: googleCreateLabels
     get:
       tags:
         - Labels
@@ -2311,6 +2334,7 @@ paths:
                     color:
                       textColor: irure t
                       backgroundColor: occaecat aliquip
+      operationId: googleListLabels
   /gmail/v1/users/{userId}/labels/{id}:
     patch:
       tags:
@@ -2385,6 +2409,7 @@ paths:
                 color:
                   textColor: sunt fugiat ut voluptate
                   backgroundColor: commodo est cupidatat in sed
+      operationId: googlePatchLabels
     put:
       tags:
         - Labels
@@ -2458,6 +2483,7 @@ paths:
                 color:
                   textColor: sunt fugiat ut voluptate
                   backgroundColor: commodo est cupidatat in sed
+      operationId: googleUpdateLabels
     get:
       tags:
         - Labels
@@ -2508,6 +2534,7 @@ paths:
                 color:
                   textColor: sunt fugiat ut voluptate
                   backgroundColor: commodo est cupidatat in sed
+      operationId: googleGetLabels
     delete:
       tags:
         - Labels
@@ -2538,6 +2565,7 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: googleDeleteLabels
   /gmail/v1/users/{userId}/threads/{id}:
     get:
       tags:
@@ -2641,6 +2669,7 @@ paths:
                             #/components/schemas/MessagePart detected>
                     sizeEstimate: 2028457
                     raw: ipsum enim minim
+      operationId: googleGetThreads
     delete:
       tags:
         - Theads
@@ -2672,6 +2701,7 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: googleDeleteThreads
   /gmail/v1/users/{userId}/threads/{id}/modify:
     post:
       tags:
@@ -2794,6 +2824,7 @@ paths:
                             #/components/schemas/MessagePart detected>
                     sizeEstimate: 2028457
                     raw: ipsum enim minim
+      operationId: googleModifyThreads
   /gmail/v1/users/{userId}/threads/{id}/trash:
     post:
       tags:
@@ -2901,6 +2932,7 @@ paths:
                             #/components/schemas/MessagePart detected>
                     sizeEstimate: 2028457
                     raw: ipsum enim minim
+      operationId: googleTrashThreads
   /gmail/v1/users/{userId}/threads:
     get:
       tags:
@@ -3064,11 +3096,12 @@ paths:
                         raw: nisi nostrud
                 nextPageToken: Exce
                 resultSizeEstimate: -82340850
+      operationId: googleListThreads
   /gmail/v1/users/{userId}/settings/imap:
     get:
       tags:
         - settings > imap
-      summary: GET IMAP
+      summary: Get Imap
       description: Gets IMAP settings.
       parameters:
         - name: Accept
@@ -3100,10 +3133,11 @@ paths:
                 autoExpunge: false
                 expungeBehavior: deleteForever
                 maxFolderSize: -49364914
+      operationId: googleGETIMAP
     put:
       tags:
         - settings > imap
-      summary: Update IMAP
+      summary: Update Imap
       description: Updates IMAP settings.
       requestBody:
         content:
@@ -3150,11 +3184,12 @@ paths:
                 autoExpunge: false
                 expungeBehavior: deleteForever
                 maxFolderSize: -49364914
+      operationId: googleUpdateIMAP
   /gmail/v1/users/{userId}/settings/pop:
     get:
       tags:
         - settings > pop
-      summary: Get POP Settings
+      summary: Get Pop Settings
       description: Gets POP settings.
       parameters:
         - name: Accept
@@ -3184,10 +3219,11 @@ paths:
               example:
                 accessWindow: fromNowOn
                 disposition: dispositionUnspecified
+      operationId: googleGetPOPSettings
     put:
       tags:
         - settings > pop
-      summary: Update POP Settings
+      summary: Update Pop Settings
       description: Updates POP settings.
       requestBody:
         content:
@@ -3230,6 +3266,7 @@ paths:
               example:
                 accessWindow: fromNowOn
                 disposition: dispositionUnspecified
+      operationId: googleUpdatePOPSettings
   /gmail/v1/users/{userId}/settings/vacation:
     get:
       tags:
@@ -3270,6 +3307,7 @@ paths:
                 restrictToDomain: true
                 startTime: est mollit
                 endTime: enim in aliqua Ut commodo
+      operationId: googleGetVacationSettings
     put:
       tags:
         - settings > vacation
@@ -3328,6 +3366,7 @@ paths:
                 restrictToDomain: true
                 startTime: est mollit
                 endTime: enim in aliqua Ut commodo
+      operationId: googleUpdateVacationSettings
   /gmail/v1/users/{userId}/settings/language:
     get:
       tags:
@@ -3361,6 +3400,7 @@ paths:
                 type: object
               example:
                 displayLanguage: occaecat adipisicing
+      operationId: googleGetLanguageSettings
     put:
       tags:
         - settings > language
@@ -3411,6 +3451,7 @@ paths:
                 type: object
               example:
                 displayLanguage: occaecat adipisicing
+      operationId: googleUpdateLanguageSettings
   /gmail/v1/users/{userId}/settings/autoForwarding:
     get:
       tags:
@@ -3446,6 +3487,7 @@ paths:
                 enabled: false
                 emailAddress: officia ullamco Ut laboris eu
                 disposition: trash
+      operationId: googleGetAutoForwardingSettings
     put:
       tags:
         - settings > autoForwarding
@@ -3498,11 +3540,12 @@ paths:
                 enabled: false
                 emailAddress: officia ullamco Ut laboris eu
                 disposition: trash
+      operationId: googleUpdateAutoForwarding
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}/setDefault:
     post:
       tags:
         - settings > Send As > Send As Email > SMIME INFO > Set Default
-      summary: Set default S/MIME config
+      summary: Set Default S Mime Config
       description: Sets the default S/MIME config for the specified send-as alias.
       requestBody:
         content: {}
@@ -3536,11 +3579,12 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: googleSetDefaultSMIMEConfig
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}:
     delete:
       tags:
         - settings > Send As > Send As Email > SMIME INFO
-      summary: Delete Send As SMIME INfo
+      summary: Delete Send As Smime Info
       description: Deletes the specified S/MIME config for the specified send-as alias.
       parameters:
         - name: userId
@@ -3572,10 +3616,11 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: googleDeleteSendAsSMIMEINfo
     get:
       tags:
         - settings > Send As > Send As Email > SMIME INFO
-      summary: Get Send As SMIME Info
+      summary: Get Send As Smime Info
       description: Gets the specified S/MIME config for the specified send-as alias.
       parameters:
         - name: Accept
@@ -3624,11 +3669,12 @@ paths:
                 pem: 'cillum labore '
                 pkcs12: in aute et
                 encryptedKeyPassword: cillum ut
+      operationId: googleGetSendAsSMIMEInfo
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo:
     get:
       tags:
         - settings > Send As > Send As Email > SMIME INFO
-      summary: List SMIME Info
+      summary: List Smime Info
       description: Lists S/MIME configs for the specified send-as alias.
       parameters:
         - name: Accept
@@ -3678,10 +3724,11 @@ paths:
                     pem: eu minim consequat sunt
                     pkcs12: sunt anim ipsum nulla
                     encryptedKeyPassword: laboris ex sint
+      operationId: googleListSMIMEInfo
     post:
       tags:
         - settings > Send As > Send As Email > SMIME INFO
-      summary: Insert SMIME Info
+      summary: Insert Smime Info
       description: >-
         Insert (upload) the given S/MIME config for the specified send-as alias.
         Note that pkcs12 format is required for the key.
@@ -3743,6 +3790,7 @@ paths:
                 pem: 'cillum labore '
                 pkcs12: in aute et
                 encryptedKeyPassword: cillum ut
+      operationId: googleInsertSMIMEInfo
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/verify:
     post:
       tags:
@@ -3777,6 +3825,7 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: googleVerifySendAs
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}:
     get:
       tags:
@@ -3832,6 +3881,7 @@ paths:
                   password: tempor dolor velit
                   securityMode: securityModeUnspecified
                 verificationStatus: pending
+      operationId: googleGetSendAs
     put:
       tags:
         - settings > Send As > Send As Email
@@ -3913,6 +3963,7 @@ paths:
                   password: tempor dolor velit
                   securityMode: securityModeUnspecified
                 verificationStatus: pending
+      operationId: googleUpdateSendAsSetting
     patch:
       tags:
         - settings > Send As > Send As Email
@@ -3990,6 +4041,7 @@ paths:
                   password: tempor dolor velit
                   securityMode: securityModeUnspecified
                 verificationStatus: pending
+      operationId: googlePatchSendAs
     delete:
       tags:
         - settings > Send As > Send As Email
@@ -4021,6 +4073,7 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: googleDeleteSendAs
   /gmail/v1/users/{userId}/settings/sendAs:
     get:
       tags:
@@ -4085,6 +4138,7 @@ paths:
                       password: incididunt ullamco
                       securityMode: ssl
                     verificationStatus: verificationStatusUnspecified
+      operationId: googleGetSendAs
     post:
       tags:
         - settings > Send As
@@ -4164,11 +4218,12 @@ paths:
                   password: tempor dolor velit
                   securityMode: securityModeUnspecified
                 verificationStatus: pending
+      operationId: googleCreateSendAs
   /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:enable:
     post:
       tags:
         - settings > CSE Identites > Key Pairs
-      summary: Enable CSE Keypairs
+      summary: Enable Cse Keypairs
       description: >-
         Turns on a client-side encryption key pair that was turned off. The key
         pair becomes active again for any associated client-side encryption
@@ -4236,11 +4291,12 @@ paths:
                       kaclsData: sint eiusmod
                     hardwareKeyMetadata:
                       description: ut
+      operationId: googleEnableCSEKeypairs
   /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:
     get:
       tags:
         - settings > CSE Identites > Key Pairs
-      summary: GET CSE Keypairs
+      summary: Get Cse Keypairs
       description: Retrieves an existing client-side encryption key pair.
       parameters:
         - name: Accept
@@ -4296,11 +4352,12 @@ paths:
                       kaclsData: sint eiusmod
                     hardwareKeyMetadata:
                       description: ut
+      operationId: googleGETCSEKeypairs
   /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:disable:
     post:
       tags:
         - settings > CSE Identites > Key Pairs
-      summary: Disable CSE Keypairs
+      summary: Disable Cse Keypairs
       description: >-
         Turns off a client-side encryption key pair. The authenticated user can
         no longer use the key pair to decrypt incoming CSE message texts or sign
@@ -4370,11 +4427,12 @@ paths:
                       kaclsData: sint eiusmod
                     hardwareKeyMetadata:
                       description: ut
+      operationId: googleDisableCSEKeypairs
   /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:obliterate:
     post:
       tags:
         - settings > CSE Identites > Key Pairs
-      summary: Obliterate CSE Keypairs
+      summary: Obliterate Cse Keypairs
       description: >-
         Deletes a client-side encryption key pair permanently and immediately.
         You can only permanently delete key pairs that have been turned off for
@@ -4414,11 +4472,12 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: googleObliterateCSEKeypairs
   /gmail/v1/users/{userId}/settings/cse/keypairs:
     post:
       tags:
         - settings > CSE Identites > Key Pairs
-      summary: Create CSE Keypairs
+      summary: Create Cse Keypairs
       description: >-
         Creates and uploads a client-side encryption S/MIME public key
         certificate chain and private key metadata for the authenticated user.
@@ -4501,10 +4560,11 @@ paths:
                       kaclsData: sint eiusmod
                     hardwareKeyMetadata:
                       description: ut
+      operationId: googleCreateCSEKeypairs
     get:
       tags:
         - settings > CSE Identites > Key Pairs
-      summary: List CSE Keypairs
+      summary: List Cse Keypairs
       description: Lists client-side encryption key pairs for an authenticated user.
       parameters:
         - name: Accept
@@ -4576,11 +4636,12 @@ paths:
                         hardwareKeyMetadata:
                           description: quis culpa
                 nextPageToken: eiusmod dolore anim pariatur
+      operationId: googleListCSEKeypairs
   /gmail/v1/users/{userId}/settings/cse/identities:
     get:
       tags:
         - settings > CSE Identites
-      summary: List CSE Identites
+      summary: List Cse Identites
       description: Lists the client-side encrypted identities for an authenticated user.
       parameters:
         - name: Accept
@@ -4620,10 +4681,11 @@ paths:
                       signingKeyPairId: culpa
                       encryptionKeyPairId: dolore Excepteur ipsum Lorem
                 nextPageToken: eiusmod amet voluptate veniam in
+      operationId: googleListCSEIdentites
     post:
       tags:
         - settings > CSE Identites
-      summary: Create CSE Identites
+      summary: Create Cse Identites
       description: >-
         Creates and configures a client-side encryption identity that's
         authorized to send mail from the user account. Google publishes the
@@ -4677,11 +4739,12 @@ paths:
                 signAndEncryptKeyPairs:
                   signingKeyPairId: est deserunt
                   encryptionKeyPairId: elit nulla esse ut
+      operationId: googleCreateCSEIdentites
   /gmail/v1/users/{userId}/settings/cse/identities/{emailAddress}:
     patch:
       tags:
         - settings > CSE Identites
-      summary: PATCH CSE Identites
+      summary: Patch Cse Identites
       description: >-
         Associates a different key pair with an existing client-side encryption
         identity. The updated key pair must validate against Google's [S/MIME
@@ -4740,11 +4803,12 @@ paths:
                 signAndEncryptKeyPairs:
                   signingKeyPairId: est deserunt
                   encryptionKeyPairId: elit nulla esse ut
+      operationId: googlePATCHCSEIdentites
   /gmail/v1/users/{userId}/settings/cse/identities/{cseEmailAddress}:
     get:
       tags:
         - settings > CSE Identites
-      summary: GET CSE Idenetites
+      summary: Get Cse Idenetites
       description: Retrieves a client-side encryption identity configuration.
       parameters:
         - name: Accept
@@ -4784,10 +4848,11 @@ paths:
                 signAndEncryptKeyPairs:
                   signingKeyPairId: est deserunt
                   encryptionKeyPairId: elit nulla esse ut
+      operationId: googleGETCSEIdenetites
     delete:
       tags:
         - settings > CSE Identites
-      summary: Delete CSE Idenities
+      summary: Delete Cse Idenities
       description: >-
         Deletes a client-side encryption identity. The authenticated user can no
         longer use the identity to send encrypted messages. You cannot restore
@@ -4816,6 +4881,7 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: googleDeleteCSEIdenities
   /gmail/v1/users/{userId}/settings/filters/{id}:
     delete:
       tags:
@@ -4845,6 +4911,7 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: googleDeleteFilters
     get:
       tags:
         - settings > Filters
@@ -4902,6 +4969,7 @@ paths:
                     - Lorem consequat l
                     - minim Excepteur
                   forward: culpa do
+      operationId: googleGetFilters
   /gmail/v1/users/{userId}/settings/filters:
     get:
       tags:
@@ -4973,6 +5041,7 @@ paths:
                         - esse cupidatat
                         - mollit aliqua
                       forward: est occaecat officia
+      operationId: googleListFilters
     post:
       tags:
         - settings > Filters
@@ -5053,6 +5122,7 @@ paths:
                     - Lorem consequat l
                     - minim Excepteur
                   forward: culpa do
+      operationId: googleCreateFilters
   /gmail/v1/users/{userId}/settings/forwardingAddresses/{forwardingEmail}:
     delete:
       tags:
@@ -5085,6 +5155,7 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: googleDeleteForwardingAddresses
     get:
       tags:
         - settings > Forwarding Addresses
@@ -5125,6 +5196,7 @@ paths:
               example:
                 forwardingEmail: ad tempor dolor
                 verificationStatus: pending
+      operationId: googleGetForwardingAddresses
   /gmail/v1/users/{userId}/settings/forwardingAddresses:
     get:
       tags:
@@ -5162,6 +5234,7 @@ paths:
                     verificationStatus: accepted
                   - forwardingEmail: proident ad nulla occaecat dolore
                     verificationStatus: verificationStatusUnspecified
+      operationId: googleListForwardingAddresses
     post:
       tags:
         - settings > Forwarding Addresses
@@ -5214,6 +5287,7 @@ paths:
               example:
                 forwardingEmail: ad tempor dolor
                 verificationStatus: pending
+      operationId: googleCreateForwardingAddress
   /gmail/v1/users/{userId}/settings/delegates/{delegateEmail}:
     delete:
       tags:
@@ -5248,6 +5322,7 @@ paths:
               schema:
                 type: string
               example: ''
+      operationId: googleDeleteDelegates
     get:
       tags:
         - settings > Delegates
@@ -5292,6 +5367,7 @@ paths:
               example:
                 delegateEmail: Duis commodo enim irure
                 verificationStatus: rejected
+      operationId: googleGetDelegates
   /gmail/v1/users/{userId}/settings/delegates:
     get:
       tags:
@@ -5332,6 +5408,7 @@ paths:
                     verificationStatus: accepted
                   - delegateEmail: qui ipsum
                     verificationStatus: expired
+      operationId: googleListDelegates
     post:
       tags:
         - settings > Delegates
@@ -5390,3 +5467,4 @@ paths:
               example:
                 delegateEmail: Duis commodo enim irure
                 verificationStatus: rejected
+      operationId: googleCreateDelegates

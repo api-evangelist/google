@@ -33,7 +33,7 @@ paths:
       description: >-
         Gets information about the user, the user's Drive, and system
         capabilities.
-      operationId: drive.about.get
+      operationId: googleDriveAboutGet
       responses:
         '200':
           content:
@@ -72,7 +72,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - about
-      summary: Get  About
+      summary: Get About
       parameters:
         - in: header
           name: Authorization
@@ -149,7 +149,7 @@ paths:
   /apps:
     get:
       description: Lists a user's installed apps.
-      operationId: drive.apps.list
+      operationId: googleDriveAppsList
       parameters:
         - description: >-
             A comma-separated list of file extensions to limit returned results.
@@ -265,11 +265,11 @@ paths:
             - https://www.googleapis.com/auth/drive.apps.readonly
       tags:
         - apps
-      summary: Get  Apps
+      summary: Get Apps
   /apps/{appId}:
     get:
       description: Gets a specific app.
-      operationId: drive.apps.get
+      operationId: googleDriveAppsGet
       parameters:
         - description: The ID of the app.
           in: path
@@ -387,11 +387,11 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - apps
-      summary: Get  Apps Appid
+      summary: Get Apps Appid
   /changes:
     get:
       description: Lists the changes for a user or shared drive.
-      operationId: drive.changes.list
+      operationId: googleDriveChangesList
       parameters:
         - description: >-
             The token for continuing a previous list request on the next page.
@@ -602,11 +602,11 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - changes
-      summary: Get  Changes
+      summary: Get Changes
   /changes/startPageToken:
     get:
       description: Gets the starting pageToken for listing future changes.
-      operationId: drive.changes.getStartPageToken
+      operationId: googleDriveChangesGetstartpagetoken
       parameters:
         - description: >-
             The ID of the shared drive for which the starting pageToken for
@@ -742,11 +742,11 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - changes
-      summary: Get  Changes Startpagetoken
+      summary: Get Changes Startpagetoken
   /changes/watch:
     post:
       description: Subscribes to changes for a user.
-      operationId: drive.changes.watch
+      operationId: googleDriveChangesWatch
       parameters:
         - description: >-
             The token for continuing a previous list request on the next page.
@@ -962,11 +962,11 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - changes
-      summary: Post  Changes Watch
+      summary: Post Changes Watch
   /channels/stop:
     post:
       description: Stops watching resources through this channel.
-      operationId: drive.channels.stop
+      operationId: googleDriveChannelsStop
       requestBody:
         content:
           application/json:
@@ -1006,7 +1006,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - channels
-      summary: Post  Channels Stop
+      summary: Post Channels Stop
       parameters:
         - in: header
           name: Authorization
@@ -1083,7 +1083,7 @@ paths:
   /drives:
     get:
       description: ' Lists the user''s shared drives. This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information, see the [Search for shared drives](/drive/api/guides/search-shareddrives) guide.'
-      operationId: drive.drives.list
+      operationId: googleDriveDrivesList
       parameters:
         - description: Maximum number of shared drives to return per page.
           in: query
@@ -1200,12 +1200,12 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - drives
-      summary: Get  Drives
+      summary: Get Drives
       x-api-evangelist-certified: '2025-07-18'
       x-api-naftiko-published: '2025-07-18'
     post:
       description: Creates a shared drive.
-      operationId: drive.drives.create
+      operationId: googleDriveDrivesCreate
       parameters:
         - description: >-
             Required. An ID, such as a random UUID, which uniquely identifies
@@ -1310,13 +1310,13 @@ paths:
             - https://www.googleapis.com/auth/drive
       tags:
         - drives
-      summary: Post  Drives
+      summary: Post Drives
   /drives/{driveId}:
     delete:
       description: >-
         Permanently deletes a shared drive for which the user is an `organizer`.
         The shared drive cannot contain any untrashed items.
-      operationId: drive.drives.delete
+      operationId: googleDriveDrivesDelete
       parameters:
         - description: The ID of the shared drive.
           in: path
@@ -1422,10 +1422,10 @@ paths:
             - https://www.googleapis.com/auth/drive
       tags:
         - drives
-      summary: Delete  Drives Driveid
+      summary: Delete Drives Driveid
     get:
       description: Gets a shared drive's metadata by ID.
-      operationId: drive.drives.get
+      operationId: googleDriveDrivesGet
       parameters:
         - description: The ID of the shared drive.
           in: path
@@ -1531,12 +1531,12 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - drives
-      summary: Get  Drives Driveid
+      summary: Get Drives Driveid
       x-api-evangelist-certified: '2025-07-18'
       x-api-naftiko-published: '2025-07-18'
     patch:
       description: Updates the metadate for a shared drive.
-      operationId: drive.drives.update
+      operationId: googleDriveDrivesUpdate
       parameters:
         - description: The ID of the shared drive.
           in: path
@@ -1643,11 +1643,11 @@ paths:
             - https://www.googleapis.com/auth/drive
       tags:
         - drives
-      summary: Patch  Drives Driveid
+      summary: Patch Drives Driveid
   /drives/{driveId}/hide:
     post:
       description: Hides a shared drive from the default view.
-      operationId: drive.drives.hide
+      operationId: googleDriveDrivesHide
       parameters:
         - description: The ID of the shared drive.
           in: path
@@ -1741,11 +1741,11 @@ paths:
             - https://www.googleapis.com/auth/drive
       tags:
         - drives
-      summary: Post  Drives Driveid Hide
+      summary: Post Drives Driveid Hide
   /drives/{driveId}/unhide:
     post:
       description: Restores a shared drive to the default view.
-      operationId: drive.drives.unhide
+      operationId: googleDriveDrivesUnhide
       parameters:
         - description: The ID of the shared drive.
           in: path
@@ -1839,11 +1839,11 @@ paths:
             - https://www.googleapis.com/auth/drive
       tags:
         - drives
-      summary: Post  Drives Driveid Unhide
+      summary: Post Drives Driveid Unhide
   /files:
     get:
       description: ' Lists the user''s files. This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information, see the [Search for files & folders](/drive/api/guides/search-files) guide. *Note:* This method returns *all* files by default, including trashed files. If you don''t want trashed files to appear in the list, use the `trashed=false` query parameter to remove trashed files from the results.'
-      operationId: drive.files.list
+      operationId: googleDriveFilesList
       parameters:
         - description: >-
             Bodies of items (files/documents) to which the query applies.
@@ -2064,12 +2064,12 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - files
-      summary: Get  Files
+      summary: Get Files
       x-api-evangelist-certified: '2025-07-18'
       x-api-naftiko-published: '2025-07-18'
     post:
       description: ' Creates a new file. This method supports an */upload* URI and accepts uploaded media with the following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*/*` Note: Specify a valid MIME type, rather than the literal `*/*` value. The literal `*/*` is only used to indicate that any valid MIME type can be uploaded. For more information on uploading files, see [Upload file data](/drive/api/guides/manage-uploads). Apps creating shortcuts with `files.create` must specify the MIME type `application/vnd.google-apps.shortcut`. Apps should specify a file extension in the `name` property when inserting files with the API. For example, an operation to insert a JPEG file should specify something like `"name": "cat.jpg"` in the metadata. Subsequent `GET` requests include the read-only `fileExtension` property populated with the extension originally specified in the `title` property. When a Google Drive user requests to download a file, or when the file is downloaded through the sync client, Drive builds a full filename (with extension) based on the title. In cases where the extension is missing, Drive attempts to determine the extension based on the file''s MIME type.'
-      operationId: drive.files.create
+      operationId: googleDriveFilesCreate
       parameters:
         - description: >-
             Deprecated. Creating files in multiple folders is no longer
@@ -2234,13 +2234,13 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - files
-      summary: Post  Files
+      summary: Post Files
   /files/generateIds:
     get:
       description: >-
         Generates a set of file IDs which can be provided in create or copy
         requests.
-      operationId: drive.files.generateIds
+      operationId: googleDriveFilesGenerateids
       parameters:
         - description: The number of IDs to return.
           in: query
@@ -2358,11 +2358,11 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - files
-      summary: Get  Files Generateids
+      summary: Get Files Generateids
   /files/trash:
     delete:
       description: Permanently deletes all of the user's trashed files.
-      operationId: drive.files.emptyTrash
+      operationId: googleDriveFilesEmptytrash
       parameters:
         - description: If set, empties the trash of the provided shared drive.
           in: query
@@ -2459,7 +2459,7 @@ paths:
             - https://www.googleapis.com/auth/drive
       tags:
         - files
-      summary: Delete  Files Trash
+      summary: Delete Files Trash
   /files/{fileId}:
     delete:
       description: >-
@@ -2467,7 +2467,7 @@ paths:
         trash. If the file belongs to a shared drive, the user must be an
         `organizer` on the parent folder. If the target is a folder, all
         descendants owned by the user are also deleted.
-      operationId: drive.files.delete
+      operationId: googleDriveFilesDelete
       parameters:
         - description: The ID of the file.
           in: path
@@ -2585,10 +2585,10 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - files
-      summary: Delete  Files Fileid
+      summary: Delete Files Fileid
     get:
       description: ' Gets a file''s metadata or content by ID. If you provide the URL parameter `alt=media`, then the response includes the file contents in the response body. Downloading content with `alt=media` only works if the file is stored in Drive. To download Google Docs, Sheets, and Slides use [`files.export`](/drive/api/reference/rest/v3/files/export) instead. For more information, see [Download & export files](/drive/api/guides/manage-downloads).'
-      operationId: drive.files.get
+      operationId: googleDriveFilesGet
       parameters:
         - description: The ID of the file.
           in: path
@@ -2740,12 +2740,12 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - files
-      summary: Get  Files Fileid
+      summary: Get Files Fileid
       x-api-evangelist-certified: '2025-07-18'
       x-api-naftiko-published: '2025-07-18'
     patch:
       description: ' Updates a file''s metadata and/or content. When calling this method, only populate fields in the request that you want to modify. When updating fields, some fields might be changed automatically, such as `modifiedDate`. This method supports patch semantics. This method supports an */upload* URI and accepts uploaded media with the following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*/*` Note: Specify a valid MIME type, rather than the literal `*/*` value. The literal `*/*` is only used to indicate that any valid MIME type can be uploaded. For more information on uploading files, see [Upload file data](/drive/api/guides/manage-uploads).'
-      operationId: drive.files.update
+      operationId: googleDriveFilesUpdate
       parameters:
         - description: The ID of the file.
           in: path
@@ -2924,11 +2924,11 @@ paths:
             - https://www.googleapis.com/auth/drive.scripts
       tags:
         - files
-      summary: Patch  Files Fileid
+      summary: Patch Files Fileid
   /files/{fileId}/comments:
     get:
       description: Lists a file's comments.
-      operationId: drive.comments.list
+      operationId: googleDriveCommentsList
       parameters:
         - description: The ID of the file.
           in: path
@@ -3059,10 +3059,10 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - comments
-      summary: Get  Files Fileid Comments
+      summary: Get Files Fileid Comments
     post:
       description: Creates a comment on a file.
-      operationId: drive.comments.create
+      operationId: googleDriveCommentsCreate
       parameters:
         - description: The ID of the file.
           in: path
@@ -3165,11 +3165,11 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - comments
-      summary: Post  Files Fileid Comments
+      summary: Post Files Fileid Comments
   /files/{fileId}/comments/{commentId}:
     delete:
       description: Deletes a comment.
-      operationId: drive.comments.delete
+      operationId: googleDriveCommentsDelete
       parameters:
         - description: The ID of the file.
           in: path
@@ -3269,10 +3269,10 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - comments
-      summary: Delete  Files Fileid Comments Commentid
+      summary: Delete Files Fileid Comments Commentid
     get:
       description: Gets a comment by ID.
-      operationId: drive.comments.get
+      operationId: googleDriveCommentsGet
       parameters:
         - description: The ID of the file.
           in: path
@@ -3387,10 +3387,10 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - comments
-      summary: Get  Files Fileid Comments Commentid
+      summary: Get Files Fileid Comments Commentid
     patch:
       description: Updates a comment with patch semantics.
-      operationId: drive.comments.update
+      operationId: googleDriveCommentsUpdate
       parameters:
         - description: The ID of the file.
           in: path
@@ -3499,11 +3499,11 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - comments
-      summary: Patch  Files Fileid Comments Commentid
+      summary: Patch Files Fileid Comments Commentid
   /files/{fileId}/comments/{commentId}/replies:
     get:
       description: Lists a comment's replies.
-      operationId: drive.replies.list
+      operationId: googleDriveRepliesList
       parameters:
         - description: The ID of the file.
           in: path
@@ -3633,10 +3633,10 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - replies
-      summary: Get  Files Fileid Comments Commentid Replies
+      summary: Get Files Fileid Comments Commentid Replies
     post:
       description: Creates a reply to a comment.
-      operationId: drive.replies.create
+      operationId: googleDriveRepliesCreate
       parameters:
         - description: The ID of the file.
           in: path
@@ -3745,11 +3745,11 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - replies
-      summary: Post  Files Fileid Comments Commentid Replies
+      summary: Post Files Fileid Comments Commentid Replies
   /files/{fileId}/comments/{commentId}/replies/{replyId}:
     delete:
       description: Deletes a reply.
-      operationId: drive.replies.delete
+      operationId: googleDriveRepliesDelete
       parameters:
         - description: The ID of the file.
           in: path
@@ -3855,10 +3855,10 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - replies
-      summary: Delete  Files Fileid Comments Commentid Replies Replyid
+      summary: Delete Files Fileid Comments Commentid Replies Replyid
     get:
       description: Gets a reply by ID.
-      operationId: drive.replies.get
+      operationId: googleDriveRepliesGet
       parameters:
         - description: The ID of the file.
           in: path
@@ -3979,10 +3979,10 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - replies
-      summary: Get  Files Fileid Comments Commentid Replies Replyid
+      summary: Get Files Fileid Comments Commentid Replies Replyid
     patch:
       description: Updates a reply with patch semantics.
-      operationId: drive.replies.update
+      operationId: googleDriveRepliesUpdate
       parameters:
         - description: The ID of the file.
           in: path
@@ -4097,13 +4097,13 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - replies
-      summary: Patch  Files Fileid Comments Commentid Replies Replyid
+      summary: Patch Files Fileid Comments Commentid Replies Replyid
   /files/{fileId}/copy:
     post:
       description: >-
         Creates a copy of a file and applies any requested updates with patch
         semantics.
-      operationId: drive.files.copy
+      operationId: googleDriveFilesCopy
       parameters:
         - description: The ID of the file.
           in: path
@@ -4273,14 +4273,14 @@ paths:
             - https://www.googleapis.com/auth/drive.photos.readonly
       tags:
         - files
-      summary: Post  Files Fileid Copy
+      summary: Post Files Fileid Copy
   /files/{fileId}/export:
     get:
       description: >-
         Exports a Google Workspace document to the requested MIME type and
         returns exported byte content. Note that the exported content is limited
         to 10MB.
-      operationId: drive.files.export
+      operationId: googleDriveFilesExport
       parameters:
         - description: The ID of the file.
           in: path
@@ -4384,11 +4384,11 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - files
-      summary: Get  Files Fileid Export
+      summary: Get Files Fileid Export
   /files/{fileId}/listLabels:
     get:
       description: Lists the labels on a file.
-      operationId: drive.files.listLabels
+      operationId: googleDriveFilesListlabels
       parameters:
         - description: The ID for the file.
           in: path
@@ -4515,7 +4515,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - files
-      summary: Get  Files Fileid Listlabels
+      summary: Get Files Fileid Listlabels
       x-api-evangelist-certified: '2025-07-18'
       x-api-naftiko-published: '2025-07-18'
   /files/{fileId}/modifyLabels:
@@ -4523,7 +4523,7 @@ paths:
       description: >-
         Modifies the set of labels applied to a file. Returns a list of the
         labels that were added or modified.
-      operationId: drive.files.modifyLabels
+      operationId: googleDriveFilesModifylabels
       parameters:
         - description: The ID of the file to which the labels belong.
           in: path
@@ -4630,11 +4630,11 @@ paths:
             - https://www.googleapis.com/auth/drive.metadata
       tags:
         - files
-      summary: Post  Files Fileid Modifylabels
+      summary: Post Files Fileid Modifylabels
   /files/{fileId}/permissions:
     get:
       description: Lists a file's or shared drive's permissions.
-      operationId: drive.permissions.list
+      operationId: googleDrivePermissionsList
       parameters:
         - description: The ID of the file or shared drive.
           in: path
@@ -4795,7 +4795,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - permissions
-      summary: Get  Files Fileid Permissions
+      summary: Get Files Fileid Permissions
       x-api-evangelist-certified: '2025-07-18'
       x-api-naftiko-published: '2025-07-18'
     post:
@@ -4803,7 +4803,7 @@ paths:
         Creates a permission for a file or shared drive. **Warning:** Concurrent
         permissions operations on the same file are not supported; only the last
         update is applied.
-      operationId: drive.permissions.create
+      operationId: googleDrivePermissionsCreate
       parameters:
         - description: The ID of the file or shared drive.
           in: path
@@ -4964,13 +4964,13 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - permissions
-      summary: Post  Files Fileid Permissions
+      summary: Post Files Fileid Permissions
   /files/{fileId}/permissions/{permissionId}:
     delete:
       description: >-
         Deletes a permission. **Warning:** Concurrent permissions operations on
         the same file are not supported; only the last update is applied.
-      operationId: drive.permissions.delete
+      operationId: googleDrivePermissionsDelete
       parameters:
         - description: The ID of the file or shared drive.
           in: path
@@ -5091,10 +5091,10 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - permissions
-      summary: Delete  Files Fileid Permissions Permissionid
+      summary: Delete Files Fileid Permissions Permissionid
     get:
       description: Gets a permission by ID.
-      operationId: drive.permissions.get
+      operationId: googleDrivePermissionsGet
       parameters:
         - description: The ID of the file.
           in: path
@@ -5235,13 +5235,13 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - permissions
-      summary: Get  Files Fileid Permissions Permissionid
+      summary: Get Files Fileid Permissions Permissionid
     patch:
       description: >-
         Updates a permission with patch semantics. **Warning:** Concurrent
         permissions operations on the same file are not supported; only the last
         update is applied.
-      operationId: drive.permissions.update
+      operationId: googleDrivePermissionsUpdate
       parameters:
         - description: The ID of the file or shared drive.
           in: path
@@ -5384,11 +5384,11 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - permissions
-      summary: Patch  Files Fileid Permissions Permissionid
+      summary: Patch Files Fileid Permissions Permissionid
   /files/{fileId}/revisions:
     get:
       description: Lists a file's revisions.
-      operationId: drive.revisions.list
+      operationId: googleDriveRevisionsList
       parameters:
         - description: The ID of the file.
           in: path
@@ -5521,7 +5521,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - revisions
-      summary: Get  Files Fileid Revisions
+      summary: Get Files Fileid Revisions
       x-api-evangelist-certified: '2025-07-18'
       x-api-naftiko-published: '2025-07-18'
   /files/{fileId}/revisions/{revisionId}:
@@ -5531,7 +5531,7 @@ paths:
         files with binary content in Google Drive, like images or videos.
         Revisions for other files, like Google Docs or Sheets, and the last
         remaining file version can't be deleted.
-      operationId: drive.revisions.delete
+      operationId: googleDriveRevisionsDelete
       parameters:
         - description: The ID of the file.
           in: path
@@ -5635,10 +5635,10 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - revisions
-      summary: Delete  Files Fileid Revisions Revisionid
+      summary: Delete Files Fileid Revisions Revisionid
     get:
       description: Gets a revision's metadata or content by ID.
-      operationId: drive.revisions.get
+      operationId: googleDriveRevisionsGet
       parameters:
         - description: The ID of the file.
           in: path
@@ -5770,10 +5770,10 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - revisions
-      summary: Get  Files Fileid Revisions Revisionid
+      summary: Get Files Fileid Revisions Revisionid
     patch:
       description: Updates a revision with patch semantics.
-      operationId: drive.revisions.update
+      operationId: googleDriveRevisionsUpdate
       parameters:
         - description: The ID of the file.
           in: path
@@ -5886,11 +5886,11 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - revisions
-      summary: Patch  Files Fileid Revisions Revisionid
+      summary: Patch Files Fileid Revisions Revisionid
   /files/{fileId}/watch:
     post:
       description: Subscribes to changes to a file.
-      operationId: drive.files.watch
+      operationId: googleDriveFilesWatch
       parameters:
         - description: The ID of the file.
           in: path
@@ -6047,11 +6047,11 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - files
-      summary: Post  Files Fileid Watch
+      summary: Post Files Fileid Watch
   /teamdrives:
     get:
       description: 'Deprecated: Use `drives.list` instead.'
-      operationId: drive.teamdrives.list
+      operationId: googleDriveTeamdrivesList
       parameters:
         - description: Maximum number of Team Drives to return.
           in: query
@@ -6168,12 +6168,12 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - teamdrives
-      summary: Get  Teamdrives
+      summary: Get Teamdrives
       x-api-evangelist-certified: '2025-07-18'
       x-api-naftiko-published: '2025-07-18'
     post:
       description: 'Deprecated: Use `drives.create` instead.'
-      operationId: drive.teamdrives.create
+      operationId: googleDriveTeamdrivesCreate
       parameters:
         - description: >-
             Required. An ID, such as a random UUID, which uniquely identifies
@@ -6278,11 +6278,11 @@ paths:
             - https://www.googleapis.com/auth/drive
       tags:
         - teamdrives
-      summary: Post  Teamdrives
+      summary: Post Teamdrives
   /teamdrives/{teamDriveId}:
     delete:
       description: 'Deprecated: Use `drives.delete` instead.'
-      operationId: drive.teamdrives.delete
+      operationId: googleDriveTeamdrivesDelete
       parameters:
         - description: The ID of the Team Drive
           in: path
@@ -6372,10 +6372,10 @@ paths:
             - https://www.googleapis.com/auth/drive
       tags:
         - teamdrives
-      summary: Delete  Teamdrives Teamdriveid
+      summary: Delete Teamdrives Teamdriveid
     get:
       description: 'Deprecated: Use `drives.get` instead.'
-      operationId: drive.teamdrives.get
+      operationId: googleDriveTeamdrivesGet
       parameters:
         - description: The ID of the Team Drive
           in: path
@@ -6481,10 +6481,10 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - teamdrives
-      summary: Get  Teamdrives Teamdriveid
+      summary: Get Teamdrives Teamdriveid
     patch:
       description: 'Deprecated: Use `drives.update` instead.'
-      operationId: drive.teamdrives.update
+      operationId: googleDriveTeamdrivesUpdate
       parameters:
         - description: The ID of the Team Drive
           in: path
@@ -6591,7 +6591,7 @@ paths:
             - https://www.googleapis.com/auth/drive
       tags:
         - teamdrives
-      summary: Patch  Teamdrives Teamdriveid
+      summary: Patch Teamdrives Teamdriveid
 components:
   parameters:
     _.xgafv:

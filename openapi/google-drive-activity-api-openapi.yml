@@ -20,7 +20,7 @@ paths:
   /v2/activity:query:
     post:
       description: Query past activity in Google Drive.
-      operationId: driveactivity.activity.query
+      operationId: googleDriveactivityActivityQuery
       requestBody:
         content:
           application/json:
@@ -44,7 +44,7 @@ paths:
             - https://www.googleapis.com/auth/drive.activity.readonly
       tags:
         - activity
-      summary: Post  V2 Activity:query
+      summary: Post  Activity:query
       parameters:
         - description: V1 error format.
           in: query

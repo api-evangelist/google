@@ -41,7 +41,7 @@ paths:
         Creates a blank document using the title given in the request. Other
         fields in the request, including any provided content, are ignored.
         Returns the created document.
-      operationId: docs.documents.create
+      operationId: googleDocsDocumentsCreate
       requestBody:
         content:
           application/json:
@@ -138,11 +138,11 @@ paths:
           name: uploadType
           schema:
             type: string
-      summary: Post  V1 Documents
+      summary: Post  Documents
   /v1/documents/{documentId}:
     get:
       description: Gets the latest version of the specified document.
-      operationId: docs.documents.get
+      operationId: googleDocsDocumentsGet
       parameters:
         - description: The ID of the document to retrieve.
           in: path
@@ -262,7 +262,7 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - documents
-      summary: Get  V1 Documents Documentid
+      summary: Get  Documents Documentid
   /v1/documents/{documentId}:batchUpdate:
     post:
       description: >-
@@ -280,7 +280,7 @@ paths:
         to collaborator changes. If there are no collaborators, the document
         should reflect your changes. In any case, the updates in your request
         are guaranteed to be applied together atomically.
-      operationId: docs.documents.batchUpdate
+      operationId: googleDocsDocumentsBatchupdate
       parameters:
         - description: The ID of the document to update.
           in: path
@@ -383,7 +383,7 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - documents
-      summary: Post  V1 Documents Documentid:batchupdate
+      summary: Post  Documents Documentid:batchupdate
 components:
   parameters:
     _.xgafv:
