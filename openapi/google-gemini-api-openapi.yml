@@ -1,0 +1,1514 @@
+openapi: 3.1.0
+info:
+  title: Gemini API
+  description: |
+    The Gemini API can generate text output from various inputs, including text, images, video, and audio, leveraging Gemini models.
+  version: 1.0.0
+  contact:
+    name: Google AI
+    url: https://ai.google.dev
+
+servers:
+  - url: https://generativelanguage.googleapis.com/v1beta
+    description: Gemini API v1beta
+
+security:
+  - ApiKeyHeader: []
+
+tags:
+  - name: Content Generation
+    description: Operations for generating content with Gemini models
+  - name: Image Generation
+    description: Operations for generating and editing images with Gemini image models
+  - name: Video Understanding
+    description: Operations for processing and understanding video content
+  - name: Document Understanding
+    description: Operations for processing and understanding PDF documents
+  - name: Audio Understanding
+    description: Operations for analyzing and understanding audio content
+  - name: Speech Generation
+    description: Operations for text-to-speech (TTS) audio generation
+  - name: File API
+    description: Operations for uploading and managing media files
+  - name: Streaming
+    description: Operations for streaming responses
+
+paths:
+  /files:
+    post:
+      tags:
+        - File API
+        - Video Understanding
+        - Document Understanding
+        - Audio Understanding
+      summary: Upload File (Resumable)
+      description: |
+        Upload a video, PDF, audio, or other media file using resumable upload protocol. Use this for files larger than 20MB, 
+        videos longer than approximately 1 minute, or when you want to reuse the file across multiple requests.
+      operationId: uploadFile
+      parameters:
+        - name: X-Goog-Upload-Protocol
+          in: header
+          required: true
+          schema:
+            type: string
+            enum:
+              - resumable
+          description: Upload protocol type
+        - name: X-Goog-Upload-Command
+          in: header
+          required: true
+          schema:
+            type: string
+            enum:
+              - start
+              - upload, finalize
+          description: Upload command (start for initiation, "upload, finalize" for data upload)
+        - name: X-Goog-Upload-Header-Content-Length
+          in: header
+          required: false
+          schema:
+            type: integer
+          description: Total size of the file in bytes (required for start command)
+        - name: X-Goog-Upload-Header-Content-Type
+          in: header
+          required: false
+          schema:
+            type: string
+          description: MIME type of the file (required for start command)
+        - name: X-Goog-Upload-Offset
+          in: header
+          required: false
+          schema:
+            type: integer
+          description: Byte offset for upload (required for upload command)
+        - name: Content-Length
+          in: header
+          required: false
+          schema:
+            type: integer
+          description: Size of the current chunk being uploaded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: object
+                  properties:
+                    display_name:
+                      type: string
+                      description: Display name for the file
+            description: File metadata (for start command)
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+            description: Binary file data (for upload command)
+      responses:
+        '200':
+          description: Upload initiated or completed successfully
+          headers:
+            x-goog-upload-url:
+              description: URL for uploading file data (returned on start command)
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileUploadResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /files/{name}:
+    get:
+      tags:
+        - File API
+      summary: Get File Metadata
+      description: |
+        Retrieve metadata for an uploaded file. Use this to verify the file was successfully 
+        stored and to check its processing state.
+      operationId: getFile
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: The resource name of the file (e.g., "files/abc123")
+          schema:
+            type: string
+          example: "files/abc123"
+      responses:
+        '200':
+          description: File metadata retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileUploadResponse'
+        '404':
+          description: File not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /models/{model}:countTokens:
+    post:
+      tags:
+        - Content Generation
+        - Audio Understanding
+      summary: Count Tokens
+      description: |
+        Get a count of the number of tokens in content, including audio, video, images, and text.
+        Useful for estimating costs and ensuring content fits within model context windows.
+      operationId: countTokens
+      parameters:
+        - name: model
+          in: path
+          required: true
+          description: The model to use for token counting
+          schema:
+            type: string
+            example: gemini-2.5-flash
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - contents
+              properties:
+                contents:
+                  type: array
+                  description: The content to count tokens for
+                  items:
+                    $ref: '#/components/schemas/Content'
+            examples:
+              count_audio_tokens:
+                summary: Count tokens in audio file
+                value:
+                  contents:
+                    - parts:
+                        - file_data:
+                            mime_type: "audio/mp3"
+                            file_uri: "https://generativelanguage.googleapis.com/v1beta/files/abc123"
+              count_text_tokens:
+                summary: Count tokens in text
+                value:
+                  contents:
+                    - parts:
+                        - text: "How much wood would a woodchuck chuck if a woodchuck could chuck wood?"
+      responses:
+        '200':
+          description: Token count retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountTokensResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /models/{model}:generateContent:
+    post:
+      tags:
+        - Content Generation
+        - Video Understanding
+        - Document Understanding
+        - Audio Understanding
+      summary: Generate Content
+      description: |
+        Generates text output from various inputs including text, images, video, audio, and PDF documents.
+        
+        **Document Understanding**: Process PDF documents up to 1000 pages using native vision to:
+        - Analyze and interpret text, images, diagrams, charts, and tables
+        - Extract information into structured output formats
+        - Summarize and answer questions based on visual and textual elements
+        - Transcribe document content (e.g., to HTML) preserving layouts and formatting
+        - Process multiple PDFs in a single request (within context window limits)
+        
+        **Video Understanding**: Process videos to describe, segment, and extract information, answer questions, 
+        and refer to specific timestamps.
+        
+        **Audio Understanding**: Analyze and understand audio input to:
+        - Transcribe speech to text with timestamps
+        - Translate audio content
+        - Detect and label different speakers (speaker diarization)
+        - Detect emotion in speech and music
+        - Analyze specific segments and provide timestamps
+        - Describe, summarize, or answer questions about audio content
+        
+        **Image Input**: Combine text with images for multimodal understanding.
+      operationId: generateContent
+      parameters:
+        - name: model
+          in: path
+          required: true
+          description: The model to use for generation
+          schema:
+            type: string
+            enum:
+              - gemini-2.5-flash
+              - gemini-2.5-pro
+            example: gemini-2.5-flash
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateContentRequest'
+            examples:
+              simple_text:
+                summary: Simple text prompt
+                value:
+                  contents:
+                    - parts:
+                        - text: "How does AI work?"
+              with_system_instruction:
+                summary: With system instructions
+                value:
+                  system_instruction:
+                    parts:
+                      - text: "You are a cat. Your name is Neko."
+                  contents:
+                    - parts:
+                        - text: "Hello there"
+              with_generation_config:
+                summary: With generation configuration
+                value:
+                  contents:
+                    - parts:
+                        - text: "Explain how AI works"
+                  generationConfig:
+                    stopSequences:
+                      - "Title"
+                    temperature: 1.0
+                    topP: 0.8
+                    topK: 10
+              multimodal:
+                summary: Multimodal input with image
+                value:
+                  contents:
+                    - parts:
+                        - text: "Tell me about this instrument"
+                        - inline_data:
+                            mime_type: "image/jpeg"
+                            data: "<base64_encoded_image_data>"
+              chat:
+                summary: Multi-turn conversation
+                value:
+                  contents:
+                    - role: "user"
+                      parts:
+                        - text: "Hello"
+                    - role: "model"
+                      parts:
+                        - text: "Great to meet you. What would you like to know?"
+                    - role: "user"
+                      parts:
+                        - text: "I have two dogs in my house. How many paws are in my house?"
+              video_inline:
+                summary: Video understanding with inline data
+                value:
+                  contents:
+                    - parts:
+                        - inline_data:
+                            mime_type: "video/mp4"
+                            data: "<base64_encoded_video_data>"
+                        - text: "Please summarize the video in 3 sentences."
+              video_file_uri:
+                summary: Video understanding with File API
+                value:
+                  contents:
+                    - parts:
+                        - file_data:
+                            mime_type: "video/mp4"
+                            file_uri: "https://generativelanguage.googleapis.com/v1beta/files/abc123"
+                        - text: "Summarize this video. Then create a quiz with an answer key based on the information in this video."
+              video_youtube:
+                summary: Video understanding with YouTube URL
+                value:
+                  contents:
+                    - parts:
+                        - text: "Please summarize the video in 3 sentences."
+                        - file_data:
+                            file_uri: "https://www.youtube.com/watch?v=9hE5-98ZeCg"
+              video_with_timestamps:
+                summary: Video with timestamp references
+                value:
+                  contents:
+                    - parts:
+                        - file_data:
+                            mime_type: "video/mp4"
+                            file_uri: "https://generativelanguage.googleapis.com/v1beta/files/abc123"
+                        - text: "What are the examples given at 00:05 and 00:10 supposed to show us?"
+              video_with_metadata:
+                summary: Video with custom processing (clipping and FPS)
+                value:
+                  contents:
+                    - parts:
+                        - file_data:
+                            file_uri: "https://www.youtube.com/watch?v=XEzRZ35urlk"
+                          video_metadata:
+                            start_offset: "1250s"
+                            end_offset: "1570s"
+                            fps: 5
+                        - text: "Please summarize the video in 3 sentences."
+              pdf_inline:
+                summary: PDF document with inline data
+                value:
+                  contents:
+                    - parts:
+                        - inline_data:
+                            mime_type: "application/pdf"
+                            data: "<base64_encoded_pdf_data>"
+                        - text: "Summarize this document"
+              pdf_file_uri:
+                summary: PDF document with File API
+                value:
+                  contents:
+                    - parts:
+                        - text: "Summarize this document"
+                        - file_data:
+                            mime_type: "application/pdf"
+                            file_uri: "https://generativelanguage.googleapis.com/v1beta/files/abc123"
+              multiple_pdfs:
+                summary: Multiple PDF documents
+                value:
+                  contents:
+                    - parts:
+                        - file_data:
+                            mime_type: "application/pdf"
+                            file_uri: "https://generativelanguage.googleapis.com/v1beta/files/abc123"
+                        - file_data:
+                            mime_type: "application/pdf"
+                            file_uri: "https://generativelanguage.googleapis.com/v1beta/files/def456"
+                        - text: "What is the difference between each of the main benchmarks between these two papers? Output these in a table."
+              pdf_with_extraction:
+                summary: PDF with structured output extraction
+                value:
+                  contents:
+                    - parts:
+                        - file_data:
+                            mime_type: "application/pdf"
+                            file_uri: "https://generativelanguage.googleapis.com/v1beta/files/abc123"
+                        - text: "Extract all the key findings from this research paper into a structured format"
+              audio_inline:
+                summary: Audio understanding with inline data
+                value:
+                  contents:
+                    - parts:
+                        - inline_data:
+                            mime_type: "audio/mp3"
+                            data: "<base64_encoded_audio_data>"
+                        - text: "Describe this audio clip"
+              audio_file_uri:
+                summary: Audio understanding with File API
+                value:
+                  contents:
+                    - parts:
+                        - text: "Describe this audio clip"
+                        - file_data:
+                            mime_type: "audio/mp3"
+                            file_uri: "https://generativelanguage.googleapis.com/v1beta/files/abc123"
+              audio_transcription:
+                summary: Audio transcription with timestamps
+                value:
+                  contents:
+                    - parts:
+                        - file_data:
+                            mime_type: "audio/mp3"
+                            file_uri: "https://generativelanguage.googleapis.com/v1beta/files/abc123"
+                        - text: "Generate a transcript of the speech."
+              audio_with_timestamps:
+                summary: Audio transcription for specific time range
+                value:
+                  contents:
+                    - parts:
+                        - file_data:
+                            mime_type: "audio/mp3"
+                            file_uri: "https://generativelanguage.googleapis.com/v1beta/files/abc123"
+                        - text: "Provide a transcript of the speech from 02:30 to 03:29."
+              audio_structured_transcription:
+                summary: Audio with structured output (diarization, emotions, translation)
+                value:
+                  contents:
+                    - parts:
+                        - file_data:
+                            file_uri: "https://www.youtube.com/watch?v=ku-N-eS1lgM"
+                            mime_type: "video/mp4"
+                        - text: |
+                            Process the audio file and generate a detailed transcription.
+                            
+                            Requirements:
+                            1. Identify distinct speakers (e.g., Speaker 1, Speaker 2, or names if context allows).
+                            2. Provide accurate timestamps for each segment (Format: MM:SS).
+                            3. Detect the primary language of each segment.
+                            4. If the segment is in a language different than English, also provide the English translation.
+                            5. Identify the primary emotion of the speaker in this segment. You MUST choose exactly one of the following: Happy, Sad, Angry, Neutral.
+                            6. Provide a brief summary of the entire audio at the beginning.
+                  generationConfig:
+                    response_mime_type: "application/json"
+                    response_schema:
+                      type: "OBJECT"
+                      properties:
+                        summary:
+                          type: "STRING"
+                          description: "A concise summary of the audio content."
+                        segments:
+                          type: "ARRAY"
+                          description: "List of transcribed segments with speaker and timestamp."
+                          items:
+                            type: "OBJECT"
+                            properties:
+                              speaker:
+                                type: "STRING"
+                              timestamp:
+                                type: "STRING"
+                              content:
+                                type: "STRING"
+                              language:
+                                type: "STRING"
+                              language_code:
+                                type: "STRING"
+                              translation:
+                                type: "STRING"
+                              emotion:
+                                type: "STRING"
+                                enum: ["happy", "sad", "angry", "neutral"]
+                            required: ["speaker", "timestamp", "content", "language", "language_code", "emotion"]
+                      required: ["summary", "segments"]
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateContentResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized - Invalid API key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Too many requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /models/{ttsModel}:generateContent:
+    post:
+      tags:
+        - Speech Generation
+      summary: Generate Speech (Text-to-Speech)
+      description: |
+        Transform text input into single-speaker or multi-speaker audio using native text-to-speech (TTS) 
+        generation capabilities. TTS is controllable through natural language to guide style, accent, pace, 
+        and tone of the audio.
+        
+        **Capabilities:**
+        - Single-speaker or multi-speaker audio (up to 2 speakers)
+        - 30 voice options with different characteristics (bright, upbeat, informative, etc.)
+        - 24 supported languages with automatic language detection
+        - Controllable style, tone, accent, and pace via prompts
+        - Audio output in PCM format (24kHz, 16-bit, mono)
+        
+        **Note**: TTS models accept text-only inputs and produce audio-only outputs.
+      operationId: generateSpeech
+      parameters:
+        - name: ttsModel
+          in: path
+          required: true
+          description: The TTS model to use for speech generation
+          schema:
+            type: string
+            enum:
+              - gemini-2.5-flash-preview-tts
+              - gemini-2.5-pro-preview-tts
+            example: gemini-2.5-flash-preview-tts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpeechGenerationRequest'
+            examples:
+              single_speaker:
+                summary: Single-speaker TTS
+                value:
+                  contents:
+                    - parts:
+                        - text: "Say cheerfully: Have a wonderful day!"
+                  generationConfig:
+                    responseModalities:
+                      - "AUDIO"
+                    speechConfig:
+                      voiceConfig:
+                        prebuiltVoiceConfig:
+                          voiceName: "Kore"
+              multi_speaker:
+                summary: Multi-speaker TTS
+                value:
+                  contents:
+                    - parts:
+                        - text: |
+                            TTS the following conversation between Joe and Jane:
+                            Joe: Hows it going today Jane?
+                            Jane: Not too bad, how about you?
+                  generationConfig:
+                    responseModalities:
+                      - "AUDIO"
+                    speechConfig:
+                      multiSpeakerVoiceConfig:
+                        speakerVoiceConfigs:
+                          - speaker: "Joe"
+                            voiceConfig:
+                              prebuiltVoiceConfig:
+                                voiceName: "Kore"
+                          - speaker: "Jane"
+                            voiceConfig:
+                              prebuiltVoiceConfig:
+                                voiceName: "Puck"
+              styled_speech:
+                summary: Speech with style control
+                value:
+                  contents:
+                    - parts:
+                        - text: |
+                            Say in a spooky whisper:
+                            "By the pricking of my thumbs...
+                            Something wicked this way comes"
+                  generationConfig:
+                    responseModalities:
+                      - "AUDIO"
+                    speechConfig:
+                      voiceConfig:
+                        prebuiltVoiceConfig:
+                          voiceName: "Enceladus"
+              multi_speaker_styled:
+                summary: Multi-speaker with individual styling
+                value:
+                  contents:
+                    - parts:
+                        - text: |
+                            Make Speaker1 sound tired and bored, and Speaker2 sound excited and happy:
+                            Speaker1: So... what's on the agenda today?
+                            Speaker2: You're never going to guess!
+                  generationConfig:
+                    responseModalities:
+                      - "AUDIO"
+                    speechConfig:
+                      multiSpeakerVoiceConfig:
+                        speakerVoiceConfigs:
+                          - speaker: "Speaker1"
+                            voiceConfig:
+                              prebuiltVoiceConfig:
+                                voiceName: "Enceladus"
+                          - speaker: "Speaker2"
+                            voiceConfig:
+                              prebuiltVoiceConfig:
+                                voiceName: "Puck"
+      responses:
+        '200':
+          description: Successful response with generated audio
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpeechGenerationResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized - Invalid API key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Too many requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /models/{model}:streamGenerateContent:
+    post:
+      tags:
+        - Content Generation
+        - Streaming
+      summary: Stream Generate Content
+      description: Generates text output with streaming responses, receiving GenerateContentResponse instances incrementally
+      operationId: streamGenerateContent
+      parameters:
+        - name: model
+          in: path
+          required: true
+          description: The model to use for generation
+          schema:
+            type: string
+            enum:
+              - gemini-2.5-flash
+              - gemini-2.5-pro
+            example: gemini-2.5-flash
+        - name: alt
+          in: query
+          required: true
+          description: Alternative response format
+          schema:
+            type: string
+            enum:
+              - sse
+            example: sse
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateContentRequest'
+            examples:
+              streaming_text:
+                summary: Streaming text generation
+                value:
+                  contents:
+                    - parts:
+                        - text: "Explain how AI works"
+              streaming_chat:
+                summary: Streaming multi-turn conversation
+                value:
+                  contents:
+                    - role: "user"
+                      parts:
+                        - text: "Hello"
+                    - role: "model"
+                      parts:
+                        - text: "Great to meet you. What would you like to know?"
+                    - role: "user"
+                      parts:
+                        - text: "I have two dogs in my house. How many paws are in my house?"
+      responses:
+        '200':
+          description: Successful streaming response
+          content:
+            text/event-stream:
+              schema:
+                type: string
+                description: Server-Sent Events stream of GenerateContentResponse objects
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized - Invalid API key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /models/{imageModel}:generateContent:
+    post:
+      tags:
+        - Image Generation
+      summary: Generate Images
+      description: |
+        Generate and process images conversationally. Supports text-to-image, text-and-image-to-image, 
+        and multi-turn image editing. All generated images include a SynthID watermark.
+      operationId: generateImage
+      parameters:
+        - name: imageModel
+          in: path
+          required: true
+          description: The image generation model to use
+          schema:
+            type: string
+            enum:
+              - gemini-2.5-flash-image
+              - gemini-3-pro-image-preview
+            example: gemini-2.5-flash-image
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageGenerationRequest'
+            examples:
+              text_to_image:
+                summary: Text-to-image generation
+                value:
+                  contents:
+                    - parts:
+                        - text: "Create a picture of a nano banana dish in a fancy restaurant with a Gemini theme"
+              image_editing:
+                summary: Image editing with text and image input
+                value:
+                  contents:
+                    - parts:
+                        - text: "Create a picture of my cat eating a nano-banana in a fancy restaurant under the Gemini constellation"
+                        - inline_data:
+                            mime_type: "image/jpeg"
+                            data: "<base64_encoded_image>"
+              multi_turn:
+                summary: Multi-turn image editing
+                value:
+                  contents:
+                    - role: "user"
+                      parts:
+                        - text: "Create a vibrant infographic that explains photosynthesis as if it were a recipe for a plants favorite food."
+                  generationConfig:
+                    responseModalities:
+                      - "TEXT"
+                      - "IMAGE"
+              multi_turn_refinement:
+                summary: Multi-turn refinement (continuing conversation)
+                value:
+                  contents:
+                    - role: "user"
+                      parts:
+                        - text: "Create a vibrant infographic that explains photosynthesis"
+                    - role: "model"
+                      parts:
+                        - text: "Here's an infographic about photosynthesis"
+                        - inline_data:
+                            mime_type: "image/png"
+                            data: "<base64_previous_generated_image>"
+                    - role: "user"
+                      parts:
+                        - text: "Update this infographic to be in Spanish. Do not change any other elements of the image."
+                  generationConfig:
+                    responseModalities:
+                      - "TEXT"
+                      - "IMAGE"
+                    imageConfig:
+                      aspectRatio: "16:9"
+                      imageSize: "2K"
+      responses:
+        '200':
+          description: Successful response with generated image
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageGenerationResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized - Invalid API key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Too many requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  securitySchemes:
+    ApiKeyHeader:
+      type: apiKey
+      in: header
+      name: x-goog-api-key
+      description: API key for authentication
+
+  schemas:
+    FileUploadResponse:
+      type: object
+      properties:
+        file:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Resource name of the file
+              example: "files/abc123"
+            display_name:
+              type: string
+              description: Display name of the file
+            mime_type:
+              type: string
+              description: MIME type of the file
+              example: "video/mp4"
+            size_bytes:
+              type: string
+              description: Size of the file in bytes
+            create_time:
+              type: string
+              format: date-time
+              description: Creation timestamp
+            update_time:
+              type: string
+              format: date-time
+              description: Last update timestamp
+            expiration_time:
+              type: string
+              format: date-time
+              description: Expiration timestamp
+            sha256_hash:
+              type: string
+              description: SHA-256 hash of the file
+            uri:
+              type: string
+              description: URI to use in generateContent requests
+              example: "https://generativelanguage.googleapis.com/v1beta/files/abc123"
+            state:
+              type: string
+              enum:
+                - STATE_UNSPECIFIED
+                - PROCESSING
+                - ACTIVE
+                - FAILED
+              description: Processing state of the file
+            error:
+              type: object
+              description: Error details if state is FAILED
+              properties:
+                message:
+                  type: string
+
+    SpeechGenerationRequest:
+      type: object
+      required:
+        - contents
+        - generationConfig
+      properties:
+        contents:
+          type: array
+          description: Text content to convert to speech
+          items:
+            $ref: '#/components/schemas/Content'
+        generationConfig:
+          $ref: '#/components/schemas/SpeechGenerationConfig'
+          description: Configuration for speech generation
+
+    SpeechGenerationConfig:
+      type: object
+      required:
+        - responseModalities
+        - speechConfig
+      properties:
+        responseModalities:
+          type: array
+          description: Must include "AUDIO" for TTS
+          items:
+            type: string
+            enum:
+              - AUDIO
+          example: ["AUDIO"]
+        speechConfig:
+          $ref: '#/components/schemas/SpeechConfig'
+          description: Configuration for speech output
+
+    SpeechConfig:
+      type: object
+      description: Configuration for single or multi-speaker speech
+      oneOf:
+        - type: object
+          required:
+            - voiceConfig
+          properties:
+            voiceConfig:
+              $ref: '#/components/schemas/VoiceConfig'
+              description: Single-speaker voice configuration
+        - type: object
+          required:
+            - multiSpeakerVoiceConfig
+          properties:
+            multiSpeakerVoiceConfig:
+              $ref: '#/components/schemas/MultiSpeakerVoiceConfig'
+              description: Multi-speaker voice configuration (up to 2 speakers)
+
+    VoiceConfig:
+      type: object
+      required:
+        - prebuiltVoiceConfig
+      properties:
+        prebuiltVoiceConfig:
+          $ref: '#/components/schemas/PrebuiltVoiceConfig'
+
+    PrebuiltVoiceConfig:
+      type: object
+      required:
+        - voiceName
+      properties:
+        voiceName:
+          type: string
+          description: Name of the prebuilt voice with characteristic (Bright, Upbeat, Informative, etc.)
+          enum:
+            - Zephyr
+            - Puck
+            - Charon
+            - Kore
+            - Fenrir
+            - Leda
+            - Orus
+            - Aoede
+            - Callirrhoe
+            - Autonoe
+            - Enceladus
+            - Iapetus
+            - Umbriel
+            - Algieba
+            - Despina
+            - Erinome
+            - Algenib
+            - Rasalgethi
+            - Laomedeia
+            - Achernar
+            - Alnilam
+            - Schedar
+            - Gacrux
+            - Pulcherrima
+            - Achird
+            - Zubenelgenubi
+            - Vindemiatrix
+            - Sadachbia
+            - Sadaltager
+            - Sulafat
+          example: "Kore"
+
+    MultiSpeakerVoiceConfig:
+      type: object
+      required:
+        - speakerVoiceConfigs
+      properties:
+        speakerVoiceConfigs:
+          type: array
+          description: Voice configurations for each speaker (maximum 2)
+          minItems: 2
+          maxItems: 2
+          items:
+            $ref: '#/components/schemas/SpeakerVoiceConfig'
+
+    SpeakerVoiceConfig:
+      type: object
+      required:
+        - speaker
+        - voiceConfig
+      properties:
+        speaker:
+          type: string
+          description: Name of the speaker (must match names used in prompt)
+          example: "Joe"
+        voiceConfig:
+          $ref: '#/components/schemas/VoiceConfig'
+          description: Voice configuration for this speaker
+
+    SpeechGenerationResponse:
+      type: object
+      properties:
+        candidates:
+          type: array
+          description: Generated audio candidates
+          items:
+            $ref: '#/components/schemas/AudioCandidate'
+        usageMetadata:
+          $ref: '#/components/schemas/UsageMetadata'
+          description: Token usage information
+
+    AudioCandidate:
+      type: object
+      properties:
+        content:
+          $ref: '#/components/schemas/AudioContent'
+          description: Generated audio content
+        finishReason:
+          type: string
+          enum:
+            - FINISH_REASON_UNSPECIFIED
+            - STOP
+            - MAX_TOKENS
+            - SAFETY
+            - RECITATION
+            - OTHER
+          description: Reason why generation stopped
+        index:
+          type: integer
+          description: Index of the candidate
+
+    AudioContent:
+      type: object
+      properties:
+        parts:
+          type: array
+          description: Audio data parts
+          items:
+            type: object
+            properties:
+              inlineData:
+                type: object
+                required:
+                  - mimeType
+                  - data
+                properties:
+                  mimeType:
+                    type: string
+                    description: MIME type of the audio (PCM format)
+                    example: "audio/pcm"
+                  data:
+                    type: string
+                    format: byte
+                    description: Base64-encoded audio data (24kHz, 16-bit, mono PCM)
+
+    ImageGenerationRequest:
+      type: object
+      required:
+        - contents
+      properties:
+        contents:
+          type: array
+          description: The content of the current conversation with the model
+          items:
+            $ref: '#/components/schemas/Content'
+        generationConfig:
+          $ref: '#/components/schemas/ImageGenerationConfig'
+          description: Configuration options for image generation
+
+    ImageGenerationConfig:
+      type: object
+      description: Configuration options for image generation
+      properties:
+        responseModalities:
+          type: array
+          description: Modalities to include in the response
+          items:
+            type: string
+            enum:
+              - TEXT
+              - IMAGE
+          example: ["TEXT", "IMAGE"]
+        imageConfig:
+          $ref: '#/components/schemas/ImageConfig'
+          description: Configuration for image generation
+
+    ImageConfig:
+      type: object
+      description: Configuration for image generation parameters
+      properties:
+        aspectRatio:
+          type: string
+          description: Aspect ratio for generated images
+          enum:
+            - "1:1"
+            - "3:4"
+            - "4:3"
+            - "9:16"
+            - "16:9"
+          example: "16:9"
+        imageSize:
+          type: string
+          description: Size of generated images
+          enum:
+            - "1K"
+            - "2K"
+            - "4K"
+          example: "2K"
+
+    ImageGenerationResponse:
+      type: object
+      properties:
+        candidates:
+          type: array
+          description: Generated content candidates with images
+          items:
+            $ref: '#/components/schemas/ImageCandidate'
+        promptFeedback:
+          $ref: '#/components/schemas/PromptFeedback'
+          description: Feedback about the prompt
+        usageMetadata:
+          $ref: '#/components/schemas/UsageMetadata'
+          description: Token usage information
+
+    ImageCandidate:
+      type: object
+      properties:
+        content:
+          $ref: '#/components/schemas/ImageContent'
+          description: Generated content including text and/or images
+        finishReason:
+          type: string
+          enum:
+            - FINISH_REASON_UNSPECIFIED
+            - STOP
+            - MAX_TOKENS
+            - SAFETY
+            - RECITATION
+            - OTHER
+          description: Reason why generation stopped
+        index:
+          type: integer
+          description: Index of the candidate
+        safetyRatings:
+          type: array
+          items:
+            $ref: '#/components/schemas/SafetyRating'
+          description: Safety ratings for the generated content
+
+    ImageContent:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+            - user
+            - model
+          description: The role of the content producer
+        parts:
+          type: array
+          description: Ordered parts that constitute a single message (can include text and inline image data)
+          items:
+            $ref: '#/components/schemas/Part'
+      required:
+        - parts
+
+    GenerateContentRequest:
+      type: object
+      required:
+        - contents
+      properties:
+        contents:
+          type: array
+          description: The content of the current conversation with the model
+          items:
+            $ref: '#/components/schemas/Content'
+        system_instruction:
+          $ref: '#/components/schemas/Content'
+          description: System instructions to guide model behavior
+        generationConfig:
+          $ref: '#/components/schemas/GenerationConfig'
+          description: Configuration options for model generation
+
+    Content:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+            - user
+            - model
+          description: The role of the content producer (optional for single-turn, required for multi-turn)
+        parts:
+          type: array
+          description: Ordered parts that constitute a single message
+          items:
+            $ref: '#/components/schemas/Part'
+      required:
+        - parts
+
+    Part:
+      type: object
+      description: A part of the content, can be text, inline data, or file data
+      oneOf:
+        - type: object
+          required:
+            - text
+          properties:
+            text:
+              type: string
+              description: Text content
+        - type: object
+          required:
+            - inline_data
+          properties:
+            inline_data:
+              $ref: '#/components/schemas/InlineData'
+        - type: object
+          required:
+            - file_data
+          properties:
+            file_data:
+              $ref: '#/components/schemas/FileData'
+            video_metadata:
+              $ref: '#/components/schemas/VideoMetadata'
+              description: Optional metadata for video processing (clipping, FPS)
+
+    InlineData:
+      type: object
+      required:
+        - mime_type
+        - data
+      properties:
+        mime_type:
+          type: string
+          description: MIME type of the data
+          enum:
+            - image/jpeg
+            - image/png
+            - image/webp
+            - video/mp4
+            - video/mpeg
+            - video/mov
+            - video/avi
+            - video/x-flv
+            - video/mpg
+            - video/webm
+            - video/wmv
+            - video/3gpp
+            - audio/wav
+            - audio/mp3
+            - audio/aiff
+            - audio/aac
+            - audio/ogg
+            - audio/flac
+            - application/pdf
+        data:
+          type: string
+          format: byte
+          description: Base64 encoded data
+
+    FileData:
+      type: object
+      description: Reference to a file uploaded via the File API or a YouTube URL
+      properties:
+        mime_type:
+          type: string
+          description: MIME type of the file (optional for YouTube URLs)
+          example: "video/mp4"
+        file_uri:
+          type: string
+          description: URI of the file from File API or YouTube URL
+          examples:
+            - "https://generativelanguage.googleapis.com/v1beta/files/abc123"
+            - "https://www.youtube.com/watch?v=9hE5-98ZeCg"
+      required:
+        - file_uri
+
+    VideoMetadata:
+      type: object
+      description: Metadata for customizing video processing
+      properties:
+        start_offset:
+          type: string
+          description: Start time offset for video clipping (format like "1250s")
+          pattern: '^\d+s$'
+          example: "1250s"
+        end_offset:
+          type: string
+          description: End time offset for video clipping (format like "1570s")
+          pattern: '^\d+s$'
+          example: "1570s"
+        fps:
+          type: number
+          format: float
+          description: Custom frame rate sampling (frames per second). Default is 1 FPS. Use <1 for long videos, >1 for rapidly changing visuals
+          minimum: 0.1
+          example: 5
+
+    GenerationConfig:
+      type: object
+      description: Configuration options for model generation and outputs
+      properties:
+        stopSequences:
+          type: array
+          description: Set of character sequences that will stop output generation
+          items:
+            type: string
+          maxItems: 5
+        temperature:
+          type: number
+          format: float
+          description: Controls randomness of output (default 1.0 for Gemini 3 models)
+          minimum: 0.0
+          maximum: 2.0
+          default: 1.0
+        topP:
+          type: number
+          format: float
+          description: Maximum cumulative probability of tokens to consider
+          minimum: 0.0
+          maximum: 1.0
+        topK:
+          type: integer
+          description: Maximum number of tokens to consider
+          minimum: 1
+        maxOutputTokens:
+          type: integer
+          description: Maximum number of tokens to generate
+          minimum: 1
+        thinkingConfig:
+          $ref: '#/components/schemas/ThinkingConfig'
+          description: Configuration for thinking mode (Gemini 2.5 models)
+        response_mime_type:
+          type: string
+          description: MIME type for structured output (e.g., application/json)
+          enum:
+            - text/plain
+            - application/json
+          example: "application/json"
+        response_schema:
+          type: object
+          description: JSON schema for structured output format
+          additionalProperties: true
+
+    ThinkingConfig:
+      type: object
+      description: Configuration for thinking mode in Gemini 2.5 models
+      properties:
+        thinkingBudget:
+          type: integer
+          description: Thinking budget, set to 0 to disable thinking
+          minimum: 0
+          default: null
+
+    GenerateContentResponse:
+      type: object
+      properties:
+        candidates:
+          type: array
+          description: Generated content candidates
+          items:
+            $ref: '#/components/schemas/Candidate'
+        promptFeedback:
+          $ref: '#/components/schemas/PromptFeedback'
+          description: Feedback about the prompt
+        usageMetadata:
+          $ref: '#/components/schemas/UsageMetadata'
+          description: Token usage information
+
+    Candidate:
+      type: object
+      properties:
+        content:
+          $ref: '#/components/schemas/Content'
+          description: Generated content
+        finishReason:
+          type: string
+          enum:
+            - FINISH_REASON_UNSPECIFIED
+            - STOP
+            - MAX_TOKENS
+            - SAFETY
+            - RECITATION
+            - OTHER
+          description: Reason why generation stopped
+        index:
+          type: integer
+          description: Index of the candidate
+        safetyRatings:
+          type: array
+          items:
+            $ref: '#/components/schemas/SafetyRating'
+          description: Safety ratings for the generated content
+
+    SafetyRating:
+      type: object
+      properties:
+        category:
+          type: string
+          enum:
+            - HARM_CATEGORY_UNSPECIFIED
+            - HARM_CATEGORY_DEROGATORY
+            - HARM_CATEGORY_TOXICITY
+            - HARM_CATEGORY_VIOLENCE
+            - HARM_CATEGORY_SEXUAL
+            - HARM_CATEGORY_MEDICAL
+            - HARM_CATEGORY_DANGEROUS
+            - HARM_CATEGORY_HARASSMENT
+            - HARM_CATEGORY_HATE_SPEECH
+            - HARM_CATEGORY_SEXUALLY_EXPLICIT
+            - HARM_CATEGORY_DANGEROUS_CONTENT
+        probability:
+          type: string
+          enum:
+            - HARM_PROBABILITY_UNSPECIFIED
+            - NEGLIGIBLE
+            - LOW
+            - MEDIUM
+            - HIGH
+
+    PromptFeedback:
+      type: object
+      properties:
+        blockReason:
+          type: string
+          enum:
+            - BLOCK_REASON_UNSPECIFIED
+            - SAFETY
+            - OTHER
+          description: Reason why prompt was blocked
+        safetyRatings:
+          type: array
+          items:
+            $ref: '#/components/schemas/SafetyRating'
+          description: Safety ratings for the prompt
+
+    UsageMetadata:
+      type: object
+      properties:
+        promptTokenCount:
+          type: integer
+          description: Number of tokens in the prompt
+        candidatesTokenCount:
+          type: integer
+          description: Number of tokens in generated candidates
+        totalTokenCount:
+          type: integer
+          description: Total token count
+
+    CountTokensResponse:
+      type: object
+      properties:
+        totalTokens:
+          type: integer
+          description: Total number of tokens in the provided content
+        totalBillableCharacters:
+          type: integer
+          description: Total billable characters (for audio/video content)
+
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: HTTP status code
+            message:
+              type: string
+              description: Error message
+            status:
+              type: string
+              description: Error status
