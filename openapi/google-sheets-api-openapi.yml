@@ -24,6 +24,7 @@ paths:
     get:
       tags:
         - Get
+        - Values
       summary: Get Values
       description: >-
         Returns a range of values from a spreadsheet. The caller must specify
@@ -156,9 +157,12 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
+      x-api-evangelist-processing:
+        ChooseTags: true
     put:
       tags:
         - Update
+        - Values
       summary: Update Values
       description: >-
         Sets values in a range of a spreadsheet. The caller must specify the
@@ -215,10 +219,13 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values/{range}:append:
     post:
       tags:
         - Append
+        - Values
       summary: Append Values
       description: >-
         Appends values to a spreadsheet. The input range is used to search for
@@ -281,10 +288,13 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values/{range}:clear:
     post:
       tags:
         - Clear
+        - Values
       summary: Clear Values
       description: >-
         Clears values from a spreadsheet. The caller must specify the
@@ -345,11 +355,14 @@ paths:
                   value:
                     clearedRange: mollit sunt reprehenderit
                     spreadsheetId: dolor in enim
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values:batchClear:
     post:
       tags:
         - Batch
         - Clear
+        - Values
       summary: Batch Clear Values
       description: >-
         Clears one or more ranges of values from a spreadsheet. The caller must
@@ -412,11 +425,14 @@ paths:
                       - laboris in mollit
                       - magna adipisicing
                     spreadsheetId: cupidatat eiusmod commodo ad
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values:batchClearByDataFilter:
     post:
       tags:
         - Batch
         - Clear
+        - Values
         - Data
         - Filter
       summary: Batch Clear Values by Data Filter
@@ -526,10 +542,13 @@ paths:
                       - cillum
                       - dolor
                     spreadsheetId: in consequat
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values:batchGet:
     get:
       tags:
         - Get
+        - Values
         - Batch
       summary: Get Values Batch
       description: >-
@@ -569,10 +588,13 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values:batchGetByDataFilter:
     post:
       tags:
         - Get
+        - Values
         - Data
         - Filter
       summary: Get Values By Data Filter
@@ -677,11 +699,14 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values:batchUpdate:
     post:
       tags:
         - Batch
         - Update
+        - Values
       summary: Batch Update Values
       description: >-
         Sets values in one or more ranges of a spreadsheet. The caller must
@@ -732,6 +757,8 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values:batchUpdateByDataFilter:
     post:
       tags:
@@ -788,6 +815,8 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets:
     post:
       tags:
@@ -8885,6 +8914,8 @@ paths:
                               title: exercitation Lorem
                     spreadsheetId: tempor qui laboris labore
                     spreadsheetUrl: nisi ipsum eiusmod aliquip
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}:
     get:
       tags:
@@ -14311,6 +14342,8 @@ paths:
                               title: exercitation Lorem
                     spreadsheetId: tempor qui laboris labore
                     spreadsheetUrl: nisi ipsum eiusmod aliquip
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/sheets/{sheetId}:copyTo:
     post:
       tags:
@@ -14451,6 +14484,8 @@ paths:
                         red: -70387559.7048357
                       themeColor: ACCENT2
                     title: nisi reprehenderit cupidatat enim
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}:batchUpdate:
     post:
       tags:
@@ -30753,6 +30788,8 @@ paths:
                                 title: quis id
                       spreadsheetId: sit consequat exercitation
                       spreadsheetUrl: laborum
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}:getByDataFilter:
     post:
       tags:
@@ -36234,6 +36271,8 @@ paths:
                               title: exercitation Lorem
                     spreadsheetId: tempor qui laboris labore
                     spreadsheetUrl: nisi ipsum eiusmod aliquip
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/developerMetadata/{metadataId}:
     get:
       tags:
@@ -36311,6 +36350,8 @@ paths:
                     metadataKey: proident ex
                     metadataValue: Lorem magna minim sunt
                     visibility: DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/developerMetadata:search:
     post:
       tags:
@@ -36661,3 +36702,5 @@ paths:
                           metadataKey: sunt velit
                           metadataValue: et
                           visibility: DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED
+      x-api-evangelist-processing:
+        ChooseTags: true
