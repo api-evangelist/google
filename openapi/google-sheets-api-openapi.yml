@@ -156,8 +156,6 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
-      x-api-evangelist-processing:
-        ChooseTags: true
     put:
       tags:
         - Update
@@ -217,8 +215,6 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
-      x-api-evangelist-processing:
-        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values/{range}:append:
     post:
       tags:
@@ -285,8 +281,6 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
-      x-api-evangelist-processing:
-        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values/{range}:clear:
     post:
       tags:
@@ -351,8 +345,6 @@ paths:
                   value:
                     clearedRange: mollit sunt reprehenderit
                     spreadsheetId: dolor in enim
-      x-api-evangelist-processing:
-        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values:batchClear:
     post:
       tags:
@@ -420,8 +412,6 @@ paths:
                       - laboris in mollit
                       - magna adipisicing
                     spreadsheetId: cupidatat eiusmod commodo ad
-      x-api-evangelist-processing:
-        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values:batchClearByDataFilter:
     post:
       tags:
@@ -536,8 +526,6 @@ paths:
                       - cillum
                       - dolor
                     spreadsheetId: in consequat
-      x-api-evangelist-processing:
-        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values:batchGet:
     get:
       tags:
@@ -581,8 +569,6 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
-      x-api-evangelist-processing:
-        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values:batchGetByDataFilter:
     post:
       tags:
@@ -691,8 +677,6 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
-      x-api-evangelist-processing:
-        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values:batchUpdate:
     post:
       tags:
@@ -748,8 +732,6 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
-      x-api-evangelist-processing:
-        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values:batchUpdateByDataFilter:
     post:
       tags:
@@ -806,8 +788,6 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
-      x-api-evangelist-processing:
-        ChooseTags: true
   /v4/spreadsheets:
     post:
       tags:
@@ -8905,8 +8885,6 @@ paths:
                               title: exercitation Lorem
                     spreadsheetId: tempor qui laboris labore
                     spreadsheetUrl: nisi ipsum eiusmod aliquip
-      x-api-evangelist-processing:
-        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}:
     get:
       tags:
@@ -14333,8 +14311,6 @@ paths:
                               title: exercitation Lorem
                     spreadsheetId: tempor qui laboris labore
                     spreadsheetUrl: nisi ipsum eiusmod aliquip
-      x-api-evangelist-processing:
-        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/sheets/{sheetId}:copyTo:
     post:
       tags:
@@ -14475,8 +14451,6 @@ paths:
                         red: -70387559.7048357
                       themeColor: ACCENT2
                     title: nisi reprehenderit cupidatat enim
-      x-api-evangelist-processing:
-        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}:batchUpdate:
     post:
       tags:
@@ -30779,8 +30753,6 @@ paths:
                                 title: quis id
                       spreadsheetId: sit consequat exercitation
                       spreadsheetUrl: laborum
-      x-api-evangelist-processing:
-        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}:getByDataFilter:
     post:
       tags:
@@ -36262,8 +36234,6 @@ paths:
                               title: exercitation Lorem
                     spreadsheetId: tempor qui laboris labore
                     spreadsheetUrl: nisi ipsum eiusmod aliquip
-      x-api-evangelist-processing:
-        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/developerMetadata/{metadataId}:
     get:
       tags:
@@ -36341,8 +36311,6 @@ paths:
                     metadataKey: proident ex
                     metadataValue: Lorem magna minim sunt
                     visibility: DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED
-      x-api-evangelist-processing:
-        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/developerMetadata:search:
     post:
       tags:
@@ -36693,5 +36661,3 @@ paths:
                           metadataKey: sunt velit
                           metadataValue: et
                           visibility: DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED
-      x-api-evangelist-processing:
-        ChooseTags: true
