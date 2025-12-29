@@ -157,7 +157,7 @@ paths:
                         - David A. Vise
                         - Mark Malseed
                       publisher: Delacorte Press
-                      publishedDate: '2005-11-15'
+                      publishedDate: '2005-11-15T00:00:00.000Z'
         '400':
           description: Bad Request
           content:
@@ -227,7 +227,7 @@ paths:
                     - David A. Vise
                     - Mark Malseed
                   publisher: Delacorte Press
-                  publishedDate: '2005-11-15'
+                  publishedDate: '2005-11-15T00:00:00.000Z'
                   pageCount: 207
         '400':
           description: Bad Request
@@ -969,7 +969,7 @@ components:
             publishedDate:
               type: string
               description: Date of publication. (In LITE projection.)
-              example: '2005-11-15'
+              example: '2005-11-15T00:00:00.000Z'
             description:
               type: string
               description: >-
