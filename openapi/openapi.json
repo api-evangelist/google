@@ -1,7 +1,12 @@
 openapi: 3.1.0
 info:
-  title: Google Books API
-  description: API for retrieving Bookshelf and Volume resources from Google Books
+  title: Books API
+  description: |-
+    This document is intended for developers who want to write applications
+    that can interact with the Google Books API. Google Books has a vision to
+    digitize the world's books. You can use the Google Books API to search
+    content, organize an authenticated user's personal library and modify it
+    as well.
   version: 1.0.0
   contact:
     name: Google Books API
@@ -18,6 +23,7 @@ paths:
         query.
       operationId: listVolumes
       tags:
+        - Lists
         - Volumes
       parameters:
         - name: q
@@ -157,7 +163,7 @@ paths:
                         - David A. Vise
                         - Mark Malseed
                       publisher: Delacorte Press
-                      publishedDate: '2005-11-15T00:00:00.000Z'
+                      publishedDate: '2005-11-15'
         '400':
           description: Bad Request
           content:
@@ -170,6 +176,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-api-evangelist-processing:
+        ChooseTags: true
   /volumes/{volumeId}:
     get:
       summary: Get Volume
@@ -178,7 +186,8 @@ paths:
         IDs can be found in the Google Books IDs section.
       operationId: getVolume
       tags:
-        - Volumes
+        - Get
+        - Volume
       parameters:
         - name: volumeId
           in: path
@@ -227,7 +236,7 @@ paths:
                     - David A. Vise
                     - Mark Malseed
                   publisher: Delacorte Press
-                  publishedDate: '2005-11-15T00:00:00.000Z'
+                  publishedDate: '2005-11-15'
                   pageCount: 207
         '400':
           description: Bad Request
@@ -247,6 +256,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-api-evangelist-processing:
+        ChooseTags: true
   /users/{userId}/bookshelves:
     get:
       summary: List Bookshelves
@@ -256,7 +267,7 @@ paths:
         section.
       operationId: listBookshelves
       tags:
-        - Bookshelves
+        - Lists
       parameters:
         - name: userId
           in: path
@@ -303,6 +314,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-api-evangelist-processing:
+        ChooseTags: true
   /users/{userId}/bookshelves/{shelf}:
     get:
       summary: Get Bookshelf
@@ -311,7 +324,7 @@ paths:
         information about user IDs can be found in the Google Books IDs section.
       operationId: getBookshelf
       tags:
-        - Bookshelves
+        - Get
       parameters:
         - name: userId
           in: path
@@ -366,13 +379,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-api-evangelist-processing:
+        ChooseTags: true
   /users/{userId}/bookshelves/{shelf}/volumes:
     get:
       summary: List Bookshelf Volumes
       description: Retrieves volumes in a specific bookshelf for the specified user.
       operationId: listBookshelfVolumes
       tags:
-        - Bookshelves
+        - Lists
+        - Volumes
       parameters:
         - name: userId
           in: path
@@ -455,13 +471,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-api-evangelist-processing:
+        ChooseTags: true
   /mylibrary/bookshelves:
     get:
       summary: List My Bookshelves
       description: Retrieves a list of bookshelves belonging to the authenticated user.
       operationId: listMyBookshelves
       tags:
-        - My Library
+        - Lists
       security:
         - OAuth2:
             - https://www.googleapis.com/auth/books
@@ -504,6 +522,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-api-evangelist-processing:
+        ChooseTags: true
   /mylibrary/bookshelves/{shelf}:
     get:
       summary: Get My Bookshelf
@@ -512,7 +532,7 @@ paths:
         authenticated user.
       operationId: getMyBookshelf
       tags:
-        - My Library
+        - Get
       security:
         - OAuth2:
             - https://www.googleapis.com/auth/books
@@ -562,6 +582,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-api-evangelist-processing:
+        ChooseTags: true
   /mylibrary/bookshelves/{shelf}/addVolume:
     post:
       summary: Add Volume to Bookshelf
@@ -570,7 +592,8 @@ paths:
         Requires authorization.
       operationId: addVolumeToBookshelf
       tags:
-        - My Library
+        - Add
+        - Volume
       security:
         - OAuth2:
             - https://www.googleapis.com/auth/books
@@ -616,6 +639,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-api-evangelist-processing:
+        ChooseTags: true
   /mylibrary/bookshelves/{shelf}/clearVolumes:
     post:
       summary: Clear Volumes from Bookshelf
@@ -624,7 +649,8 @@ paths:
         Requires authorization.
       operationId: clearVolumesFromBookshelf
       tags:
-        - My Library
+        - Clear
+        - Volumes
       security:
         - OAuth2:
             - https://www.googleapis.com/auth/books
@@ -665,6 +691,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-api-evangelist-processing:
+        ChooseTags: true
   /mylibrary/bookshelves/{shelf}/moveVolume:
     post:
       summary: Move Volume in Bookshelf
@@ -673,7 +701,8 @@ paths:
         Requires authorization.
       operationId: moveVolumeInBookshelf
       tags:
-        - My Library
+        - Move
+        - Volume
       security:
         - OAuth2:
             - https://www.googleapis.com/auth/books
@@ -730,6 +759,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-api-evangelist-processing:
+        ChooseTags: true
   /mylibrary/bookshelves/{shelf}/removeVolume:
     post:
       summary: Remove Volume from Bookshelf
@@ -738,7 +769,8 @@ paths:
         Requires authorization.
       operationId: removeVolumeFromBookshelf
       tags:
-        - My Library
+        - Remove
+        - Volume
       security:
         - OAuth2:
             - https://www.googleapis.com/auth/books
@@ -784,6 +816,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-api-evangelist-processing:
+        ChooseTags: true
   /mylibrary/bookshelves/{shelf}/volumes:
     get:
       summary: List My Bookshelf Volumes
@@ -792,7 +826,8 @@ paths:
         authenticated user.
       operationId: listMyBookshelfVolumes
       tags:
-        - My Library
+        - Lists
+        - Volumes
       security:
         - OAuth2:
             - https://www.googleapis.com/auth/books
@@ -888,6 +923,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-api-evangelist-processing:
+        ChooseTags: true
 components:
   schemas:
     VolumesResponse:
@@ -969,7 +1006,7 @@ components:
             publishedDate:
               type: string
               description: Date of publication. (In LITE projection.)
-              example: '2005-11-15T00:00:00.000Z'
+              example: '2005-11-15'
             description:
               type: string
               description: >-
