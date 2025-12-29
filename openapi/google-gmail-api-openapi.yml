@@ -2,10 +2,10 @@ openapi: 3.0.0
 info:
   title: Google Gmail API
   description: >-
-    The Gmail API allows developers to access and manage a user's mail within
-    Gmail. With this API, developers can build a range of applications that
-    operate within the Gmail platform, such as applications that automate email
-    responses, analyze mailbox data, and manage users' emails
+    The Gmail API is a RESTful API that can be used to access Gmail mailboxes
+    and send mail. For most web applications the Gmail API is the best choice
+    for authorized access to a user's Gmail data and is suitable for various
+    applications.
   version: 1.0.0
 servers:
   - url: https://gmail.googleapis.com
@@ -43,9 +43,23 @@ paths:
   /gmail/v1/users/{userId}/profile:
     get:
       tags:
+        - Get
         - Profile
       summary: Get Profile
-      description: Gets the current user's Gmail profile.
+      description: >-
+        The Google Gmail API's Get Profile operation retrieves the current
+        user's Gmail profile information by making a GET request to the endpoint
+        /gmail/v1/users/{userId}/profile, where {userId} can be either the
+        user's email address or the special value "me" to indicate the
+        authenticated user. This operation returns basic profile details
+        including the user's email address, the total number of messages in
+        their mailbox, the total number of threads, and their history ID, which
+        is useful for tracking changes to the mailbox over time. The response
+        provides essential metadata about the Gmail account without accessing
+        the actual content of emails, making it a lightweight way to verify
+        account details and obtain summary statistics. This endpoint requires
+        appropriate OAuth 2.0 authorization scopes, typically gmail.readonly or
+        gmail.metadata, to access the user's profile information securely.
       parameters:
         - name: Accept
           in: header
@@ -74,13 +88,28 @@ paths:
                 messagesTotal: -17389993
                 threadsTotal: -18322134
                 historyId: velit deserunt commodo
-      operationId: googleGetProfile
+      x-api-evangelist-processing:
+        ChooseTags: true
+        WriteDescription: true
   /gmail/v1/users/{userId}/watch:
     post:
       tags:
-        - Notifications
+        - Watch
+        - Users
       summary: Watch Users
-      description: Set up or update a push notification watch on the given user mailbox.
+      description: >-
+        The Watch Users operation in the Google Gmail API allows applications to
+        set up push notifications for a user's mailbox by establishing a watch
+        on their Gmail account. When called via POST to
+        /gmail/v1/users/{userId}/watch, this endpoint configures Gmail to send
+        notifications to a specified Cloud Pub/Sub topic whenever changes occur
+        in the user's mailbox, such as receiving new emails, messages being
+        deleted, or labels being modified. The watch remains active for a
+        renewable period (default 7 days), and applications must include the
+        target Pub/Sub topic details in the request body along with optional
+        filters to specify which types of events should trigger notifications.
+        This enables real-time synchronization and event-driven architectures
+        without the need for constant polling of the mailbox.
       requestBody:
         content:
           application/json:
@@ -126,12 +155,16 @@ paths:
               example:
                 historyId: quis aute sed
                 expiration: dolore non exercitation Excepteur est
-      operationId: googleWatchUsers
+      x-api-evangelist-processing:
+        ChooseTags: true
+        WriteDescription: true
   /gmail/v1/users/{userId}/stop:
     post:
       tags:
+        - Stop
         - Notifications
-      summary: Stop Notifications For User
+        - Users
+      summary: Stop Notifications for User
       description: Stop receiving push notifications for the given user mailbox.
       requestBody:
         content: {}
@@ -151,10 +184,12 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: googleStopNotificationsForUser
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/drafts/send:
     post:
       tags:
+        - Send
         - Drafts
       summary: Send Drafts
       description: >-
@@ -259,10 +294,12 @@ paths:
                         detected>
                 sizeEstimate: 21128811
                 raw: do laboris
-      operationId: googleSendDrafts
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/drafts/{id}:
     put:
       tags:
+        - Update
         - Drafts
       summary: Update Drafts
       description: Replaces a draft's content.
@@ -374,9 +411,11 @@ paths:
                           #/components/schemas/MessagePart detected>
                   sizeEstimate: -74092231
                   raw: in enim sit pariatur
-      operationId: googleUpdateDrafts
+      x-api-evangelist-processing:
+        ChooseTags: true
     get:
       tags:
+        - Get
         - Drafts
       summary: Get Drafts
       description: Gets the specified draft.
@@ -444,9 +483,11 @@ paths:
                           #/components/schemas/MessagePart detected>
                   sizeEstimate: -74092231
                   raw: in enim sit pariatur
-      operationId: googleGetDrafts
+      x-api-evangelist-processing:
+        ChooseTags: true
     delete:
       tags:
+        - Deletes
         - Drafts
       summary: Delete Drafts
       description: >-
@@ -475,10 +516,12 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: googleDeleteDrafts
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/drafts:
     post:
       tags:
+        - Create
         - Drafts
       summary: Create Drafts
       description: Creates a new draft with the `DRAFT` label.
@@ -552,9 +595,11 @@ paths:
                           #/components/schemas/MessagePart detected>
                   sizeEstimate: -74092231
                   raw: in enim sit pariatur
-      operationId: googleCreateDrafts
+      x-api-evangelist-processing:
+        ChooseTags: true
     get:
       tags:
+        - Lists
         - Drafts
       summary: List Drafts
       description: Lists the drafts in the user's mailbox.
@@ -651,10 +696,12 @@ paths:
                       raw: ipsum dolor qui
                 nextPageToken: veniam laborum labore Ut aliquip
                 resultSizeEstimate: 46963148
-      operationId: googleListDrafts
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/history:
     get:
       tags:
+        - Lists
         - History
       summary: List History
       description: >-
@@ -1341,11 +1388,12 @@ paths:
                           - proident ullamco
                 nextPageToken: do deserunt pariatu
                 historyId: cillum veniam Excepteur et
-      operationId: googleListHistory
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/messages/{id}/trash:
     post:
       tags:
-        - Messages
+        - Trash
       summary: Trash Messsages
       description: Moves the specified message to the trash.
       requestBody:
@@ -1413,7 +1461,8 @@ paths:
                         detected>
                 sizeEstimate: 21128811
                 raw: do laboris
-      operationId: googleTrashMesssages
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/messages/{id}/untrash:
     post:
       tags:
@@ -1485,10 +1534,12 @@ paths:
                         detected>
                 sizeEstimate: 21128811
                 raw: do laboris
-      operationId: googleUntrashMessages
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/messages/{id}/modify:
     post:
       tags:
+        - Modify
         - Messages
       summary: Modify Messages
       description: Modifies the labels on the specified message.
@@ -1572,11 +1623,13 @@ paths:
                         detected>
                 sizeEstimate: 21128811
                 raw: do laboris
-      operationId: googleModifyMessages
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/messages/batchDelete:
     post:
       tags:
-        - Messages
+        - Batch
+        - Deletes
       summary: Batch Delete
       description: >-
         Deletes many messages by message ID. Provides no guarantees that
@@ -1611,10 +1664,12 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: googleBatchDelete
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/messages/import:
     post:
       tags:
+        - Import
         - Messages
       summary: Import Messages
       description: >-
@@ -1720,10 +1775,12 @@ paths:
                         detected>
                 sizeEstimate: 21128811
                 raw: do laboris
-      operationId: googleImportMessages
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/messages/send:
     post:
       tags:
+        - Send
         - Messages
       summary: Send Messages
       description: >-
@@ -1798,11 +1855,13 @@ paths:
                         detected>
                 sizeEstimate: 21128811
                 raw: do laboris
-      operationId: googleSendMessages
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/messages/batchModify:
     post:
       tags:
-        - Messages
+        - Batch
+        - Modify
       summary: Batch Modify
       description: Modifies the labels on the specified messages.
       requestBody:
@@ -1841,10 +1900,12 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: googleBatchModify
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/messages:
     get:
       tags:
+        - Lists
         - Messages
       summary: List Messages
       description: Lists the messages in the user's mailbox.
@@ -1952,9 +2013,11 @@ paths:
                     raw: eiusmod esse
                 nextPageToken: ipsum reprehenderit Duis in veniam
                 resultSizeEstimate: -35985941
-      operationId: googleListMessages
+      x-api-evangelist-processing:
+        ChooseTags: true
     post:
       tags:
+        - Insert
         - Messages
       summary: Insert Messages
       description: >-
@@ -2058,10 +2121,12 @@ paths:
                         detected>
                 sizeEstimate: 21128811
                 raw: do laboris
-      operationId: googleInsertMessages
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/messages/{id}:
     delete:
       tags:
+        - Deletes
         - Messages
       summary: Delete Messages
       description: >-
@@ -2090,9 +2155,11 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: googleDeleteMessages
+      x-api-evangelist-processing:
+        ChooseTags: true
     get:
       tags:
+        - Get
         - Messages
       summary: Get Messages
       description: Gets the specified message.
@@ -2159,11 +2226,13 @@ paths:
                         detected>
                 sizeEstimate: 21128811
                 raw: do laboris
-      operationId: googleGetMessages
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/messages/{messageId}/attachments/{id}:
     get:
       tags:
-        - Messages
+        - Get
+        - Attachments
       summary: Get Attachments
       description: Gets the specified message attachment.
       parameters:
@@ -2209,10 +2278,12 @@ paths:
                 attachmentId: pariatur velit id sint dolore
                 size: -61751759
                 data: laboris eiusmod
-      operationId: googleGetAttachments
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/labels:
     post:
       tags:
+        - Create
         - Labels
       summary: Create Labels
       description: Creates a new label.
@@ -2277,9 +2348,11 @@ paths:
                 color:
                   textColor: sunt fugiat ut voluptate
                   backgroundColor: commodo est cupidatat in sed
-      operationId: googleCreateLabels
+      x-api-evangelist-processing:
+        ChooseTags: true
     get:
       tags:
+        - Lists
         - Labels
       summary: List Labels
       description: Lists all labels in the user's mailbox.
@@ -2334,10 +2407,12 @@ paths:
                     color:
                       textColor: irure t
                       backgroundColor: occaecat aliquip
-      operationId: googleListLabels
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/labels/{id}:
     patch:
       tags:
+        - Patch
         - Labels
       summary: Patch Labels
       description: Patch the specified label.
@@ -2409,9 +2484,11 @@ paths:
                 color:
                   textColor: sunt fugiat ut voluptate
                   backgroundColor: commodo est cupidatat in sed
-      operationId: googlePatchLabels
+      x-api-evangelist-processing:
+        ChooseTags: true
     put:
       tags:
+        - Update
         - Labels
       summary: Update Labels
       description: Updates the specified label.
@@ -2483,9 +2560,11 @@ paths:
                 color:
                   textColor: sunt fugiat ut voluptate
                   backgroundColor: commodo est cupidatat in sed
-      operationId: googleUpdateLabels
+      x-api-evangelist-processing:
+        ChooseTags: true
     get:
       tags:
+        - Get
         - Labels
       summary: Get Labels
       description: Gets the specified label.
@@ -2534,9 +2613,11 @@ paths:
                 color:
                   textColor: sunt fugiat ut voluptate
                   backgroundColor: commodo est cupidatat in sed
-      operationId: googleGetLabels
+      x-api-evangelist-processing:
+        ChooseTags: true
     delete:
       tags:
+        - Deletes
         - Labels
       summary: Delete Labels
       description: >-
@@ -2565,11 +2646,13 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: googleDeleteLabels
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/threads/{id}:
     get:
       tags:
-        - Theads
+        - Get
+        - Threads
       summary: Get Threads
       description: Gets the specified thread.
       parameters:
@@ -2669,10 +2752,12 @@ paths:
                             #/components/schemas/MessagePart detected>
                     sizeEstimate: 2028457
                     raw: ipsum enim minim
-      operationId: googleGetThreads
+      x-api-evangelist-processing:
+        ChooseTags: true
     delete:
       tags:
-        - Theads
+        - Deletes
+        - Threads
       summary: Delete Threads
       description: >-
         Immediately and permanently deletes the specified thread. Any messages
@@ -2701,11 +2786,13 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: googleDeleteThreads
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/threads/{id}/modify:
     post:
       tags:
-        - Theads
+        - Modify
+        - Threads
       summary: Modify Threads
       description: >-
         Modifies the labels applied to the thread. This applies to all messages
@@ -2824,11 +2911,13 @@ paths:
                             #/components/schemas/MessagePart detected>
                     sizeEstimate: 2028457
                     raw: ipsum enim minim
-      operationId: googleModifyThreads
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/threads/{id}/trash:
     post:
       tags:
-        - Theads
+        - Trash
+        - Threads
       summary: Trash Threads
       description: >-
         Moves the specified thread to the trash. Any messages that belong to the
@@ -2932,11 +3021,13 @@ paths:
                             #/components/schemas/MessagePart detected>
                     sizeEstimate: 2028457
                     raw: ipsum enim minim
-      operationId: googleTrashThreads
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/threads:
     get:
       tags:
-        - Theads
+        - Lists
+        - Threads
       summary: List Threads
       description: Lists the threads in the user's mailbox.
       parameters:
@@ -3096,12 +3187,13 @@ paths:
                         raw: nisi nostrud
                 nextPageToken: Exce
                 resultSizeEstimate: -82340850
-      operationId: googleListThreads
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/imap:
     get:
       tags:
-        - settings > imap
-      summary: Get Imap
+        - Get
+      summary: GET IMAP
       description: Gets IMAP settings.
       parameters:
         - name: Accept
@@ -3133,11 +3225,12 @@ paths:
                 autoExpunge: false
                 expungeBehavior: deleteForever
                 maxFolderSize: -49364914
-      operationId: googleGETIMAP
+      x-api-evangelist-processing:
+        ChooseTags: true
     put:
       tags:
-        - settings > imap
-      summary: Update Imap
+        - Update
+      summary: Update IMAP
       description: Updates IMAP settings.
       requestBody:
         content:
@@ -3184,12 +3277,15 @@ paths:
                 autoExpunge: false
                 expungeBehavior: deleteForever
                 maxFolderSize: -49364914
-      operationId: googleUpdateIMAP
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/pop:
     get:
       tags:
-        - settings > pop
-      summary: Get Pop Settings
+        - Get
+        - Pop
+        - Settings
+      summary: Get POP Settings
       description: Gets POP settings.
       parameters:
         - name: Accept
@@ -3219,11 +3315,14 @@ paths:
               example:
                 accessWindow: fromNowOn
                 disposition: dispositionUnspecified
-      operationId: googleGetPOPSettings
+      x-api-evangelist-processing:
+        ChooseTags: true
     put:
       tags:
-        - settings > pop
-      summary: Update Pop Settings
+        - Update
+        - Pop
+        - Settings
+      summary: Update POP Settings
       description: Updates POP settings.
       requestBody:
         content:
@@ -3266,11 +3365,14 @@ paths:
               example:
                 accessWindow: fromNowOn
                 disposition: dispositionUnspecified
-      operationId: googleUpdatePOPSettings
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/vacation:
     get:
       tags:
-        - settings > vacation
+        - Get
+        - Vacation
+        - Settings
       summary: Get Vacation Settings
       description: Gets vacation responder settings.
       parameters:
@@ -3307,10 +3409,13 @@ paths:
                 restrictToDomain: true
                 startTime: est mollit
                 endTime: enim in aliqua Ut commodo
-      operationId: googleGetVacationSettings
+      x-api-evangelist-processing:
+        ChooseTags: true
     put:
       tags:
-        - settings > vacation
+        - Update
+        - Vacation
+        - Settings
       summary: Update Vacation Settings
       description: Updates vacation responder settings.
       requestBody:
@@ -3366,11 +3471,14 @@ paths:
                 restrictToDomain: true
                 startTime: est mollit
                 endTime: enim in aliqua Ut commodo
-      operationId: googleUpdateVacationSettings
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/language:
     get:
       tags:
-        - settings > language
+        - Get
+        - Language
+        - Settings
       summary: Get Language Settings
       description: Gets language settings.
       parameters:
@@ -3400,10 +3508,13 @@ paths:
                 type: object
               example:
                 displayLanguage: occaecat adipisicing
-      operationId: googleGetLanguageSettings
+      x-api-evangelist-processing:
+        ChooseTags: true
     put:
       tags:
-        - settings > language
+        - Update
+        - Language
+        - Settings
       summary: Update Language Settings
       description: >-
         Updates language settings. If successful, the return object contains the
@@ -3451,11 +3562,14 @@ paths:
                 type: object
               example:
                 displayLanguage: occaecat adipisicing
-      operationId: googleUpdateLanguageSettings
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/autoForwarding:
     get:
       tags:
-        - settings > autoForwarding
+        - Get
+        - Auto
+        - Settings
       summary: Get Auto Forwarding Settings
       description: Gets the auto-forwarding setting for the specified account.
       parameters:
@@ -3487,10 +3601,12 @@ paths:
                 enabled: false
                 emailAddress: officia ullamco Ut laboris eu
                 disposition: trash
-      operationId: googleGetAutoForwardingSettings
+      x-api-evangelist-processing:
+        ChooseTags: true
     put:
       tags:
-        - settings > autoForwarding
+        - Update
+        - Auto
       summary: Update Auto Forwarding
       description: >-
         Updates the auto-forwarding setting for the specified account. A
@@ -3540,12 +3656,14 @@ paths:
                 enabled: false
                 emailAddress: officia ullamco Ut laboris eu
                 disposition: trash
-      operationId: googleUpdateAutoForwarding
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}/setDefault:
     post:
       tags:
-        - settings > Send As > Send As Email > SMIME INFO > Set Default
-      summary: Set Default S Mime Config
+        - Sets
+        - Default
+      summary: Set default S/MIME config
       description: Sets the default S/MIME config for the specified send-as alias.
       requestBody:
         content: {}
@@ -3579,12 +3697,15 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: googleSetDefaultSMIMEConfig
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}:
     delete:
       tags:
-        - settings > Send As > Send As Email > SMIME INFO
-      summary: Delete Send As Smime Info
+        - Deletes
+        - Send
+        - Info
+      summary: Delete Send As SMIME INfo
       description: Deletes the specified S/MIME config for the specified send-as alias.
       parameters:
         - name: userId
@@ -3616,11 +3737,14 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: googleDeleteSendAsSMIMEINfo
+      x-api-evangelist-processing:
+        ChooseTags: true
     get:
       tags:
-        - settings > Send As > Send As Email > SMIME INFO
-      summary: Get Send As Smime Info
+        - Get
+        - Send
+        - Info
+      summary: Get Send As SMIME Info
       description: Gets the specified S/MIME config for the specified send-as alias.
       parameters:
         - name: Accept
@@ -3669,12 +3793,14 @@ paths:
                 pem: 'cillum labore '
                 pkcs12: in aute et
                 encryptedKeyPassword: cillum ut
-      operationId: googleGetSendAsSMIMEInfo
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo:
     get:
       tags:
-        - settings > Send As > Send As Email > SMIME INFO
-      summary: List Smime Info
+        - Lists
+        - Info
+      summary: List SMIME Info
       description: Lists S/MIME configs for the specified send-as alias.
       parameters:
         - name: Accept
@@ -3724,11 +3850,13 @@ paths:
                     pem: eu minim consequat sunt
                     pkcs12: sunt anim ipsum nulla
                     encryptedKeyPassword: laboris ex sint
-      operationId: googleListSMIMEInfo
+      x-api-evangelist-processing:
+        ChooseTags: true
     post:
       tags:
-        - settings > Send As > Send As Email > SMIME INFO
-      summary: Insert Smime Info
+        - Insert
+        - Info
+      summary: Insert SMIME Info
       description: >-
         Insert (upload) the given S/MIME config for the specified send-as alias.
         Note that pkcs12 format is required for the key.
@@ -3790,11 +3918,13 @@ paths:
                 pem: 'cillum labore '
                 pkcs12: in aute et
                 encryptedKeyPassword: cillum ut
-      operationId: googleInsertSMIMEInfo
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/verify:
     post:
       tags:
-        - settings > Send As > Send As Email
+        - Verify
+        - Send
       summary: Verify Send As
       description: >-
         Sends a verification email to the specified send-as alias address. The
@@ -3825,11 +3955,13 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: googleVerifySendAs
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}:
     get:
       tags:
-        - settings > Send As > Send As Email
+        - Get
+        - Send
       summary: Get Send As
       description: >-
         Gets the specified send-as alias. Fails with an HTTP 404 error if the
@@ -3881,10 +4013,13 @@ paths:
                   password: tempor dolor velit
                   securityMode: securityModeUnspecified
                 verificationStatus: pending
-      operationId: googleGetSendAs
+      x-api-evangelist-processing:
+        ChooseTags: true
     put:
       tags:
-        - settings > Send As > Send As Email
+        - Update
+        - Send
+        - Setting
       summary: Update Send As Setting
       description: >-
         Updates a send-as alias. If a signature is provided, Gmail will sanitize
@@ -3963,10 +4098,12 @@ paths:
                   password: tempor dolor velit
                   securityMode: securityModeUnspecified
                 verificationStatus: pending
-      operationId: googleUpdateSendAsSetting
+      x-api-evangelist-processing:
+        ChooseTags: true
     patch:
       tags:
-        - settings > Send As > Send As Email
+        - Patch
+        - Send
       summary: Patch Send As
       description: Patch the specified send-as alias.
       requestBody:
@@ -4041,10 +4178,12 @@ paths:
                   password: tempor dolor velit
                   securityMode: securityModeUnspecified
                 verificationStatus: pending
-      operationId: googlePatchSendAs
+      x-api-evangelist-processing:
+        ChooseTags: true
     delete:
       tags:
-        - settings > Send As > Send As Email
+        - Deletes
+        - Send
       summary: Delete Send As
       description: >-
         Deletes the specified send-as alias. Revokes any verification that may
@@ -4073,11 +4212,13 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: googleDeleteSendAs
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/sendAs:
     get:
       tags:
-        - settings > Send As
+        - Get
+        - Send
       summary: Get Send As
       description: >-
         Lists the send-as aliases for the specified account. The result includes
@@ -4138,10 +4279,12 @@ paths:
                       password: incididunt ullamco
                       securityMode: ssl
                     verificationStatus: verificationStatusUnspecified
-      operationId: googleGetSendAs
+      x-api-evangelist-processing:
+        ChooseTags: true
     post:
       tags:
-        - settings > Send As
+        - Create
+        - Send
       summary: Create Send As
       description: >-
         Creates a custom "from" send-as alias. If an SMTP MSA is specified,
@@ -4218,12 +4361,13 @@ paths:
                   password: tempor dolor velit
                   securityMode: securityModeUnspecified
                 verificationStatus: pending
-      operationId: googleCreateSendAs
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:enable:
     post:
       tags:
-        - settings > CSE Identites > Key Pairs
-      summary: Enable Cse Keypairs
+        - Enables
+      summary: Enable CSE Keypairs
       description: >-
         Turns on a client-side encryption key pair that was turned off. The key
         pair becomes active again for any associated client-side encryption
@@ -4291,12 +4435,13 @@ paths:
                       kaclsData: sint eiusmod
                     hardwareKeyMetadata:
                       description: ut
-      operationId: googleEnableCSEKeypairs
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:
     get:
       tags:
-        - settings > CSE Identites > Key Pairs
-      summary: Get Cse Keypairs
+        - Get
+      summary: GET CSE Keypairs
       description: Retrieves an existing client-side encryption key pair.
       parameters:
         - name: Accept
@@ -4352,12 +4497,13 @@ paths:
                       kaclsData: sint eiusmod
                     hardwareKeyMetadata:
                       description: ut
-      operationId: googleGETCSEKeypairs
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:disable:
     post:
       tags:
-        - settings > CSE Identites > Key Pairs
-      summary: Disable Cse Keypairs
+        - Disables
+      summary: Disable CSE Keypairs
       description: >-
         Turns off a client-side encryption key pair. The authenticated user can
         no longer use the key pair to decrypt incoming CSE message texts or sign
@@ -4427,12 +4573,13 @@ paths:
                       kaclsData: sint eiusmod
                     hardwareKeyMetadata:
                       description: ut
-      operationId: googleDisableCSEKeypairs
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:obliterate:
     post:
       tags:
-        - settings > CSE Identites > Key Pairs
-      summary: Obliterate Cse Keypairs
+        - Obliterate
+      summary: Obliterate CSE Keypairs
       description: >-
         Deletes a client-side encryption key pair permanently and immediately.
         You can only permanently delete key pairs that have been turned off for
@@ -4472,12 +4619,13 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: googleObliterateCSEKeypairs
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/cse/keypairs:
     post:
       tags:
-        - settings > CSE Identites > Key Pairs
-      summary: Create Cse Keypairs
+        - Create
+      summary: Create CSE Keypairs
       description: >-
         Creates and uploads a client-side encryption S/MIME public key
         certificate chain and private key metadata for the authenticated user.
@@ -4560,11 +4708,12 @@ paths:
                       kaclsData: sint eiusmod
                     hardwareKeyMetadata:
                       description: ut
-      operationId: googleCreateCSEKeypairs
+      x-api-evangelist-processing:
+        ChooseTags: true
     get:
       tags:
-        - settings > CSE Identites > Key Pairs
-      summary: List Cse Keypairs
+        - Lists
+      summary: List CSE Keypairs
       description: Lists client-side encryption key pairs for an authenticated user.
       parameters:
         - name: Accept
@@ -4636,12 +4785,13 @@ paths:
                         hardwareKeyMetadata:
                           description: quis culpa
                 nextPageToken: eiusmod dolore anim pariatur
-      operationId: googleListCSEKeypairs
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/cse/identities:
     get:
       tags:
-        - settings > CSE Identites
-      summary: List Cse Identites
+        - Lists
+      summary: List CSE Identites
       description: Lists the client-side encrypted identities for an authenticated user.
       parameters:
         - name: Accept
@@ -4681,11 +4831,12 @@ paths:
                       signingKeyPairId: culpa
                       encryptionKeyPairId: dolore Excepteur ipsum Lorem
                 nextPageToken: eiusmod amet voluptate veniam in
-      operationId: googleListCSEIdentites
+      x-api-evangelist-processing:
+        ChooseTags: true
     post:
       tags:
-        - settings > CSE Identites
-      summary: Create Cse Identites
+        - Create
+      summary: Create CSE Identites
       description: >-
         Creates and configures a client-side encryption identity that's
         authorized to send mail from the user account. Google publishes the
@@ -4739,12 +4890,13 @@ paths:
                 signAndEncryptKeyPairs:
                   signingKeyPairId: est deserunt
                   encryptionKeyPairId: elit nulla esse ut
-      operationId: googleCreateCSEIdentites
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/cse/identities/{emailAddress}:
     patch:
       tags:
-        - settings > CSE Identites
-      summary: Patch Cse Identites
+        - Patch
+      summary: PATCH CSE Identites
       description: >-
         Associates a different key pair with an existing client-side encryption
         identity. The updated key pair must validate against Google's [S/MIME
@@ -4803,12 +4955,13 @@ paths:
                 signAndEncryptKeyPairs:
                   signingKeyPairId: est deserunt
                   encryptionKeyPairId: elit nulla esse ut
-      operationId: googlePATCHCSEIdentites
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/cse/identities/{cseEmailAddress}:
     get:
       tags:
-        - settings > CSE Identites
-      summary: Get Cse Idenetites
+        - Get
+      summary: GET CSE Idenetites
       description: Retrieves a client-side encryption identity configuration.
       parameters:
         - name: Accept
@@ -4848,11 +5001,12 @@ paths:
                 signAndEncryptKeyPairs:
                   signingKeyPairId: est deserunt
                   encryptionKeyPairId: elit nulla esse ut
-      operationId: googleGETCSEIdenetites
+      x-api-evangelist-processing:
+        ChooseTags: true
     delete:
       tags:
-        - settings > CSE Identites
-      summary: Delete Cse Idenities
+        - Deletes
+      summary: Delete CSE Idenities
       description: >-
         Deletes a client-side encryption identity. The authenticated user can no
         longer use the identity to send encrypted messages. You cannot restore
@@ -4881,11 +5035,12 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: googleDeleteCSEIdenities
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/filters/{id}:
     delete:
       tags:
-        - settings > Filters
+        - Deletes
       summary: Delete Filters
       description: Immediately and permanently deletes the specified filter.
       parameters:
@@ -4911,10 +5066,11 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: googleDeleteFilters
+      x-api-evangelist-processing:
+        ChooseTags: true
     get:
       tags:
-        - settings > Filters
+        - Get
       summary: Get Filters
       description: Gets a filter.
       parameters:
@@ -4969,11 +5125,12 @@ paths:
                     - Lorem consequat l
                     - minim Excepteur
                   forward: culpa do
-      operationId: googleGetFilters
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/filters:
     get:
       tags:
-        - settings > Filters
+        - Lists
       summary: List Filters
       description: Lists the message filters of a Gmail user.
       parameters:
@@ -5041,10 +5198,11 @@ paths:
                         - esse cupidatat
                         - mollit aliqua
                       forward: est occaecat officia
-      operationId: googleListFilters
+      x-api-evangelist-processing:
+        ChooseTags: true
     post:
       tags:
-        - settings > Filters
+        - Create
       summary: Create Filters
       description: 'Creates a filter. Note: you can only create a maximum of 1,000 filters.'
       requestBody:
@@ -5122,11 +5280,13 @@ paths:
                     - Lorem consequat l
                     - minim Excepteur
                   forward: culpa do
-      operationId: googleCreateFilters
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/forwardingAddresses/{forwardingEmail}:
     delete:
       tags:
-        - settings > Forwarding Addresses
+        - Deletes
+        - Addresses
       summary: Delete Forwarding Addresses
       description: >-
         Deletes the specified forwarding address and revokes any verification
@@ -5155,10 +5315,12 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: googleDeleteForwardingAddresses
+      x-api-evangelist-processing:
+        ChooseTags: true
     get:
       tags:
-        - settings > Forwarding Addresses
+        - Get
+        - Addresses
       summary: Get Forwarding Addresses
       description: Gets the specified forwarding address.
       parameters:
@@ -5196,11 +5358,13 @@ paths:
               example:
                 forwardingEmail: ad tempor dolor
                 verificationStatus: pending
-      operationId: googleGetForwardingAddresses
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/forwardingAddresses:
     get:
       tags:
-        - settings > Forwarding Addresses
+        - Lists
+        - Addresses
       summary: List Forwarding Addresses
       description: Lists the forwarding addresses for the specified account.
       parameters:
@@ -5234,10 +5398,12 @@ paths:
                     verificationStatus: accepted
                   - forwardingEmail: proident ad nulla occaecat dolore
                     verificationStatus: verificationStatusUnspecified
-      operationId: googleListForwardingAddresses
+      x-api-evangelist-processing:
+        ChooseTags: true
     post:
       tags:
-        - settings > Forwarding Addresses
+        - Create
+        - Address
       summary: Create Forwarding Address
       description: >-
         Creates a forwarding address. If ownership verification is required, a
@@ -5287,11 +5453,13 @@ paths:
               example:
                 forwardingEmail: ad tempor dolor
                 verificationStatus: pending
-      operationId: googleCreateForwardingAddress
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/delegates/{delegateEmail}:
     delete:
       tags:
-        - settings > Delegates
+        - Deletes
+        - Delegates
       summary: Delete Delegates
       description: >-
         Removes the specified delegate (which can be of any verification
@@ -5322,10 +5490,12 @@ paths:
               schema:
                 type: string
               example: ''
-      operationId: googleDeleteDelegates
+      x-api-evangelist-processing:
+        ChooseTags: true
     get:
       tags:
-        - settings > Delegates
+        - Get
+        - Delegates
       summary: Get Delegates
       description: >-
         Gets the specified delegate. Note that a delegate user must be referred
@@ -5367,11 +5537,13 @@ paths:
               example:
                 delegateEmail: Duis commodo enim irure
                 verificationStatus: rejected
-      operationId: googleGetDelegates
+      x-api-evangelist-processing:
+        ChooseTags: true
   /gmail/v1/users/{userId}/settings/delegates:
     get:
       tags:
-        - settings > Delegates
+        - Lists
+        - Delegates
       summary: List Delegates
       description: >-
         Lists the delegates for the specified account. This method is only
@@ -5408,10 +5580,12 @@ paths:
                     verificationStatus: accepted
                   - delegateEmail: qui ipsum
                     verificationStatus: expired
-      operationId: googleListDelegates
+      x-api-evangelist-processing:
+        ChooseTags: true
     post:
       tags:
-        - settings > Delegates
+        - Create
+        - Delegates
       summary: Create Delegates
       description: >-
         Adds a delegate with its verification status set directly to `accepted`,
@@ -5467,4 +5641,5 @@ paths:
               example:
                 delegateEmail: Duis commodo enim irure
                 verificationStatus: rejected
-      operationId: googleCreateDelegates
+      x-api-evangelist-processing:
+        ChooseTags: true
