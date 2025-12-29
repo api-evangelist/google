@@ -41,7 +41,7 @@ paths:
         Creates a blank document using the title given in the request. Other
         fields in the request, including any provided content, are ignored.
         Returns the created document.
-      operationId: googleDocsDocumentsCreate
+      operationId: docs.documents.create
       requestBody:
         content:
           application/json:
@@ -142,12 +142,13 @@ paths:
           name: Authorization
           schema:
             type: string
-      summary: Post  Documents
+      summary: Post Documents
       x-api-evangelist-certified: '2025-07-20'
+      x-api-naftiko-published: '2025-07-20'
   /v1/documents/{documentId}:
     get:
       description: Gets the latest version of the specified document.
-      operationId: googleDocsDocumentsGet
+      operationId: docs.documents.get
       parameters:
         - description: The ID of the document to retrieve.
           in: path
@@ -271,8 +272,9 @@ paths:
             - https://www.googleapis.com/auth/drive.readonly
       tags:
         - documents
-      summary: Get  Documents Documentid
+      summary: Get Documents
       x-api-evangelist-certified: '2025-07-20'
+      x-api-naftiko-published: '2025-07-20'
   /v1/documents/{documentId}:batchUpdate:
     post:
       description: >-
@@ -290,7 +292,7 @@ paths:
         to collaborator changes. If there are no collaborators, the document
         should reflect your changes. In any case, the updates in your request
         are guaranteed to be applied together atomically.
-      operationId: googleDocsDocumentsBatchupdate
+      operationId: docs.documents.batchUpdate
       parameters:
         - description: The ID of the document to update.
           in: path
@@ -397,7 +399,7 @@ paths:
             - https://www.googleapis.com/auth/drive.file
       tags:
         - documents
-      summary: Post  Documents Documentid:batchupdate
+      summary: Post Documents Batch Update
 components:
   parameters:
     _.xgafv:
