@@ -2,10 +2,8 @@ openapi: 3.0.0
 info:
   title: Google Sheets API
   description: >-
-    The Google Sheets API enables developers to read, write, and manage their
-    Google Sheets data programmatically. It provides capabilities such as
-    modifying spreadsheet content, formatting, and settings and managing
-    individual sheets within a spreadsheet.
+    The Google Sheets API is a RESTful interface that lets you read and modify a
+    spreadsheet's data..
   version: 1.0.0
 servers:
   - url: http://{{baseurl}}
@@ -25,7 +23,7 @@ paths:
   /v4/spreadsheets/{spreadsheetId}/values/{range}:
     get:
       tags:
-        - Values
+        - Get
       summary: Get Values
       description: >-
         Returns a range of values from a spreadsheet. The caller must specify
@@ -158,10 +156,11 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
-      operationId: googleGetValues
+      x-api-evangelist-processing:
+        ChooseTags: true
     put:
       tags:
-        - Values
+        - Update
       summary: Update Values
       description: >-
         Sets values in a range of a spreadsheet. The caller must specify the
@@ -218,11 +217,12 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
-      operationId: googleUpdateValues
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values/{range}:append:
     post:
       tags:
-        - Values
+        - Append
       summary: Append Values
       description: >-
         Appends values to a spreadsheet. The input range is used to search for
@@ -285,11 +285,12 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
-      operationId: googleAppendValues
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values/{range}:clear:
     post:
       tags:
-        - Values
+        - Clear
       summary: Clear Values
       description: >-
         Clears values from a spreadsheet. The caller must specify the
@@ -350,11 +351,13 @@ paths:
                   value:
                     clearedRange: mollit sunt reprehenderit
                     spreadsheetId: dolor in enim
-      operationId: googleClearValues
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values:batchClear:
     post:
       tags:
-        - Batch Values Update
+        - Batch
+        - Clear
       summary: Batch Clear Values
       description: >-
         Clears one or more ranges of values from a spreadsheet. The caller must
@@ -417,12 +420,16 @@ paths:
                       - laboris in mollit
                       - magna adipisicing
                     spreadsheetId: cupidatat eiusmod commodo ad
-      operationId: googleBatchClearValues
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values:batchClearByDataFilter:
     post:
       tags:
-        - Batch Values Update
-      summary: Batch Clear Values By Data Filter
+        - Batch
+        - Clear
+        - Data
+        - Filter
+      summary: Batch Clear Values by Data Filter
       description: >-
         Clears one or more ranges of values from a spreadsheet. The caller must
         specify the spreadsheet ID and one or more DataFilters. Ranges matching
@@ -529,11 +536,13 @@ paths:
                       - cillum
                       - dolor
                     spreadsheetId: in consequat
-      operationId: googleBatchClearValuesByDataFilter
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values:batchGet:
     get:
       tags:
-        - Batch Values Update
+        - Get
+        - Batch
       summary: Get Values Batch
       description: >-
         Returns one or more ranges of values from a spreadsheet. The caller must
@@ -572,11 +581,14 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
-      operationId: googleGetValuesBatch
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values:batchGetByDataFilter:
     post:
       tags:
-        - Batch Values Update
+        - Get
+        - Data
+        - Filter
       summary: Get Values By Data Filter
       description: >-
         Returns one or more ranges of values that match the specified data
@@ -679,11 +691,13 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
-      operationId: googleGetValuesByDataFilter
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values:batchUpdate:
     post:
       tags:
-        - Batch Values Update
+        - Batch
+        - Update
       summary: Batch Update Values
       description: >-
         Sets values in one or more ranges of a spreadsheet. The caller must
@@ -734,12 +748,15 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
-      operationId: googleBatchUpdateValues
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/values:batchUpdateByDataFilter:
     post:
       tags:
-        - Batch Values Update
-      summary: Update By Data Filter
+        - Update
+        - Data
+        - Filter
+      summary: Update by Data Filter
       description: >-
         Sets values in one or more ranges of a spreadsheet. The caller must
         specify the spreadsheet ID, a valueInputOption, and one or more
@@ -789,11 +806,13 @@ paths:
                 example-1:
                   summary: Successful response
                   value: null
-      operationId: googleUpdateByDataFilter
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets:
     post:
       tags:
-        - Sheets
+        - Create
+        - Sheet
       summary: Create Sheet
       description: Creates a spreadsheet, returning the newly created spreadsheet.
       requestBody:
@@ -8886,11 +8905,13 @@ paths:
                               title: exercitation Lorem
                     spreadsheetId: tempor qui laboris labore
                     spreadsheetUrl: nisi ipsum eiusmod aliquip
-      operationId: googleCreateSheet
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}:
     get:
       tags:
-        - Sheets
+        - Get
+        - Sheet
       summary: Get Sheet
       description: >-
         Returns the spreadsheet at the given ID. The caller must specify the
@@ -14312,11 +14333,13 @@ paths:
                               title: exercitation Lorem
                     spreadsheetId: tempor qui laboris labore
                     spreadsheetUrl: nisi ipsum eiusmod aliquip
-      operationId: googleGetSheet
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/sheets/{sheetId}:copyTo:
     post:
       tags:
-        - Sheets
+        - Copy
+        - Sheet
       summary: Copy To Sheet
       description: >-
         Copies a single sheet from a spreadsheet to another spreadsheet. Returns
@@ -14452,11 +14475,13 @@ paths:
                         red: -70387559.7048357
                       themeColor: ACCENT2
                     title: nisi reprehenderit cupidatat enim
-      operationId: googleCopyToSheet
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}:batchUpdate:
     post:
       tags:
-        - Sheets
+        - Batch
+        - Update
       summary: Batch Update Sheets
       description: >-
         Applies one or more updates to the spreadsheet. Each request is
@@ -30754,12 +30779,16 @@ paths:
                                 title: quis id
                       spreadsheetId: sit consequat exercitation
                       spreadsheetUrl: laborum
-      operationId: googleBatchUpdateSheets
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}:getByDataFilter:
     post:
       tags:
-        - Sheets
-      summary: Get Sheet By Data Filter
+        - Get
+        - Sheet
+        - Data
+        - Filter
+      summary: Get Sheet by Data Filter
       description: >-
         Returns the spreadsheet at the given ID. The caller must specify the
         spreadsheet ID. This method differs from GetSpreadsheet in that it
@@ -36233,11 +36262,13 @@ paths:
                               title: exercitation Lorem
                     spreadsheetId: tempor qui laboris labore
                     spreadsheetUrl: nisi ipsum eiusmod aliquip
-      operationId: googleGetSheetByDataFilter
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/developerMetadata/{metadataId}:
     get:
       tags:
-        - Metadata
+        - Get
+        - Developer
       summary: Get Developer Metadata
       description: >-
         Returns the developer metadata with the specified ID. The caller must
@@ -36310,11 +36341,13 @@ paths:
                     metadataKey: proident ex
                     metadataValue: Lorem magna minim sunt
                     visibility: DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED
-      operationId: googleGetDeveloperMetadata
+      x-api-evangelist-processing:
+        ChooseTags: true
   /v4/spreadsheets/{spreadsheetId}/developerMetadata:search:
     post:
       tags:
-        - Metadata
+        - Search
+        - Developer
       summary: Search Developer Metadata
       description: >-
         Returns all developer metadata matching the specified DataFilter. If the
@@ -36660,4 +36693,5 @@ paths:
                           metadataKey: sunt velit
                           metadataValue: et
                           visibility: DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED
-      operationId: googleSearchDeveloperMetadata
+      x-api-evangelist-processing:
+        ChooseTags: true
