@@ -61,6 +61,10 @@ apis:
   properties:
   - url: https://developers.google.com/workspace/drive/api/guides/about-sdk
     type: Documentation
+  - url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+    type: APIReference
+  - url: openapi/google-drive-api-openapi.yml
+    type: OpenAPI
   description: Google Drive is a cloud-based storage service that lets users store, access, and share files from any device with an internet connection.
 - aid: google:google-drive-activity-api
   name: Google Drive Activity API
@@ -71,6 +75,8 @@ apis:
   properties:
   - url: https://developers.google.com/workspace/drive/activity/v2
     type: Documentation
+  - url: openapi/google-drive-activity-api-openapi.yml
+    type: OpenAPI
   description: The Google Drive Activity API consists of the DriveActivity resource, which represents changes made to objects within a user's Google Drive, and the activity.query method, which allows you to retrieve information about those changes.
 - aid: google:google-drive-labels-api
   name: Google Drive Labels API
@@ -81,6 +87,8 @@ apis:
   properties:
   - url: https://developers.google.com/workspace/drive
     type: Documentation
+  - url: openapi/google-drive-labels-api-openapi.yml
+    type: OpenAPI
   description: 'Labels are metadata that you define to help users organize, find, and apply policy to files in Google Drive. The Drive Labels API is a RESTful API that supports business processes by attaching metadata to your Drive files.  '
 - aid: google:google-calendar-api
   name: Google Calendar API
@@ -123,9 +131,14 @@ apis:
   properties:
   - url: https://developers.google.com/workspace/docs/api/reference/rest
     type: Documentation
+  - url: openapi/google-docs-api-openapi.yml
+    type: OpenAPI
   description: Reads and writes Google Docs documents.
 - aid: google:google-maps-api
   name: Google Maps API
+  tags:
+  - Maps
+  - Geolocation
   humanURL: https://developers.google.com/maps
   properties:
   - url: https://developers.google.com/maps
@@ -144,6 +157,9 @@ apis:
   description: 'The Google Places API provides programmatic access to detailed information about millions of places, including names, addresses, reviews, photos, and geographic coordinates, enabling location-based search and discovery in applications.      '
 - aid: google:google-aggregate-places-api
   name: Google Aggregate Places API
+  tags:
+  - Places
+  - Maps
   humanURL: https://developers.google.com/maps/documentation/places-aggregate
   properties:
   - url: https://developers.google.com/maps/documentation/places-aggregate
@@ -151,6 +167,10 @@ apis:
   description: 'The Google Places Aggregate API delivers aggregated insightssuch as the count or list of Place IDsfor places within a defined area, based on filters like type (e.g., restaurants), price level, user ratings, or operational status.  '
 - aid: google:google-places-insights-api
   name: Google Places Insights API
+  tags:
+  - Places
+  - Maps
+  - Analytics
   humanURL: https://developers.google.com/maps/documentation/placesinsights
   properties:
   - url: https://developers.google.com/maps/documentation/placesinsights
@@ -158,6 +178,10 @@ apis:
   description: 'The Google Places Insights API (now generally known as the Places Aggregate API) provides aggregated intelligencesuch as counts of matching places or lists of Place IDswithin a defined geographic area, filtered by attributes like place type, ratings, price, or operating status, to help analyze local density and distribution.  '
 - aid: google:google-street-view-imagery-api
   name: Google Street View Imagery API
+  tags:
+  - Maps
+  - Street View
+  - Images
   humanURL: https://developers.google.com/maps/documentation/streetview
   properties:
   - url: https://developers.google.com/maps/documentation/streetview
@@ -165,6 +189,9 @@ apis:
   description: 'The Google Street View Imagery API lets developers embed and display interactive 360-degree panoramic images from Google Street View in their applications, enabling users to virtually explore real-world locations.  '
 - aid: google:google-elevation-api
   name: Google Elevation API
+  tags:
+  - Maps
+  - Elevation
   humanURL: https://developers.google.com/maps/documentation/elevation
   properties:
   - url: https://developers.google.com/maps/documentation/elevation
@@ -172,6 +199,10 @@ apis:
   description: 'The Google Elevation API provides elevation data for specific locations on the Earth''s surface, including height above sea level for points, paths, or sets of coordinates. '
 - aid: google:google-routes-api
   name: Google Routes API
+  tags:
+  - Maps
+  - Routes
+  - Directions
   humanURL: https://developers.google.com/maps/documentation/routes
   properties:
   - url: https://developers.google.com/maps/documentation/routes
@@ -179,6 +210,9 @@ apis:
   description: 'The Google Routes API calculates routes between locations, providing directions, distances, travel times, and additional data like traffic conditions, tolls, and alternative paths for various modes of transportation. '
 - aid: google:google-geocoding-api
   name: Google Geocoding API
+  tags:
+  - Maps
+  - Geocoding
   humanURL: https://developers.google.com/maps/documentation/geocoding
   properties:
   - url: https://developers.google.com/maps/documentation/geocoding
@@ -186,6 +220,9 @@ apis:
   description: 'The Google Geocoding API converts addresses into geographic coordinates (latitude and longitude) and vice versa, enabling applications to map locations and perform location-based queries. '
 - aid: google:google-geolocation-api
   name: Google Geolocation API
+  tags:
+  - Maps
+  - Geolocation
   humanURL: https://developers.google.com/maps/documentation/geolocation
   properties:
   - url: https://developers.google.com/maps/documentation/geolocation
@@ -193,6 +230,10 @@ apis:
   description: 'The Google Geolocation API determines a devices approximate location based on nearby cell towers, Wi-Fi nodes, or Bluetooth beacons, without requiring GPS. '
 - aid: google:google-address-validation-api
   name: Google Address Validation API
+  tags:
+  - Maps
+  - Address
+  - Validation
   humanURL: https://developers.google.com/maps/documentation/address-validation
   properties:
   - url: https://developers.google.com/maps/documentation/address-validation
@@ -200,6 +241,9 @@ apis:
   description: 'The Google Address Validation API standardizes, validates, and enriches postal addresses by checking them against authoritative data sources, ensuring accuracy and deliverability for shipping, billing, and location-based services. '
 - aid: google:google-time-zone-api
   name: Google Time Zone API
+  tags:
+  - Maps
+  - Time Zone
   humanURL: https://developers.google.com/maps/documentation/timezone
   properties:
   - url: https://developers.google.com/maps/documentation/timezone
@@ -207,6 +251,10 @@ apis:
   description: 'The Google Time Zone API provides time zone information for a given location, including the standard time offset from UTC and daylight saving time details. '
 - aid: google:google-air-quality-api
   name: Google Air Quality API
+  tags:
+  - Maps
+  - Air Quality
+  - Environment
   humanURL: https://developers.google.com/maps/documentation/air-quality
   properties:
   - url: https://developers.google.com/maps/documentation/air-quality
@@ -214,6 +262,10 @@ apis:
   description: 'The Google Air Quality API allows applications to access real-time, historical, and forecasted air quality dataencompassing over 70 indices, pollutant details, health recommendations, and heatmap tiles for visualizing atmospheric conditions at a high (500//500/m) resolution across more than 100 countries. '
 - aid: google:google-pollen-api
   name: Google Pollen API
+  tags:
+  - Maps
+  - Pollen
+  - Environment
   humanURL: https://developers.google.com/maps/documentation/pollen
   properties:
   - url: https://developers.google.com/maps/documentation/pollen
@@ -221,6 +273,10 @@ apis:
   description: 'The Google Pollen API provides localized pollen informationincluding daily forecasts, pollen levels by plant type (trees, weeds, grasses), and related health recommendationshelping applications inform users about allergy risks in their area. '
 - aid: google:google-solar-api
   name: Google Solar API
+  tags:
+  - Maps
+  - Solar
+  - Energy
   humanURL: https://developers.google.com/maps/documentation/solar
   properties:
   - url: https://developers.google.com/maps/documentation/weather
@@ -228,6 +284,10 @@ apis:
   description: 'The Google Solar API delivers solar potential data for buildings, including rooftop geometry, shading, sunlight exposure, and energy production estimates, to support solar panel planning and deployment. '
 - aid: google:google-weather-api
   name: Google Weather API
+  tags:
+  - Maps
+  - Weather
+  - Environment
   humanURL: https://developers.google.com/maps/documentation/weather
   properties:
   - url: https://developers.google.com/maps/documentation/weather
@@ -237,10 +297,356 @@ apis:
   name: Google Gemini API
   tags:
   - Documents
+  - AI
+  - Machine Learning
   humanURL: https://ai.google.dev/
   properties:
   - url: https://ai.google.dev/
     type: Documentation
+  - url: https://ai.google.dev/gemini-api/docs
+    type: GettingStarted
+  - url: openapi/google-gemini-api-openapi.yml
+    type: OpenAPI
+- aid: google:youtube-data-api
+  name: YouTube Data API
+  tags:
+  - Video
+  - Media
+  humanURL: https://developers.google.com/youtube/v3
+  properties:
+  - url: https://developers.google.com/youtube/v3/docs
+    type: Documentation
+  - url: https://developers.google.com/youtube/v3/getting-started
+    type: GettingStarted
+  description: The YouTube Data API lets you incorporate functions normally executed on the YouTube website into your own website or application, including searching for videos, retrieving standard feeds, and managing playlists and subscriptions.
+- aid: google:google-analytics-data-api
+  name: Google Analytics Data API
+  tags:
+  - Analytics
+  - Reporting
+  humanURL: https://developers.google.com/analytics/devguides/reporting/data/v1
+  properties:
+  - url: https://developers.google.com/analytics/devguides/reporting/data/v1
+    type: Documentation
+  - url: https://developers.google.com/analytics/devguides/reporting/data/v1/rest
+    type: APIReference
+  description: The Google Analytics Data API provides programmatic methods to access report data in Google Analytics, enabling custom dashboards, automated reporting workflows, and integration with other business applications.
+- aid: google:google-ads-api
+  name: Google Ads API
+  tags:
+  - Advertising
+  humanURL: https://developers.google.com/google-ads/api
+  properties:
+  - url: https://developers.google.com/google-ads/api/docs/get-started/introduction
+    type: Documentation
+  - url: https://developers.google.com/google-ads/api/docs/get-started/make-first-call
+    type: GettingStarted
+  description: The Google Ads API is the programmatic interface to Google Ads and is used for managing large or complex Google Ads accounts and campaigns efficiently.
+- aid: google:google-custom-search-json-api
+  name: Google Custom Search JSON API
+  tags:
+  - Search
+  humanURL: https://developers.google.com/custom-search/v1/overview
+  properties:
+  - url: https://developers.google.com/custom-search/v1/overview
+    type: Documentation
+  - url: https://developers.google.com/custom-search/v1/reference/rest
+    type: APIReference
+  description: The Custom Search JSON API lets you develop websites and applications to retrieve and display search results from Programmable Search Engine programmatically using RESTful requests to get web search or image search results in JSON format.
+- aid: google:google-cloud-translation-api
+  name: Google Cloud Translation API
+  tags:
+  - Translation
+  - AI
+  - Machine Learning
+  humanURL: https://cloud.google.com/translate
+  properties:
+  - url: https://cloud.google.com/translate/docs
+    type: Documentation
+  - url: https://cloud.google.com/translate/docs/reference/rest
+    type: APIReference
+  description: The Cloud Translation API uses Google neural machine translation technology to let you dynamically translate text through the API using a Google pre-trained or custom model, supporting over 100 language pairs.
+- aid: google:google-cloud-vision-api
+  name: Google Cloud Vision API
+  tags:
+  - Vision
+  - AI
+  - Machine Learning
+  humanURL: https://cloud.google.com/vision
+  properties:
+  - url: https://cloud.google.com/vision/docs
+    type: Documentation
+  description: The Cloud Vision API allows developers to integrate vision detection features within applications, including image labeling, face and landmark detection, optical character recognition (OCR), and tagging of explicit content.
+- aid: google:google-cloud-natural-language-api
+  name: Google Cloud Natural Language API
+  tags:
+  - Natural Language Processing
+  - AI
+  - Machine Learning
+  humanURL: https://cloud.google.com/natural-language
+  properties:
+  - url: https://cloud.google.com/natural-language/docs
+    type: Documentation
+  description: The Cloud Natural Language API provides natural language understanding technologies including sentiment analysis, entity analysis, entity sentiment analysis, content classification, and syntax analysis.
+- aid: google:google-cloud-speech-to-text-api
+  name: Google Cloud Speech-to-Text API
+  tags:
+  - Speech
+  - AI
+  - Machine Learning
+  humanURL: https://cloud.google.com/speech-to-text
+  properties:
+  - url: https://cloud.google.com/speech-to-text/docs
+    type: Documentation
+  description: The Cloud Speech-to-Text API enables developers to convert audio to text using powerful neural network models, supporting over 125 languages and variants with automatic speech recognition.
+- aid: google:google-cloud-text-to-speech-api
+  name: Google Cloud Text-to-Speech API
+  tags:
+  - Speech
+  - AI
+  - Machine Learning
+  humanURL: https://cloud.google.com/text-to-speech
+  properties:
+  - url: https://cloud.google.com/text-to-speech/docs
+    type: Documentation
+  description: The Cloud Text-to-Speech API converts text into natural-sounding speech using an API powered by Google AI technologies, with support for multiple languages, voices, and audio formats.
+- aid: google:google-cloud-bigquery-api
+  name: Google Cloud BigQuery API
+  tags:
+  - Big Data
+  - Analytics
+  - Database
+  humanURL: https://cloud.google.com/bigquery
+  properties:
+  - url: https://cloud.google.com/bigquery/docs
+    type: Documentation
+  - url: https://cloud.google.com/bigquery/docs/reference/rest
+    type: APIReference
+  description: BigQuery is a fully managed, petabyte-scale analytics data warehouse that lets you run analytics over vast amounts of data in near real time using SQL queries.
+- aid: google:google-fonts-api
+  name: Google Fonts API
+  tags:
+  - Fonts
+  - Design
+  humanURL: https://developers.google.com/fonts
+  properties:
+  - url: https://developers.google.com/fonts/docs/developer_api
+    type: Documentation
+  - url: https://developers.google.com/fonts/docs/getting_started
+    type: GettingStarted
+  description: The Google Fonts Developer API provides programmatic access to the metadata for all font families served by Google Fonts, allowing applications to query for available font families, styles, and subsets.
+- aid: google:google-people-api
+  name: Google People API
+  tags:
+  - Contacts
+  - People
+  humanURL: https://developers.google.com/people
+  properties:
+  - url: https://developers.google.com/people
+    type: Documentation
+  - url: https://developers.google.com/people/api/rest
+    type: APIReference
+  description: The Google People API provides access to information about profiles and contacts, allowing applications to read and manage the authenticated user's contacts and profile data.
+- aid: google:google-blogger-api
+  name: Google Blogger API
+  tags:
+  - Blogging
+  humanURL: https://developers.google.com/blogger
+  properties:
+  - url: https://developers.google.com/blogger/docs/3.0/getting_started
+    type: Documentation
+  - url: https://developers.google.com/blogger/docs/3.0/reference/
+    type: APIReference
+  description: The Blogger API enables client applications to view and update Blogger content, providing programmatic access to blog posts, comments, pages, and user information.
+- aid: google:google-slides-api
+  name: Google Slides API
+  tags:
+  - Presentations
+  humanURL: https://developers.google.com/workspace/slides/api/guides/overview
+  properties:
+  - url: https://developers.google.com/workspace/slides/api/guides/overview
+    type: Documentation
+  - url: https://developers.google.com/workspace/slides/api/reference/rest
+    type: APIReference
+  description: The Google Slides API lets you create and modify Google Slides presentations, enabling applications to build slide decks automatically from user and system-provided data.
+- aid: google:google-tasks-api
+  name: Google Tasks API
+  tags:
+  - Tasks
+  - Productivity
+  humanURL: https://developers.google.com/workspace/tasks/overview
+  properties:
+  - url: https://developers.google.com/workspace/tasks/overview
+    type: Documentation
+  - url: https://developers.google.com/workspace/tasks/reference/rest
+    type: APIReference
+  description: The Google Tasks API lets you search, read, and update Google Tasks content and metadata using a RESTful interface, enabling programmatic management of task lists and individual tasks.
+- aid: google:google-chat-api
+  name: Google Chat API
+  tags:
+  - Chat
+  - Messaging
+  humanURL: https://developers.google.com/workspace/chat/overview
+  properties:
+  - url: https://developers.google.com/workspace/chat/overview
+    type: Documentation
+  - url: https://developers.google.com/workspace/chat/api/reference/rest
+    type: APIReference
+  description: The Google Chat API enables developers to build Chat apps that bring services and resources into Google Chat, letting users get information and take action without leaving the conversation.
+- aid: google:google-classroom-api
+  name: Google Classroom API
+  tags:
+  - Education
+  - Classroom
+  humanURL: https://developers.google.com/classroom
+  properties:
+  - url: https://developers.google.com/workspace/classroom/guides/get-started
+    type: Documentation
+  - url: https://developers.google.com/workspace/classroom/reference/rest
+    type: APIReference
+  description: The Google Classroom API lets you manage courses, rosters, assignments, and grades programmatically, enabling integration with learning management systems and educational tools.
+- aid: google:google-forms-api
+  name: Google Forms API
+  tags:
+  - Forms
+  - Surveys
+  humanURL: https://developers.google.com/forms
+  properties:
+  - url: https://developers.google.com/workspace/forms/api/guides
+    type: Documentation
+  - url: https://developers.google.com/workspace/forms/api/reference/rest
+    type: APIReference
+  description: The Google Forms API is a RESTful interface that lets you create and modify forms and quizzes, retrieve form responses and quiz grades, set up answer keys with automatic feedback, and receive push notifications.
+- aid: google:google-meet-rest-api
+  name: Google Meet REST API
+  tags:
+  - Meetings
+  - Video Conferencing
+  humanURL: https://developers.google.com/workspace/meet/api/guides/overview
+  properties:
+  - url: https://developers.google.com/workspace/meet/api/guides/overview
+    type: Documentation
+  - url: https://developers.google.com/workspace/meet/api/reference/rest/v2
+    type: APIReference
+  description: The Google Meet REST API lets you create and manage meetings for Google Meet, retrieve meeting and participant information, and access meeting artifacts like recordings and transcripts.
+- aid: google:google-knowledge-graph-search-api
+  name: Google Knowledge Graph Search API
+  tags:
+  - Knowledge Graph
+  - Search
+  humanURL: https://developers.google.com/knowledge-graph
+  properties:
+  - url: https://developers.google.com/knowledge-graph
+    type: Documentation
+  description: The Knowledge Graph Search API lets you find entities in the Google Knowledge Graph, providing access to information about people, places, and things that Google knows about.
+- aid: google:google-pagespeed-insights-api
+  name: Google PageSpeed Insights API
+  tags:
+  - Performance
+  - Web
+  humanURL: https://developers.google.com/speed/docs/insights/v5/get-started
+  properties:
+  - url: https://developers.google.com/speed/docs/insights/v5/get-started
+    type: Documentation
+  - url: https://developers.google.com/speed/docs/insights/rest
+    type: APIReference
+  description: The PageSpeed Insights API analyzes the performance of web pages and provides suggestions for improving page speed, accessibility, and SEO.
+- aid: google:google-civic-information-api
+  name: Google Civic Information API
+  tags:
+  - Civic
+  - Government
+  humanURL: https://developers.google.com/civic-information
+  properties:
+  - url: https://developers.google.com/civic-information
+    type: Documentation
+  description: The Google Civic Information API lets developers build applications that display civic information, including elected officials, polling places, and election data for US addresses.
+- aid: google:google-roads-api
+  name: Google Roads API
+  tags:
+  - Maps
+  - Roads
+  humanURL: https://developers.google.com/maps/documentation/roads
+  properties:
+  - url: https://developers.google.com/maps/documentation/roads
+    type: Documentation
+  description: The Google Roads API provides snap-to-road functionality that maps GPS coordinates to road geometry, identifies nearest road segments, and returns speed limit data for road segments.
+- aid: google:google-map-tiles-api
+  name: Google Map Tiles API
+  tags:
+  - Maps
+  - Tiles
+  humanURL: https://developers.google.com/maps/documentation/tile
+  properties:
+  - url: https://developers.google.com/maps/documentation/tile
+    type: Documentation
+  description: The Map Tiles API provides high-resolution Photorealistic 3D Tiles, 2D Tiles, and Street View Tiles for building immersive, customized map visualizations.
+- aid: google:google-route-optimization-api
+  name: Google Route Optimization API
+  tags:
+  - Maps
+  - Routes
+  - Optimization
+  humanURL: https://developers.google.com/maps/documentation/route-optimization
+  properties:
+  - url: https://developers.google.com/maps/documentation/route-optimization
+    type: Documentation
+  description: The Route Optimization API generates optimized route plans for single or multiple vehicles and their stops, assigning tasks and routes to a vehicle fleet while optimizing against supplied objectives and constraints.
+- aid: google:google-play-developer-api
+  name: Google Play Developer API
+  tags:
+  - Android
+  - App Store
+  humanURL: https://developers.google.com/android-publisher
+  properties:
+  - url: https://developers.google.com/android-publisher
+    type: Documentation
+  - url: https://developers.google.com/android-publisher/api-ref/rest
+    type: APIReference
+  description: The Google Play Developer API allows you to perform publishing and app-management tasks, including managing in-app purchases and subscriptions, retrieving reviews, and automating app publishing workflows.
+- aid: google:firebase-api
+  name: Firebase API
+  tags:
+  - Backend
+  - Mobile
+  - Cloud
+  humanURL: https://firebase.google.com/
+  properties:
+  - url: https://firebase.google.com/docs
+    type: Documentation
+  - url: https://firebase.google.com/docs/reference
+    type: APIReference
+  description: Firebase is a comprehensive app development platform that provides backend services, including real-time databases, authentication, cloud messaging, storage, and hosting for web and mobile applications.
+- aid: google:google-picker-api
+  name: Google Picker API
+  tags:
+  - Documents
+  - File Picker
+  humanURL: https://developers.google.com/workspace/drive/picker
+  properties:
+  - url: https://developers.google.com/workspace/drive/picker
+    type: Documentation
+  description: The Google Picker API is a JavaScript API that allows users to select or upload Google Drive files through a familiar dialog, providing a browser-based file picker for Drive content.
+- aid: google:google-keep-api
+  name: Google Keep API
+  tags:
+  - Notes
+  - Productivity
+  humanURL: https://developers.google.com/workspace/keep/api
+  properties:
+  - url: https://developers.google.com/workspace/keep/api
+    type: Documentation
+  description: The Google Keep API enables enterprise applications to programmatically manage and access Google Keep notes and lists on behalf of users within a Google Workspace domain.
+- aid: google:google-vault-api
+  name: Google Vault API
+  tags:
+  - Compliance
+  - Legal
+  humanURL: https://developers.google.com/workspace/vault
+  properties:
+  - url: https://developers.google.com/workspace/vault
+    type: Documentation
+  description: The Google Vault API provides programmatic access to Vault functionality, enabling retention management, legal hold management, and data export for compliance and eDiscovery purposes.
 name: Google
 tags:
 - Advertising
@@ -1187,13 +1593,29 @@ common:
   type: Support
 - url: https://status.cloud.google.com/
   type: Status
+- url: https://developers.google.com/identity/protocols/oauth2
+  type: Authentication
+- url: https://x.com/googledevs
+  type: X
+- url: https://discuss.google.dev/
+  type: Forum
+- url: https://github.com/google
+  type: GitHub
+- url: https://console.cloud.google.com/
+  type: SignUp
+- url: https://developers.google.com/apis-explorer
+  type: APIExplorer
+- url: https://developers.google.com/products
+  type: ProductDirectory
+- url: https://developers.google.com/terms/api-services-user-data-policy
+  type: DataPolicy
 created: '2023-11-08'
-modified: '2025-12-29'
+modified: '2026-03-03'
 description: Google's public APIs and services
 maintainers:
-- FN: API Evangelist
+- FN: Kin Lane
   url: https://apievangelist.com
-  email: info@apievangelist.com
+  email: kin@apievangelist.com
 - name: Google
   email:
   - email protected
