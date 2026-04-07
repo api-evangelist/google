@@ -12,160 +12,158 @@ info:
     url: http://creativecommons.org/licenses/by/3.0/
   termsOfService: https://developers.google.com/terms/
 servers:
-- url: https://drivelabels.googleapis.com
-  description: Google Drive Labels API Server
+  - url: https://drivelabels.googleapis.com
+    description: Google Drive Labels API Server
 tags:
-- name: Labels
-  description: Operations related to Labels
-- name: Limits
-  description: Operations related to Limits
-- name: Users
-  description: Operations related to Users
+  - name: Labels
+    description: Operations related to Labels
+  - name: Limits
+    description: Operations related to Limits
+  - name: Users
+    description: Operations related to Users
 externalDocs:
   url: https://developers.google.com/drive/labels
 paths:
   /v2/labels:
     get:
       tags:
-      - Labels
-      summary: Retrieve Labels
+        - Labels
+      summary: Google Retrieve Labels
       description: List labels.
       operationId: googleDrivelabelsLabelsList
       security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels.readonly
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels.readonly
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels.readonly
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels.readonly
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels.readonly
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels.readonly
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels.readonly
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels.readonly
       parameters:
-      - description: 'The customer to scope this list request to. For example: "customers/abcd1234". If unset, will return all labels within the current customer.'
-        in: query
-        name: customer
-        schema:
-          type: string
-      - description: The BCP-47 language code to use for evaluating localized field labels. When not specified, values in the default configured language are used.
-        in: query
-        name: languageCode
-        schema:
-          type: string
-      - description: Specifies the level of access the user must have on the returned Labels. The minimum role a user must have on a label. Defaults to `READER`.
-        in: query
-        name: minimumRole
-        schema:
-          enum:
-          - LABEL_ROLE_UNSPECIFIED
-          - READER
-          - APPLIER
-          - ORGANIZER
-          - EDITOR
-          type: string
-      - description: 'Maximum number of labels to return per page. Default: 50. Max: 200.'
-        in: query
-        name: pageSize
-        schema:
-          type: integer
-      - description: The token of the page to return.
-        in: query
-        name: pageToken
-        schema:
-          type: string
-      - description: Whether to include only published labels in the results. * When `true`, only the current published label revisions are returned. Disabled labels are included. Returned label resource
-          names reference the published revision (`labels/{id}/{revision_id}`). * When `false`, the current label revisions are returned, which might not be published. Returned label resource names don't
-          reference a specific revision (`labels/{id}`).
-        in: query
-        name: publishedOnly
-        schema:
-          type: boolean
-      - description: Set to `true` in order to use the user's admin credentials. This will return all Labels within the customer.
-        in: query
-        name: useAdminAccess
-        schema:
-          type: boolean
-      - description: When specified, only certain fields belonging to the indicated view are returned.
-        in: query
-        name: view
-        schema:
-          enum:
-          - LABEL_VIEW_BASIC
-          - LABEL_VIEW_FULL
-          type: string
-      - description: V1 error format.
-        in: query
-        name: $.xgafv
-        schema:
-          enum:
-          - '1'
-          - '2'
-          type: string
-      - description: OAuth access token.
-        in: query
-        name: access_token
-        schema:
-          type: string
-      - description: Data format for response.
-        in: query
-        name: alt
-        schema:
-          enum:
-          - json
-          - media
-          - proto
-          type: string
-      - description: JSONP
-        in: query
-        name: callback
-        schema:
-          type: string
-      - description: Selector specifying which fields to include in a partial response.
-        in: query
-        name: fields
-        schema:
-          type: string
-      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-        in: query
-        name: key
-        schema:
-          type: string
-      - description: OAuth 2.0 token for the current user.
-        in: query
-        name: oauth_token
-        schema:
-          type: string
-      - description: Returns response with indentations and line breaks.
-        in: query
-        name: prettyPrint
-        schema:
-          type: boolean
-      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-        in: query
-        name: quotaUser
-        schema:
-          type: string
-      - description: Upload protocol for media (e.g. "raw", "multipart").
-        in: query
-        name: upload_protocol
-        schema:
-          type: string
-      - description: Legacy upload protocol for media (e.g. "media", "multipart").
-        in: query
-        name: uploadType
-        schema:
-          type: string
-      - in: header
-        name: Authorization
-        schema:
-          type: string
+        - description: 'The customer to scope this list request to. For example: "customers/abcd1234". If unset, will return all labels within the current customer.'
+          in: query
+          name: customer
+          schema:
+            type: string
+        - description: The BCP-47 language code to use for evaluating localized field labels. When not specified, values in the default configured language are used.
+          in: query
+          name: languageCode
+          schema:
+            type: string
+        - description: Specifies the level of access the user must have on the returned Labels. The minimum role a user must have on a label. Defaults to `READER`.
+          in: query
+          name: minimumRole
+          schema:
+            enum:
+              - LABEL_ROLE_UNSPECIFIED
+              - READER
+              - APPLIER
+              - ORGANIZER
+              - EDITOR
+            type: string
+        - description: 'Maximum number of labels to return per page. Default: 50. Max: 200.'
+          in: query
+          name: pageSize
+          schema:
+            type: integer
+        - description: The token of the page to return.
+          in: query
+          name: pageToken
+          schema:
+            type: string
+        - description: Whether to include only published labels in the results. * When `true`, only the current published label revisions are returned. Disabled labels are included. Returned label resource names reference the published revision (`labels/{id}/{revision_id}`). * When `false`, the current label revisions are returned, which might not be published. Returned label resource names don't reference a specific revision (`labels/{id}`).
+          in: query
+          name: publishedOnly
+          schema:
+            type: boolean
+        - description: Set to `true` in order to use the user's admin credentials. This will return all Labels within the customer.
+          in: query
+          name: useAdminAccess
+          schema:
+            type: boolean
+        - description: When specified, only certain fields belonging to the indicated view are returned.
+          in: query
+          name: view
+          schema:
+            enum:
+              - LABEL_VIEW_BASIC
+              - LABEL_VIEW_FULL
+            type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -179,96 +177,96 @@ paths:
         dispatcherRules: SuccessExample
     post:
       tags:
-      - Labels
-      summary: Create Labels
+        - Labels
+      summary: Google Create Labels
       description: Creates a new Label.
       operationId: googleDrivelabelsLabelsCreate
       security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels
       parameters:
-      - description: The BCP-47 language code to use for evaluating localized Field labels in response. When not specified, values in the default configured language will be used.
-        in: query
-        name: languageCode
-        schema:
-          type: string
-      - description: Set to `true` in order to use the user's admin privileges. The server will verify the user is an admin before allowing access.
-        in: query
-        name: useAdminAccess
-        schema:
-          type: boolean
-      - description: V1 error format.
-        in: query
-        name: $.xgafv
-        schema:
-          enum:
-          - '1'
-          - '2'
-          type: string
-      - description: OAuth access token.
-        in: query
-        name: access_token
-        schema:
-          type: string
-      - description: Data format for response.
-        in: query
-        name: alt
-        schema:
-          enum:
-          - json
-          - media
-          - proto
-          type: string
-      - description: JSONP
-        in: query
-        name: callback
-        schema:
-          type: string
-      - description: Selector specifying which fields to include in a partial response.
-        in: query
-        name: fields
-        schema:
-          type: string
-      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-        in: query
-        name: key
-        schema:
-          type: string
-      - description: OAuth 2.0 token for the current user.
-        in: query
-        name: oauth_token
-        schema:
-          type: string
-      - description: Returns response with indentations and line breaks.
-        in: query
-        name: prettyPrint
-        schema:
-          type: boolean
-      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-        in: query
-        name: quotaUser
-        schema:
-          type: string
-      - description: Upload protocol for media (e.g. "raw", "multipart").
-        in: query
-        name: upload_protocol
-        schema:
-          type: string
-      - description: Legacy upload protocol for media (e.g. "media", "multipart").
-        in: query
-        name: uploadType
-        schema:
-          type: string
-      - in: header
-        name: Authorization
-        schema:
-          type: string
+        - description: The BCP-47 language code to use for evaluating localized Field labels in response. When not specified, values in the default configured language will be used.
+          in: query
+          name: languageCode
+          schema:
+            type: string
+        - description: Set to `true` in order to use the user's admin privileges. The server will verify the user is an admin before allowing access.
+          in: query
+          name: useAdminAccess
+          schema:
+            type: boolean
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -288,99 +286,99 @@ paths:
   /v2/limits/label:
     get:
       tags:
-      - Limits
-      summary: Retrieve Limits Label
+        - Limits
+      summary: Google Retrieve Limits Label
       description: Get the constraints on the structure of a Label; such as, the maximum number of Fields allowed and maximum length of the label title.
       operationId: googleDrivelabelsLimitsGetlabel
       security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels.readonly
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels.readonly
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels.readonly
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels.readonly
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels.readonly
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels.readonly
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels.readonly
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels.readonly
       parameters:
-      - description: 'Required. Label revision resource name Must be: "limits/label"'
-        in: query
-        name: name
-        schema:
-          type: string
-      - description: V1 error format.
-        in: query
-        name: $.xgafv
-        schema:
-          enum:
-          - '1'
-          - '2'
-          type: string
-      - description: OAuth access token.
-        in: query
-        name: access_token
-        schema:
-          type: string
-      - description: Data format for response.
-        in: query
-        name: alt
-        schema:
-          enum:
-          - json
-          - media
-          - proto
-          type: string
-      - description: JSONP
-        in: query
-        name: callback
-        schema:
-          type: string
-      - description: Selector specifying which fields to include in a partial response.
-        in: query
-        name: fields
-        schema:
-          type: string
-      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-        in: query
-        name: key
-        schema:
-          type: string
-      - description: OAuth 2.0 token for the current user.
-        in: query
-        name: oauth_token
-        schema:
-          type: string
-      - description: Returns response with indentations and line breaks.
-        in: query
-        name: prettyPrint
-        schema:
-          type: boolean
-      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-        in: query
-        name: quotaUser
-        schema:
-          type: string
-      - description: Upload protocol for media (e.g. "raw", "multipart").
-        in: query
-        name: upload_protocol
-        schema:
-          type: string
-      - description: Legacy upload protocol for media (e.g. "media", "multipart").
-        in: query
-        name: uploadType
-        schema:
-          type: string
-      - in: header
-        name: Authorization
-        schema:
-          type: string
+        - description: 'Required. Label revision resource name Must be: "limits/label"'
+          in: query
+          name: name
+          schema:
+            type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -395,118 +393,118 @@ paths:
   /v2/{name}:
     get:
       tags:
-      - Users
-      summary: Retrieve Name
+        - Users
+      summary: Google Retrieve Name
       description: Gets the user capabilities.
       operationId: googleDrivelabelsUsersGetcapabilities
       security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels.readonly
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels.readonly
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels.readonly
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels.readonly
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels.readonly
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels.readonly
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels.readonly
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels.readonly
       parameters:
-      - description: Required. The resource name of the user. Only "users/me/capabilities" is supported.
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      - description: 'The customer to scope this request to. For example: "customers/abcd1234". If unset, will return settings within the current customer.'
-        in: query
-        name: customer
-        schema:
-          type: string
-      - description: Set to `true` in order to use the user's admin credentials. The server verifies that the user is an admin for the label before allowing access.
-        in: query
-        name: useAdminAccess
-        schema:
-          type: boolean
-      - description: When specified, only certain fields belonging to the indicated view are returned.
-        in: query
-        name: view
-        schema:
-          enum:
-          - LABEL_VIEW_BASIC
-          - LABEL_VIEW_FULL
-          type: string
-      - description: V1 error format.
-        in: query
-        name: $.xgafv
-        schema:
-          enum:
-          - '1'
-          - '2'
-          type: string
-      - description: OAuth access token.
-        in: query
-        name: access_token
-        schema:
-          type: string
-      - description: Data format for response.
-        in: query
-        name: alt
-        schema:
-          enum:
-          - json
-          - media
-          - proto
-          type: string
-      - description: JSONP
-        in: query
-        name: callback
-        schema:
-          type: string
-      - description: Selector specifying which fields to include in a partial response.
-        in: query
-        name: fields
-        schema:
-          type: string
-      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-        in: query
-        name: key
-        schema:
-          type: string
-      - description: OAuth 2.0 token for the current user.
-        in: query
-        name: oauth_token
-        schema:
-          type: string
-      - description: Returns response with indentations and line breaks.
-        in: query
-        name: prettyPrint
-        schema:
-          type: boolean
-      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-        in: query
-        name: quotaUser
-        schema:
-          type: string
-      - description: Upload protocol for media (e.g. "raw", "multipart").
-        in: query
-        name: upload_protocol
-        schema:
-          type: string
-      - description: Legacy upload protocol for media (e.g. "media", "multipart").
-        in: query
-        name: uploadType
-        schema:
-          type: string
-      - in: header
-        name: Authorization
-        schema:
-          type: string
+        - description: Required. The resource name of the user. Only "users/me/capabilities" is supported.
+          in: path
+          name: name
+          required: true
+          schema:
+            type: string
+        - description: 'The customer to scope this request to. For example: "customers/abcd1234". If unset, will return settings within the current customer.'
+          in: query
+          name: customer
+          schema:
+            type: string
+        - description: Set to `true` in order to use the user's admin credentials. The server verifies that the user is an admin for the label before allowing access.
+          in: query
+          name: useAdminAccess
+          schema:
+            type: boolean
+        - description: When specified, only certain fields belonging to the indicated view are returned.
+          in: query
+          name: view
+          schema:
+            enum:
+              - LABEL_VIEW_BASIC
+              - LABEL_VIEW_FULL
+            type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -520,103 +518,102 @@ paths:
         dispatcherRules: SuccessExample
     delete:
       tags:
-      - Labels
-      summary: Delete  Name
+        - Labels
+      summary: Google Delete  Name
       description: Deletes a Label's permission. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing.
       operationId: googleDrivelabelsLabelsRevisionsPermissionsDelete
       security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels
       parameters:
-      - description: Required. Label Permission resource name.
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      - description: Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access.
-        in: query
-        name: useAdminAccess
-        schema:
-          type: boolean
-      - description: The revision_id of the label that the write request will be applied to. If this is not the latest revision of the label, the request will not be processed and will return a 400 Bad
-          Request error.
-        in: query
-        name: writeControl.requiredRevisionId
-        schema:
-          type: string
-      - description: V1 error format.
-        in: query
-        name: $.xgafv
-        schema:
-          enum:
-          - '1'
-          - '2'
-          type: string
-      - description: OAuth access token.
-        in: query
-        name: access_token
-        schema:
-          type: string
-      - description: Data format for response.
-        in: query
-        name: alt
-        schema:
-          enum:
-          - json
-          - media
-          - proto
-          type: string
-      - description: JSONP
-        in: query
-        name: callback
-        schema:
-          type: string
-      - description: Selector specifying which fields to include in a partial response.
-        in: query
-        name: fields
-        schema:
-          type: string
-      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-        in: query
-        name: key
-        schema:
-          type: string
-      - description: OAuth 2.0 token for the current user.
-        in: query
-        name: oauth_token
-        schema:
-          type: string
-      - description: Returns response with indentations and line breaks.
-        in: query
-        name: prettyPrint
-        schema:
-          type: boolean
-      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-        in: query
-        name: quotaUser
-        schema:
-          type: string
-      - description: Upload protocol for media (e.g. "raw", "multipart").
-        in: query
-        name: upload_protocol
-        schema:
-          type: string
-      - description: Legacy upload protocol for media (e.g. "media", "multipart").
-        in: query
-        name: uploadType
-        schema:
-          type: string
-      - in: header
-        name: Authorization
-        schema:
-          type: string
+        - description: Required. Label Permission resource name.
+          in: path
+          name: name
+          required: true
+          schema:
+            type: string
+        - description: Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access.
+          in: query
+          name: useAdminAccess
+          schema:
+            type: boolean
+        - description: The revision_id of the label that the write request will be applied to. If this is not the latest revision of the label, the request will not be processed and will return a 400 Bad Request error.
+          in: query
+          name: writeControl.requiredRevisionId
+          schema:
+            type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -631,93 +628,92 @@ paths:
   /v2/{name}:delta:
     post:
       tags:
-      - Labels
-      summary: Create Name:delta
-      description: 'Updates a single Label by applying a set of update requests resulting in a new draft revision. The batch update is all-or-nothing: If any of the update requests are invalid, no changes
-        are applied. The resulting draft revision must be published before the changes may be used with Drive Items.'
+        - Labels
+      summary: Google Create Name:delta
+      description: 'Updates a single Label by applying a set of update requests resulting in a new draft revision. The batch update is all-or-nothing: If any of the update requests are invalid, no changes are applied. The resulting draft revision must be published before the changes may be used with Drive Items.'
       operationId: googleDrivelabelsLabelsDelta
       security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels
       parameters:
-      - description: Required. The resource name of the Label to update.
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      - description: V1 error format.
-        in: query
-        name: $.xgafv
-        schema:
-          enum:
-          - '1'
-          - '2'
-          type: string
-      - description: OAuth access token.
-        in: query
-        name: access_token
-        schema:
-          type: string
-      - description: Data format for response.
-        in: query
-        name: alt
-        schema:
-          enum:
-          - json
-          - media
-          - proto
-          type: string
-      - description: JSONP
-        in: query
-        name: callback
-        schema:
-          type: string
-      - description: Selector specifying which fields to include in a partial response.
-        in: query
-        name: fields
-        schema:
-          type: string
-      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-        in: query
-        name: key
-        schema:
-          type: string
-      - description: OAuth 2.0 token for the current user.
-        in: query
-        name: oauth_token
-        schema:
-          type: string
-      - description: Returns response with indentations and line breaks.
-        in: query
-        name: prettyPrint
-        schema:
-          type: boolean
-      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-        in: query
-        name: quotaUser
-        schema:
-          type: string
-      - description: Upload protocol for media (e.g. "raw", "multipart").
-        in: query
-        name: upload_protocol
-        schema:
-          type: string
-      - description: Legacy upload protocol for media (e.g. "media", "multipart").
-        in: query
-        name: uploadType
-        schema:
-          type: string
-      - in: header
-        name: Authorization
-        schema:
-          type: string
+        - description: Required. The resource name of the Label to update.
+          in: path
+          name: name
+          required: true
+          schema:
+            type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -737,93 +733,92 @@ paths:
   /v2/{name}:disable:
     post:
       tags:
-      - Labels
-      summary: Create Name:disable
-      description: Disable a published Label. Disabling a Label will result in a new disabled published revision based on the current published revision. If there is a draft revision, a new disabled draft
-        revision will be created based on the latest draft revision. Older draft revisions will be deleted. Once disabled, a label may be deleted with `DeleteLabel`.
+        - Labels
+      summary: Google Create Name:disable
+      description: Disable a published Label. Disabling a Label will result in a new disabled published revision based on the current published revision. If there is a draft revision, a new disabled draft revision will be created based on the latest draft revision. Older draft revisions will be deleted. Once disabled, a label may be deleted with `DeleteLabel`.
       operationId: googleDrivelabelsLabelsDisable
       security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels
       parameters:
-      - description: Required. Label resource name.
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      - description: V1 error format.
-        in: query
-        name: $.xgafv
-        schema:
-          enum:
-          - '1'
-          - '2'
-          type: string
-      - description: OAuth access token.
-        in: query
-        name: access_token
-        schema:
-          type: string
-      - description: Data format for response.
-        in: query
-        name: alt
-        schema:
-          enum:
-          - json
-          - media
-          - proto
-          type: string
-      - description: JSONP
-        in: query
-        name: callback
-        schema:
-          type: string
-      - description: Selector specifying which fields to include in a partial response.
-        in: query
-        name: fields
-        schema:
-          type: string
-      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-        in: query
-        name: key
-        schema:
-          type: string
-      - description: OAuth 2.0 token for the current user.
-        in: query
-        name: oauth_token
-        schema:
-          type: string
-      - description: Returns response with indentations and line breaks.
-        in: query
-        name: prettyPrint
-        schema:
-          type: boolean
-      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-        in: query
-        name: quotaUser
-        schema:
-          type: string
-      - description: Upload protocol for media (e.g. "raw", "multipart").
-        in: query
-        name: upload_protocol
-        schema:
-          type: string
-      - description: Legacy upload protocol for media (e.g. "media", "multipart").
-        in: query
-        name: uploadType
-        schema:
-          type: string
-      - in: header
-        name: Authorization
-        schema:
-          type: string
+        - description: Required. Label resource name.
+          in: path
+          name: name
+          required: true
+          schema:
+            type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -843,93 +838,92 @@ paths:
   /v2/{name}:enable:
     post:
       tags:
-      - Labels
-      summary: Create Name:enable
-      description: Enable a disabled Label and restore it to its published state. This will result in a new published revision based on the current disabled published revision. If there is an existing disabled
-        draft revision, a new revision will be created based on that draft and will be enabled.
+        - Labels
+      summary: Google Create Name:enable
+      description: Enable a disabled Label and restore it to its published state. This will result in a new published revision based on the current disabled published revision. If there is an existing disabled draft revision, a new revision will be created based on that draft and will be enabled.
       operationId: googleDrivelabelsLabelsEnable
       security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels
       parameters:
-      - description: Required. Label resource name.
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      - description: V1 error format.
-        in: query
-        name: $.xgafv
-        schema:
-          enum:
-          - '1'
-          - '2'
-          type: string
-      - description: OAuth access token.
-        in: query
-        name: access_token
-        schema:
-          type: string
-      - description: Data format for response.
-        in: query
-        name: alt
-        schema:
-          enum:
-          - json
-          - media
-          - proto
-          type: string
-      - description: JSONP
-        in: query
-        name: callback
-        schema:
-          type: string
-      - description: Selector specifying which fields to include in a partial response.
-        in: query
-        name: fields
-        schema:
-          type: string
-      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-        in: query
-        name: key
-        schema:
-          type: string
-      - description: OAuth 2.0 token for the current user.
-        in: query
-        name: oauth_token
-        schema:
-          type: string
-      - description: Returns response with indentations and line breaks.
-        in: query
-        name: prettyPrint
-        schema:
-          type: boolean
-      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-        in: query
-        name: quotaUser
-        schema:
-          type: string
-      - description: Upload protocol for media (e.g. "raw", "multipart").
-        in: query
-        name: upload_protocol
-        schema:
-          type: string
-      - description: Legacy upload protocol for media (e.g. "media", "multipart").
-        in: query
-        name: uploadType
-        schema:
-          type: string
-      - in: header
-        name: Authorization
-        schema:
-          type: string
+        - description: Required. Label resource name.
+          in: path
+          name: name
+          required: true
+          schema:
+            type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -949,96 +943,92 @@ paths:
   /v2/{name}:publish:
     post:
       tags:
-      - Labels
-      summary: Create Name:publish
-      description: 'Publish all draft changes to the Label. Once published, the Label may not return to its draft state. See `google.apps.drive.labels.v2.Lifecycle` for more information. Publishing a Label
-        will result in a new published revision. All previous draft revisions will be deleted. Previous published revisions will be kept but are subject to automated deletion as needed. Once published,
-        some changes are no longer permitted. Generally, any change that would invalidate or cause new restrictions on existing metadata related to the Label will be rejected. For example, the following
-        changes to a Label will be rejected after the Label is published: * The label cannot be directly deleted. It must be disabled first, then deleted. * Field.FieldType cannot be changed. * Changes
-        to Field validation options cannot reject something that was previously accepted. * Reducing the max entries.'
+        - Labels
+      summary: Google Create Name:publish
+      description: 'Publish all draft changes to the Label. Once published, the Label may not return to its draft state. See `google.apps.drive.labels.v2.Lifecycle` for more information. Publishing a Label will result in a new published revision. All previous draft revisions will be deleted. Previous published revisions will be kept but are subject to automated deletion as needed. Once published, some changes are no longer permitted. Generally, any change that would invalidate or cause new restrictions on existing metadata related to the Label will be rejected. For example, the following changes to a Label will be rejected after the Label is published: * The label cannot be directly deleted. It must be disabled first, then deleted. * Field.FieldType cannot be changed. * Changes to Field validation options cannot reject something that was previously accepted. * Reducing the max entries.'
       operationId: googleDrivelabelsLabelsPublish
       security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels
       parameters:
-      - description: Required. Label resource name.
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      - description: V1 error format.
-        in: query
-        name: $.xgafv
-        schema:
-          enum:
-          - '1'
-          - '2'
-          type: string
-      - description: OAuth access token.
-        in: query
-        name: access_token
-        schema:
-          type: string
-      - description: Data format for response.
-        in: query
-        name: alt
-        schema:
-          enum:
-          - json
-          - media
-          - proto
-          type: string
-      - description: JSONP
-        in: query
-        name: callback
-        schema:
-          type: string
-      - description: Selector specifying which fields to include in a partial response.
-        in: query
-        name: fields
-        schema:
-          type: string
-      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-        in: query
-        name: key
-        schema:
-          type: string
-      - description: OAuth 2.0 token for the current user.
-        in: query
-        name: oauth_token
-        schema:
-          type: string
-      - description: Returns response with indentations and line breaks.
-        in: query
-        name: prettyPrint
-        schema:
-          type: boolean
-      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-        in: query
-        name: quotaUser
-        schema:
-          type: string
-      - description: Upload protocol for media (e.g. "raw", "multipart").
-        in: query
-        name: upload_protocol
-        schema:
-          type: string
-      - description: Legacy upload protocol for media (e.g. "media", "multipart").
-        in: query
-        name: uploadType
-        schema:
-          type: string
-      - in: header
-        name: Authorization
-        schema:
-          type: string
+        - description: Required. Label resource name.
+          in: path
+          name: name
+          required: true
+          schema:
+            type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1058,92 +1048,92 @@ paths:
   /v2/{name}:updateLabelCopyMode:
     post:
       tags:
-      - Labels
-      summary: Create Name:updatelabelcopymode
+        - Labels
+      summary: Google Create Name:updatelabelcopymode
       description: Updates a Label's `CopyMode`. Changes to this policy are not revisioned, do not require publishing, and take effect immediately.
       operationId: googleDrivelabelsLabelsUpdatelabelcopymode
       security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels
       parameters:
-      - description: Required. The resource name of the Label to update.
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      - description: V1 error format.
-        in: query
-        name: $.xgafv
-        schema:
-          enum:
-          - '1'
-          - '2'
-          type: string
-      - description: OAuth access token.
-        in: query
-        name: access_token
-        schema:
-          type: string
-      - description: Data format for response.
-        in: query
-        name: alt
-        schema:
-          enum:
-          - json
-          - media
-          - proto
-          type: string
-      - description: JSONP
-        in: query
-        name: callback
-        schema:
-          type: string
-      - description: Selector specifying which fields to include in a partial response.
-        in: query
-        name: fields
-        schema:
-          type: string
-      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-        in: query
-        name: key
-        schema:
-          type: string
-      - description: OAuth 2.0 token for the current user.
-        in: query
-        name: oauth_token
-        schema:
-          type: string
-      - description: Returns response with indentations and line breaks.
-        in: query
-        name: prettyPrint
-        schema:
-          type: boolean
-      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-        in: query
-        name: quotaUser
-        schema:
-          type: string
-      - description: Upload protocol for media (e.g. "raw", "multipart").
-        in: query
-        name: upload_protocol
-        schema:
-          type: string
-      - description: Legacy upload protocol for media (e.g. "media", "multipart").
-        in: query
-        name: uploadType
-        schema:
-          type: string
-      - in: header
-        name: Authorization
-        schema:
-          type: string
+        - description: Required. The resource name of the Label to update.
+          in: path
+          name: name
+          required: true
+          schema:
+            type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1163,110 +1153,110 @@ paths:
   /v2/{parent}/locks:
     get:
       tags:
-      - Labels
-      summary: Retrieve Parent Locks
+        - Labels
+      summary: Google Retrieve Parent Locks
       description: Lists the LabelLocks on a Label.
       operationId: googleDrivelabelsLabelsRevisionsLocksList
       security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels.readonly
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels.readonly
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels.readonly
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels.readonly
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels.readonly
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels.readonly
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels.readonly
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels.readonly
       parameters:
-      - description: 'Required. Label on which Locks are applied. Format: labels/{label}'
-        in: path
-        name: parent
-        required: true
-        schema:
-          type: string
-      - description: 'Maximum number of Locks to return per page. Default: 100. Max: 200.'
-        in: query
-        name: pageSize
-        schema:
-          type: integer
-      - description: The token of the page to return.
-        in: query
-        name: pageToken
-        schema:
-          type: string
-      - description: V1 error format.
-        in: query
-        name: $.xgafv
-        schema:
-          enum:
-          - '1'
-          - '2'
-          type: string
-      - description: OAuth access token.
-        in: query
-        name: access_token
-        schema:
-          type: string
-      - description: Data format for response.
-        in: query
-        name: alt
-        schema:
-          enum:
-          - json
-          - media
-          - proto
-          type: string
-      - description: JSONP
-        in: query
-        name: callback
-        schema:
-          type: string
-      - description: Selector specifying which fields to include in a partial response.
-        in: query
-        name: fields
-        schema:
-          type: string
-      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-        in: query
-        name: key
-        schema:
-          type: string
-      - description: OAuth 2.0 token for the current user.
-        in: query
-        name: oauth_token
-        schema:
-          type: string
-      - description: Returns response with indentations and line breaks.
-        in: query
-        name: prettyPrint
-        schema:
-          type: boolean
-      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-        in: query
-        name: quotaUser
-        schema:
-          type: string
-      - description: Upload protocol for media (e.g. "raw", "multipart").
-        in: query
-        name: upload_protocol
-        schema:
-          type: string
-      - description: Legacy upload protocol for media (e.g. "media", "multipart").
-        in: query
-        name: uploadType
-        schema:
-          type: string
-      - in: header
-        name: Authorization
-        schema:
-          type: string
+        - description: 'Required. Label on which Locks are applied. Format: labels/{label}'
+          in: path
+          name: parent
+          required: true
+          schema:
+            type: string
+        - description: 'Maximum number of Locks to return per page. Default: 100. Max: 200.'
+          in: query
+          name: pageSize
+          schema:
+            type: integer
+        - description: The token of the page to return.
+          in: query
+          name: pageToken
+          schema:
+            type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -1281,115 +1271,115 @@ paths:
   /v2/{parent}/permissions:
     get:
       tags:
-      - Labels
-      summary: Retrieve Parent Permissions
+        - Labels
+      summary: Google Retrieve Parent Permissions
       description: Lists a Label's permissions.
       operationId: googleDrivelabelsLabelsRevisionsPermissionsList
       security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels.readonly
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels.readonly
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels.readonly
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels.readonly
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels.readonly
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels.readonly
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels.readonly
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels.readonly
       parameters:
-      - description: 'Required. The parent Label resource name on which Label Permission are listed. Format: labels/{label}'
-        in: path
-        name: parent
-        required: true
-        schema:
-          type: string
-      - description: 'Maximum number of permissions to return per page. Default: 50. Max: 200.'
-        in: query
-        name: pageSize
-        schema:
-          type: integer
-      - description: The token of the page to return.
-        in: query
-        name: pageToken
-        schema:
-          type: string
-      - description: Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access.
-        in: query
-        name: useAdminAccess
-        schema:
-          type: boolean
-      - description: V1 error format.
-        in: query
-        name: $.xgafv
-        schema:
-          enum:
-          - '1'
-          - '2'
-          type: string
-      - description: OAuth access token.
-        in: query
-        name: access_token
-        schema:
-          type: string
-      - description: Data format for response.
-        in: query
-        name: alt
-        schema:
-          enum:
-          - json
-          - media
-          - proto
-          type: string
-      - description: JSONP
-        in: query
-        name: callback
-        schema:
-          type: string
-      - description: Selector specifying which fields to include in a partial response.
-        in: query
-        name: fields
-        schema:
-          type: string
-      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-        in: query
-        name: key
-        schema:
-          type: string
-      - description: OAuth 2.0 token for the current user.
-        in: query
-        name: oauth_token
-        schema:
-          type: string
-      - description: Returns response with indentations and line breaks.
-        in: query
-        name: prettyPrint
-        schema:
-          type: boolean
-      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-        in: query
-        name: quotaUser
-        schema:
-          type: string
-      - description: Upload protocol for media (e.g. "raw", "multipart").
-        in: query
-        name: upload_protocol
-        schema:
-          type: string
-      - description: Legacy upload protocol for media (e.g. "media", "multipart").
-        in: query
-        name: uploadType
-        schema:
-          type: string
-      - in: header
-        name: Authorization
-        schema:
-          type: string
+        - description: 'Required. The parent Label resource name on which Label Permission are listed. Format: labels/{label}'
+          in: path
+          name: parent
+          required: true
+          schema:
+            type: string
+        - description: 'Maximum number of permissions to return per page. Default: 50. Max: 200.'
+          in: query
+          name: pageSize
+          schema:
+            type: integer
+        - description: The token of the page to return.
+          in: query
+          name: pageToken
+          schema:
+            type: string
+        - description: Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access.
+          in: query
+          name: useAdminAccess
+          schema:
+            type: boolean
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -1403,98 +1393,97 @@ paths:
         dispatcherRules: SuccessExample
     post:
       tags:
-      - Labels
-      summary: Create Parent Permissions
-      description: Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions
-        affect the Label resource as a whole, are not revisioned, and do not require publishing.
+        - Labels
+      summary: Google Create Parent Permissions
+      description: Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing.
       operationId: googleDrivelabelsLabelsRevisionsPermissionsCreate
       security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels
       parameters:
-      - description: 'Required. The parent Label resource name on the Label Permission is created. Format: labels/{label}'
-        in: path
-        name: parent
-        required: true
-        schema:
-          type: string
-      - description: Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access.
-        in: query
-        name: useAdminAccess
-        schema:
-          type: boolean
-      - description: V1 error format.
-        in: query
-        name: $.xgafv
-        schema:
-          enum:
-          - '1'
-          - '2'
-          type: string
-      - description: OAuth access token.
-        in: query
-        name: access_token
-        schema:
-          type: string
-      - description: Data format for response.
-        in: query
-        name: alt
-        schema:
-          enum:
-          - json
-          - media
-          - proto
-          type: string
-      - description: JSONP
-        in: query
-        name: callback
-        schema:
-          type: string
-      - description: Selector specifying which fields to include in a partial response.
-        in: query
-        name: fields
-        schema:
-          type: string
-      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-        in: query
-        name: key
-        schema:
-          type: string
-      - description: OAuth 2.0 token for the current user.
-        in: query
-        name: oauth_token
-        schema:
-          type: string
-      - description: Returns response with indentations and line breaks.
-        in: query
-        name: prettyPrint
-        schema:
-          type: boolean
-      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-        in: query
-        name: quotaUser
-        schema:
-          type: string
-      - description: Upload protocol for media (e.g. "raw", "multipart").
-        in: query
-        name: upload_protocol
-        schema:
-          type: string
-      - description: Legacy upload protocol for media (e.g. "media", "multipart").
-        in: query
-        name: uploadType
-        schema:
-          type: string
-      - in: header
-        name: Authorization
-        schema:
-          type: string
+        - description: 'Required. The parent Label resource name on the Label Permission is created. Format: labels/{label}'
+          in: path
+          name: parent
+          required: true
+          schema:
+            type: string
+        - description: Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access.
+          in: query
+          name: useAdminAccess
+          schema:
+            type: boolean
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1513,98 +1502,97 @@ paths:
         dispatcherRules: SuccessExample
     patch:
       tags:
-      - Labels
-      summary: Patch  Parent Permissions
-      description: Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions
-        affect the Label resource as a whole, are not revisioned, and do not require publishing.
+        - Labels
+      summary: Google Patch  Parent Permissions
+      description: Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing.
       operationId: googleDrivelabelsLabelsRevisionsUpdatepermissions
       security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels
       parameters:
-      - description: Required. The parent Label resource name.
-        in: path
-        name: parent
-        required: true
-        schema:
-          type: string
-      - description: Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access.
-        in: query
-        name: useAdminAccess
-        schema:
-          type: boolean
-      - description: V1 error format.
-        in: query
-        name: $.xgafv
-        schema:
-          enum:
-          - '1'
-          - '2'
-          type: string
-      - description: OAuth access token.
-        in: query
-        name: access_token
-        schema:
-          type: string
-      - description: Data format for response.
-        in: query
-        name: alt
-        schema:
-          enum:
-          - json
-          - media
-          - proto
-          type: string
-      - description: JSONP
-        in: query
-        name: callback
-        schema:
-          type: string
-      - description: Selector specifying which fields to include in a partial response.
-        in: query
-        name: fields
-        schema:
-          type: string
-      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-        in: query
-        name: key
-        schema:
-          type: string
-      - description: OAuth 2.0 token for the current user.
-        in: query
-        name: oauth_token
-        schema:
-          type: string
-      - description: Returns response with indentations and line breaks.
-        in: query
-        name: prettyPrint
-        schema:
-          type: boolean
-      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-        in: query
-        name: quotaUser
-        schema:
-          type: string
-      - description: Upload protocol for media (e.g. "raw", "multipart").
-        in: query
-        name: upload_protocol
-        schema:
-          type: string
-      - description: Legacy upload protocol for media (e.g. "media", "multipart").
-        in: query
-        name: uploadType
-        schema:
-          type: string
-      - in: header
-        name: Authorization
-        schema:
-          type: string
+        - description: Required. The parent Label resource name.
+          in: path
+          name: parent
+          required: true
+          schema:
+            type: string
+        - description: Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access.
+          in: query
+          name: useAdminAccess
+          schema:
+            type: boolean
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1624,93 +1612,92 @@ paths:
   /v2/{parent}/permissions:batchDelete:
     post:
       tags:
-      - Labels
-      summary: Create Parent Permissions:batchdelete
+        - Labels
+      summary: Google Create Parent Permissions:batchdelete
       description: Deletes Label permissions. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing.
       operationId: googleDrivelabelsLabelsRevisionsPermissionsBatchdelete
       security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels
       parameters:
-      - description: 'Required. The parent Label resource name shared by all permissions being deleted. Format: labels/{label} If this is set, the parent field in the UpdateLabelPermissionRequest messages
-          must either be empty or match this field.'
-        in: path
-        name: parent
-        required: true
-        schema:
-          type: string
-      - description: V1 error format.
-        in: query
-        name: $.xgafv
-        schema:
-          enum:
-          - '1'
-          - '2'
-          type: string
-      - description: OAuth access token.
-        in: query
-        name: access_token
-        schema:
-          type: string
-      - description: Data format for response.
-        in: query
-        name: alt
-        schema:
-          enum:
-          - json
-          - media
-          - proto
-          type: string
-      - description: JSONP
-        in: query
-        name: callback
-        schema:
-          type: string
-      - description: Selector specifying which fields to include in a partial response.
-        in: query
-        name: fields
-        schema:
-          type: string
-      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-        in: query
-        name: key
-        schema:
-          type: string
-      - description: OAuth 2.0 token for the current user.
-        in: query
-        name: oauth_token
-        schema:
-          type: string
-      - description: Returns response with indentations and line breaks.
-        in: query
-        name: prettyPrint
-        schema:
-          type: boolean
-      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-        in: query
-        name: quotaUser
-        schema:
-          type: string
-      - description: Upload protocol for media (e.g. "raw", "multipart").
-        in: query
-        name: upload_protocol
-        schema:
-          type: string
-      - description: Legacy upload protocol for media (e.g. "media", "multipart").
-        in: query
-        name: uploadType
-        schema:
-          type: string
-      - in: header
-        name: Authorization
-        schema:
-          type: string
+        - description: 'Required. The parent Label resource name shared by all permissions being deleted. Format: labels/{label} If this is set, the parent field in the UpdateLabelPermissionRequest messages must either be empty or match this field.'
+          in: path
+          name: parent
+          required: true
+          schema:
+            type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1730,94 +1717,92 @@ paths:
   /v2/{parent}/permissions:batchUpdate:
     post:
       tags:
-      - Labels
-      summary: Create Parent Permissions:batchupdate
-      description: Updates Label permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect
-        the Label resource as a whole, are not revisioned, and do not require publishing.
+        - Labels
+      summary: Google Create Parent Permissions:batchupdate
+      description: Updates Label permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing.
       operationId: googleDrivelabelsLabelsRevisionsPermissionsBatchupdate
       security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.admin.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.admin.labels
-      - Oauth2:
-        - https://www.googleapis.com/auth/drive.labels
-        Oauth2c:
-        - https://www.googleapis.com/auth/drive.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.admin.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.admin.labels
+        - Oauth2:
+            - https://www.googleapis.com/auth/drive.labels
+          Oauth2c:
+            - https://www.googleapis.com/auth/drive.labels
       parameters:
-      - description: 'Required. The parent Label resource name shared by all permissions being updated. Format: labels/{label} If this is set, the parent field in the UpdateLabelPermissionRequest messages
-          must either be empty or match this field.'
-        in: path
-        name: parent
-        required: true
-        schema:
-          type: string
-      - description: V1 error format.
-        in: query
-        name: $.xgafv
-        schema:
-          enum:
-          - '1'
-          - '2'
-          type: string
-      - description: OAuth access token.
-        in: query
-        name: access_token
-        schema:
-          type: string
-      - description: Data format for response.
-        in: query
-        name: alt
-        schema:
-          enum:
-          - json
-          - media
-          - proto
-          type: string
-      - description: JSONP
-        in: query
-        name: callback
-        schema:
-          type: string
-      - description: Selector specifying which fields to include in a partial response.
-        in: query
-        name: fields
-        schema:
-          type: string
-      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-        in: query
-        name: key
-        schema:
-          type: string
-      - description: OAuth 2.0 token for the current user.
-        in: query
-        name: oauth_token
-        schema:
-          type: string
-      - description: Returns response with indentations and line breaks.
-        in: query
-        name: prettyPrint
-        schema:
-          type: boolean
-      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-        in: query
-        name: quotaUser
-        schema:
-          type: string
-      - description: Upload protocol for media (e.g. "raw", "multipart").
-        in: query
-        name: upload_protocol
-        schema:
-          type: string
-      - description: Legacy upload protocol for media (e.g. "media", "multipart").
-        in: query
-        name: uploadType
-        schema:
-          type: string
-      - in: header
-        name: Authorization
-        schema:
-          type: string
+        - description: 'Required. The parent Label resource name shared by all permissions being updated. Format: labels/{label} If this is set, the parent field in the UpdateLabelPermissionRequest messages must either be empty or match this field.'
+          in: path
+          name: parent
+          required: true
+          schema:
+            type: string
+        - description: V1 error format.
+          in: query
+          name: $.xgafv
+          schema:
+            enum:
+              - '1'
+              - '2'
+            type: string
+        - description: OAuth access token.
+          in: query
+          name: access_token
+          schema:
+            type: string
+        - description: Data format for response.
+          in: query
+          name: alt
+          schema:
+            enum:
+              - json
+              - media
+              - proto
+            type: string
+        - description: JSONP
+          in: query
+          name: callback
+          schema:
+            type: string
+        - description: Selector specifying which fields to include in a partial response.
+          in: query
+          name: fields
+          schema:
+            type: string
+        - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+          in: query
+          name: key
+          schema:
+            type: string
+        - description: OAuth 2.0 token for the current user.
+          in: query
+          name: oauth_token
+          schema:
+            type: string
+        - description: Returns response with indentations and line breaks.
+          in: query
+          name: prettyPrint
+          schema:
+            type: boolean
+        - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+          in: query
+          name: quotaUser
+          schema:
+            type: string
+        - description: Upload protocol for media (e.g. "raw", "multipart").
+          in: query
+          name: upload_protocol
+          schema:
+            type: string
+        - description: Legacy upload protocol for media (e.g. "media", "multipart").
+          in: query
+          name: uploadType
+          schema:
+            type: string
+        - in: header
+          name: Authorization
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1857,8 +1842,7 @@ components:
       properties:
         color:
           $ref: '#/components/schemas/GoogleTypeColor'
-          description: The color of the badge. When not specified, no badge is rendered. The background, foreground, and solo (light and dark mode) colors set here are changed in the Drive UI into the closest
-            recommended supported color.
+          description: The color of the badge. When not specified, no badge is rendered. The background, foreground, and solo (light and dark mode) colors set here are changed in the Drive UI into the closest recommended supported color.
         priorityOverride:
           description: Override the default global priority of this badge. When set to 0, the default priority heuristic is used.
           format: int64
@@ -1873,8 +1857,7 @@ components:
             $ref: '#/components/schemas/GoogleAppsDriveLabelsV2DeleteLabelPermissionRequest'
           type: array
         useAdminAccess:
-          description: Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access. If this is set, the use_admin_access
-            field in the DeleteLabelPermissionRequest messages must either be empty or match this field.
+          description: Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access. If this is set, the use_admin_access field in the DeleteLabelPermissionRequest messages must either be empty or match this field.
           type: boolean
       type: object
     GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsRequest:
@@ -1886,8 +1869,7 @@ components:
             $ref: '#/components/schemas/GoogleAppsDriveLabelsV2UpdateLabelPermissionRequest'
           type: array
         useAdminAccess:
-          description: Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access. If this is set, the use_admin_access
-            field in the UpdateLabelPermissionRequest messages must either be empty or match this field.
+          description: Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access. If this is set, the use_admin_access field in the UpdateLabelPermissionRequest messages must either be empty or match this field.
           type: boolean
       type: object
     GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsResponse:
@@ -1936,8 +1918,8 @@ components:
         view:
           description: When specified, only certain fields belonging to the indicated view will be returned.
           enum:
-          - LABEL_VIEW_BASIC
-          - LABEL_VIEW_FULL
+            - LABEL_VIEW_BASIC
+            - LABEL_VIEW_FULL
           type: string
         writeControl:
           $ref: '#/components/schemas/GoogleAppsDriveLabelsV2WriteControl'
@@ -1987,8 +1969,7 @@ components:
           description: Required. Key of the Field to disable.
           type: string
         updateMask:
-          description: The fields that should be updated. At least one field must be specified. The root `disabled_policy` is implied and should not be specified. A single `*` can be used as short-hand
-            for updating every field.
+          description: The fields that should be updated. At least one field must be specified. The root `disabled_policy` is implied and should not be specified. A single `*` can be used as short-hand for updating every field.
           format: google-fieldmask
           type: string
       type: object
@@ -2005,8 +1986,7 @@ components:
           description: Required. Choice to disable.
           type: string
         updateMask:
-          description: The fields that should be updated. At least one field must be specified. The root `disabled_policy` is implied and should not be specified. A single `*` can be used as short-hand
-            for updating every field.
+          description: The fields that should be updated. At least one field must be specified. The root `disabled_policy` is implied and should not be specified. A single `*` can be used as short-hand for updating every field.
           format: google-fieldmask
           type: string
       type: object
@@ -2077,8 +2057,7 @@ components:
           $ref: '#/components/schemas/GoogleAppsDriveLabelsV2FieldProperties'
           description: Required. Basic Field properties.
         updateMask:
-          description: The fields that should be updated. At least one field must be specified. The root `properties` is implied and should not be specified. A single `*` can be used as short-hand for updating
-            every field.
+          description: The fields that should be updated. At least one field must be specified. The root `properties` is implied and should not be specified. A single `*` can be used as short-hand for updating every field.
           format: google-fieldmask
           type: string
       type: object
@@ -2101,8 +2080,7 @@ components:
           $ref: '#/components/schemas/GoogleAppsDriveLabelsV2FieldTextOptions'
           description: Update field to Text.
         updateMask:
-          description: The fields that should be updated. At least one field must be specified. The root of `type_options` is implied and should not be specified. A single `*` can be used as short-hand
-            for updating every field.
+          description: The fields that should be updated. At least one field must be specified. The root of `type_options` is implied and should not be specified. A single `*` can be used as short-hand for updating every field.
           format: google-fieldmask
           type: string
         userOptions:
@@ -2116,8 +2094,7 @@ components:
           $ref: '#/components/schemas/GoogleAppsDriveLabelsV2LabelProperties'
           description: Required. Label properties to update.
         updateMask:
-          description: The fields that should be updated. At least one field must be specified. The root `label_properties` is implied and should not be specified. A single `*` can be used as short-hand
-            for updating every field.
+          description: The fields that should be updated. At least one field must be specified. The root `label_properties` is implied and should not be specified. A single `*` can be used as short-hand for updating every field.
           format: google-fieldmask
           type: string
       type: object
@@ -2134,8 +2111,7 @@ components:
           $ref: '#/components/schemas/GoogleAppsDriveLabelsV2FieldSelectionOptionsChoiceProperties'
           description: Required. The Choice properties to update.
         updateMask:
-          description: The fields that should be updated. At least one field must be specified. The root `properties` is implied and should not be specified. A single `*` can be used as short-hand for updating
-            every field.
+          description: The fields that should be updated. At least one field must be specified. The root `properties` is implied and should not be specified. A single `*` can be used as short-hand for updating every field.
           format: google-fieldmask
           type: string
       type: object
@@ -2270,8 +2246,7 @@ components:
           description: The BCP-47 language code to use for evaluating localized field labels. When not specified, values in the default configured language will be used.
           type: string
         updateMask:
-          description: The fields that should be updated. At least one field must be specified. The root `disabled_policy` is implied and should not be specified. A single `*` can be used as short-hand
-            for updating every field.
+          description: The fields that should be updated. At least one field must be specified. The root `disabled_policy` is implied and should not be specified. A single `*` can be used as short-hand for updating every field.
           format: google-fieldmask
           type: string
         useAdminAccess:
@@ -2398,9 +2373,9 @@ components:
         dateFormatType:
           description: Localized date formatting option. Field values are rendered in this format according to their locale.
           enum:
-          - DATE_FORMAT_UNSPECIFIED
-          - LONG_DATE
-          - SHORT_DATE
+            - DATE_FORMAT_UNSPECIFIED
+            - LONG_DATE
+            - SHORT_DATE
           type: string
         maxValue:
           $ref: '#/components/schemas/GoogleTypeDate'
@@ -2610,8 +2585,7 @@ components:
           $ref: '#/components/schemas/GoogleAppsDriveLabelsV2BadgeColors'
           description: The colors to use for the badge. Changed to Google Material colors based on the chosen `properties.badge_config.color`.
         badgePriority:
-          description: The priority of this badge. Used to compare and sort between multiple badges. A lower number means the badge should be shown first. When a badging configuration is not present, this
-            will be 0. Otherwise, this will be set to `BadgeConfig.priority_override` or the default heuristic which prefers creation date of the label, and field and option priority.
+          description: The priority of this badge. Used to compare and sort between multiple badges. A lower number means the badge should be shown first. When a badging configuration is not present, this will be 0. Otherwise, this will be set to `BadgeConfig.priority_override` or the default heuristic which prefers creation date of the label, and field and option priority.
           format: int64
           type: string
         darkBadgeColors:
@@ -2693,8 +2667,7 @@ components:
           type: string
       type: object
     GoogleAppsDriveLabelsV2Label:
-      description: A label defines a taxonomy that can be applied to Drive items in order to organize and search across items. Labels can be simple strings, or can contain fields that describe additional
-        metadata that can be further used to organize and search Drive items.
+      description: A label defines a taxonomy that can be applied to Drive items in order to organize and search across items. Labels can be simple strings, or can contain fields that describe additional metadata that can be further used to organize and search Drive items.
       properties:
         appliedCapabilities:
           $ref: '#/components/schemas/GoogleAppsDriveLabelsV2LabelAppliedCapabilities'
@@ -2742,10 +2715,10 @@ components:
         labelType:
           description: Required. The type of label.
           enum:
-          - LABEL_TYPE_UNSPECIFIED
-          - SHARED
-          - ADMIN
-          - GOOGLE_APP
+            - LABEL_TYPE_UNSPECIFIED
+            - SHARED
+            - ADMIN
+            - GOOGLE_APP
           type: string
         learnMoreUri:
           description: Custom URL to present to users to allow them to learn more about this label and how it should be used.
@@ -2784,8 +2757,7 @@ components:
           description: Output only. The user who created this label revision.
           readOnly: true
         revisionId:
-          description: 'Output only. Revision ID of the label. Revision ID might be part of the label `name` depending on the request issued. A new revision is created whenever revisioned properties of
-            a label are changed. Matches the regex: `([a-zA-Z0-9])+`'
+          description: 'Output only. Revision ID of the label. Revision ID might be part of the label `name` depending on the request issued. A new revision is created whenever revisioned properties of a label are changed. Matches the regex: `([a-zA-Z0-9])+`'
           readOnly: true
           type: string
         schemaCapabilities:
@@ -2812,10 +2784,10 @@ components:
         copyMode:
           description: Indicates how the applied label and field values should be copied when a Drive item is copied.
           enum:
-          - COPY_MODE_UNSPECIFIED
-          - DO_NOT_COPY
-          - ALWAYS_COPY
-          - COPY_APPLIABLE
+            - COPY_MODE_UNSPECIFIED
+            - DO_NOT_COPY
+            - ALWAYS_COPY
+            - COPY_APPLIABLE
           type: string
       type: object
     GoogleAppsDriveLabelsV2LabelDisplayHints:
@@ -2899,9 +2871,9 @@ components:
         state:
           description: Output only. This LabelLock's state.
           enum:
-          - STATE_UNSPECIFIED
-          - ACTIVE
-          - DELETING
+            - STATE_UNSPECIFIED
+            - ACTIVE
+            - DELETING
           readOnly: true
           type: string
       type: object
@@ -2919,8 +2891,7 @@ components:
           description: Audience to grant a role to. The magic value of `audiences/default` may be used to apply the role to the default audience in the context of the organization that owns the Label.
           type: string
         email:
-          description: Specifies the email address for a user or group pricinpal. Not populated for audience principals. User and Group permissions may only be inserted using email address. On update requests,
-            if email address is specified, no principal should be specified.
+          description: Specifies the email address for a user or group pricinpal. Not populated for audience principals. User and Group permissions may only be inserted using email address. On update requests, if email address is specified, no principal should be specified.
           type: string
         group:
           description: Group resource name.
@@ -2934,11 +2905,11 @@ components:
         role:
           description: The role the principal should have.
           enum:
-          - LABEL_ROLE_UNSPECIFIED
-          - READER
-          - APPLIER
-          - ORGANIZER
-          - EDITOR
+            - LABEL_ROLE_UNSPECIFIED
+            - READER
+            - APPLIER
+            - ORGANIZER
+            - EDITOR
           type: string
       type: object
     GoogleAppsDriveLabelsV2LabelProperties:
@@ -2968,10 +2939,7 @@ components:
           type: boolean
       type: object
     GoogleAppsDriveLabelsV2Lifecycle:
-      description: 'The lifecycle state of an object, such as label, field, or choice. The lifecycle enforces the following transitions: * `UNPUBLISHED_DRAFT` (starting state) * `UNPUBLISHED_DRAFT` -> `PUBLISHED`
-        * `UNPUBLISHED_DRAFT` -> (Deleted) * `PUBLISHED` -> `DISABLED` * `DISABLED` -> `PUBLISHED` * `DISABLED` -> (Deleted) The published and disabled states have some distinct characteristics: * Published—Some
-        kinds of changes might be made to an object in this state, in which case `has_unpublished_changes` will be true. Also, some kinds of changes are not permitted. Generally, any change that would invalidate
-        or cause new restrictions on existing metadata related to the label are rejected. * Disabled—When disabled, the configured `DisabledPolicy` takes effect.'
+      description: 'The lifecycle state of an object, such as label, field, or choice. The lifecycle enforces the following transitions: * `UNPUBLISHED_DRAFT` (starting state) * `UNPUBLISHED_DRAFT` -> `PUBLISHED` * `UNPUBLISHED_DRAFT` -> (Deleted) * `PUBLISHED` -> `DISABLED` * `DISABLED` -> `PUBLISHED` * `DISABLED` -> (Deleted) The published and disabled states have some distinct characteristics: * Published—Some kinds of changes might be made to an object in this state, in which case `has_unpublished_changes` will be true. Also, some kinds of changes are not permitted. Generally, any change that would invalidate or cause new restrictions on existing metadata related to the label are rejected. * Disabled—When disabled, the configured `DisabledPolicy` takes effect.'
       properties:
         disabledPolicy:
           $ref: '#/components/schemas/GoogleAppsDriveLabelsV2LifecycleDisabledPolicy'
@@ -2983,11 +2951,11 @@ components:
         state:
           description: Output only. The state of the object associated with this lifecycle.
           enum:
-          - STATE_UNSPECIFIED
-          - UNPUBLISHED_DRAFT
-          - PUBLISHED
-          - DISABLED
-          - DELETED
+            - STATE_UNSPECIFIED
+            - UNPUBLISHED_DRAFT
+            - PUBLISHED
+            - DISABLED
+            - DELETED
           readOnly: true
           type: string
       type: object
@@ -2995,12 +2963,10 @@ components:
       description: The policy that governs how to treat a disabled label, field, or selection choice in different contexts.
       properties:
         hideInSearch:
-          description: Whether to hide this disabled object in the search menu for Drive items. * When `false`, the object is generally shown in the UI as disabled but it appears in the search results when
-            searching for Drive items. * When `true`, the object is generally hidden in the UI when searching for Drive items.
+          description: Whether to hide this disabled object in the search menu for Drive items. * When `false`, the object is generally shown in the UI as disabled but it appears in the search results when searching for Drive items. * When `true`, the object is generally hidden in the UI when searching for Drive items.
           type: boolean
         showInApply:
-          description: Whether to show this disabled object in the apply menu on Drive items. * When `true`, the object is generally shown in the UI as disabled and is unselectable. * When `false`, the
-            object is generally hidden in the UI.
+          description: Whether to show this disabled object in the apply menu on Drive items. * When `true`, the object is generally shown in the UI as disabled and is unselectable. * When `false`, the object is generally hidden in the UI.
           type: boolean
       type: object
     GoogleAppsDriveLabelsV2ListLabelLocksResponse:
@@ -3051,8 +3017,7 @@ components:
       description: Contains information about whether a label component should be considered locked.
       properties:
         locked:
-          description: Output only. Indicates whether this label component is the (direct) target of a LabelLock. A label component can be implicitly locked even if it's not the direct target of a LabelLock,
-            in which case this field is set to false.
+          description: Output only. Indicates whether this label component is the (direct) target of a LabelLock. A label component can be implicitly locked even if it's not the direct target of a LabelLock, in which case this field is set to false.
           readOnly: true
           type: boolean
       type: object
@@ -3122,10 +3087,10 @@ components:
         copyMode:
           description: Required. Indicates how the applied Label, and Field values should be copied when a Drive item is copied.
           enum:
-          - COPY_MODE_UNSPECIFIED
-          - DO_NOT_COPY
-          - ALWAYS_COPY
-          - COPY_APPLIABLE
+            - COPY_MODE_UNSPECIFIED
+            - DO_NOT_COPY
+            - ALWAYS_COPY
+            - COPY_APPLIABLE
           type: string
         languageCode:
           description: The BCP-47 language code to use for evaluating localized field labels. When not specified, values in the default configured language will be used.
@@ -3136,8 +3101,8 @@ components:
         view:
           description: When specified, only certain fields belonging to the indicated view will be returned.
           enum:
-          - LABEL_VIEW_BASIC
-          - LABEL_VIEW_FULL
+            - LABEL_VIEW_BASIC
+            - LABEL_VIEW_FULL
           type: string
       type: object
     GoogleAppsDriveLabelsV2UpdateLabelPermissionRequest:
@@ -3195,40 +3160,18 @@ components:
       description: Provides control over how write requests are executed. When not specified, the last write wins.
       properties:
         requiredRevisionId:
-          description: The revision_id of the label that the write request will be applied to. If this is not the latest revision of the label, the request will not be processed and will return a 400 Bad
-            Request error.
+          description: The revision_id of the label that the write request will be applied to. If this is not the latest revision of the label, the request will not be processed and will return a 400 Bad Request error.
           type: string
       type: object
     GoogleProtobufEmpty:
-      description: 'A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method.
-        For instance: service Foo { rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }'
+      description: 'A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method. For instance: service Foo { rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }'
       properties: {}
       type: object
     GoogleTypeColor:
-      description: 'Represents a color in the RGBA color space. This representation is designed for simplicity of conversion to and from color representations in various languages over compactness. For
-        example, the fields of this representation can be trivially provided to the constructor of `java.awt.Color` in Java; it can also be trivially provided to UIColor''s `+colorWithRed:green:blue:alpha`
-        method in iOS; and, with just a little work, it can be easily formatted into a CSS `rgba()` string in JavaScript. This reference page doesn''t have information about the absolute color space that
-        should be used to interpret the RGB value—for example, sRGB, Adobe RGB, DCI-P3, and BT.2020. By default, applications should assume the sRGB color space. When color equality needs to be decided,
-        implementations, unless documented otherwise, treat two colors as equal if all their red, green, blue, and alpha values each differ by at most `1e-5`. Example (Java): import com.google.type.Color;
-        // ... public static java.awt.Color fromProto(Color protocolor) { float alpha = protocolor.hasAlpha() ? protocolor.getAlpha().getValue() : 1.0; return new java.awt.Color( protocolor.getRed(), protocolor.getGreen(),
-        protocolor.getBlue(), alpha); } public static Color toProto(java.awt.Color color) { float red = (float) color.getRed(); float green = (float) color.getGreen(); float blue = (float) color.getBlue();
-        float denominator = 255.0; Color.Builder resultBuilder = Color .newBuilder() .setRed(red / denominator) .setGreen(green / denominator) .setBlue(blue / denominator); int alpha = color.getAlpha();
-        if (alpha != 255) { result.setAlpha( FloatValue .newBuilder() .setValue(((float) alpha) / denominator) .build()); } return resultBuilder.build(); } // ... Example (iOS / Obj-C): // ... static UIColor*
-        fromProto(Color* protocolor) { float red = [protocolor red]; float green = [protocolor green]; float blue = [protocolor blue]; FloatValue* alpha_wrapper = [protocolor alpha]; float alpha = 1.0;
-        if (alpha_wrapper != nil) { alpha = [alpha_wrapper value]; } return [UIColor colorWithRed:red green:green blue:blue alpha:alpha]; } static Color* toProto(UIColor* color) { CGFloat red, green, blue,
-        alpha; if (![color getRed:&red green:&green blue:&blue alpha:&alpha]) { return nil; } Color* result = [[Color alloc] init]; [result setRed:red]; [result setGreen:green]; [result setBlue:blue]; if
-        (alpha <= 0.9999) { [result setAlpha:floatWrapperWithValue(alpha)]; } [result autorelease]; return result; } // ... Example (JavaScript): // ... var protoToCssColor = function(rgb_color) { var redFrac
-        = rgb_color.red || 0.0; var greenFrac = rgb_color.green || 0.0; var blueFrac = rgb_color.blue || 0.0; var red = Math.floor(redFrac * 255); var green = Math.floor(greenFrac * 255); var blue = Math.floor(blueFrac
-        * 255); if (!(''alpha'' in rgb_color)) { return rgbToCssColor(red, green, blue); } var alphaFrac = rgb_color.alpha.value || 0.0; var rgbParams = [red, green, blue].join('',''); return [''rgba('',
-        rgbParams, '','', alphaFrac, '')''].join(''''); }; var rgbToCssColor = function(red, green, blue) { var rgbNumber = new Number((red << 16) | (green << 8) | blue); var hexString = rgbNumber.toString(16);
-        var missingZeros = 6 - hexString.length; var resultBuilder = [''#'']; for (var i = 0; i < missingZeros; i++) { resultBuilder.push(''0''); } resultBuilder.push(hexString); return resultBuilder.join('''');
-        }; // ...'
+      description: 'Represents a color in the RGBA color space. This representation is designed for simplicity of conversion to and from color representations in various languages over compactness. For example, the fields of this representation can be trivially provided to the constructor of `java.awt.Color` in Java; it can also be trivially provided to UIColor''s `+colorWithRed:green:blue:alpha` method in iOS; and, with just a little work, it can be easily formatted into a CSS `rgba()` string in JavaScript. This reference page doesn''t have information about the absolute color space that should be used to interpret the RGB value—for example, sRGB, Adobe RGB, DCI-P3, and BT.2020. By default, applications should assume the sRGB color space. When color equality needs to be decided, implementations, unless documented otherwise, treat two colors as equal if all their red, green, blue, and alpha values each differ by at most `1e-5`. Example (Java): import com.google.type.Color; // ... public static java.awt.Color fromProto(Color protocolor) { float alpha = protocolor.hasAlpha() ? protocolor.getAlpha().getValue() : 1.0; return new java.awt.Color( protocolor.getRed(), protocolor.getGreen(), protocolor.getBlue(), alpha); } public static Color toProto(java.awt.Color color) { float red = (float) color.getRed(); float green = (float) color.getGreen(); float blue = (float) color.getBlue(); float denominator = 255.0; Color.Builder resultBuilder = Color .newBuilder() .setRed(red / denominator) .setGreen(green / denominator) .setBlue(blue / denominator); int alpha = color.getAlpha(); if (alpha != 255) { result.setAlpha( FloatValue .newBuilder() .setValue(((float) alpha) / denominator) .build()); } return resultBuilder.build(); } // ... Example (iOS / Obj-C): // ... static UIColor* fromProto(Color* protocolor) { float red = [protocolor red]; float green = [protocolor green]; float blue = [protocolor blue]; FloatValue* alpha_wrapper = [protocolor alpha]; float alpha = 1.0; if (alpha_wrapper != nil) { alpha = [alpha_wrapper value]; } return [UIColor colorWithRed:red green:green blue:blue alpha:alpha]; } static Color* toProto(UIColor* color) { CGFloat red, green, blue, alpha; if (![color getRed:&red green:&green blue:&blue alpha:&alpha]) { return nil; } Color* result = [[Color alloc] init]; [result setRed:red]; [result setGreen:green]; [result setBlue:blue]; if (alpha <= 0.9999) { [result setAlpha:floatWrapperWithValue(alpha)]; } [result autorelease]; return result; } // ... Example (JavaScript): // ... var protoToCssColor = function(rgb_color) { var redFrac = rgb_color.red || 0.0; var greenFrac = rgb_color.green || 0.0; var blueFrac = rgb_color.blue || 0.0; var red = Math.floor(redFrac * 255); var green = Math.floor(greenFrac * 255); var blue = Math.floor(blueFrac * 255); if (!(''alpha'' in rgb_color)) { return rgbToCssColor(red, green, blue); } var alphaFrac = rgb_color.alpha.value || 0.0; var rgbParams = [red, green, blue].join('',''); return [''rgba('', rgbParams, '','', alphaFrac, '')''].join(''''); }; var rgbToCssColor = function(red, green, blue) { var rgbNumber = new Number((red << 16) | (green << 8) | blue); var hexString = rgbNumber.toString(16); var missingZeros = 6 - hexString.length; var resultBuilder = [''#'']; for (var i = 0; i < missingZeros; i++) { resultBuilder.push(''0''); } resultBuilder.push(hexString); return resultBuilder.join(''''); }; // ...'
       properties:
         alpha:
-          description: 'The fraction of this color that should be applied to the pixel. That is, the final pixel color is defined by the equation: `pixel color = alpha * (this color) + (1.0 - alpha) * (background
-            color)` This means that a value of 1.0 corresponds to a solid color, whereas a value of 0.0 corresponds to a completely transparent color. This uses a wrapper message rather than a simple float
-            scalar so that it is possible to distinguish between a default value and the value being unset. If omitted, this color object is rendered as a solid color (as if the alpha value had been explicitly
-            given a value of 1.0).'
+          description: 'The fraction of this color that should be applied to the pixel. That is, the final pixel color is defined by the equation: `pixel color = alpha * (this color) + (1.0 - alpha) * (background color)` This means that a value of 1.0 corresponds to a solid color, whereas a value of 0.0 corresponds to a completely transparent color. This uses a wrapper message rather than a simple float scalar so that it is possible to distinguish between a default value and the value being unset. If omitted, this color object is rendered as a solid color (as if the alpha value had been explicitly given a value of 1.0).'
           format: float
           type: number
         blue:
@@ -3245,9 +3188,7 @@ components:
           type: number
       type: object
     GoogleTypeDate:
-      description: 'Represents a whole or partial calendar date, such as a birthday. The time of day and time zone are either specified elsewhere or are insignificant. The date is relative to the Gregorian
-        Calendar. This can represent one of the following: * A full date, with non-zero year, month, and day values. * A month and day, with a zero year (for example, an anniversary). * A year on its own,
-        with a zero month and a zero day. * A year and month, with a zero day (for example, a credit card expiration date). Related types: * google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp'
+      description: 'Represents a whole or partial calendar date, such as a birthday. The time of day and time zone are either specified elsewhere or are insignificant. The date is relative to the Gregorian Calendar. This can represent one of the following: * A full date, with non-zero year, month, and day values. * A month and day, with a zero year (for example, an anniversary). * A year on its own, with a zero month and a zero day. * A year and month, with a zero day (for example, a credit card expiration date). Related types: * google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp'
       properties:
         day:
           description: Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant.
@@ -3294,8 +3235,8 @@ components:
       name: $.xgafv
       schema:
         enum:
-        - '1'
-        - '2'
+          - '1'
+          - '2'
         type: string
     access_token:
       description: OAuth access token.
@@ -3309,9 +3250,9 @@ components:
       name: alt
       schema:
         enum:
-        - json
-        - media
-        - proto
+          - json
+          - media
+          - proto
         type: string
     callback:
       description: JSONP

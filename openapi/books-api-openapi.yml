@@ -13,7 +13,7 @@ servers:
 paths:
   /volumes:
     get:
-      summary: List Volumes
+      summary: Google List Volumes
       description: Performs a book search. Returns a list of volumes that match the search query.
       operationId: listVolumes
       tags:
@@ -167,10 +167,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  
   /volumes/{volumeId}:
     get:
-      summary: Get Volume
+      summary: Google Get Volume
       description: Retrieves a Volume resource based on ID. More information about volume IDs can be found in the Google Books IDs section.
       operationId: getVolume
       tags:
@@ -241,10 +240,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  
   /users/{userId}/bookshelves:
     get:
-      summary: List Bookshelves
+      summary: Google List Bookshelves
       description: Retrieves a list of public Bookshelf resources for the specified user. More information about user IDs can be found in the Google Books IDs section.
       operationId: listBookshelves
       tags:
@@ -295,10 +293,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  
   /users/{userId}/bookshelves/{shelf}:
     get:
-      summary: Get Bookshelf
+      summary: Google Get Bookshelf
       description: Retrieves a specific Bookshelf resource for the specified user. More information about user IDs can be found in the Google Books IDs section.
       operationId: getBookshelf
       tags:
@@ -356,10 +353,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  
   /users/{userId}/bookshelves/{shelf}/volumes:
     get:
-      summary: List Bookshelf Volumes
+      summary: Google List Bookshelf Volumes
       description: Retrieves volumes in a specific bookshelf for the specified user.
       operationId: listBookshelfVolumes
       tags:
@@ -444,10 +440,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  
   /mylibrary/bookshelves:
     get:
-      summary: List My Bookshelves
+      summary: Google List My Bookshelves
       description: Retrieves a list of bookshelves belonging to the authenticated user.
       operationId: listMyBookshelves
       tags:
@@ -494,10 +489,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  
   /mylibrary/bookshelves/{shelf}:
     get:
-      summary: Get My Bookshelf
+      summary: Google Get My Bookshelf
       description: Retrieves metadata for a specific bookshelf belonging to the authenticated user.
       operationId: getMyBookshelf
       tags:
@@ -551,10 +545,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  
   /mylibrary/bookshelves/{shelf}/addVolume:
     post:
-      summary: Add Volume to Bookshelf
+      summary: Google Add Volume to Bookshelf
       description: Adds a volume to a bookshelf in the authenticated user's library. Requires authorization.
       operationId: addVolumeToBookshelf
       tags:
@@ -604,10 +597,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  
   /mylibrary/bookshelves/{shelf}/clearVolumes:
     post:
-      summary: Clear Volumes from Bookshelf
+      summary: Google Clear Volumes from Bookshelf
       description: Clears all volumes from a bookshelf in the authenticated user's library. Requires authorization.
       operationId: clearVolumesFromBookshelf
       tags:
@@ -650,10 +642,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  
   /mylibrary/bookshelves/{shelf}/moveVolume:
     post:
-      summary: Move Volume in Bookshelf
+      summary: Google Move Volume in Bookshelf
       description: Moves a volume within a bookshelf in the authenticated user's library. Requires authorization.
       operationId: moveVolumeInBookshelf
       tags:
@@ -711,10 +702,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  
   /mylibrary/bookshelves/{shelf}/removeVolume:
     post:
-      summary: Remove Volume from Bookshelf
+      summary: Google Remove Volume from Bookshelf
       description: Removes a volume from a bookshelf in the authenticated user's library. Requires authorization.
       operationId: removeVolumeFromBookshelf
       tags:
@@ -764,10 +754,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  
   /mylibrary/bookshelves/{shelf}/volumes:
     get:
-      summary: List My Bookshelf Volumes
+      summary: Google List My Bookshelf Volumes
       description: Gets volume information for volumes on a bookshelf belonging to the authenticated user.
       operationId: listMyBookshelfVolumes
       tags:
@@ -889,7 +878,6 @@ components:
           description: A list of volumes
           items:
             $ref: '#/components/schemas/Volume'
-    
     Volume:
       type: object
       description: A Volume represents information that Google Books hosts about a book or a magazine. It contains metadata, such as title and author, as well as personalized data, such as whether or not it has been purchased.
@@ -1258,7 +1246,7 @@ components:
             textSnippet:
               type: string
               description: A text snippet containing the search query.
-    
+
     BookshelvesResponse:
       type: object
       description: Response containing a list of bookshelves
@@ -1276,7 +1264,6 @@ components:
           description: A list of bookshelves
           items:
             $ref: '#/components/schemas/Bookshelf'
-    
     Bookshelf:
       type: object
       description: A bookshelf resource represents the metadata for a bookshelf, it does not include the volumes in the bookshelf
@@ -1330,7 +1317,6 @@ components:
           format: date-time
           description: Last time a volume was added or removed from this bookshelf (formatted UTC timestamp with millisecond resolution)
           example: "2024-01-15T10:30:00.000Z"
-    
     Error:
       type: object
       description: Error response
@@ -1360,7 +1346,6 @@ components:
                   message:
                     type: string
                     example: "User not found"
-  
   securitySchemes:
     OAuth2:
       type: oauth2

@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Gemini API
+  title: Google Gemini API
   description: 'The Gemini API can generate text output from various inputs, including text, images, video, and audio, leveraging Gemini models.
 
     '
@@ -9,81 +9,80 @@ info:
     name: Google AI
     url: https://ai.google.dev
 servers:
-- url: https://generativelanguage.googleapis.com/v1beta
-  description: Gemini API Server
+  - url: https://generativelanguage.googleapis.com/v1beta
+    description: Gemini API Server
 security:
-- ApiKeyHeader: []
+  - ApiKeyHeader: []
 tags:
-- name: Audio Understanding
-  description: Operations related to Audio Understanding
-- name: Content Generation
-  description: Operations related to Content Generation
-- name: Document Understanding
-  description: Operations related to Document Understanding
-- name: File Api
-  description: Operations related to File Api
-- name: Image Generation
-  description: Operations related to Image Generation
-- name: Speech Generation
-  description: Operations related to Speech Generation
-- name: Streaming
-  description: Operations related to Streaming
-- name: Video Understanding
-  description: Operations related to Video Understanding
+  - name: Audio Understanding
+    description: Operations related to Audio Understanding
+  - name: Content Generation
+    description: Operations related to Content Generation
+  - name: Document Understanding
+    description: Operations related to Document Understanding
+  - name: File Api
+    description: Operations related to File Api
+  - name: Image Generation
+    description: Operations related to Image Generation
+  - name: Speech Generation
+    description: Operations related to Speech Generation
+  - name: Streaming
+    description: Operations related to Streaming
+  - name: Video Understanding
+    description: Operations related to Video Understanding
 paths:
   /files:
     post:
       tags:
-      - File Api
-      - Video Understanding
-      - Document Understanding
-      - Audio Understanding
-      summary: Upload File (Resumable)
-      description: "Upload a video, PDF, audio, or other media file using resumable upload protocol. Use this for files larger than 20MB, \nvideos longer than approximately 1 minute, or when you want to\
-        \ reuse the file across multiple requests.\n"
+        - File Api
+        - Video Understanding
+        - Document Understanding
+        - Audio Understanding
+      summary: Google Upload File (Resumable)
+      description: "Upload a video, PDF, audio, or other media file using resumable upload protocol. Use this for files larger than 20MB, \nvideos longer than approximately 1 minute, or when you want to reuse the file across multiple requests.\n"
       operationId: uploadFile
       parameters:
-      - name: X-Goog-Upload-Protocol
-        in: header
-        required: true
-        schema:
-          type: string
-          enum:
-          - resumable
-        description: Upload protocol type
-      - name: X-Goog-Upload-Command
-        in: header
-        required: true
-        schema:
-          type: string
-          enum:
-          - start
-          - upload, finalize
-        description: Upload command (start for initiation, "upload, finalize" for data upload)
-      - name: X-Goog-Upload-Header-Content-Length
-        in: header
-        required: false
-        schema:
-          type: integer
-        description: Total size of the file in bytes (required for start command)
-      - name: X-Goog-Upload-Header-Content-Type
-        in: header
-        required: false
-        schema:
-          type: string
-        description: MIME type of the file (required for start command)
-      - name: X-Goog-Upload-Offset
-        in: header
-        required: false
-        schema:
-          type: integer
-        description: Byte offset for upload (required for upload command)
-      - name: Content-Length
-        in: header
-        required: false
-        schema:
-          type: integer
-        description: Size of the current chunk being uploaded
+        - name: X-Goog-Upload-Protocol
+          in: header
+          required: true
+          schema:
+            type: string
+            enum:
+              - resumable
+          description: Upload protocol type
+        - name: X-Goog-Upload-Command
+          in: header
+          required: true
+          schema:
+            type: string
+            enum:
+              - start
+              - upload, finalize
+          description: Upload command (start for initiation, "upload, finalize" for data upload)
+        - name: X-Goog-Upload-Header-Content-Length
+          in: header
+          required: false
+          schema:
+            type: integer
+          description: Total size of the file in bytes (required for start command)
+        - name: X-Goog-Upload-Header-Content-Type
+          in: header
+          required: false
+          schema:
+            type: string
+          description: MIME type of the file (required for start command)
+        - name: X-Goog-Upload-Offset
+          in: header
+          required: false
+          schema:
+            type: integer
+          description: Byte offset for upload (required for upload command)
+        - name: Content-Length
+          in: header
+          required: false
+          schema:
+            type: integer
+          description: Size of the current chunk being uploaded
       requestBody:
         content:
           application/json:
@@ -123,18 +122,18 @@ paths:
   /files/{name}:
     get:
       tags:
-      - File Api
-      summary: Get File Metadata
+        - File Api
+      summary: Google Get File Metadata
       description: "Retrieve metadata for an uploaded file. Use this to verify the file was successfully \nstored and to check its processing state.\n"
       operationId: getFile
       parameters:
-      - name: name
-        in: path
-        required: true
-        description: The resource name of the file (e.g., "files/abc123")
-        schema:
-          type: string
-        example: files/abc123
+        - name: name
+          in: path
+          required: true
+          description: The resource name of the file (e.g., "files/abc123")
+          schema:
+            type: string
+          example: files/abc123
       responses:
         '200':
           description: File metadata retrieved successfully
@@ -161,9 +160,9 @@ paths:
   /models/{model}:countTokens:
     post:
       tags:
-      - Content Generation
-      - Audio Understanding
-      summary: Count Tokens
+        - Content Generation
+        - Audio Understanding
+      summary: Google Count Tokens
       description: 'Get a count of the number of tokens in content, including audio, video, images, and text.
 
         Useful for estimating costs and ensuring content fits within model context windows.
@@ -171,13 +170,13 @@ paths:
         '
       operationId: countTokens
       parameters:
-      - name: model
-        in: path
-        required: true
-        description: The model to use for token counting
-        schema:
-          type: string
-          example: gemini-2.5-flash
+        - name: model
+          in: path
+          required: true
+          description: The model to use for token counting
+          schema:
+            type: string
+            example: gemini-2.5-flash
       requestBody:
         required: true
         content:
@@ -213,29 +212,24 @@ paths:
   /models/{model}:generateContent:
     post:
       tags:
-      - Content Generation
-      - Video Understanding
-      - Document Understanding
-      - Audio Understanding
-      summary: Generate Content
-      description: "Generates text output from various inputs including text, images, video, audio, and PDF documents.\n\n**Document Understanding**: Process PDF documents up to 1000 pages using native\
-        \ vision to:\n- Analyze and interpret text, images, diagrams, charts, and tables\n- Extract information into structured output formats\n- Summarize and answer questions based on visual and textual\
-        \ elements\n- Transcribe document content (e.g., to HTML) preserving layouts and formatting\n- Process multiple PDFs in a single request (within context window limits)\n\n**Video Understanding**:\
-        \ Process videos to describe, segment, and extract information, answer questions, \nand refer to specific timestamps.\n\n**Audio Understanding**: Analyze and understand audio input to:\n- Transcribe\
-        \ speech to text with timestamps\n- Translate audio content\n- Detect and label different speakers (speaker diarization)\n- Detect emotion in speech and music\n- Analyze specific segments and provide\
-        \ timestamps\n- Describe, summarize, or answer questions about audio content\n\n**Image Input**: Combine text with images for multimodal understanding.\n"
+        - Content Generation
+        - Video Understanding
+        - Document Understanding
+        - Audio Understanding
+      summary: Google Generate Content
+      description: "Generates text output from various inputs including text, images, video, audio, and PDF documents.\n\n**Document Understanding**: Process PDF documents up to 1000 pages using native vision to:\n- Analyze and interpret text, images, diagrams, charts, and tables\n- Extract information into structured output formats\n- Summarize and answer questions based on visual and textual elements\n- Transcribe document content (e.g., to HTML) preserving layouts and formatting\n- Process multiple PDFs in a single request (within context window limits)\n\n**Video Understanding**: Process videos to describe, segment, and extract information, answer questions, \nand refer to specific timestamps.\n\n**Audio Understanding**: Analyze and understand audio input to:\n- Transcribe speech to text with timestamps\n- Translate audio content\n- Detect and label different speakers (speaker diarization)\n- Detect emotion in speech and music\n- Analyze specific segments and provide timestamps\n- Describe, summarize, or answer questions about audio content\n\n**Image Input**: Combine text with images for multimodal understanding.\n"
       operationId: generateContent
       parameters:
-      - name: model
-        in: path
-        required: true
-        description: The model to use for generation
-        schema:
-          type: string
-          enum:
-          - gemini-2.5-flash
-          - gemini-2.5-pro
-          example: gemini-2.5-flash
+        - name: model
+          in: path
+          required: true
+          description: The model to use for generation
+          schema:
+            type: string
+            enum:
+              - gemini-2.5-flash
+              - gemini-2.5-pro
+            example: gemini-2.5-flash
       requestBody:
         required: true
         content:
@@ -274,24 +268,21 @@ paths:
   /models/{ttsModel}:generateContent:
     post:
       tags:
-      - Speech Generation
-      summary: Generate Speech (Text-to-Speech)
-      description: "Transform text input into single-speaker or multi-speaker audio using native text-to-speech (TTS) \ngeneration capabilities. TTS is controllable through natural language to guide style,\
-        \ accent, pace, \nand tone of the audio.\n\n**Capabilities:**\n- Single-speaker or multi-speaker audio (up to 2 speakers)\n- 30 voice options with different characteristics (bright, upbeat, informative,\
-        \ etc.)\n- 24 supported languages with automatic language detection\n- Controllable style, tone, accent, and pace via prompts\n- Audio output in PCM format (24kHz, 16-bit, mono)\n\n**Note**: TTS\
-        \ models accept text-only inputs and produce audio-only outputs.\n"
+        - Speech Generation
+      summary: Google Generate Speech (Text-to-Speech)
+      description: "Transform text input into single-speaker or multi-speaker audio using native text-to-speech (TTS) \ngeneration capabilities. TTS is controllable through natural language to guide style, accent, pace, \nand tone of the audio.\n\n**Capabilities:**\n- Single-speaker or multi-speaker audio (up to 2 speakers)\n- 30 voice options with different characteristics (bright, upbeat, informative, etc.)\n- 24 supported languages with automatic language detection\n- Controllable style, tone, accent, and pace via prompts\n- Audio output in PCM format (24kHz, 16-bit, mono)\n\n**Note**: TTS models accept text-only inputs and produce audio-only outputs.\n"
       operationId: generateSpeech
       parameters:
-      - name: ttsModel
-        in: path
-        required: true
-        description: The TTS model to use for speech generation
-        schema:
-          type: string
-          enum:
-          - gemini-2.5-flash-preview-tts
-          - gemini-2.5-pro-preview-tts
-          example: gemini-2.5-flash-preview-tts
+        - name: ttsModel
+          in: path
+          required: true
+          description: The TTS model to use for speech generation
+          schema:
+            type: string
+            enum:
+              - gemini-2.5-flash-preview-tts
+              - gemini-2.5-pro-preview-tts
+            example: gemini-2.5-flash-preview-tts
       requestBody:
         required: true
         content:
@@ -330,31 +321,31 @@ paths:
   /models/{model}:streamGenerateContent:
     post:
       tags:
-      - Content Generation
-      - Streaming
-      summary: Stream Generate Content
+        - Content Generation
+        - Streaming
+      summary: Google Stream Generate Content
       description: Generates text output with streaming responses, receiving GenerateContentResponse instances incrementally
       operationId: streamGenerateContent
       parameters:
-      - name: model
-        in: path
-        required: true
-        description: The model to use for generation
-        schema:
-          type: string
-          enum:
-          - gemini-2.5-flash
-          - gemini-2.5-pro
-          example: gemini-2.5-flash
-      - name: alt
-        in: query
-        required: true
-        description: Alternative response format
-        schema:
-          type: string
-          enum:
-          - sse
-          example: sse
+        - name: model
+          in: path
+          required: true
+          description: The model to use for generation
+          schema:
+            type: string
+            enum:
+              - gemini-2.5-flash
+              - gemini-2.5-pro
+            example: gemini-2.5-flash
+        - name: alt
+          in: query
+          required: true
+          description: Alternative response format
+          schema:
+            type: string
+            enum:
+              - sse
+            example: sse
       requestBody:
         required: true
         content:
@@ -390,21 +381,21 @@ paths:
   /models/{imageModel}:generateContent:
     post:
       tags:
-      - Image Generation
-      summary: Generate Images
+        - Image Generation
+      summary: Google Generate Images
       description: "Generate and process images conversationally. Supports text-to-image, text-and-image-to-image, \nand multi-turn image editing. All generated images include a SynthID watermark.\n"
       operationId: generateImage
       parameters:
-      - name: imageModel
-        in: path
-        required: true
-        description: The image generation model to use
-        schema:
-          type: string
-          enum:
-          - gemini-2.5-flash-image
-          - gemini-3-pro-image-preview
-          example: gemini-2.5-flash-image
+        - name: imageModel
+          in: path
+          required: true
+          description: The image generation model to use
+          schema:
+            type: string
+            enum:
+              - gemini-2.5-flash-image
+              - gemini-3-pro-image-preview
+            example: gemini-2.5-flash-image
       requestBody:
         required: true
         content:
@@ -451,12 +442,12 @@ components:
         finishReason:
           type: string
           enum:
-          - FINISH_REASON_UNSPECIFIED
-          - STOP
-          - MAX_TOKENS
-          - SAFETY
-          - RECITATION
-          - OTHER
+            - FINISH_REASON_UNSPECIFIED
+            - STOP
+            - MAX_TOKENS
+            - SAFETY
+            - RECITATION
+            - OTHER
           description: Reason why generation stopped
         index:
           type: integer
@@ -473,8 +464,8 @@ components:
               inlineData:
                 type: object
                 required:
-                - mimeType
-                - data
+                  - mimeType
+                  - data
                 properties:
                   mimeType:
                     type: string
@@ -493,12 +484,12 @@ components:
         finishReason:
           type: string
           enum:
-          - FINISH_REASON_UNSPECIFIED
-          - STOP
-          - MAX_TOKENS
-          - SAFETY
-          - RECITATION
-          - OTHER
+            - FINISH_REASON_UNSPECIFIED
+            - STOP
+            - MAX_TOKENS
+            - SAFETY
+            - RECITATION
+            - OTHER
           description: Reason why generation stopped
         index:
           type: integer
@@ -514,8 +505,8 @@ components:
         role:
           type: string
           enum:
-          - user
-          - model
+            - user
+            - model
           description: The role of the content producer (optional for single-turn, required for multi-turn)
         parts:
           type: array
@@ -523,7 +514,7 @@ components:
           items:
             $ref: '#/components/schemas/Part'
       required:
-      - parts
+        - parts
     CountTokensResponse:
       type: object
       properties:
@@ -560,10 +551,10 @@ components:
           type: string
           description: URI of the file from File API or YouTube URL
           examples:
-          - https://generativelanguage.googleapis.com/v1beta/files/abc123
-          - https://www.youtube.com/watch?v=9hE5-98ZeCg
+            - https://generativelanguage.googleapis.com/v1beta/files/abc123
+            - https://www.youtube.com/watch?v=9hE5-98ZeCg
       required:
-      - file_uri
+        - file_uri
     FileUploadResponse:
       type: object
       properties:
@@ -606,10 +597,10 @@ components:
             state:
               type: string
               enum:
-              - STATE_UNSPECIFIED
-              - PROCESSING
-              - ACTIVE
-              - FAILED
+                - STATE_UNSPECIFIED
+                - PROCESSING
+                - ACTIVE
+                - FAILED
               description: Processing state of the file
             error:
               type: object
@@ -637,7 +628,7 @@ components:
     GenerateContentRequest:
       type: object
       required:
-      - contents
+        - contents
       properties:
         contents:
           type: array
@@ -702,8 +693,8 @@ components:
           type: string
           description: MIME type for structured output (e.g., application/json)
           enum:
-          - text/plain
-          - application/json
+            - text/plain
+            - application/json
           example: application/json
         response_schema:
           type: object
@@ -718,12 +709,12 @@ components:
         finishReason:
           type: string
           enum:
-          - FINISH_REASON_UNSPECIFIED
-          - STOP
-          - MAX_TOKENS
-          - SAFETY
-          - RECITATION
-          - OTHER
+            - FINISH_REASON_UNSPECIFIED
+            - STOP
+            - MAX_TOKENS
+            - SAFETY
+            - RECITATION
+            - OTHER
           description: Reason why generation stopped
         index:
           type: integer
@@ -741,19 +732,19 @@ components:
           type: string
           description: Aspect ratio for generated images
           enum:
-          - '1:1'
-          - '3:4'
-          - '4:3'
-          - '9:16'
-          - '16:9'
+            - '1:1'
+            - '3:4'
+            - '4:3'
+            - '9:16'
+            - '16:9'
           example: '16:9'
         imageSize:
           type: string
           description: Size of generated images
           enum:
-          - 1K
-          - 2K
-          - 4K
+            - 1K
+            - 2K
+            - 4K
           example: 2K
     ImageContent:
       type: object
@@ -761,8 +752,8 @@ components:
         role:
           type: string
           enum:
-          - user
-          - model
+            - user
+            - model
           description: The role of the content producer
         parts:
           type: array
@@ -770,7 +761,7 @@ components:
           items:
             $ref: '#/components/schemas/Part'
       required:
-      - parts
+        - parts
     ImageGenerationConfig:
       type: object
       description: Configuration options for image generation
@@ -781,18 +772,18 @@ components:
           items:
             type: string
             enum:
+              - TEXT
+              - IMAGE
+          example:
             - TEXT
             - IMAGE
-          example:
-          - TEXT
-          - IMAGE
         imageConfig:
           $ref: '#/components/schemas/ImageConfig'
           description: Configuration for image generation
     ImageGenerationRequest:
       type: object
       required:
-      - contents
+        - contents
       properties:
         contents:
           type: array
@@ -819,32 +810,32 @@ components:
     InlineData:
       type: object
       required:
-      - mime_type
-      - data
+        - mime_type
+        - data
       properties:
         mime_type:
           type: string
           description: MIME type of the data
           enum:
-          - image/jpeg
-          - image/png
-          - image/webp
-          - video/mp4
-          - video/mpeg
-          - video/mov
-          - video/avi
-          - video/x-flv
-          - video/mpg
-          - video/webm
-          - video/wmv
-          - video/3gpp
-          - audio/wav
-          - audio/mp3
-          - audio/aiff
-          - audio/aac
-          - audio/ogg
-          - audio/flac
-          - application/pdf
+            - image/jpeg
+            - image/png
+            - image/webp
+            - video/mp4
+            - video/mpeg
+            - video/mov
+            - video/avi
+            - video/x-flv
+            - video/mpg
+            - video/webm
+            - video/wmv
+            - video/3gpp
+            - audio/wav
+            - audio/mp3
+            - audio/aiff
+            - audio/aac
+            - audio/ogg
+            - audio/flac
+            - application/pdf
         data:
           type: string
           format: byte
@@ -853,7 +844,7 @@ components:
       description: ModelsPostRequest schema
       type: object
       required:
-      - contents
+        - contents
       properties:
         contents:
           type: array
@@ -866,7 +857,7 @@ components:
     MultiSpeakerVoiceConfig:
       type: object
       required:
-      - speakerVoiceConfigs
+        - speakerVoiceConfigs
       properties:
         speakerVoiceConfigs:
           type: array
@@ -879,67 +870,67 @@ components:
       type: object
       description: A part of the content, can be text, inline data, or file data
       oneOf:
-      - type: object
-        required:
-        - text
-        properties:
-          text:
-            type: string
-            description: Text content
-      - type: object
-        required:
-        - inline_data
-        properties:
-          inline_data:
-            $ref: '#/components/schemas/InlineData'
-      - type: object
-        required:
-        - file_data
-        properties:
-          file_data:
-            $ref: '#/components/schemas/FileData'
-          video_metadata:
-            $ref: '#/components/schemas/VideoMetadata'
-            description: Optional metadata for video processing (clipping, FPS)
+        - type: object
+          required:
+            - text
+          properties:
+            text:
+              type: string
+              description: Text content
+        - type: object
+          required:
+            - inline_data
+          properties:
+            inline_data:
+              $ref: '#/components/schemas/InlineData'
+        - type: object
+          required:
+            - file_data
+          properties:
+            file_data:
+              $ref: '#/components/schemas/FileData'
+            video_metadata:
+              $ref: '#/components/schemas/VideoMetadata'
+              description: Optional metadata for video processing (clipping, FPS)
     PrebuiltVoiceConfig:
       type: object
       required:
-      - voiceName
+        - voiceName
       properties:
         voiceName:
           type: string
           description: Name of the prebuilt voice with characteristic (Bright, Upbeat, Informative, etc.)
           enum:
-          - Zephyr
-          - Puck
-          - Charon
-          - Kore
-          - Fenrir
-          - Leda
-          - Orus
-          - Aoede
-          - Callirrhoe
-          - Autonoe
-          - Enceladus
-          - Iapetus
-          - Umbriel
-          - Algieba
-          - Despina
-          - Erinome
-          - Algenib
-          - Rasalgethi
-          - Laomedeia
-          - Achernar
-          - Alnilam
-          - Schedar
-          - Gacrux
-          - Pulcherrima
-          - Achird
-          - Zubenelgenubi
-          - Vindemiatrix
-          - Sadachbia
-          - Sadaltager
-          - Sulafat
+            - Zephyr
+            - Puck
+            - Charon
+            - Kore
+            - Fenrir
+            - Leda
+            - Orus
+            - Aoede
+            - Callirrhoe
+            - Autonoe
+            - Enceladus
+            - Iapetus
+            - Umbriel
+            - Algieba
+            - Despina
+            - Erinome
+            - Algenib
+            - Rasalgethi
+            - Laomedeia
+            - Achernar
+            - Alnilam
+            - Schedar
+            - Gacrux
+            - Pulcherrima
+            - Achird
+            - Zubenelgenubi
+            - Vindemiatrix
+            - Sadachbia
+            - Sadaltager
+            - Sulafat
           example: Kore
     PromptFeedback:
       type: object
@@ -947,9 +938,9 @@ components:
         blockReason:
           type: string
           enum:
-          - BLOCK_REASON_UNSPECIFIED
-          - SAFETY
-          - OTHER
+            - BLOCK_REASON_UNSPECIFIED
+            - SAFETY
+            - OTHER
           description: Reason why prompt was blocked
         safetyRatings:
           type: array
@@ -962,30 +953,30 @@ components:
         category:
           type: string
           enum:
-          - HARM_CATEGORY_UNSPECIFIED
-          - HARM_CATEGORY_DEROGATORY
-          - HARM_CATEGORY_TOXICITY
-          - HARM_CATEGORY_VIOLENCE
-          - HARM_CATEGORY_SEXUAL
-          - HARM_CATEGORY_MEDICAL
-          - HARM_CATEGORY_DANGEROUS
-          - HARM_CATEGORY_HARASSMENT
-          - HARM_CATEGORY_HATE_SPEECH
-          - HARM_CATEGORY_SEXUALLY_EXPLICIT
-          - HARM_CATEGORY_DANGEROUS_CONTENT
+            - HARM_CATEGORY_UNSPECIFIED
+            - HARM_CATEGORY_DEROGATORY
+            - HARM_CATEGORY_TOXICITY
+            - HARM_CATEGORY_VIOLENCE
+            - HARM_CATEGORY_SEXUAL
+            - HARM_CATEGORY_MEDICAL
+            - HARM_CATEGORY_DANGEROUS
+            - HARM_CATEGORY_HARASSMENT
+            - HARM_CATEGORY_HATE_SPEECH
+            - HARM_CATEGORY_SEXUALLY_EXPLICIT
+            - HARM_CATEGORY_DANGEROUS_CONTENT
         probability:
           type: string
           enum:
-          - HARM_PROBABILITY_UNSPECIFIED
-          - NEGLIGIBLE
-          - LOW
-          - MEDIUM
-          - HIGH
+            - HARM_PROBABILITY_UNSPECIFIED
+            - NEGLIGIBLE
+            - LOW
+            - MEDIUM
+            - HIGH
     SpeakerVoiceConfig:
       type: object
       required:
-      - speaker
-      - voiceConfig
+        - speaker
+        - voiceConfig
       properties:
         speaker:
           type: string
@@ -998,25 +989,25 @@ components:
       type: object
       description: Configuration for single or multi-speaker speech
       oneOf:
-      - type: object
-        required:
-        - voiceConfig
-        properties:
-          voiceConfig:
-            $ref: '#/components/schemas/VoiceConfig'
-            description: Single-speaker voice configuration
-      - type: object
-        required:
-        - multiSpeakerVoiceConfig
-        properties:
-          multiSpeakerVoiceConfig:
-            $ref: '#/components/schemas/MultiSpeakerVoiceConfig'
-            description: Multi-speaker voice configuration (up to 2 speakers)
+        - type: object
+          required:
+            - voiceConfig
+          properties:
+            voiceConfig:
+              $ref: '#/components/schemas/VoiceConfig'
+              description: Single-speaker voice configuration
+        - type: object
+          required:
+            - multiSpeakerVoiceConfig
+          properties:
+            multiSpeakerVoiceConfig:
+              $ref: '#/components/schemas/MultiSpeakerVoiceConfig'
+              description: Multi-speaker voice configuration (up to 2 speakers)
     SpeechGenerationConfig:
       type: object
       required:
-      - responseModalities
-      - speechConfig
+        - responseModalities
+        - speechConfig
       properties:
         responseModalities:
           type: array
@@ -1024,17 +1015,17 @@ components:
           items:
             type: string
             enum:
-            - AUDIO
+              - AUDIO
           example:
-          - AUDIO
+            - AUDIO
         speechConfig:
           $ref: '#/components/schemas/SpeechConfig'
           description: Configuration for speech output
     SpeechGenerationRequest:
       type: object
       required:
-      - contents
-      - generationConfig
+        - contents
+        - generationConfig
       properties:
         contents:
           type: array
@@ -1063,7 +1054,7 @@ components:
           type: integer
           description: Thinking budget, set to 0 to disable thinking
           minimum: 0
-          default: null
+          default:
     UsageMetadata:
       type: object
       properties:
@@ -1099,7 +1090,7 @@ components:
     VoiceConfig:
       type: object
       required:
-      - prebuiltVoiceConfig
+        - prebuiltVoiceConfig
       properties:
         prebuiltVoiceConfig:
           $ref: '#/components/schemas/PrebuiltVoiceConfig'
@@ -1108,10 +1099,10 @@ components:
       summary: Example request for POST /models/{model}:countTokens
       value:
         contents:
-        - parts:
-          - file_data:
-              mime_type: audio/mp3
-              file_uri: https://generativelanguage.googleapis.com/v1beta/files/abc123
+          - parts:
+              - file_data:
+                  mime_type: audio/mp3
+                  file_uri: https://generativelanguage.googleapis.com/v1beta/files/abc123
     ModelsPostResponseExample:
       summary: Successful 200 response
       value: string-value
