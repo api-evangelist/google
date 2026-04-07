@@ -1,13 +1,11 @@
 aid: google
-url: 
-  https://raw.githubusercontent.com/api-search/cloud/main/_apis/google/apis.md
+url: https://raw.githubusercontent.com/api-search/cloud/main/_apis/google/apis.md
 apis:
   - aid: google:google-cloud-api-gateway
     name: Google Cloud API Gateway
     tags:
       - API Gateway
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     contact:
       - FN: Cloud Gateway Support
@@ -27,8 +25,7 @@ apis:
     name: Books API
     tags:
       - Books
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     contact:
       - FN: Google Help
@@ -59,24 +56,19 @@ apis:
         type: APIReference
       - url: openapi/google-drive-api-openapi.yml
         type: OpenAPI
-    description: Google Drive is a cloud-based storage service that lets users 
-      store, access, and share files from any device with an internet 
-      connection.
+    description: Google Drive is a cloud-based storage service that lets users store, access, and share files from any device with an internet connection.
   - aid: google:google-drive-activity-api
     name: Google Drive Activity API
     tags:
-      - Documents
       - Activity
+      - Documents
     humanURL: https://workspace.google.com/products/drive/
     properties:
       - url: https://developers.google.com/workspace/drive/activity/v2
         type: Documentation
       - url: openapi/google-drive-activity-api-openapi.yml
         type: OpenAPI
-    description: The Google Drive Activity API consists of the DriveActivity 
-      resource, which represents changes made to objects within a user's Google 
-      Drive, and the activity.query method, which allows you to retrieve 
-      information about those changes.
+    description: The Google Drive Activity API consists of the DriveActivity resource, which represents changes made to objects within a user's Google Drive, and the activity.query method, which allows you to retrieve information about those changes.
   - aid: google:google-drive-labels-api
     name: Google Drive Labels API
     tags:
@@ -96,18 +88,13 @@ apis:
     name: Google Calendar API
     tags:
       - Calendar
-    humanURL: 
-      https://developers.google.com/workspace/calendar/api/guides/overview
+    humanURL: https://developers.google.com/workspace/calendar/api/guides/overview
     properties:
-      - url: 
-          https://developers.google.com/workspace/calendar/api/guides/overview
+      - url: https://developers.google.com/workspace/calendar/api/guides/overview
         type: Documentation
       - url: properties/google-calendar-api-openapi.yml
         type: OpenAPI
-    description: The Google Calendar API is a RESTful API that can be accessed 
-      through explicit HTTP calls or using the Google Client Libraries. The API 
-      exposes most of the features available in the Google Calendar Web 
-      interface.
+    description: The Google Calendar API is a RESTful API that can be accessed through explicit HTTP calls or using the Google Client Libraries. The API exposes most of the features available in the Google Calendar Web interface.
   - aid: google:google-gmail-api
     name: Google Gmail API
     tags:
@@ -118,10 +105,7 @@ apis:
         type: Documentation
       - url: properties/google-gmail-api-openapi.yml
         type: OpenAPI
-    description: The Gmail API is a RESTful API that can be used to access Gmail
-      mailboxes and send mail. For most web applications the Gmail API is the 
-      best choice for authorized access to a user's Gmail data and is suitable 
-      for various applications.
+    description: The Gmail API is a RESTful API that can be used to access Gmail mailboxes and send mail. For most web applications the Gmail API is the best choice for authorized access to a user's Gmail data and is suitable for various applications.
   - aid: google:google-sheets-api
     name: Google Sheets API
     tags:
@@ -132,8 +116,7 @@ apis:
         type: Documentation
       - url: properties/google-sheets-api-openapi.yml
         type: OpenAPI
-    description: The Google Sheets API is a RESTful interface that lets you read
-      and modify a spreadsheet's data..
+    description: The Google Sheets API is a RESTful interface that lets you read and modify a spreadsheet's data..
   - aid: google:google-docs-api
     name: Google Docs API
     tags:
@@ -148,21 +131,18 @@ apis:
   - aid: google:google-maps-api
     name: Google Maps API
     tags:
-      - Maps
       - Geolocation
+      - Maps
     humanURL: https://developers.google.com/maps
     properties:
       - url: https://developers.google.com/maps
         type: Documentation
-    description: Create real-world, real-time experiences with the latest Maps, 
-      Routes, and Places features from Google Maps Platform. Built by the Google
-      team for developers everywhere.
+    description: Create real-world, real-time experiences with the latest Maps, Routes, and Places features from Google Maps Platform. Built by the Google team for developers everywhere.
   - aid: google:google-places-api
     name: Google Places API
     tags:
       - Places
-    humanURL: 
-      https://developers.google.com/maps/documentation/places/web-service
+    humanURL: https://developers.google.com/maps/documentation/places/web-service
     properties:
       - url: https://developers.google.com/maps/documentation/places/web-service
         type: Documentation
@@ -175,8 +155,8 @@ apis:
   - aid: google:google-aggregate-places-api
     name: Google Aggregate Places API
     tags:
-      - Places
       - Maps
+      - Places
     humanURL: https://developers.google.com/maps/documentation/places-aggregate
     properties:
       - url: https://developers.google.com/maps/documentation/places-aggregate
@@ -188,9 +168,9 @@ apis:
   - aid: google:google-places-insights-api
     name: Google Places Insights API
     tags:
-      - Places
-      - Maps
       - Analytics
+      - Maps
+      - Places
     humanURL: https://developers.google.com/maps/documentation/placesinsights
     properties:
       - url: https://developers.google.com/maps/documentation/placesinsights
@@ -204,9 +184,9 @@ apis:
   - aid: google:google-street-view-imagery-api
     name: Google Street View Imagery API
     tags:
+      - Images
       - Maps
       - Street View
-      - Images
     humanURL: https://developers.google.com/maps/documentation/streetview
     properties:
       - url: https://developers.google.com/maps/documentation/streetview
@@ -218,8 +198,8 @@ apis:
   - aid: google:google-elevation-api
     name: Google Elevation API
     tags:
-      - Maps
       - Elevation
+      - Maps
     humanURL: https://developers.google.com/maps/documentation/elevation
     properties:
       - url: https://developers.google.com/maps/documentation/elevation
@@ -231,9 +211,9 @@ apis:
   - aid: google:google-routes-api
     name: Google Routes API
     tags:
+      - Directions
       - Maps
       - Routes
-      - Directions
     humanURL: https://developers.google.com/maps/documentation/routes
     properties:
       - url: https://developers.google.com/maps/documentation/routes
@@ -245,8 +225,8 @@ apis:
   - aid: google:google-geocoding-api
     name: Google Geocoding API
     tags:
-      - Maps
       - Geocoding
+      - Maps
     humanURL: https://developers.google.com/maps/documentation/geocoding
     properties:
       - url: https://developers.google.com/maps/documentation/geocoding
@@ -258,8 +238,8 @@ apis:
   - aid: google:google-geolocation-api
     name: Google Geolocation API
     tags:
-      - Maps
       - Geolocation
+      - Maps
     humanURL: https://developers.google.com/maps/documentation/geolocation
     properties:
       - url: https://developers.google.com/maps/documentation/geolocation
@@ -270,11 +250,10 @@ apis:
   - aid: google:google-address-validation-api
     name: Google Address Validation API
     tags:
-      - Maps
       - Address
+      - Maps
       - Validation
-    humanURL: 
-      https://developers.google.com/maps/documentation/address-validation
+    humanURL: https://developers.google.com/maps/documentation/address-validation
     properties:
       - url: https://developers.google.com/maps/documentation/address-validation
         type: Documentation
@@ -297,9 +276,9 @@ apis:
   - aid: google:google-air-quality-api
     name: Google Air Quality API
     tags:
-      - Maps
       - Air Quality
       - Environment
+      - Maps
     humanURL: https://developers.google.com/maps/documentation/air-quality
     properties:
       - url: https://developers.google.com/maps/documentation/air-quality
@@ -312,9 +291,9 @@ apis:
   - aid: google:google-pollen-api
     name: Google Pollen API
     tags:
+      - Environment
       - Maps
       - Pollen
-      - Environment
     humanURL: https://developers.google.com/maps/documentation/pollen
     properties:
       - url: https://developers.google.com/maps/documentation/pollen
@@ -326,9 +305,9 @@ apis:
   - aid: google:google-solar-api
     name: Google Solar API
     tags:
+      - Energy
       - Maps
       - Solar
-      - Energy
     humanURL: https://developers.google.com/maps/documentation/solar
     properties:
       - url: https://developers.google.com/maps/documentation/weather
@@ -340,9 +319,9 @@ apis:
   - aid: google:google-weather-api
     name: Google Weather API
     tags:
+      - Environment
       - Maps
       - Weather
-      - Environment
     humanURL: https://developers.google.com/maps/documentation/weather
     properties:
       - url: https://developers.google.com/maps/documentation/weather
@@ -354,8 +333,8 @@ apis:
   - aid: google:google-gemini-api
     name: Google Gemini API
     tags:
-      - Documents
       - AI
+      - Documents
       - Machine Learning
     humanURL: https://ai.google.dev/
     properties:
@@ -368,50 +347,38 @@ apis:
   - aid: google:youtube-data-api
     name: YouTube Data API
     tags:
-      - Video
       - Media
+      - Video
     humanURL: https://developers.google.com/youtube/v3
     properties:
       - url: https://developers.google.com/youtube/v3/docs
         type: Documentation
       - url: https://developers.google.com/youtube/v3/getting-started
         type: GettingStarted
-    description: The YouTube Data API lets you incorporate functions normally 
-      executed on the YouTube website into your own website or application, 
-      including searching for videos, retrieving standard feeds, and managing 
-      playlists and subscriptions.
+    description: The YouTube Data API lets you incorporate functions normally executed on the YouTube website into your own website or application, including searching for videos, retrieving standard feeds, and managing playlists and subscriptions.
   - aid: google:google-analytics-data-api
     name: Google Analytics Data API
     tags:
       - Analytics
       - Reporting
-    humanURL: 
-      https://developers.google.com/analytics/devguides/reporting/data/v1
+    humanURL: https://developers.google.com/analytics/devguides/reporting/data/v1
     properties:
       - url: https://developers.google.com/analytics/devguides/reporting/data/v1
         type: Documentation
-      - url: 
-          https://developers.google.com/analytics/devguides/reporting/data/v1/rest
+      - url: https://developers.google.com/analytics/devguides/reporting/data/v1/rest
         type: APIReference
-    description: The Google Analytics Data API provides programmatic methods to 
-      access report data in Google Analytics, enabling custom dashboards, 
-      automated reporting workflows, and integration with other business 
-      applications.
+    description: The Google Analytics Data API provides programmatic methods to access report data in Google Analytics, enabling custom dashboards, automated reporting workflows, and integration with other business applications.
   - aid: google:google-ads-api
     name: Google Ads API
     tags:
       - Advertising
     humanURL: https://developers.google.com/google-ads/api
     properties:
-      - url: 
-          https://developers.google.com/google-ads/api/docs/get-started/introduction
+      - url: https://developers.google.com/google-ads/api/docs/get-started/introduction
         type: Documentation
-      - url: 
-          https://developers.google.com/google-ads/api/docs/get-started/make-first-call
+      - url: https://developers.google.com/google-ads/api/docs/get-started/make-first-call
         type: GettingStarted
-    description: The Google Ads API is the programmatic interface to Google Ads 
-      and is used for managing large or complex Google Ads accounts and 
-      campaigns efficiently.
+    description: The Google Ads API is the programmatic interface to Google Ads and is used for managing large or complex Google Ads accounts and campaigns efficiently.
   - aid: google:google-custom-search-json-api
     name: Google Custom Search JSON API
     tags:
@@ -422,84 +389,69 @@ apis:
         type: Documentation
       - url: https://developers.google.com/custom-search/v1/reference/rest
         type: APIReference
-    description: The Custom Search JSON API lets you develop websites and 
-      applications to retrieve and display search results from Programmable 
-      Search Engine programmatically using RESTful requests to get web search or
-      image search results in JSON format.
+    description: The Custom Search JSON API lets you develop websites and applications to retrieve and display search results from Programmable Search Engine programmatically using RESTful requests to get web search or image search results in JSON format.
   - aid: google:google-cloud-translation-api
     name: Google Cloud Translation API
     tags:
-      - Translation
       - AI
       - Machine Learning
+      - Translation
     humanURL: https://cloud.google.com/translate
     properties:
       - url: https://cloud.google.com/translate/docs
         type: Documentation
       - url: https://cloud.google.com/translate/docs/reference/rest
         type: APIReference
-    description: The Cloud Translation API uses Google neural machine 
-      translation technology to let you dynamically translate text through the 
-      API using a Google pre-trained or custom model, supporting over 100 
-      language pairs.
+    description: The Cloud Translation API uses Google neural machine translation technology to let you dynamically translate text through the API using a Google pre-trained or custom model, supporting over 100 language pairs.
   - aid: google:google-cloud-vision-api
     name: Google Cloud Vision API
     tags:
-      - Vision
       - AI
       - Machine Learning
+      - Vision
     humanURL: https://cloud.google.com/vision
     properties:
       - url: https://cloud.google.com/vision/docs
         type: Documentation
-    description: The Cloud Vision API allows developers to integrate vision 
-      detection features within applications, including image labeling, face and
-      landmark detection, optical character recognition (OCR), and tagging of 
-      explicit content.
+    description: The Cloud Vision API allows developers to integrate vision detection features within applications, including image labeling, face and landmark detection, optical character recognition (OCR), and tagging of explicit content.
   - aid: google:google-cloud-natural-language-api
     name: Google Cloud Natural Language API
     tags:
-      - Natural Language Processing
       - AI
       - Machine Learning
+      - Natural Language Processing
     humanURL: https://cloud.google.com/natural-language
     properties:
       - url: https://cloud.google.com/natural-language/docs
         type: Documentation
-    description: The Cloud Natural Language API provides natural language 
-      understanding technologies including sentiment analysis, entity analysis, 
-      entity sentiment analysis, content classification, and syntax analysis.
+    description: The Cloud Natural Language API provides natural language understanding technologies including sentiment analysis, entity analysis, entity sentiment analysis, content classification, and syntax analysis.
   - aid: google:google-cloud-speech-to-text-api
     name: Google Cloud Speech-to-Text API
     tags:
-      - Speech
       - AI
       - Machine Learning
+      - Speech
     humanURL: https://cloud.google.com/speech-to-text
     properties:
       - url: https://cloud.google.com/speech-to-text/docs
         type: Documentation
-    description: The Cloud Speech-to-Text API enables developers to convert 
-      audio to text using powerful neural network models, supporting over 125 
-      languages and variants with automatic speech recognition.
+    description: The Cloud Speech-to-Text API enables developers to convert audio to text using powerful neural network models, supporting over 125 languages and variants with automatic speech recognition.
   - aid: google:google-cloud-text-to-speech-api
     name: Google Cloud Text-to-Speech API
     tags:
-      - Speech
       - AI
       - Machine Learning
+      - Speech
     humanURL: https://cloud.google.com/text-to-speech
     properties:
       - url: https://cloud.google.com/text-to-speech/docs
         type: Documentation
-    description: The Cloud Text-to-Speech API converts text into 
-      natural-sounding speech using an API powered by Google AI technologies, 
-      with support for multiple languages, voices, and audio formats.
+    description: The Cloud Text-to-Speech API converts text into natural-sounding speech using an API powered by Google AI technologies, with support for multiple languages, voices, and audio formats.
   - aid: google:google-cloud-bigquery-api
     name: Google Cloud BigQuery API
     tags:
-      - Big Data
       - Analytics
+      - Big Data
       - Database
     humanURL: https://cloud.google.com/bigquery
     properties:
@@ -507,23 +459,19 @@ apis:
         type: Documentation
       - url: https://cloud.google.com/bigquery/docs/reference/rest
         type: APIReference
-    description: BigQuery is a fully managed, petabyte-scale analytics data 
-      warehouse that lets you run analytics over vast amounts of data in near 
-      real time using SQL queries.
+    description: BigQuery is a fully managed, petabyte-scale analytics data warehouse that lets you run analytics over vast amounts of data in near real time using SQL queries.
   - aid: google:google-fonts-api
     name: Google Fonts API
     tags:
-      - Fonts
       - Design
+      - Fonts
     humanURL: https://developers.google.com/fonts
     properties:
       - url: https://developers.google.com/fonts/docs/developer_api
         type: Documentation
       - url: https://developers.google.com/fonts/docs/getting_started
         type: GettingStarted
-    description: The Google Fonts Developer API provides programmatic access to 
-      the metadata for all font families served by Google Fonts, allowing 
-      applications to query for available font families, styles, and subsets.
+    description: The Google Fonts Developer API provides programmatic access to the metadata for all font families served by Google Fonts, allowing applications to query for available font families, styles, and subsets.
   - aid: google:google-people-api
     name: Google People API
     tags:
@@ -535,9 +483,7 @@ apis:
         type: Documentation
       - url: https://developers.google.com/people/api/rest
         type: APIReference
-    description: The Google People API provides access to information about 
-      profiles and contacts, allowing applications to read and manage the 
-      authenticated user's contacts and profile data.
+    description: The Google People API provides access to information about profiles and contacts, allowing applications to read and manage the authenticated user's contacts and profile data.
   - aid: google:google-blogger-api
     name: Google Blogger API
     tags:
@@ -548,9 +494,7 @@ apis:
         type: Documentation
       - url: https://developers.google.com/blogger/docs/3.0/reference/
         type: APIReference
-    description: The Blogger API enables client applications to view and update 
-      Blogger content, providing programmatic access to blog posts, comments, 
-      pages, and user information.
+    description: The Blogger API enables client applications to view and update Blogger content, providing programmatic access to blog posts, comments, pages, and user information.
   - aid: google:google-slides-api
     name: Google Slides API
     tags:
@@ -561,23 +505,19 @@ apis:
         type: Documentation
       - url: https://developers.google.com/workspace/slides/api/reference/rest
         type: APIReference
-    description: The Google Slides API lets you create and modify Google Slides 
-      presentations, enabling applications to build slide decks automatically 
-      from user and system-provided data.
+    description: The Google Slides API lets you create and modify Google Slides presentations, enabling applications to build slide decks automatically from user and system-provided data.
   - aid: google:google-tasks-api
     name: Google Tasks API
     tags:
-      - Tasks
       - Productivity
+      - Tasks
     humanURL: https://developers.google.com/workspace/tasks/overview
     properties:
       - url: https://developers.google.com/workspace/tasks/overview
         type: Documentation
       - url: https://developers.google.com/workspace/tasks/reference/rest
         type: APIReference
-    description: The Google Tasks API lets you search, read, and update Google 
-      Tasks content and metadata using a RESTful interface, enabling 
-      programmatic management of task lists and individual tasks.
+    description: The Google Tasks API lets you search, read, and update Google Tasks content and metadata using a RESTful interface, enabling programmatic management of task lists and individual tasks.
   - aid: google:google-chat-api
     name: Google Chat API
     tags:
@@ -589,24 +529,19 @@ apis:
         type: Documentation
       - url: https://developers.google.com/workspace/chat/api/reference/rest
         type: APIReference
-    description: The Google Chat API enables developers to build Chat apps that 
-      bring services and resources into Google Chat, letting users get 
-      information and take action without leaving the conversation.
+    description: The Google Chat API enables developers to build Chat apps that bring services and resources into Google Chat, letting users get information and take action without leaving the conversation.
   - aid: google:google-classroom-api
     name: Google Classroom API
     tags:
-      - Education
       - Classroom
+      - Education
     humanURL: https://developers.google.com/classroom
     properties:
-      - url: 
-          https://developers.google.com/workspace/classroom/guides/get-started
+      - url: https://developers.google.com/workspace/classroom/guides/get-started
         type: Documentation
       - url: https://developers.google.com/workspace/classroom/reference/rest
         type: APIReference
-    description: The Google Classroom API lets you manage courses, rosters, 
-      assignments, and grades programmatically, enabling integration with 
-      learning management systems and educational tools.
+    description: The Google Classroom API lets you manage courses, rosters, assignments, and grades programmatically, enabling integration with learning management systems and educational tools.
   - aid: google:google-forms-api
     name: Google Forms API
     tags:
@@ -618,10 +553,7 @@ apis:
         type: Documentation
       - url: https://developers.google.com/workspace/forms/api/reference/rest
         type: APIReference
-    description: The Google Forms API is a RESTful interface that lets you 
-      create and modify forms and quizzes, retrieve form responses and quiz 
-      grades, set up answer keys with automatic feedback, and receive push 
-      notifications.
+    description: The Google Forms API is a RESTful interface that lets you create and modify forms and quizzes, retrieve form responses and quiz grades, set up answer keys with automatic feedback, and receive push notifications.
   - aid: google:google-meet-rest-api
     name: Google Meet REST API
     tags:
@@ -633,9 +565,7 @@ apis:
         type: Documentation
       - url: https://developers.google.com/workspace/meet/api/reference/rest/v2
         type: APIReference
-    description: The Google Meet REST API lets you create and manage meetings 
-      for Google Meet, retrieve meeting and participant information, and access 
-      meeting artifacts like recordings and transcripts.
+    description: The Google Meet REST API lets you create and manage meetings for Google Meet, retrieve meeting and participant information, and access meeting artifacts like recordings and transcripts.
   - aid: google:google-knowledge-graph-search-api
     name: Google Knowledge Graph Search API
     tags:
@@ -645,9 +575,7 @@ apis:
     properties:
       - url: https://developers.google.com/knowledge-graph
         type: Documentation
-    description: The Knowledge Graph Search API lets you find entities in the 
-      Google Knowledge Graph, providing access to information about people, 
-      places, and things that Google knows about.
+    description: The Knowledge Graph Search API lets you find entities in the Google Knowledge Graph, providing access to information about people, places, and things that Google knows about.
   - aid: google:google-pagespeed-insights-api
     name: Google PageSpeed Insights API
     tags:
@@ -659,9 +587,7 @@ apis:
         type: Documentation
       - url: https://developers.google.com/speed/docs/insights/rest
         type: APIReference
-    description: The PageSpeed Insights API analyzes the performance of web 
-      pages and provides suggestions for improving page speed, accessibility, 
-      and SEO.
+    description: The PageSpeed Insights API analyzes the performance of web pages and provides suggestions for improving page speed, accessibility, and SEO.
   - aid: google:google-civic-information-api
     name: Google Civic Information API
     tags:
@@ -671,9 +597,7 @@ apis:
     properties:
       - url: https://developers.google.com/civic-information
         type: Documentation
-    description: The Google Civic Information API lets developers build 
-      applications that display civic information, including elected officials, 
-      polling places, and election data for US addresses.
+    description: The Google Civic Information API lets developers build applications that display civic information, including elected officials, polling places, and election data for US addresses.
   - aid: google:google-roads-api
     name: Google Roads API
     tags:
@@ -683,9 +607,7 @@ apis:
     properties:
       - url: https://developers.google.com/maps/documentation/roads
         type: Documentation
-    description: The Google Roads API provides snap-to-road functionality that 
-      maps GPS coordinates to road geometry, identifies nearest road segments, 
-      and returns speed limit data for road segments.
+    description: The Google Roads API provides snap-to-road functionality that maps GPS coordinates to road geometry, identifies nearest road segments, and returns speed limit data for road segments.
   - aid: google:google-map-tiles-api
     name: Google Map Tiles API
     tags:
@@ -695,24 +617,18 @@ apis:
     properties:
       - url: https://developers.google.com/maps/documentation/tile
         type: Documentation
-    description: The Map Tiles API provides high-resolution Photorealistic 3D 
-      Tiles, 2D Tiles, and Street View Tiles for building immersive, customized 
-      map visualizations.
+    description: The Map Tiles API provides high-resolution Photorealistic 3D Tiles, 2D Tiles, and Street View Tiles for building immersive, customized map visualizations.
   - aid: google:google-route-optimization-api
     name: Google Route Optimization API
     tags:
       - Maps
-      - Routes
       - Optimization
-    humanURL: 
-      https://developers.google.com/maps/documentation/route-optimization
+      - Routes
+    humanURL: https://developers.google.com/maps/documentation/route-optimization
     properties:
       - url: https://developers.google.com/maps/documentation/route-optimization
         type: Documentation
-    description: The Route Optimization API generates optimized route plans for 
-      single or multiple vehicles and their stops, assigning tasks and routes to
-      a vehicle fleet while optimizing against supplied objectives and 
-      constraints.
+    description: The Route Optimization API generates optimized route plans for single or multiple vehicles and their stops, assigning tasks and routes to a vehicle fleet while optimizing against supplied objectives and constraints.
   - aid: google:google-play-developer-api
     name: Google Play Developer API
     tags:
@@ -724,25 +640,20 @@ apis:
         type: Documentation
       - url: https://developers.google.com/android-publisher/api-ref/rest
         type: APIReference
-    description: The Google Play Developer API allows you to perform publishing 
-      and app-management tasks, including managing in-app purchases and 
-      subscriptions, retrieving reviews, and automating app publishing 
-      workflows.
+    description: The Google Play Developer API allows you to perform publishing and app-management tasks, including managing in-app purchases and subscriptions, retrieving reviews, and automating app publishing workflows.
   - aid: google:firebase-api
     name: Firebase API
     tags:
       - Backend
-      - Mobile
       - Cloud
+      - Mobile
     humanURL: https://firebase.google.com/
     properties:
       - url: https://firebase.google.com/docs
         type: Documentation
       - url: https://firebase.google.com/docs/reference
         type: APIReference
-    description: Firebase is a comprehensive app development platform that 
-      provides backend services, including real-time databases, authentication, 
-      cloud messaging, storage, and hosting for web and mobile applications.
+    description: Firebase is a comprehensive app development platform that provides backend services, including real-time databases, authentication, cloud messaging, storage, and hosting for web and mobile applications.
   - aid: google:google-picker-api
     name: Google Picker API
     tags:
@@ -752,9 +663,7 @@ apis:
     properties:
       - url: https://developers.google.com/workspace/drive/picker
         type: Documentation
-    description: The Google Picker API is a JavaScript API that allows users to 
-      select or upload Google Drive files through a familiar dialog, providing a
-      browser-based file picker for Drive content.
+    description: The Google Picker API is a JavaScript API that allows users to select or upload Google Drive files through a familiar dialog, providing a browser-based file picker for Drive content.
   - aid: google:google-keep-api
     name: Google Keep API
     tags:
@@ -764,9 +673,7 @@ apis:
     properties:
       - url: https://developers.google.com/workspace/keep/api
         type: Documentation
-    description: The Google Keep API enables enterprise applications to 
-      programmatically manage and access Google Keep notes and lists on behalf 
-      of users within a Google Workspace domain.
+    description: The Google Keep API enables enterprise applications to programmatically manage and access Google Keep notes and lists on behalf of users within a Google Workspace domain.
   - aid: google:google-vault-api
     name: Google Vault API
     tags:
@@ -776,21 +683,17 @@ apis:
     properties:
       - url: https://developers.google.com/workspace/vault
         type: Documentation
-    description: The Google Vault API provides programmatic access to Vault 
-      functionality, enabling retention management, legal hold management, and 
-      data export for compliance and eDiscovery purposes.
+    description: The Google Vault API provides programmatic access to Vault functionality, enabling retention management, legal hold management, and data export for compliance and eDiscovery purposes.
 name: Google
 tags:
   - Advertising
+  - Cloud
+  - Developer
+  - Google
+  - Platform
   - Search
   - T1
-  - apis
-  - cloud
-  - developer
-  - google
-  - platform
-image: 
-  https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png
+image: https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png
 common:
   - url: https://cloud.google.com
     type: Google Cloud
@@ -798,8 +701,7 @@ common:
     type: Developer Portal
   - url: https://developers.googleblog.com/en/
     type: Blog
-  - url: 
-      https://console.cloud.google.com/apis/dashboard?project=api-project-111046942866
+  - url: https://console.cloud.google.com/apis/dashboard?project=api-project-111046942866
     type: Console
   - url: https://www.linkedin.com/showcase/googledevelopers/
     type: LinkedIn
@@ -819,8 +721,7 @@ common:
   - url: https://www.youtube.com/channel/UC_x5XG1OV2P6uZZ5FSM9Ttw
     name: Videos
     type: Videos
-  - url: 
-      https://console.cloud.google.com/apis/dashboard?pli=1&inv=1&invt=Ab3RcQ&project=api-project-111046942866
+  - url: https://console.cloud.google.com/apis/dashboard?pli=1&inv=1&invt=Ab3RcQ&project=api-project-111046942866
     name: APIs & Services  APIs & Services  API Evangelist  Google Cloud console
     type: Explorer
   - url: https://developers.google.com/terms/site-terms
@@ -861,8 +762,7 @@ common:
             metric: token
             timeFrame: usage
             description: Grounding with Google search.
-        description: Our state-of-the-art multipurpose model, which excels at 
-          coding and complex reasoning tasks.
+        description: Our state-of-the-art multipurpose model, which excels at coding and complex reasoning tasks.
       - id: gemini-2-5-pro
         name: Gemini 2.5 Pro
         tier: Paid
@@ -930,8 +830,7 @@ common:
             metric: requests
             timeFrame: usage
             description: Grounding with Google search.
-        description: Our state-of-the-art multipurpose model, which excels at 
-          coding and complex reasoning tasks.
+        description: Our state-of-the-art multipurpose model, which excels at coding and complex reasoning tasks.
       - id: gemini-2-5-flash-free
         name: Gemini 2.5 Flash (Free)
         tier: Free
@@ -972,8 +871,7 @@ common:
             metric: token
             timeFrame: usage
             description: Access to the live API.
-        description: Our first hybrid reasoning model which supports a 1M token 
-          context
+        description: Our first hybrid reasoning model which supports a 1M token context
       - id: gemini-2-5-flash-paid
         name: Gemini 2.5 Flash (Paid)
         tier: Paid
@@ -1056,8 +954,7 @@ common:
             metric: requests
             timeFrame: usage
             description: Live API Audio Output
-        description: Our first hybrid reasoning model which supports a 1M token 
-          context
+        description: Our first hybrid reasoning model which supports a 1M token context
       - id: gemini-2-5-flash-lite-free
         name: Gemini 2.5 Flash-Lite (Free)
         tier: Free
@@ -1091,8 +988,7 @@ common:
             metric: token
             timeFrame: usage
             description: Grounding with Google search.
-        description: Our smallest and most cost effective model, built for at 
-          scale usage.
+        description: Our smallest and most cost effective model, built for at scale usage.
       - id: gemini-2-5-flash-lite-paid
         name: Gemini 2.5 Flash-Lite (Paid)
         tier: Paid
@@ -1147,8 +1043,7 @@ common:
             metric: requests
             timeFrame: usage
             description: Grounding with Google search.
-        description: Our smallest and most cost effective model, built for at 
-          scale usage.
+        description: Our smallest and most cost effective model, built for at scale usage.
       - id: gemini-2-5-flash-native-audio-free
         name: Gemini 2.5 Flash Native Audio (Free)
         tier: Free
@@ -1168,8 +1063,7 @@ common:
             metric: token
             timeFrame: usage
             description: Output token usage-based pricing.
-        description: Our native audio models optimized for higher quality audio 
-          outputs with better pacing, voice naturalness, verbosity, and mood.
+        description: Our native audio models optimized for higher quality audio outputs with better pacing, voice naturalness, verbosity, and mood.
       - id: gemini-2-5-flash-native-audio-paid
         name: Gemini 2.5 Flash Native Audio (Paid)
         tier: Paid
@@ -1203,8 +1097,7 @@ common:
             metric: token
             timeFrame: usage
             description: Output audio.
-        description: Our native audio models optimized for higher quality audio 
-          outputs with better pacing, voice naturalness, verbosity, and mood.
+        description: Our native audio models optimized for higher quality audio outputs with better pacing, voice naturalness, verbosity, and mood.
       - id: gemini-2-5-flash-preview-tts-free
         name: Gemini 2.5 Flash Preview TTS (Free)
         tier: Free
@@ -1224,8 +1117,7 @@ common:
             metric: token
             timeFrame: usage
             description: Output token usage-based pricing.
-        description: Our 2.5 Flash text-to-speech audio model optimized for 
-          price-performant, low-latency, controllable speech generation.
+        description: Our 2.5 Flash text-to-speech audio model optimized for price-performant, low-latency, controllable speech generation.
       - id: gemini-2-5-flash-preview-tts-paid
         name: Gemini 2.5 Flash Preview TTS (Paid)
         tier: Paid
@@ -1245,8 +1137,7 @@ common:
             metric: token
             timeFrame: usage
             description: Output audio.
-        description: Our 2.5 Flash text-to-speech audio model optimized for 
-          price-performant, low-latency, controllable speech generation.
+        description: Our 2.5 Flash text-to-speech audio model optimized for price-performant, low-latency, controllable speech generation.
       - id: gemini-2-5-pro-preview-tts-free
         name: Gemini 2.5 Pro Preview TTS (Free)
         tier: Free
@@ -1266,9 +1157,7 @@ common:
             metric: token
             timeFrame: usage
             description: Output token usage-based pricing.
-        description: Our 2.5 Pro text-to-speech audio model optimized for 
-          powerful, low-latency speech generation for more natural outputs and 
-          easier to steer prompts.
+        description: Our 2.5 Pro text-to-speech audio model optimized for powerful, low-latency speech generation for more natural outputs and easier to steer prompts.
       - id: gemini-2-5-pro-preview-tts-paid
         name: Gemini 2.5 Pro Preview TTS (Paid)
         tier: Paid
@@ -1288,9 +1177,7 @@ common:
             metric: token
             timeFrame: usage
             description: Output audio.
-        description: Our 2.5 Pro text-to-speech audio model optimized for 
-          powerful, low-latency speech generation for more natural outputs and 
-          easier to steer prompts.
+        description: Our 2.5 Pro text-to-speech audio model optimized for powerful, low-latency speech generation for more natural outputs and easier to steer prompts.
     name: Pricing
     type: Pricing
   - url: https://gemini.google/subscriptions/
@@ -1317,8 +1204,7 @@ common:
           - name: Generate and animate images with Imagen 4 and Veo 2
           - name: Research and writing assistant
           - name: 15 GB of total storage for Photos, Drive, and Gmail
-        description: Get everyday help from Google AI to tackle tasks at work, 
-          school or home.
+        description: Get everyday help from Google AI to tackle tasks at work, school or home.
       - id: pro
         name: Google AI Pro
         entries:
@@ -1340,27 +1226,17 @@ common:
           - name: Generate and animate images with Imagen 4 and Veo 2
           - name: Research and writing assistant
           - name: 15 GB of total storage for Photos, Drive, and Gmail
-          - name: Get more access to our most capable model 2.5 Pro, Deep 
-              Research on 2.5 Pro and unlock video generation with Veo 3 Fast, 
-              our video generation model that maintains high-quality while 
-              optimizing for speed
-          - name: Access our AI filmmaking tool custom built with Veo 3 Fast to 
-              create cinematic scenes and stories
+          - name: Get more access to our most capable model 2.5 Pro, Deep Research on 2.5 Pro and unlock video generation with Veo 3 Fast, our video generation model that maintains high-quality while optimizing for speed
+          - name: Access our AI filmmaking tool custom built with Veo 3 Fast to create cinematic scenes and stories
           - name: Higher limits for image-to-video-creation with Veo 2
-          - name: Get access to Gemini 2.5 Pro model and Deep Search in AI Mode,
-              plus expanded access to AI-powered calling for local business 
-              pricing (US only)
-          - name: Higher task limits when using Jules, our asynchronous coding 
-              agent for software development
-          - name: Research and writing assistant with 5x more Audio Overviews, 
-              notebooks, and more
-          - name: Access Gemini directly in Google apps, Gmail, Docs, Vids, and 
-              more
+          - name: Get access to Gemini 2.5 Pro model and Deep Search in AI Mode, plus expanded access to AI-powered calling for local business pricing (US only)
+          - name: Higher task limits when using Jules, our asynchronous coding agent for software development
+          - name: Research and writing assistant with 5x more Audio Overviews, notebooks, and more
+          - name: Access Gemini directly in Google apps, Gmail, Docs, Vids, and more
           - name: our personal assistant to browse the web
           - name: early access
           - name: 2 TB of total storage for Photos, Drive, and Gmail
-        description: Get more access to new and powerful features to boost your 
-          productivity and creativity.
+        description: Get more access to new and powerful features to boost your productivity and creativity.
       - id: pro
         name: Google AI Ultra
         entries:
@@ -1372,25 +1248,18 @@ common:
             timeFrame: month
             description: Usage based pricing.
         elements:
-          - name: Highest level of access to Veo 3, our state-of-the-art video 
-              generation model, and access to Gemini 2.5 Deep Think, our most 
-              advanced reasoning model
-          - name: Highest level of access to our AI filmmaking tool with access 
-              to Veo 3 and premium features like ingredients to video
+          - name: Highest level of access to Veo 3, our state-of-the-art video generation model, and access to Gemini 2.5 Deep Think, our most advanced reasoning model
+          - name: Highest level of access to our AI filmmaking tool with access to Veo 3 and premium features like ingredients to video
           - name: Highest limits for image-to-video creation with Veo 2
-          - name: Highest limits to Gemini 2.5 Pro model and Deep Search in AI 
-              Mode, plus AI-powered calling for local business pricing (US only)
-          - name: Highest task limits when using Jules, our asynchronous coding 
-              agent for software development
+          - name: Highest limits to Gemini 2.5 Pro model and Deep Search in AI Mode, plus AI-powered calling for local business pricing (US only)
+          - name: Highest task limits when using Jules, our asynchronous coding agent for software development
           - name: Highest limits and best model capabilities (later this year)
-          - name: Highest limits to Gemini directly in Google apps, Gmail, Docs,
-              Vids, and more
+          - name: Highest limits to Gemini directly in Google apps, Gmail, Docs, Vids, and more
           - name: Streamline tasks with an agentic research prototype
           - name: early access
           - name: YouTube ad-free, offline, and in the background
           - name: 30 TB of total storage for Photos, Drive, and Gmail
-        description: Unlock the highest level of access to the best of Google AI
-          and exclusive features.
+        description: Unlock the highest level of access to the best of Google AI and exclusive features.
     name: Plans
     type: Plans
   - url: https://docs.anthropic.com/en/api/service-tiers
@@ -1400,19 +1269,12 @@ common:
       - name: Tier 1
         description: Billing account linked to the project.
       - name: Tier 2
-        description: 'Total spend greater than $250 and at least 30 days since successful
-          payment.  '
+        description: 'Total spend greater than $250 and at least 30 days since successful payment.  '
       - name: Tier 4
-        description: 'Total spend greater than $1,000 and at least 30 days since successful
-          payment  .  '
+        description: 'Total spend greater than $1,000 and at least 30 days since successful payment  .  '
     name: Tiers
     type: Tiers
-    description: Rate limits are tied to the project's usage tier. As your API 
-      usage and spending increase, you'll have an option to upgrade to a higher 
-      tier with increased rate limits. The qualifications for Tiers 2 and 3 are 
-      based on the total cumulative spending on Google Cloud services 
-      (including, but not limited to, the Gemini API) for the billing account 
-      linked to your project.
+    description: Rate limits are tied to the project's usage tier. As your API usage and spending increase, you'll have an option to upgrade to a higher tier with increased rate limits. The qualifications for Tiers 2 and 3 are based on the total cumulative spending on Google Cloud services (including, but not limited to, the Gemini API) for the billing account linked to your project.
   - url: https://ai.google.dev/gemini-api/docs/rate-limits#current-rate-limits
     data:
       - name: Gemini 2.5 Pro
@@ -1760,8 +1622,7 @@ common:
         description: The tokens per minute (TPM).
     name: Rate Limits
     type: RateLimits
-    description: The following table lists the rate limits for all standard 
-      Gemini API calls.
+    description: The following table lists the rate limits for all standard Gemini API calls.
   - url: https://developers.google.com/get-started
     type: Getting Started
   - url: https://developers.google.com/support

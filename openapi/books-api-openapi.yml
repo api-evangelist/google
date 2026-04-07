@@ -1356,3 +1356,7 @@ components:
           tokenUrl: https://oauth2.googleapis.com/token
           scopes:
             https://www.googleapis.com/auth/books: Manage your Google Books library
+tags:
+  - name: Bookshelves
+  - name: My Library
+  - name: Volumes

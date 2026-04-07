@@ -21,8 +21,6 @@ tags:
     description: Operations related to Batch
   - name: Create
     description: Operations related to Create
-  - name: Default
-    description: Operations related to Default
   - name: Delegates
     description: Operations related to Delegates
   - name: Deletes
@@ -131,8 +129,8 @@ paths:
   /gmail/v1/users/{userId}/watch:
     post:
       tags:
-        - Watch
         - Users
+        - Watch
       summary: Google Watch Users
       description: The Watch Users operation in the Google Gmail API allows applications to set up push notifications for a user's mailbox by establishing a watch on their Gmail account. When called via POST to /gmail/v1/users/{userId}/watch, this endpoint configures Gmail to send notifications to a specified Cloud Pub/Sub topic whenever changes occur in the user's mailbox, such as receiving new emails, messages being deleted, or labels being modified. The watch remains active for a renewable period (default 7 days), and applications must include the target Pub/Sub topic details in the request body along with optional filters to specify which types of events should trigger notifications. This enables real-time synchronization and event-driven architectures without the need for constant polling of the mailbox.
       parameters:
@@ -183,8 +181,8 @@ paths:
   /gmail/v1/users/{userId}/stop:
     post:
       tags:
-        - Stop
         - Notifications
+        - Stop
         - Users
       summary: Google Stop Notifications for User
       description: Stop receiving push notifications for the given user mailbox.
@@ -214,8 +212,8 @@ paths:
   /gmail/v1/users/{userId}/drafts/send:
     post:
       tags:
-        - Send
         - Drafts
+        - Send
       summary: Google Send Drafts
       description: Sends the specified, existing draft to the recipients in the `To`, `Cc`, and `Bcc` headers.
       parameters:
@@ -265,8 +263,8 @@ paths:
   /gmail/v1/users/{userId}/drafts/{id}:
     get:
       tags:
-        - Get
         - Drafts
+        - Get
       summary: Google Get Drafts
       description: Gets the specified draft.
       parameters:
@@ -311,8 +309,8 @@ paths:
         dispatcherRules: GmailUsersDraftsGetResponseExample
     put:
       tags:
-        - Update
         - Drafts
+        - Update
       summary: Google Update Drafts
       description: Replaces a draft's content.
       parameters:
@@ -403,8 +401,8 @@ paths:
   /gmail/v1/users/{userId}/drafts:
     get:
       tags:
-        - Lists
         - Drafts
+        - Lists
       summary: Google List Drafts
       description: Lists the drafts in the user's mailbox.
       parameters:
@@ -494,8 +492,8 @@ paths:
   /gmail/v1/users/{userId}/history:
     get:
       tags:
-        - Lists
         - History
+        - Lists
       summary: Google List History
       description: Lists the history of all changes to the given mailbox. History results are returned in chronological order (increasing `historyId`).
       parameters:
@@ -633,8 +631,8 @@ paths:
   /gmail/v1/users/{userId}/messages/{id}/modify:
     post:
       tags:
-        - Modify
         - Messages
+        - Modify
       summary: Google Modify Messages
       description: Modifies the labels on the specified message.
       parameters:
@@ -780,8 +778,8 @@ paths:
   /gmail/v1/users/{userId}/messages/send:
     post:
       tags:
-        - Send
         - Messages
+        - Send
       summary: Google Send Messages
       description: Sends the specified message to the recipients in the `To`, `Cc`, and `Bcc` headers. For example usage, see [Sending email](https://developers.google.com/gmail/api/guides/sending).
       parameters:
@@ -1057,8 +1055,8 @@ paths:
   /gmail/v1/users/{userId}/messages/{messageId}/attachments/{id}:
     get:
       tags:
-        - Get
         - Attachments
+        - Get
       summary: Google Get Attachments
       description: Gets the specified message attachment.
       parameters:
@@ -1112,8 +1110,8 @@ paths:
   /gmail/v1/users/{userId}/labels:
     get:
       tags:
-        - Lists
         - Labels
+        - Lists
       summary: Google List Labels
       description: Lists all labels in the user's mailbox.
       parameters:
@@ -1250,8 +1248,8 @@ paths:
         dispatcherRules: GmailUsersLabelsGetResponse1Example
     put:
       tags:
-        - Update
         - Labels
+        - Update
       summary: Google Update Labels
       description: Updates the specified label.
       parameters:
@@ -1307,8 +1305,8 @@ paths:
         dispatcherRules: GmailUsersLabelsPutResponseExample
     patch:
       tags:
-        - Patch
         - Labels
+        - Patch
       summary: Google Patch Labels
       description: Patch the specified label.
       parameters:
@@ -1539,8 +1537,8 @@ paths:
   /gmail/v1/users/{userId}/threads/{id}/trash:
     post:
       tags:
-        - Trash
         - Threads
+        - Trash
       summary: Google Trash Threads
       description: Moves the specified thread to the trash. Any messages that belong to the thread are also moved to the trash.
       parameters:
@@ -1760,9 +1758,9 @@ paths:
         dispatcherRules: UsersSettingsPopGetResponseExample
     put:
       tags:
-        - Update
         - Pop
         - Settings
+        - Update
       summary: Google Update POP Settings
       description: Updates POP settings.
       parameters:
@@ -1813,8 +1811,8 @@ paths:
     get:
       tags:
         - Get
-        - Vacation
         - Settings
+        - Vacation
       summary: Google Get Vacation Settings
       description: Gets vacation responder settings.
       parameters:
@@ -1853,9 +1851,9 @@ paths:
         dispatcherRules: UsersSettingsVacationGetResponseExample
     put:
       tags:
+        - Settings
         - Update
         - Vacation
-        - Settings
       summary: Google Update Vacation Settings
       description: Updates vacation responder settings.
       parameters:
@@ -1946,9 +1944,9 @@ paths:
         dispatcherRules: UsersSettingsLanguageGetResponseExample
     put:
       tags:
-        - Update
         - Language
         - Settings
+        - Update
       summary: Google Update Language Settings
       description: Updates language settings. If successful, the return object contains the `displayLanguage` that was saved for the user, which may differ from the value passed into the request. This is because the requested `displayLanguage` may not be directly supported by Gmail but have a close variant that is, and so the variant may be chosen and saved instead.
       parameters:
@@ -1998,8 +1996,8 @@ paths:
   /gmail/v1/users/{userId}/settings/autoForwarding:
     get:
       tags:
-        - Get
         - Auto
+        - Get
         - Settings
       summary: Google Get Auto Forwarding Settings
       description: Gets the auto-forwarding setting for the specified account.
@@ -2039,8 +2037,8 @@ paths:
         dispatcherRules: UsersSettingsAutoForwardingGetResponseExample
     put:
       tags:
-        - Update
         - Auto
+        - Update
       summary: Google Update Auto Forwarding
       description: Updates the auto-forwarding setting for the specified account. A verified forwarding address must be specified when auto-forwarding is enabled. This method is only available to service account clients that have been delegated domain-wide authority.
       parameters:
@@ -2091,7 +2089,6 @@ paths:
     post:
       tags:
         - Sets
-        - Default
       summary: Google Set default S/MIME config
       description: Sets the default S/MIME config for the specified send-as alias.
       parameters:
@@ -2135,8 +2132,8 @@ paths:
     get:
       tags:
         - Get
-        - Send
         - Info
+        - Send
       summary: Google Get Send As SMIME Info
       description: Gets the specified S/MIME config for the specified send-as alias.
       parameters:
@@ -2190,8 +2187,8 @@ paths:
     delete:
       tags:
         - Deletes
-        - Send
         - Info
+        - Send
       summary: Google Delete Send As SMIME INfo
       description: Deletes the specified S/MIME config for the specified send-as alias.
       parameters:
@@ -2232,8 +2229,8 @@ paths:
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo:
     get:
       tags:
-        - Lists
         - Info
+        - Lists
       summary: Google List SMIME Info
       description: Lists S/MIME configs for the specified send-as alias.
       parameters:
@@ -2279,8 +2276,8 @@ paths:
         dispatcherRules: SettingsSendAsSmimeInfoGetResponse1Example
     post:
       tags:
-        - Insert
         - Info
+        - Insert
       summary: Google Insert SMIME Info
       description: Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key.
       parameters:
@@ -2337,8 +2334,8 @@ paths:
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/verify:
     post:
       tags:
-        - Verify
         - Send
+        - Verify
       summary: Google Verify Send As
       description: Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service account clients that have been delegated domain-wide authority.
       parameters:
@@ -2421,9 +2418,9 @@ paths:
         dispatcherRules: UsersSettingsSendAsGetResponseExample
     put:
       tags:
-        - Update
         - Send
         - Setting
+        - Update
       summary: Google Update Send As Setting
       description: Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary address for the account can only be updated by service account clients that have been delegated domain-wide authority.
       parameters:
@@ -3345,8 +3342,8 @@ paths:
   /gmail/v1/users/{userId}/settings/forwardingAddresses/{forwardingEmail}:
     get:
       tags:
-        - Get
         - Addresses
+        - Get
       summary: Google Get Forwarding Addresses
       description: Gets the specified forwarding address.
       parameters:
@@ -3392,8 +3389,8 @@ paths:
         dispatcherRules: UsersSettingsForwardingAddressesGetResponseExample
     delete:
       tags:
-        - Deletes
         - Addresses
+        - Deletes
       summary: Google Delete Forwarding Addresses
       description: Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account clients that have been delegated domain-wide authority.
       parameters:
@@ -3427,8 +3424,8 @@ paths:
   /gmail/v1/users/{userId}/settings/forwardingAddresses:
     get:
       tags:
-        - Lists
         - Addresses
+        - Lists
       summary: Google List Forwarding Addresses
       description: Lists the forwarding addresses for the specified account.
       parameters:
@@ -3467,8 +3464,8 @@ paths:
         dispatcherRules: UsersSettingsForwardingAddressesGetResponse1Example
     post:
       tags:
-        - Create
         - Address
+        - Create
       summary: Google Create Forwarding Address
       description: Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service account clients that have been delegated domain-wide authority.
       parameters:
@@ -3518,8 +3515,8 @@ paths:
   /gmail/v1/users/{userId}/settings/delegates/{delegateEmail}:
     get:
       tags:
-        - Get
         - Delegates
+        - Get
       summary: Google Get Delegates
       description: Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account clients that have been delegated domain-wide authority.
       parameters:
@@ -3565,8 +3562,8 @@ paths:
         dispatcherRules: UsersSettingsDelegatesGetResponseExample
     delete:
       tags:
-        - Deletes
         - Delegates
+        - Deletes
       summary: Google Delete Delegates
       description: Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account clients that have been delegated domain-wide authority.
       parameters:
@@ -3600,8 +3597,8 @@ paths:
   /gmail/v1/users/{userId}/settings/delegates:
     get:
       tags:
-        - Lists
         - Delegates
+        - Lists
       summary: Google List Delegates
       description: Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority.
       parameters:

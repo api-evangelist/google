@@ -17,8 +17,7 @@ servers:
 tags:
   - name: About
     description: Operations related to About
-  - name: Apps
-    description: Operations related to Apps
+  - name: Applications
   - name: Changes
     description: Operations related to Changes
   - name: Channels

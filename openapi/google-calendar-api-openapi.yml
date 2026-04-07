@@ -7,16 +7,16 @@ servers:
   - url: https://www.googleapis.com/calendar/v3
     description: Google Calendar API Server
 tags:
-  - name: Calendars
-    description: Operations related to Calendars
-  - name: Calendar ACL
-    description: Operations related to Calendarscalendaridacl
-  - name: Calendar Rules
-    description: Operations related to Calendarscalendaridaclruleid
+  - name: Calendar ACL Rules
+  - name: Calendar ACLs
   - name: Calendar Events
     description: Operations related to Calendarscalendaridevents
+  - name: Calendars
+    description: Operations related to Calendars
+  - name: Channels
   - name: Colors
     description: Operations related to Default
+  - name: Free Busy
   - name: User Calendars
     description: Operations related to Usersmecalendarlist
   - name: User Settings
