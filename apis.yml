@@ -1,5 +1,7 @@
 aid: google
-url: https://raw.githubusercontent.com/api-search/cloud/main/_apis/google/apis.md
+url: https://raw.githubusercontent.com/api-evangelist/google/refs/heads/main/apis.yml
+parent: alphabet
+type: Company
 apis:
   - aid: google:google-cloud-api-gateway
     name: Google Cloud API Gateway
@@ -92,7 +94,7 @@ apis:
     properties:
       - url: https://developers.google.com/workspace/calendar/api/guides/overview
         type: Documentation
-      - url: properties/google-calendar-api-openapi.yml
+      - url: openapi/google-calendar-api-openapi.yml
         type: OpenAPI
     description: The Google Calendar API is a RESTful API that can be accessed through explicit HTTP calls or using the Google Client Libraries. The API exposes most of the features available in the Google Calendar Web interface.
   - aid: google:google-gmail-api
@@ -103,7 +105,7 @@ apis:
     properties:
       - url: https://developers.google.com/workspace/gmail/api/guides
         type: Documentation
-      - url: properties/google-gmail-api-openapi.yml
+      - url: openapi/google-gmail-api-openapi.yml
         type: OpenAPI
     description: The Gmail API is a RESTful API that can be used to access Gmail mailboxes and send mail. For most web applications the Gmail API is the best choice for authorized access to a user's Gmail data and is suitable for various applications.
   - aid: google:google-sheets-api
@@ -114,7 +116,7 @@ apis:
     properties:
       - url: https://developers.google.com/workspace/sheets/api/guides/concepts
         type: Documentation
-      - url: properties/google-sheets-api-openapi.yml
+      - url: openapi/google-sheets-api-openapi.yml
         type: OpenAPI
     description: The Google Sheets API is a RESTful interface that lets you read and modify a spreadsheet's data..
   - aid: google:google-docs-api
@@ -146,7 +148,7 @@ apis:
     properties:
       - url: https://developers.google.com/maps/documentation/places/web-service
         type: Documentation
-      - url: properties/google-places-api-openapi.yml
+      - url: openapi/google-places-api-openapi.yml
         type: OpenAPI
     description: >-
       The Google Places API provides programmatic access to detailed information about
@@ -1646,15 +1648,13 @@ common:
   - url: https://developers.google.com/terms/api-services-user-data-policy
     type: DataPolicy
 created: '2023-11-08'
-modified: '2026-03-03'
+modified: '2026-04-28'
 description: >-
   Google's public APIs and services.
 maintainers:
   - FN: Kin Lane
     url: https://apievangelist.com
     email: kin@apievangelist.com
-  - name: Google
-    email:
-      - email protected
+  - FN: Google
     url: https://developers.google.com
 specificationVersion: '0.19'
