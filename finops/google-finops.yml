@@ -1,0 +1,75 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Google (Cloud + Ads + Workspace + Maps + YouTube)
+providerId: google
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - FinOps
+  - FOCUS
+  - Cloud + Ads + Productivity
+description: FOCUS-aligned FinOps for Google (Cloud + Ads + Workspace + Maps + YouTube).
+sources:
+  - https://cloud.google.com/pricing
+  - https://focus.finops.org/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Google (Cloud + Ads + Workspace + Maps + YouTube)
+serviceCategory: Cloud + Ads + Productivity
+billingModel:
+  pricingCategory: Pay-As-You-Go + Committed Use
+  billingFrequency: Monthly
+  billingCurrency: USD
+focusColumns:
+  ServiceName: Google (Cloud + Ads + Workspace + Maps + YouTube)
+  ServiceCategory: Cloud + Ads + Productivity
+  ProviderName: Google (Cloud + Ads + Workspace + Maps + YouTube)
+  PublisherName: Google (Cloud + Ads + Workspace + Maps + YouTube)
+  BillingCurrency: USD
+meters:
+  - name: compute_hours
+    unit: instance-hour
+    aggregation: sum
+    dimensions:
+      - service
+      - region
+      - instance_type
+      - tenant
+  - name: storage
+    unit: GB-month
+    aggregation: max
+    dimensions:
+      - service
+      - tier
+  - name: data_transfer
+    unit: GB
+    aggregation: sum
+    dimensions:
+      - egress_type
+      - region_pair
+  - name: api_requests
+    unit: request
+    aggregation: sum
+    dimensions:
+      - service
+      - operation
+  - name: managed_services
+    unit: varies
+    aggregation: sum
+    dimensions:
+      - service
+principles:
+  - name: Visibility
+    description: Track Google (Cloud + Ads + Workspace + Maps + YouTube) consumption monthly.
+  - name: Allocation
+    description: Tag usage to teams/cost centers for chargeback.
+  - name: Optimization
+    description: Right-size; reclaim unused entitlements.
+  - name: Accountability
+    description: Set spend alerts; quarterly review.
