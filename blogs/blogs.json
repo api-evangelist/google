@@ -6,6 +6,12 @@
       "feed_url": "https://developers.googleblog.com/feed/",
       "saved": 10,
       "title": "Google Developers Blog"
+    },
+    {
+      "source": "https://blog.google/innovation-and-ai/technology/developers-tools/",
+      "feed_url": "https://blog.google/innovation-and-ai/technology/developers-tools/rss/",
+      "saved": 10,
+      "title": "Google Blog – Developers & Tools"
     }
   ],
   "post_count": 10,
