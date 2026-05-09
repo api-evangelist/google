@@ -4,16 +4,10 @@
     {
       "source": "https://developers.googleblog.com/en/",
       "feed_url": "https://developers.googleblog.com/feed/",
-      "saved": 10,
-      "title": "Google Developers Blog"
-    },
-    {
-      "source": "https://blog.google/innovation-and-ai/technology/developers-tools/",
-      "feed_url": "https://blog.google/innovation-and-ai/technology/developers-tools/rss/",
-      "saved": 10,
-      "title": "Google Blog – Developers & Tools"
+      "title": "Google Developers Blog",
+      "saved": 0
     }
   ],
-  "post_count": 10,
-  "fetched": "2026-05-03T23:28:40Z"
+  "post_count": 26,
+  "fetched": "2026-05-09T20:17:51Z"
 }
