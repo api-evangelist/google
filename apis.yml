@@ -1749,9 +1749,13 @@ common:
       - https://cloud.google.com/pricing
       - https://focus.finops.org/
     updated: '2026-05-04'
+  - type: Integrations
+    url: https://cloud.google.com/marketplace
 created: '2023-11-08'
 modified: '2026-05-04'
 description: Google's public APIs and services.
+integrations:
+  - name: Become a Partner
 maintainers:
   - FN: Kin Lane
     url: https://apievangelist.com
