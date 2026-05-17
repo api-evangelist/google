@@ -1,7 +1,7 @@
 aid: google
 url: https://raw.githubusercontent.com/api-evangelist/google/refs/heads/main/apis.yml
 parent: alphabet
-type: Company
+kind: company
 apis:
   - aid: google:google-cloud-api-gateway
     name: Google Cloud API Gateway
@@ -35,7 +35,7 @@ apis:
       - url: https://developers.google.com/books/docs/v1/using
         type: Documentation
       - url: https://developers.google.com/books/docs/v1/getting_started
-        type: Getting Started
+        type: GettingStarted
       - url: openapi/books-api-openapi.yml
         type: OpenAPI
     description: This document is intended for developers who want to write applications that can interact
@@ -1673,11 +1673,11 @@ common:
     type: RateLimits
     description: The following table lists the rate limits for all standard Gemini API calls.
   - url: https://developers.google.com/get-started
-    type: Getting Started
+    type: GettingStarted
   - url: https://developers.google.com/support
     type: Support
   - url: https://status.cloud.google.com/
-    type: Status
+    type: StatusPage
   - url: https://developers.google.com/identity/protocols/oauth2
     type: Authentication
   - url: https://x.com/googledevs
