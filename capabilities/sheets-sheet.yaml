@@ -1,0 +1,257 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Sheets API — Sheet
+  description: 'Google Sheets API — Sheet. 4 operations. Lead operation: Google Create Sheet. Self-contained Naftiko capability
+    covering one Google business surface.'
+  tags:
+  - Google
+  - Sheet
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: sheets-sheet
+    baseUri: https://sheets.googleapis.com
+    description: Google Sheets API — Sheet business capability. Self-contained, no shared references.
+    resources:
+    - name: v4-spreadsheets
+      path: /v4/spreadsheets
+      operations:
+      - name: post
+        method: POST
+        description: Google Create Sheet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v4-spreadsheets-spreadsheetId
+      path: /v4/spreadsheets/{spreadsheetId}
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Sheet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: spreadsheetId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: v4-spreadsheets-spreadsheetId-sheets-sheetId}:copyTo
+      path: /v4/spreadsheets/{spreadsheetId}/sheets/{sheetId}:copyTo
+      operations:
+      - name: post
+        method: POST
+        description: Google Copy To Sheet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: spreadsheetId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: sheetId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v4-spreadsheets-spreadsheetId}:getByDataFilter
+      path: /v4/spreadsheets/{spreadsheetId}:getByDataFilter
+      operations:
+      - name: post
+        method: POST
+        description: Google Get Sheet by Data Filter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: spreadsheetId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+  exposes:
+  - type: rest
+    namespace: sheets-sheet-rest
+    port: 8080
+    description: REST adapter for Google Sheets API — Sheet. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v4/spreadsheets
+      name: v4-spreadsheets
+      description: REST surface for v4-spreadsheets.
+      operations:
+      - method: POST
+        name: post
+        description: Google Create Sheet
+        call: sheets-sheet.post
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/spreadsheets/{spreadsheetid}
+      name: v4-spreadsheets-spreadsheetid
+      description: REST surface for v4-spreadsheets-spreadsheetId.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Sheet
+        call: sheets-sheet.get
+        with:
+          Accept: rest.Accept
+          spreadsheetId: rest.spreadsheetId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/spreadsheets/{spreadsheetid}/sheets/sheetid-copyto
+      name: v4-spreadsheets-spreadsheetid-sheets-sheetid-copyto
+      description: REST surface for v4-spreadsheets-spreadsheetId-sheets-sheetId}:copyTo.
+      operations:
+      - method: POST
+        name: post
+        description: Google Copy To Sheet
+        call: sheets-sheet.post
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          spreadsheetId: rest.spreadsheetId
+          sheetId: rest.sheetId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/spreadsheets/spreadsheetid-getbydatafilter
+      name: v4-spreadsheets-spreadsheetid-getbydatafilter
+      description: REST surface for v4-spreadsheets-spreadsheetId}:getByDataFilter.
+      operations:
+      - method: POST
+        name: post
+        description: Google Get Sheet by Data Filter
+        call: sheets-sheet.post
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          spreadsheetId: rest.spreadsheetId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sheets-sheet-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Sheets API — Sheet. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: google-create-sheet
+      description: Google Create Sheet
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sheets-sheet.post
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-sheet
+      description: Google Get Sheet
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sheets-sheet.get
+      with:
+        Accept: tools.Accept
+        spreadsheetId: tools.spreadsheetId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-copy-sheet
+      description: Google Copy To Sheet
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sheets-sheet.post
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        spreadsheetId: tools.spreadsheetId
+        sheetId: tools.sheetId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-sheet-data-filter
+      description: Google Get Sheet by Data Filter
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: sheets-sheet.post
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        spreadsheetId: tools.spreadsheetId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

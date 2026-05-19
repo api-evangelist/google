@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Gmail API — History
+  description: 'Google Gmail API — History. 1 operations. Lead operation: Google List History. Self-contained Naftiko capability
+    covering one Google business surface.'
+  tags:
+  - Google
+  - History
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gmail-history
+    baseUri: https://gmail.googleapis.com
+    description: Google Gmail API — History business capability. Self-contained, no shared references.
+    resources:
+    - name: gmail-v1-users-userId-history
+      path: /gmail/v1/users/{userId}/history
+      operations:
+      - name: get
+        method: GET
+        description: Google List History
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+  exposes:
+  - type: rest
+    namespace: gmail-history-rest
+    port: 8080
+    description: REST adapter for Google Gmail API — History. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/gmail/v1/users/{userid}/history
+      name: gmail-v1-users-userid-history
+      description: REST surface for gmail-v1-users-userId-history.
+      operations:
+      - method: GET
+        name: get
+        description: Google List History
+        call: gmail-history.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gmail-history-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Gmail API — History. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: google-list-history
+      description: Google List History
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-history.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.

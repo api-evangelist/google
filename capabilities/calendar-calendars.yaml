@@ -1,0 +1,519 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Calendar API — Calendars
+  description: 'Google Calendar API — Calendars. 6 operations. Lead operation: Google Calendar. Self-contained Naftiko capability
+    covering one Google business surface.'
+  tags:
+  - Google
+  - Calendars
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: calendar-calendars
+    baseUri: https://www.googleapis.com/calendar/v3
+    description: Google Calendar API — Calendars business capability. Self-contained, no shared references.
+    resources:
+    - name: calendars
+      path: /calendars
+      operations:
+      - name: googlecalendar
+        method: POST
+        description: Google Calendar
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: Authorization
+          in: header
+          type: string
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: calendars-calendarId
+      path: /calendars/{calendarId}
+      operations:
+      - name: googlegetcalendar
+        method: GET
+        description: Google Get Calendar
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: calendarId
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+      - name: googleupdatecalendar
+        method: PUT
+        description: Google Update Calendar
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: alt
+          in: query
+          type: string
+          description: Data format for the response.
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        - name: userIp
+          in: query
+          type: string
+          description: Deprecated. Please use quotaUser instead.
+        - name: calendarId
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: googlepatchcalendar
+        method: PATCH
+        description: Google Patch Calendar
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: alt
+          in: query
+          type: string
+          description: Data format for the response.
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        - name: userIp
+          in: query
+          type: string
+          description: Deprecated. Please use quotaUser instead.
+        - name: calendarId
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: googledeletecalendar
+        method: DELETE
+        description: Google Delete Calendar
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: alt
+          in: query
+          type: string
+          description: Data format for the response.
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        - name: userIp
+          in: query
+          type: string
+          description: Deprecated. Please use quotaUser instead.
+        - name: calendarId
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+    - name: calendars-calendarId-clear
+      path: /calendars/{calendarId}/clear
+      operations:
+      - name: googleclearcalendar
+        method: POST
+        description: Google Clear Calendar
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: alt
+          in: query
+          type: string
+          description: Data format for the response.
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        - name: userIp
+          in: query
+          type: string
+          description: Deprecated. Please use quotaUser instead.
+        - name: calendarId
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+  exposes:
+  - type: rest
+    namespace: calendar-calendars-rest
+    port: 8080
+    description: REST adapter for Google Calendar API — Calendars. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/calendars
+      name: calendars
+      description: REST surface for calendars.
+      operations:
+      - method: POST
+        name: googlecalendar
+        description: Google Calendar
+        call: calendar-calendars.googlecalendar
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/calendars/{calendarid}
+      name: calendars-calendarid
+      description: REST surface for calendars-calendarId.
+      operations:
+      - method: GET
+        name: googlegetcalendar
+        description: Google Get Calendar
+        call: calendar-calendars.googlegetcalendar
+        with:
+          Accept: rest.Accept
+          calendarId: rest.calendarId
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: googleupdatecalendar
+        description: Google Update Calendar
+        call: calendar-calendars.googleupdatecalendar
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          alt: rest.alt
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          userIp: rest.userIp
+          calendarId: rest.calendarId
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: googlepatchcalendar
+        description: Google Patch Calendar
+        call: calendar-calendars.googlepatchcalendar
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          alt: rest.alt
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          userIp: rest.userIp
+          calendarId: rest.calendarId
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: googledeletecalendar
+        description: Google Delete Calendar
+        call: calendar-calendars.googledeletecalendar
+        with:
+          alt: rest.alt
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          userIp: rest.userIp
+          calendarId: rest.calendarId
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/calendars/{calendarid}/clear
+      name: calendars-calendarid-clear
+      description: REST surface for calendars-calendarId-clear.
+      operations:
+      - method: POST
+        name: googleclearcalendar
+        description: Google Clear Calendar
+        call: calendar-calendars.googleclearcalendar
+        with:
+          alt: rest.alt
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          userIp: rest.userIp
+          calendarId: rest.calendarId
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: calendar-calendars-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Calendar API — Calendars. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: google-calendar
+      description: Google Calendar
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: calendar-calendars.googlecalendar
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-calendar
+      description: Google Get Calendar
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: calendar-calendars.googlegetcalendar
+      with:
+        Accept: tools.Accept
+        calendarId: tools.calendarId
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-update-calendar
+      description: Google Update Calendar
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: calendar-calendars.googleupdatecalendar
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        alt: tools.alt
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        userIp: tools.userIp
+        calendarId: tools.calendarId
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-patch-calendar
+      description: Google Patch Calendar
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: calendar-calendars.googlepatchcalendar
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        alt: tools.alt
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        userIp: tools.userIp
+        calendarId: tools.calendarId
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-delete-calendar
+      description: Google Delete Calendar
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: calendar-calendars.googledeletecalendar
+      with:
+        alt: tools.alt
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        userIp: tools.userIp
+        calendarId: tools.calendarId
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-clear-calendar
+      description: Google Clear Calendar
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: calendar-calendars.googleclearcalendar
+      with:
+        alt: tools.alt
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        userIp: tools.userIp
+        calendarId: tools.calendarId
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

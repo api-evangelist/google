@@ -1,0 +1,134 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Gmail API — Vacation
+  description: 'Google Gmail API — Vacation. 2 operations. Lead operation: Google Get Vacation Settings. Self-contained Naftiko
+    capability covering one Google business surface.'
+  tags:
+  - Google
+  - Vacation
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gmail-vacation
+    baseUri: https://gmail.googleapis.com
+    description: Google Gmail API — Vacation business capability. Self-contained, no shared references.
+    resources:
+    - name: gmail-v1-users-userId-settings-vacation
+      path: /gmail/v1/users/{userId}/settings/vacation
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Vacation Settings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+      - name: put
+        method: PUT
+        description: Google Update Vacation Settings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+  exposes:
+  - type: rest
+    namespace: gmail-vacation-rest
+    port: 8080
+    description: REST adapter for Google Gmail API — Vacation. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/gmail/v1/users/{userid}/settings/vacation
+      name: gmail-v1-users-userid-settings-vacation
+      description: REST surface for gmail-v1-users-userId-settings-vacation.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Vacation Settings
+        call: gmail-vacation.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: put
+        description: Google Update Vacation Settings
+        call: gmail-vacation.put
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          userId: rest.userId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gmail-vacation-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Gmail API — Vacation. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: google-get-vacation-settings
+      description: Google Get Vacation Settings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-vacation.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-update-vacation-settings
+      description: Google Update Vacation Settings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: gmail-vacation.put
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        userId: tools.userId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

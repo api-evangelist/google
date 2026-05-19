@@ -1,0 +1,1799 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Drive API — Files
+  description: 'Google Drive API — Files. 12 operations. Lead operation: Google Get Files. Self-contained Naftiko capability
+    covering one Google business surface.'
+  tags:
+  - Google
+  - Files
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: drive-files
+    baseUri: https://www.googleapis.com/drive/v3
+    description: Google Drive API — Files business capability. Self-contained, no shared references.
+    resources:
+    - name: files
+      path: /files
+      operations:
+      - name: googledrivefileslist
+        method: GET
+        description: Google Get Files
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: corpora
+          in: query
+          type: string
+          description: Bodies of items (files/documents) to which the query applies. Supported bodies are 'user', 'domain',
+            'drive', and 'allDrives'. Prefer 'user' or 'drive' to 'allD
+        - name: corpus
+          in: query
+          type: string
+          description: 'Deprecated: The source of files to list. Use ''corpora'' instead.'
+        - name: driveId
+          in: query
+          type: string
+          description: ID of the shared drive to search.
+        - name: includeItemsFromAllDrives
+          in: query
+          type: boolean
+          description: Whether both My Drive and shared drive items should be included in results.
+        - name: includeLabels
+          in: query
+          type: string
+          description: A comma-separated list of IDs of labels to include in the `labelInfo` part of the response.
+        - name: includePermissionsForView
+          in: query
+          type: string
+          description: Specifies which additional view's permissions to include in the response. Only 'published' is supported.
+        - name: includeTeamDriveItems
+          in: query
+          type: boolean
+          description: 'Deprecated: Use `includeItemsFromAllDrives` instead.'
+        - name: orderBy
+          in: query
+          type: string
+          description: A comma-separated list of sort keys. Valid keys are 'createdTime', 'folder', 'modifiedByMeTime', 'modifiedTime',
+            'name', 'name_natural', 'quotaBytesUsed', 'rece
+        - name: pageSize
+          in: query
+          type: integer
+          description: The maximum number of files to return per page. Partial or empty result pages are possible even before
+            the end of the files list has been reached.
+        - name: pageToken
+          in: query
+          type: string
+          description: The token for continuing a previous list request on the next page. This should be set to the value
+            of 'nextPageToken' from the previous response.
+        - name: q
+          in: query
+          type: string
+          description: A query for filtering the file results. See the "Search for files & folders" guide for supported syntax.
+        - name: spaces
+          in: query
+          type: string
+          description: A comma-separated list of spaces to query within the corpora. Supported values are 'drive' and 'appDataFolder'.
+        - name: supportsAllDrives
+          in: query
+          type: boolean
+          description: Whether the requesting application supports both My Drives and shared drives.
+        - name: supportsTeamDrives
+          in: query
+          type: boolean
+          description: 'Deprecated: Use `supportsAllDrives` instead.'
+        - name: teamDriveId
+          in: query
+          type: string
+          description: 'Deprecated: Use `driveId` instead.'
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+      - name: googledrivefilescreate
+        method: POST
+        description: Google Post Files
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: enforceSingleParent
+          in: query
+          type: boolean
+          description: Deprecated. Creating files in multiple folders is no longer supported.
+        - name: ignoreDefaultVisibility
+          in: query
+          type: boolean
+          description: Whether to ignore the domain's default visibility settings for the created file. Domain administrators
+            can choose to make all uploaded files visible to the doma
+        - name: includeLabels
+          in: query
+          type: string
+          description: A comma-separated list of IDs of labels to include in the `labelInfo` part of the response.
+        - name: includePermissionsForView
+          in: query
+          type: string
+          description: Specifies which additional view's permissions to include in the response. Only 'published' is supported.
+        - name: keepRevisionForever
+          in: query
+          type: boolean
+          description: Whether to set the 'keepForever' field in the new head revision. This is only applicable to files with
+            binary content in Google Drive. Only 200 revisions for th
+        - name: ocrLanguage
+          in: query
+          type: string
+          description: A language hint for OCR processing during image import (ISO 639-1 code).
+        - name: supportsAllDrives
+          in: query
+          type: boolean
+          description: Whether the requesting application supports both My Drives and shared drives.
+        - name: supportsTeamDrives
+          in: query
+          type: boolean
+          description: 'Deprecated: Use `supportsAllDrives` instead.'
+        - name: useContentAsIndexableText
+          in: query
+          type: boolean
+          description: Whether to use the uploaded content as indexable text.
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: files-generateIds
+      path: /files/generateIds
+      operations:
+      - name: googledrivefilesgenerateids
+        method: GET
+        description: Google Get Files Generateids
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: count
+          in: query
+          type: integer
+          description: The number of IDs to return.
+        - name: space
+          in: query
+          type: string
+          description: 'The space in which the IDs can be used to create new files. Supported values are ''drive'' and ''appDataFolder''.
+            (Default: ''drive'')'
+        - name: type
+          in: query
+          type: string
+          description: 'The type of items which the IDs can be used for. Supported values are ''files'' and ''shortcuts''.
+            Note that ''shortcuts'' are only supported in the `drive` ''space''. '
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+    - name: files-trash
+      path: /files/trash
+      operations:
+      - name: googledrivefilesemptytrash
+        method: DELETE
+        description: Google Delete Files Trash
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: driveId
+          in: query
+          type: string
+          description: If set, empties the trash of the provided shared drive.
+        - name: enforceSingleParent
+          in: query
+          type: boolean
+          description: 'Deprecated: If an item is not in a shared drive and its last parent is deleted but the item itself
+            is not, the item will be placed under its owner''s root.'
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+    - name: files-fileId
+      path: /files/{fileId}
+      operations:
+      - name: googledrivefilesget
+        method: GET
+        description: Google Get Files Fileid
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fileId
+          in: path
+          type: string
+          description: The ID of the file.
+          required: true
+        - name: acknowledgeAbuse
+          in: query
+          type: boolean
+          description: Whether the user is acknowledging the risk of downloading known malware or other abusive files. This
+            is only applicable when alt=media.
+        - name: includeLabels
+          in: query
+          type: string
+          description: A comma-separated list of IDs of labels to include in the `labelInfo` part of the response.
+        - name: includePermissionsForView
+          in: query
+          type: string
+          description: Specifies which additional view's permissions to include in the response. Only 'published' is supported.
+        - name: supportsAllDrives
+          in: query
+          type: boolean
+          description: Whether the requesting application supports both My Drives and shared drives.
+        - name: supportsTeamDrives
+          in: query
+          type: boolean
+          description: 'Deprecated: Use `supportsAllDrives` instead.'
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+      - name: googledrivefilesupdate
+        method: PATCH
+        description: Google Patch Files Fileid
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fileId
+          in: path
+          type: string
+          description: The ID of the file.
+          required: true
+        - name: addParents
+          in: query
+          type: string
+          description: A comma-separated list of parent IDs to add.
+        - name: enforceSingleParent
+          in: query
+          type: boolean
+          description: 'Deprecated: Adding files to multiple folders is no longer supported. Use shortcuts instead.'
+        - name: includeLabels
+          in: query
+          type: string
+          description: A comma-separated list of IDs of labels to include in the `labelInfo` part of the response.
+        - name: includePermissionsForView
+          in: query
+          type: string
+          description: Specifies which additional view's permissions to include in the response. Only 'published' is supported.
+        - name: keepRevisionForever
+          in: query
+          type: boolean
+          description: Whether to set the 'keepForever' field in the new head revision. This is only applicable to files with
+            binary content in Google Drive. Only 200 revisions for th
+        - name: ocrLanguage
+          in: query
+          type: string
+          description: A language hint for OCR processing during image import (ISO 639-1 code).
+        - name: removeParents
+          in: query
+          type: string
+          description: A comma-separated list of parent IDs to remove.
+        - name: supportsAllDrives
+          in: query
+          type: boolean
+          description: Whether the requesting application supports both My Drives and shared drives.
+        - name: supportsTeamDrives
+          in: query
+          type: boolean
+          description: 'Deprecated: Use `supportsAllDrives` instead.'
+        - name: useContentAsIndexableText
+          in: query
+          type: boolean
+          description: Whether to use the uploaded content as indexable text.
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: googledrivefilesdelete
+        method: DELETE
+        description: Google Delete Files Fileid
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fileId
+          in: path
+          type: string
+          description: The ID of the file.
+          required: true
+        - name: enforceSingleParent
+          in: query
+          type: boolean
+          description: 'Deprecated: If an item is not in a shared drive and its last parent is deleted but the item itself
+            is not, the item will be placed under its owner''s root.'
+        - name: supportsAllDrives
+          in: query
+          type: boolean
+          description: Whether the requesting application supports both My Drives and shared drives.
+        - name: supportsTeamDrives
+          in: query
+          type: boolean
+          description: 'Deprecated: Use `supportsAllDrives` instead.'
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+    - name: files-fileId-copy
+      path: /files/{fileId}/copy
+      operations:
+      - name: googledrivefilescopy
+        method: POST
+        description: Google Post Files Fileid Copy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fileId
+          in: path
+          type: string
+          description: The ID of the file.
+          required: true
+        - name: enforceSingleParent
+          in: query
+          type: boolean
+          description: Deprecated. Copying files into multiple folders is no longer supported. Use shortcuts instead.
+        - name: ignoreDefaultVisibility
+          in: query
+          type: boolean
+          description: Whether to ignore the domain's default visibility settings for the created file. Domain administrators
+            can choose to make all uploaded files visible to the doma
+        - name: includeLabels
+          in: query
+          type: string
+          description: A comma-separated list of IDs of labels to include in the `labelInfo` part of the response.
+        - name: includePermissionsForView
+          in: query
+          type: string
+          description: Specifies which additional view's permissions to include in the response. Only 'published' is supported.
+        - name: keepRevisionForever
+          in: query
+          type: boolean
+          description: Whether to set the 'keepForever' field in the new head revision. This is only applicable to files with
+            binary content in Google Drive. Only 200 revisions for th
+        - name: ocrLanguage
+          in: query
+          type: string
+          description: A language hint for OCR processing during image import (ISO 639-1 code).
+        - name: supportsAllDrives
+          in: query
+          type: boolean
+          description: Whether the requesting application supports both My Drives and shared drives.
+        - name: supportsTeamDrives
+          in: query
+          type: boolean
+          description: 'Deprecated: Use `supportsAllDrives` instead.'
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: files-fileId-export
+      path: /files/{fileId}/export
+      operations:
+      - name: googledrivefilesexport
+        method: GET
+        description: Google Get Files Fileid Export
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fileId
+          in: path
+          type: string
+          description: The ID of the file.
+          required: true
+        - name: mimeType
+          in: query
+          type: string
+          description: Required. The MIME type of the format requested for this export.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+    - name: files-fileId-listLabels
+      path: /files/{fileId}/listLabels
+      operations:
+      - name: googledrivefileslistlabels
+        method: GET
+        description: Google Get Files Fileid Listlabels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fileId
+          in: path
+          type: string
+          description: The ID for the file.
+          required: true
+        - name: maxResults
+          in: query
+          type: integer
+          description: The maximum number of labels to return per page. When not set, defaults to 100.
+        - name: pageToken
+          in: query
+          type: string
+          description: The token for continuing a previous list request on the next page. This should be set to the value
+            of 'nextPageToken' from the previous response.
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+    - name: files-fileId-modifyLabels
+      path: /files/{fileId}/modifyLabels
+      operations:
+      - name: googledrivefilesmodifylabels
+        method: POST
+        description: Google Post Files Fileid Modifylabels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fileId
+          in: path
+          type: string
+          description: The ID of the file to which the labels belong.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: files-fileId-watch
+      path: /files/{fileId}/watch
+      operations:
+      - name: googledrivefileswatch
+        method: POST
+        description: Google Post Files Fileid Watch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fileId
+          in: path
+          type: string
+          description: The ID of the file.
+          required: true
+        - name: acknowledgeAbuse
+          in: query
+          type: boolean
+          description: Whether the user is acknowledging the risk of downloading known malware or other abusive files. This
+            is only applicable when alt=media.
+        - name: includeLabels
+          in: query
+          type: string
+          description: A comma-separated list of IDs of labels to include in the `labelInfo` part of the response.
+        - name: includePermissionsForView
+          in: query
+          type: string
+          description: Specifies which additional view's permissions to include in the response. Only 'published' is supported.
+        - name: supportsAllDrives
+          in: query
+          type: boolean
+          description: Whether the requesting application supports both My Drives and shared drives.
+        - name: supportsTeamDrives
+          in: query
+          type: boolean
+          description: 'Deprecated: Use `supportsAllDrives` instead.'
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: drive-files-rest
+    port: 8080
+    description: REST adapter for Google Drive API — Files. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/files
+      name: files
+      description: REST surface for files.
+      operations:
+      - method: GET
+        name: googledrivefileslist
+        description: Google Get Files
+        call: drive-files.googledrivefileslist
+        with:
+          corpora: rest.corpora
+          corpus: rest.corpus
+          driveId: rest.driveId
+          includeItemsFromAllDrives: rest.includeItemsFromAllDrives
+          includeLabels: rest.includeLabels
+          includePermissionsForView: rest.includePermissionsForView
+          includeTeamDriveItems: rest.includeTeamDriveItems
+          orderBy: rest.orderBy
+          pageSize: rest.pageSize
+          pageToken: rest.pageToken
+          q: rest.q
+          spaces: rest.spaces
+          supportsAllDrives: rest.supportsAllDrives
+          supportsTeamDrives: rest.supportsTeamDrives
+          teamDriveId: rest.teamDriveId
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: googledrivefilescreate
+        description: Google Post Files
+        call: drive-files.googledrivefilescreate
+        with:
+          enforceSingleParent: rest.enforceSingleParent
+          ignoreDefaultVisibility: rest.ignoreDefaultVisibility
+          includeLabels: rest.includeLabels
+          includePermissionsForView: rest.includePermissionsForView
+          keepRevisionForever: rest.keepRevisionForever
+          ocrLanguage: rest.ocrLanguage
+          supportsAllDrives: rest.supportsAllDrives
+          supportsTeamDrives: rest.supportsTeamDrives
+          useContentAsIndexableText: rest.useContentAsIndexableText
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/files/generateids
+      name: files-generateids
+      description: REST surface for files-generateIds.
+      operations:
+      - method: GET
+        name: googledrivefilesgenerateids
+        description: Google Get Files Generateids
+        call: drive-files.googledrivefilesgenerateids
+        with:
+          count: rest.count
+          space: rest.space
+          type: rest.type
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/files/trash
+      name: files-trash
+      description: REST surface for files-trash.
+      operations:
+      - method: DELETE
+        name: googledrivefilesemptytrash
+        description: Google Delete Files Trash
+        call: drive-files.googledrivefilesemptytrash
+        with:
+          driveId: rest.driveId
+          enforceSingleParent: rest.enforceSingleParent
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/files/{fileid}
+      name: files-fileid
+      description: REST surface for files-fileId.
+      operations:
+      - method: GET
+        name: googledrivefilesget
+        description: Google Get Files Fileid
+        call: drive-files.googledrivefilesget
+        with:
+          fileId: rest.fileId
+          acknowledgeAbuse: rest.acknowledgeAbuse
+          includeLabels: rest.includeLabels
+          includePermissionsForView: rest.includePermissionsForView
+          supportsAllDrives: rest.supportsAllDrives
+          supportsTeamDrives: rest.supportsTeamDrives
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: googledrivefilesupdate
+        description: Google Patch Files Fileid
+        call: drive-files.googledrivefilesupdate
+        with:
+          fileId: rest.fileId
+          addParents: rest.addParents
+          enforceSingleParent: rest.enforceSingleParent
+          includeLabels: rest.includeLabels
+          includePermissionsForView: rest.includePermissionsForView
+          keepRevisionForever: rest.keepRevisionForever
+          ocrLanguage: rest.ocrLanguage
+          removeParents: rest.removeParents
+          supportsAllDrives: rest.supportsAllDrives
+          supportsTeamDrives: rest.supportsTeamDrives
+          useContentAsIndexableText: rest.useContentAsIndexableText
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: googledrivefilesdelete
+        description: Google Delete Files Fileid
+        call: drive-files.googledrivefilesdelete
+        with:
+          fileId: rest.fileId
+          enforceSingleParent: rest.enforceSingleParent
+          supportsAllDrives: rest.supportsAllDrives
+          supportsTeamDrives: rest.supportsTeamDrives
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/files/{fileid}/copy
+      name: files-fileid-copy
+      description: REST surface for files-fileId-copy.
+      operations:
+      - method: POST
+        name: googledrivefilescopy
+        description: Google Post Files Fileid Copy
+        call: drive-files.googledrivefilescopy
+        with:
+          fileId: rest.fileId
+          enforceSingleParent: rest.enforceSingleParent
+          ignoreDefaultVisibility: rest.ignoreDefaultVisibility
+          includeLabels: rest.includeLabels
+          includePermissionsForView: rest.includePermissionsForView
+          keepRevisionForever: rest.keepRevisionForever
+          ocrLanguage: rest.ocrLanguage
+          supportsAllDrives: rest.supportsAllDrives
+          supportsTeamDrives: rest.supportsTeamDrives
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/files/{fileid}/export
+      name: files-fileid-export
+      description: REST surface for files-fileId-export.
+      operations:
+      - method: GET
+        name: googledrivefilesexport
+        description: Google Get Files Fileid Export
+        call: drive-files.googledrivefilesexport
+        with:
+          fileId: rest.fileId
+          mimeType: rest.mimeType
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/files/{fileid}/listlabels
+      name: files-fileid-listlabels
+      description: REST surface for files-fileId-listLabels.
+      operations:
+      - method: GET
+        name: googledrivefileslistlabels
+        description: Google Get Files Fileid Listlabels
+        call: drive-files.googledrivefileslistlabels
+        with:
+          fileId: rest.fileId
+          maxResults: rest.maxResults
+          pageToken: rest.pageToken
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/files/{fileid}/modifylabels
+      name: files-fileid-modifylabels
+      description: REST surface for files-fileId-modifyLabels.
+      operations:
+      - method: POST
+        name: googledrivefilesmodifylabels
+        description: Google Post Files Fileid Modifylabels
+        call: drive-files.googledrivefilesmodifylabels
+        with:
+          fileId: rest.fileId
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/files/{fileid}/watch
+      name: files-fileid-watch
+      description: REST surface for files-fileId-watch.
+      operations:
+      - method: POST
+        name: googledrivefileswatch
+        description: Google Post Files Fileid Watch
+        call: drive-files.googledrivefileswatch
+        with:
+          fileId: rest.fileId
+          acknowledgeAbuse: rest.acknowledgeAbuse
+          includeLabels: rest.includeLabels
+          includePermissionsForView: rest.includePermissionsForView
+          supportsAllDrives: rest.supportsAllDrives
+          supportsTeamDrives: rest.supportsTeamDrives
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: drive-files-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Drive API — Files. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: google-get-files
+      description: Google Get Files
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: drive-files.googledrivefileslist
+      with:
+        corpora: tools.corpora
+        corpus: tools.corpus
+        driveId: tools.driveId
+        includeItemsFromAllDrives: tools.includeItemsFromAllDrives
+        includeLabels: tools.includeLabels
+        includePermissionsForView: tools.includePermissionsForView
+        includeTeamDriveItems: tools.includeTeamDriveItems
+        orderBy: tools.orderBy
+        pageSize: tools.pageSize
+        pageToken: tools.pageToken
+        q: tools.q
+        spaces: tools.spaces
+        supportsAllDrives: tools.supportsAllDrives
+        supportsTeamDrives: tools.supportsTeamDrives
+        teamDriveId: tools.teamDriveId
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-post-files
+      description: Google Post Files
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: drive-files.googledrivefilescreate
+      with:
+        enforceSingleParent: tools.enforceSingleParent
+        ignoreDefaultVisibility: tools.ignoreDefaultVisibility
+        includeLabels: tools.includeLabels
+        includePermissionsForView: tools.includePermissionsForView
+        keepRevisionForever: tools.keepRevisionForever
+        ocrLanguage: tools.ocrLanguage
+        supportsAllDrives: tools.supportsAllDrives
+        supportsTeamDrives: tools.supportsTeamDrives
+        useContentAsIndexableText: tools.useContentAsIndexableText
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-files-generateids
+      description: Google Get Files Generateids
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: drive-files.googledrivefilesgenerateids
+      with:
+        count: tools.count
+        space: tools.space
+        type: tools.type
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-delete-files-trash
+      description: Google Delete Files Trash
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: drive-files.googledrivefilesemptytrash
+      with:
+        driveId: tools.driveId
+        enforceSingleParent: tools.enforceSingleParent
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-files-fileid
+      description: Google Get Files Fileid
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: drive-files.googledrivefilesget
+      with:
+        fileId: tools.fileId
+        acknowledgeAbuse: tools.acknowledgeAbuse
+        includeLabels: tools.includeLabels
+        includePermissionsForView: tools.includePermissionsForView
+        supportsAllDrives: tools.supportsAllDrives
+        supportsTeamDrives: tools.supportsTeamDrives
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-patch-files-fileid
+      description: Google Patch Files Fileid
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: drive-files.googledrivefilesupdate
+      with:
+        fileId: tools.fileId
+        addParents: tools.addParents
+        enforceSingleParent: tools.enforceSingleParent
+        includeLabels: tools.includeLabels
+        includePermissionsForView: tools.includePermissionsForView
+        keepRevisionForever: tools.keepRevisionForever
+        ocrLanguage: tools.ocrLanguage
+        removeParents: tools.removeParents
+        supportsAllDrives: tools.supportsAllDrives
+        supportsTeamDrives: tools.supportsTeamDrives
+        useContentAsIndexableText: tools.useContentAsIndexableText
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-delete-files-fileid
+      description: Google Delete Files Fileid
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: drive-files.googledrivefilesdelete
+      with:
+        fileId: tools.fileId
+        enforceSingleParent: tools.enforceSingleParent
+        supportsAllDrives: tools.supportsAllDrives
+        supportsTeamDrives: tools.supportsTeamDrives
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-post-files-fileid-copy
+      description: Google Post Files Fileid Copy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: drive-files.googledrivefilescopy
+      with:
+        fileId: tools.fileId
+        enforceSingleParent: tools.enforceSingleParent
+        ignoreDefaultVisibility: tools.ignoreDefaultVisibility
+        includeLabels: tools.includeLabels
+        includePermissionsForView: tools.includePermissionsForView
+        keepRevisionForever: tools.keepRevisionForever
+        ocrLanguage: tools.ocrLanguage
+        supportsAllDrives: tools.supportsAllDrives
+        supportsTeamDrives: tools.supportsTeamDrives
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-files-fileid-export
+      description: Google Get Files Fileid Export
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: drive-files.googledrivefilesexport
+      with:
+        fileId: tools.fileId
+        mimeType: tools.mimeType
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-files-fileid-listlabels
+      description: Google Get Files Fileid Listlabels
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: drive-files.googledrivefileslistlabels
+      with:
+        fileId: tools.fileId
+        maxResults: tools.maxResults
+        pageToken: tools.pageToken
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-post-files-fileid-modifylabels
+      description: Google Post Files Fileid Modifylabels
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: drive-files.googledrivefilesmodifylabels
+      with:
+        fileId: tools.fileId
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-post-files-fileid-watch
+      description: Google Post Files Fileid Watch
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: drive-files.googledrivefileswatch
+      with:
+        fileId: tools.fileId
+        acknowledgeAbuse: tools.acknowledgeAbuse
+        includeLabels: tools.includeLabels
+        includePermissionsForView: tools.includePermissionsForView
+        supportsAllDrives: tools.supportsAllDrives
+        supportsTeamDrives: tools.supportsTeamDrives
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

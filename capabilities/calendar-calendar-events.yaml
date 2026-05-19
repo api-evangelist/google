@@ -1,0 +1,1523 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Calendar API — Calendar Events
+  description: 'Google Calendar API — Calendar Events. 11 operations. Lead operation: Google Return Events From Calendar.
+    Self-contained Naftiko capability covering one Google business surface.'
+  tags:
+  - Google
+  - Calendar Events
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: calendar-calendar-events
+    baseUri: https://www.googleapis.com/calendar/v3
+    description: Google Calendar API — Calendar Events business capability. Self-contained, no shared references.
+    resources:
+    - name: calendars-calendarId-events
+      path: /calendars/{calendarId}/events
+      operations:
+      - name: googlereturneventsfromcalendar
+        method: GET
+        description: Google Return Events From Calendar
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: alwaysIncludeEmail
+          in: query
+          type: boolean
+        - name: eventTypes
+          in: query
+          type: string
+        - name: iCalUID
+          in: query
+          type: string
+        - name: maxAttendees
+          in: query
+          type: integer
+        - name: maxResults
+          in: query
+          type: integer
+        - name: orderBy
+          in: query
+          type: string
+        - name: pageToken
+          in: query
+          type: string
+        - name: privateExtendedProperty
+          in: query
+          type: string
+        - name: q
+          in: query
+          type: string
+        - name: sharedExtendedProperty
+          in: query
+          type: string
+        - name: showDeleted
+          in: query
+          type: boolean
+        - name: showHiddenInvitations
+          in: query
+          type: boolean
+        - name: singleEvents
+          in: query
+          type: boolean
+        - name: syncToken
+          in: query
+          type: string
+        - name: timeMax
+          in: query
+          type: string
+        - name: timeMin
+          in: query
+          type: string
+        - name: timeZone
+          in: query
+          type: string
+        - name: updatedMin
+          in: query
+          type: string
+        - name: alt
+          in: query
+          type: string
+          description: Data format for the response.
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        - name: userIp
+          in: query
+          type: string
+          description: Deprecated. Please use quotaUser instead.
+        - name: calendarId
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+      - name: googlecreateanevent
+        method: POST
+        description: Google Create An Event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: conferenceDataVersion
+          in: query
+          type: integer
+        - name: maxAttendees
+          in: query
+          type: integer
+        - name: sendNotifications
+          in: query
+          type: boolean
+        - name: sendUpdates
+          in: query
+          type: string
+        - name: supportsAttachments
+          in: query
+          type: boolean
+        - name: alt
+          in: query
+          type: string
+          description: Data format for the response.
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        - name: userIp
+          in: query
+          type: string
+          description: Deprecated. Please use quotaUser instead.
+        - name: calendarId
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: calendars-calendarId-events-import
+      path: /calendars/{calendarId}/events/import
+      operations:
+      - name: googleimportevent
+        method: POST
+        description: Google Import Event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: conferenceDataVersion
+          in: query
+          type: integer
+        - name: supportsAttachments
+          in: query
+          type: boolean
+        - name: alt
+          in: query
+          type: string
+          description: Data format for the response.
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        - name: userIp
+          in: query
+          type: string
+          description: Deprecated. Please use quotaUser instead.
+        - name: calendarId
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: calendars-calendarId-events-quickAdd
+      path: /calendars/{calendarId}/events/quickAdd
+      operations:
+      - name: googlequickaddevent
+        method: POST
+        description: Google Quick Add Event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: text
+          in: query
+          type: string
+          description: (Required)
+        - name: sendNotifications
+          in: query
+          type: boolean
+        - name: sendUpdates
+          in: query
+          type: string
+        - name: alt
+          in: query
+          type: string
+          description: Data format for the response.
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        - name: userIp
+          in: query
+          type: string
+          description: Deprecated. Please use quotaUser instead.
+        - name: calendarId
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: calendars-calendarId-events-watch
+      path: /calendars/{calendarId}/events/watch
+      operations:
+      - name: googlewatchevents
+        method: POST
+        description: Google Watch Events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: alwaysIncludeEmail
+          in: query
+          type: boolean
+        - name: eventTypes
+          in: query
+          type: string
+        - name: iCalUID
+          in: query
+          type: string
+        - name: maxAttendees
+          in: query
+          type: integer
+        - name: maxResults
+          in: query
+          type: integer
+        - name: orderBy
+          in: query
+          type: string
+        - name: pageToken
+          in: query
+          type: string
+        - name: privateExtendedProperty
+          in: query
+          type: string
+        - name: q
+          in: query
+          type: string
+        - name: sharedExtendedProperty
+          in: query
+          type: string
+        - name: showDeleted
+          in: query
+          type: boolean
+        - name: showHiddenInvitations
+          in: query
+          type: boolean
+        - name: singleEvents
+          in: query
+          type: boolean
+        - name: syncToken
+          in: query
+          type: string
+        - name: timeMax
+          in: query
+          type: string
+        - name: timeMin
+          in: query
+          type: string
+        - name: timeZone
+          in: query
+          type: string
+        - name: updatedMin
+          in: query
+          type: string
+        - name: alt
+          in: query
+          type: string
+          description: Data format for the response.
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        - name: userIp
+          in: query
+          type: string
+          description: Deprecated. Please use quotaUser instead.
+        - name: calendarId
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: calendars-calendarId-events-eventId
+      path: /calendars/{calendarId}/events/{eventId}
+      operations:
+      - name: googlegetevent
+        method: GET
+        description: Google Get Event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: alwaysIncludeEmail
+          in: query
+          type: boolean
+        - name: maxAttendees
+          in: query
+          type: integer
+        - name: timeZone
+          in: query
+          type: string
+        - name: alt
+          in: query
+          type: string
+          description: Data format for the response.
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        - name: userIp
+          in: query
+          type: string
+          description: Deprecated. Please use quotaUser instead.
+        - name: calendarId
+          in: path
+          type: string
+          required: true
+        - name: eventId
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+      - name: googleupdateevent
+        method: PUT
+        description: Google Update Event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: alwaysIncludeEmail
+          in: query
+          type: boolean
+        - name: conferenceDataVersion
+          in: query
+          type: integer
+        - name: maxAttendees
+          in: query
+          type: integer
+        - name: sendNotifications
+          in: query
+          type: boolean
+        - name: sendUpdates
+          in: query
+          type: string
+        - name: supportsAttachments
+          in: query
+          type: boolean
+        - name: alt
+          in: query
+          type: string
+          description: Data format for the response.
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        - name: userIp
+          in: query
+          type: string
+          description: Deprecated. Please use quotaUser instead.
+        - name: calendarId
+          in: path
+          type: string
+          required: true
+        - name: eventId
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: googlepatchevent
+        method: PATCH
+        description: Google Patch Event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: alwaysIncludeEmail
+          in: query
+          type: boolean
+        - name: conferenceDataVersion
+          in: query
+          type: integer
+        - name: maxAttendees
+          in: query
+          type: integer
+        - name: sendNotifications
+          in: query
+          type: boolean
+        - name: sendUpdates
+          in: query
+          type: string
+        - name: supportsAttachments
+          in: query
+          type: boolean
+        - name: alt
+          in: query
+          type: string
+          description: Data format for the response.
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        - name: userIp
+          in: query
+          type: string
+          description: Deprecated. Please use quotaUser instead.
+        - name: calendarId
+          in: path
+          type: string
+          required: true
+        - name: eventId
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: googledeleteevent
+        method: DELETE
+        description: Google Delete Event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sendNotifications
+          in: query
+          type: boolean
+        - name: sendUpdates
+          in: query
+          type: string
+        - name: alt
+          in: query
+          type: string
+          description: Data format for the response.
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        - name: userIp
+          in: query
+          type: string
+          description: Deprecated. Please use quotaUser instead.
+        - name: calendarId
+          in: path
+          type: string
+          required: true
+        - name: eventId
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+    - name: calendars-calendarId-events-eventId-instances
+      path: /calendars/{calendarId}/events/{eventId}/instances
+      operations:
+      - name: googleinsertevent
+        method: GET
+        description: Google Insert Event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: alwaysIncludeEmail
+          in: query
+          type: boolean
+        - name: maxAttendees
+          in: query
+          type: integer
+        - name: maxResults
+          in: query
+          type: integer
+        - name: originalStart
+          in: query
+          type: string
+        - name: pageToken
+          in: query
+          type: string
+        - name: showDeleted
+          in: query
+          type: boolean
+        - name: timeMax
+          in: query
+          type: string
+        - name: timeMin
+          in: query
+          type: string
+        - name: timeZone
+          in: query
+          type: string
+        - name: alt
+          in: query
+          type: string
+          description: Data format for the response.
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        - name: userIp
+          in: query
+          type: string
+          description: Deprecated. Please use quotaUser instead.
+        - name: calendarId
+          in: path
+          type: string
+          required: true
+        - name: eventId
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+    - name: calendars-calendarId-events-eventId-move
+      path: /calendars/{calendarId}/events/{eventId}/move
+      operations:
+      - name: googlemoveevent
+        method: POST
+        description: Google Move Event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: destination
+          in: query
+          type: string
+          description: (Required)
+        - name: sendNotifications
+          in: query
+          type: boolean
+        - name: sendUpdates
+          in: query
+          type: string
+        - name: alt
+          in: query
+          type: string
+          description: Data format for the response.
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        - name: userIp
+          in: query
+          type: string
+          description: Deprecated. Please use quotaUser instead.
+        - name: calendarId
+          in: path
+          type: string
+          required: true
+        - name: eventId
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+  exposes:
+  - type: rest
+    namespace: calendar-calendar-events-rest
+    port: 8080
+    description: REST adapter for Google Calendar API — Calendar Events. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/calendars/{calendarid}/events
+      name: calendars-calendarid-events
+      description: REST surface for calendars-calendarId-events.
+      operations:
+      - method: GET
+        name: googlereturneventsfromcalendar
+        description: Google Return Events From Calendar
+        call: calendar-calendar-events.googlereturneventsfromcalendar
+        with:
+          Accept: rest.Accept
+          alwaysIncludeEmail: rest.alwaysIncludeEmail
+          eventTypes: rest.eventTypes
+          iCalUID: rest.iCalUID
+          maxAttendees: rest.maxAttendees
+          maxResults: rest.maxResults
+          orderBy: rest.orderBy
+          pageToken: rest.pageToken
+          privateExtendedProperty: rest.privateExtendedProperty
+          q: rest.q
+          sharedExtendedProperty: rest.sharedExtendedProperty
+          showDeleted: rest.showDeleted
+          showHiddenInvitations: rest.showHiddenInvitations
+          singleEvents: rest.singleEvents
+          syncToken: rest.syncToken
+          timeMax: rest.timeMax
+          timeMin: rest.timeMin
+          timeZone: rest.timeZone
+          updatedMin: rest.updatedMin
+          alt: rest.alt
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          userIp: rest.userIp
+          calendarId: rest.calendarId
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: googlecreateanevent
+        description: Google Create An Event
+        call: calendar-calendar-events.googlecreateanevent
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          conferenceDataVersion: rest.conferenceDataVersion
+          maxAttendees: rest.maxAttendees
+          sendNotifications: rest.sendNotifications
+          sendUpdates: rest.sendUpdates
+          supportsAttachments: rest.supportsAttachments
+          alt: rest.alt
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          userIp: rest.userIp
+          calendarId: rest.calendarId
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/calendars/{calendarid}/events/import
+      name: calendars-calendarid-events-import
+      description: REST surface for calendars-calendarId-events-import.
+      operations:
+      - method: POST
+        name: googleimportevent
+        description: Google Import Event
+        call: calendar-calendar-events.googleimportevent
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          conferenceDataVersion: rest.conferenceDataVersion
+          supportsAttachments: rest.supportsAttachments
+          alt: rest.alt
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          userIp: rest.userIp
+          calendarId: rest.calendarId
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/calendars/{calendarid}/events/quickadd
+      name: calendars-calendarid-events-quickadd
+      description: REST surface for calendars-calendarId-events-quickAdd.
+      operations:
+      - method: POST
+        name: googlequickaddevent
+        description: Google Quick Add Event
+        call: calendar-calendar-events.googlequickaddevent
+        with:
+          Accept: rest.Accept
+          text: rest.text
+          sendNotifications: rest.sendNotifications
+          sendUpdates: rest.sendUpdates
+          alt: rest.alt
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          userIp: rest.userIp
+          calendarId: rest.calendarId
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/calendars/{calendarid}/events/watch
+      name: calendars-calendarid-events-watch
+      description: REST surface for calendars-calendarId-events-watch.
+      operations:
+      - method: POST
+        name: googlewatchevents
+        description: Google Watch Events
+        call: calendar-calendar-events.googlewatchevents
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          alwaysIncludeEmail: rest.alwaysIncludeEmail
+          eventTypes: rest.eventTypes
+          iCalUID: rest.iCalUID
+          maxAttendees: rest.maxAttendees
+          maxResults: rest.maxResults
+          orderBy: rest.orderBy
+          pageToken: rest.pageToken
+          privateExtendedProperty: rest.privateExtendedProperty
+          q: rest.q
+          sharedExtendedProperty: rest.sharedExtendedProperty
+          showDeleted: rest.showDeleted
+          showHiddenInvitations: rest.showHiddenInvitations
+          singleEvents: rest.singleEvents
+          syncToken: rest.syncToken
+          timeMax: rest.timeMax
+          timeMin: rest.timeMin
+          timeZone: rest.timeZone
+          updatedMin: rest.updatedMin
+          alt: rest.alt
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          userIp: rest.userIp
+          calendarId: rest.calendarId
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/calendars/{calendarid}/events/{eventid}
+      name: calendars-calendarid-events-eventid
+      description: REST surface for calendars-calendarId-events-eventId.
+      operations:
+      - method: GET
+        name: googlegetevent
+        description: Google Get Event
+        call: calendar-calendar-events.googlegetevent
+        with:
+          Accept: rest.Accept
+          alwaysIncludeEmail: rest.alwaysIncludeEmail
+          maxAttendees: rest.maxAttendees
+          timeZone: rest.timeZone
+          alt: rest.alt
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          userIp: rest.userIp
+          calendarId: rest.calendarId
+          eventId: rest.eventId
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: googleupdateevent
+        description: Google Update Event
+        call: calendar-calendar-events.googleupdateevent
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          alwaysIncludeEmail: rest.alwaysIncludeEmail
+          conferenceDataVersion: rest.conferenceDataVersion
+          maxAttendees: rest.maxAttendees
+          sendNotifications: rest.sendNotifications
+          sendUpdates: rest.sendUpdates
+          supportsAttachments: rest.supportsAttachments
+          alt: rest.alt
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          userIp: rest.userIp
+          calendarId: rest.calendarId
+          eventId: rest.eventId
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: googlepatchevent
+        description: Google Patch Event
+        call: calendar-calendar-events.googlepatchevent
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          alwaysIncludeEmail: rest.alwaysIncludeEmail
+          conferenceDataVersion: rest.conferenceDataVersion
+          maxAttendees: rest.maxAttendees
+          sendNotifications: rest.sendNotifications
+          sendUpdates: rest.sendUpdates
+          supportsAttachments: rest.supportsAttachments
+          alt: rest.alt
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          userIp: rest.userIp
+          calendarId: rest.calendarId
+          eventId: rest.eventId
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: googledeleteevent
+        description: Google Delete Event
+        call: calendar-calendar-events.googledeleteevent
+        with:
+          sendNotifications: rest.sendNotifications
+          sendUpdates: rest.sendUpdates
+          alt: rest.alt
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          userIp: rest.userIp
+          calendarId: rest.calendarId
+          eventId: rest.eventId
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/calendars/{calendarid}/events/{eventid}/instances
+      name: calendars-calendarid-events-eventid-instances
+      description: REST surface for calendars-calendarId-events-eventId-instances.
+      operations:
+      - method: GET
+        name: googleinsertevent
+        description: Google Insert Event
+        call: calendar-calendar-events.googleinsertevent
+        with:
+          Accept: rest.Accept
+          alwaysIncludeEmail: rest.alwaysIncludeEmail
+          maxAttendees: rest.maxAttendees
+          maxResults: rest.maxResults
+          originalStart: rest.originalStart
+          pageToken: rest.pageToken
+          showDeleted: rest.showDeleted
+          timeMax: rest.timeMax
+          timeMin: rest.timeMin
+          timeZone: rest.timeZone
+          alt: rest.alt
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          userIp: rest.userIp
+          calendarId: rest.calendarId
+          eventId: rest.eventId
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/calendars/{calendarid}/events/{eventid}/move
+      name: calendars-calendarid-events-eventid-move
+      description: REST surface for calendars-calendarId-events-eventId-move.
+      operations:
+      - method: POST
+        name: googlemoveevent
+        description: Google Move Event
+        call: calendar-calendar-events.googlemoveevent
+        with:
+          Accept: rest.Accept
+          destination: rest.destination
+          sendNotifications: rest.sendNotifications
+          sendUpdates: rest.sendUpdates
+          alt: rest.alt
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          userIp: rest.userIp
+          calendarId: rest.calendarId
+          eventId: rest.eventId
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: calendar-calendar-events-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Calendar API — Calendar Events. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: google-return-events-calendar
+      description: Google Return Events From Calendar
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: calendar-calendar-events.googlereturneventsfromcalendar
+      with:
+        Accept: tools.Accept
+        alwaysIncludeEmail: tools.alwaysIncludeEmail
+        eventTypes: tools.eventTypes
+        iCalUID: tools.iCalUID
+        maxAttendees: tools.maxAttendees
+        maxResults: tools.maxResults
+        orderBy: tools.orderBy
+        pageToken: tools.pageToken
+        privateExtendedProperty: tools.privateExtendedProperty
+        q: tools.q
+        sharedExtendedProperty: tools.sharedExtendedProperty
+        showDeleted: tools.showDeleted
+        showHiddenInvitations: tools.showHiddenInvitations
+        singleEvents: tools.singleEvents
+        syncToken: tools.syncToken
+        timeMax: tools.timeMax
+        timeMin: tools.timeMin
+        timeZone: tools.timeZone
+        updatedMin: tools.updatedMin
+        alt: tools.alt
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        userIp: tools.userIp
+        calendarId: tools.calendarId
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-create-event
+      description: Google Create An Event
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: calendar-calendar-events.googlecreateanevent
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        conferenceDataVersion: tools.conferenceDataVersion
+        maxAttendees: tools.maxAttendees
+        sendNotifications: tools.sendNotifications
+        sendUpdates: tools.sendUpdates
+        supportsAttachments: tools.supportsAttachments
+        alt: tools.alt
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        userIp: tools.userIp
+        calendarId: tools.calendarId
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-import-event
+      description: Google Import Event
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: calendar-calendar-events.googleimportevent
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        conferenceDataVersion: tools.conferenceDataVersion
+        supportsAttachments: tools.supportsAttachments
+        alt: tools.alt
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        userIp: tools.userIp
+        calendarId: tools.calendarId
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-quick-add-event
+      description: Google Quick Add Event
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: calendar-calendar-events.googlequickaddevent
+      with:
+        Accept: tools.Accept
+        text: tools.text
+        sendNotifications: tools.sendNotifications
+        sendUpdates: tools.sendUpdates
+        alt: tools.alt
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        userIp: tools.userIp
+        calendarId: tools.calendarId
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-watch-events
+      description: Google Watch Events
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: calendar-calendar-events.googlewatchevents
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        alwaysIncludeEmail: tools.alwaysIncludeEmail
+        eventTypes: tools.eventTypes
+        iCalUID: tools.iCalUID
+        maxAttendees: tools.maxAttendees
+        maxResults: tools.maxResults
+        orderBy: tools.orderBy
+        pageToken: tools.pageToken
+        privateExtendedProperty: tools.privateExtendedProperty
+        q: tools.q
+        sharedExtendedProperty: tools.sharedExtendedProperty
+        showDeleted: tools.showDeleted
+        showHiddenInvitations: tools.showHiddenInvitations
+        singleEvents: tools.singleEvents
+        syncToken: tools.syncToken
+        timeMax: tools.timeMax
+        timeMin: tools.timeMin
+        timeZone: tools.timeZone
+        updatedMin: tools.updatedMin
+        alt: tools.alt
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        userIp: tools.userIp
+        calendarId: tools.calendarId
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-event
+      description: Google Get Event
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: calendar-calendar-events.googlegetevent
+      with:
+        Accept: tools.Accept
+        alwaysIncludeEmail: tools.alwaysIncludeEmail
+        maxAttendees: tools.maxAttendees
+        timeZone: tools.timeZone
+        alt: tools.alt
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        userIp: tools.userIp
+        calendarId: tools.calendarId
+        eventId: tools.eventId
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-update-event
+      description: Google Update Event
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: calendar-calendar-events.googleupdateevent
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        alwaysIncludeEmail: tools.alwaysIncludeEmail
+        conferenceDataVersion: tools.conferenceDataVersion
+        maxAttendees: tools.maxAttendees
+        sendNotifications: tools.sendNotifications
+        sendUpdates: tools.sendUpdates
+        supportsAttachments: tools.supportsAttachments
+        alt: tools.alt
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        userIp: tools.userIp
+        calendarId: tools.calendarId
+        eventId: tools.eventId
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-patch-event
+      description: Google Patch Event
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: calendar-calendar-events.googlepatchevent
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        alwaysIncludeEmail: tools.alwaysIncludeEmail
+        conferenceDataVersion: tools.conferenceDataVersion
+        maxAttendees: tools.maxAttendees
+        sendNotifications: tools.sendNotifications
+        sendUpdates: tools.sendUpdates
+        supportsAttachments: tools.supportsAttachments
+        alt: tools.alt
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        userIp: tools.userIp
+        calendarId: tools.calendarId
+        eventId: tools.eventId
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-delete-event
+      description: Google Delete Event
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: calendar-calendar-events.googledeleteevent
+      with:
+        sendNotifications: tools.sendNotifications
+        sendUpdates: tools.sendUpdates
+        alt: tools.alt
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        userIp: tools.userIp
+        calendarId: tools.calendarId
+        eventId: tools.eventId
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-insert-event
+      description: Google Insert Event
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: calendar-calendar-events.googleinsertevent
+      with:
+        Accept: tools.Accept
+        alwaysIncludeEmail: tools.alwaysIncludeEmail
+        maxAttendees: tools.maxAttendees
+        maxResults: tools.maxResults
+        originalStart: tools.originalStart
+        pageToken: tools.pageToken
+        showDeleted: tools.showDeleted
+        timeMax: tools.timeMax
+        timeMin: tools.timeMin
+        timeZone: tools.timeZone
+        alt: tools.alt
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        userIp: tools.userIp
+        calendarId: tools.calendarId
+        eventId: tools.eventId
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-move-event
+      description: Google Move Event
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: calendar-calendar-events.googlemoveevent
+      with:
+        Accept: tools.Accept
+        destination: tools.destination
+        sendNotifications: tools.sendNotifications
+        sendUpdates: tools.sendUpdates
+        alt: tools.alt
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        userIp: tools.userIp
+        calendarId: tools.calendarId
+        eventId: tools.eventId
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

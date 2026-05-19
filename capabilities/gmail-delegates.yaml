@@ -1,0 +1,230 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Gmail API — Delegates
+  description: 'Google Gmail API — Delegates. 4 operations. Lead operation: Google List Delegates. Self-contained Naftiko
+    capability covering one Google business surface.'
+  tags:
+  - Google
+  - Delegates
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gmail-delegates
+    baseUri: https://gmail.googleapis.com
+    description: Google Gmail API — Delegates business capability. Self-contained, no shared references.
+    resources:
+    - name: gmail-v1-users-userId-settings-delegates
+      path: /gmail/v1/users/{userId}/settings/delegates
+      operations:
+      - name: get
+        method: GET
+        description: Google List Delegates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+      - name: post
+        method: POST
+        description: Google Create Delegates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: gmail-v1-users-userId-settings-delegates-delegateEmail
+      path: /gmail/v1/users/{userId}/settings/delegates/{delegateEmail}
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Delegates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: delegateEmail
+          in: path
+          type: string
+          description: (Required)
+          required: true
+      - name: delete
+        method: DELETE
+        description: Google Delete Delegates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: delegateEmail
+          in: path
+          type: string
+          description: (Required)
+          required: true
+  exposes:
+  - type: rest
+    namespace: gmail-delegates-rest
+    port: 8080
+    description: REST adapter for Google Gmail API — Delegates. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/gmail/v1/users/{userid}/settings/delegates
+      name: gmail-v1-users-userid-settings-delegates
+      description: REST surface for gmail-v1-users-userId-settings-delegates.
+      operations:
+      - method: GET
+        name: get
+        description: Google List Delegates
+        call: gmail-delegates.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Google Create Delegates
+        call: gmail-delegates.post
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          userId: rest.userId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/settings/delegates/{delegateemail}
+      name: gmail-v1-users-userid-settings-delegates-delegateemail
+      description: REST surface for gmail-v1-users-userId-settings-delegates-delegateEmail.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Delegates
+        call: gmail-delegates.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+          delegateEmail: rest.delegateEmail
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: Google Delete Delegates
+        call: gmail-delegates.delete
+        with:
+          userId: rest.userId
+          delegateEmail: rest.delegateEmail
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gmail-delegates-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Gmail API — Delegates. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: google-list-delegates
+      description: Google List Delegates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-delegates.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-create-delegates
+      description: Google Create Delegates
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: gmail-delegates.post
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        userId: tools.userId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-delegates
+      description: Google Get Delegates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-delegates.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+        delegateEmail: tools.delegateEmail
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-delete-delegates
+      description: Google Delete Delegates
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: gmail-delegates.delete
+      with:
+        userId: tools.userId
+        delegateEmail: tools.delegateEmail
+      outputParameters:
+      - type: object
+        mapping: $.

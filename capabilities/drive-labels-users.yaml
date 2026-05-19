@@ -1,0 +1,173 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Drive Labels API — Users
+  description: 'Google Drive Labels API — Users. 1 operations. Lead operation: Google Retrieve Name. Self-contained Naftiko
+    capability covering one Google business surface.'
+  tags:
+  - Google
+  - Users
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: drive-labels-users
+    baseUri: https://drivelabels.googleapis.com
+    description: Google Drive Labels API — Users business capability. Self-contained, no shared references.
+    resources:
+    - name: v2-name
+      path: /v2/{name}
+      operations:
+      - name: googledrivelabelsusersgetcapabilities
+        method: GET
+        description: Google Retrieve Name
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          description: Required. The resource name of the user. Only "users/me/capabilities" is supported.
+          required: true
+        - name: customer
+          in: query
+          type: string
+          description: 'The customer to scope this request to. For example: "customers/abcd1234". If unset, will return settings
+            within the current customer.'
+        - name: useAdminAccess
+          in: query
+          type: boolean
+          description: Set to `true` in order to use the user's admin credentials. The server verifies that the user is an
+            admin for the label before allowing access.
+        - name: view
+          in: query
+          type: string
+          description: When specified, only certain fields belonging to the indicated view are returned.
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+        - name: Authorization
+          in: header
+          type: string
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: drive-labels-users-rest
+    port: 8080
+    description: REST adapter for Google Drive Labels API — Users. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v2/{name}
+      name: v2-name
+      description: REST surface for v2-name.
+      operations:
+      - method: GET
+        name: googledrivelabelsusersgetcapabilities
+        description: Google Retrieve Name
+        call: drive-labels-users.googledrivelabelsusersgetcapabilities
+        with:
+          name: rest.name
+          customer: rest.customer
+          useAdminAccess: rest.useAdminAccess
+          view: rest.view
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: drive-labels-users-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Drive Labels API — Users. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: google-retrieve-name
+      description: Google Retrieve Name
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: drive-labels-users.googledrivelabelsusersgetcapabilities
+      with:
+        name: tools.name
+        customer: tools.customer
+        useAdminAccess: tools.useAdminAccess
+        view: tools.view
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

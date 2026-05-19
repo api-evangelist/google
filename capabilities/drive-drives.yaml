@@ -1,0 +1,883 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Drive API — Drives
+  description: 'Google Drive API — Drives. 7 operations. Lead operation: Google Get Drives. Self-contained Naftiko capability
+    covering one Google business surface.'
+  tags:
+  - Google
+  - Drives
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: drive-drives
+    baseUri: https://www.googleapis.com/drive/v3
+    description: Google Drive API — Drives business capability. Self-contained, no shared references.
+    resources:
+    - name: drives
+      path: /drives
+      operations:
+      - name: googledrivedriveslist
+        method: GET
+        description: Google Get Drives
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: pageSize
+          in: query
+          type: integer
+          description: Maximum number of shared drives to return per page.
+        - name: pageToken
+          in: query
+          type: string
+          description: Page token for shared drives.
+        - name: q
+          in: query
+          type: string
+          description: Query string for searching shared drives.
+        - name: useDomainAdminAccess
+          in: query
+          type: boolean
+          description: Issue the request as a domain administrator; if set to true, then all shared drives of the domain in
+            which the requester is an administrator are returned.
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+      - name: googledrivedrivescreate
+        method: POST
+        description: Google Post Drives
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: requestId
+          in: query
+          type: string
+          description: 'Required. An ID, such as a random UUID, which uniquely identifies this user''s request for idempotent
+            creation of a shared drive. A repeated request by the same '
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: drives-driveId
+      path: /drives/{driveId}
+      operations:
+      - name: googledrivedrivesget
+        method: GET
+        description: Google Get Drives Driveid
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: driveId
+          in: path
+          type: string
+          description: The ID of the shared drive.
+          required: true
+        - name: useDomainAdminAccess
+          in: query
+          type: boolean
+          description: Issue the request as a domain administrator; if set to true, then the requester will be granted access
+            if they are an administrator of the domain to which the s
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+      - name: googledrivedrivesupdate
+        method: PATCH
+        description: Google Patch Drives Driveid
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: driveId
+          in: path
+          type: string
+          description: The ID of the shared drive.
+          required: true
+        - name: useDomainAdminAccess
+          in: query
+          type: boolean
+          description: Issue the request as a domain administrator; if set to true, then the requester will be granted access
+            if they are an administrator of the domain to which the s
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: googledrivedrivesdelete
+        method: DELETE
+        description: Google Delete Drives Driveid
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: driveId
+          in: path
+          type: string
+          description: The ID of the shared drive.
+          required: true
+        - name: allowItemDeletion
+          in: query
+          type: boolean
+          description: Whether any items inside the shared drive should also be deleted. This option is only supported when
+            `useDomainAdminAccess` is also set to `true`.
+        - name: useDomainAdminAccess
+          in: query
+          type: boolean
+          description: Issue the request as a domain administrator; if set to true, then the requester will be granted access
+            if they are an administrator of the domain to which the s
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+    - name: drives-driveId-hide
+      path: /drives/{driveId}/hide
+      operations:
+      - name: googledrivedriveshide
+        method: POST
+        description: Google Post Drives Driveid Hide
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: driveId
+          in: path
+          type: string
+          description: The ID of the shared drive.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+    - name: drives-driveId-unhide
+      path: /drives/{driveId}/unhide
+      operations:
+      - name: googledrivedrivesunhide
+        method: POST
+        description: Google Post Drives Driveid Unhide
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: driveId
+          in: path
+          type: string
+          description: The ID of the shared drive.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: drive-drives-rest
+    port: 8080
+    description: REST adapter for Google Drive API — Drives. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/drives
+      name: drives
+      description: REST surface for drives.
+      operations:
+      - method: GET
+        name: googledrivedriveslist
+        description: Google Get Drives
+        call: drive-drives.googledrivedriveslist
+        with:
+          pageSize: rest.pageSize
+          pageToken: rest.pageToken
+          q: rest.q
+          useDomainAdminAccess: rest.useDomainAdminAccess
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: googledrivedrivescreate
+        description: Google Post Drives
+        call: drive-drives.googledrivedrivescreate
+        with:
+          requestId: rest.requestId
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/drives/{driveid}
+      name: drives-driveid
+      description: REST surface for drives-driveId.
+      operations:
+      - method: GET
+        name: googledrivedrivesget
+        description: Google Get Drives Driveid
+        call: drive-drives.googledrivedrivesget
+        with:
+          driveId: rest.driveId
+          useDomainAdminAccess: rest.useDomainAdminAccess
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: googledrivedrivesupdate
+        description: Google Patch Drives Driveid
+        call: drive-drives.googledrivedrivesupdate
+        with:
+          driveId: rest.driveId
+          useDomainAdminAccess: rest.useDomainAdminAccess
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: googledrivedrivesdelete
+        description: Google Delete Drives Driveid
+        call: drive-drives.googledrivedrivesdelete
+        with:
+          driveId: rest.driveId
+          allowItemDeletion: rest.allowItemDeletion
+          useDomainAdminAccess: rest.useDomainAdminAccess
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/drives/{driveid}/hide
+      name: drives-driveid-hide
+      description: REST surface for drives-driveId-hide.
+      operations:
+      - method: POST
+        name: googledrivedriveshide
+        description: Google Post Drives Driveid Hide
+        call: drive-drives.googledrivedriveshide
+        with:
+          driveId: rest.driveId
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/drives/{driveid}/unhide
+      name: drives-driveid-unhide
+      description: REST surface for drives-driveId-unhide.
+      operations:
+      - method: POST
+        name: googledrivedrivesunhide
+        description: Google Post Drives Driveid Unhide
+        call: drive-drives.googledrivedrivesunhide
+        with:
+          driveId: rest.driveId
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: drive-drives-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Drive API — Drives. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: google-get-drives
+      description: Google Get Drives
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: drive-drives.googledrivedriveslist
+      with:
+        pageSize: tools.pageSize
+        pageToken: tools.pageToken
+        q: tools.q
+        useDomainAdminAccess: tools.useDomainAdminAccess
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-post-drives
+      description: Google Post Drives
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: drive-drives.googledrivedrivescreate
+      with:
+        requestId: tools.requestId
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-drives-driveid
+      description: Google Get Drives Driveid
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: drive-drives.googledrivedrivesget
+      with:
+        driveId: tools.driveId
+        useDomainAdminAccess: tools.useDomainAdminAccess
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-patch-drives-driveid
+      description: Google Patch Drives Driveid
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: drive-drives.googledrivedrivesupdate
+      with:
+        driveId: tools.driveId
+        useDomainAdminAccess: tools.useDomainAdminAccess
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-delete-drives-driveid
+      description: Google Delete Drives Driveid
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: drive-drives.googledrivedrivesdelete
+      with:
+        driveId: tools.driveId
+        allowItemDeletion: tools.allowItemDeletion
+        useDomainAdminAccess: tools.useDomainAdminAccess
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-post-drives-driveid-hide
+      description: Google Post Drives Driveid Hide
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: drive-drives.googledrivedriveshide
+      with:
+        driveId: tools.driveId
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-post-drives-driveid-unhide
+      description: Google Post Drives Driveid Unhide
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: drive-drives.googledrivedrivesunhide
+      with:
+        driveId: tools.driveId
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+      outputParameters:
+      - type: object
+        mapping: $.

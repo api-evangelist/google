@@ -1,0 +1,94 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Gmail API — Import
+  description: 'Google Gmail API — Import. 1 operations. Lead operation: Google Import Messages. Self-contained Naftiko capability
+    covering one Google business surface.'
+  tags:
+  - Google
+  - Import
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gmail-import
+    baseUri: https://gmail.googleapis.com
+    description: Google Gmail API — Import business capability. Self-contained, no shared references.
+    resources:
+    - name: gmail-v1-users-userId-messages-import
+      path: /gmail/v1/users/{userId}/messages/import
+      operations:
+      - name: post
+        method: POST
+        description: Google Import Messages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+  exposes:
+  - type: rest
+    namespace: gmail-import-rest
+    port: 8080
+    description: REST adapter for Google Gmail API — Import. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/gmail/v1/users/{userid}/messages/import
+      name: gmail-v1-users-userid-messages-import
+      description: REST surface for gmail-v1-users-userId-messages-import.
+      operations:
+      - method: POST
+        name: post
+        description: Google Import Messages
+        call: gmail-import.post
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          userId: rest.userId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gmail-import-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Gmail API — Import. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: google-import-messages
+      description: Google Import Messages
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: gmail-import.post
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        userId: tools.userId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,281 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Drive API — Applications
+  description: 'Google Drive API — Applications. 2 operations. Lead operation: Google Get Apps. Self-contained Naftiko capability
+    covering one Google business surface.'
+  tags:
+  - Google
+  - Applications
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: drive-applications
+    baseUri: https://www.googleapis.com/drive/v3
+    description: Google Drive API — Applications business capability. Self-contained, no shared references.
+    resources:
+    - name: apps
+      path: /apps
+      operations:
+      - name: googledriveappslist
+        method: GET
+        description: Google Get Apps
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: appFilterExtensions
+          in: query
+          type: string
+          description: A comma-separated list of file extensions to limit returned results. All results within the given app
+            query scope which can open any of the given file extension
+        - name: appFilterMimeTypes
+          in: query
+          type: string
+          description: A comma-separated list of file extensions to limit returned results. All results within the given app
+            query scope which can open any of the given MIME types wil
+        - name: languageCode
+          in: query
+          type: string
+          description: A language or locale code, as defined by BCP 47, with some extensions from Unicode's LDML format (http://www.unicode.org/reports/tr35/).
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+    - name: apps-appId
+      path: /apps/{appId}
+      operations:
+      - name: googledriveappsget
+        method: GET
+        description: Google Get Apps Appid
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: appId
+          in: path
+          type: string
+          description: The ID of the app.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: drive-applications-rest
+    port: 8080
+    description: REST adapter for Google Drive API — Applications. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/apps
+      name: apps
+      description: REST surface for apps.
+      operations:
+      - method: GET
+        name: googledriveappslist
+        description: Google Get Apps
+        call: drive-applications.googledriveappslist
+        with:
+          appFilterExtensions: rest.appFilterExtensions
+          appFilterMimeTypes: rest.appFilterMimeTypes
+          languageCode: rest.languageCode
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/apps/{appid}
+      name: apps-appid
+      description: REST surface for apps-appId.
+      operations:
+      - method: GET
+        name: googledriveappsget
+        description: Google Get Apps Appid
+        call: drive-applications.googledriveappsget
+        with:
+          appId: rest.appId
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: drive-applications-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Drive API — Applications. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: google-get-apps
+      description: Google Get Apps
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: drive-applications.googledriveappslist
+      with:
+        appFilterExtensions: tools.appFilterExtensions
+        appFilterMimeTypes: tools.appFilterMimeTypes
+        languageCode: tools.languageCode
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-apps-appid
+      description: Google Get Apps Appid
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: drive-applications.googledriveappsget
+      with:
+        appId: tools.appId
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+      outputParameters:
+      - type: object
+        mapping: $.

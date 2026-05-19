@@ -1,0 +1,95 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Gmail API — Obliterate
+  description: 'Google Gmail API — Obliterate. 1 operations. Lead operation: Google Obliterate CSE Keypairs. Self-contained
+    Naftiko capability covering one Google business surface.'
+  tags:
+  - Google
+  - Obliterate
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gmail-obliterate
+    baseUri: https://gmail.googleapis.com
+    description: Google Gmail API — Obliterate business capability. Self-contained, no shared references.
+    resources:
+    - name: gmail-v1-users-userId-settings-cse-keypairs-keyPairId}:obliterate
+      path: /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:obliterate
+      operations:
+      - name: post
+        method: POST
+        description: Google Obliterate CSE Keypairs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: keyPairId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+  exposes:
+  - type: rest
+    namespace: gmail-obliterate-rest
+    port: 8080
+    description: REST adapter for Google Gmail API — Obliterate. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/gmail/v1/users/{userid}/settings/cse/keypairs/keypairid-obliterate
+      name: gmail-v1-users-userid-settings-cse-keypairs-keypairid-obliterate
+      description: REST surface for gmail-v1-users-userId-settings-cse-keypairs-keyPairId}:obliterate.
+      operations:
+      - method: POST
+        name: post
+        description: Google Obliterate CSE Keypairs
+        call: gmail-obliterate.post
+        with:
+          Content-Type: rest.Content-Type
+          userId: rest.userId
+          keyPairId: rest.keyPairId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gmail-obliterate-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Gmail API — Obliterate. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: google-obliterate-cse-keypairs
+      description: Google Obliterate CSE Keypairs
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: gmail-obliterate.post
+      with:
+        Content-Type: tools.Content-Type
+        userId: tools.userId
+        keyPairId: tools.keyPairId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

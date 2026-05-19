@@ -1,0 +1,169 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Gemini API — Video Understanding
+  description: 'Google Gemini API — Video Understanding. 2 operations. Lead operation: Google Upload File (Resumable). Self-contained
+    Naftiko capability covering one Google business surface.'
+  tags:
+  - Google
+  - Video Understanding
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gemini-video-understanding
+    baseUri: https://generativelanguage.googleapis.com/v1beta
+    description: Google Gemini API — Video Understanding business capability. Self-contained, no shared references.
+    resources:
+    - name: files
+      path: /files
+      operations:
+      - name: uploadfile
+        method: POST
+        description: Google Upload File (Resumable)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Goog-Upload-Protocol
+          in: header
+          type: string
+          description: Upload protocol type
+          required: true
+        - name: X-Goog-Upload-Command
+          in: header
+          type: string
+          description: Upload command (start for initiation, "upload, finalize" for data upload)
+          required: true
+        - name: X-Goog-Upload-Header-Content-Length
+          in: header
+          type: integer
+          description: Total size of the file in bytes (required for start command)
+        - name: X-Goog-Upload-Header-Content-Type
+          in: header
+          type: string
+          description: MIME type of the file (required for start command)
+        - name: X-Goog-Upload-Offset
+          in: header
+          type: integer
+          description: Byte offset for upload (required for upload command)
+        - name: Content-Length
+          in: header
+          type: integer
+          description: Size of the current chunk being uploaded
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: models-model}:generateContent
+      path: /models/{model}:generateContent
+      operations:
+      - name: generatecontent
+        method: POST
+        description: Google Generate Content
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: model
+          in: path
+          type: string
+          description: The model to use for generation
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: x-goog-api-key
+      value: '{{env.GOOGLE_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: gemini-video-understanding-rest
+    port: 8080
+    description: REST adapter for Google Gemini API — Video Understanding. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/files
+      name: files
+      description: REST surface for files.
+      operations:
+      - method: POST
+        name: uploadfile
+        description: Google Upload File (Resumable)
+        call: gemini-video-understanding.uploadfile
+        with:
+          X-Goog-Upload-Protocol: rest.X-Goog-Upload-Protocol
+          X-Goog-Upload-Command: rest.X-Goog-Upload-Command
+          X-Goog-Upload-Header-Content-Length: rest.X-Goog-Upload-Header-Content-Length
+          X-Goog-Upload-Header-Content-Type: rest.X-Goog-Upload-Header-Content-Type
+          X-Goog-Upload-Offset: rest.X-Goog-Upload-Offset
+          Content-Length: rest.Content-Length
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/models/model-generatecontent
+      name: models-model-generatecontent
+      description: REST surface for models-model}:generateContent.
+      operations:
+      - method: POST
+        name: generatecontent
+        description: Google Generate Content
+        call: gemini-video-understanding.generatecontent
+        with:
+          model: rest.model
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gemini-video-understanding-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Gemini API — Video Understanding. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: google-upload-file-resumable
+      description: Google Upload File (Resumable)
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: gemini-video-understanding.uploadfile
+      with:
+        X-Goog-Upload-Protocol: tools.X-Goog-Upload-Protocol
+        X-Goog-Upload-Command: tools.X-Goog-Upload-Command
+        X-Goog-Upload-Header-Content-Length: tools.X-Goog-Upload-Header-Content-Length
+        X-Goog-Upload-Header-Content-Type: tools.X-Goog-Upload-Header-Content-Type
+        X-Goog-Upload-Offset: tools.X-Goog-Upload-Offset
+        Content-Length: tools.Content-Length
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-generate-content
+      description: Google Generate Content
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: gemini-video-understanding.generatecontent
+      with:
+        model: tools.model
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

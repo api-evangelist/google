@@ -1,0 +1,94 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Sheets API — Search
+  description: 'Google Sheets API — Search. 1 operations. Lead operation: Google Search Developer Metadata. Self-contained
+    Naftiko capability covering one Google business surface.'
+  tags:
+  - Google
+  - Search
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: sheets-search
+    baseUri: https://sheets.googleapis.com
+    description: Google Sheets API — Search business capability. Self-contained, no shared references.
+    resources:
+    - name: v4-spreadsheets-spreadsheetId-developerMetadata:search
+      path: /v4/spreadsheets/{spreadsheetId}/developerMetadata:search
+      operations:
+      - name: post
+        method: POST
+        description: Google Search Developer Metadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: spreadsheetId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+  exposes:
+  - type: rest
+    namespace: sheets-search-rest
+    port: 8080
+    description: REST adapter for Google Sheets API — Search. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v4/spreadsheets/{spreadsheetid}/developermetadata-search
+      name: v4-spreadsheets-spreadsheetid-developermetadata-search
+      description: REST surface for v4-spreadsheets-spreadsheetId-developerMetadata:search.
+      operations:
+      - method: POST
+        name: post
+        description: Google Search Developer Metadata
+        call: sheets-search.post
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          spreadsheetId: rest.spreadsheetId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sheets-search-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Sheets API — Search. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: google-search-developer-metadata
+      description: Google Search Developer Metadata
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: sheets-search.post
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        spreadsheetId: tools.spreadsheetId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

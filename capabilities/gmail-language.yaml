@@ -1,0 +1,134 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Gmail API — Language
+  description: 'Google Gmail API — Language. 2 operations. Lead operation: Google Get Language Settings. Self-contained Naftiko
+    capability covering one Google business surface.'
+  tags:
+  - Google
+  - Language
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gmail-language
+    baseUri: https://gmail.googleapis.com
+    description: Google Gmail API — Language business capability. Self-contained, no shared references.
+    resources:
+    - name: gmail-v1-users-userId-settings-language
+      path: /gmail/v1/users/{userId}/settings/language
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Language Settings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+      - name: put
+        method: PUT
+        description: Google Update Language Settings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+  exposes:
+  - type: rest
+    namespace: gmail-language-rest
+    port: 8080
+    description: REST adapter for Google Gmail API — Language. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/gmail/v1/users/{userid}/settings/language
+      name: gmail-v1-users-userid-settings-language
+      description: REST surface for gmail-v1-users-userId-settings-language.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Language Settings
+        call: gmail-language.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: put
+        description: Google Update Language Settings
+        call: gmail-language.put
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          userId: rest.userId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gmail-language-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Gmail API — Language. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: google-get-language-settings
+      description: Google Get Language Settings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-language.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-update-language-settings
+      description: Google Update Language Settings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: gmail-language.put
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        userId: tools.userId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

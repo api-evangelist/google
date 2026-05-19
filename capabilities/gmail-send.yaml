@@ -1,0 +1,632 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Gmail API — Send
+  description: 'Google Gmail API — Send. 11 operations. Lead operation: Google Send Drafts. Self-contained Naftiko capability
+    covering one Google business surface.'
+  tags:
+  - Google
+  - Send
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gmail-send
+    baseUri: https://gmail.googleapis.com
+    description: Google Gmail API — Send business capability. Self-contained, no shared references.
+    resources:
+    - name: gmail-v1-users-userId-drafts-send
+      path: /gmail/v1/users/{userId}/drafts/send
+      operations:
+      - name: post
+        method: POST
+        description: Google Send Drafts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: gmail-v1-users-userId-messages-send
+      path: /gmail/v1/users/{userId}/messages/send
+      operations:
+      - name: post
+        method: POST
+        description: Google Send Messages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: gmail-v1-users-userId-settings-sendAs
+      path: /gmail/v1/users/{userId}/settings/sendAs
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Send As
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+      - name: post
+        method: POST
+        description: Google Create Send As
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: gmail-v1-users-userId-settings-sendAs-sendAsEmail
+      path: /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Send As
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: sendAsEmail
+          in: path
+          type: string
+          description: (Required)
+          required: true
+      - name: put
+        method: PUT
+        description: Google Update Send As Setting
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: sendAsEmail
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: patch
+        method: PATCH
+        description: Google Patch Send As
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: sendAsEmail
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: delete
+        method: DELETE
+        description: Google Delete Send As
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: sendAsEmail
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: gmail-v1-users-userId-settings-sendAs-sendAsEmail-smimeInfo-id
+      path: /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Send As SMIME Info
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: sendAsEmail
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: id
+          in: path
+          type: string
+          description: (Required)
+          required: true
+      - name: delete
+        method: DELETE
+        description: Google Delete Send As SMIME INfo
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: sendAsEmail
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: id
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: gmail-v1-users-userId-settings-sendAs-sendAsEmail-verify
+      path: /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/verify
+      operations:
+      - name: post
+        method: POST
+        description: Google Verify Send As
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: sendAsEmail
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+  exposes:
+  - type: rest
+    namespace: gmail-send-rest
+    port: 8080
+    description: REST adapter for Google Gmail API — Send. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/gmail/v1/users/{userid}/drafts/send
+      name: gmail-v1-users-userid-drafts-send
+      description: REST surface for gmail-v1-users-userId-drafts-send.
+      operations:
+      - method: POST
+        name: post
+        description: Google Send Drafts
+        call: gmail-send.post
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          userId: rest.userId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/messages/send
+      name: gmail-v1-users-userid-messages-send
+      description: REST surface for gmail-v1-users-userId-messages-send.
+      operations:
+      - method: POST
+        name: post
+        description: Google Send Messages
+        call: gmail-send.post
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          userId: rest.userId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/settings/sendas
+      name: gmail-v1-users-userid-settings-sendas
+      description: REST surface for gmail-v1-users-userId-settings-sendAs.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Send As
+        call: gmail-send.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Google Create Send As
+        call: gmail-send.post
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          userId: rest.userId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/settings/sendas/{sendasemail}
+      name: gmail-v1-users-userid-settings-sendas-sendasemail
+      description: REST surface for gmail-v1-users-userId-settings-sendAs-sendAsEmail.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Send As
+        call: gmail-send.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+          sendAsEmail: rest.sendAsEmail
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: put
+        description: Google Update Send As Setting
+        call: gmail-send.put
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          userId: rest.userId
+          sendAsEmail: rest.sendAsEmail
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patch
+        description: Google Patch Send As
+        call: gmail-send.patch
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          userId: rest.userId
+          sendAsEmail: rest.sendAsEmail
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: Google Delete Send As
+        call: gmail-send.delete
+        with:
+          userId: rest.userId
+          sendAsEmail: rest.sendAsEmail
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/settings/sendas/{sendasemail}/smimeinfo/{id}
+      name: gmail-v1-users-userid-settings-sendas-sendasemail-smimeinfo-id
+      description: REST surface for gmail-v1-users-userId-settings-sendAs-sendAsEmail-smimeInfo-id.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Send As SMIME Info
+        call: gmail-send.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+          sendAsEmail: rest.sendAsEmail
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: Google Delete Send As SMIME INfo
+        call: gmail-send.delete
+        with:
+          userId: rest.userId
+          sendAsEmail: rest.sendAsEmail
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/settings/sendas/{sendasemail}/verify
+      name: gmail-v1-users-userid-settings-sendas-sendasemail-verify
+      description: REST surface for gmail-v1-users-userId-settings-sendAs-sendAsEmail-verify.
+      operations:
+      - method: POST
+        name: post
+        description: Google Verify Send As
+        call: gmail-send.post
+        with:
+          userId: rest.userId
+          sendAsEmail: rest.sendAsEmail
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gmail-send-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Gmail API — Send. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: google-send-drafts
+      description: Google Send Drafts
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: gmail-send.post
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        userId: tools.userId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-send-messages
+      description: Google Send Messages
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: gmail-send.post
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        userId: tools.userId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-send
+      description: Google Get Send As
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-send.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-create-send
+      description: Google Create Send As
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: gmail-send.post
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        userId: tools.userId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-send-2
+      description: Google Get Send As
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-send.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+        sendAsEmail: tools.sendAsEmail
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-update-send-setting
+      description: Google Update Send As Setting
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: gmail-send.put
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        userId: tools.userId
+        sendAsEmail: tools.sendAsEmail
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-patch-send
+      description: Google Patch Send As
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: gmail-send.patch
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        userId: tools.userId
+        sendAsEmail: tools.sendAsEmail
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-delete-send
+      description: Google Delete Send As
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: gmail-send.delete
+      with:
+        userId: tools.userId
+        sendAsEmail: tools.sendAsEmail
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-send-smime-info
+      description: Google Get Send As SMIME Info
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-send.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+        sendAsEmail: tools.sendAsEmail
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-delete-send-smime-info
+      description: Google Delete Send As SMIME INfo
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: gmail-send.delete
+      with:
+        userId: tools.userId
+        sendAsEmail: tools.sendAsEmail
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-verify-send
+      description: Google Verify Send As
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: gmail-send.post
+      with:
+        userId: tools.userId
+        sendAsEmail: tools.sendAsEmail
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

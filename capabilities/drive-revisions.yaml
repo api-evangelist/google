@@ -1,0 +1,532 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Drive API — Revisions
+  description: 'Google Drive API — Revisions. 4 operations. Lead operation: Google Get Files Fileid Revisions. Self-contained
+    Naftiko capability covering one Google business surface.'
+  tags:
+  - Google
+  - Revisions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: drive-revisions
+    baseUri: https://www.googleapis.com/drive/v3
+    description: Google Drive API — Revisions business capability. Self-contained, no shared references.
+    resources:
+    - name: files-fileId-revisions
+      path: /files/{fileId}/revisions
+      operations:
+      - name: googledriverevisionslist
+        method: GET
+        description: Google Get Files Fileid Revisions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fileId
+          in: path
+          type: string
+          description: The ID of the file.
+          required: true
+        - name: pageSize
+          in: query
+          type: integer
+          description: The maximum number of revisions to return per page.
+        - name: pageToken
+          in: query
+          type: string
+          description: The token for continuing a previous list request on the next page. This should be set to the value
+            of 'nextPageToken' from the previous response.
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+    - name: files-fileId-revisions-revisionId
+      path: /files/{fileId}/revisions/{revisionId}
+      operations:
+      - name: googledriverevisionsget
+        method: GET
+        description: Google Get Files Fileid Revisions Revisionid
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fileId
+          in: path
+          type: string
+          description: The ID of the file.
+          required: true
+        - name: revisionId
+          in: path
+          type: string
+          description: The ID of the revision.
+          required: true
+        - name: acknowledgeAbuse
+          in: query
+          type: boolean
+          description: Whether the user is acknowledging the risk of downloading known malware or other abusive files. This
+            is only applicable when alt=media.
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+      - name: googledriverevisionsupdate
+        method: PATCH
+        description: Google Patch Files Fileid Revisions Revisionid
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fileId
+          in: path
+          type: string
+          description: The ID of the file.
+          required: true
+        - name: revisionId
+          in: path
+          type: string
+          description: The ID of the revision.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: googledriverevisionsdelete
+        method: DELETE
+        description: Google Delete Files Fileid Revisions Revisionid
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fileId
+          in: path
+          type: string
+          description: The ID of the file.
+          required: true
+        - name: revisionId
+          in: path
+          type: string
+          description: The ID of the revision.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: drive-revisions-rest
+    port: 8080
+    description: REST adapter for Google Drive API — Revisions. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/files/{fileid}/revisions
+      name: files-fileid-revisions
+      description: REST surface for files-fileId-revisions.
+      operations:
+      - method: GET
+        name: googledriverevisionslist
+        description: Google Get Files Fileid Revisions
+        call: drive-revisions.googledriverevisionslist
+        with:
+          fileId: rest.fileId
+          pageSize: rest.pageSize
+          pageToken: rest.pageToken
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/files/{fileid}/revisions/{revisionid}
+      name: files-fileid-revisions-revisionid
+      description: REST surface for files-fileId-revisions-revisionId.
+      operations:
+      - method: GET
+        name: googledriverevisionsget
+        description: Google Get Files Fileid Revisions Revisionid
+        call: drive-revisions.googledriverevisionsget
+        with:
+          fileId: rest.fileId
+          revisionId: rest.revisionId
+          acknowledgeAbuse: rest.acknowledgeAbuse
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: googledriverevisionsupdate
+        description: Google Patch Files Fileid Revisions Revisionid
+        call: drive-revisions.googledriverevisionsupdate
+        with:
+          fileId: rest.fileId
+          revisionId: rest.revisionId
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: googledriverevisionsdelete
+        description: Google Delete Files Fileid Revisions Revisionid
+        call: drive-revisions.googledriverevisionsdelete
+        with:
+          fileId: rest.fileId
+          revisionId: rest.revisionId
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: drive-revisions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Drive API — Revisions. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: google-get-files-fileid-revisions
+      description: Google Get Files Fileid Revisions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: drive-revisions.googledriverevisionslist
+      with:
+        fileId: tools.fileId
+        pageSize: tools.pageSize
+        pageToken: tools.pageToken
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-files-fileid-revisions-2
+      description: Google Get Files Fileid Revisions Revisionid
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: drive-revisions.googledriverevisionsget
+      with:
+        fileId: tools.fileId
+        revisionId: tools.revisionId
+        acknowledgeAbuse: tools.acknowledgeAbuse
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-patch-files-fileid-revisions
+      description: Google Patch Files Fileid Revisions Revisionid
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: drive-revisions.googledriverevisionsupdate
+      with:
+        fileId: tools.fileId
+        revisionId: tools.revisionId
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-delete-files-fileid-revisions
+      description: Google Delete Files Fileid Revisions Revisionid
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: drive-revisions.googledriverevisionsdelete
+      with:
+        fileId: tools.fileId
+        revisionId: tools.revisionId
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+      outputParameters:
+      - type: object
+        mapping: $.

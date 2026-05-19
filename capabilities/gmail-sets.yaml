@@ -1,0 +1,98 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Gmail API — Sets
+  description: 'Google Gmail API — Sets. 1 operations. Lead operation: Google Set default S/MIME config. Self-contained Naftiko
+    capability covering one Google business surface.'
+  tags:
+  - Google
+  - Sets
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gmail-sets
+    baseUri: https://gmail.googleapis.com
+    description: Google Gmail API — Sets business capability. Self-contained, no shared references.
+    resources:
+    - name: gmail-v1-users-userId-settings-sendAs-sendAsEmail-smimeInfo-id-setDefault
+      path: /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}/setDefault
+      operations:
+      - name: post
+        method: POST
+        description: Google Set default S/MIME config
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: sendAsEmail
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: id
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+  exposes:
+  - type: rest
+    namespace: gmail-sets-rest
+    port: 8080
+    description: REST adapter for Google Gmail API — Sets. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/gmail/v1/users/{userid}/settings/sendas/{sendasemail}/smimeinfo/{id}/setdefault
+      name: gmail-v1-users-userid-settings-sendas-sendasemail-smimeinfo-id-setdefault
+      description: REST surface for gmail-v1-users-userId-settings-sendAs-sendAsEmail-smimeInfo-id-setDefault.
+      operations:
+      - method: POST
+        name: post
+        description: Google Set default S/MIME config
+        call: gmail-sets.post
+        with:
+          userId: rest.userId
+          sendAsEmail: rest.sendAsEmail
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gmail-sets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Gmail API — Sets. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: google-set-default-s-mime
+      description: Google Set default S/MIME config
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: gmail-sets.post
+      with:
+        userId: tools.userId
+        sendAsEmail: tools.sendAsEmail
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Calendar API — Colors
+  description: 'Google Calendar API — Colors. 1 operations. Lead operation: Google Get Calendar Colors. Self-contained Naftiko
+    capability covering one Google business surface.'
+  tags:
+  - Google
+  - Colors
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: calendar-colors
+    baseUri: https://www.googleapis.com/calendar/v3
+    description: Google Calendar API — Colors business capability. Self-contained, no shared references.
+    resources:
+    - name: colors
+      path: /colors
+      operations:
+      - name: googlegetcalendarcolors
+        method: GET
+        description: Google Get Calendar Colors
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: Authorization
+          in: header
+          type: string
+  exposes:
+  - type: rest
+    namespace: calendar-colors-rest
+    port: 8080
+    description: REST adapter for Google Calendar API — Colors. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/colors
+      name: colors
+      description: REST surface for colors.
+      operations:
+      - method: GET
+        name: googlegetcalendarcolors
+        description: Google Get Calendar Colors
+        call: calendar-colors.googlegetcalendarcolors
+        with:
+          Accept: rest.Accept
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: calendar-colors-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Calendar API — Colors. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: google-get-calendar-colors
+      description: Google Get Calendar Colors
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: calendar-colors.googlegetcalendarcolors
+      with:
+        Accept: tools.Accept
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

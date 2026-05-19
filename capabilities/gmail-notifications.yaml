@@ -1,0 +1,84 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Gmail API — Notifications
+  description: 'Google Gmail API — Notifications. 1 operations. Lead operation: Google Stop Notifications for User. Self-contained
+    Naftiko capability covering one Google business surface.'
+  tags:
+  - Google
+  - Notifications
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gmail-notifications
+    baseUri: https://gmail.googleapis.com
+    description: Google Gmail API — Notifications business capability. Self-contained, no shared references.
+    resources:
+    - name: gmail-v1-users-userId-stop
+      path: /gmail/v1/users/{userId}/stop
+      operations:
+      - name: post
+        method: POST
+        description: Google Stop Notifications for User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+  exposes:
+  - type: rest
+    namespace: gmail-notifications-rest
+    port: 8080
+    description: REST adapter for Google Gmail API — Notifications. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/gmail/v1/users/{userid}/stop
+      name: gmail-v1-users-userid-stop
+      description: REST surface for gmail-v1-users-userId-stop.
+      operations:
+      - method: POST
+        name: post
+        description: Google Stop Notifications for User
+        call: gmail-notifications.post
+        with:
+          userId: rest.userId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gmail-notifications-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Gmail API — Notifications. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: google-stop-notifications-user
+      description: Google Stop Notifications for User
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: gmail-notifications.post
+      with:
+        userId: tools.userId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

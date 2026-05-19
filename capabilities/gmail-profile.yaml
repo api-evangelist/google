@@ -1,0 +1,81 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Gmail API — Profile
+  description: 'Google Gmail API — Profile. 1 operations. Lead operation: Google Get Profile. Self-contained Naftiko capability
+    covering one Google business surface.'
+  tags:
+  - Google
+  - Profile
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gmail-profile
+    baseUri: https://gmail.googleapis.com
+    description: Google Gmail API — Profile business capability. Self-contained, no shared references.
+    resources:
+    - name: gmail-v1-users-userId-profile
+      path: /gmail/v1/users/{userId}/profile
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Profile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          required: true
+  exposes:
+  - type: rest
+    namespace: gmail-profile-rest
+    port: 8080
+    description: REST adapter for Google Gmail API — Profile. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/gmail/v1/users/{userid}/profile
+      name: gmail-v1-users-userid-profile
+      description: REST surface for gmail-v1-users-userId-profile.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Profile
+        call: gmail-profile.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gmail-profile-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Gmail API — Profile. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: google-get-profile
+      description: Google Get Profile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-profile.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.

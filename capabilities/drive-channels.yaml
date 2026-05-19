@@ -1,0 +1,153 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Drive API — Channels
+  description: 'Google Drive API — Channels. 1 operations. Lead operation: Google Post Channels Stop. Self-contained Naftiko
+    capability covering one Google business surface.'
+  tags:
+  - Google
+  - Channels
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: drive-channels
+    baseUri: https://www.googleapis.com/drive/v3
+    description: Google Drive API — Channels business capability. Self-contained, no shared references.
+    resources:
+    - name: channels-stop
+      path: /channels/stop
+      operations:
+      - name: googledrivechannelsstop
+        method: POST
+        description: Google Post Channels Stop
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: drive-channels-rest
+    port: 8080
+    description: REST adapter for Google Drive API — Channels. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/channels/stop
+      name: channels-stop
+      description: REST surface for channels-stop.
+      operations:
+      - method: POST
+        name: googledrivechannelsstop
+        description: Google Post Channels Stop
+        call: drive-channels.googledrivechannelsstop
+        with:
+          Authorization: rest.Authorization
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: drive-channels-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Drive API — Channels. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: google-post-channels-stop
+      description: Google Post Channels Stop
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: drive-channels.googledrivechannelsstop
+      with:
+        Authorization: tools.Authorization
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

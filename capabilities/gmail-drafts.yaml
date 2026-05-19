@@ -1,0 +1,348 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Gmail API — Drafts
+  description: 'Google Gmail API — Drafts. 6 operations. Lead operation: Google List Drafts. Self-contained Naftiko capability
+    covering one Google business surface.'
+  tags:
+  - Google
+  - Drafts
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gmail-drafts
+    baseUri: https://gmail.googleapis.com
+    description: Google Gmail API — Drafts business capability. Self-contained, no shared references.
+    resources:
+    - name: gmail-v1-users-userId-drafts
+      path: /gmail/v1/users/{userId}/drafts
+      operations:
+      - name: get
+        method: GET
+        description: Google List Drafts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+      - name: post
+        method: POST
+        description: Google Create Drafts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: gmail-v1-users-userId-drafts-send
+      path: /gmail/v1/users/{userId}/drafts/send
+      operations:
+      - name: post
+        method: POST
+        description: Google Send Drafts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: gmail-v1-users-userId-drafts-id
+      path: /gmail/v1/users/{userId}/drafts/{id}
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Drafts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: id
+          in: path
+          type: string
+          description: (Required)
+          required: true
+      - name: put
+        method: PUT
+        description: Google Update Drafts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: id
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: delete
+        method: DELETE
+        description: Google Delete Drafts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: id
+          in: path
+          type: string
+          description: (Required)
+          required: true
+  exposes:
+  - type: rest
+    namespace: gmail-drafts-rest
+    port: 8080
+    description: REST adapter for Google Gmail API — Drafts. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/gmail/v1/users/{userid}/drafts
+      name: gmail-v1-users-userid-drafts
+      description: REST surface for gmail-v1-users-userId-drafts.
+      operations:
+      - method: GET
+        name: get
+        description: Google List Drafts
+        call: gmail-drafts.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Google Create Drafts
+        call: gmail-drafts.post
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          userId: rest.userId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/drafts/send
+      name: gmail-v1-users-userid-drafts-send
+      description: REST surface for gmail-v1-users-userId-drafts-send.
+      operations:
+      - method: POST
+        name: post
+        description: Google Send Drafts
+        call: gmail-drafts.post
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          userId: rest.userId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/drafts/{id}
+      name: gmail-v1-users-userid-drafts-id
+      description: REST surface for gmail-v1-users-userId-drafts-id.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Drafts
+        call: gmail-drafts.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: put
+        description: Google Update Drafts
+        call: gmail-drafts.put
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          userId: rest.userId
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: Google Delete Drafts
+        call: gmail-drafts.delete
+        with:
+          userId: rest.userId
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gmail-drafts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Gmail API — Drafts. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: google-list-drafts
+      description: Google List Drafts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-drafts.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-create-drafts
+      description: Google Create Drafts
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: gmail-drafts.post
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        userId: tools.userId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-send-drafts
+      description: Google Send Drafts
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: gmail-drafts.post
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        userId: tools.userId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-drafts
+      description: Google Get Drafts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-drafts.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-update-drafts
+      description: Google Update Drafts
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: gmail-drafts.put
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        userId: tools.userId
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-delete-drafts
+      description: Google Delete Drafts
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: gmail-drafts.delete
+      with:
+        userId: tools.userId
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

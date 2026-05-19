@@ -1,0 +1,1025 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Gmail API — Get
+  description: 'Google Gmail API — Get. 19 operations. Lead operation: Google Get Drafts. Self-contained Naftiko capability
+    covering one Google business surface.'
+  tags:
+  - Google
+  - Get
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gmail-get
+    baseUri: https://gmail.googleapis.com
+    description: Google Gmail API — Get business capability. Self-contained, no shared references.
+    resources:
+    - name: gmail-v1-users-userId-drafts-id
+      path: /gmail/v1/users/{userId}/drafts/{id}
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Drafts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: id
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: gmail-v1-users-userId-labels-id
+      path: /gmail/v1/users/{userId}/labels/{id}
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Labels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: id
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: gmail-v1-users-userId-messages-id
+      path: /gmail/v1/users/{userId}/messages/{id}
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Messages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: id
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: gmail-v1-users-userId-messages-messageId-attachments-id
+      path: /gmail/v1/users/{userId}/messages/{messageId}/attachments/{id}
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Attachments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: messageId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: id
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: gmail-v1-users-userId-profile
+      path: /gmail/v1/users/{userId}/profile
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Profile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          required: true
+    - name: gmail-v1-users-userId-settings-autoForwarding
+      path: /gmail/v1/users/{userId}/settings/autoForwarding
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Auto Forwarding Settings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: gmail-v1-users-userId-settings-cse-identities-cseEmailAddress
+      path: /gmail/v1/users/{userId}/settings/cse/identities/{cseEmailAddress}
+      operations:
+      - name: get
+        method: GET
+        description: Google GET CSE Idenetites
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: cseEmailAddress
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: gmail-v1-users-userId-settings-cse-keypairs-keyPairId
+      path: /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}
+      operations:
+      - name: get
+        method: GET
+        description: Google GET CSE Keypairs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: keyPairId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: gmail-v1-users-userId-settings-delegates-delegateEmail
+      path: /gmail/v1/users/{userId}/settings/delegates/{delegateEmail}
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Delegates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: delegateEmail
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: gmail-v1-users-userId-settings-filters-id
+      path: /gmail/v1/users/{userId}/settings/filters/{id}
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Filters
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: id
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: gmail-v1-users-userId-settings-forwardingAddresses-forwardingEmail
+      path: /gmail/v1/users/{userId}/settings/forwardingAddresses/{forwardingEmail}
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Forwarding Addresses
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: forwardingEmail
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: gmail-v1-users-userId-settings-imap
+      path: /gmail/v1/users/{userId}/settings/imap
+      operations:
+      - name: get
+        method: GET
+        description: Google GET IMAP
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: gmail-v1-users-userId-settings-language
+      path: /gmail/v1/users/{userId}/settings/language
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Language Settings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: gmail-v1-users-userId-settings-pop
+      path: /gmail/v1/users/{userId}/settings/pop
+      operations:
+      - name: get
+        method: GET
+        description: Google Get POP Settings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: gmail-v1-users-userId-settings-sendAs
+      path: /gmail/v1/users/{userId}/settings/sendAs
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Send As
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: gmail-v1-users-userId-settings-sendAs-sendAsEmail
+      path: /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Send As
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: sendAsEmail
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: gmail-v1-users-userId-settings-sendAs-sendAsEmail-smimeInfo-id
+      path: /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Send As SMIME Info
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: sendAsEmail
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: id
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: gmail-v1-users-userId-settings-vacation
+      path: /gmail/v1/users/{userId}/settings/vacation
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Vacation Settings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: gmail-v1-users-userId-threads-id
+      path: /gmail/v1/users/{userId}/threads/{id}
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Threads
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: userId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: id
+          in: path
+          type: string
+          description: (Required)
+          required: true
+  exposes:
+  - type: rest
+    namespace: gmail-get-rest
+    port: 8080
+    description: REST adapter for Google Gmail API — Get. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/gmail/v1/users/{userid}/drafts/{id}
+      name: gmail-v1-users-userid-drafts-id
+      description: REST surface for gmail-v1-users-userId-drafts-id.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Drafts
+        call: gmail-get.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/labels/{id}
+      name: gmail-v1-users-userid-labels-id
+      description: REST surface for gmail-v1-users-userId-labels-id.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Labels
+        call: gmail-get.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/messages/{id}
+      name: gmail-v1-users-userid-messages-id
+      description: REST surface for gmail-v1-users-userId-messages-id.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Messages
+        call: gmail-get.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/messages/{messageid}/attachments/{id}
+      name: gmail-v1-users-userid-messages-messageid-attachments-id
+      description: REST surface for gmail-v1-users-userId-messages-messageId-attachments-id.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Attachments
+        call: gmail-get.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+          messageId: rest.messageId
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/profile
+      name: gmail-v1-users-userid-profile
+      description: REST surface for gmail-v1-users-userId-profile.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Profile
+        call: gmail-get.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/settings/autoforwarding
+      name: gmail-v1-users-userid-settings-autoforwarding
+      description: REST surface for gmail-v1-users-userId-settings-autoForwarding.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Auto Forwarding Settings
+        call: gmail-get.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/settings/cse/identities/{cseemailaddress}
+      name: gmail-v1-users-userid-settings-cse-identities-cseemailaddress
+      description: REST surface for gmail-v1-users-userId-settings-cse-identities-cseEmailAddress.
+      operations:
+      - method: GET
+        name: get
+        description: Google GET CSE Idenetites
+        call: gmail-get.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+          cseEmailAddress: rest.cseEmailAddress
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/settings/cse/keypairs/{keypairid}
+      name: gmail-v1-users-userid-settings-cse-keypairs-keypairid
+      description: REST surface for gmail-v1-users-userId-settings-cse-keypairs-keyPairId.
+      operations:
+      - method: GET
+        name: get
+        description: Google GET CSE Keypairs
+        call: gmail-get.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+          keyPairId: rest.keyPairId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/settings/delegates/{delegateemail}
+      name: gmail-v1-users-userid-settings-delegates-delegateemail
+      description: REST surface for gmail-v1-users-userId-settings-delegates-delegateEmail.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Delegates
+        call: gmail-get.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+          delegateEmail: rest.delegateEmail
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/settings/filters/{id}
+      name: gmail-v1-users-userid-settings-filters-id
+      description: REST surface for gmail-v1-users-userId-settings-filters-id.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Filters
+        call: gmail-get.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/settings/forwardingaddresses/{forwardingemail}
+      name: gmail-v1-users-userid-settings-forwardingaddresses-forwardingemail
+      description: REST surface for gmail-v1-users-userId-settings-forwardingAddresses-forwardingEmail.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Forwarding Addresses
+        call: gmail-get.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+          forwardingEmail: rest.forwardingEmail
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/settings/imap
+      name: gmail-v1-users-userid-settings-imap
+      description: REST surface for gmail-v1-users-userId-settings-imap.
+      operations:
+      - method: GET
+        name: get
+        description: Google GET IMAP
+        call: gmail-get.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/settings/language
+      name: gmail-v1-users-userid-settings-language
+      description: REST surface for gmail-v1-users-userId-settings-language.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Language Settings
+        call: gmail-get.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/settings/pop
+      name: gmail-v1-users-userid-settings-pop
+      description: REST surface for gmail-v1-users-userId-settings-pop.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get POP Settings
+        call: gmail-get.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/settings/sendas
+      name: gmail-v1-users-userid-settings-sendas
+      description: REST surface for gmail-v1-users-userId-settings-sendAs.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Send As
+        call: gmail-get.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/settings/sendas/{sendasemail}
+      name: gmail-v1-users-userid-settings-sendas-sendasemail
+      description: REST surface for gmail-v1-users-userId-settings-sendAs-sendAsEmail.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Send As
+        call: gmail-get.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+          sendAsEmail: rest.sendAsEmail
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/settings/sendas/{sendasemail}/smimeinfo/{id}
+      name: gmail-v1-users-userid-settings-sendas-sendasemail-smimeinfo-id
+      description: REST surface for gmail-v1-users-userId-settings-sendAs-sendAsEmail-smimeInfo-id.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Send As SMIME Info
+        call: gmail-get.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+          sendAsEmail: rest.sendAsEmail
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/settings/vacation
+      name: gmail-v1-users-userid-settings-vacation
+      description: REST surface for gmail-v1-users-userId-settings-vacation.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Vacation Settings
+        call: gmail-get.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gmail/v1/users/{userid}/threads/{id}
+      name: gmail-v1-users-userid-threads-id
+      description: REST surface for gmail-v1-users-userId-threads-id.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Threads
+        call: gmail-get.get
+        with:
+          Accept: rest.Accept
+          userId: rest.userId
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gmail-get-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Gmail API — Get. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: google-get-drafts
+      description: Google Get Drafts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-get.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-labels
+      description: Google Get Labels
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-get.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-messages
+      description: Google Get Messages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-get.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-attachments
+      description: Google Get Attachments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-get.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+        messageId: tools.messageId
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-profile
+      description: Google Get Profile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-get.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-auto-forwarding-settings
+      description: Google Get Auto Forwarding Settings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-get.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-cse-idenetites
+      description: Google GET CSE Idenetites
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-get.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+        cseEmailAddress: tools.cseEmailAddress
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-cse-keypairs
+      description: Google GET CSE Keypairs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-get.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+        keyPairId: tools.keyPairId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-delegates
+      description: Google Get Delegates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-get.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+        delegateEmail: tools.delegateEmail
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-filters
+      description: Google Get Filters
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-get.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-forwarding-addresses
+      description: Google Get Forwarding Addresses
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-get.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+        forwardingEmail: tools.forwardingEmail
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-imap
+      description: Google GET IMAP
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-get.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-language-settings
+      description: Google Get Language Settings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-get.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-pop-settings
+      description: Google Get POP Settings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-get.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-send
+      description: Google Get Send As
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-get.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-send-2
+      description: Google Get Send As
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-get.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+        sendAsEmail: tools.sendAsEmail
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-send-smime-info
+      description: Google Get Send As SMIME Info
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-get.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+        sendAsEmail: tools.sendAsEmail
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-vacation-settings
+      description: Google Get Vacation Settings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-get.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-threads
+      description: Google Get Threads
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gmail-get.get
+      with:
+        Accept: tools.Accept
+        userId: tools.userId
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

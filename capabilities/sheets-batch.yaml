@@ -1,0 +1,317 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Sheets API — Batch
+  description: 'Google Sheets API — Batch. 5 operations. Lead operation: Google Batch Clear Values. Self-contained Naftiko
+    capability covering one Google business surface.'
+  tags:
+  - Google
+  - Batch
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: sheets-batch
+    baseUri: https://sheets.googleapis.com
+    description: Google Sheets API — Batch business capability. Self-contained, no shared references.
+    resources:
+    - name: v4-spreadsheets-spreadsheetId-values:batchClear
+      path: /v4/spreadsheets/{spreadsheetId}/values:batchClear
+      operations:
+      - name: post
+        method: POST
+        description: Google Batch Clear Values
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: spreadsheetId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v4-spreadsheets-spreadsheetId-values:batchClearByDataFilter
+      path: /v4/spreadsheets/{spreadsheetId}/values:batchClearByDataFilter
+      operations:
+      - name: post
+        method: POST
+        description: Google Batch Clear Values by Data Filter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: spreadsheetId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v4-spreadsheets-spreadsheetId-values:batchGet
+      path: /v4/spreadsheets/{spreadsheetId}/values:batchGet
+      operations:
+      - name: get
+        method: GET
+        description: Google Get Values Batch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+        - name: spreadsheetId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+    - name: v4-spreadsheets-spreadsheetId-values:batchUpdate
+      path: /v4/spreadsheets/{spreadsheetId}/values:batchUpdate
+      operations:
+      - name: post
+        method: POST
+        description: Google Batch Update Values
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: spreadsheetId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v4-spreadsheets-spreadsheetId}:batchUpdate
+      path: /v4/spreadsheets/{spreadsheetId}:batchUpdate
+      operations:
+      - name: post
+        method: POST
+        description: Google Batch Update Sheets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: spreadsheetId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+  exposes:
+  - type: rest
+    namespace: sheets-batch-rest
+    port: 8080
+    description: REST adapter for Google Sheets API — Batch. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v4/spreadsheets/{spreadsheetid}/values-batchclear
+      name: v4-spreadsheets-spreadsheetid-values-batchclear
+      description: REST surface for v4-spreadsheets-spreadsheetId-values:batchClear.
+      operations:
+      - method: POST
+        name: post
+        description: Google Batch Clear Values
+        call: sheets-batch.post
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          spreadsheetId: rest.spreadsheetId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/spreadsheets/{spreadsheetid}/values-batchclearbydatafilter
+      name: v4-spreadsheets-spreadsheetid-values-batchclearbydatafilter
+      description: REST surface for v4-spreadsheets-spreadsheetId-values:batchClearByDataFilter.
+      operations:
+      - method: POST
+        name: post
+        description: Google Batch Clear Values by Data Filter
+        call: sheets-batch.post
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          spreadsheetId: rest.spreadsheetId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/spreadsheets/{spreadsheetid}/values-batchget
+      name: v4-spreadsheets-spreadsheetid-values-batchget
+      description: REST surface for v4-spreadsheets-spreadsheetId-values:batchGet.
+      operations:
+      - method: GET
+        name: get
+        description: Google Get Values Batch
+        call: sheets-batch.get
+        with:
+          Accept: rest.Accept
+          spreadsheetId: rest.spreadsheetId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/spreadsheets/{spreadsheetid}/values-batchupdate
+      name: v4-spreadsheets-spreadsheetid-values-batchupdate
+      description: REST surface for v4-spreadsheets-spreadsheetId-values:batchUpdate.
+      operations:
+      - method: POST
+        name: post
+        description: Google Batch Update Values
+        call: sheets-batch.post
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          spreadsheetId: rest.spreadsheetId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/spreadsheets/spreadsheetid-batchupdate
+      name: v4-spreadsheets-spreadsheetid-batchupdate
+      description: REST surface for v4-spreadsheets-spreadsheetId}:batchUpdate.
+      operations:
+      - method: POST
+        name: post
+        description: Google Batch Update Sheets
+        call: sheets-batch.post
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          spreadsheetId: rest.spreadsheetId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sheets-batch-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Sheets API — Batch. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: google-batch-clear-values
+      description: Google Batch Clear Values
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sheets-batch.post
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        spreadsheetId: tools.spreadsheetId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-batch-clear-values-data
+      description: Google Batch Clear Values by Data Filter
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sheets-batch.post
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        spreadsheetId: tools.spreadsheetId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-values-batch
+      description: Google Get Values Batch
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sheets-batch.get
+      with:
+        Accept: tools.Accept
+        spreadsheetId: tools.spreadsheetId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-batch-update-values
+      description: Google Batch Update Values
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sheets-batch.post
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        spreadsheetId: tools.spreadsheetId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-batch-update-sheets
+      description: Google Batch Update Sheets
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sheets-batch.post
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        spreadsheetId: tools.spreadsheetId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

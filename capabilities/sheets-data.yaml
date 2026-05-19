@@ -1,0 +1,270 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Sheets API — Data
+  description: 'Google Sheets API — Data. 4 operations. Lead operation: Google Batch Clear Values by Data Filter. Self-contained
+    Naftiko capability covering one Google business surface.'
+  tags:
+  - Google
+  - Data
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: sheets-data
+    baseUri: https://sheets.googleapis.com
+    description: Google Sheets API — Data business capability. Self-contained, no shared references.
+    resources:
+    - name: v4-spreadsheets-spreadsheetId-values:batchClearByDataFilter
+      path: /v4/spreadsheets/{spreadsheetId}/values:batchClearByDataFilter
+      operations:
+      - name: post
+        method: POST
+        description: Google Batch Clear Values by Data Filter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: spreadsheetId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v4-spreadsheets-spreadsheetId-values:batchGetByDataFilter
+      path: /v4/spreadsheets/{spreadsheetId}/values:batchGetByDataFilter
+      operations:
+      - name: post
+        method: POST
+        description: Google Get Values By Data Filter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: spreadsheetId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v4-spreadsheets-spreadsheetId-values:batchUpdateByDataFilter
+      path: /v4/spreadsheets/{spreadsheetId}/values:batchUpdateByDataFilter
+      operations:
+      - name: post
+        method: POST
+        description: Google Update by Data Filter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: spreadsheetId
+          in: path
+          type: string
+          description: (Required)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v4-spreadsheets-spreadsheetId}:getByDataFilter
+      path: /v4/spreadsheets/{spreadsheetId}:getByDataFilter
+      operations:
+      - name: post
+        method: POST
+        description: Google Get Sheet by Data Filter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+        - name: Accept
+          in: header
+          type: string
+        - name: spreadsheetId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+  exposes:
+  - type: rest
+    namespace: sheets-data-rest
+    port: 8080
+    description: REST adapter for Google Sheets API — Data. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v4/spreadsheets/{spreadsheetid}/values-batchclearbydatafilter
+      name: v4-spreadsheets-spreadsheetid-values-batchclearbydatafilter
+      description: REST surface for v4-spreadsheets-spreadsheetId-values:batchClearByDataFilter.
+      operations:
+      - method: POST
+        name: post
+        description: Google Batch Clear Values by Data Filter
+        call: sheets-data.post
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          spreadsheetId: rest.spreadsheetId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/spreadsheets/{spreadsheetid}/values-batchgetbydatafilter
+      name: v4-spreadsheets-spreadsheetid-values-batchgetbydatafilter
+      description: REST surface for v4-spreadsheets-spreadsheetId-values:batchGetByDataFilter.
+      operations:
+      - method: POST
+        name: post
+        description: Google Get Values By Data Filter
+        call: sheets-data.post
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          spreadsheetId: rest.spreadsheetId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/spreadsheets/{spreadsheetid}/values-batchupdatebydatafilter
+      name: v4-spreadsheets-spreadsheetid-values-batchupdatebydatafilter
+      description: REST surface for v4-spreadsheets-spreadsheetId-values:batchUpdateByDataFilter.
+      operations:
+      - method: POST
+        name: post
+        description: Google Update by Data Filter
+        call: sheets-data.post
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          spreadsheetId: rest.spreadsheetId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/spreadsheets/spreadsheetid-getbydatafilter
+      name: v4-spreadsheets-spreadsheetid-getbydatafilter
+      description: REST surface for v4-spreadsheets-spreadsheetId}:getByDataFilter.
+      operations:
+      - method: POST
+        name: post
+        description: Google Get Sheet by Data Filter
+        call: sheets-data.post
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          spreadsheetId: rest.spreadsheetId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sheets-data-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Sheets API — Data. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: google-batch-clear-values-data
+      description: Google Batch Clear Values by Data Filter
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sheets-data.post
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        spreadsheetId: tools.spreadsheetId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-values-data-filter
+      description: Google Get Values By Data Filter
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: sheets-data.post
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        spreadsheetId: tools.spreadsheetId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-update-data-filter
+      description: Google Update by Data Filter
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sheets-data.post
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        spreadsheetId: tools.spreadsheetId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-get-sheet-data-filter
+      description: Google Get Sheet by Data Filter
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: sheets-data.post
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        spreadsheetId: tools.spreadsheetId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

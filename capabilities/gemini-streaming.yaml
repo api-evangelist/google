@@ -1,0 +1,96 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Gemini API — Streaming
+  description: 'Google Gemini API — Streaming. 1 operations. Lead operation: Google Stream Generate Content. Self-contained
+    Naftiko capability covering one Google business surface.'
+  tags:
+  - Google
+  - Streaming
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gemini-streaming
+    baseUri: https://generativelanguage.googleapis.com/v1beta
+    description: Google Gemini API — Streaming business capability. Self-contained, no shared references.
+    resources:
+    - name: models-model}:streamGenerateContent
+      path: /models/{model}:streamGenerateContent
+      operations:
+      - name: streamgeneratecontent
+        method: POST
+        description: Google Stream Generate Content
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: model
+          in: path
+          type: string
+          description: The model to use for generation
+          required: true
+        - name: alt
+          in: query
+          type: string
+          description: Alternative response format
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: x-goog-api-key
+      value: '{{env.GOOGLE_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: gemini-streaming-rest
+    port: 8080
+    description: REST adapter for Google Gemini API — Streaming. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/models/model-streamgeneratecontent
+      name: models-model-streamgeneratecontent
+      description: REST surface for models-model}:streamGenerateContent.
+      operations:
+      - method: POST
+        name: streamgeneratecontent
+        description: Google Stream Generate Content
+        call: gemini-streaming.streamgeneratecontent
+        with:
+          model: rest.model
+          alt: rest.alt
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gemini-streaming-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Gemini API — Streaming. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: google-stream-generate-content
+      description: Google Stream Generate Content
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: gemini-streaming.streamgeneratecontent
+      with:
+        model: tools.model
+        alt: tools.alt
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

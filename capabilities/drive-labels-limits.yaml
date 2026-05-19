@@ -1,0 +1,152 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Drive Labels API — Limits
+  description: 'Google Drive Labels API — Limits. 1 operations. Lead operation: Google Retrieve Limits Label. Self-contained
+    Naftiko capability covering one Google business surface.'
+  tags:
+  - Google
+  - Limits
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: drive-labels-limits
+    baseUri: https://drivelabels.googleapis.com
+    description: Google Drive Labels API — Limits business capability. Self-contained, no shared references.
+    resources:
+    - name: v2-limits-label
+      path: /v2/limits/label
+      operations:
+      - name: googledrivelabelslimitsgetlabel
+        method: GET
+        description: Google Retrieve Limits Label
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: query
+          type: string
+          description: 'Required. Label revision resource name Must be: "limits/label"'
+        - name: $.xgafv
+          in: query
+          type: string
+          description: V1 error format.
+        - name: access_token
+          in: query
+          type: string
+          description: OAuth access token.
+        - name: alt
+          in: query
+          type: string
+          description: Data format for response.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP
+        - name: fields
+          in: query
+          type: string
+          description: Selector specifying which fields to include in a partial response.
+        - name: key
+          in: query
+          type: string
+          description: API key. Your API key identifies your project and provides you with API access, quota, and reports.
+            Required unless you provide an OAuth 2.0 token.
+        - name: oauth_token
+          in: query
+          type: string
+          description: OAuth 2.0 token for the current user.
+        - name: prettyPrint
+          in: query
+          type: boolean
+          description: Returns response with indentations and line breaks.
+        - name: quotaUser
+          in: query
+          type: string
+          description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned
+            to a user, but should not exceed 40 characters.
+        - name: upload_protocol
+          in: query
+          type: string
+          description: Upload protocol for media (e.g. "raw", "multipart").
+        - name: uploadType
+          in: query
+          type: string
+          description: Legacy upload protocol for media (e.g. "media", "multipart").
+        - name: Authorization
+          in: header
+          type: string
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: drive-labels-limits-rest
+    port: 8080
+    description: REST adapter for Google Drive Labels API — Limits. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v2/limits/label
+      name: v2-limits-label
+      description: REST surface for v2-limits-label.
+      operations:
+      - method: GET
+        name: googledrivelabelslimitsgetlabel
+        description: Google Retrieve Limits Label
+        call: drive-labels-limits.googledrivelabelslimitsgetlabel
+        with:
+          name: rest.name
+          $.xgafv: rest.$.xgafv
+          access_token: rest.access_token
+          alt: rest.alt
+          callback: rest.callback
+          fields: rest.fields
+          key: rest.key
+          oauth_token: rest.oauth_token
+          prettyPrint: rest.prettyPrint
+          quotaUser: rest.quotaUser
+          upload_protocol: rest.upload_protocol
+          uploadType: rest.uploadType
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: drive-labels-limits-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Drive Labels API — Limits. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: google-retrieve-limits-label
+      description: Google Retrieve Limits Label
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: drive-labels-limits.googledrivelabelslimitsgetlabel
+      with:
+        name: tools.name
+        $.xgafv: tools.$.xgafv
+        access_token: tools.access_token
+        alt: tools.alt
+        callback: tools.callback
+        fields: tools.fields
+        key: tools.key
+        oauth_token: tools.oauth_token
+        prettyPrint: tools.prettyPrint
+        quotaUser: tools.quotaUser
+        upload_protocol: tools.upload_protocol
+        uploadType: tools.uploadType
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
