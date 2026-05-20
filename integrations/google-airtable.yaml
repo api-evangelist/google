@@ -1,0 +1,159 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Two-way sync a Google Sheet with an Airtable base
+  description: Keep a Google Sheet and an Airtable table in sync — write Sheet edits into Airtable records (keyed by a shared id column) and vice versa.
+  tags:
+  - Google
+  - Integration
+  - Data sync
+  - airtable
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+    AIRTABLE_API_KEY: AIRTABLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: google
+    baseUri: https://www.googleapis.com
+    description: Google API operations consumed by this integration.
+    resources:
+    - name: v4-spreadsheets-spreadsheetid-values-range
+      path: /v4/spreadsheets/{spreadsheetId}/values/{range}
+      operations:
+      - name: getvalues
+        method: GET
+        description: Read a range from a Google Sheet.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: spreadsheetId
+          in: path
+          type: string
+          description: Path parameter spreadsheetId.
+          required: true
+        - name: range
+          in: path
+          type: string
+          description: Path parameter range.
+          required: true
+    - name: v4-spreadsheets-spreadsheetid-values-range
+      path: /v4/spreadsheets/{spreadsheetId}/values/{range}
+      operations:
+      - name: updatevalues
+        method: PUT
+        description: Write values back into a Google Sheet range.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: spreadsheetId
+          in: path
+          type: string
+          description: Path parameter spreadsheetId.
+          required: true
+        - name: range
+          in: path
+          type: string
+          description: Path parameter range.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  - type: http
+    namespace: airtable
+    baseUri: https://api.airtable.com
+    description: Airtable API operations consumed by this integration.
+    resources:
+    - name: v0-baseid-tableidorname
+      path: /v0/{baseId}/{tableIdOrName}
+      operations:
+      - name: listrecords
+        method: GET
+        description: 'Airtable API: listRecords'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: baseId
+          in: path
+          type: string
+          description: Path parameter baseId.
+          required: true
+        - name: tableIdOrName
+          in: path
+          type: string
+          description: Path parameter tableIdOrName.
+          required: true
+    - name: v0-baseid-tableidorname
+      path: /v0/{baseId}/{tableIdOrName}
+      operations:
+      - name: updaterecords
+        method: PATCH
+        description: 'Airtable API: updateRecords'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: baseId
+          in: path
+          type: string
+          description: Path parameter baseId.
+          required: true
+        - name: tableIdOrName
+          in: path
+          type: string
+          description: Path parameter tableIdOrName.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: google-airtable-mcp
+    description: MCP adapter for the google-airtable integration.
+    tools:
+    - name: google_airtable
+      description: Execute the google airtable integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: google-airtable-rest
+    port: 8080
+    description: REST adapter for the google-airtable integration.
+    resources:
+    - path: /google-airtable
+      name: google-airtable
+      description: REST surface for the google-airtable integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the google-airtable integration.
+        call: google_airtable
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

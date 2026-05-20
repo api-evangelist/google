@@ -1,0 +1,122 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Convert a labeled Gmail message into a Jira issue
+  description: When a Gmail message lands under a configured label (e.g. support@), parse it and create a Jira issue in a target project with the email body as description and sender as reporter.
+  tags:
+  - Google
+  - Integration
+  - Issue tracking
+  - jira
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+    JIRA_API_KEY: JIRA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: google
+    baseUri: https://www.googleapis.com
+    description: Google API operations consumed by this integration.
+    resources:
+    - name: gmail-v1-users-userid-messages
+      path: /gmail/v1/users/{userId}/messages
+      operations:
+      - name: listmessages
+        method: GET
+        description: List Gmail messages (filter by label).
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          description: Path parameter userId.
+          required: true
+    - name: gmail-v1-users-userid-messages-id-modify
+      path: /gmail/v1/users/{userId}/messages/{id}/modify
+      operations:
+      - name: modifymessage
+        method: POST
+        description: Apply or remove labels on a Gmail message.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          description: Path parameter userId.
+          required: true
+        - name: id
+          in: path
+          type: string
+          description: Path parameter id.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  - type: http
+    namespace: jira
+    baseUri: https://yoursite.atlassian.net
+    description: Jira Cloud REST API operations consumed by this integration.
+    resources:
+    - name: rest-api-3-issue
+      path: /rest/api/3/issue
+      operations:
+      - name: createissue
+        method: POST
+        description: 'Jira Cloud REST API: createIssue'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: google-jira-mcp
+    description: MCP adapter for the google-jira integration.
+    tools:
+    - name: google_jira
+      description: Execute the google jira integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: google-jira-rest
+    port: 8080
+    description: REST adapter for the google-jira integration.
+    resources:
+    - path: /google-jira
+      name: google-jira
+      description: REST surface for the google-jira integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the google-jira integration.
+        call: google_jira
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

@@ -1,0 +1,95 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: File a Linear issue from a comment in a Google Doc
+  description: 'When a Google Doc contains a comment formatted as a Linear directive (e.g. "/linear bug: ..."), create a Linear issue in the configured team with the comment text and a link back to the Doc anchor.'
+  tags:
+  - Google
+  - Integration
+  - Issue tracking
+  - linear
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+    LINEAR_API_KEY: LINEAR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: google
+    baseUri: https://www.googleapis.com
+    description: Google API operations consumed by this integration.
+    resources:
+    - name: v1-documents-documentid
+      path: /v1/documents/{documentId}
+      operations:
+      - name: getdocument
+        method: GET
+        description: Retrieve a Google Doc with its embedded comments.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: documentId
+          in: path
+          type: string
+          description: Path parameter documentId.
+          required: true
+  - type: http
+    namespace: linear
+    baseUri: https://api.linear.app
+    description: Linear GraphQL API operations consumed by this integration.
+    resources:
+    - name: graphql
+      path: /graphql
+      operations:
+      - name: createissue
+        method: POST
+        description: 'Linear GraphQL API: createIssue'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: google-linear-mcp
+    description: MCP adapter for the google-linear integration.
+    tools:
+    - name: google_linear
+      description: Execute the google linear integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: google-linear-rest
+    port: 8080
+    description: REST adapter for the google-linear integration.
+    resources:
+    - path: /google-linear
+      name: google-linear
+      description: REST surface for the google-linear integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the google-linear integration.
+        call: google_linear
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

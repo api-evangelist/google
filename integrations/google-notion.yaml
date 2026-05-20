@@ -1,0 +1,129 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Index new Google Drive files into a Notion database
+  description: When a file is added or modified in a watched Google Drive folder, create or update a row in a Notion database with title, owner, link, and last-modified timestamp.
+  tags:
+  - Google
+  - Integration
+  - Knowledge management
+  - notion
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+    NOTION_API_KEY: NOTION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: google
+    baseUri: https://www.googleapis.com
+    description: Google API operations consumed by this integration.
+    resources:
+    - name: files
+      path: /files
+      operations:
+      - name: listfiles
+        method: GET
+        description: List files in Google Drive.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters: []
+    - name: files-fileid
+      path: /files/{fileId}
+      operations:
+      - name: getfile
+        method: GET
+        description: Fetch a Google Drive file's metadata.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fileId
+          in: path
+          type: string
+          description: Path parameter fileId.
+          required: true
+  - type: http
+    namespace: notion
+    baseUri: https://api.notion.com
+    description: Notion API operations consumed by this integration.
+    resources:
+    - name: v1-pages
+      path: /v1/pages
+      operations:
+      - name: createpage
+        method: POST
+        description: 'Notion API: createPage'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v1-pages-page-id
+      path: /v1/pages/{page_id}
+      operations:
+      - name: updatepage
+        method: PATCH
+        description: 'Notion API: updatePage'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: page_id
+          in: path
+          type: string
+          description: Path parameter page_id.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: google-notion-mcp
+    description: MCP adapter for the google-notion integration.
+    tools:
+    - name: google_notion
+      description: Execute the google notion integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: google-notion-rest
+    port: 8080
+    description: REST adapter for the google-notion integration.
+    resources:
+    - path: /google-notion
+      name: google-notion
+      description: REST surface for the google-notion integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the google-notion integration.
+        call: google_notion
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

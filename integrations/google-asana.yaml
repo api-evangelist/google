@@ -1,0 +1,139 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Turn Google Calendar events into Asana tasks
+  description: For each event on a project planning calendar in Google Calendar, create or update a matching Asana task in the corresponding project with due date set to the event's start time.
+  tags:
+  - Google
+  - Integration
+  - Project management
+  - asana
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+    ASANA_API_KEY: ASANA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: google
+    baseUri: https://www.googleapis.com
+    description: Google API operations consumed by this integration.
+    resources:
+    - name: calendars-calendarid-events
+      path: /calendars/{calendarId}/events
+      operations:
+      - name: listevents
+        method: GET
+        description: List Google Calendar events.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: calendarId
+          in: path
+          type: string
+          description: Path parameter calendarId.
+          required: true
+    - name: calendars-calendarid-events-eventid
+      path: /calendars/{calendarId}/events/{eventId}
+      operations:
+      - name: getevent
+        method: GET
+        description: Fetch a Google Calendar event.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: calendarId
+          in: path
+          type: string
+          description: Path parameter calendarId.
+          required: true
+        - name: eventId
+          in: path
+          type: string
+          description: Path parameter eventId.
+          required: true
+  - type: http
+    namespace: asana
+    baseUri: https://app.asana.com
+    description: Asana API operations consumed by this integration.
+    resources:
+    - name: api-1-0-tasks
+      path: /api/1.0/tasks
+      operations:
+      - name: createtask
+        method: POST
+        description: 'Asana API: createTask'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-1-0-tasks-task-gid
+      path: /api/1.0/tasks/{task_gid}
+      operations:
+      - name: updatetask
+        method: PUT
+        description: 'Asana API: updateTask'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: task_gid
+          in: path
+          type: string
+          description: Path parameter task_gid.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: google-asana-mcp
+    description: MCP adapter for the google-asana integration.
+    tools:
+    - name: google_asana
+      description: Execute the google asana integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: google-asana-rest
+    port: 8080
+    description: REST adapter for the google-asana integration.
+    resources:
+    - path: /google-asana
+      name: google-asana
+      description: REST surface for the google-asana integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the google-asana integration.
+        call: google_asana
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

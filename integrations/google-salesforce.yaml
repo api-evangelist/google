@@ -1,0 +1,139 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Mirror Google Calendar events as Salesforce activities
+  description: For each event on a Google Calendar (sales rep calendar), upsert a matching Salesforce Event/Task linked to the related Contact or Opportunity.
+  tags:
+  - Google
+  - Integration
+  - CRM
+  - salesforce
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+    SALESFORCE_API_KEY: SALESFORCE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: google
+    baseUri: https://www.googleapis.com
+    description: Google API operations consumed by this integration.
+    resources:
+    - name: calendars-calendarid-events
+      path: /calendars/{calendarId}/events
+      operations:
+      - name: listevents
+        method: GET
+        description: List events on a Google Calendar.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: calendarId
+          in: path
+          type: string
+          description: Path parameter calendarId.
+          required: true
+    - name: calendars-calendarid-events-eventid
+      path: /calendars/{calendarId}/events/{eventId}
+      operations:
+      - name: getevent
+        method: GET
+        description: Fetch a single Google Calendar event.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: calendarId
+          in: path
+          type: string
+          description: Path parameter calendarId.
+          required: true
+        - name: eventId
+          in: path
+          type: string
+          description: Path parameter eventId.
+          required: true
+  - type: http
+    namespace: salesforce
+    baseUri: https://yourinstance.my.salesforce.com
+    description: Salesforce REST API operations consumed by this integration.
+    resources:
+    - name: services-data-v60-0-sobjects-event
+      path: /services/data/v60.0/sobjects/Event
+      operations:
+      - name: createevent
+        method: POST
+        description: 'Salesforce REST API: createEvent'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: services-data-v60-0-sobjects-event-id
+      path: /services/data/v60.0/sobjects/Event/{id}
+      operations:
+      - name: updateevent
+        method: PATCH
+        description: 'Salesforce REST API: updateEvent'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Path parameter id.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: google-salesforce-mcp
+    description: MCP adapter for the google-salesforce integration.
+    tools:
+    - name: google_salesforce
+      description: Execute the google salesforce integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: google-salesforce-rest
+    port: 8080
+    description: REST adapter for the google-salesforce integration.
+    resources:
+    - path: /google-salesforce
+      name: google-salesforce
+      description: REST surface for the google-salesforce integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the google-salesforce integration.
+        call: google_salesforce
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

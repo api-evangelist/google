@@ -1,0 +1,134 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Generate Stripe invoices from Google Calendar booking events
+  description: When a billable consult is booked on a Google Calendar (matching a configured event-type tag), create a Stripe Invoice for the booked client with the consult line item.
+  tags:
+  - Google
+  - Integration
+  - Billing
+  - stripe
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+    STRIPE_API_KEY: STRIPE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: google
+    baseUri: https://www.googleapis.com
+    description: Google API operations consumed by this integration.
+    resources:
+    - name: calendars-calendarid-events
+      path: /calendars/{calendarId}/events
+      operations:
+      - name: listevents
+        method: GET
+        description: List Google Calendar events (filter by booking event type).
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: calendarId
+          in: path
+          type: string
+          description: Path parameter calendarId.
+          required: true
+    - name: calendars-calendarid-events-eventid
+      path: /calendars/{calendarId}/events/{eventId}
+      operations:
+      - name: getevent
+        method: GET
+        description: Fetch a single calendar event for billing context.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: calendarId
+          in: path
+          type: string
+          description: Path parameter calendarId.
+          required: true
+        - name: eventId
+          in: path
+          type: string
+          description: Path parameter eventId.
+          required: true
+  - type: http
+    namespace: stripe
+    baseUri: https://api.stripe.com
+    description: Stripe API operations consumed by this integration.
+    resources:
+    - name: v1-invoices
+      path: /v1/invoices
+      operations:
+      - name: createinvoice
+        method: POST
+        description: 'Stripe API: createInvoice'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v1-invoiceitems
+      path: /v1/invoiceitems
+      operations:
+      - name: createinvoiceitem
+        method: POST
+        description: 'Stripe API: createInvoiceItem'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: google-stripe-mcp
+    description: MCP adapter for the google-stripe integration.
+    tools:
+    - name: google_stripe
+      description: Execute the google stripe integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: google-stripe-rest
+    port: 8080
+    description: REST adapter for the google-stripe integration.
+    resources:
+    - path: /google-stripe
+      name: google-stripe
+      description: REST surface for the google-stripe integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the google-stripe integration.
+        call: google_stripe
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

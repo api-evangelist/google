@@ -1,0 +1,117 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Sync a Google Sheet of leads into HubSpot contacts
+  description: Read a designated lead-list range from a Google Sheet and upsert each row as a HubSpot Contact, keyed by email, including custom properties for source campaign and score.
+  tags:
+  - Google
+  - Integration
+  - CRM
+  - hubspot
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+    HUBSPOT_API_KEY: HUBSPOT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: google
+    baseUri: https://www.googleapis.com
+    description: Google API operations consumed by this integration.
+    resources:
+    - name: v4-spreadsheets-spreadsheetid-values-range
+      path: /v4/spreadsheets/{spreadsheetId}/values/{range}
+      operations:
+      - name: getvalues
+        method: GET
+        description: Read a range of values from a Google Sheet.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: spreadsheetId
+          in: path
+          type: string
+          description: Path parameter spreadsheetId.
+          required: true
+        - name: range
+          in: path
+          type: string
+          description: Path parameter range.
+          required: true
+    - name: v4-spreadsheets-spreadsheetid
+      path: /v4/spreadsheets/{spreadsheetId}
+      operations:
+      - name: getspreadsheet
+        method: GET
+        description: Fetch spreadsheet metadata.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: spreadsheetId
+          in: path
+          type: string
+          description: Path parameter spreadsheetId.
+          required: true
+  - type: http
+    namespace: hubspot
+    baseUri: https://api.hubapi.com
+    description: HubSpot CRM API operations consumed by this integration.
+    resources:
+    - name: crm-v3-objects-contacts-batch-upsert
+      path: /crm/v3/objects/contacts/batch/upsert
+      operations:
+      - name: upsertcontacts
+        method: POST
+        description: 'HubSpot CRM API: upsertContacts'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: google-hubspot-mcp
+    description: MCP adapter for the google-hubspot integration.
+    tools:
+    - name: google_hubspot
+      description: Execute the google hubspot integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: google-hubspot-rest
+    port: 8080
+    description: REST adapter for the google-hubspot integration.
+    resources:
+    - path: /google-hubspot
+      name: google-hubspot
+      description: REST surface for the google-hubspot integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the google-hubspot integration.
+        call: google_hubspot
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

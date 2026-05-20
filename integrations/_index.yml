@@ -1,0 +1,60 @@
+- slug: google-slack
+  label: Forward new Gmail messages to a Slack channel
+  partner: slack
+  category: Collaboration
+  use_case: When a Gmail label receives a new message, post a digest card to a Slack channel via an incoming webhook so the team sees inbound mail in-context.
+- slug: google-salesforce
+  label: Mirror Google Calendar events as Salesforce activities
+  partner: salesforce
+  category: CRM
+  use_case: For each event on a Google Calendar (sales rep calendar), upsert a matching Salesforce Event/Task linked to the related Contact or Opportunity.
+- slug: google-notion
+  label: Index new Google Drive files into a Notion database
+  partner: notion
+  category: Knowledge management
+  use_case: When a file is added or modified in a watched Google Drive folder, create or update a row in a Notion database with title, owner, link, and last-modified timestamp.
+- slug: google-anthropic
+  label: Summarize a Google Doc with Claude and write the summary back
+  partner: anthropic
+  category: AI
+  use_case: Fetch a Google Doc's content, send it to Anthropic's Messages API to generate an executive summary, then append the summary as a new section back into the original Doc.
+- slug: google-hubspot
+  label: Sync a Google Sheet of leads into HubSpot contacts
+  partner: hubspot
+  category: CRM
+  use_case: Read a designated lead-list range from a Google Sheet and upsert each row as a HubSpot Contact, keyed by email, including custom properties for source campaign and score.
+- slug: google-stripe
+  label: Generate Stripe invoices from Google Calendar booking events
+  partner: stripe
+  category: Billing
+  use_case: When a billable consult is booked on a Google Calendar (matching a configured event-type tag), create a Stripe Invoice for the booked client with the consult line item.
+- slug: google-jira
+  label: Convert a labeled Gmail message into a Jira issue
+  partner: jira
+  category: Issue tracking
+  use_case: When a Gmail message lands under a configured label (e.g. support@), parse it and create a Jira issue in a target project with the email body as description and sender as reporter.
+- slug: google-asana
+  label: Turn Google Calendar events into Asana tasks
+  partner: asana
+  category: Project management
+  use_case: For each event on a project planning calendar in Google Calendar, create or update a matching Asana task in the corresponding project with due date set to the event's start time.
+- slug: google-airtable
+  label: Two-way sync a Google Sheet with an Airtable base
+  partner: airtable
+  category: Data sync
+  use_case: Keep a Google Sheet and an Airtable table in sync — write Sheet edits into Airtable records (keyed by a shared id column) and vice versa.
+- slug: google-linear
+  label: File a Linear issue from a comment in a Google Doc
+  partner: linear
+  category: Issue tracking
+  use_case: 'When a Google Doc contains a comment formatted as a Linear directive (e.g. "/linear bug: ..."), create a Linear issue in the configured team with the comment text and a link back to the Doc anchor.'
+- slug: google-figma
+  label: Surface new Google Drive design files in Figma as imported references
+  partner: figma
+  category: Design
+  use_case: When a new image or PDF asset lands in a watched Google Drive folder, fetch it and post it as a Figma file comment or import it into a working file via the Figma API.
+- slug: google-snowflake
+  label: Stream a Google Sheet into a Snowflake table
+  partner: snowflake
+  category: Data warehouse
+  use_case: On each edit of a configured Google Sheet, push the changed rows into a Snowflake table via Snowpipe so analytical dashboards see operational spreadsheets in near-real-time.

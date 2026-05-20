@@ -1,0 +1,132 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Forward new Gmail messages to a Slack channel
+  description: When a Gmail label receives a new message, post a digest card to a Slack channel via an incoming webhook so the team sees inbound mail in-context.
+  tags:
+  - Google
+  - Integration
+  - Collaboration
+  - slack
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+    SLACK_API_KEY: SLACK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: google
+    baseUri: https://www.googleapis.com
+    description: Google API operations consumed by this integration.
+    resources:
+    - name: gmail-v1-users-userid-messages
+      path: /gmail/v1/users/{userId}/messages
+      operations:
+      - name: listmessages
+        method: GET
+        description: List Gmail messages for the authorized user.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          description: Path parameter userId.
+          required: true
+    - name: gmail-v1-users-userid-messages-id
+      path: /gmail/v1/users/{userId}/messages/{id}
+      operations:
+      - name: getmessage
+        method: GET
+        description: Fetch a Gmail message by id.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          description: Path parameter userId.
+          required: true
+        - name: id
+          in: path
+          type: string
+          description: Path parameter id.
+          required: true
+  - type: http
+    namespace: slack
+    baseUri: https://hooks.slack.com
+    description: Slack Incoming Webhooks operations consumed by this integration.
+    resources:
+    - name: services-t-b-x
+      path: /services/{T}/{B}/{X}
+      operations:
+      - name: postmessage
+        method: POST
+        description: 'Slack Incoming Webhooks: postMessage'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: T
+          in: path
+          type: string
+          description: Path parameter T.
+          required: true
+        - name: B
+          in: path
+          type: string
+          description: Path parameter B.
+          required: true
+        - name: X
+          in: path
+          type: string
+          description: Path parameter X.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: google-slack-mcp
+    description: MCP adapter for the google-slack integration.
+    tools:
+    - name: google_slack
+      description: Execute the google slack integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: google-slack-rest
+    port: 8080
+    description: REST adapter for the google-slack integration.
+    resources:
+    - path: /google-slack
+      name: google-slack
+      description: REST surface for the google-slack integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the google-slack integration.
+        call: google_slack
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

@@ -1,0 +1,129 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Surface new Google Drive design files in Figma as imported references
+  description: When a new image or PDF asset lands in a watched Google Drive folder, fetch it and post it as a Figma file comment or import it into a working file via the Figma API.
+  tags:
+  - Google
+  - Integration
+  - Design
+  - figma
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+    FIGMA_API_KEY: FIGMA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: google
+    baseUri: https://www.googleapis.com
+    description: Google API operations consumed by this integration.
+    resources:
+    - name: files
+      path: /files
+      operations:
+      - name: listfiles
+        method: GET
+        description: List files in a Google Drive folder.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters: []
+    - name: files-fileid
+      path: /files/{fileId}
+      operations:
+      - name: getfile
+        method: GET
+        description: Fetch a Google Drive file's metadata + download link.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fileId
+          in: path
+          type: string
+          description: Path parameter fileId.
+          required: true
+  - type: http
+    namespace: figma
+    baseUri: https://api.figma.com
+    description: Figma REST API operations consumed by this integration.
+    resources:
+    - name: v1-files-file-key
+      path: /v1/files/{file_key}
+      operations:
+      - name: getfile
+        method: GET
+        description: 'Figma REST API: getFile'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: file_key
+          in: path
+          type: string
+          description: Path parameter file_key.
+          required: true
+    - name: v1-files-file-key-comments
+      path: /v1/files/{file_key}/comments
+      operations:
+      - name: postcomment
+        method: POST
+        description: 'Figma REST API: postComment'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: file_key
+          in: path
+          type: string
+          description: Path parameter file_key.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: google-figma-mcp
+    description: MCP adapter for the google-figma integration.
+    tools:
+    - name: google_figma
+      description: Execute the google figma integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: google-figma-rest
+    port: 8080
+    description: REST adapter for the google-figma integration.
+    resources:
+    - path: /google-figma
+      name: google-figma
+      description: REST surface for the google-figma integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the google-figma integration.
+        call: google_figma
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

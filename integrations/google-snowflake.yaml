@@ -1,0 +1,122 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Stream a Google Sheet into a Snowflake table
+  description: On each edit of a configured Google Sheet, push the changed rows into a Snowflake table via Snowpipe so analytical dashboards see operational spreadsheets in near-real-time.
+  tags:
+  - Google
+  - Integration
+  - Data warehouse
+  - snowflake
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+    SNOWFLAKE_API_KEY: SNOWFLAKE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: google
+    baseUri: https://www.googleapis.com
+    description: Google API operations consumed by this integration.
+    resources:
+    - name: v4-spreadsheets-spreadsheetid-values-range
+      path: /v4/spreadsheets/{spreadsheetId}/values/{range}
+      operations:
+      - name: getvalues
+        method: GET
+        description: Read a range from a Google Sheet.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: spreadsheetId
+          in: path
+          type: string
+          description: Path parameter spreadsheetId.
+          required: true
+        - name: range
+          in: path
+          type: string
+          description: Path parameter range.
+          required: true
+    - name: v4-spreadsheets-spreadsheetid
+      path: /v4/spreadsheets/{spreadsheetId}
+      operations:
+      - name: getspreadsheet
+        method: GET
+        description: Fetch spreadsheet metadata for schema mapping.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: spreadsheetId
+          in: path
+          type: string
+          description: Path parameter spreadsheetId.
+          required: true
+  - type: http
+    namespace: snowflake
+    baseUri: https://account.snowflakecomputing.com
+    description: Snowflake Snowpipe REST API operations consumed by this integration.
+    resources:
+    - name: v1-data-pipes-pipe-insertfiles
+      path: /v1/data/pipes/{pipe}/insertFiles
+      operations:
+      - name: insertfiles
+        method: POST
+        description: 'Snowflake Snowpipe REST API: insertFiles'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: pipe
+          in: path
+          type: string
+          description: Path parameter pipe.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: google-snowflake-mcp
+    description: MCP adapter for the google-snowflake integration.
+    tools:
+    - name: google_snowflake
+      description: Execute the google snowflake integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: google-snowflake-rest
+    port: 8080
+    description: REST adapter for the google-snowflake integration.
+    resources:
+    - path: /google-snowflake
+      name: google-snowflake
+      description: REST surface for the google-snowflake integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the google-snowflake integration.
+        call: google_snowflake
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

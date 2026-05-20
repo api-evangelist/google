@@ -1,0 +1,117 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Summarize a Google Doc with Claude and write the summary back
+  description: Fetch a Google Doc's content, send it to Anthropic's Messages API to generate an executive summary, then append the summary as a new section back into the original Doc.
+  tags:
+  - Google
+  - Integration
+  - AI
+  - anthropic
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_API_KEY: GOOGLE_API_KEY
+    ANTHROPIC_API_KEY: ANTHROPIC_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: google
+    baseUri: https://www.googleapis.com
+    description: Google API operations consumed by this integration.
+    resources:
+    - name: v1-documents-documentid
+      path: /v1/documents/{documentId}
+      operations:
+      - name: getdocument
+        method: GET
+        description: Retrieve a Google Doc's full content.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: documentId
+          in: path
+          type: string
+          description: Path parameter documentId.
+          required: true
+    - name: v1-documents-documentid-batchupdate
+      path: /v1/documents/{documentId}:batchUpdate
+      operations:
+      - name: batchupdatedocument
+        method: POST
+        description: Apply a batch of edits to a Google Doc.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: documentId
+          in: path
+          type: string
+          description: Path parameter documentId.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  - type: http
+    namespace: anthropic
+    baseUri: https://api.anthropic.com
+    description: Anthropic Messages API operations consumed by this integration.
+    resources:
+    - name: v1-messages
+      path: /v1/messages
+      operations:
+      - name: createmessage
+        method: POST
+        description: 'Anthropic Messages API: createMessage'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: google-anthropic-mcp
+    description: MCP adapter for the google-anthropic integration.
+    tools:
+    - name: google_anthropic
+      description: Execute the google anthropic integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: google-anthropic-rest
+    port: 8080
+    description: REST adapter for the google-anthropic integration.
+    resources:
+    - path: /google-anthropic
+      name: google-anthropic
+      description: REST surface for the google-anthropic integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the google-anthropic integration.
+        call: google_anthropic
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
