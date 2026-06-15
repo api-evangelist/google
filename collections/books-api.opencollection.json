@@ -1,0 +1,560 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Volumes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google List Volumes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/volumes",
+            "params": [
+              {
+                "name": "q",
+                "value": "flowers",
+                "type": "query",
+                "description": "Full-text search query string"
+              },
+              {
+                "name": "download",
+                "value": "epub",
+                "type": "query",
+                "description": "Restrict to volumes by download availability"
+              },
+              {
+                "name": "filter",
+                "value": "ebooks",
+                "type": "query",
+                "description": "Filter search results"
+              },
+              {
+                "name": "langRestrict",
+                "value": "en",
+                "type": "query",
+                "description": "Restrict results to books with this language code"
+              },
+              {
+                "name": "libraryRestrict",
+                "value": "no-restrict",
+                "type": "query",
+                "description": "Restrict search to this user's library"
+              },
+              {
+                "name": "maxResults",
+                "value": "10",
+                "type": "query",
+                "description": "Maximum number of results to return (0 to 40)"
+              },
+              {
+                "name": "orderBy",
+                "value": "relevance",
+                "type": "query",
+                "description": "Sort search results"
+              },
+              {
+                "name": "partner",
+                "value": "",
+                "type": "query",
+                "description": "Restrict and brand results for partner ID"
+              },
+              {
+                "name": "printType",
+                "value": "all",
+                "type": "query",
+                "description": "Restrict to books or magazines"
+              },
+              {
+                "name": "projection",
+                "value": "full",
+                "type": "query",
+                "description": "Restrict information returned to a set of selected fields"
+              },
+              {
+                "name": "showPreorders",
+                "value": "false",
+                "type": "query",
+                "description": "Set to true to show books available for preorder"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "String to identify the originator of this request"
+              },
+              {
+                "name": "startIndex",
+                "value": "0",
+                "type": "query",
+                "description": "Index of the first result to return (starts at 0)"
+              }
+            ]
+          },
+          "docs": "Performs a book search. Returns a list of volumes that match the search query."
+        },
+        {
+          "info": {
+            "name": "Google Get Volume",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/volumes/:volumeId",
+            "params": [
+              {
+                "name": "volumeId",
+                "value": "zyTCAlFPjgYC",
+                "type": "path",
+                "description": "ID of volume to retrieve"
+              },
+              {
+                "name": "partner",
+                "value": "",
+                "type": "query",
+                "description": "Brand results for partner ID"
+              },
+              {
+                "name": "projection",
+                "value": "full",
+                "type": "query",
+                "description": "Restrict information returned to a set of selected fields"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "String to identify the originator of this request"
+              }
+            ]
+          },
+          "docs": "Retrieves a Volume resource based on ID. More information about volume IDs can be found in the Google Books IDs section."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Bookshelves",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google List Bookshelves",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/users/:userId/bookshelves",
+            "params": [
+              {
+                "name": "userId",
+                "value": "112624903452243252365",
+                "type": "path",
+                "description": "ID of user for whom to retrieve bookshelves"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "String to identify the originator of this request"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of public Bookshelf resources for the specified user. More information about user IDs can be found in the Google Books IDs section."
+        },
+        {
+          "info": {
+            "name": "Google Get Bookshelf",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/users/:userId/bookshelves/:shelf",
+            "params": [
+              {
+                "name": "userId",
+                "value": "112624903452243252365",
+                "type": "path",
+                "description": "ID of user for whom to retrieve bookshelves"
+              },
+              {
+                "name": "shelf",
+                "value": "0",
+                "type": "path",
+                "description": "ID of bookshelf to retrieve"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "String to identify the originator of this request"
+              }
+            ]
+          },
+          "docs": "Retrieves a specific Bookshelf resource for the specified user. More information about user IDs can be found in the Google Books IDs section."
+        },
+        {
+          "info": {
+            "name": "Google List Bookshelf Volumes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/users/:userId/bookshelves/:shelf/volumes",
+            "params": [
+              {
+                "name": "userId",
+                "value": "112624903452243252365",
+                "type": "path",
+                "description": "ID of user for whom to retrieve bookshelf volumes"
+              },
+              {
+                "name": "shelf",
+                "value": "0",
+                "type": "path",
+                "description": "ID of bookshelf to retrieve volumes"
+              },
+              {
+                "name": "maxResults",
+                "value": "10",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "showPreorders",
+                "value": "false",
+                "type": "query",
+                "description": "Set to true to show pre-ordered books"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "String to identify the originator of this request"
+              },
+              {
+                "name": "startIndex",
+                "value": "0",
+                "type": "query",
+                "description": "Index of the first element to return (starts at 0)"
+              }
+            ]
+          },
+          "docs": "Retrieves volumes in a specific bookshelf for the specified user."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "My Library",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google List My Bookshelves",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/mylibrary/bookshelves",
+            "params": [
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "String to identify the originator of this request"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+              "accessTokenUrl": "https://oauth2.googleapis.com/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Retrieves a list of bookshelves belonging to the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Google Get My Bookshelf",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/mylibrary/bookshelves/:shelf",
+            "params": [
+              {
+                "name": "shelf",
+                "value": "0",
+                "type": "path",
+                "description": "ID of bookshelf to retrieve"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "String to identify the originator of this request"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+              "accessTokenUrl": "https://oauth2.googleapis.com/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Retrieves metadata for a specific bookshelf belonging to the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Google Add Volume to Bookshelf",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/mylibrary/bookshelves/:shelf/addVolume",
+            "params": [
+              {
+                "name": "shelf",
+                "value": "0",
+                "type": "path",
+                "description": "ID of bookshelf to which to add a volume"
+              },
+              {
+                "name": "volumeId",
+                "value": "zyTCAlFPjgYC",
+                "type": "query",
+                "description": "ID of volume to add"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "String to identify the originator of this request"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+              "accessTokenUrl": "https://oauth2.googleapis.com/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Adds a volume to a bookshelf in the authenticated user's library. Requires authorization."
+        },
+        {
+          "info": {
+            "name": "Google Clear Volumes from Bookshelf",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/mylibrary/bookshelves/:shelf/clearVolumes",
+            "params": [
+              {
+                "name": "shelf",
+                "value": "0",
+                "type": "path",
+                "description": "ID of bookshelf from which to remove all volumes"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "String to identify the originator of this request"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+              "accessTokenUrl": "https://oauth2.googleapis.com/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Clears all volumes from a bookshelf in the authenticated user's library. Requires authorization."
+        },
+        {
+          "info": {
+            "name": "Google Move Volume in Bookshelf",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/mylibrary/bookshelves/:shelf/moveVolume",
+            "params": [
+              {
+                "name": "shelf",
+                "value": "0",
+                "type": "path",
+                "description": "ID of bookshelf with the volume"
+              },
+              {
+                "name": "volumeId",
+                "value": "zyTCAlFPjgYC",
+                "type": "query",
+                "description": "ID of volume to move"
+              },
+              {
+                "name": "volumePosition",
+                "value": "0",
+                "type": "query",
+                "description": "Position on shelf to move the item (0 puts the item before the current first item, 1 puts it between the first and the second and so on)"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "String to identify the originator of this request"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+              "accessTokenUrl": "https://oauth2.googleapis.com/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Moves a volume within a bookshelf in the authenticated user's library. Requires authorization."
+        },
+        {
+          "info": {
+            "name": "Google Remove Volume from Bookshelf",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/mylibrary/bookshelves/:shelf/removeVolume",
+            "params": [
+              {
+                "name": "shelf",
+                "value": "0",
+                "type": "path",
+                "description": "ID of bookshelf from which to remove a volume"
+              },
+              {
+                "name": "volumeId",
+                "value": "zyTCAlFPjgYC",
+                "type": "query",
+                "description": "ID of volume to remove"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "String to identify the originator of this request"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+              "accessTokenUrl": "https://oauth2.googleapis.com/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Removes a volume from a bookshelf in the authenticated user's library. Requires authorization."
+        },
+        {
+          "info": {
+            "name": "Google List My Bookshelf Volumes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/mylibrary/bookshelves/:shelf/volumes",
+            "params": [
+              {
+                "name": "shelf",
+                "value": "0",
+                "type": "path",
+                "description": "The bookshelf ID or name to retrieve volumes for"
+              },
+              {
+                "name": "maxResults",
+                "value": "10",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "projection",
+                "value": "full",
+                "type": "query",
+                "description": "Restrict information returned to a set of selected fields"
+              },
+              {
+                "name": "q",
+                "value": "flowers",
+                "type": "query",
+                "description": "Full-text search query string in this bookshelf"
+              },
+              {
+                "name": "showPreorders",
+                "value": "false",
+                "type": "query",
+                "description": "Set to true to show pre-ordered books"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "String to identify the originator of this request"
+              },
+              {
+                "name": "startIndex",
+                "value": "0",
+                "type": "query",
+                "description": "Index of the first element to return (starts at 0)"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+              "accessTokenUrl": "https://oauth2.googleapis.com/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Gets volume information for volumes on a bookshelf belonging to the authenticated user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

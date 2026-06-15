@@ -1,0 +1,2597 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Calendar API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Calendar ACL Rules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Get Access Control Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId/acl/:ruleId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ruleId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns an access control rule."
+        },
+        {
+          "info": {
+            "name": "Google Update Access Control Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId/acl/:ruleId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sendNotifications",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ruleId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an access control rule."
+        },
+        {
+          "info": {
+            "name": "Google Patch Access Control Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId/acl/:ruleId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sendNotifications",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ruleId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an access control rule. This method supports patch semantics."
+        },
+        {
+          "info": {
+            "name": "Google Delete Access Control Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId/acl/:ruleId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ruleId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes an access control rule."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Calendar ACLs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Return Access Control Rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId/acl",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "maxResults",
+                "value": "54806309",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "showDeleted",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "syncToken",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the rules in the access control list for the calendar."
+        },
+        {
+          "info": {
+            "name": "Google Insert Access Control Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId/acl",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sendNotifications",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an access control rule."
+        },
+        {
+          "info": {
+            "name": "Google Watch Access Control Rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId/acl/watch",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "maxResults",
+                "value": "54806309",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "showDeleted",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "syncToken",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Watch for changes to ACL resources."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Calendar Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Get Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId/events/:eventId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "alwaysIncludeEmail",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "maxAttendees",
+                "value": "54806309",
+                "type": "query"
+              },
+              {
+                "name": "timeZone",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns an event based on its Google Calendar ID. To retrieve an event using its iCalendar ID, call the events.list method using the iCalUID parameter."
+        },
+        {
+          "info": {
+            "name": "Google Update Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId/events/:eventId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "alwaysIncludeEmail",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "conferenceDataVersion",
+                "value": "54806309",
+                "type": "query"
+              },
+              {
+                "name": "maxAttendees",
+                "value": "54806309",
+                "type": "query"
+              },
+              {
+                "name": "sendNotifications",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "sendUpdates",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "supportsAttachments",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an event."
+        },
+        {
+          "info": {
+            "name": "Google Patch Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId/events/:eventId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "alwaysIncludeEmail",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "conferenceDataVersion",
+                "value": "54806309",
+                "type": "query"
+              },
+              {
+                "name": "maxAttendees",
+                "value": "54806309",
+                "type": "query"
+              },
+              {
+                "name": "sendNotifications",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "sendUpdates",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "supportsAttachments",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an event. This method supports patch semantics."
+        },
+        {
+          "info": {
+            "name": "Google Delete Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId/events/:eventId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sendNotifications",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "sendUpdates",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes an event."
+        },
+        {
+          "info": {
+            "name": "Google Insert Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId/events/:eventId/instances",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "alwaysIncludeEmail",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "maxAttendees",
+                "value": "54806309",
+                "type": "query"
+              },
+              {
+                "name": "maxResults",
+                "value": "54806309",
+                "type": "query"
+              },
+              {
+                "name": "originalStart",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "showDeleted",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "timeMax",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "timeMin",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "timeZone",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns instances of the specified recurring event."
+        },
+        {
+          "info": {
+            "name": "Google Move Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId/events/:eventId/move",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "destination",
+                "value": "amet in",
+                "type": "query",
+                "description": "(Required) "
+              },
+              {
+                "name": "sendNotifications",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "sendUpdates",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Moves an event to another calendar, i.e. changes an event's organizer. Note that only default events can be moved; outOfOffice, focusTime and workingLocation events cannot be moved."
+        },
+        {
+          "info": {
+            "name": "Google Return Events From Calendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId/events",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "alwaysIncludeEmail",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "eventTypes",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "iCalUID",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "maxAttendees",
+                "value": "54806309",
+                "type": "query"
+              },
+              {
+                "name": "maxResults",
+                "value": "54806309",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "privateExtendedProperty",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "sharedExtendedProperty",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "showDeleted",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "showHiddenInvitations",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "singleEvents",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "syncToken",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "timeMax",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "timeMin",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "timeZone",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "updatedMin",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns events on the specified calendar."
+        },
+        {
+          "info": {
+            "name": "Google Create An Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId/events",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "conferenceDataVersion",
+                "value": "54806309",
+                "type": "query"
+              },
+              {
+                "name": "maxAttendees",
+                "value": "54806309",
+                "type": "query"
+              },
+              {
+                "name": "sendNotifications",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "sendUpdates",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "supportsAttachments",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an event."
+        },
+        {
+          "info": {
+            "name": "Google Import Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId/events/import",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "conferenceDataVersion",
+                "value": "54806309",
+                "type": "query"
+              },
+              {
+                "name": "supportsAttachments",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Imports an event. This operation is used to add a private copy of an existing event to a calendar."
+        },
+        {
+          "info": {
+            "name": "Google Quick Add Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId/events/quickAdd",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "text",
+                "value": "amet in",
+                "type": "query",
+                "description": "(Required) "
+              },
+              {
+                "name": "sendNotifications",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "sendUpdates",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Creates an event based on a simple text string."
+        },
+        {
+          "info": {
+            "name": "Google Watch Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId/events/watch",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "alwaysIncludeEmail",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "eventTypes",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "iCalUID",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "maxAttendees",
+                "value": "54806309",
+                "type": "query"
+              },
+              {
+                "name": "maxResults",
+                "value": "54806309",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "privateExtendedProperty",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "sharedExtendedProperty",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "showDeleted",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "showHiddenInvitations",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "singleEvents",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "syncToken",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "timeMax",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "timeMin",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "timeZone",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "updatedMin",
+                "value": "amet in",
+                "type": "query"
+              },
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Watch for changes to Events resources."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Calendars",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Get Calendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns metadata for a calendar."
+        },
+        {
+          "info": {
+            "name": "Google Update Calendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates metadata for a calendar."
+        },
+        {
+          "info": {
+            "name": "Google Patch Calendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates metadata for a calendar. This method supports patch semantics."
+        },
+        {
+          "info": {
+            "name": "Google Delete Calendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a secondary calendar. Use calendars.clear for clearing all events on primary calendars."
+        },
+        {
+          "info": {
+            "name": "Google Clear Calendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/calendar/v3/calendars/:calendarId/clear",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "alt",
+                "value": "json",
+                "type": "query",
+                "description": "Data format for the response."
+              },
+              {
+                "name": "fields",
+                "value": "amet in",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "amet in",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "amet in",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "true",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "amet in",
+                "type": "query",
+                "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+              },
+              {
+                "name": "userIp",
+                "value": "amet in",
+                "type": "query",
+                "description": "Deprecated. Please use quotaUser instead."
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Clears a primary calendar. This operation deletes all events associated with the primary calendar of an account."
+        },
+        {
+          "info": {
+            "name": "Google Calendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/calendar/v3/calendars",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a secondary calendar."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "User Calendars",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Get Calendar List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/calendar/v3/users/me/calendarList/:calendarId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a calendar from the user's calendar list."
+        },
+        {
+          "info": {
+            "name": "Google Update Calendar List",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.googleapis.com/calendar/v3/users/me/calendarList/:calendarId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing calendar on the user's calendar list."
+        },
+        {
+          "info": {
+            "name": "Google Patch Calendar List",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://www.googleapis.com/calendar/v3/users/me/calendarList/:calendarId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing calendar on the user's calendar list. This method supports patch semantics."
+        },
+        {
+          "info": {
+            "name": "Google Remove Calendar On List",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.googleapis.com/calendar/v3/users/me/calendarList/:calendarId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Removes a calendar from the user's calendar list."
+        },
+        {
+          "info": {
+            "name": "Google Insert Calendar On List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/calendar/v3/users/me/calendarList",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Inserts an existing calendar into the user's calendar list."
+        },
+        {
+          "info": {
+            "name": "Google List Calendars",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/calendar/v3/users/:userId/calendarList",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "{{userId}}",
+                "type": "path",
+                "description": "(Required)"
+              }
+            ]
+          },
+          "docs": "Returns the calendars on the user's calendar list."
+        },
+        {
+          "info": {
+            "name": "Google Watch Calendar List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/calendar/v3/users/me/calendarList/watch",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Watch for changes to CalendarList resources."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "User Settings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google List Calendar Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/calendar/v3/users/me/settings",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns all user settings for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Google Get Calendar Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/calendar/v3/users/me/settings/:setting",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "setting",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a single user setting."
+        },
+        {
+          "info": {
+            "name": "Google Watch Calendar Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/calendar/v3/users/me/settings/watch",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Watch for changes to Settings resources."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Channels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Stop Calendar Channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/calendar/v3/channels/stop",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Stop watching resources through this channel"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Colors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Get Calendar Colors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/calendar/v3/colors",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns the color definitions for calendars and events."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Free Busy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Query Free Busy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/calendar/v3/freeBusy",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns free/busy information for a set of calendars."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

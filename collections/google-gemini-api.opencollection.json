@@ -1,0 +1,239 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Gemini API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-goog-api-key",
+      "value": "{{x-goog-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Audio Understanding",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Upload File (Resumable)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/files",
+            "headers": [
+              {
+                "name": "X-Goog-Upload-Protocol",
+                "value": ""
+              },
+              {
+                "name": "X-Goog-Upload-Command",
+                "value": ""
+              },
+              {
+                "name": "X-Goog-Upload-Header-Content-Length",
+                "value": ""
+              },
+              {
+                "name": "X-Goog-Upload-Header-Content-Type",
+                "value": ""
+              },
+              {
+                "name": "X-Goog-Upload-Offset",
+                "value": ""
+              },
+              {
+                "name": "Content-Length",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upload a video, PDF, audio, or other media file using resumable upload protocol. Use this for files larger than 20MB, \nvideos longer than approximately 1 minute, or when you want to reuse the file across multiple requests.\n"
+        },
+        {
+          "info": {
+            "name": "Google Count Tokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/:model:countTokens",
+            "params": [
+              {
+                "name": "model",
+                "value": "",
+                "type": "path",
+                "description": "The model to use for token counting"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get a count of the number of tokens in content, including audio, video, images, and text.\nUseful for estimating costs and ensuring content fits within model context windows.\n"
+        },
+        {
+          "info": {
+            "name": "Google Generate Content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/:model:generateContent",
+            "params": [
+              {
+                "name": "model",
+                "value": "",
+                "type": "path",
+                "description": "The model to use for generation"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates text output from various inputs including text, images, video, audio, and PDF documents.\n\n**Document Understanding**: Process PDF documents up to 1000 pages using native vision to:\n- Analyze and interpret text, images, diagrams, charts, and tables\n- Extract information into structured output formats\n- Summarize and answer questions based on visual and textual elements\n- Transcribe document content (e.g., to HTML) preserving layouts and formatting\n- Process multiple PDFs in a single req"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "File Api",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Get File Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://generativelanguage.googleapis.com/v1beta/files/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "files/abc123",
+                "type": "path",
+                "description": "The resource name of the file (e.g., \"files/abc123\")"
+              }
+            ]
+          },
+          "docs": "Retrieve metadata for an uploaded file. Use this to verify the file was successfully \nstored and to check its processing state.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Speech Generation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Generate Speech (Text-to-Speech)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/:ttsModel:generateContent",
+            "params": [
+              {
+                "name": "ttsModel",
+                "value": "",
+                "type": "path",
+                "description": "The TTS model to use for speech generation"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Transform text input into single-speaker or multi-speaker audio using native text-to-speech (TTS) \ngeneration capabilities. TTS is controllable through natural language to guide style, accent, pace, \nand tone of the audio.\n\n**Capabilities:**\n- Single-speaker or multi-speaker audio (up to 2 speakers)\n- 30 voice options with different characteristics (bright, upbeat, informative, etc.)\n- 24 supported languages with automatic language detection\n- Controllable style, tone, accent, and pace via promp"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Content Generation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Stream Generate Content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/:model:streamGenerateContent",
+            "params": [
+              {
+                "name": "model",
+                "value": "",
+                "type": "path",
+                "description": "The model to use for generation"
+              },
+              {
+                "name": "alt",
+                "value": "",
+                "type": "query",
+                "description": "Alternative response format"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates text output with streaming responses, receiving GenerateContentResponse instances incrementally"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Image Generation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Generate Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/:imageModel:generateContent",
+            "params": [
+              {
+                "name": "imageModel",
+                "value": "",
+                "type": "path",
+                "description": "The image generation model to use"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate and process images conversationally. Supports text-to-image, text-and-image-to-image, \nand multi-turn image editing. All generated images include a SynthID watermark.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

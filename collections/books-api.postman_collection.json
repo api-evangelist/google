@@ -1,0 +1,3871 @@
+{
+  "item": [
+    {
+      "id": "dc63913c-c083-460b-9f01-62888aa6884d",
+      "name": "Bookshelves",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f4a8f3c9-51f0-4232-a99d-02c289280957",
+          "name": "Google List Bookshelves",
+          "request": {
+            "name": "Google List Bookshelves",
+            "description": {
+              "content": "Retrieves a list of public Bookshelf resources for the specified user. More information about user IDs can be found in the Google Books IDs section.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":userId",
+                "bookshelves"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "String to identify the originator of this request"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) ID of user for whom to retrieve bookshelves"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1ab48a5b-b677-4add-a9bc-25d9ed693730",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId",
+                    "bookshelves"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) ID of user for whom to retrieve bookshelves"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"books#bookshelves\",\n  \"items\": [\n    {\n      \"kind\": \"books#bookshelf\",\n      \"id\": 0,\n      \"title\": \"Favorites\",\n      \"volumeCount\": 42\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e3676cd-4b4d-4d3c-832f-1a9885b37c9a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId",
+                    "bookshelves"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) ID of user for whom to retrieve bookshelves"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91d6c2bf-9cb8-43c1-a3cf-8d1f729ff192",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId",
+                    "bookshelves"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) ID of user for whom to retrieve bookshelves"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87727498-5397-4aaf-9355-e44656a1aeb0",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId",
+                    "bookshelves"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) ID of user for whom to retrieve bookshelves"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cae5f120-22e0-431f-89e9-b799285777c8",
+          "name": "Google Get Bookshelf",
+          "request": {
+            "name": "Google Get Bookshelf",
+            "description": {
+              "content": "Retrieves a specific Bookshelf resource for the specified user. More information about user IDs can be found in the Google Books IDs section.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":userId",
+                "bookshelves",
+                ":shelf"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "String to identify the originator of this request"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) ID of user for whom to retrieve bookshelves"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shelf",
+                  "description": "(Required) ID of bookshelf to retrieve"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8a052fa7-d2bd-43e6-bf98-bf39f3e7d727",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId",
+                    "bookshelves",
+                    ":shelf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) ID of user for whom to retrieve bookshelves"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf to retrieve"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"books#bookshelf\",\n  \"id\": 0,\n  \"title\": \"Favorites\",\n  \"access\": \"PUBLIC\",\n  \"volumeCount\": 42,\n  \"selfLink\": \"https://www.googleapis.com/books/v1/users/112624903452243252365/bookshelves/0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "863670ff-aadf-4d3b-b23e-af99b9c32035",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId",
+                    "bookshelves",
+                    ":shelf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) ID of user for whom to retrieve bookshelves"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf to retrieve"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d79a41c3-b9b2-4365-a793-3e3c15b005c6",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId",
+                    "bookshelves",
+                    ":shelf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) ID of user for whom to retrieve bookshelves"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf to retrieve"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57622ded-a2d9-4d9b-a432-1466e64934d3",
+              "name": "Bookshelf not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId",
+                    "bookshelves",
+                    ":shelf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) ID of user for whom to retrieve bookshelves"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf to retrieve"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9916ae30-7f37-4a4e-a3cb-9cd98f05b28d",
+          "name": "Google List Bookshelf Volumes",
+          "request": {
+            "name": "Google List Bookshelf Volumes",
+            "description": {
+              "content": "Retrieves volumes in a specific bookshelf for the specified user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":userId",
+                "bookshelves",
+                ":shelf",
+                "volumes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "maxResults",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "showPreorders",
+                  "value": "false",
+                  "description": "Set to true to show pre-ordered books"
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "String to identify the originator of this request"
+                },
+                {
+                  "disabled": false,
+                  "key": "startIndex",
+                  "value": "0",
+                  "description": "Index of the first element to return (starts at 0)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) ID of user for whom to retrieve bookshelf volumes"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shelf",
+                  "description": "(Required) ID of bookshelf to retrieve volumes"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b551b2e-14d8-40fd-ae75-c4b79bdbe18b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId",
+                    "bookshelves",
+                    ":shelf",
+                    "volumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "showPreorders",
+                      "value": "false"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) ID of user for whom to retrieve bookshelf volumes"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf to retrieve volumes"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"books#volumes\",\n  \"totalItems\": 42,\n  \"items\": [\n    {\n      \"kind\": \"books#volume\",\n      \"id\": \"zyTCAlFPjgYC\",\n      \"volumeInfo\": {\n        \"title\": \"The Google Story\",\n        \"authors\": [\n          \"David A. Vise\",\n          \"Mark Malseed\"\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1399dd3f-ef7b-41d7-b55c-64113eb42061",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId",
+                    "bookshelves",
+                    ":shelf",
+                    "volumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "showPreorders",
+                      "value": "false"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) ID of user for whom to retrieve bookshelf volumes"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf to retrieve volumes"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a43d0214-7f0f-4366-a249-e70d52cf90b1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId",
+                    "bookshelves",
+                    ":shelf",
+                    "volumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "showPreorders",
+                      "value": "false"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) ID of user for whom to retrieve bookshelf volumes"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf to retrieve volumes"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e0d2920-ccf5-409c-9dac-8cdb879dd515",
+              "name": "Bookshelf not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId",
+                    "bookshelves",
+                    ":shelf",
+                    "volumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "showPreorders",
+                      "value": "false"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) ID of user for whom to retrieve bookshelf volumes"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf to retrieve volumes"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "afb1f962-a7db-4eb8-9688-4402b34a8773",
+      "name": "My Library",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8f3ae541-83a1-4119-a114-5f7e59e807ea",
+          "name": "Google List My Bookshelves",
+          "request": {
+            "name": "Google List My Bookshelves",
+            "description": {
+              "content": "Retrieves a list of bookshelves belonging to the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mylibrary",
+                "bookshelves"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "String to identify the originator of this request"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/books"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "11c1a945-49e0-4310-83c7-790191876db8",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"books#bookshelves\",\n  \"items\": [\n    {\n      \"kind\": \"books#bookshelf\",\n      \"id\": 0,\n      \"title\": \"Favorites\",\n      \"access\": \"PRIVATE\",\n      \"volumeCount\": 42\n    },\n    {\n      \"kind\": \"books#bookshelf\",\n      \"id\": 1,\n      \"title\": \"Reading now\",\n      \"access\": \"PRIVATE\",\n      \"volumeCount\": 3\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "443ae01f-2b54-48bf-8083-d0d96bc6004d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "713d279c-7bf7-430d-9134-e74b3ee9f2cc",
+              "name": "Unauthorized - requires authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f8ddb60-8cc6-4f6e-837a-2909cf853c7d",
+          "name": "Google Get My Bookshelf",
+          "request": {
+            "name": "Google Get My Bookshelf",
+            "description": {
+              "content": "Retrieves metadata for a specific bookshelf belonging to the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mylibrary",
+                "bookshelves",
+                ":shelf"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "String to identify the originator of this request"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shelf",
+                  "description": "(Required) ID of bookshelf to retrieve"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/books"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6865a5e3-101b-4b8d-87a7-37c294a8464a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf to retrieve"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"books#bookshelf\",\n  \"id\": 0,\n  \"title\": \"Favorites\",\n  \"access\": \"PRIVATE\",\n  \"volumeCount\": 42,\n  \"selfLink\": \"https://www.googleapis.com/books/v1/mylibrary/bookshelves/0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6836c85-8432-4e6d-b62e-53ee9d49ce87",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf to retrieve"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f3ef7c98-a856-4d6e-abb9-932702765b28",
+              "name": "Unauthorized - requires authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf to retrieve"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d783b8f-8e02-4e6b-8cbb-09820b6bbe60",
+              "name": "Bookshelf not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf to retrieve"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ce7b4ea9-97af-4d14-8ab7-383fc449269c",
+          "name": "Google Add Volume to Bookshelf",
+          "request": {
+            "name": "Google Add Volume to Bookshelf",
+            "description": {
+              "content": "Adds a volume to a bookshelf in the authenticated user's library. Requires authorization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mylibrary",
+                "bookshelves",
+                ":shelf",
+                "addVolume"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "volumeId",
+                  "value": "<string>",
+                  "description": "(Required) ID of volume to add"
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "String to identify the originator of this request"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shelf",
+                  "description": "(Required) ID of bookshelf to which to add a volume"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/books"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2384554c-245b-4a52-89d9-bdafa84604da",
+              "name": "Volume successfully added to bookshelf (empty response body)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf",
+                    "addVolume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "volumeId",
+                      "value": "zyTCAlFPjgYC"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf to which to add a volume"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9444b120-db5e-4a75-9b17-2fa17529b143",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf",
+                    "addVolume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "volumeId",
+                      "value": "zyTCAlFPjgYC"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf to which to add a volume"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f131c9b4-659e-4518-82a9-a2940bdde5f9",
+              "name": "Unauthorized - requires authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf",
+                    "addVolume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "volumeId",
+                      "value": "zyTCAlFPjgYC"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf to which to add a volume"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a48cbf54-5e44-48fc-8f1f-df9bf6315352",
+              "name": "Bookshelf or volume not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf",
+                    "addVolume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "volumeId",
+                      "value": "zyTCAlFPjgYC"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf to which to add a volume"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb583c4f-fa36-4b48-b948-f212dc3119c6",
+          "name": "Google Clear Volumes from Bookshelf",
+          "request": {
+            "name": "Google Clear Volumes from Bookshelf",
+            "description": {
+              "content": "Clears all volumes from a bookshelf in the authenticated user's library. Requires authorization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mylibrary",
+                "bookshelves",
+                ":shelf",
+                "clearVolumes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "String to identify the originator of this request"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shelf",
+                  "description": "(Required) ID of bookshelf from which to remove all volumes"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/books"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9638749f-05f7-4825-b414-783b7a6eaaea",
+              "name": "All volumes successfully cleared from bookshelf (empty response body)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf",
+                    "clearVolumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf from which to remove all volumes"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5b5f6a26-7512-4a5b-af4f-84ffab3cabc1",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf",
+                    "clearVolumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf from which to remove all volumes"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2b9a1a1-a96d-416a-a5fb-b01bb4d3aaa4",
+              "name": "Unauthorized - requires authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf",
+                    "clearVolumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf from which to remove all volumes"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e8355002-b7f2-4bee-8510-b70daa408a4d",
+              "name": "Bookshelf not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf",
+                    "clearVolumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf from which to remove all volumes"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc79b794-a358-4c36-ba8c-56e6875c85d1",
+          "name": "Google Move Volume in Bookshelf",
+          "request": {
+            "name": "Google Move Volume in Bookshelf",
+            "description": {
+              "content": "Moves a volume within a bookshelf in the authenticated user's library. Requires authorization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mylibrary",
+                "bookshelves",
+                ":shelf",
+                "moveVolume"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "volumeId",
+                  "value": "<string>",
+                  "description": "(Required) ID of volume to move"
+                },
+                {
+                  "disabled": false,
+                  "key": "volumePosition",
+                  "value": "<integer>",
+                  "description": "(Required) Position on shelf to move the item (0 puts the item before the current first item, 1 puts it between the first and the second and so on)"
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "String to identify the originator of this request"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shelf",
+                  "description": "(Required) ID of bookshelf with the volume"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/books"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "804c7b58-a986-4285-bdc2-85fc69c195e4",
+              "name": "Volume successfully moved in bookshelf (empty response body)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf",
+                    "moveVolume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "volumeId",
+                      "value": "zyTCAlFPjgYC"
+                    },
+                    {
+                      "key": "volumePosition",
+                      "value": "0"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf with the volume"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0e8fdda2-9852-4bc4-b56f-d6545a66f26d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf",
+                    "moveVolume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "volumeId",
+                      "value": "zyTCAlFPjgYC"
+                    },
+                    {
+                      "key": "volumePosition",
+                      "value": "0"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf with the volume"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52279be8-69db-4ce1-a0af-5a1481d4c95a",
+              "name": "Unauthorized - requires authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf",
+                    "moveVolume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "volumeId",
+                      "value": "zyTCAlFPjgYC"
+                    },
+                    {
+                      "key": "volumePosition",
+                      "value": "0"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf with the volume"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c671e5af-65c5-4331-8f97-ea7dfec24a93",
+              "name": "Bookshelf or volume not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf",
+                    "moveVolume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "volumeId",
+                      "value": "zyTCAlFPjgYC"
+                    },
+                    {
+                      "key": "volumePosition",
+                      "value": "0"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf with the volume"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "527cc744-8645-4c78-937b-6636223fe1c0",
+          "name": "Google Remove Volume from Bookshelf",
+          "request": {
+            "name": "Google Remove Volume from Bookshelf",
+            "description": {
+              "content": "Removes a volume from a bookshelf in the authenticated user's library. Requires authorization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mylibrary",
+                "bookshelves",
+                ":shelf",
+                "removeVolume"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "volumeId",
+                  "value": "<string>",
+                  "description": "(Required) ID of volume to remove"
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "String to identify the originator of this request"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shelf",
+                  "description": "(Required) ID of bookshelf from which to remove a volume"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/books"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f220803f-07f5-44c4-af5d-1483772b9353",
+              "name": "Volume successfully removed from bookshelf (empty response body)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf",
+                    "removeVolume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "volumeId",
+                      "value": "zyTCAlFPjgYC"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf from which to remove a volume"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9205efaa-3f43-46c7-b1ec-b84a0573e759",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf",
+                    "removeVolume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "volumeId",
+                      "value": "zyTCAlFPjgYC"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf from which to remove a volume"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7613760a-e9f4-481c-be2a-75196bd74c13",
+              "name": "Unauthorized - requires authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf",
+                    "removeVolume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "volumeId",
+                      "value": "zyTCAlFPjgYC"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf from which to remove a volume"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eadb3586-4536-4123-8165-7c14c5740e91",
+              "name": "Bookshelf or volume not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf",
+                    "removeVolume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "volumeId",
+                      "value": "zyTCAlFPjgYC"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) ID of bookshelf from which to remove a volume"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7be75680-3108-416c-9537-a3e8d713ef76",
+          "name": "Google List My Bookshelf Volumes",
+          "request": {
+            "name": "Google List My Bookshelf Volumes",
+            "description": {
+              "content": "Gets volume information for volumes on a bookshelf belonging to the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mylibrary",
+                "bookshelves",
+                ":shelf",
+                "volumes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "maxResults",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "projection",
+                  "value": "<string>",
+                  "description": "Restrict information returned to a set of selected fields"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Full-text search query string in this bookshelf"
+                },
+                {
+                  "disabled": false,
+                  "key": "showPreorders",
+                  "value": "false",
+                  "description": "Set to true to show pre-ordered books"
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "String to identify the originator of this request"
+                },
+                {
+                  "disabled": false,
+                  "key": "startIndex",
+                  "value": "0",
+                  "description": "Index of the first element to return (starts at 0)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shelf",
+                  "description": "(Required) The bookshelf ID or name to retrieve volumes for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/books"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "43475379-78d4-4b8d-a112-6f1f2ff375c1",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf",
+                    "volumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "projection",
+                      "value": "full"
+                    },
+                    {
+                      "key": "q",
+                      "value": "flowers"
+                    },
+                    {
+                      "key": "showPreorders",
+                      "value": "false"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) The bookshelf ID or name to retrieve volumes for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"books#volumes\",\n  \"totalItems\": 42,\n  \"items\": [\n    {\n      \"kind\": \"books#volume\",\n      \"id\": \"zyTCAlFPjgYC\",\n      \"volumeInfo\": {\n        \"title\": \"The Google Story\",\n        \"authors\": [\n          \"David A. Vise\",\n          \"Mark Malseed\"\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2df3e401-e2ea-4548-abb2-cac576730213",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf",
+                    "volumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "projection",
+                      "value": "full"
+                    },
+                    {
+                      "key": "q",
+                      "value": "flowers"
+                    },
+                    {
+                      "key": "showPreorders",
+                      "value": "false"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) The bookshelf ID or name to retrieve volumes for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1815ebd6-d11c-49c1-bf85-5e94826184aa",
+              "name": "Unauthorized - requires authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf",
+                    "volumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "projection",
+                      "value": "full"
+                    },
+                    {
+                      "key": "q",
+                      "value": "flowers"
+                    },
+                    {
+                      "key": "showPreorders",
+                      "value": "false"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) The bookshelf ID or name to retrieve volumes for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "101911ab-3fe1-4297-b6fe-b5c9b3ade8a0",
+              "name": "Bookshelf not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mylibrary",
+                    "bookshelves",
+                    ":shelf",
+                    "volumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "projection",
+                      "value": "full"
+                    },
+                    {
+                      "key": "q",
+                      "value": "flowers"
+                    },
+                    {
+                      "key": "showPreorders",
+                      "value": "false"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shelf",
+                      "description": "(Required) The bookshelf ID or name to retrieve volumes for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c8c4cbea-1a97-4c6a-a780-14e71a5c7fff",
+      "name": "Volumes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b0d39bf9-8fd9-4c47-a5d9-a9fcfc6f8ed5",
+          "name": "Google List Volumes",
+          "request": {
+            "name": "Google List Volumes",
+            "description": {
+              "content": "Performs a book search. Returns a list of volumes that match the search query.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "volumes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) Full-text search query string"
+                },
+                {
+                  "disabled": false,
+                  "key": "download",
+                  "value": "<string>",
+                  "description": "Restrict to volumes by download availability"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter search results"
+                },
+                {
+                  "disabled": false,
+                  "key": "langRestrict",
+                  "value": "<string>",
+                  "description": "Restrict results to books with this language code"
+                },
+                {
+                  "disabled": false,
+                  "key": "libraryRestrict",
+                  "value": "<string>",
+                  "description": "Restrict search to this user's library"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxResults",
+                  "value": "10",
+                  "description": "Maximum number of results to return (0 to 40)"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "Sort search results"
+                },
+                {
+                  "disabled": false,
+                  "key": "partner",
+                  "value": "<string>",
+                  "description": "Restrict and brand results for partner ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "printType",
+                  "value": "<string>",
+                  "description": "Restrict to books or magazines"
+                },
+                {
+                  "disabled": false,
+                  "key": "projection",
+                  "value": "<string>",
+                  "description": "Restrict information returned to a set of selected fields"
+                },
+                {
+                  "disabled": false,
+                  "key": "showPreorders",
+                  "value": "false",
+                  "description": "Set to true to show books available for preorder"
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "String to identify the originator of this request"
+                },
+                {
+                  "disabled": false,
+                  "key": "startIndex",
+                  "value": "0",
+                  "description": "Index of the first result to return (starts at 0)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "548c8f40-08d2-4c61-a5ae-2419b8129936",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "volumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "flowers"
+                    },
+                    {
+                      "key": "download",
+                      "value": "epub"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "ebooks"
+                    },
+                    {
+                      "key": "langRestrict",
+                      "value": "en"
+                    },
+                    {
+                      "key": "libraryRestrict",
+                      "value": "no-restrict"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "relevance"
+                    },
+                    {
+                      "key": "partner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "printType",
+                      "value": "all"
+                    },
+                    {
+                      "key": "projection",
+                      "value": "full"
+                    },
+                    {
+                      "key": "showPreorders",
+                      "value": "false"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"books#volumes\",\n  \"totalItems\": 1234,\n  \"items\": [\n    {\n      \"kind\": \"books#volume\",\n      \"id\": \"zyTCAlFPjgYC\",\n      \"etag\": \"oTRt82b5z/Q\",\n      \"selfLink\": \"https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC\",\n      \"volumeInfo\": {\n        \"title\": \"The Google Story\",\n        \"authors\": [\n          \"David A. Vise\",\n          \"Mark Malseed\"\n        ],\n        \"publisher\": \"Delacorte Press\",\n        \"publishedDate\": \"2005-11-15\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "754518d8-0826-4bab-afa0-e995fbd61502",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "volumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "flowers"
+                    },
+                    {
+                      "key": "download",
+                      "value": "epub"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "ebooks"
+                    },
+                    {
+                      "key": "langRestrict",
+                      "value": "en"
+                    },
+                    {
+                      "key": "libraryRestrict",
+                      "value": "no-restrict"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "relevance"
+                    },
+                    {
+                      "key": "partner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "printType",
+                      "value": "all"
+                    },
+                    {
+                      "key": "projection",
+                      "value": "full"
+                    },
+                    {
+                      "key": "showPreorders",
+                      "value": "false"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf636ffd-f662-4092-860a-2219bc42175c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "volumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "flowers"
+                    },
+                    {
+                      "key": "download",
+                      "value": "epub"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "ebooks"
+                    },
+                    {
+                      "key": "langRestrict",
+                      "value": "en"
+                    },
+                    {
+                      "key": "libraryRestrict",
+                      "value": "no-restrict"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "relevance"
+                    },
+                    {
+                      "key": "partner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "printType",
+                      "value": "all"
+                    },
+                    {
+                      "key": "projection",
+                      "value": "full"
+                    },
+                    {
+                      "key": "showPreorders",
+                      "value": "false"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "154f97cf-4438-4ba1-8c0a-dd590b088a04",
+          "name": "Google Get Volume",
+          "request": {
+            "name": "Google Get Volume",
+            "description": {
+              "content": "Retrieves a Volume resource based on ID. More information about volume IDs can be found in the Google Books IDs section.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "volumes",
+                ":volumeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "partner",
+                  "value": "<string>",
+                  "description": "Brand results for partner ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "projection",
+                  "value": "<string>",
+                  "description": "Restrict information returned to a set of selected fields"
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "String to identify the originator of this request"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "volumeId",
+                  "description": "(Required) ID of volume to retrieve"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4e9b6e68-7f7f-4f26-b2da-843cf38f8cad",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "volumes",
+                    ":volumeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "partner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "projection",
+                      "value": "full"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "volumeId",
+                      "description": "(Required) ID of volume to retrieve"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"books#volume\",\n  \"id\": \"zyTCAlFPjgYC\",\n  \"etag\": \"oTRt82b5z/Q\",\n  \"selfLink\": \"https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC\",\n  \"volumeInfo\": {\n    \"title\": \"The Google Story\",\n    \"authors\": [\n      \"David A. Vise\",\n      \"Mark Malseed\"\n    ],\n    \"publisher\": \"Delacorte Press\",\n    \"publishedDate\": \"2005-11-15\",\n    \"pageCount\": 207\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f045b1d8-6cd8-4d0d-a135-50f349caa0ac",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "volumes",
+                    ":volumeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "partner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "projection",
+                      "value": "full"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "volumeId",
+                      "description": "(Required) ID of volume to retrieve"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c24723a-c919-4891-ac05-954d552b257d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "volumes",
+                    ":volumeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "partner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "projection",
+                      "value": "full"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "volumeId",
+                      "description": "(Required) ID of volume to retrieve"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2b2a386-8555-4d8a-88f6-c7aedaccf73f",
+              "name": "Volume not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "volumes",
+                    ":volumeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "partner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "projection",
+                      "value": "full"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "volumeId",
+                      "description": "(Required) ID of volume to retrieve"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "569cce9f-3f70-4f19-b6b5-ca519865c6b4",
+    "name": "Google Books API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

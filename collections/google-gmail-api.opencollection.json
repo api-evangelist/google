@@ -1,0 +1,2657 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Gmail API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Get Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/profile",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "The Google Gmail API's Get Profile operation retrieves the current user's Gmail profile information by making a GET request to the endpoint /gmail/v1/users/{userId}/profile, where {userId} can be either the user's email address or the special value \"me\" to indicate the authenticated user. This operation returns basic profile details including the user's email address, the total number of messages in their mailbox, the total number of threads, and their history ID, which is useful for tracking ch"
+        },
+        {
+          "info": {
+            "name": "Google Get Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/messages/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the specified message."
+        },
+        {
+          "info": {
+            "name": "Google Get Labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/labels/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the specified label."
+        },
+        {
+          "info": {
+            "name": "Google Get Threads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/threads/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the specified thread."
+        },
+        {
+          "info": {
+            "name": "Google GET IMAP",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/imap",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets IMAP settings."
+        },
+        {
+          "info": {
+            "name": "Google Get POP Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/pop",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "{{userId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets POP settings."
+        },
+        {
+          "info": {
+            "name": "Google Get Vacation Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/vacation",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets vacation responder settings."
+        },
+        {
+          "info": {
+            "name": "Google Get Language Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/language",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets language settings."
+        },
+        {
+          "info": {
+            "name": "Google Get Send As SMIME Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail/smimeInfo/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "sendAsEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the specified S/MIME config for the specified send-as alias."
+        },
+        {
+          "info": {
+            "name": "Google Get Send As",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "sendAsEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection."
+        },
+        {
+          "info": {
+            "name": "Google Get Send As",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/sendAs",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom \"from\" aliases."
+        },
+        {
+          "info": {
+            "name": "Google GET CSE Keypairs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/cse/keypairs/:keyPairId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "keyPairId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Retrieves an existing client-side encryption key pair."
+        },
+        {
+          "info": {
+            "name": "Google GET CSE Idenetites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/cse/identities/:cseEmailAddress",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "cseEmailAddress",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Retrieves a client-side encryption identity configuration."
+        },
+        {
+          "info": {
+            "name": "Google Get Filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/filters/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets a filter."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Watch Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/watch",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The Watch Users operation in the Google Gmail API allows applications to set up push notifications for a user's mailbox by establishing a watch on their Gmail account. When called via POST to /gmail/v1/users/{userId}/watch, this endpoint configures Gmail to send notifications to a specified Cloud Pub/Sub topic whenever changes occur in the user's mailbox, such as receiving new emails, messages being deleted, or labels being modified. The watch remains active for a renewable period (default 7 day"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Notifications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Stop Notifications for User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/stop",
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Stop receiving push notifications for the given user mailbox."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Drafts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Send Drafts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/drafts/send",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "{{userID}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sends the specified, existing draft to the recipients in the `To`, `Cc`, and `Bcc` headers."
+        },
+        {
+          "info": {
+            "name": "Google Get Drafts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/drafts/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "{{userId}}",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the specified draft."
+        },
+        {
+          "info": {
+            "name": "Google Update Drafts",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/drafts/:id",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces a draft's content."
+        },
+        {
+          "info": {
+            "name": "Google List Drafts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/drafts",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "{{userID}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists the drafts in the user's mailbox."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Deletes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Delete Drafts",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/drafts/:id",
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Immediately and permanently deletes the specified draft. Does not simply trash it."
+        },
+        {
+          "info": {
+            "name": "Google Delete Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/messages/:id",
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Immediately and permanently deletes the specified message. This operation cannot be undone. Prefer `messages.trash` instead."
+        },
+        {
+          "info": {
+            "name": "Google Delete Labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/labels/:id",
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Immediately and permanently deletes the specified label and removes it from any messages and threads that it is applied to."
+        },
+        {
+          "info": {
+            "name": "Google Delete Threads",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/threads/:id",
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Immediately and permanently deletes the specified thread. Any messages that belong to the thread are also deleted. This operation cannot be undone. Prefer `threads.trash` instead."
+        },
+        {
+          "info": {
+            "name": "Google Delete Send As SMIME INfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail/smimeInfo/:id",
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "sendAsEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Deletes the specified S/MIME config for the specified send-as alias."
+        },
+        {
+          "info": {
+            "name": "Google Delete Send As",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail",
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "sendAsEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service account clients that have been delegated domain-wide authority."
+        },
+        {
+          "info": {
+            "name": "Google Delete CSE Idenities",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/cse/identities/:cseEmailAddress",
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "cseEmailAddress",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Deletes a client-side encryption identity. The authenticated user can no longer use the identity to send encrypted messages. You cannot restore the identity after you delete it. Instead, use the CreateCseIdentity method to create another identity with the same configuration."
+        },
+        {
+          "info": {
+            "name": "Google Delete Filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/filters/:id",
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Immediately and permanently deletes the specified filter."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Create",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Create Drafts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/drafts",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new draft with the `DRAFT` label."
+        },
+        {
+          "info": {
+            "name": "Google Create Labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/labels",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new label."
+        },
+        {
+          "info": {
+            "name": "Google Create Send As",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/sendAs",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a custom \"from\" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is provided, Gmail will sanitize the HTML before saving it with "
+        },
+        {
+          "info": {
+            "name": "Google Create CSE Keypairs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/cse/keypairs",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates and uploads a client-side encryption S/MIME public key certificate chain and private key metadata for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Google Create CSE Identites",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/cse/identities",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates and configures a client-side encryption identity that's authorized to send mail from the user account. Google publishes the S/MIME certificate to a shared domain-wide directory so that people within a Google Workspace organization can encrypt and send mail to the identity."
+        },
+        {
+          "info": {
+            "name": "Google Create Filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/filters",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a filter. Note: you can only create a maximum of 1,000 filters."
+        },
+        {
+          "info": {
+            "name": "Google Create Delegates",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/delegates",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of the same Google Workspace organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a Google Workspace organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note that a delegate user must be referred t"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "History",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google List History",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/history",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "{{userId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists the history of all changes to the given mailbox. History results are returned in chronological order (increasing `historyId`)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Trash",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Trash Messsages",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/messages/:id/trash",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Moves the specified message to the trash."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Messages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Untrash Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/messages/:id/untrash",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Removes the specified message from the trash."
+        },
+        {
+          "info": {
+            "name": "Google Modify Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/messages/:id/modify",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "{{userId}}",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "{{messageId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modifies the labels on the specified message."
+        },
+        {
+          "info": {
+            "name": "Google Send Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/messages/send",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "{{userId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sends the specified message to the recipients in the `To`, `Cc`, and `Bcc` headers. For example usage, see [Sending email](https://developers.google.com/gmail/api/guides/sending)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Batch",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Batch Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/messages/batchDelete",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "{{userID}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletes many messages by message ID. Provides no guarantees that messages were not already deleted or even existed at all."
+        },
+        {
+          "info": {
+            "name": "Google Batch Modify",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/messages/batchModify",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modifies the labels on the specified messages."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Import",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Import Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/messages/import",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Imports a message into only this user's mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. This method doesn't perform SPF checks, so it might not work for some spam messages, such as those attempting to perform domain spoofing. This method does not send a message."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Lists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google List Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/messages",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "maxResults",
+                "value": "{{maxResults}}",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "{{pageToken}}",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "{{q}}",
+                "type": "query"
+              },
+              {
+                "name": "userId",
+                "value": "{{userId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists the messages in the user's mailbox."
+        },
+        {
+          "info": {
+            "name": "Google List Threads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/threads",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "{{userID}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists the threads in the user's mailbox."
+        },
+        {
+          "info": {
+            "name": "Google List CSE Keypairs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/cse/keypairs",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists client-side encryption key pairs for an authenticated user."
+        },
+        {
+          "info": {
+            "name": "Google List CSE Identites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/cse/identities",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists the client-side encrypted identities for an authenticated user."
+        },
+        {
+          "info": {
+            "name": "Google List Filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/filters",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists the message filters of a Gmail user."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Insert",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Insert Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/messages",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Directly inserts a message into only this user's mailbox similar to `IMAP APPEND`, bypassing most scanning and classification. Does not send a message."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Attachments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Get Attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/messages/:messageId/attachments/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "messageId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the specified message attachment."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Labels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google List Labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/labels",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists all labels in the user's mailbox."
+        },
+        {
+          "info": {
+            "name": "Google Update Labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/labels/:id",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified label."
+        },
+        {
+          "info": {
+            "name": "Google Patch Labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/labels/:id",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch the specified label."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Modify",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Modify Threads",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/threads/:id/modify",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modifies the labels applied to the thread. This applies to all messages in the thread."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Threads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Trash Threads",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/threads/:id/trash",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Moves the specified thread to the trash. Any messages that belong to the thread are also moved to the trash."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Update",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Update IMAP",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/imap",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates IMAP settings."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Pop",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Update POP Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/pop",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates POP settings."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Settings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Update Vacation Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/vacation",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates vacation responder settings."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Language",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Update Language Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/language",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates language settings. If successful, the return object contains the `displayLanguage` that was saved for the user, which may differ from the value passed into the request. This is because the requested `displayLanguage` may not be directly supported by Gmail but have a close variant that is, and so the variant may be chosen and saved instead."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Auto",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Get Auto Forwarding Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/autoForwarding",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the auto-forwarding setting for the specified account."
+        },
+        {
+          "info": {
+            "name": "Google Update Auto Forwarding",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/autoForwarding",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the auto-forwarding setting for the specified account. A verified forwarding address must be specified when auto-forwarding is enabled. This method is only available to service account clients that have been delegated domain-wide authority."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Set default S/MIME config",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail/smimeInfo/:id/setDefault",
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "sendAsEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Sets the default S/MIME config for the specified send-as alias."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google List SMIME Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail/smimeInfo",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "sendAsEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists S/MIME configs for the specified send-as alias."
+        },
+        {
+          "info": {
+            "name": "Google Insert SMIME Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail/smimeInfo",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "sendAsEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Send",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Verify Send As",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail/verify",
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "sendAsEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service account clients that have been delegated domain-wide authority."
+        },
+        {
+          "info": {
+            "name": "Google Update Send As Setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "sendAsEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary address for the account can only be updated by service account clients that have been delegated domain-wide authority."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Patch",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Patch Send As",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "sendAsEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch the specified send-as alias."
+        },
+        {
+          "info": {
+            "name": "Google PATCH CSE Identites",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/cse/identities/:emailAddress",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "emailAddress",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Associates a different key pair with an existing client-side encryption identity. The updated key pair must validate against Google's [S/MIME certificate profiles](https://support.google.com/a/answer/7300887)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Enables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Enable CSE Keypairs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/cse/keypairs/:keyPairId:enable",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "keyPairId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Turns on a client-side encryption key pair that was turned off. The key pair becomes active again for any associated client-side encryption identities."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Disables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Disable CSE Keypairs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/cse/keypairs/:keyPairId:disable",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "keyPairId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Turns off a client-side encryption key pair. The authenticated user can no longer use the key pair to decrypt incoming CSE message texts or sign outgoing CSE mail. To regain access, use the EnableCseKeyPair to turn on the key pair. After 30 days, you can permanently delete the key pair by using the ObliterateCseKeyPair method."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Obliterate",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Obliterate CSE Keypairs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/cse/keypairs/:keyPairId:obliterate",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "keyPairId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletes a client-side encryption key pair permanently and immediately. You can only permanently delete key pairs that have been turned off for more than 30 days. To turn off a key pair, use the DisableCseKeyPair method. Gmail can't restore or decrypt any messages that were encrypted by an obliterated key. Authenticated users and Google Workspace administrators lose access to reading the encrypted messages."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Addresses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Get Forwarding Addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/forwardingAddresses/:forwardingEmail",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "forwardingEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the specified forwarding address."
+        },
+        {
+          "info": {
+            "name": "Google Delete Forwarding Addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/forwardingAddresses/:forwardingEmail",
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "forwardingEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account clients that have been delegated domain-wide authority."
+        },
+        {
+          "info": {
+            "name": "Google List Forwarding Addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/forwardingAddresses",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists the forwarding addresses for the specified account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Address",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Create Forwarding Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/forwardingAddresses",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service account clients that have been delegated domain-wide authority."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Delegates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Get Delegates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/delegates/:delegateEmail",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "delegateEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account clients that have been delegated domain-wide authority."
+        },
+        {
+          "info": {
+            "name": "Google Delete Delegates",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/delegates/:delegateEmail",
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "delegateEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account clients that have been delegated domain-wide authority."
+        },
+        {
+          "info": {
+            "name": "Google List Delegates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gmail.googleapis.com/gmail/v1/users/:userId/settings/delegates",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
