@@ -763,7 +763,7 @@ common:
   - url: https://cloud.google.com
     type: Google Cloud
   - url: https://developers.google.com/
-    type: Developer Portal
+    type: DeveloperPortal
   - url: https://developers.googleblog.com/en/
     type: Blog
   - url: https://console.cloud.google.com/apis/dashboard?project=api-project-111046942866
@@ -1725,11 +1725,11 @@ common:
   - url: https://x.com/googledevs
     type: X
   - url: https://discuss.google.dev/
-    type: Forum
+    type: Forums
   - url: https://github.com/google
     type: GitHub
   - url: https://console.cloud.google.com/
-    type: SignUp
+    type: Signup
   - url: https://developers.google.com/apis-explorer
     type: APIExplorer
   - url: https://developers.google.com/products
