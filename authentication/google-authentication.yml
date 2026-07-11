@@ -1,0 +1,56 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/books-api-openapi.yml, openapi/google-calendar-api-openapi.yml, openapi/google-docs-api-openapi.yml,
+  openapi/google-drive-activity-api-openapi.yml, openapi/google-drive-api-openapi.yml, openapi/google-drive-labels-api-openapi.yml,
+  openapi/google-gemini-api-openapi.yml, openapi/google-gmail-api-openapi.yml, openapi/google-sheets-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  - oauth2
+  api_key_in:
+  - header
+  oauth2_flows:
+  - authorizationCode
+  - implicit
+schemes:
+- name: OAuth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+    tokenUrl: https://oauth2.googleapis.com/token
+    scopes: 1
+  description: OAuth 2.0 authentication for Google Books API
+  sources:
+  - openapi/books-api-openapi.yml
+  - openapi/google-docs-api-openapi.yml
+  - openapi/google-drive-activity-api-openapi.yml
+  - openapi/google-drive-api-openapi.yml
+  - openapi/google-drive-labels-api-openapi.yml
+- name: oauth2Auth
+  type: http
+  scheme: oauth2
+  sources:
+  - openapi/google-calendar-api-openapi.yml
+  - openapi/google-gmail-api-openapi.yml
+  - openapi/google-sheets-api-openapi.yml
+- name: Oauth2
+  type: oauth2
+  flows:
+  - flow: implicit
+    authorizationUrl: https://accounts.google.com/o/oauth2/auth
+    scopes: 5
+  description: Oauth 2.0 implicit authentication
+  sources:
+  - openapi/google-docs-api-openapi.yml
+  - openapi/google-drive-activity-api-openapi.yml
+  - openapi/google-drive-api-openapi.yml
+  - openapi/google-drive-labels-api-openapi.yml
+- name: ApiKeyHeader
+  type: apiKey
+  in: header
+  parameter: x-goog-api-key
+  description: API key for authentication
+  sources:
+  - openapi/google-gemini-api-openapi.yml

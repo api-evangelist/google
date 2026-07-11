@@ -760,6 +760,12 @@ tags:
   - T1
 image: https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png
 common:
+  - type: VulnerabilityDisclosure
+    url: security/google-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/google-domain-security.yml
+  - type: Authentication
+    url: authentication/google-authentication.yml
   - type: OAuthScopes
     url: scopes/google-scopes.yml
   - name: Agent Skills
