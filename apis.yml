@@ -760,6 +760,11 @@ tags:
   - T1
 image: https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png
 common:
+  - type: OAuthScopes
+    url: scopes/google-scopes.yml
+  - name: Agent Skills
+    url: https://developers.googleblog.com/closing-the-knowledge-gap-with-agent-skills/
+    type: AgentSkills
   - url: https://cloud.google.com
     type: Google Cloud
   - url: https://developers.google.com/
