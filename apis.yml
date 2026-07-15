@@ -760,6 +760,8 @@ tags:
   - T1
 image: https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png
 common:
+  - type: AgenticAccess
+    url: agentic-access/google-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/google-vulnerability-disclosure.yml
   - type: DomainSecurity
