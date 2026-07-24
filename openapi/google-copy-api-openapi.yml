@@ -1,0 +1,239 @@
+openapi: 3.1.0
+info:
+  title: Google Books About Copy API
+  description: API for retrieving Bookshelf and Volume resources from Google Books
+  version: 1.0.0
+  contact:
+    name: Google Books API
+    url: https://developers.google.com/books
+servers:
+- url: https://www.googleapis.com/books/v1
+  description: Google Books API v1
+tags:
+- name: Copy
+  description: Operations related to Copy
+paths:
+  /v4/spreadsheets/{spreadsheetId}/sheets/{sheetId}:copyTo:
+    post:
+      tags:
+      - Copy
+      summary: Google Copy To Sheet
+      description: Copies a single sheet from a spreadsheet to another spreadsheet. Returns the properties of the newly created sheet.
+      security:
+      - oauth2Auth: []
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: spreadsheetId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: '{{spreadsheetId}}'
+      - name: sheetId
+        in: path
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpreadsheetsSheetsPostRequest'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpreadsheetsSheetsPostResponse'
+              examples:
+                SpreadsheetsSheetsPostResponseExample:
+                  $ref: '#/components/examples/SpreadsheetsSheetsPostResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SpreadsheetsSheetsPostResponseExample
+components:
+  schemas:
+    SpreadsheetsSheetsPostResponseDataSourceSheetProperties:
+      description: SpreadsheetsSheetsPostResponseDataSourceSheetProperties schema
+      type: object
+      properties:
+        columns:
+          type: array
+          items:
+            type: object
+            properties:
+              formula:
+                type: string
+              reference:
+                type: object
+                properties:
+                  name:
+                    type: string
+        dataExecutionStatus:
+          $ref: '#/components/schemas/SpreadsheetsSheetsPostResponseDataSourceSheetPropertiesDataExecutionStatus'
+        dataSourceId:
+          type: string
+    SpreadsheetsSheetsPostResponseDataSourceSheetPropertiesDataExecutionStatus:
+      description: SpreadsheetsSheetsPostResponseDataSourceSheetPropertiesDataExecutionStatus schema
+      type: object
+      properties:
+        errorCode:
+          type: string
+        errorMessage:
+          type: string
+        lastRefreshTime:
+          type: string
+        state:
+          type: string
+    SpreadsheetsSheetsPostResponseTabColor:
+      description: SpreadsheetsSheetsPostResponseTabColor schema
+      type: object
+      properties:
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
+    SpreadsheetsSheetsPostResponseGridProperties:
+      description: SpreadsheetsSheetsPostResponseGridProperties schema
+      type: object
+      properties:
+        columnCount:
+          type: integer
+        columnGroupControlAfter:
+          type: boolean
+        frozenColumnCount:
+          type: integer
+        frozenRowCount:
+          type: integer
+        hideGridlines:
+          type: boolean
+        rowCount:
+          type: integer
+        rowGroupControlAfter:
+          type: boolean
+    SpreadsheetsSheetsPostResponse:
+      description: SpreadsheetsSheetsPostResponse schema
+      type: object
+      properties:
+        dataSourceSheetProperties:
+          $ref: '#/components/schemas/SpreadsheetsSheetsPostResponseDataSourceSheetProperties'
+        gridProperties:
+          $ref: '#/components/schemas/SpreadsheetsSheetsPostResponseGridProperties'
+        hidden:
+          type: boolean
+        index:
+          type: integer
+        rightToLeft:
+          type: boolean
+        sheetId:
+          type: integer
+        sheetType:
+          type: string
+        tabColor:
+          $ref: '#/components/schemas/SpreadsheetsSheetsPostResponseTabColor'
+        tabColorStyle:
+          $ref: '#/components/schemas/SpreadsheetsSheetsPostResponseTabColorStyle'
+        title:
+          type: string
+    SpreadsheetsSheetsPostResponseTabColorStyleRgbColor:
+      description: SpreadsheetsSheetsPostResponseTabColorStyleRgbColor schema
+      type: object
+      properties:
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
+    SpreadsheetsSheetsPostRequest:
+      description: SpreadsheetsSheetsPostRequest schema
+      type: object
+      example:
+        destinationSpreadsheetId: eu fugiat
+    SpreadsheetsSheetsPostResponseTabColorStyle:
+      description: SpreadsheetsSheetsPostResponseTabColorStyle schema
+      type: object
+      properties:
+        rgbColor:
+          $ref: '#/components/schemas/SpreadsheetsSheetsPostResponseTabColorStyleRgbColor'
+        themeColor:
+          type: string
+  examples:
+    SpreadsheetsSheetsPostResponseExample:
+      summary: Successful 200 response
+      value:
+        dataSourceSheetProperties:
+          columns:
+          - formula: id et ex reprehenderit
+            reference:
+              name: minim in
+          - formula: culpa sint et
+            reference:
+              name: velit
+          dataExecutionStatus:
+            errorCode: DATA_EXECUTION_ERROR_CODE_UNSPECIFIED
+            errorMessage: officia incididunt ipsum
+            lastRefreshTime: incidid
+            state: DATA_EXECUTION_STATE_UNSPECIFIED
+          dataSourceId: in Ut dolore sunt
+        gridProperties:
+          columnCount: -39728991
+          columnGroupControlAfter: false
+          frozenColumnCount: -34736494
+          frozenRowCount: -70465816
+          hideGridlines: false
+          rowCount: 14366497
+          rowGroupControlAfter: true
+        hidden: true
+        index: 34136900
+        rightToLeft: false
+        sheetId: -19636375
+        sheetType: OBJECT
+        tabColor:
+          alpha: 9104888.265400872
+          blue: -38148126.52548318
+          green: -49770222.52454422
+          red: 11795874.261146635
+        tabColorStyle:
+          rgbColor:
+            alpha: -27908346.978851378
+            blue: 85938099.78494695
+            green: -35336997.9560505
+            red: -70387559.7048357
+          themeColor: ACCENT2
+        title: nisi reprehenderit cupidatat enim
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for Google Books API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/books: Manage your Google Books library

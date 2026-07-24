@@ -1,0 +1,372 @@
+openapi: 3.1.0
+info:
+  title: Google Books About Applications API
+  description: API for retrieving Bookshelf and Volume resources from Google Books
+  version: 1.0.0
+  contact:
+    name: Google Books API
+    url: https://developers.google.com/books
+servers:
+- url: https://www.googleapis.com/books/v1
+  description: Google Books API v1
+tags:
+- name: Applications
+paths:
+  /apps:
+    get:
+      tags:
+      - Applications
+      summary: Google Get Apps
+      description: Lists a user's installed apps.
+      operationId: googleDriveAppsList
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.apps.readonly
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.apps.readonly
+      parameters:
+      - description: A comma-separated list of file extensions to limit returned results. All results within the given app query scope which can open any of the given file extensions are included in the response. If `appFilterMimeTypes` are provided as well, the result is a union of the two resulting app lists.
+        in: query
+        name: appFilterExtensions
+        schema:
+          type: string
+      - description: A comma-separated list of file extensions to limit returned results. All results within the given app query scope which can open any of the given MIME types will be included in the response. If `appFilterExtensions` are provided as well, the result is a union of the two resulting app lists.
+        in: query
+        name: appFilterMimeTypes
+        schema:
+          type: string
+      - description: A language or locale code, as defined by BCP 47, with some extensions from Unicode's LDML format (http://www.unicode.org/reports/tr35/).
+        in: query
+        name: languageCode
+        schema:
+          type: string
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      - description: V1 error format.
+        in: query
+        name: $.xgafv
+        schema:
+          enum:
+          - '1'
+          - '2'
+          type: string
+      - description: OAuth access token.
+        in: query
+        name: access_token
+        schema:
+          type: string
+      - description: Data format for response.
+        in: query
+        name: alt
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+      - description: JSONP
+        in: query
+        name: callback
+        schema:
+          type: string
+      - description: Selector specifying which fields to include in a partial response.
+        in: query
+        name: fields
+        schema:
+          type: string
+      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        in: query
+        name: key
+        schema:
+          type: string
+      - description: OAuth 2.0 token for the current user.
+        in: query
+        name: oauth_token
+        schema:
+          type: string
+      - description: Returns response with indentations and line breaks.
+        in: query
+        name: prettyPrint
+        schema:
+          type: boolean
+      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+        in: query
+        name: quotaUser
+        schema:
+          type: string
+      - description: Upload protocol for media (e.g. "raw", "multipart").
+        in: query
+        name: upload_protocol
+        schema:
+          type: string
+      - description: Legacy upload protocol for media (e.g. "media", "multipart").
+        in: query
+        name: uploadType
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppList'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+  /apps/{appId}:
+    get:
+      tags:
+      - Applications
+      summary: Google Get Apps Appid
+      description: Gets a specific app.
+      operationId: googleDriveAppsGet
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.appdata
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.appdata
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.apps.readonly
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.apps.readonly
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.file
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.file
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.metadata
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.metadata
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.metadata.readonly
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.metadata.readonly
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.readonly
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.readonly
+      parameters:
+      - description: The ID of the app.
+        in: path
+        name: appId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      - description: V1 error format.
+        in: query
+        name: $.xgafv
+        schema:
+          enum:
+          - '1'
+          - '2'
+          type: string
+      - description: OAuth access token.
+        in: query
+        name: access_token
+        schema:
+          type: string
+      - description: Data format for response.
+        in: query
+        name: alt
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+      - description: JSONP
+        in: query
+        name: callback
+        schema:
+          type: string
+      - description: Selector specifying which fields to include in a partial response.
+        in: query
+        name: fields
+        schema:
+          type: string
+      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        in: query
+        name: key
+        schema:
+          type: string
+      - description: OAuth 2.0 token for the current user.
+        in: query
+        name: oauth_token
+        schema:
+          type: string
+      - description: Returns response with indentations and line breaks.
+        in: query
+        name: prettyPrint
+        schema:
+          type: boolean
+      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+        in: query
+        name: quotaUser
+        schema:
+          type: string
+      - description: Upload protocol for media (e.g. "raw", "multipart").
+        in: query
+        name: upload_protocol
+        schema:
+          type: string
+      - description: Legacy upload protocol for media (e.g. "media", "multipart").
+        in: query
+        name: uploadType
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/App'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+components:
+  schemas:
+    App:
+      description: The `apps` resource provides a list of apps that a user has installed, with information about each app's supported MIME types, file extensions, and other details. Some resource methods (such as `apps.get`) require an `appId`. Use the `apps.list` method to retrieve the ID for an installed application.
+      properties:
+        authorized:
+          description: Whether the app is authorized to access data on the user's Drive.
+          type: boolean
+        createInFolderTemplate:
+          description: The template URL to create a file with this app in a given folder. The template contains the {folderId} to be replaced by the folder ID house the new file.
+          type: string
+        createUrl:
+          description: The URL to create a file with this app.
+          type: string
+        hasDriveWideScope:
+          description: Whether the app has Drive-wide scope. An app with Drive-wide scope can access all files in the user's Drive.
+          type: boolean
+        icons:
+          description: The various icons for the app.
+          items:
+            $ref: '#/components/schemas/AppIcons'
+          type: array
+        id:
+          description: The ID of the app.
+          type: string
+        installed:
+          description: Whether the app is installed.
+          type: boolean
+        kind:
+          default: drive#app
+          description: 'Output only. Identifies what kind of resource this is. Value: the fixed string "drive#app".'
+          type: string
+        longDescription:
+          description: A long description of the app.
+          type: string
+        name:
+          description: The name of the app.
+          type: string
+        objectType:
+          description: The type of object this app creates such as a Chart. If empty, the app name should be used instead.
+          type: string
+        openUrlTemplate:
+          description: The template URL for opening files with this app. The template contains {ids} or {exportIds} to be replaced by the actual file IDs. For more information, see Open Files for the full documentation.
+          type: string
+        primaryFileExtensions:
+          description: The list of primary file extensions.
+          items:
+            type: string
+          type: array
+        primaryMimeTypes:
+          description: The list of primary MIME types.
+          items:
+            type: string
+          type: array
+        productId:
+          description: The ID of the product listing for this app.
+          type: string
+        productUrl:
+          description: A link to the product listing for this app.
+          type: string
+        secondaryFileExtensions:
+          description: The list of secondary file extensions.
+          items:
+            type: string
+          type: array
+        secondaryMimeTypes:
+          description: The list of secondary MIME types.
+          items:
+            type: string
+          type: array
+        shortDescription:
+          description: A short description of the app.
+          type: string
+        supportsCreate:
+          description: Whether this app supports creating objects.
+          type: boolean
+        supportsImport:
+          description: Whether this app supports importing from Google Docs.
+          type: boolean
+        supportsMultiOpen:
+          description: Whether this app supports opening more than one file.
+          type: boolean
+        supportsOfflineCreate:
+          description: Whether this app supports creating files when offline.
+          type: boolean
+        useByDefault:
+          description: Whether the app is selected as the default handler for the types it supports.
+          type: boolean
+      type: object
+    AppIcons:
+      properties:
+        category:
+          description: 'Category of the icon. Allowed values are: * `application` - The icon for the application. * `document` - The icon for a file associated with the app. * `documentShared` - The icon for a shared file associated with the app.'
+          type: string
+        iconUrl:
+          description: URL for the icon.
+          type: string
+        size:
+          description: Size of the icon. Represented as the maximum of the width and height.
+          format: int32
+          type: integer
+      type: object
+    AppList:
+      description: A list of third-party applications which the user has installed or given access to Google Drive.
+      properties:
+        defaultAppIds:
+          description: The list of app IDs that the user has specified to use by default. The list is in reverse-priority order (lowest to highest).
+          items:
+            type: string
+          type: array
+        items:
+          description: The list of apps.
+          items:
+            $ref: '#/components/schemas/App'
+          type: array
+        kind:
+          default: drive#appList
+          description: 'Output only. Identifies what kind of resource this is. Value: the fixed string "drive#appList".'
+          type: string
+        selfLink:
+          description: A link back to this list.
+          type: string
+      type: object
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for Google Books API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/books: Manage your Google Books library

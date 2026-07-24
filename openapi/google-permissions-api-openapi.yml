@@ -1,0 +1,813 @@
+openapi: 3.1.0
+info:
+  title: Google Books About Permissions API
+  description: API for retrieving Bookshelf and Volume resources from Google Books
+  version: 1.0.0
+  contact:
+    name: Google Books API
+    url: https://developers.google.com/books
+servers:
+- url: https://www.googleapis.com/books/v1
+  description: Google Books API v1
+tags:
+- name: Permissions
+  description: Operations related to Permissions
+paths:
+  /files/{fileId}/permissions:
+    get:
+      tags:
+      - Permissions
+      summary: Google Get Files Fileid Permissions
+      description: Lists a file's or shared drive's permissions.
+      operationId: googleDrivePermissionsList
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.file
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.file
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.metadata
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.metadata
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.metadata.readonly
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.metadata.readonly
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.photos.readonly
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.photos.readonly
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.readonly
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.readonly
+      parameters:
+      - description: The ID of the file or shared drive.
+        in: path
+        name: fileId
+        required: true
+        schema:
+          type: string
+      - description: Specifies which additional view's permissions to include in the response. Only 'published' is supported.
+        in: query
+        name: includePermissionsForView
+        schema:
+          type: string
+      - description: The maximum number of permissions to return per page. When not set for files in a shared drive, at most 100 results will be returned. When not set for files that are not in a shared drive, the entire list will be returned.
+        in: query
+        name: pageSize
+        schema:
+          maximum: 100
+          minimum: 1
+          type: integer
+      - description: The token for continuing a previous list request on the next page. This should be set to the value of 'nextPageToken' from the previous response.
+        in: query
+        name: pageToken
+        schema:
+          type: string
+      - description: Whether the requesting application supports both My Drives and shared drives.
+        in: query
+        name: supportsAllDrives
+        schema:
+          type: boolean
+      - description: 'Deprecated: Use `supportsAllDrives` instead.'
+        in: query
+        name: supportsTeamDrives
+        schema:
+          type: boolean
+      - description: Issue the request as a domain administrator; if set to true, then the requester will be granted access if the file ID parameter refers to a shared drive and the requester is an administrator of the domain to which the shared drive belongs.
+        in: query
+        name: useDomainAdminAccess
+        schema:
+          type: boolean
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      - description: V1 error format.
+        in: query
+        name: $.xgafv
+        schema:
+          enum:
+          - '1'
+          - '2'
+          type: string
+      - description: OAuth access token.
+        in: query
+        name: access_token
+        schema:
+          type: string
+      - description: Data format for response.
+        in: query
+        name: alt
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+      - description: JSONP
+        in: query
+        name: callback
+        schema:
+          type: string
+      - description: Selector specifying which fields to include in a partial response.
+        in: query
+        name: fields
+        schema:
+          type: string
+      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        in: query
+        name: key
+        schema:
+          type: string
+      - description: OAuth 2.0 token for the current user.
+        in: query
+        name: oauth_token
+        schema:
+          type: string
+      - description: Returns response with indentations and line breaks.
+        in: query
+        name: prettyPrint
+        schema:
+          type: boolean
+      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+        in: query
+        name: quotaUser
+        schema:
+          type: string
+      - description: Upload protocol for media (e.g. "raw", "multipart").
+        in: query
+        name: upload_protocol
+        schema:
+          type: string
+      - description: Legacy upload protocol for media (e.g. "media", "multipart").
+        in: query
+        name: uploadType
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionList'
+      x-api-evangelist-certified: '2025-07-18'
+      x-api-naftiko-published: '2025-07-18'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+    post:
+      tags:
+      - Permissions
+      summary: Google Post Files Fileid Permissions
+      description: Creates a permission for a file or shared drive. **Warning:** Concurrent permissions operations on the same file are not supported; only the last update is applied.
+      operationId: googleDrivePermissionsCreate
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.file
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.file
+      parameters:
+      - description: The ID of the file or shared drive.
+        in: path
+        name: fileId
+        required: true
+        schema:
+          type: string
+      - description: A plain text custom message to include in the notification email.
+        in: query
+        name: emailMessage
+        schema:
+          type: string
+      - description: 'Deprecated: See `moveToNewOwnersRoot` for details.'
+        in: query
+        name: enforceSingleParent
+        schema:
+          type: boolean
+      - description: This parameter will only take effect if the item is not in a shared drive and the request is attempting to transfer the ownership of the item. If set to `true`, the item will be moved to the new owner's My Drive root folder and all prior parents removed. If set to `false`, parents are not changed.
+        in: query
+        name: moveToNewOwnersRoot
+        schema:
+          type: boolean
+      - description: Whether to send a notification email when sharing to users or groups. This defaults to true for users and groups, and is not allowed for other requests. It must not be disabled for ownership transfers.
+        in: query
+        name: sendNotificationEmail
+        schema:
+          type: boolean
+      - description: Whether the requesting application supports both My Drives and shared drives.
+        in: query
+        name: supportsAllDrives
+        schema:
+          type: boolean
+      - description: 'Deprecated: Use `supportsAllDrives` instead.'
+        in: query
+        name: supportsTeamDrives
+        schema:
+          type: boolean
+      - description: Whether to transfer ownership to the specified user and downgrade the current owner to a writer. This parameter is required as an acknowledgement of the side effect.
+        in: query
+        name: transferOwnership
+        schema:
+          type: boolean
+      - description: Issue the request as a domain administrator; if set to true, then the requester will be granted access if the file ID parameter refers to a shared drive and the requester is an administrator of the domain to which the shared drive belongs.
+        in: query
+        name: useDomainAdminAccess
+        schema:
+          type: boolean
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      - description: V1 error format.
+        in: query
+        name: $.xgafv
+        schema:
+          enum:
+          - '1'
+          - '2'
+          type: string
+      - description: OAuth access token.
+        in: query
+        name: access_token
+        schema:
+          type: string
+      - description: Data format for response.
+        in: query
+        name: alt
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+      - description: JSONP
+        in: query
+        name: callback
+        schema:
+          type: string
+      - description: Selector specifying which fields to include in a partial response.
+        in: query
+        name: fields
+        schema:
+          type: string
+      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        in: query
+        name: key
+        schema:
+          type: string
+      - description: OAuth 2.0 token for the current user.
+        in: query
+        name: oauth_token
+        schema:
+          type: string
+      - description: Returns response with indentations and line breaks.
+        in: query
+        name: prettyPrint
+        schema:
+          type: boolean
+      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+        in: query
+        name: quotaUser
+        schema:
+          type: string
+      - description: Upload protocol for media (e.g. "raw", "multipart").
+        in: query
+        name: upload_protocol
+        schema:
+          type: string
+      - description: Legacy upload protocol for media (e.g. "media", "multipart").
+        in: query
+        name: uploadType
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Permission'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Permission'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+  /files/{fileId}/permissions/{permissionId}:
+    get:
+      tags:
+      - Permissions
+      summary: Google Get Files Fileid Permissions Permissionid
+      description: Gets a permission by ID.
+      operationId: googleDrivePermissionsGet
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.file
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.file
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.metadata
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.metadata
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.metadata.readonly
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.metadata.readonly
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.photos.readonly
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.photos.readonly
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.readonly
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.readonly
+      parameters:
+      - description: The ID of the file.
+        in: path
+        name: fileId
+        required: true
+        schema:
+          type: string
+      - description: The ID of the permission.
+        in: path
+        name: permissionId
+        required: true
+        schema:
+          type: string
+      - description: Whether the requesting application supports both My Drives and shared drives.
+        in: query
+        name: supportsAllDrives
+        schema:
+          type: boolean
+      - description: 'Deprecated: Use `supportsAllDrives` instead.'
+        in: query
+        name: supportsTeamDrives
+        schema:
+          type: boolean
+      - description: Issue the request as a domain administrator; if set to true, then the requester will be granted access if the file ID parameter refers to a shared drive and the requester is an administrator of the domain to which the shared drive belongs.
+        in: query
+        name: useDomainAdminAccess
+        schema:
+          type: boolean
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      - description: V1 error format.
+        in: query
+        name: $.xgafv
+        schema:
+          enum:
+          - '1'
+          - '2'
+          type: string
+      - description: OAuth access token.
+        in: query
+        name: access_token
+        schema:
+          type: string
+      - description: Data format for response.
+        in: query
+        name: alt
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+      - description: JSONP
+        in: query
+        name: callback
+        schema:
+          type: string
+      - description: Selector specifying which fields to include in a partial response.
+        in: query
+        name: fields
+        schema:
+          type: string
+      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        in: query
+        name: key
+        schema:
+          type: string
+      - description: OAuth 2.0 token for the current user.
+        in: query
+        name: oauth_token
+        schema:
+          type: string
+      - description: Returns response with indentations and line breaks.
+        in: query
+        name: prettyPrint
+        schema:
+          type: boolean
+      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+        in: query
+        name: quotaUser
+        schema:
+          type: string
+      - description: Upload protocol for media (e.g. "raw", "multipart").
+        in: query
+        name: upload_protocol
+        schema:
+          type: string
+      - description: Legacy upload protocol for media (e.g. "media", "multipart").
+        in: query
+        name: uploadType
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Permission'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+    patch:
+      tags:
+      - Permissions
+      summary: Google Patch Files Fileid Permissions Permissionid
+      description: Updates a permission with patch semantics. **Warning:** Concurrent permissions operations on the same file are not supported; only the last update is applied.
+      operationId: googleDrivePermissionsUpdate
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.file
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.file
+      parameters:
+      - description: The ID of the file or shared drive.
+        in: path
+        name: fileId
+        required: true
+        schema:
+          type: string
+      - description: The ID of the permission.
+        in: path
+        name: permissionId
+        required: true
+        schema:
+          type: string
+      - description: Whether to remove the expiration date.
+        in: query
+        name: removeExpiration
+        schema:
+          type: boolean
+      - description: Whether the requesting application supports both My Drives and shared drives.
+        in: query
+        name: supportsAllDrives
+        schema:
+          type: boolean
+      - description: 'Deprecated: Use `supportsAllDrives` instead.'
+        in: query
+        name: supportsTeamDrives
+        schema:
+          type: boolean
+      - description: Whether to transfer ownership to the specified user and downgrade the current owner to a writer. This parameter is required as an acknowledgement of the side effect.
+        in: query
+        name: transferOwnership
+        schema:
+          type: boolean
+      - description: Issue the request as a domain administrator; if set to true, then the requester will be granted access if the file ID parameter refers to a shared drive and the requester is an administrator of the domain to which the shared drive belongs.
+        in: query
+        name: useDomainAdminAccess
+        schema:
+          type: boolean
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      - description: V1 error format.
+        in: query
+        name: $.xgafv
+        schema:
+          enum:
+          - '1'
+          - '2'
+          type: string
+      - description: OAuth access token.
+        in: query
+        name: access_token
+        schema:
+          type: string
+      - description: Data format for response.
+        in: query
+        name: alt
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+      - description: JSONP
+        in: query
+        name: callback
+        schema:
+          type: string
+      - description: Selector specifying which fields to include in a partial response.
+        in: query
+        name: fields
+        schema:
+          type: string
+      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        in: query
+        name: key
+        schema:
+          type: string
+      - description: OAuth 2.0 token for the current user.
+        in: query
+        name: oauth_token
+        schema:
+          type: string
+      - description: Returns response with indentations and line breaks.
+        in: query
+        name: prettyPrint
+        schema:
+          type: boolean
+      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+        in: query
+        name: quotaUser
+        schema:
+          type: string
+      - description: Upload protocol for media (e.g. "raw", "multipart").
+        in: query
+        name: upload_protocol
+        schema:
+          type: string
+      - description: Legacy upload protocol for media (e.g. "media", "multipart").
+        in: query
+        name: uploadType
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Permission'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Permission'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+    delete:
+      tags:
+      - Permissions
+      summary: Google Delete Files Fileid Permissions Permissionid
+      description: Deletes a permission. **Warning:** Concurrent permissions operations on the same file are not supported; only the last update is applied.
+      operationId: googleDrivePermissionsDelete
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.file
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.file
+      parameters:
+      - description: The ID of the file or shared drive.
+        in: path
+        name: fileId
+        required: true
+        schema:
+          type: string
+      - description: The ID of the permission.
+        in: path
+        name: permissionId
+        required: true
+        schema:
+          type: string
+      - description: Whether the requesting application supports both My Drives and shared drives.
+        in: query
+        name: supportsAllDrives
+        schema:
+          type: boolean
+      - description: 'Deprecated: Use `supportsAllDrives` instead.'
+        in: query
+        name: supportsTeamDrives
+        schema:
+          type: boolean
+      - description: Issue the request as a domain administrator; if set to true, then the requester will be granted access if the file ID parameter refers to a shared drive and the requester is an administrator of the domain to which the shared drive belongs.
+        in: query
+        name: useDomainAdminAccess
+        schema:
+          type: boolean
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      - description: V1 error format.
+        in: query
+        name: $.xgafv
+        schema:
+          enum:
+          - '1'
+          - '2'
+          type: string
+      - description: OAuth access token.
+        in: query
+        name: access_token
+        schema:
+          type: string
+      - description: Data format for response.
+        in: query
+        name: alt
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+      - description: JSONP
+        in: query
+        name: callback
+        schema:
+          type: string
+      - description: Selector specifying which fields to include in a partial response.
+        in: query
+        name: fields
+        schema:
+          type: string
+      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        in: query
+        name: key
+        schema:
+          type: string
+      - description: OAuth 2.0 token for the current user.
+        in: query
+        name: oauth_token
+        schema:
+          type: string
+      - description: Returns response with indentations and line breaks.
+        in: query
+        name: prettyPrint
+        schema:
+          type: boolean
+      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+        in: query
+        name: quotaUser
+        schema:
+          type: string
+      - description: Upload protocol for media (e.g. "raw", "multipart").
+        in: query
+        name: upload_protocol
+        schema:
+          type: string
+      - description: Legacy upload protocol for media (e.g. "media", "multipart").
+        in: query
+        name: uploadType
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+components:
+  schemas:
+    Permission:
+      description: A permission for a file. A permission grants a user, group, domain, or the world access to a file or a folder hierarchy. Some resource methods (such as `permissions.update`) require a `permissionId`. Use the `permissions.list` method to retrieve the ID for a file, folder, or shared drive.
+      properties:
+        allowFileDiscovery:
+          description: Whether the permission allows the file to be discovered through search. This is only applicable for permissions of type `domain` or `anyone`.
+          type: boolean
+        deleted:
+          description: Output only. Whether the account associated with this permission has been deleted. This field only pertains to user and group permissions.
+          type: boolean
+        displayName:
+          description: 'Output only. The "pretty" name of the value of the permission. The following is a list of examples for each type of permission: * `user` - User''s full name, as defined for their Google account, such as "Joe Smith." * `group` - Name of the Google Group, such as "The Company Administrators." * `domain` - String domain name, such as "thecompany.com." * `anyone` - No `displayName` is present.'
+          type: string
+        domain:
+          description: The domain to which this permission refers.
+          type: string
+        emailAddress:
+          description: The email address of the user or group to which this permission refers.
+          type: string
+        expirationTime:
+          description: 'The time at which this permission will expire (RFC 3339 date-time). Expiration times have the following restrictions: - They can only be set on user and group permissions - The time must be in the future - The time cannot be more than a year in the future'
+          format: date-time
+          type: string
+        id:
+          description: Output only. The ID of this permission. This is a unique identifier for the grantee, and is published in User resources as `permissionId`. IDs should be treated as opaque values.
+          type: string
+        kind:
+          default: drive#permission
+          description: 'Output only. Identifies what kind of resource this is. Value: the fixed string `"drive#permission"`.'
+          type: string
+        pendingOwner:
+          description: Whether the account associated with this permission is a pending owner. Only populated for `user` type permissions for files that are not in a shared drive.
+          type: boolean
+        permissionDetails:
+          description: Output only. Details of whether the permissions on this shared drive item are inherited or directly on this item. This is an output-only field which is present only for shared drive items.
+          items:
+            properties:
+              inherited:
+                description: Output only. Whether this permission is inherited. This field is always populated. This is an output-only field.
+                type: boolean
+              inheritedFrom:
+                description: Output only. The ID of the item from which this permission is inherited. This is an output-only field.
+                type: string
+              permissionType:
+                description: 'Output only. The permission type for this user. While new values may be added in future, the following are currently possible: * `file` * `member`'
+                type: string
+              role:
+                description: 'Output only. The primary role for this user. While new values may be added in the future, the following are currently possible: * `organizer` * `fileOrganizer` * `writer` * `commenter` * `reader`'
+                type: string
+            type: object
+          readOnly: true
+          type: array
+        photoLink:
+          description: Output only. A link to the user's profile photo, if available.
+          type: string
+        role:
+          description: 'The role granted by this permission. While new values may be supported in the future, the following are currently allowed: * `owner` * `organizer` * `fileOrganizer` * `writer` * `commenter` * `reader`'
+          type: string
+        teamDrivePermissionDetails:
+          deprecated: true
+          description: 'Output only. Deprecated: Output only. Use `permissionDetails` instead.'
+          items:
+            properties:
+              inherited:
+                deprecated: true
+                description: 'Deprecated: Output only. Use `permissionDetails/inherited` instead.'
+                type: boolean
+              inheritedFrom:
+                deprecated: true
+                description: 'Deprecated: Output only. Use `permissionDetails/inheritedFrom` instead.'
+                type: string
+              role:
+                deprecated: true
+                description: 'Deprecated: Output only. Use `permissionDetails/role` instead.'
+                type: string
+              teamDrivePermissionType:
+                deprecated: true
+                description: 'Deprecated: Output only. Use `permissionDetails/permissionType` instead.'
+                type: string
+            type: object
+          readOnly: true
+          type: array
+        type:
+          description: 'The type of the grantee. Valid values are: * `user` * `group` * `domain` * `anyone` When creating a permission, if `type` is `user` or `group`, you must provide an `emailAddress` for the user or group. When `type` is `domain`, you must provide a `domain`. There isn''t extra information required for an `anyone` type.'
+          type: string
+        view:
+          description: Indicates the view for this permission. Only populated for permissions that belong to a view. 'published' is the only supported value.
+          type: string
+      type: object
+    PermissionList:
+      description: A list of permissions for a file.
+      properties:
+        kind:
+          default: drive#permissionList
+          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#permissionList"`.'
+          type: string
+        nextPageToken:
+          description: The page token for the next page of permissions. This field will be absent if the end of the permissions list has been reached. If the token is rejected for any reason, it should be discarded, and pagination should be restarted from the first page of results. The page token is typically valid for several hours. However, if new items are added or removed, your expected results might differ.
+          type: string
+        permissions:
+          description: The list of permissions. If nextPageToken is populated, then this list may be incomplete and an additional page of results should be fetched.
+          items:
+            $ref: '#/components/schemas/Permission'
+          type: array
+      type: object
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for Google Books API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/books: Manage your Google Books library

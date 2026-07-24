@@ -1,0 +1,365 @@
+openapi: 3.1.0
+info:
+  title: Google Books About Image Generation API
+  description: API for retrieving Bookshelf and Volume resources from Google Books
+  version: 1.0.0
+  contact:
+    name: Google Books API
+    url: https://developers.google.com/books
+servers:
+- url: https://www.googleapis.com/books/v1
+  description: Google Books API v1
+tags:
+- name: Image Generation
+  description: Operations related to Image Generation
+paths:
+  /models/{imageModel}:generateContent:
+    post:
+      tags:
+      - Image Generation
+      summary: Google Generate Images
+      description: "Generate and process images conversationally. Supports text-to-image, text-and-image-to-image, \nand multi-turn image editing. All generated images include a SynthID watermark.\n"
+      operationId: generateImage
+      parameters:
+      - name: imageModel
+        in: path
+        required: true
+        description: The image generation model to use
+        schema:
+          type: string
+          enum:
+          - gemini-2.5-flash-image
+          - gemini-3-pro-image-preview
+          example: gemini-2.5-flash-image
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageGenerationRequest'
+      responses:
+        '200':
+          description: Successful response with generated image
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageGenerationResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized - Invalid API key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Too many requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+components:
+  schemas:
+    PromptFeedback:
+      type: object
+      properties:
+        blockReason:
+          type: string
+          enum:
+          - BLOCK_REASON_UNSPECIFIED
+          - SAFETY
+          - OTHER
+          description: Reason why prompt was blocked
+        safetyRatings:
+          type: array
+          items:
+            $ref: '#/components/schemas/SafetyRating'
+          description: Safety ratings for the prompt
+    Content:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+          - user
+          - model
+          description: The role of the content producer (optional for single-turn, required for multi-turn)
+        parts:
+          type: array
+          description: Ordered parts that constitute a single message
+          items:
+            $ref: '#/components/schemas/Part'
+      required:
+      - parts
+    Part:
+      type: object
+      description: A part of the content, can be text, inline data, or file data
+      oneOf:
+      - type: object
+        required:
+        - text
+        properties:
+          text:
+            type: string
+            description: Text content
+      - type: object
+        required:
+        - inline_data
+        properties:
+          inline_data:
+            $ref: '#/components/schemas/InlineData'
+      - type: object
+        required:
+        - file_data
+        properties:
+          file_data:
+            $ref: '#/components/schemas/FileData'
+          video_metadata:
+            $ref: '#/components/schemas/VideoMetadata'
+            description: Optional metadata for video processing (clipping, FPS)
+    SafetyRating:
+      type: object
+      properties:
+        category:
+          type: string
+          enum:
+          - HARM_CATEGORY_UNSPECIFIED
+          - HARM_CATEGORY_DEROGATORY
+          - HARM_CATEGORY_TOXICITY
+          - HARM_CATEGORY_VIOLENCE
+          - HARM_CATEGORY_SEXUAL
+          - HARM_CATEGORY_MEDICAL
+          - HARM_CATEGORY_DANGEROUS
+          - HARM_CATEGORY_HARASSMENT
+          - HARM_CATEGORY_HATE_SPEECH
+          - HARM_CATEGORY_SEXUALLY_EXPLICIT
+          - HARM_CATEGORY_DANGEROUS_CONTENT
+        probability:
+          type: string
+          enum:
+          - HARM_PROBABILITY_UNSPECIFIED
+          - NEGLIGIBLE
+          - LOW
+          - MEDIUM
+          - HIGH
+    FileData:
+      type: object
+      description: Reference to a file uploaded via the File API or a YouTube URL
+      properties:
+        mime_type:
+          type: string
+          description: MIME type of the file (optional for YouTube URLs)
+          example: video/mp4
+        file_uri:
+          type: string
+          description: URI of the file from File API or YouTube URL
+          examples:
+          - https://generativelanguage.googleapis.com/v1beta/files/abc123
+          - https://www.youtube.com/watch?v=9hE5-98ZeCg
+      required:
+      - file_uri
+    ImageCandidate:
+      type: object
+      properties:
+        content:
+          $ref: '#/components/schemas/ImageContent'
+          description: Generated content including text and/or images
+        finishReason:
+          type: string
+          enum:
+          - FINISH_REASON_UNSPECIFIED
+          - STOP
+          - MAX_TOKENS
+          - SAFETY
+          - RECITATION
+          - OTHER
+          description: Reason why generation stopped
+        index:
+          type: integer
+          description: Index of the candidate
+        safetyRatings:
+          type: array
+          items:
+            $ref: '#/components/schemas/SafetyRating'
+          description: Safety ratings for the generated content
+    UsageMetadata:
+      type: object
+      properties:
+        promptTokenCount:
+          type: integer
+          description: Number of tokens in the prompt
+        candidatesTokenCount:
+          type: integer
+          description: Number of tokens in generated candidates
+        totalTokenCount:
+          type: integer
+          description: Total token count
+    ImageGenerationResponse:
+      type: object
+      properties:
+        candidates:
+          type: array
+          description: Generated content candidates with images
+          items:
+            $ref: '#/components/schemas/ImageCandidate'
+        promptFeedback:
+          $ref: '#/components/schemas/PromptFeedback'
+          description: Feedback about the prompt
+        usageMetadata:
+          $ref: '#/components/schemas/UsageMetadata'
+          description: Token usage information
+    ImageContent:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+          - user
+          - model
+          description: The role of the content producer
+        parts:
+          type: array
+          description: Ordered parts that constitute a single message (can include text and inline image data)
+          items:
+            $ref: '#/components/schemas/Part'
+      required:
+      - parts
+    ImageGenerationRequest:
+      type: object
+      required:
+      - contents
+      properties:
+        contents:
+          type: array
+          description: The content of the current conversation with the model
+          items:
+            $ref: '#/components/schemas/Content'
+        generationConfig:
+          $ref: '#/components/schemas/ImageGenerationConfig'
+          description: Configuration options for image generation
+    InlineData:
+      type: object
+      required:
+      - mime_type
+      - data
+      properties:
+        mime_type:
+          type: string
+          description: MIME type of the data
+          enum:
+          - image/jpeg
+          - image/png
+          - image/webp
+          - video/mp4
+          - video/mpeg
+          - video/mov
+          - video/avi
+          - video/x-flv
+          - video/mpg
+          - video/webm
+          - video/wmv
+          - video/3gpp
+          - audio/wav
+          - audio/mp3
+          - audio/aiff
+          - audio/aac
+          - audio/ogg
+          - audio/flac
+          - application/pdf
+        data:
+          type: string
+          format: byte
+          description: Base64 encoded data
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: HTTP status code
+            message:
+              type: string
+              description: Error message
+            status:
+              type: string
+              description: Error status
+    ImageGenerationConfig:
+      type: object
+      description: Configuration options for image generation
+      properties:
+        responseModalities:
+          type: array
+          description: Modalities to include in the response
+          items:
+            type: string
+            enum:
+            - TEXT
+            - IMAGE
+          example:
+          - TEXT
+          - IMAGE
+        imageConfig:
+          $ref: '#/components/schemas/ImageConfig'
+          description: Configuration for image generation
+    ImageConfig:
+      type: object
+      description: Configuration for image generation parameters
+      properties:
+        aspectRatio:
+          type: string
+          description: Aspect ratio for generated images
+          enum:
+          - '1:1'
+          - '3:4'
+          - '4:3'
+          - '9:16'
+          - '16:9'
+          example: '16:9'
+        imageSize:
+          type: string
+          description: Size of generated images
+          enum:
+          - 1K
+          - 2K
+          - 4K
+          example: 2K
+    VideoMetadata:
+      type: object
+      description: Metadata for customizing video processing
+      properties:
+        start_offset:
+          type: string
+          description: Start time offset for video clipping (format like "1250s")
+          pattern: ^\d+s$
+          example: 1250s
+        end_offset:
+          type: string
+          description: End time offset for video clipping (format like "1570s")
+          pattern: ^\d+s$
+          example: 1570s
+        fps:
+          type: number
+          format: float
+          description: Custom frame rate sampling (frames per second). Default is 1 FPS. Use <1 for long videos, >1 for rapidly changing visuals
+          minimum: 0.1
+          example: 5
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for Google Books API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/books: Manage your Google Books library

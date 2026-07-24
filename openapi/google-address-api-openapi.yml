@@ -1,0 +1,97 @@
+openapi: 3.1.0
+info:
+  title: Google Books About Address API
+  description: API for retrieving Bookshelf and Volume resources from Google Books
+  version: 1.0.0
+  contact:
+    name: Google Books API
+    url: https://developers.google.com/books
+servers:
+- url: https://www.googleapis.com/books/v1
+  description: Google Books API v1
+tags:
+- name: Address
+  description: Operations related to Address
+paths:
+  /gmail/v1/users/{userId}/settings/forwardingAddresses:
+    post:
+      tags:
+      - Address
+      summary: Google Create Forwarding Address
+      description: Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service account clients that have been delegated domain-wide authority.
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsersSettingsForwardingAddressesPostRequest'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersSettingsForwardingAddressesPostResponse'
+              examples:
+                UsersSettingsForwardingAddressesPostResponseExample:
+                  $ref: '#/components/examples/UsersSettingsForwardingAddressesPostResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: UsersSettingsForwardingAddressesPostResponseExample
+components:
+  examples:
+    UsersSettingsForwardingAddressesPostResponseExample:
+      summary: Successful 200 response
+      value:
+        forwardingEmail: ad tempor dolor
+        verificationStatus: pending
+  schemas:
+    UsersSettingsForwardingAddressesPostResponse:
+      description: UsersSettingsForwardingAddressesPostResponse schema
+      type: object
+      properties:
+        forwardingEmail:
+          type: string
+        verificationStatus:
+          type: string
+    UsersSettingsForwardingAddressesPostRequest:
+      description: UsersSettingsForwardingAddressesPostRequest schema
+      type: object
+      example:
+        forwardingEmail: ad tempor dolor
+        verificationStatus: pending
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for Google Books API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/books: Manage your Google Books library

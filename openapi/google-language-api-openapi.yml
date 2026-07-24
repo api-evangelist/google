@@ -1,0 +1,142 @@
+openapi: 3.1.0
+info:
+  title: Google Books About Language API
+  description: API for retrieving Bookshelf and Volume resources from Google Books
+  version: 1.0.0
+  contact:
+    name: Google Books API
+    url: https://developers.google.com/books
+servers:
+- url: https://www.googleapis.com/books/v1
+  description: Google Books API v1
+tags:
+- name: Language
+  description: Operations related to Language
+paths:
+  /gmail/v1/users/{userId}/settings/language:
+    get:
+      tags:
+      - Language
+      summary: Google Get Language Settings
+      description: Gets language settings.
+      parameters:
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersSettingsLanguageGetResponse'
+              examples:
+                UsersSettingsLanguageGetResponseExample:
+                  $ref: '#/components/examples/UsersSettingsLanguageGetResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: UsersSettingsLanguageGetResponseExample
+    put:
+      tags:
+      - Language
+      summary: Google Update Language Settings
+      description: Updates language settings. If successful, the return object contains the `displayLanguage` that was saved for the user, which may differ from the value passed into the request. This is because the requested `displayLanguage` may not be directly supported by Gmail but have a close variant that is, and so the variant may be chosen and saved instead.
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsersSettingsLanguagePutRequest'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersSettingsLanguagePutResponse'
+              examples:
+                UsersSettingsLanguagePutResponseExample:
+                  $ref: '#/components/examples/UsersSettingsLanguagePutResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: UsersSettingsLanguagePutResponseExample
+components:
+  examples:
+    UsersSettingsLanguagePutResponseExample:
+      summary: Successful 200 response
+      value:
+        displayLanguage: occaecat adipisicing
+    UsersSettingsLanguageGetResponseExample:
+      summary: Successful 200 response
+      value:
+        displayLanguage: occaecat adipisicing
+  schemas:
+    UsersSettingsLanguageGetResponse:
+      description: UsersSettingsLanguageGetResponse schema
+      type: object
+      properties:
+        displayLanguage:
+          type: string
+    UsersSettingsLanguagePutResponse:
+      description: UsersSettingsLanguagePutResponse schema
+      type: object
+      properties:
+        displayLanguage:
+          type: string
+    UsersSettingsLanguagePutRequest:
+      description: UsersSettingsLanguagePutRequest schema
+      type: object
+      example:
+        displayLanguage: occaecat adipisicing
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for Google Books API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/books: Manage your Google Books library

@@ -1,0 +1,191 @@
+openapi: 3.1.0
+info:
+  title: Google Books About Vacation API
+  description: API for retrieving Bookshelf and Volume resources from Google Books
+  version: 1.0.0
+  contact:
+    name: Google Books API
+    url: https://developers.google.com/books
+servers:
+- url: https://www.googleapis.com/books/v1
+  description: Google Books API v1
+tags:
+- name: Vacation
+  description: Operations related to Vacation
+paths:
+  /gmail/v1/users/{userId}/settings/vacation:
+    get:
+      tags:
+      - Vacation
+      summary: Google Get Vacation Settings
+      description: Gets vacation responder settings.
+      parameters:
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersSettingsVacationGetResponse'
+              examples:
+                UsersSettingsVacationGetResponseExample:
+                  $ref: '#/components/examples/UsersSettingsVacationGetResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: UsersSettingsVacationGetResponseExample
+    put:
+      tags:
+      - Vacation
+      summary: Google Update Vacation Settings
+      description: Updates vacation responder settings.
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsersSettingsVacationPutRequest'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersSettingsVacationPutResponse'
+              examples:
+                UsersSettingsVacationPutResponseExample:
+                  $ref: '#/components/examples/UsersSettingsVacationPutResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: UsersSettingsVacationPutResponseExample
+components:
+  examples:
+    UsersSettingsVacationGetResponseExample:
+      summary: Successful 200 response
+      value:
+        enableAutoReply: false
+        responseSubject: ei
+        responseBodyPlainText: veniam reprehe
+        responseBodyHtml: id
+        restrictToContacts: false
+        restrictToDomain: true
+        startTime: est mollit
+        endTime: enim in aliqua Ut commodo
+    UsersSettingsVacationPutResponseExample:
+      summary: Successful 200 response
+      value:
+        enableAutoReply: false
+        responseSubject: ei
+        responseBodyPlainText: veniam reprehe
+        responseBodyHtml: id
+        restrictToContacts: false
+        restrictToDomain: true
+        startTime: est mollit
+        endTime: enim in aliqua Ut commodo
+  schemas:
+    UsersSettingsVacationPutResponse:
+      description: UsersSettingsVacationPutResponse schema
+      type: object
+      properties:
+        enableAutoReply:
+          type: boolean
+        responseSubject:
+          type: string
+        responseBodyPlainText:
+          type: string
+        responseBodyHtml:
+          type: string
+        restrictToContacts:
+          type: boolean
+        restrictToDomain:
+          type: boolean
+        startTime:
+          type: string
+        endTime:
+          type: string
+    UsersSettingsVacationGetResponse:
+      description: UsersSettingsVacationGetResponse schema
+      type: object
+      properties:
+        enableAutoReply:
+          type: boolean
+        responseSubject:
+          type: string
+        responseBodyPlainText:
+          type: string
+        responseBodyHtml:
+          type: string
+        restrictToContacts:
+          type: boolean
+        restrictToDomain:
+          type: boolean
+        startTime:
+          type: string
+        endTime:
+          type: string
+    UsersSettingsVacationPutRequest:
+      description: UsersSettingsVacationPutRequest schema
+      type: object
+      example:
+        enableAutoReply: false
+        responseSubject: ei
+        responseBodyPlainText: veniam reprehe
+        responseBodyHtml: id
+        restrictToContacts: false
+        restrictToDomain: true
+        startTime: est mollit
+        endTime: enim in aliqua Ut commodo
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for Google Books API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/books: Manage your Google Books library

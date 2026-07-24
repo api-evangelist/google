@@ -1,0 +1,393 @@
+openapi: 3.1.0
+info:
+  title: Google Books About Speech Generation API
+  description: API for retrieving Bookshelf and Volume resources from Google Books
+  version: 1.0.0
+  contact:
+    name: Google Books API
+    url: https://developers.google.com/books
+servers:
+- url: https://www.googleapis.com/books/v1
+  description: Google Books API v1
+tags:
+- name: Speech Generation
+  description: Operations related to Speech Generation
+paths:
+  /models/{ttsModel}:generateContent:
+    post:
+      tags:
+      - Speech Generation
+      summary: Google Generate Speech (Text-to-Speech)
+      description: "Transform text input into single-speaker or multi-speaker audio using native text-to-speech (TTS) \ngeneration capabilities. TTS is controllable through natural language to guide style, accent, pace, \nand tone of the audio.\n\n**Capabilities:**\n- Single-speaker or multi-speaker audio (up to 2 speakers)\n- 30 voice options with different characteristics (bright, upbeat, informative, etc.)\n- 24 supported languages with automatic language detection\n- Controllable style, tone, accent, and pace via prompts\n- Audio output in PCM format (24kHz, 16-bit, mono)\n\n**Note**: TTS models accept text-only inputs and produce audio-only outputs.\n"
+      operationId: generateSpeech
+      parameters:
+      - name: ttsModel
+        in: path
+        required: true
+        description: The TTS model to use for speech generation
+        schema:
+          type: string
+          enum:
+          - gemini-2.5-flash-preview-tts
+          - gemini-2.5-pro-preview-tts
+          example: gemini-2.5-flash-preview-tts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpeechGenerationRequest'
+      responses:
+        '200':
+          description: Successful response with generated audio
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpeechGenerationResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized - Invalid API key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Too many requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+components:
+  schemas:
+    Content:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+          - user
+          - model
+          description: The role of the content producer (optional for single-turn, required for multi-turn)
+        parts:
+          type: array
+          description: Ordered parts that constitute a single message
+          items:
+            $ref: '#/components/schemas/Part'
+      required:
+      - parts
+    SpeechConfig:
+      type: object
+      description: Configuration for single or multi-speaker speech
+      oneOf:
+      - type: object
+        required:
+        - voiceConfig
+        properties:
+          voiceConfig:
+            $ref: '#/components/schemas/VoiceConfig'
+            description: Single-speaker voice configuration
+      - type: object
+        required:
+        - multiSpeakerVoiceConfig
+        properties:
+          multiSpeakerVoiceConfig:
+            $ref: '#/components/schemas/MultiSpeakerVoiceConfig'
+            description: Multi-speaker voice configuration (up to 2 speakers)
+    SpeechGenerationRequest:
+      type: object
+      required:
+      - contents
+      - generationConfig
+      properties:
+        contents:
+          type: array
+          description: Text content to convert to speech
+          items:
+            $ref: '#/components/schemas/Content'
+        generationConfig:
+          $ref: '#/components/schemas/SpeechGenerationConfig'
+          description: Configuration for speech generation
+    SpeechGenerationResponse:
+      type: object
+      properties:
+        candidates:
+          type: array
+          description: Generated audio candidates
+          items:
+            $ref: '#/components/schemas/AudioCandidate'
+        usageMetadata:
+          $ref: '#/components/schemas/UsageMetadata'
+          description: Token usage information
+    AudioContent:
+      type: object
+      properties:
+        parts:
+          type: array
+          description: Audio data parts
+          items:
+            type: object
+            properties:
+              inlineData:
+                type: object
+                required:
+                - mimeType
+                - data
+                properties:
+                  mimeType:
+                    type: string
+                    description: MIME type of the audio (PCM format)
+                    example: audio/pcm
+                  data:
+                    type: string
+                    format: byte
+                    description: Base64-encoded audio data (24kHz, 16-bit, mono PCM)
+    SpeakerVoiceConfig:
+      type: object
+      required:
+      - speaker
+      - voiceConfig
+      properties:
+        speaker:
+          type: string
+          description: Name of the speaker (must match names used in prompt)
+          example: Joe
+        voiceConfig:
+          $ref: '#/components/schemas/VoiceConfig'
+          description: Voice configuration for this speaker
+    VideoMetadata:
+      type: object
+      description: Metadata for customizing video processing
+      properties:
+        start_offset:
+          type: string
+          description: Start time offset for video clipping (format like "1250s")
+          pattern: ^\d+s$
+          example: 1250s
+        end_offset:
+          type: string
+          description: End time offset for video clipping (format like "1570s")
+          pattern: ^\d+s$
+          example: 1570s
+        fps:
+          type: number
+          format: float
+          description: Custom frame rate sampling (frames per second). Default is 1 FPS. Use <1 for long videos, >1 for rapidly changing visuals
+          minimum: 0.1
+          example: 5
+    FileData:
+      type: object
+      description: Reference to a file uploaded via the File API or a YouTube URL
+      properties:
+        mime_type:
+          type: string
+          description: MIME type of the file (optional for YouTube URLs)
+          example: video/mp4
+        file_uri:
+          type: string
+          description: URI of the file from File API or YouTube URL
+          examples:
+          - https://generativelanguage.googleapis.com/v1beta/files/abc123
+          - https://www.youtube.com/watch?v=9hE5-98ZeCg
+      required:
+      - file_uri
+    UsageMetadata:
+      type: object
+      properties:
+        promptTokenCount:
+          type: integer
+          description: Number of tokens in the prompt
+        candidatesTokenCount:
+          type: integer
+          description: Number of tokens in generated candidates
+        totalTokenCount:
+          type: integer
+          description: Total token count
+    MultiSpeakerVoiceConfig:
+      type: object
+      required:
+      - speakerVoiceConfigs
+      properties:
+        speakerVoiceConfigs:
+          type: array
+          description: Voice configurations for each speaker (maximum 2)
+          minItems: 2
+          maxItems: 2
+          items:
+            $ref: '#/components/schemas/SpeakerVoiceConfig'
+    InlineData:
+      type: object
+      required:
+      - mime_type
+      - data
+      properties:
+        mime_type:
+          type: string
+          description: MIME type of the data
+          enum:
+          - image/jpeg
+          - image/png
+          - image/webp
+          - video/mp4
+          - video/mpeg
+          - video/mov
+          - video/avi
+          - video/x-flv
+          - video/mpg
+          - video/webm
+          - video/wmv
+          - video/3gpp
+          - audio/wav
+          - audio/mp3
+          - audio/aiff
+          - audio/aac
+          - audio/ogg
+          - audio/flac
+          - application/pdf
+        data:
+          type: string
+          format: byte
+          description: Base64 encoded data
+    AudioCandidate:
+      type: object
+      properties:
+        content:
+          $ref: '#/components/schemas/AudioContent'
+          description: Generated audio content
+        finishReason:
+          type: string
+          enum:
+          - FINISH_REASON_UNSPECIFIED
+          - STOP
+          - MAX_TOKENS
+          - SAFETY
+          - RECITATION
+          - OTHER
+          description: Reason why generation stopped
+        index:
+          type: integer
+          description: Index of the candidate
+    PrebuiltVoiceConfig:
+      type: object
+      required:
+      - voiceName
+      properties:
+        voiceName:
+          type: string
+          description: Name of the prebuilt voice with characteristic (Bright, Upbeat, Informative, etc.)
+          enum:
+          - Zephyr
+          - Puck
+          - Charon
+          - Kore
+          - Fenrir
+          - Leda
+          - Orus
+          - Aoede
+          - Callirrhoe
+          - Autonoe
+          - Enceladus
+          - Iapetus
+          - Umbriel
+          - Algieba
+          - Despina
+          - Erinome
+          - Algenib
+          - Rasalgethi
+          - Laomedeia
+          - Achernar
+          - Alnilam
+          - Schedar
+          - Gacrux
+          - Pulcherrima
+          - Achird
+          - Zubenelgenubi
+          - Vindemiatrix
+          - Sadachbia
+          - Sadaltager
+          - Sulafat
+          example: Kore
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: HTTP status code
+            message:
+              type: string
+              description: Error message
+            status:
+              type: string
+              description: Error status
+    Part:
+      type: object
+      description: A part of the content, can be text, inline data, or file data
+      oneOf:
+      - type: object
+        required:
+        - text
+        properties:
+          text:
+            type: string
+            description: Text content
+      - type: object
+        required:
+        - inline_data
+        properties:
+          inline_data:
+            $ref: '#/components/schemas/InlineData'
+      - type: object
+        required:
+        - file_data
+        properties:
+          file_data:
+            $ref: '#/components/schemas/FileData'
+          video_metadata:
+            $ref: '#/components/schemas/VideoMetadata'
+            description: Optional metadata for video processing (clipping, FPS)
+    SpeechGenerationConfig:
+      type: object
+      required:
+      - responseModalities
+      - speechConfig
+      properties:
+        responseModalities:
+          type: array
+          description: Must include "AUDIO" for TTS
+          items:
+            type: string
+            enum:
+            - AUDIO
+          example:
+          - AUDIO
+        speechConfig:
+          $ref: '#/components/schemas/SpeechConfig'
+          description: Configuration for speech output
+    VoiceConfig:
+      type: object
+      required:
+      - prebuiltVoiceConfig
+      properties:
+        prebuiltVoiceConfig:
+          $ref: '#/components/schemas/PrebuiltVoiceConfig'
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for Google Books API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/books: Manage your Google Books library

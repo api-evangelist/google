@@ -1,0 +1,667 @@
+openapi: 3.1.0
+info:
+  title: Google Books About Calendars API
+  description: API for retrieving Bookshelf and Volume resources from Google Books
+  version: 1.0.0
+  contact:
+    name: Google Books API
+    url: https://developers.google.com/books
+servers:
+- url: https://www.googleapis.com/books/v1
+  description: Google Books API v1
+tags:
+- name: Calendars
+  description: Operations related to Calendars
+paths:
+  /calendars/{calendarId}:
+    get:
+      tags:
+      - Calendars
+      summary: Google Get Calendar
+      description: Returns metadata for a calendar.
+      operationId: googleGetcalendar
+      security:
+      - oauth2Auth: []
+      parameters:
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: calendarId
+        in: path
+        schema:
+          type: string
+        required: true
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalendarsGetResponse'
+              examples:
+                CalendarsGetResponseExample:
+                  $ref: '#/components/examples/CalendarsGetResponseExample'
+      x-api-evangelist-certified: '2025-07-20'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: CalendarsGetResponseExample
+    put:
+      tags:
+      - Calendars
+      summary: Google Update Calendar
+      description: Updates metadata for a calendar.
+      operationId: googleUpdatecalendar
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: alt
+        in: query
+        schema:
+          type: string
+        description: Data format for the response.
+        example: json
+      - name: fields
+        in: query
+        schema:
+          type: string
+        description: Selector specifying which fields to include in a partial response.
+        example: amet in
+      - name: key
+        in: query
+        schema:
+          type: string
+        description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        example: amet in
+      - name: oauth_token
+        in: query
+        schema:
+          type: string
+        description: OAuth 2.0 token for the current user.
+        example: amet in
+      - name: prettyPrint
+        in: query
+        schema:
+          type: boolean
+        description: Returns response with indentations and line breaks.
+        example: 'true'
+      - name: quotaUser
+        in: query
+        schema:
+          type: string
+        description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        example: amet in
+      - name: userIp
+        in: query
+        schema:
+          type: string
+        description: Deprecated. Please use quotaUser instead.
+        example: amet in
+      - name: calendarId
+        in: path
+        schema:
+          type: string
+        required: true
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalendarsPutRequest'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalendarsPutResponse'
+              examples:
+                CalendarsPutResponseExample:
+                  $ref: '#/components/examples/CalendarsPutResponseExample'
+      x-api-evangelist-certified: '2025-07-20'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: CalendarsPutResponseExample
+    patch:
+      tags:
+      - Calendars
+      summary: Google Patch Calendar
+      description: Updates metadata for a calendar. This method supports patch semantics.
+      operationId: googlePatchcalendar
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: alt
+        in: query
+        schema:
+          type: string
+        description: Data format for the response.
+        example: json
+      - name: fields
+        in: query
+        schema:
+          type: string
+        description: Selector specifying which fields to include in a partial response.
+        example: amet in
+      - name: key
+        in: query
+        schema:
+          type: string
+        description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        example: amet in
+      - name: oauth_token
+        in: query
+        schema:
+          type: string
+        description: OAuth 2.0 token for the current user.
+        example: amet in
+      - name: prettyPrint
+        in: query
+        schema:
+          type: boolean
+        description: Returns response with indentations and line breaks.
+        example: 'true'
+      - name: quotaUser
+        in: query
+        schema:
+          type: string
+        description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        example: amet in
+      - name: userIp
+        in: query
+        schema:
+          type: string
+        description: Deprecated. Please use quotaUser instead.
+        example: amet in
+      - name: calendarId
+        in: path
+        schema:
+          type: string
+        required: true
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalendarsPatchRequest'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalendarsPatchResponse'
+              examples:
+                CalendarsPatchResponseExample:
+                  $ref: '#/components/examples/CalendarsPatchResponseExample'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: CalendarsPatchResponseExample
+    delete:
+      tags:
+      - Calendars
+      summary: Google Delete Calendar
+      description: Deletes a secondary calendar. Use calendars.clear for clearing all events on primary calendars.
+      operationId: googleDeletecalendar
+      parameters:
+      - name: alt
+        in: query
+        schema:
+          type: string
+        description: Data format for the response.
+        example: json
+      - name: fields
+        in: query
+        schema:
+          type: string
+        description: Selector specifying which fields to include in a partial response.
+        example: amet in
+      - name: key
+        in: query
+        schema:
+          type: string
+        description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        example: amet in
+      - name: oauth_token
+        in: query
+        schema:
+          type: string
+        description: OAuth 2.0 token for the current user.
+        example: amet in
+      - name: prettyPrint
+        in: query
+        schema:
+          type: boolean
+        description: Returns response with indentations and line breaks.
+        example: 'true'
+      - name: quotaUser
+        in: query
+        schema:
+          type: string
+        description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        example: amet in
+      - name: userIp
+        in: query
+        schema:
+          type: string
+        description: Deprecated. Please use quotaUser instead.
+        example: amet in
+      - name: calendarId
+        in: path
+        schema:
+          type: string
+        required: true
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: text/plain
+          content:
+            text/plain:
+              schema:
+                type: string
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+  /calendars/{calendarId}/clear:
+    post:
+      tags:
+      - Calendars
+      summary: Google Clear Calendar
+      description: Clears a primary calendar. This operation deletes all events associated with the primary calendar of an account.
+      operationId: googleClearcalendar
+      parameters:
+      - name: alt
+        in: query
+        schema:
+          type: string
+        description: Data format for the response.
+        example: json
+      - name: fields
+        in: query
+        schema:
+          type: string
+        description: Selector specifying which fields to include in a partial response.
+        example: amet in
+      - name: key
+        in: query
+        schema:
+          type: string
+        description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        example: amet in
+      - name: oauth_token
+        in: query
+        schema:
+          type: string
+        description: OAuth 2.0 token for the current user.
+        example: amet in
+      - name: prettyPrint
+        in: query
+        schema:
+          type: boolean
+        description: Returns response with indentations and line breaks.
+        example: 'true'
+      - name: quotaUser
+        in: query
+        schema:
+          type: string
+        description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        example: amet in
+      - name: userIp
+        in: query
+        schema:
+          type: string
+        description: Deprecated. Please use quotaUser instead.
+        example: amet in
+      - name: calendarId
+        in: path
+        schema:
+          type: string
+        required: true
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      requestBody:
+        content: {}
+      responses:
+        '204':
+          description: No Content
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: text/plain
+          content:
+            text/plain:
+              schema:
+                type: string
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+  /calendars:
+    post:
+      tags:
+      - Calendars
+      summary: Google Calendar
+      description: Creates a secondary calendar.
+      operationId: googleCalendar
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalendarsPostRequest'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalendarsPostResponse'
+              examples:
+                CalendarsPostResponseExample:
+                  $ref: '#/components/examples/CalendarsPostResponseExample'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: CalendarsPostResponseExample
+components:
+  schemas:
+    CalendarsPatchResponseConferenceProperties:
+      description: CalendarsPatchResponseConferenceProperties schema
+      type: object
+      properties:
+        allowedConferenceSolutionTypes:
+          type: array
+          items:
+            type: string
+    CalendarsPostResponseConferenceProperties:
+      description: CalendarsPostResponseConferenceProperties schema
+      type: object
+      properties:
+        allowedConferenceSolutionTypes:
+          type: array
+          items:
+            type: string
+    CalendarsPutResponse:
+      description: CalendarsPutResponse schema
+      type: object
+      properties:
+        conferenceProperties:
+          $ref: '#/components/schemas/CalendarsPutResponseConferenceProperties'
+        description:
+          type: string
+        etag:
+          type: string
+        id:
+          type: string
+        kind:
+          type: string
+        location:
+          type: string
+        summary:
+          type: string
+        timeZone:
+          type: string
+    CalendarsPutResponseConferenceProperties:
+      description: CalendarsPutResponseConferenceProperties schema
+      type: object
+      properties:
+        allowedConferenceSolutionTypes:
+          type: array
+          items:
+            type: string
+    CalendarsPatchResponse:
+      description: CalendarsPatchResponse schema
+      type: object
+      properties:
+        conferenceProperties:
+          $ref: '#/components/schemas/CalendarsPatchResponseConferenceProperties'
+        description:
+          type: string
+        etag:
+          type: string
+        id:
+          type: string
+        kind:
+          type: string
+        location:
+          type: string
+        summary:
+          type: string
+        timeZone:
+          type: string
+    CalendarsPutRequest:
+      description: CalendarsPutRequest schema
+      type: object
+      example:
+        conferenceProperties:
+          allowedConferenceSolutionTypes:
+          - anim enim ut veniam
+          - sit labore
+        description: officia enim aliquip ex
+        etag: labore adipisicing fugiat
+        id: est pro
+        kind: calendar#calendar
+        location: in voluptate commodo
+        summary: labore adipisicing enim
+        timeZone: cupidatat sed
+    CalendarsPatchRequest:
+      description: CalendarsPatchRequest schema
+      type: object
+      example:
+        conferenceProperties:
+          allowedConferenceSolutionTypes:
+          - anim enim ut veniam
+          - sit labore
+        description: officia enim aliquip ex
+        etag: labore adipisicing fugiat
+        id: est pro
+        kind: calendar#calendar
+        location: in voluptate commodo
+        summary: labore adipisicing enim
+        timeZone: cupidatat sed
+    CalendarsGetResponse:
+      description: CalendarsGetResponse schema
+      type: object
+      properties:
+        conferenceProperties:
+          $ref: '#/components/schemas/CalendarsGetResponseConferenceProperties'
+        description:
+          type: string
+        etag:
+          type: string
+        id:
+          type: string
+        kind:
+          type: string
+        location:
+          type: string
+        summary:
+          type: string
+        timeZone:
+          type: string
+    CalendarsPostResponse:
+      description: CalendarsPostResponse schema
+      type: object
+      properties:
+        conferenceProperties:
+          $ref: '#/components/schemas/CalendarsPostResponseConferenceProperties'
+        description:
+          type: string
+        etag:
+          type: string
+        id:
+          type: string
+        kind:
+          type: string
+        location:
+          type: string
+        summary:
+          type: string
+        timeZone:
+          type: string
+    CalendarsPostRequest:
+      description: CalendarsPostRequest schema
+      type: object
+      example:
+        conferenceProperties:
+          allowedConferenceSolutionTypes:
+          - anim enim ut veniam
+          - sit labore
+        description: officia enim aliquip ex
+        etag: labore adipisicing fugiat
+        id: est pro
+        kind: calendar#calendar
+        location: in voluptate commodo
+        summary: labore adipisicing enim
+        timeZone: cupidatat sed
+    CalendarsGetResponseConferenceProperties:
+      description: CalendarsGetResponseConferenceProperties schema
+      type: object
+      properties:
+        allowedConferenceSolutionTypes:
+          type: array
+          items:
+            type: string
+  examples:
+    CalendarsPutResponseExample:
+      summary: Successful 200 response
+      value:
+        conferenceProperties:
+          allowedConferenceSolutionTypes:
+          - anim enim ut veniam
+          - sit labore
+        description: officia enim aliquip ex
+        etag: labore adipisicing fugiat
+        id: est pro
+        kind: calendar#calendar
+        location: in voluptate commodo
+        summary: labore adipisicing enim
+        timeZone: cupidatat sed
+    CalendarsGetResponseExample:
+      summary: Successful 200 response
+      value:
+        conferenceProperties:
+          allowedConferenceSolutionTypes:
+          - anim enim ut veniam
+          - sit labore
+        description: officia enim aliquip ex
+        etag: labore adipisicing fugiat
+        id: est pro
+        kind: calendar#calendar
+        location: in voluptate commodo
+        summary: labore adipisicing enim
+        timeZone: cupidatat sed
+    CalendarsPostResponseExample:
+      summary: Successful 200 response
+      value:
+        conferenceProperties:
+          allowedConferenceSolutionTypes:
+          - anim enim ut veniam
+          - sit labore
+        description: officia enim aliquip ex
+        etag: labore adipisicing fugiat
+        id: est pro
+        kind: calendar#calendar
+        location: in voluptate commodo
+        summary: labore adipisicing enim
+        timeZone: cupidatat sed
+    CalendarsPatchResponseExample:
+      summary: Successful 200 response
+      value:
+        conferenceProperties:
+          allowedConferenceSolutionTypes:
+          - anim enim ut veniam
+          - sit labore
+        description: officia enim aliquip ex
+        etag: labore adipisicing fugiat
+        id: est pro
+        kind: calendar#calendar
+        location: in voluptate commodo
+        summary: labore adipisicing enim
+        timeZone: cupidatat sed
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for Google Books API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/books: Manage your Google Books library

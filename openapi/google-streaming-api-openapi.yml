@@ -1,0 +1,289 @@
+openapi: 3.1.0
+info:
+  title: Google Books About Streaming API
+  description: API for retrieving Bookshelf and Volume resources from Google Books
+  version: 1.0.0
+  contact:
+    name: Google Books API
+    url: https://developers.google.com/books
+servers:
+- url: https://www.googleapis.com/books/v1
+  description: Google Books API v1
+tags:
+- name: Streaming
+  description: Operations related to Streaming
+paths:
+  /models/{model}:streamGenerateContent:
+    post:
+      tags:
+      - Streaming
+      summary: Google Stream Generate Content
+      description: Generates text output with streaming responses, receiving GenerateContentResponse instances incrementally
+      operationId: streamGenerateContent
+      parameters:
+      - name: model
+        in: path
+        required: true
+        description: The model to use for generation
+        schema:
+          type: string
+          enum:
+          - gemini-2.5-flash
+          - gemini-2.5-pro
+          example: gemini-2.5-flash
+      - name: alt
+        in: query
+        required: true
+        description: Alternative response format
+        schema:
+          type: string
+          enum:
+          - sse
+          example: sse
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateContentRequest'
+      responses:
+        '200':
+          description: Successful streaming response
+          content:
+            text/event-stream:
+              schema:
+                $ref: '#/components/schemas/ModelsPostResponse'
+              examples:
+                ModelsPostResponseExample:
+                  $ref: '#/components/examples/ModelsPostResponseExample'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized - Invalid API key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: ModelsPostResponseExample
+components:
+  schemas:
+    Content:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+          - user
+          - model
+          description: The role of the content producer (optional for single-turn, required for multi-turn)
+        parts:
+          type: array
+          description: Ordered parts that constitute a single message
+          items:
+            $ref: '#/components/schemas/Part'
+      required:
+      - parts
+    ThinkingConfig:
+      type: object
+      description: Configuration for thinking mode in Gemini 2.5 models
+      properties:
+        thinkingBudget:
+          type: integer
+          description: Thinking budget, set to 0 to disable thinking
+          minimum: 0
+          default: null
+    GenerationConfig:
+      type: object
+      description: Configuration options for model generation and outputs
+      properties:
+        stopSequences:
+          type: array
+          description: Set of character sequences that will stop output generation
+          items:
+            type: string
+          maxItems: 5
+        temperature:
+          type: number
+          format: float
+          description: Controls randomness of output (default 1.0 for Gemini 3 models)
+          minimum: 0.0
+          maximum: 2.0
+          default: 1.0
+        topP:
+          type: number
+          format: float
+          description: Maximum cumulative probability of tokens to consider
+          minimum: 0.0
+          maximum: 1.0
+        topK:
+          type: integer
+          description: Maximum number of tokens to consider
+          minimum: 1
+        maxOutputTokens:
+          type: integer
+          description: Maximum number of tokens to generate
+          minimum: 1
+        thinkingConfig:
+          $ref: '#/components/schemas/ThinkingConfig'
+          description: Configuration for thinking mode (Gemini 2.5 models)
+        response_mime_type:
+          type: string
+          description: MIME type for structured output (e.g., application/json)
+          enum:
+          - text/plain
+          - application/json
+          example: application/json
+        response_schema:
+          type: object
+          description: JSON schema for structured output format
+          additionalProperties: true
+    ModelsPostResponse:
+      type: string
+      description: Server-Sent Events stream of GenerateContentResponse objects
+    GenerateContentRequest:
+      type: object
+      required:
+      - contents
+      properties:
+        contents:
+          type: array
+          description: The content of the current conversation with the model
+          items:
+            $ref: '#/components/schemas/Content'
+        system_instruction:
+          $ref: '#/components/schemas/Content'
+          description: System instructions to guide model behavior
+        generationConfig:
+          $ref: '#/components/schemas/GenerationConfig'
+          description: Configuration options for model generation
+    FileData:
+      type: object
+      description: Reference to a file uploaded via the File API or a YouTube URL
+      properties:
+        mime_type:
+          type: string
+          description: MIME type of the file (optional for YouTube URLs)
+          example: video/mp4
+        file_uri:
+          type: string
+          description: URI of the file from File API or YouTube URL
+          examples:
+          - https://generativelanguage.googleapis.com/v1beta/files/abc123
+          - https://www.youtube.com/watch?v=9hE5-98ZeCg
+      required:
+      - file_uri
+    InlineData:
+      type: object
+      required:
+      - mime_type
+      - data
+      properties:
+        mime_type:
+          type: string
+          description: MIME type of the data
+          enum:
+          - image/jpeg
+          - image/png
+          - image/webp
+          - video/mp4
+          - video/mpeg
+          - video/mov
+          - video/avi
+          - video/x-flv
+          - video/mpg
+          - video/webm
+          - video/wmv
+          - video/3gpp
+          - audio/wav
+          - audio/mp3
+          - audio/aiff
+          - audio/aac
+          - audio/ogg
+          - audio/flac
+          - application/pdf
+        data:
+          type: string
+          format: byte
+          description: Base64 encoded data
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: HTTP status code
+            message:
+              type: string
+              description: Error message
+            status:
+              type: string
+              description: Error status
+    Part:
+      type: object
+      description: A part of the content, can be text, inline data, or file data
+      oneOf:
+      - type: object
+        required:
+        - text
+        properties:
+          text:
+            type: string
+            description: Text content
+      - type: object
+        required:
+        - inline_data
+        properties:
+          inline_data:
+            $ref: '#/components/schemas/InlineData'
+      - type: object
+        required:
+        - file_data
+        properties:
+          file_data:
+            $ref: '#/components/schemas/FileData'
+          video_metadata:
+            $ref: '#/components/schemas/VideoMetadata'
+            description: Optional metadata for video processing (clipping, FPS)
+    VideoMetadata:
+      type: object
+      description: Metadata for customizing video processing
+      properties:
+        start_offset:
+          type: string
+          description: Start time offset for video clipping (format like "1250s")
+          pattern: ^\d+s$
+          example: 1250s
+        end_offset:
+          type: string
+          description: End time offset for video clipping (format like "1570s")
+          pattern: ^\d+s$
+          example: 1570s
+        fps:
+          type: number
+          format: float
+          description: Custom frame rate sampling (frames per second). Default is 1 FPS. Use <1 for long videos, >1 for rapidly changing visuals
+          minimum: 0.1
+          example: 5
+  examples:
+    ModelsPostResponseExample:
+      summary: Successful 200 response
+      value: string-value
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for Google Books API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/books: Manage your Google Books library

@@ -1,0 +1,298 @@
+openapi: 3.1.0
+info:
+  title: Google Books About Clear API
+  description: API for retrieving Bookshelf and Volume resources from Google Books
+  version: 1.0.0
+  contact:
+    name: Google Books API
+    url: https://developers.google.com/books
+servers:
+- url: https://www.googleapis.com/books/v1
+  description: Google Books API v1
+tags:
+- name: Clear
+  description: Operations related to Clear
+paths:
+  /v4/spreadsheets/{spreadsheetId}/values/{range}:clear:
+    post:
+      tags:
+      - Clear
+      summary: Google Clear Values
+      description: Clears values from a spreadsheet. The caller must specify the spreadsheet ID and range. Only values are cleared -- all other properties of the cell (such as formatting, data validation, etc..) are kept.
+      security:
+      - oauth2Auth: []
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: spreadsheetId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: '{{spreadsheetId}}'
+      - name: range
+        in: path
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpreadsheetsValuesPostRequest1'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpreadsheetsValuesPostResponse1'
+              examples:
+                SpreadsheetsValuesPostResponse1Example:
+                  $ref: '#/components/examples/SpreadsheetsValuesPostResponse1Example'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SpreadsheetsValuesPostResponse1Example
+  /v4/spreadsheets/{spreadsheetId}/values:batchClear:
+    post:
+      tags:
+      - Clear
+      summary: Google Batch Clear Values
+      description: Clears one or more ranges of values from a spreadsheet. The caller must specify the spreadsheet ID and one or more ranges. Only values are cleared -- all other properties of the cell (such as formatting and data validation) are kept.
+      security:
+      - oauth2Auth: []
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: spreadsheetId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: '{{spreadsheetId}}'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpreadsheetsValuesbatchClearPostRequest'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpreadsheetsValuesbatchClearPostResponse'
+              examples:
+                SpreadsheetsValuesbatchClearPostResponseExample:
+                  $ref: '#/components/examples/SpreadsheetsValuesbatchClearPostResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SpreadsheetsValuesbatchClearPostResponseExample
+  /v4/spreadsheets/{spreadsheetId}/values:batchClearByDataFilter:
+    post:
+      tags:
+      - Clear
+      summary: Google Batch Clear Values by Data Filter
+      description: Clears one or more ranges of values from a spreadsheet. The caller must specify the spreadsheet ID and one or more DataFilters. Ranges matching any of the specified data filters will be cleared. Only values are cleared -- all other properties of the cell (such as formatting, data validation, etc..) are kept.
+      security:
+      - oauth2Auth: []
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: spreadsheetId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: '{{spreadsheetId}}'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpreadsheetsValuesbatchClearByDataFilterPostRequest'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpreadsheetsValuesbatchClearByDataFilterPostResponse'
+              examples:
+                SpreadsheetsValuesbatchClearByDataFilterPostResponseExample:
+                  $ref: '#/components/examples/SpreadsheetsValuesbatchClearByDataFilterPostResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SpreadsheetsValuesbatchClearByDataFilterPostResponseExample
+components:
+  examples:
+    SpreadsheetsValuesbatchClearByDataFilterPostResponseExample:
+      summary: Successful 200 response
+      value:
+        clearedRanges:
+        - cillum
+        - dolo
+        spreadsheetId: in consequat
+    SpreadsheetsValuesPostResponse1Example:
+      summary: Successful 200 response
+      value:
+        clearedRange: mollit sunt reprehenderit
+        spreadsheetId: dolor in enim
+    SpreadsheetsValuesbatchClearPostResponseExample:
+      summary: Successful 200 response
+      value:
+        clearedRanges:
+        - laboris in mollit
+        - magna adipisicing
+        spreadsheetId: cupidatat eiusmod commodo ad
+  schemas:
+    SpreadsheetsValuesbatchClearByDataFilterPostResponse:
+      description: SpreadsheetsValuesbatchClearByDataFilterPostResponse schema
+      type: object
+      properties:
+        clearedRanges:
+          type: array
+          items:
+            type: string
+        spreadsheetId:
+          type: string
+    SpreadsheetsValuesPostResponse1:
+      description: SpreadsheetsValuesPostResponse1 schema
+      type: object
+      properties:
+        clearedRange:
+          type: string
+        spreadsheetId:
+          type: string
+    SpreadsheetsValuesbatchClearByDataFilterPostRequest:
+      description: SpreadsheetsValuesbatchClearByDataFilterPostRequest schema
+      type: object
+      example:
+        dataFilters:
+        - a1Range: commodo ea in ut
+          developerMetadataLookup:
+            locationMatchingStrategy: INTERSECTING_LOCATION
+            locationType: SHEET
+            metadataId: -27000770
+            metadataKey: ip
+            metadataLocation:
+              dimensionRange:
+                dimension: DIMENSION_UNSPECIFIED
+                endIndex: 91540263
+                sheetId: -64167623
+                startIndex: 63800966
+              locationType: DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED
+              sheetId: 46858270
+              spreadsheet: false
+            metadataValue: Excepteur
+            visibility: DOCUMENT
+          gridRange:
+            endColumnIndex: 6998754
+            endRowIndex: 43176042
+            sheetId: -9008085
+            startColumnIndex: -17508638
+            startRowIndex: 21352870
+        - a1Range: esse eiusmod
+          developerMetadataLookup:
+            locationMatchingStrategy: EXACT_LOCATION
+            locationType: SHEET
+            metadataId: -9620585
+            metadataKey: in
+            metadataLocation:
+              dimensionRange:
+                dimension: COLUMNS
+                endIndex: -85774445
+                sheetId: 81988143
+                startIndex: -35232572
+              locationType: SPREADSHEET
+              sheetId: -39029265
+              spreadsheet: false
+            metadataValue: voluptate adipisicing amet dolor
+            visibility: PROJECT
+          gridRange:
+            endColumnIndex: -87815739
+            endRowIndex: -52115573
+            sheetId: 67629865
+            startColumnIndex: 66943098
+            startRowIndex: 74725547
+    SpreadsheetsValuesPostRequest1:
+      description: SpreadsheetsValuesPostRequest1 schema
+      type: object
+      example: {}
+    SpreadsheetsValuesbatchClearPostRequest:
+      description: SpreadsheetsValuesbatchClearPostRequest schema
+      type: object
+      example:
+        ranges:
+        - nostrud sunt reprehenderit proident cillum
+        - laborum eiusmod dolor ali
+    SpreadsheetsValuesbatchClearPostResponse:
+      description: SpreadsheetsValuesbatchClearPostResponse schema
+      type: object
+      properties:
+        clearedRanges:
+          type: array
+          items:
+            type: string
+        spreadsheetId:
+          type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for Google Books API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/books: Manage your Google Books library

@@ -1,0 +1,901 @@
+openapi: 3.1.0
+info:
+  title: Google Books About Drives API
+  description: API for retrieving Bookshelf and Volume resources from Google Books
+  version: 1.0.0
+  contact:
+    name: Google Books API
+    url: https://developers.google.com/books
+servers:
+- url: https://www.googleapis.com/books/v1
+  description: Google Books API v1
+tags:
+- name: Drives
+  description: Operations related to Drives
+paths:
+  /drives:
+    get:
+      tags:
+      - Drives
+      summary: Google Get Drives
+      description: ' Lists the user''s shared drives. This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information, see the [Search for shared drives](/drive/api/guides/search-shareddrives) guide.'
+      operationId: googleDriveDrivesList
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.readonly
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.readonly
+      parameters:
+      - description: Maximum number of shared drives to return per page.
+        in: query
+        name: pageSize
+        schema:
+          maximum: 100
+          minimum: 1
+          type: integer
+      - description: Page token for shared drives.
+        in: query
+        name: pageToken
+        schema:
+          type: string
+      - description: Query string for searching shared drives.
+        in: query
+        name: q
+        schema:
+          type: string
+      - description: Issue the request as a domain administrator; if set to true, then all shared drives of the domain in which the requester is an administrator are returned.
+        in: query
+        name: useDomainAdminAccess
+        schema:
+          type: boolean
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      - description: V1 error format.
+        in: query
+        name: $.xgafv
+        schema:
+          enum:
+          - '1'
+          - '2'
+          type: string
+      - description: OAuth access token.
+        in: query
+        name: access_token
+        schema:
+          type: string
+      - description: Data format for response.
+        in: query
+        name: alt
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+      - description: JSONP
+        in: query
+        name: callback
+        schema:
+          type: string
+      - description: Selector specifying which fields to include in a partial response.
+        in: query
+        name: fields
+        schema:
+          type: string
+      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        in: query
+        name: key
+        schema:
+          type: string
+      - description: OAuth 2.0 token for the current user.
+        in: query
+        name: oauth_token
+        schema:
+          type: string
+      - description: Returns response with indentations and line breaks.
+        in: query
+        name: prettyPrint
+        schema:
+          type: boolean
+      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+        in: query
+        name: quotaUser
+        schema:
+          type: string
+      - description: Upload protocol for media (e.g. "raw", "multipart").
+        in: query
+        name: upload_protocol
+        schema:
+          type: string
+      - description: Legacy upload protocol for media (e.g. "media", "multipart").
+        in: query
+        name: uploadType
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriveList'
+      x-api-evangelist-certified: '2025-07-18'
+      x-api-naftiko-published: '2025-07-18'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+    post:
+      tags:
+      - Drives
+      summary: Google Post Drives
+      description: Creates a shared drive.
+      operationId: googleDriveDrivesCreate
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive
+      parameters:
+      - description: Required. An ID, such as a random UUID, which uniquely identifies this user's request for idempotent creation of a shared drive. A repeated request by the same user and with the same request ID will avoid creating duplicates by attempting to create the same shared drive. If the shared drive already exists a 409 error will be returned.
+        in: query
+        name: requestId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      - description: V1 error format.
+        in: query
+        name: $.xgafv
+        schema:
+          enum:
+          - '1'
+          - '2'
+          type: string
+      - description: OAuth access token.
+        in: query
+        name: access_token
+        schema:
+          type: string
+      - description: Data format for response.
+        in: query
+        name: alt
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+      - description: JSONP
+        in: query
+        name: callback
+        schema:
+          type: string
+      - description: Selector specifying which fields to include in a partial response.
+        in: query
+        name: fields
+        schema:
+          type: string
+      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        in: query
+        name: key
+        schema:
+          type: string
+      - description: OAuth 2.0 token for the current user.
+        in: query
+        name: oauth_token
+        schema:
+          type: string
+      - description: Returns response with indentations and line breaks.
+        in: query
+        name: prettyPrint
+        schema:
+          type: boolean
+      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+        in: query
+        name: quotaUser
+        schema:
+          type: string
+      - description: Upload protocol for media (e.g. "raw", "multipart").
+        in: query
+        name: upload_protocol
+        schema:
+          type: string
+      - description: Legacy upload protocol for media (e.g. "media", "multipart").
+        in: query
+        name: uploadType
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Drive'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Drive'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+  /drives/{driveId}:
+    get:
+      tags:
+      - Drives
+      summary: Google Get Drives Driveid
+      description: Gets a shared drive's metadata by ID.
+      operationId: googleDriveDrivesGet
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.readonly
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.readonly
+      parameters:
+      - description: The ID of the shared drive.
+        in: path
+        name: driveId
+        required: true
+        schema:
+          type: string
+      - description: Issue the request as a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the shared drive belongs.
+        in: query
+        name: useDomainAdminAccess
+        schema:
+          type: boolean
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      - description: V1 error format.
+        in: query
+        name: $.xgafv
+        schema:
+          enum:
+          - '1'
+          - '2'
+          type: string
+      - description: OAuth access token.
+        in: query
+        name: access_token
+        schema:
+          type: string
+      - description: Data format for response.
+        in: query
+        name: alt
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+      - description: JSONP
+        in: query
+        name: callback
+        schema:
+          type: string
+      - description: Selector specifying which fields to include in a partial response.
+        in: query
+        name: fields
+        schema:
+          type: string
+      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        in: query
+        name: key
+        schema:
+          type: string
+      - description: OAuth 2.0 token for the current user.
+        in: query
+        name: oauth_token
+        schema:
+          type: string
+      - description: Returns response with indentations and line breaks.
+        in: query
+        name: prettyPrint
+        schema:
+          type: boolean
+      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+        in: query
+        name: quotaUser
+        schema:
+          type: string
+      - description: Upload protocol for media (e.g. "raw", "multipart").
+        in: query
+        name: upload_protocol
+        schema:
+          type: string
+      - description: Legacy upload protocol for media (e.g. "media", "multipart").
+        in: query
+        name: uploadType
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Drive'
+      x-api-evangelist-certified: '2025-07-18'
+      x-api-naftiko-published: '2025-07-18'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+    patch:
+      tags:
+      - Drives
+      summary: Google Patch Drives Driveid
+      description: Updates the metadate for a shared drive.
+      operationId: googleDriveDrivesUpdate
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive
+      parameters:
+      - description: The ID of the shared drive.
+        in: path
+        name: driveId
+        required: true
+        schema:
+          type: string
+      - description: Issue the request as a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the shared drive belongs.
+        in: query
+        name: useDomainAdminAccess
+        schema:
+          type: boolean
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      - description: V1 error format.
+        in: query
+        name: $.xgafv
+        schema:
+          enum:
+          - '1'
+          - '2'
+          type: string
+      - description: OAuth access token.
+        in: query
+        name: access_token
+        schema:
+          type: string
+      - description: Data format for response.
+        in: query
+        name: alt
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+      - description: JSONP
+        in: query
+        name: callback
+        schema:
+          type: string
+      - description: Selector specifying which fields to include in a partial response.
+        in: query
+        name: fields
+        schema:
+          type: string
+      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        in: query
+        name: key
+        schema:
+          type: string
+      - description: OAuth 2.0 token for the current user.
+        in: query
+        name: oauth_token
+        schema:
+          type: string
+      - description: Returns response with indentations and line breaks.
+        in: query
+        name: prettyPrint
+        schema:
+          type: boolean
+      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+        in: query
+        name: quotaUser
+        schema:
+          type: string
+      - description: Upload protocol for media (e.g. "raw", "multipart").
+        in: query
+        name: upload_protocol
+        schema:
+          type: string
+      - description: Legacy upload protocol for media (e.g. "media", "multipart").
+        in: query
+        name: uploadType
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Drive'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Drive'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+    delete:
+      tags:
+      - Drives
+      summary: Google Delete Drives Driveid
+      description: Permanently deletes a shared drive for which the user is an `organizer`. The shared drive cannot contain any untrashed items.
+      operationId: googleDriveDrivesDelete
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive
+      parameters:
+      - description: The ID of the shared drive.
+        in: path
+        name: driveId
+        required: true
+        schema:
+          type: string
+      - description: Whether any items inside the shared drive should also be deleted. This option is only supported when `useDomainAdminAccess` is also set to `true`.
+        in: query
+        name: allowItemDeletion
+        schema:
+          type: boolean
+      - description: Issue the request as a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the shared drive belongs.
+        in: query
+        name: useDomainAdminAccess
+        schema:
+          type: boolean
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      - description: V1 error format.
+        in: query
+        name: $.xgafv
+        schema:
+          enum:
+          - '1'
+          - '2'
+          type: string
+      - description: OAuth access token.
+        in: query
+        name: access_token
+        schema:
+          type: string
+      - description: Data format for response.
+        in: query
+        name: alt
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+      - description: JSONP
+        in: query
+        name: callback
+        schema:
+          type: string
+      - description: Selector specifying which fields to include in a partial response.
+        in: query
+        name: fields
+        schema:
+          type: string
+      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        in: query
+        name: key
+        schema:
+          type: string
+      - description: OAuth 2.0 token for the current user.
+        in: query
+        name: oauth_token
+        schema:
+          type: string
+      - description: Returns response with indentations and line breaks.
+        in: query
+        name: prettyPrint
+        schema:
+          type: boolean
+      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+        in: query
+        name: quotaUser
+        schema:
+          type: string
+      - description: Upload protocol for media (e.g. "raw", "multipart").
+        in: query
+        name: upload_protocol
+        schema:
+          type: string
+      - description: Legacy upload protocol for media (e.g. "media", "multipart").
+        in: query
+        name: uploadType
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+  /drives/{driveId}/hide:
+    post:
+      tags:
+      - Drives
+      summary: Google Post Drives Driveid Hide
+      description: Hides a shared drive from the default view.
+      operationId: googleDriveDrivesHide
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive
+      parameters:
+      - description: The ID of the shared drive.
+        in: path
+        name: driveId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      - description: V1 error format.
+        in: query
+        name: $.xgafv
+        schema:
+          enum:
+          - '1'
+          - '2'
+          type: string
+      - description: OAuth access token.
+        in: query
+        name: access_token
+        schema:
+          type: string
+      - description: Data format for response.
+        in: query
+        name: alt
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+      - description: JSONP
+        in: query
+        name: callback
+        schema:
+          type: string
+      - description: Selector specifying which fields to include in a partial response.
+        in: query
+        name: fields
+        schema:
+          type: string
+      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        in: query
+        name: key
+        schema:
+          type: string
+      - description: OAuth 2.0 token for the current user.
+        in: query
+        name: oauth_token
+        schema:
+          type: string
+      - description: Returns response with indentations and line breaks.
+        in: query
+        name: prettyPrint
+        schema:
+          type: boolean
+      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+        in: query
+        name: quotaUser
+        schema:
+          type: string
+      - description: Upload protocol for media (e.g. "raw", "multipart").
+        in: query
+        name: upload_protocol
+        schema:
+          type: string
+      - description: Legacy upload protocol for media (e.g. "media", "multipart").
+        in: query
+        name: uploadType
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Drive'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+  /drives/{driveId}/unhide:
+    post:
+      tags:
+      - Drives
+      summary: Google Post Drives Driveid Unhide
+      description: Restores a shared drive to the default view.
+      operationId: googleDriveDrivesUnhide
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive
+      parameters:
+      - description: The ID of the shared drive.
+        in: path
+        name: driveId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      - description: V1 error format.
+        in: query
+        name: $.xgafv
+        schema:
+          enum:
+          - '1'
+          - '2'
+          type: string
+      - description: OAuth access token.
+        in: query
+        name: access_token
+        schema:
+          type: string
+      - description: Data format for response.
+        in: query
+        name: alt
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+      - description: JSONP
+        in: query
+        name: callback
+        schema:
+          type: string
+      - description: Selector specifying which fields to include in a partial response.
+        in: query
+        name: fields
+        schema:
+          type: string
+      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        in: query
+        name: key
+        schema:
+          type: string
+      - description: OAuth 2.0 token for the current user.
+        in: query
+        name: oauth_token
+        schema:
+          type: string
+      - description: Returns response with indentations and line breaks.
+        in: query
+        name: prettyPrint
+        schema:
+          type: boolean
+      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+        in: query
+        name: quotaUser
+        schema:
+          type: string
+      - description: Upload protocol for media (e.g. "raw", "multipart").
+        in: query
+        name: upload_protocol
+        schema:
+          type: string
+      - description: Legacy upload protocol for media (e.g. "media", "multipart").
+        in: query
+        name: uploadType
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Drive'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+components:
+  schemas:
+    Drive:
+      description: Representation of a shared drive. Some resource methods (such as `drives.update`) require a `driveId`. Use the `drives.list` method to retrieve the ID for a shared drive.
+      properties:
+        backgroundImageFile:
+          description: An image file and cropping parameters from which a background image for this shared drive is set. This is a write only field; it can only be set on `drive.drives.update` requests that don't set `themeId`. When specified, all fields of the `backgroundImageFile` must be set.
+          properties:
+            id:
+              description: The ID of an image file in Google Drive to use for the background image.
+              type: string
+            width:
+              description: The width of the cropped image in the closed range of 0 to 1. This value represents the width of the cropped image divided by the width of the entire image. The height is computed by applying a width to height aspect ratio of 80 to 9. The resulting image must be at least 1280 pixels wide and 144 pixels high.
+              format: float
+              type: number
+            xCoordinate:
+              description: The X coordinate of the upper left corner of the cropping area in the background image. This is a value in the closed range of 0 to 1. This value represents the horizontal distance from the left side of the entire image to the left side of the cropping area divided by the width of the entire image.
+              format: float
+              type: number
+            yCoordinate:
+              description: The Y coordinate of the upper left corner of the cropping area in the background image. This is a value in the closed range of 0 to 1. This value represents the vertical distance from the top side of the entire image to the top side of the cropping area divided by the height of the entire image.
+              format: float
+              type: number
+          type: object
+        backgroundImageLink:
+          description: Output only. A short-lived link to this shared drive's background image.
+          type: string
+        capabilities:
+          description: Output only. Capabilities the current user has on this shared drive.
+          properties:
+            canAddChildren:
+              description: Output only. Whether the current user can add children to folders in this shared drive.
+              type: boolean
+            canChangeCopyRequiresWriterPermissionRestriction:
+              description: Output only. Whether the current user can change the `copyRequiresWriterPermission` restriction of this shared drive.
+              type: boolean
+            canChangeDomainUsersOnlyRestriction:
+              description: Output only. Whether the current user can change the `domainUsersOnly` restriction of this shared drive.
+              type: boolean
+            canChangeDriveBackground:
+              description: Output only. Whether the current user can change the background of this shared drive.
+              type: boolean
+            canChangeDriveMembersOnlyRestriction:
+              description: Output only. Whether the current user can change the `driveMembersOnly` restriction of this shared drive.
+              type: boolean
+            canChangeSharingFoldersRequiresOrganizerPermissionRestriction:
+              description: Output only. Whether the current user can change the `sharingFoldersRequiresOrganizerPermission` restriction of this shared drive.
+              type: boolean
+            canComment:
+              description: Output only. Whether the current user can comment on files in this shared drive.
+              type: boolean
+            canCopy:
+              description: Output only. Whether the current user can copy files in this shared drive.
+              type: boolean
+            canDeleteChildren:
+              description: Output only. Whether the current user can delete children from folders in this shared drive.
+              type: boolean
+            canDeleteDrive:
+              description: Output only. Whether the current user can delete this shared drive. Attempting to delete the shared drive may still fail if there are untrashed items inside the shared drive.
+              type: boolean
+            canDownload:
+              description: Output only. Whether the current user can download files in this shared drive.
+              type: boolean
+            canEdit:
+              description: Output only. Whether the current user can edit files in this shared drive
+              type: boolean
+            canListChildren:
+              description: Output only. Whether the current user can list the children of folders in this shared drive.
+              type: boolean
+            canManageMembers:
+              description: Output only. Whether the current user can add members to this shared drive or remove them or change their role.
+              type: boolean
+            canReadRevisions:
+              description: Output only. Whether the current user can read the revisions resource of files in this shared drive.
+              type: boolean
+            canRename:
+              description: Output only. Whether the current user can rename files or folders in this shared drive.
+              type: boolean
+            canRenameDrive:
+              description: Output only. Whether the current user can rename this shared drive.
+              type: boolean
+            canResetDriveRestrictions:
+              description: Output only. Whether the current user can reset the shared drive restrictions to defaults.
+              type: boolean
+            canShare:
+              description: Output only. Whether the current user can share files or folders in this shared drive.
+              type: boolean
+            canTrashChildren:
+              description: Output only. Whether the current user can trash children from folders in this shared drive.
+              type: boolean
+          type: object
+        colorRgb:
+          description: The color of this shared drive as an RGB hex string. It can only be set on a `drive.drives.update` request that does not set `themeId`.
+          type: string
+        createdTime:
+          description: The time at which the shared drive was created (RFC 3339 date-time).
+          format: date-time
+          type: string
+        hidden:
+          description: Whether the shared drive is hidden from default view.
+          type: boolean
+        id:
+          description: Output only. The ID of this shared drive which is also the ID of the top level folder of this shared drive.
+          type: string
+        kind:
+          default: drive#drive
+          description: 'Output only. Identifies what kind of resource this is. Value: the fixed string `"drive#drive"`.'
+          type: string
+        name:
+          description: The name of this shared drive.
+          type: string
+        orgUnitId:
+          description: Output only. The organizational unit of this shared drive. This field is only populated on `drives.list` responses when the `useDomainAdminAccess` parameter is set to `true`.
+          type: string
+        restrictions:
+          description: A set of restrictions that apply to this shared drive or items inside this shared drive. Note that restrictions can't be set when creating a shared drive. To add a restriction, first create a shared drive and then use `drives.update` to add restrictions.
+          properties:
+            adminManagedRestrictions:
+              description: Whether administrative privileges on this shared drive are required to modify restrictions.
+              type: boolean
+            copyRequiresWriterPermission:
+              description: Whether the options to copy, print, or download files inside this shared drive, should be disabled for readers and commenters. When this restriction is set to `true`, it will override the similarly named field to `true` for any file inside this shared drive.
+              type: boolean
+            domainUsersOnly:
+              description: Whether access to this shared drive and items inside this shared drive is restricted to users of the domain to which this shared drive belongs. This restriction may be overridden by other sharing policies controlled outside of this shared drive.
+              type: boolean
+            driveMembersOnly:
+              description: Whether access to items inside this shared drive is restricted to its members.
+              type: boolean
+            sharingFoldersRequiresOrganizerPermission:
+              description: If true, only users with the organizer role can share folders. If false, users with either the organizer role or the file organizer role can share folders.
+              type: boolean
+          type: object
+        themeId:
+          description: The ID of the theme from which the background image and color will be set. The set of possible `driveThemes` can be retrieved from a `drive.about.get` response. When not specified on a `drive.drives.create` request, a random theme is chosen from which the background image and color are set. This is a write-only field; it can only be set on requests that don't set `colorRgb` or `backgroundImageFile`.
+          type: string
+      type: object
+    DriveList:
+      description: A list of shared drives.
+      properties:
+        drives:
+          description: The list of shared drives. If nextPageToken is populated, then this list may be incomplete and an additional page of results should be fetched.
+          items:
+            $ref: '#/components/schemas/Drive'
+          type: array
+        kind:
+          default: drive#driveList
+          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#driveList"`.'
+          type: string
+        nextPageToken:
+          description: The page token for the next page of shared drives. This will be absent if the end of the list has been reached. If the token is rejected for any reason, it should be discarded, and pagination should be restarted from the first page of results. The page token is typically valid for several hours. However, if new items are added or removed, your expected results might differ.
+          type: string
+      type: object
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for Google Books API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/books: Manage your Google Books library

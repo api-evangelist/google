@@ -1,0 +1,295 @@
+openapi: 3.1.0
+info:
+  title: Google Books About Insert API
+  description: API for retrieving Bookshelf and Volume resources from Google Books
+  version: 1.0.0
+  contact:
+    name: Google Books API
+    url: https://developers.google.com/books
+servers:
+- url: https://www.googleapis.com/books/v1
+  description: Google Books API v1
+tags:
+- name: Insert
+  description: Operations related to Insert
+paths:
+  /gmail/v1/users/{userId}/messages:
+    post:
+      tags:
+      - Insert
+      summary: Google Insert Messages
+      description: Directly inserts a message into only this user's mailbox similar to `IMAP APPEND`, bypassing most scanning and classification. Does not send a message.
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GmailUsersMessagesPostRequest'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GmailUsersMessagesPostResponse'
+              examples:
+                GmailUsersMessagesPostResponseExample:
+                  $ref: '#/components/examples/GmailUsersMessagesPostResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: GmailUsersMessagesPostResponseExample
+  /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo:
+    post:
+      tags:
+      - Insert
+      summary: Google Insert SMIME Info
+      description: Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key.
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      - name: sendAsEmail
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SettingsSendAsSmimeInfoPostRequest'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SettingsSendAsSmimeInfoPostResponse'
+              examples:
+                SettingsSendAsSmimeInfoPostResponseExample:
+                  $ref: '#/components/examples/SettingsSendAsSmimeInfoPostResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SettingsSendAsSmimeInfoPostResponseExample
+components:
+  examples:
+    GmailUsersMessagesPostResponseExample:
+      summary: Successful 200 response
+      value:
+        id: eu incididunt laborum irure
+        threadId: magna Ut officia
+        labelIds:
+        - mollit amet dolore cupidatat
+        - cupidatat deserunt mollit
+        snippet: ut dolor
+        historyId: nisi tempor do
+        internalDate: cupidatat officia anim
+        payload:
+          partId: dolore velit incididunt est a
+          mimeType: sit dolor mollit
+          filename: ea commodo dolor nisi
+          headers:
+          - name: quis id velit laborum
+            value: et voluptate dolor ea
+          - name: sit nostrud
+            value: deserunt fugiat ex
+          body:
+            attachmentId: id nulla consequat
+            size: -93837667
+            data: ad in occaecat
+          parts:
+          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+        sizeEstimate: 21128811
+        raw: do laboris
+    SettingsSendAsSmimeInfoPostResponseExample:
+      summary: Successful 200 response
+      value:
+        id: id
+        issuerCn: ipsum qui s
+        isDefault: false
+        expiration: dolore magna
+        pem: 'cillum labore '
+        pkcs12: in aute et
+        encryptedKeyPassword: cillum ut
+  schemas:
+    SettingsSendAsSmimeInfoPostResponse:
+      description: SettingsSendAsSmimeInfoPostResponse schema
+      type: object
+      properties:
+        id:
+          type: string
+        issuerCn:
+          type: string
+        isDefault:
+          type: boolean
+        expiration:
+          type: string
+        pem:
+          type: string
+        pkcs12:
+          type: string
+        encryptedKeyPassword:
+          type: string
+    GmailUsersMessagesPostResponse:
+      description: GmailUsersMessagesPostResponse schema
+      type: object
+      properties:
+        id:
+          type: string
+        threadId:
+          type: string
+        labelIds:
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        internalDate:
+          type: string
+        payload:
+          $ref: '#/components/schemas/GmailUsersMessagesPostResponsePayload'
+        sizeEstimate:
+          type: integer
+        raw:
+          type: string
+    GmailUsersMessagesPostResponsePayload:
+      description: GmailUsersMessagesPostResponsePayload schema
+      type: object
+      properties:
+        partId:
+          type: string
+        mimeType:
+          type: string
+        filename:
+          type: string
+        headers:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        body:
+          $ref: '#/components/schemas/GmailUsersMessagesPostResponsePayloadBody'
+        parts:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+    GmailUsersMessagesPostResponsePayloadBody:
+      description: GmailUsersMessagesPostResponsePayloadBody schema
+      type: object
+      properties:
+        attachmentId:
+          type: string
+        size:
+          type: integer
+        data:
+          type: string
+    GmailUsersMessagesPostRequest:
+      description: GmailUsersMessagesPostRequest schema
+      type: object
+      example:
+        id: eu incididunt laborum irure
+        threadId: magna Ut officia
+        labelIds:
+        - mollit amet dolore cupidatat
+        - cupidatat deserunt mollit
+        snippet: ut dolor
+        historyId: nisi tempor do
+        internalDate: cupidatat officia anim
+        payload:
+          partId: dolore velit incididunt est a
+          mimeType: sit dolor mollit
+          filename: ea commodo dolor nisi
+          headers:
+          - name: quis id velit laborum
+            value: et voluptate dolor ea
+          - name: sit nostrud
+            value: deserunt fugiat ex
+          body:
+            attachmentId: id nulla consequat
+            size: -93837667
+            data: ad in occaecat
+          parts:
+          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+        sizeEstimate: 21128811
+        raw: do laboris
+    SettingsSendAsSmimeInfoPostRequest:
+      description: SettingsSendAsSmimeInfoPostRequest schema
+      type: object
+      example:
+        id: id
+        issuerCn: ipsum qui s
+        isDefault: false
+        expiration: dolore magna
+        pem: 'cillum labore '
+        pkcs12: in aute et
+        encryptedKeyPassword: cillum ut
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for Google Books API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/books: Manage your Google Books library

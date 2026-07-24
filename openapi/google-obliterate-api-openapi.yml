@@ -1,0 +1,73 @@
+openapi: 3.1.0
+info:
+  title: Google Books About Obliterate API
+  description: API for retrieving Bookshelf and Volume resources from Google Books
+  version: 1.0.0
+  contact:
+    name: Google Books API
+    url: https://developers.google.com/books
+servers:
+- url: https://www.googleapis.com/books/v1
+  description: Google Books API v1
+tags:
+- name: Obliterate
+  description: Operations related to Obliterate
+paths:
+  /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:obliterate:
+    post:
+      tags:
+      - Obliterate
+      summary: Google Obliterate CSE Keypairs
+      description: Deletes a client-side encryption key pair permanently and immediately. You can only permanently delete key pairs that have been turned off for more than 30 days. To turn off a key pair, use the DisableCseKeyPair method. Gmail can't restore or decrypt any messages that were encrypted by an obliterated key. Authenticated users and Google Workspace administrators lose access to reading the encrypted messages.
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      - name: keyPairId
+        in: path
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SettingsCseKeypairsPostRequest2'
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+components:
+  schemas:
+    SettingsCseKeypairsPostRequest2:
+      description: SettingsCseKeypairsPostRequest2 schema
+      type: object
+      example: {}
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for Google Books API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/books: Manage your Google Books library

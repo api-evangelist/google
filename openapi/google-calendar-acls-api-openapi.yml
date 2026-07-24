@@ -1,0 +1,500 @@
+openapi: 3.1.0
+info:
+  title: Google Books About Calendar ACLs API
+  description: API for retrieving Bookshelf and Volume resources from Google Books
+  version: 1.0.0
+  contact:
+    name: Google Books API
+    url: https://developers.google.com/books
+servers:
+- url: https://www.googleapis.com/books/v1
+  description: Google Books API v1
+tags:
+- name: Calendar ACLs
+paths:
+  /calendars/{calendarId}/acl:
+    get:
+      tags:
+      - Calendar ACLs
+      summary: Google Return Access Control Rules
+      description: Returns the rules in the access control list for the calendar.
+      operationId: googleReturnaccesscontrolrules
+      parameters:
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: maxResults
+        in: query
+        schema:
+          type: integer
+        example: '54806309'
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+        example: amet in
+      - name: showDeleted
+        in: query
+        schema:
+          type: boolean
+        example: 'true'
+      - name: syncToken
+        in: query
+        schema:
+          type: string
+        example: amet in
+      - name: alt
+        in: query
+        schema:
+          type: string
+        description: Data format for the response.
+        example: json
+      - name: fields
+        in: query
+        schema:
+          type: string
+        description: Selector specifying which fields to include in a partial response.
+        example: amet in
+      - name: key
+        in: query
+        schema:
+          type: string
+        description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        example: amet in
+      - name: oauth_token
+        in: query
+        schema:
+          type: string
+        description: OAuth 2.0 token for the current user.
+        example: amet in
+      - name: prettyPrint
+        in: query
+        schema:
+          type: boolean
+        description: Returns response with indentations and line breaks.
+        example: 'true'
+      - name: quotaUser
+        in: query
+        schema:
+          type: string
+        description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        example: amet in
+      - name: userIp
+        in: query
+        schema:
+          type: string
+        description: Deprecated. Please use quotaUser instead.
+        example: amet in
+      - name: calendarId
+        in: path
+        schema:
+          type: string
+        required: true
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalendarsAclGetResponse1'
+              examples:
+                CalendarsAclGetResponse1Example:
+                  $ref: '#/components/examples/CalendarsAclGetResponse1Example'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: CalendarsAclGetResponse1Example
+    post:
+      tags:
+      - Calendar ACLs
+      summary: Google Insert Access Control Rule
+      description: Creates an access control rule.
+      operationId: googleInsertaccesscontrolrule
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: sendNotifications
+        in: query
+        schema:
+          type: boolean
+        example: 'true'
+      - name: alt
+        in: query
+        schema:
+          type: string
+        description: Data format for the response.
+        example: json
+      - name: fields
+        in: query
+        schema:
+          type: string
+        description: Selector specifying which fields to include in a partial response.
+        example: amet in
+      - name: key
+        in: query
+        schema:
+          type: string
+        description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        example: amet in
+      - name: oauth_token
+        in: query
+        schema:
+          type: string
+        description: OAuth 2.0 token for the current user.
+        example: amet in
+      - name: prettyPrint
+        in: query
+        schema:
+          type: boolean
+        description: Returns response with indentations and line breaks.
+        example: 'true'
+      - name: quotaUser
+        in: query
+        schema:
+          type: string
+        description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        example: amet in
+      - name: userIp
+        in: query
+        schema:
+          type: string
+        description: Deprecated. Please use quotaUser instead.
+        example: amet in
+      - name: calendarId
+        in: path
+        schema:
+          type: string
+        required: true
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalendarsAclPostRequest'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalendarsAclPostResponse'
+              examples:
+                CalendarsAclPostResponseExample:
+                  $ref: '#/components/examples/CalendarsAclPostResponseExample'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: CalendarsAclPostResponseExample
+  /calendars/{calendarId}/acl/watch:
+    post:
+      tags:
+      - Calendar ACLs
+      summary: Google Watch Access Control Rules
+      description: Watch for changes to ACL resources.
+      operationId: googleWatchaccesscontrolrules
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: maxResults
+        in: query
+        schema:
+          type: integer
+        example: '54806309'
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+        example: amet in
+      - name: showDeleted
+        in: query
+        schema:
+          type: boolean
+        example: 'true'
+      - name: syncToken
+        in: query
+        schema:
+          type: string
+        example: amet in
+      - name: alt
+        in: query
+        schema:
+          type: string
+        description: Data format for the response.
+        example: json
+      - name: fields
+        in: query
+        schema:
+          type: string
+        description: Selector specifying which fields to include in a partial response.
+        example: amet in
+      - name: key
+        in: query
+        schema:
+          type: string
+        description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        example: amet in
+      - name: oauth_token
+        in: query
+        schema:
+          type: string
+        description: OAuth 2.0 token for the current user.
+        example: amet in
+      - name: prettyPrint
+        in: query
+        schema:
+          type: boolean
+        description: Returns response with indentations and line breaks.
+        example: 'true'
+      - name: quotaUser
+        in: query
+        schema:
+          type: string
+        description: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+        example: amet in
+      - name: userIp
+        in: query
+        schema:
+          type: string
+        description: Deprecated. Please use quotaUser instead.
+        example: amet in
+      - name: calendarId
+        in: path
+        schema:
+          type: string
+        required: true
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalendarsAclWatchPostRequest'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalendarsAclWatchPostResponse'
+              examples:
+                CalendarsAclWatchPostResponseExample:
+                  $ref: '#/components/examples/CalendarsAclWatchPostResponseExample'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: CalendarsAclWatchPostResponseExample
+components:
+  examples:
+    CalendarsAclWatchPostResponseExample:
+      summary: Successful 200 response
+      value:
+        address: incididunt sed consequat
+        expiration: velit ad aliq
+        id: velit eiusmod
+        kind: api#channel
+        params:
+          reprehenderit5c: non
+          sint_b: cupidatat do
+        payload: false
+        resourceId: aute
+        resourceUri: fugiat consequat
+        token: ullamco officia in
+        type: ex eiusmod adipisicing mollit
+    CalendarsAclPostResponseExample:
+      summary: Successful 200 response
+      value:
+        etag: velit eu voluptate
+        id: ex dolore in sint
+        kind: calendar#aclRule
+        role: et
+        scope:
+          type: sit eiusmod culpa do
+          value: quis esse
+    CalendarsAclGetResponse1Example:
+      summary: Successful 200 response
+      value:
+        etag: laborum ea d
+        items:
+        - etag: in in qui non dolore
+          id: occaecat dolor qui eu ut
+          kind: calendar#aclRule
+          role: culpa magna tempor Excepteur
+          scope:
+            type: culpa qui sint velit
+            value: Lorem consectetur aliquip
+        - etag: quis id Lorem la
+          id: quis
+          kind: calendar#aclRule
+          role: culpa deserunt officia commodo
+          scope:
+            type: irure in quis ea
+            value: ex dolore
+        kind: calendar#acl
+        nextPageToken: dolore ex
+        nextSyncToken: amet labore quis
+  schemas:
+    CalendarsAclWatchPostResponseParams:
+      description: CalendarsAclWatchPostResponseParams schema
+      type: object
+      properties:
+        reprehenderit5c:
+          type: string
+        sint_b:
+          type: string
+    CalendarsAclPostRequest:
+      description: CalendarsAclPostRequest schema
+      type: object
+      example:
+        etag: velit eu voluptate
+        id: ex dolore in sint
+        kind: calendar#aclRule
+        role: et
+        scope:
+          type: sit eiusmod culpa do
+          value: quis esse
+    CalendarsAclGetResponse1:
+      description: CalendarsAclGetResponse1 schema
+      type: object
+      properties:
+        etag:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              etag:
+                type: string
+              id:
+                type: string
+              kind:
+                type: string
+              role:
+                type: string
+              scope:
+                type: object
+                properties:
+                  type:
+                    type: string
+                  value:
+                    type: string
+        kind:
+          type: string
+        nextPageToken:
+          type: string
+        nextSyncToken:
+          type: string
+    CalendarsAclPostResponse:
+      description: CalendarsAclPostResponse schema
+      type: object
+      properties:
+        etag:
+          type: string
+        id:
+          type: string
+        kind:
+          type: string
+        role:
+          type: string
+        scope:
+          $ref: '#/components/schemas/CalendarsAclPostResponseScope'
+    CalendarsAclWatchPostRequest:
+      description: CalendarsAclWatchPostRequest schema
+      type: object
+      example:
+        address: incididunt sed consequat
+        expiration: velit ad aliq
+        id: velit eiusmod
+        kind: api#channel
+        params:
+          reprehenderit5c: non
+          sint_b: cupidatat do
+        payload: false
+        resourceId: aute
+        resourceUri: fugiat consequat
+        token: ullamco officia in
+        type: ex eiusmod adipisicing mollit
+    CalendarsAclPostResponseScope:
+      description: CalendarsAclPostResponseScope schema
+      type: object
+      properties:
+        type:
+          type: string
+        value:
+          type: string
+    CalendarsAclWatchPostResponse:
+      description: CalendarsAclWatchPostResponse schema
+      type: object
+      properties:
+        address:
+          type: string
+        expiration:
+          type: string
+        id:
+          type: string
+        kind:
+          type: string
+        params:
+          $ref: '#/components/schemas/CalendarsAclWatchPostResponseParams'
+        payload:
+          type: boolean
+        resourceId:
+          type: string
+        resourceUri:
+          type: string
+        token:
+          type: string
+        type:
+          type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for Google Books API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/books: Manage your Google Books library

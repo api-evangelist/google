@@ -1,0 +1,298 @@
+openapi: 3.1.0
+info:
+  title: Google Books About Limits API
+  description: API for retrieving Bookshelf and Volume resources from Google Books
+  version: 1.0.0
+  contact:
+    name: Google Books API
+    url: https://developers.google.com/books
+servers:
+- url: https://www.googleapis.com/books/v1
+  description: Google Books API v1
+tags:
+- name: Limits
+  description: Operations related to Limits
+paths:
+  /v2/limits/label:
+    get:
+      tags:
+      - Limits
+      summary: Google Retrieve Limits Label
+      description: Get the constraints on the structure of a Label; such as, the maximum number of Fields allowed and maximum length of the label title.
+      operationId: googleDrivelabelsLimitsGetlabel
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.admin.labels
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.admin.labels
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.admin.labels.readonly
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.admin.labels.readonly
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.labels
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.labels
+      - Oauth2:
+        - https://www.googleapis.com/auth/drive.labels.readonly
+        Oauth2c:
+        - https://www.googleapis.com/auth/drive.labels.readonly
+      parameters:
+      - description: 'Required. Label revision resource name Must be: "limits/label"'
+        in: query
+        name: name
+        schema:
+          type: string
+      - description: V1 error format.
+        in: query
+        name: $.xgafv
+        schema:
+          enum:
+          - '1'
+          - '2'
+          type: string
+      - description: OAuth access token.
+        in: query
+        name: access_token
+        schema:
+          type: string
+      - description: Data format for response.
+        in: query
+        name: alt
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+      - description: JSONP
+        in: query
+        name: callback
+        schema:
+          type: string
+      - description: Selector specifying which fields to include in a partial response.
+        in: query
+        name: fields
+        schema:
+          type: string
+      - description: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+        in: query
+        name: key
+        schema:
+          type: string
+      - description: OAuth 2.0 token for the current user.
+        in: query
+        name: oauth_token
+        schema:
+          type: string
+      - description: Returns response with indentations and line breaks.
+        in: query
+        name: prettyPrint
+        schema:
+          type: boolean
+      - description: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+        in: query
+        name: quotaUser
+        schema:
+          type: string
+      - description: Upload protocol for media (e.g. "raw", "multipart").
+        in: query
+        name: upload_protocol
+        schema:
+          type: string
+      - description: Legacy upload protocol for media (e.g. "media", "multipart").
+        in: query
+        name: uploadType
+        schema:
+          type: string
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleAppsDriveLabelsV2LabelLimits'
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+components:
+  schemas:
+    GoogleTypeDate:
+      description: 'Represents a whole or partial calendar date, such as a birthday. The time of day and time zone are either specified elsewhere or are insignificant. The date is relative to the Gregorian Calendar. This can represent one of the following: * A full date, with non-zero year, month, and day values. * A month and day, with a zero year (for example, an anniversary). * A year on its own, with a zero month and a zero day. * A year and month, with a zero day (for example, a credit card expiration date). Related types: * google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp'
+      properties:
+        day:
+          description: Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant.
+          format: int32
+          type: integer
+        month:
+          description: Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day.
+          format: int32
+          type: integer
+        year:
+          description: Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year.
+          format: int32
+          type: integer
+      type: object
+    GoogleAppsDriveLabelsV2SelectionLimits:
+      description: Limits for selection Field type.
+      properties:
+        listLimits:
+          $ref: '#/components/schemas/GoogleAppsDriveLabelsV2ListLimits'
+          description: Limits for list-variant of a Field type.
+        maxChoices:
+          description: The max number of choices.
+          format: int32
+          type: integer
+        maxDeletedChoices:
+          description: Maximum number of deleted choices.
+          format: int32
+          type: integer
+        maxDisplayNameLength:
+          description: Maximum length for display name.
+          format: int32
+          type: integer
+        maxIdLength:
+          description: Maximum ID length for a selection options.
+          format: int32
+          type: integer
+      type: object
+    GoogleAppsDriveLabelsV2UserLimits:
+      description: Limits for Field.Type.USER.
+      properties:
+        listLimits:
+          $ref: '#/components/schemas/GoogleAppsDriveLabelsV2ListLimits'
+          description: Limits for list-variant of a Field type.
+      type: object
+    GoogleAppsDriveLabelsV2IntegerLimits:
+      description: Limits for integer Field type.
+      properties:
+        maxValue:
+          description: Maximum value for an integer Field type.
+          format: int64
+          type: string
+        minValue:
+          description: Minimum value for an integer Field type.
+          format: int64
+          type: string
+      type: object
+    GoogleAppsDriveLabelsV2ListLimits:
+      description: Limits for list-variant of a Field type.
+      properties:
+        maxEntries:
+          description: Maximum number of values allowed for the Field type.
+          format: int32
+          type: integer
+      type: object
+    GoogleAppsDriveLabelsV2LabelLimits:
+      description: Label constraints governing the structure of a Label; such as, the maximum number of Fields allowed and maximum length of the label title.
+      properties:
+        fieldLimits:
+          $ref: '#/components/schemas/GoogleAppsDriveLabelsV2FieldLimits'
+          description: The limits for Fields.
+        maxDeletedFields:
+          description: The maximum number of published Fields that can be deleted.
+          format: int32
+          type: integer
+        maxDescriptionLength:
+          description: The maximum number of characters allowed for the description.
+          format: int32
+          type: integer
+        maxDraftRevisions:
+          description: The maximum number of draft revisions that will be kept before deleting old drafts.
+          format: int32
+          type: integer
+        maxFields:
+          description: The maximum number of Fields allowed within the label.
+          format: int32
+          type: integer
+        maxTitleLength:
+          description: The maximum number of characters allowed for the title.
+          format: int32
+          type: integer
+        name:
+          description: Resource name.
+          type: string
+      type: object
+    GoogleAppsDriveLabelsV2FieldLimits:
+      description: Field constants governing the structure of a Field; such as, the maximum title length, minimum and maximum field values or length, etc.
+      properties:
+        dateLimits:
+          $ref: '#/components/schemas/GoogleAppsDriveLabelsV2DateLimits'
+          description: Date Field limits.
+        integerLimits:
+          $ref: '#/components/schemas/GoogleAppsDriveLabelsV2IntegerLimits'
+          description: Integer Field limits.
+        longTextLimits:
+          $ref: '#/components/schemas/GoogleAppsDriveLabelsV2LongTextLimits'
+          description: Long text Field limits.
+        maxDescriptionLength:
+          description: Limits for Field description, also called help text.
+          format: int32
+          type: integer
+        maxDisplayNameLength:
+          description: Limits for Field title.
+          format: int32
+          type: integer
+        maxIdLength:
+          description: Max length for the id.
+          format: int32
+          type: integer
+        selectionLimits:
+          $ref: '#/components/schemas/GoogleAppsDriveLabelsV2SelectionLimits'
+          description: Selection Field limits.
+        textLimits:
+          $ref: '#/components/schemas/GoogleAppsDriveLabelsV2TextLimits'
+          description: The relevant limits for the specified Field.Type. Text Field limits.
+        userLimits:
+          $ref: '#/components/schemas/GoogleAppsDriveLabelsV2UserLimits'
+          description: User Field limits.
+      type: object
+    GoogleAppsDriveLabelsV2TextLimits:
+      description: Limits for text Field type.
+      properties:
+        maxLength:
+          description: Maximum length allowed for a text Field type.
+          format: int32
+          type: integer
+        minLength:
+          description: Minimum length allowed for a text Field type.
+          format: int32
+          type: integer
+      type: object
+    GoogleAppsDriveLabelsV2LongTextLimits:
+      description: Limits for long text Field type.
+      properties:
+        maxLength:
+          description: Maximum length allowed for a long text Field type.
+          format: int32
+          type: integer
+        minLength:
+          description: Minimum length allowed for a long text Field type.
+          format: int32
+          type: integer
+      type: object
+    GoogleAppsDriveLabelsV2DateLimits:
+      description: Limits for date Field type.
+      properties:
+        maxValue:
+          $ref: '#/components/schemas/GoogleTypeDate'
+          description: Maximum value for the date Field type.
+        minValue:
+          $ref: '#/components/schemas/GoogleTypeDate'
+          description: Minimum value for the date Field type.
+      type: object
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for Google Books API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/books: Manage your Google Books library

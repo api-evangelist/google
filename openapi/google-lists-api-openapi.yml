@@ -1,0 +1,2197 @@
+openapi: 3.1.0
+info:
+  title: Google Books About Lists API
+  description: API for retrieving Bookshelf and Volume resources from Google Books
+  version: 1.0.0
+  contact:
+    name: Google Books API
+    url: https://developers.google.com/books
+servers:
+- url: https://www.googleapis.com/books/v1
+  description: Google Books API v1
+tags:
+- name: Lists
+  description: Operations related to Lists
+paths:
+  /gmail/v1/users/{userId}/drafts:
+    get:
+      tags:
+      - Lists
+      summary: Google List Drafts
+      description: Lists the drafts in the user's mailbox.
+      parameters:
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: '{{userID}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GmailUsersDraftsGetResponse1'
+              examples:
+                GmailUsersDraftsGetResponse1Example:
+                  $ref: '#/components/examples/GmailUsersDraftsGetResponse1Example'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: GmailUsersDraftsGetResponse1Example
+  /gmail/v1/users/{userId}/history:
+    get:
+      tags:
+      - Lists
+      summary: Google List History
+      description: Lists the history of all changes to the given mailbox. History results are returned in chronological order (increasing `historyId`).
+      parameters:
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: '{{userId}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GmailUsersHistoryGetResponse'
+              examples:
+                GmailUsersHistoryGetResponseExample:
+                  $ref: '#/components/examples/GmailUsersHistoryGetResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: GmailUsersHistoryGetResponseExample
+  /gmail/v1/users/{userId}/messages:
+    get:
+      tags:
+      - Lists
+      summary: Google List Messages
+      description: Lists the messages in the user's mailbox.
+      parameters:
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: maxResults
+        in: query
+        schema:
+          type: string
+        example: '{{maxResults}}'
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+        example: '{{pageToken}}'
+      - name: q
+        in: query
+        schema:
+          type: string
+        example: '{{q}}'
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: '{{userId}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GmailUsersMessagesGetResponse'
+              examples:
+                GmailUsersMessagesGetResponseExample:
+                  $ref: '#/components/examples/GmailUsersMessagesGetResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: GmailUsersMessagesGetResponseExample
+  /gmail/v1/users/{userId}/labels:
+    get:
+      tags:
+      - Lists
+      summary: Google List Labels
+      description: Lists all labels in the user's mailbox.
+      parameters:
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GmailUsersLabelsGetResponse'
+              examples:
+                GmailUsersLabelsGetResponseExample:
+                  $ref: '#/components/examples/GmailUsersLabelsGetResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: GmailUsersLabelsGetResponseExample
+  /gmail/v1/users/{userId}/threads:
+    get:
+      tags:
+      - Lists
+      summary: Google List Threads
+      description: Lists the threads in the user's mailbox.
+      parameters:
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: '{{userID}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GmailUsersThreadsGetResponse1'
+              examples:
+                GmailUsersThreadsGetResponse1Example:
+                  $ref: '#/components/examples/GmailUsersThreadsGetResponse1Example'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: GmailUsersThreadsGetResponse1Example
+  /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo:
+    get:
+      tags:
+      - Lists
+      summary: Google List SMIME Info
+      description: Lists S/MIME configs for the specified send-as alias.
+      parameters:
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      - name: sendAsEmail
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SettingsSendAsSmimeInfoGetResponse1'
+              examples:
+                SettingsSendAsSmimeInfoGetResponse1Example:
+                  $ref: '#/components/examples/SettingsSendAsSmimeInfoGetResponse1Example'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SettingsSendAsSmimeInfoGetResponse1Example
+  /gmail/v1/users/{userId}/settings/cse/keypairs:
+    get:
+      tags:
+      - Lists
+      summary: Google List CSE Keypairs
+      description: Lists client-side encryption key pairs for an authenticated user.
+      parameters:
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SettingsCseKeypairsGetResponse1'
+              examples:
+                SettingsCseKeypairsGetResponse1Example:
+                  $ref: '#/components/examples/SettingsCseKeypairsGetResponse1Example'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SettingsCseKeypairsGetResponse1Example
+  /gmail/v1/users/{userId}/settings/cse/identities:
+    get:
+      tags:
+      - Lists
+      summary: Google List CSE Identites
+      description: Lists the client-side encrypted identities for an authenticated user.
+      parameters:
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SettingsCseIdentitiesGetResponse'
+              examples:
+                SettingsCseIdentitiesGetResponseExample:
+                  $ref: '#/components/examples/SettingsCseIdentitiesGetResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SettingsCseIdentitiesGetResponseExample
+  /gmail/v1/users/{userId}/settings/filters:
+    get:
+      tags:
+      - Lists
+      summary: Google List Filters
+      description: Lists the message filters of a Gmail user.
+      parameters:
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersSettingsFiltersGetResponse1'
+              examples:
+                UsersSettingsFiltersGetResponse1Example:
+                  $ref: '#/components/examples/UsersSettingsFiltersGetResponse1Example'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: UsersSettingsFiltersGetResponse1Example
+  /gmail/v1/users/{userId}/settings/forwardingAddresses:
+    get:
+      tags:
+      - Lists
+      summary: Google List Forwarding Addresses
+      description: Lists the forwarding addresses for the specified account.
+      parameters:
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersSettingsForwardingAddressesGetResponse1'
+              examples:
+                UsersSettingsForwardingAddressesGetResponse1Example:
+                  $ref: '#/components/examples/UsersSettingsForwardingAddressesGetResponse1Example'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: UsersSettingsForwardingAddressesGetResponse1Example
+  /gmail/v1/users/{userId}/settings/delegates:
+    get:
+      tags:
+      - Lists
+      summary: Google List Delegates
+      description: Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority.
+      parameters:
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersSettingsDelegatesGetResponse1'
+              examples:
+                UsersSettingsDelegatesGetResponse1Example:
+                  $ref: '#/components/examples/UsersSettingsDelegatesGetResponse1Example'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: UsersSettingsDelegatesGetResponse1Example
+components:
+  schemas:
+    SettingsSendAsSmimeInfoGetResponse1:
+      description: SettingsSendAsSmimeInfoGetResponse1 schema
+      type: object
+      properties:
+        smimeInfo:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              issuerCn:
+                type: string
+              isDefault:
+                type: boolean
+              expiration:
+                type: string
+              pem:
+                type: string
+              pkcs12:
+                type: string
+              encryptedKeyPassword:
+                type: string
+    GmailUsersDraftsGetResponse1:
+      description: GmailUsersDraftsGetResponse1 schema
+      type: object
+      properties:
+        drafts:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              message:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  threadId:
+                    type: string
+                  labelIds:
+                    type: array
+                    items:
+                      type: string
+                  snippet:
+                    type: string
+                  historyId:
+                    type: string
+                  internalDate:
+                    type: string
+                  payload:
+                    type: object
+                    properties:
+                      partId:
+                        type: string
+                      mimeType:
+                        type: string
+                      filename:
+                        type: string
+                      headers:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            value:
+                              type: string
+                      body:
+                        type: object
+                        properties:
+                          attachmentId:
+                            type: string
+                          size:
+                            type: integer
+                          data:
+                            type: string
+                      parts:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            value:
+                              type: string
+                  sizeEstimate:
+                    type: integer
+                  raw:
+                    type: string
+        nextPageToken:
+          type: string
+        resultSizeEstimate:
+          type: integer
+    SettingsCseIdentitiesGetResponse:
+      description: SettingsCseIdentitiesGetResponse schema
+      type: object
+      properties:
+        cseIdentities:
+          type: array
+          items:
+            type: object
+            properties:
+              emailAddress:
+                type: string
+              primaryKeyPairId:
+                type: string
+              signAndEncryptKeyPairs:
+                type: object
+                properties:
+                  signingKeyPairId:
+                    type: string
+                  encryptionKeyPairId:
+                    type: string
+        nextPageToken:
+          type: string
+    SettingsCseKeypairsGetResponse1:
+      description: SettingsCseKeypairsGetResponse1 schema
+      type: object
+      properties:
+        cseKeyPairs:
+          type: array
+          items:
+            type: object
+            properties:
+              keyPairId:
+                type: string
+              pkcs7:
+                type: string
+              pem:
+                type: string
+              subjectEmailAddresses:
+                type: array
+                items:
+                  type: string
+              enablementState:
+                type: string
+              disableTime:
+                type: string
+              privateKeyMetadata:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    privateKeyMetadataId:
+                      type: string
+                    kaclsKeyMetadata:
+                      type: object
+                      properties:
+                        kaclsUri:
+                          type: string
+                        kaclsData:
+                          type: string
+                    hardwareKeyMetadata:
+                      type: object
+                      properties:
+                        description:
+                          type: string
+        nextPageToken:
+          type: string
+    GmailUsersHistoryGetResponse:
+      description: GmailUsersHistoryGetResponse schema
+      type: object
+      properties:
+        history:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              messages:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    threadId:
+                      type: string
+                    labelIds:
+                      type: array
+                      items:
+                        type: string
+                    snippet:
+                      type: string
+                    historyId:
+                      type: string
+                    internalDate:
+                      type: string
+                    payload:
+                      type: object
+                      properties:
+                        partId:
+                          type: string
+                        mimeType:
+                          type: string
+                        filename:
+                          type: string
+                        headers:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                              value:
+                                type: string
+                        body:
+                          type: object
+                          properties:
+                            attachmentId:
+                              type: string
+                            size:
+                              type: integer
+                            data:
+                              type: string
+                        parts:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              value:
+                                type: string
+                    sizeEstimate:
+                      type: integer
+                    raw:
+                      type: string
+              messagesAdded:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    message:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        threadId:
+                          type: string
+                        labelIds:
+                          type: array
+                          items:
+                            type: string
+                        snippet:
+                          type: string
+                        historyId:
+                          type: string
+                        internalDate:
+                          type: string
+                        payload:
+                          type: object
+                          properties:
+                            partId:
+                              type: string
+                            mimeType:
+                              type: string
+                            filename:
+                              type: string
+                            headers:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                  value:
+                                    type: string
+                            body:
+                              type: object
+                              properties:
+                                attachmentId:
+                                  type: string
+                                size:
+                                  type: integer
+                                data:
+                                  type: string
+                            parts:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  value:
+                                    type: string
+                        sizeEstimate:
+                          type: integer
+                        raw:
+                          type: string
+              messagesDeleted:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    message:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        threadId:
+                          type: string
+                        labelIds:
+                          type: array
+                          items:
+                            type: string
+                        snippet:
+                          type: string
+                        historyId:
+                          type: string
+                        internalDate:
+                          type: string
+                        payload:
+                          type: object
+                          properties:
+                            partId:
+                              type: string
+                            mimeType:
+                              type: string
+                            filename:
+                              type: string
+                            headers:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                  value:
+                                    type: string
+                            body:
+                              type: object
+                              properties:
+                                attachmentId:
+                                  type: string
+                                size:
+                                  type: integer
+                                data:
+                                  type: string
+                            parts:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  value:
+                                    type: string
+                        sizeEstimate:
+                          type: integer
+                        raw:
+                          type: string
+              labelsAdded:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    message:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        threadId:
+                          type: string
+                        labelIds:
+                          type: array
+                          items:
+                            type: string
+                        snippet:
+                          type: string
+                        historyId:
+                          type: string
+                        internalDate:
+                          type: string
+                        payload:
+                          type: object
+                          properties:
+                            partId:
+                              type: string
+                            mimeType:
+                              type: string
+                            filename:
+                              type: string
+                            headers:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                  value:
+                                    type: string
+                            body:
+                              type: object
+                              properties:
+                                attachmentId:
+                                  type: string
+                                size:
+                                  type: integer
+                                data:
+                                  type: string
+                            parts:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  value:
+                                    type: string
+                        sizeEstimate:
+                          type: integer
+                        raw:
+                          type: string
+                    labelIds:
+                      type: array
+                      items:
+                        type: string
+              labelsRemoved:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    message:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        threadId:
+                          type: string
+                        labelIds:
+                          type: array
+                          items:
+                            type: string
+                        snippet:
+                          type: string
+                        historyId:
+                          type: string
+                        internalDate:
+                          type: string
+                        payload:
+                          type: object
+                          properties:
+                            partId:
+                              type: string
+                            mimeType:
+                              type: string
+                            filename:
+                              type: string
+                            headers:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                  value:
+                                    type: string
+                            body:
+                              type: object
+                              properties:
+                                attachmentId:
+                                  type: string
+                                size:
+                                  type: integer
+                                data:
+                                  type: string
+                            parts:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  value:
+                                    type: string
+                        sizeEstimate:
+                          type: integer
+                        raw:
+                          type: string
+                    labelIds:
+                      type: array
+                      items:
+                        type: string
+        nextPageToken:
+          type: string
+        historyId:
+          type: string
+    UsersSettingsDelegatesGetResponse1:
+      description: UsersSettingsDelegatesGetResponse1 schema
+      type: object
+      properties:
+        delegates:
+          type: array
+          items:
+            type: object
+            properties:
+              delegateEmail:
+                type: string
+              verificationStatus:
+                type: string
+    GmailUsersThreadsGetResponse1:
+      description: GmailUsersThreadsGetResponse1 schema
+      type: object
+      properties:
+        threads:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              snippet:
+                type: string
+              historyId:
+                type: string
+              messages:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    threadId:
+                      type: string
+                    labelIds:
+                      type: array
+                      items:
+                        type: string
+                    snippet:
+                      type: string
+                    historyId:
+                      type: string
+                    internalDate:
+                      type: string
+                    payload:
+                      type: object
+                      properties:
+                        partId:
+                          type: string
+                        mimeType:
+                          type: string
+                        filename:
+                          type: string
+                        headers:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                              value:
+                                type: string
+                        body:
+                          type: object
+                          properties:
+                            attachmentId:
+                              type: string
+                            size:
+                              type: integer
+                            data:
+                              type: string
+                        parts:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              value:
+                                type: string
+                    sizeEstimate:
+                      type: integer
+                    raw:
+                      type: string
+        nextPageToken:
+          type: string
+        resultSizeEstimate:
+          type: integer
+    GmailUsersLabelsGetResponse:
+      description: GmailUsersLabelsGetResponse schema
+      type: object
+      properties:
+        labels:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              messageListVisibility:
+                type: string
+              labelListVisibility:
+                type: string
+              type:
+                type: string
+              messagesTotal:
+                type: integer
+              messagesUnread:
+                type: integer
+              threadsTotal:
+                type: integer
+              threadsUnread:
+                type: integer
+              color:
+                type: object
+                properties:
+                  textColor:
+                    type: string
+                  backgroundColor:
+                    type: string
+    GmailUsersMessagesGetResponse:
+      description: GmailUsersMessagesGetResponse schema
+      type: object
+      properties:
+        messages:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              threadId:
+                type: string
+              labelIds:
+                type: array
+                items:
+                  type: string
+              snippet:
+                type: string
+              historyId:
+                type: string
+              internalDate:
+                type: string
+              payload:
+                type: object
+                properties:
+                  partId:
+                    type: string
+                  mimeType:
+                    type: string
+                  filename:
+                    type: string
+                  headers:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        value:
+                          type: string
+                  body:
+                    type: object
+                    properties:
+                      attachmentId:
+                        type: string
+                      size:
+                        type: integer
+                      data:
+                        type: string
+                  parts:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        value:
+                          type: string
+              sizeEstimate:
+                type: integer
+              raw:
+                type: string
+        nextPageToken:
+          type: string
+        resultSizeEstimate:
+          type: integer
+    UsersSettingsFiltersGetResponse1:
+      description: UsersSettingsFiltersGetResponse1 schema
+      type: object
+      properties:
+        filter:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              criteria:
+                type: object
+                properties:
+                  from:
+                    type: string
+                  to:
+                    type: string
+                  subject:
+                    type: string
+                  query:
+                    type: string
+                  negatedQuery:
+                    type: string
+                  hasAttachment:
+                    type: boolean
+                  excludeChats:
+                    type: boolean
+                  size:
+                    type: integer
+                  sizeComparison:
+                    type: string
+              action:
+                type: object
+                properties:
+                  addLabelIds:
+                    type: array
+                    items:
+                      type: string
+                  removeLabelIds:
+                    type: array
+                    items:
+                      type: string
+                  forward:
+                    type: string
+    UsersSettingsForwardingAddressesGetResponse1:
+      description: UsersSettingsForwardingAddressesGetResponse1 schema
+      type: object
+      properties:
+        forwardingAddresses:
+          type: array
+          items:
+            type: object
+            properties:
+              forwardingEmail:
+                type: string
+              verificationStatus:
+                type: string
+  examples:
+    GmailUsersLabelsGetResponseExample:
+      summary: Successful 200 response
+      value:
+        labels:
+        - id: mollit enim dolore reprehenderit
+          name: non consequat
+          messageListVisibility: show
+          labelListVisibility: labelShow
+          type: user
+          messagesTotal: -89757017
+          messagesUnread: 37713675
+          threadsTotal: -34499465
+          threadsUnread: 38690910
+          color:
+            textColor: ut minim Excepteur Ut
+            backgroundColor: dolor id fugiat consectetur
+        - id: ut incididunt anim esse dolore
+          name: magna voluptate in aliquip et
+          messageListVisibility: hide
+          labelListVisibility: labelShow
+          type: user
+          messagesTotal: -45069202
+          messagesUnread: -69687222
+          threadsTotal: -63655159
+          threadsUnread: -93904503
+          color:
+            textColor: irure t
+            backgroundColor: occaecat aliquip
+    GmailUsersHistoryGetResponseExample:
+      summary: Successful 200 response
+      value:
+        history:
+        - id: proident pariatur aute Lorem
+          messages:
+          - id: eiusmod id nisi
+            threadId: anim et do
+            labelIds:
+            - e
+            - non magna in id
+            snippet: in
+            historyId: dolor voluptate ex mollit
+            internalDate: occaecat elit velit
+            payload:
+              partId: anim pariatur
+              mimeType: sint cillum nulla incididunt
+              filename: sed consequat esse eu
+              headers:
+              - name: amet ad Ut labore
+                value: nisi deserunt
+              - name: exercitation ex
+                value: amet
+              body:
+                attachmentId: aliquip sunt ad in
+                size: 49473554
+                data: aliqua ea dolor nostrud
+              parts:
+              - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+            sizeEstimate: -46841497
+            raw: f
+          - id: fugiat minim veniam sed
+            threadId: ipsum officia magna irure
+            labelIds:
+            - sunt
+            - velit consectetur magna
+            snippet: voluptate
+            historyId: et proident sunt in
+            internalDate: non adipisicing
+            payload:
+              partId: in ullamco
+              mimeType: labore Excepteur
+              filename: pariatur commodo
+              headers:
+              - name: nostrud minim tempor Lorem
+                value: aliquip id qui
+              - name: nisi sit veniam
+                value: et ipsum
+              body:
+                attachmentId: do sit
+                size: 66422063
+                data: non do aliquip ea sit
+              parts:
+              - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+            sizeEstimate: -37565359
+            raw: veniam laboris enim ullamco
+          messagesAdded:
+          - message:
+              id: non fugiat Ut magna ullamco
+              threadId: ut exercitation elit
+              labelIds:
+              - irure Excepteur do
+              - nulla sed adipisicing enim
+              snippet: minim
+              historyId: adipisicing velit consequat
+              internalDate: laborum nisi
+              payload:
+                partId: sed enim i
+                mimeType: tempor esse dolor in nulla
+                filename: sunt commodo
+                headers:
+                - name: Lorem
+                  value: Ut dolore reprehenderit
+                - name: tempor fugiat minim consectetur
+                  value: aliquip
+                body:
+                  attachmentId: dolore quis exercitation
+                  size: -24042089
+                  data: exercitation aliqua
+                parts:
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              sizeEstimate: -38447430
+              raw: culpa nisi ullamco aliquip
+          - message:
+              id: labore ullamco Excepteur laboris enim
+              threadId: proident off
+              labelIds:
+              - 'cillum '
+              - Lorem incididunt ullamco ipsum
+              snippet: Lorem laborum
+              historyId: qui mollit
+              internalDate: ad commodo minim
+              payload:
+                partId: commodo dolor do
+                mimeType: ad nisi
+                filename: es
+                headers:
+                - name: sunt enim
+                  value: ipsum
+                - name: elit fugiat dolore aute
+                  value: mollit Ut
+                body:
+                  attachmentId: ea reprehenderit
+                  size: 2087603
+                  data: in
+                parts:
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              sizeEstimate: -15899428
+              raw: voluptate dolor laboris ad
+          messagesDeleted:
+          - message:
+              id: Duis elit in
+              threadId: fugiat
+              labelIds:
+              - id dolor est
+              - deserunt nisi cupidatat
+              snippet: quis
+              historyId: ad
+              internalDate: est pariatur offi
+              payload:
+                partId: mollit amet pariatur labore
+                mimeType: in
+                filename: aute
+                headers:
+                - name: consectetur dolor sint
+                  value: anim
+                - name: laborum est laboris molli
+                  value: consequat est sint
+                body:
+                  attachmentId: aliquip ut cillum minim
+                  size: 76634140
+                  data: tempor
+                parts:
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              sizeEstimate: -35873513
+              raw: irure qui laboris cupidatat
+          - message:
+              id: cupidatat do adipisicing
+              threadId: occaecat pariatur
+              labelIds:
+              - sit et irure Exce
+              - et Duis exercitation
+              snippet: voluptate in
+              historyId: ut esse
+              internalDate: Excepteur consectetur aliqua nisi
+              payload:
+                partId: occaecat quis sunt
+                mimeType: cillu
+                filename: quis exercitation
+                headers:
+                - name: in proident el
+                  value: nisi mollit sunt
+                - name: o
+                  value: consectetur proident in
+                body:
+                  attachmentId: sint incididunt fugiat velit sunt
+                  size: -88355343
+                  data: mollit commodo esse
+                parts:
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              sizeEstimate: 13437488
+              raw: sed labore tempor
+          labelsAdded:
+          - message:
+              id: cillum consequat eu laboris officia
+              threadId: magna dolore
+              labelIds:
+              - sunt tempor officia deser
+              - est irure in
+              snippet: sint dolor sunt
+              historyId: sunt do exercitation minim
+              internalDate: ea voluptate Lorem enim
+              payload:
+                partId: sunt enim
+                mimeType: id laboris
+                filename: cupidatat
+                headers:
+                - name: tempor pariatur
+                  value: cupidatat ex
+                - name: in dolore quis
+                  value: pariatur
+                body:
+                  attachmentId: 'aute '
+                  size: 99676228
+                  data: consequat veniam aliqua ex
+                parts:
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              sizeEstimate: 85599678
+              raw: ut
+            labelIds:
+            - nisi eiusmod
+            - et amet nisi sed laboris
+          - message:
+              id: enim
+              threadId: Duis consectetur
+              labelIds:
+              - ullamco adi
+              - sed
+              snippet: nisi veniam
+              historyId: ex
+              internalDate: exercitation sit dolore
+              payload:
+                partId: officia
+                mimeType: voluptate cillum officia et nostrud
+                filename: dolore consequat laborum
+                headers:
+                - name: reprehenderit nostrud elit
+                  value: consectetur in nisi
+                - name: anim occaecat
+                  value: occaecat laborum
+                body:
+                  attachmentId: dolore deserunt anim do minim
+                  size: 83222280
+                  data: enim magna
+                parts:
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              sizeEstimate: -97289468
+              raw: dolore ea
+            labelIds:
+            - aliquip proident
+            - mollit nostrud nisi elit
+          labelsRemoved:
+          - message:
+              id: tempo
+              threadId: in sunt esse nulla
+              labelIds:
+              - in dolor dolore ipsum
+              - consequat irure ea
+              snippet: enim anim eiusmod ipsum
+              historyId: velit anim dolore fugiat
+              internalDate: laboris
+              payload:
+                partId: reprehenderit ullamco
+                mimeType: est consectetur et ullamco ad
+                filename: anim laboris enim
+                headers:
+                - name: ea Lorem eiusmod
+                  value: occaecat laborum in
+                - name: Duis dolor ipsum au
+                  value: cillum aliqua in
+                body:
+                  attachmentId: ''
+                  size: -69821908
+                  data: Ut amet ut
+                parts:
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              sizeEstimate: 30152194
+              raw: enim minim ullamco aliqua cillum
+            labelIds:
+            - cillum
+            - officia cillum sit
+          - message:
+              id: cillum reprehenderit Excepteur
+              threadId: dolore esse sint culpa
+              labelIds:
+              - et irure eu do
+              - elit et consectetur Ut
+              snippet: ea s
+              historyId: commodo veniam mollit qui ipsum
+              internalDate: deserunt cupidatat mollit
+              payload:
+                partId: proident consectetur eu adipisicing
+                mimeType: 'fugiat culpa aute '
+                filename: aliquip sed
+                headers:
+                - name: anim dolor
+                  value: consectetur
+                - name: magna nostrud
+                  value: consectetur enim culpa commodo
+                body:
+                  attachmentId: 'tempor sint '
+                  size: 59632845
+                  data: eu
+                parts:
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              sizeEstimate: 75124651
+              raw: sed
+            labelIds:
+            - deserunt in aliqua cillum
+            - anim in
+        - id: ea consequat
+          messages:
+          - id: culpa enim
+            threadId: ad commodo sed sunt Lorem
+            labelIds:
+            - cupidatat Duis
+            - ut in quis cupidatat
+            snippet: magna Lorem anim
+            historyId: aliqua
+            internalDate: velit id proident nostrud
+            payload:
+              partId: esse incididunt laboris deserunt eiusmod
+              mimeType: ex sunt aliquip ut
+              filename: incididunt qui
+              headers:
+              - name: nulla id
+                value: nostrud anim
+              - name: ipsum est anim consequat
+                value: est eiusmod velit
+              body:
+                attachmentId: exercitation
+                size: -2350523
+                data: ut occaecat id
+              parts:
+              - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+            sizeEstimate: -70931197
+            raw: ex est commodo minim
+          - id: dolore eu Lorem
+            threadId: dolor
+            labelIds:
+            - non dolor Excepteur in
+            - id nostrud irure amet
+            snippet: n
+            historyId: elit reprehenderit irure non
+            internalDate: amet nostrud labore Excepte
+            payload:
+              partId: officia ut commodo
+              mimeType: tempor occaecat
+              filename: tempor
+              headers:
+              - name: cillum ullamco
+                value: anim e
+              - name: est exercitation irure e
+                value: id
+              body:
+                attachmentId: incididunt culpa elit
+                size: 99232191
+                data: Excepteur ea pariatur culpa
+              parts:
+              - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+            sizeEstimate: 76239793
+            raw: nostrud reprehenderit velit
+          messagesAdded:
+          - message:
+              id: ut mollit
+              threadId: consequat ad
+              labelIds:
+              - nulla et qui
+              - cupidatat aliquip commodo do
+              snippet: nulla esse exercitation eiusmod
+              historyId: tempor
+              internalDate: non aliqua
+              payload:
+                partId: dolore quis elit
+                mimeType: culpa id tempor ex
+                filename: do Duis
+                headers:
+                - name: ut
+                  value: tempor proident quis ut
+                - name: aliqua
+                  value: magna aliquip consequat eiusmod esse
+                body:
+                  attachmentId: cupidatat ullamco reprehenderit
+                  size: 94308201
+                  data: tempor deserunt sit amet
+                parts:
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              sizeEstimate: -17434830
+              raw: velit in incididunt ad
+          - message:
+              id: labore ullamco
+              threadId: magna nulla ut
+              labelIds:
+              - nulla sit eiusmod
+              - labore an
+              snippet: ex enim reprehenderit Ut
+              historyId: ex
+              internalDate: des
+              payload:
+                partId: incididunt et irure magna Duis
+                mimeType: occaecat officia
+                filename: ullamco culpa aute
+                headers:
+                - name: ex exercitation
+                  value: commodo dolore ullamco
+                - name: Excepteur
+                  value: ipsum mag
+                body:
+                  attachmentId: et
+                  size: -54386568
+                  data: do ullamco
+                parts:
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              sizeEstimate: -10107583
+              raw: sunt aute
+          messagesDeleted:
+          - message:
+              id: p
+              threadId: mollit elit
+              labelIds:
+              - con
+              - ut proident ex
+              snippet: minim cillum
+              historyId: id enim E
+              internalDate: ex
+              payload:
+                partId: quis ad
+                mimeType: adipisicing est anim veniam
+                filename: sit Ut
+                headers:
+                - name: ad id irure
+                  value: ex est adipisicing
+                - name: consectetur labore
+                  value: elit enim
+                body:
+                  attachmentId: cillum non ut amet aliquip
+                  size: 20140005
+                  data: fugiat id exercitation
+                parts:
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              sizeEstimate: -77249420
+              raw: Lorem tempor culpa
+          - message:
+              id: nostrud oc
+              threadId: nostrud sed cillum velit sunt
+              labelIds:
+              - quis laboris laborum aliqua
+              - dolor sed ut esse dolore
+              snippet: non
+              historyId: in consequat ipsum
+              internalDate: ad ipsum dolore
+              payload:
+                partId: anim nulla nostrud incididunt ex
+                mimeType: irure amet
+                filename: ad
+                headers:
+                - name: veniam Excepteur sit ullamco
+                  value: ullamco aute proident non
+                - name: ut enim tempor
+                  value: minim in cupidatat id
+                body:
+                  attachmentId: enim sit Duis in
+                  size: -37124897
+                  data: dolor Excepteur aute cupidatat dolor
+                parts:
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              sizeEstimate: 61813692
+              raw: ipsum quis
+          labelsAdded:
+          - message:
+              id: dolor mollit
+              threadId: id ut veniam
+              labelIds:
+              - labore i
+              - commodo Excepteur
+              snippet: quis elit
+              historyId: occaecat consequat amet aute fugiat
+              internalDate: sed sunt
+              payload:
+                partId: occaecat deserunt sed ut
+                mimeType: sunt ut ut voluptate
+                filename: ipsum pariatur sed
+                headers:
+                - name: elit deserunt voluptate non
+                  value: velit
+                - name: consequat id eiusmod sed
+                  value: veniam ut voluptate
+                body:
+                  attachmentId: ut ipsum laboris non et
+                  size: -51157710
+                  data: Excepteur voluptate
+                parts:
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              sizeEstimate: -83490524
+              raw: sunt proident ut
+            labelIds:
+            - deserunt cillum
+            - sit qui culpa irure
+          - message:
+              id: dolore pariatur
+              threadId: est sit
+              labelIds:
+              - est dolore non aliqua
+              - esse Duis proident
+              snippet: culpa laboris
+              historyId: exercitation do non
+              internalDate: dolore
+              payload:
+                partId: in dolore officia et
+                mimeType: aliquip
+                filename: 'sunt '
+                headers:
+                - name: sed enim labore Lorem proident
+                  value: laborum sunt
+                - name: com
+                  value: cupidatat consequat proident
+                body:
+                  attachmentId: aliqua adipisicing in eu incididunt
+                  size: -20883488
+                  data: in laborum
+                parts:
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              sizeEstimate: 43883889
+              raw: ex mollit
+            labelIds:
+            - commodo officia cupidatat
+            - nostrud do
+          labelsRemoved:
+          - message:
+              id: dolor amet mollit tempor incididunt
+              threadId: proident elit consectetur laboris
+              labelIds:
+              - aliquip adipisicing anim
+              - nulla ut officia esse
+              snippet: qui nulla
+              historyId: eiusmod
+              internalDate: magna fugiat
+              payload:
+                partId: cillum laboris enim m
+                mimeType: in eu
+                filename: ea
+                headers:
+                - name: magna Ut esse officia in
+                  value: dolor labore
+                - name: officia do
+                  value: elit sunt Ut officia consequat
+                body:
+                  attachmentId: aliquip ut
+                  size: -29237228
+                  data: in
+                parts:
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              sizeEstimate: 89770840
+              raw: ea
+            labelIds:
+            - in laborum consectetur
+            - non sit elit
+          - message:
+              id: dolore amet
+              threadId: consectetur eu
+              labelIds:
+              - sed deserunt enim aliquip
+              - consectetur laborum est cillum
+              snippet: ipsum ut officia id dolore
+              historyId: cupidatat est
+              internalDate: elit do
+              payload:
+                partId: culpa ame
+                mimeType: Duis est nostrud Lorem
+                filename: minim adipisicing enim laboris deserunt
+                headers:
+                - name: laboris ex exercitation
+                  value: Ut ut officia et Lorem
+                - name: sint exercitation
+                  value: adipisicing ea culpa
+                body:
+                  attachmentId: consectetur
+                  size: -58922
+                  data: ex ullamco
+                parts:
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+                - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              sizeEstimate: 10775774
+              raw: dolor pari
+            labelIds:
+            - Duis ut laboris
+            - proident ullamco
+        nextPageToken: do deserunt pariatu
+        historyId: cillum veniam Excepteur et
+    GmailUsersThreadsGetResponse1Example:
+      summary: Successful 200 response
+      value:
+        threads:
+        - id: commodo
+          snippet: eiusmod consequat qui non quis
+          historyId: sunt dolore
+          messages:
+          - id: enim
+            threadId: dolore quis exercitation
+            labelIds:
+            - Duis sint dolore
+            - in labore ut commodo
+            snippet: nostrud dolore consectetur Excepteur
+            historyId: ea elit consectet
+            internalDate: proident ullamco
+            payload:
+              partId: consectetur pariatur dolore
+              mimeType: ad occaecat culpa ullamco
+              filename: officia elit
+              headers:
+              - name: co
+                value: deserunt ut
+              - name: do
+                value: ea dolor
+              body:
+                attachmentId: quis elit commodo
+                size: 44099715
+                data: irure dolore ut
+              parts:
+              - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+            sizeEstimate: 21887814
+            raw: nulla ipsum Ut
+          - id: in dolor proident
+            threadId: dolore culpa fugiat
+            labelIds:
+            - in ut amet
+            - Ut sit dolor ut
+            snippet: nisi Duis deserunt labore
+            historyId: sunt pariatur elit laboris ex
+            internalDate: esse pariatur
+            payload:
+              partId: laboris nulla et
+              mimeType: dolore ullamco consectetur nostrud
+              filename: aliqua commodo
+              headers:
+              - name: Ut
+                value: laborum
+              - name: consequat
+                value: esse
+              body:
+                attachmentId: qui consequat minim
+                size: 83387838
+                data: id
+              parts:
+              - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+            sizeEstimate: 70145632
+            raw: cillum in ipsum ex
+        - id: qui ipsum veniam irure fugiat
+          snippet: elit occaecat magna
+          historyId: mollit
+          messages:
+          - id: laborum et
+            threadId: elit sint quis
+            labelIds:
+            - sunt amet aute dolore fugiat
+            - Ut aliqua
+            snippet: do magna
+            historyId: aliqua enim labore
+            internalDate: laboris tempor anim voluptate
+            payload:
+              partId: aute Ut nisi eiusmod
+              mimeType: non deserunt anim
+              filename: magna
+              headers:
+              - name: est sunt fugiat
+                value: deserunt exer
+              - name: consectetur anim
+                value: laborum elit
+              body:
+                attachmentId: dolor id esse proident
+                size: -31164209
+                data: irure consectetur
+              parts:
+              - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+            sizeEstimate: -76389446
+            raw: nulla dolor nisi reprehenderit sint
+          - id: ea laborum sint
+            threadId: laboris magna
+            labelIds:
+            - 'velit '
+            - ad sint sunt ex n
+            snippet: ea in magna ve
+            historyId: sit tempor
+            internalDate: qui laborum
+            payload:
+              partId: aute dolore deserunt do veniam
+              mimeType: voluptate ut ad irure est
+              filename: nostrud Lorem aliquip elit anim
+              headers:
+              - name: voluptate sed
+                value: in ullamco consequat
+              - name: ullamco
+                value: ex
+              body:
+                attachmentId: elit eiusmod sint
+                size: 93740460
+                data: in non nulla anim
+              parts:
+              - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+            sizeEstimate: 76344706
+            raw: nisi nostrud
+        nextPageToken: Exce
+        resultSizeEstimate: -82340850
+    SettingsCseIdentitiesGetResponseExample:
+      summary: Successful 200 response
+      value:
+        cseIdentities:
+        - emailAddress: adipisicing culpa ipsum
+          primaryKeyPairId: incididunt pariatur cupidatat in
+          signAndEncryptKeyPairs:
+            signingKeyPairId: Ut sunt proident consectetur
+            encryptionKeyPairId: esse id
+        - emailAddress: elit dolore laboris
+          primaryKeyPairId: eu Excepteur sint
+          signAndEncryptKeyPairs:
+            signingKeyPairId: culpa
+            encryptionKeyPairId: dolore Excepteur ipsum Lorem
+        nextPageToken: eiusmod amet voluptate veniam in
+    UsersSettingsFiltersGetResponse1Example:
+      summary: Successful 200 response
+      value:
+        filter:
+        - id: 'reprehenderit Duis '
+          criteria:
+            from: nostrud anim reprehenderit
+            to: officia
+            subject: magna
+            query: sint elit
+            negatedQuery: Excepteur quis est
+            hasAttachment: true
+            excludeChats: false
+            size: 73367794
+            sizeComparison: unspecified
+          action:
+            addLabelIds:
+            - nisi elit voluptate
+            - sunt exercitation
+            removeLabelIds:
+            - pariatur in laborum veniam
+            - irure in
+            forward: occaecat Ut veniam
+        - id: Ut deserunt
+          criteria:
+            from: magna non Duis nostrud Ut
+            to: ut officia exercitation in
+            subject: tempor minim anim ipsum
+            query: sit anim
+            negatedQuery: voluptate in tempor elit
+            hasAttachment: true
+            excludeChats: false
+            size: 29351468
+            sizeComparison: smaller
+          action:
+            addLabelIds:
+            - adipisicing labore dolore
+            - dolor
+            removeLabelIds:
+            - esse cupidatat
+            - mollit aliqua
+            forward: est occaecat officia
+    GmailUsersDraftsGetResponse1Example:
+      summary: Successful 200 response
+      value:
+        drafts:
+        - id: labore do cupidatat dolor consectetur
+          message:
+            id: cillum incididunt eiusmod anim
+            threadId: quis non proident
+            labelIds:
+            - dolor dol
+            - nulla ad sed exercitation
+            snippet: aute ad
+            historyId: quis anim a
+            internalDate: sint dolore
+            payload:
+              partId: enim nulla ad
+              mimeType: id ani
+              filename: pariatur
+              headers:
+              - name: dolor est
+                value: veniam ut nostrud culpa
+              - name: sed minim
+                value: ipsum occaecat sed dolor
+              body:
+                attachmentId: dolore quis et
+                size: -13145088
+                data: pariatur magna in Duis in
+              parts:
+              - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+            sizeEstimate: -49941379
+            raw: non veniam eiusmod
+        - id: anim
+          message:
+            id: consectetur
+            threadId: veniam in fugiat adipisicing esse
+            labelIds:
+            - ut
+            - anim proident magna esse
+            snippet: quis tempor laborum officia fugiat
+            historyId: dolor
+            internalDate: cupidatat velit ut sint in
+            payload:
+              partId: tempor
+              mimeType: deseru
+              filename: dolore veniam
+              headers:
+              - name: veni
+                value: eu in
+              - name: qui irure aliqua cupidatat
+                value: commodo laborum nostrud id
+              body:
+                attachmentId: non eiusmod Excepteur
+                size: 69980865
+                data: Excepteur reprehenderit proident sed
+              parts:
+              - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+              - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+            sizeEstimate: 15653869
+            raw: ipsum dolor qui
+        nextPageToken: veniam laborum labore Ut aliquip
+        resultSizeEstimate: 46963148
+    SettingsSendAsSmimeInfoGetResponse1Example:
+      summary: Successful 200 response
+      value:
+        smimeInfo:
+        - id: Lorem culpa eiusmod
+          issuerCn: dolore eiusmod laborum
+          isDefault: false
+          expiration: eiusmod incidid
+          pem: minim voluptate non
+          pkcs12: et Duis
+          encryptedKeyPassword: tempor proiden
+        - id: dolore
+          issuerCn: aliqua velit qui
+          isDefault: false
+          expiration: occaeca
+          pem: eu minim consequat sunt
+          pkcs12: sunt anim ipsum nulla
+          encryptedKeyPassword: laboris ex sint
+    UsersSettingsForwardingAddressesGetResponse1Example:
+      summary: Successful 200 response
+      value:
+        forwardingAddresses:
+        - forwardingEmail: consequat
+          verificationStatus: accepted
+        - forwardingEmail: proident ad nulla occaecat dolore
+          verificationStatus: verificationStatusUnspecified
+    GmailUsersMessagesGetResponseExample:
+      summary: Successful 200 response
+      value:
+        messages:
+        - id: sed proident adipisicing culpa esse
+          threadId: ullamco
+          labelIds:
+          - velit dolor
+          - eiusmod veniam eu
+          snippet: anim nisi
+          historyId: aute
+          internalDate: dolore tempor
+          payload:
+            partId: non sint ea incididunt dolor
+            mimeType: enim aliquip Duis
+            filename: tempor nostrud laborum
+            headers:
+            - name: occaecat mollit est
+              value: amet
+            - name: Ut aliquip ea
+              value: deserunt qui
+            body:
+              attachmentId: 'in laborum dolore '
+              size: -13005468
+              data: veniam in qui
+            parts:
+            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+          sizeEstimate: -28255502
+          raw: culpa
+        - id: cupidatat esse magna dolore
+          threadId: ea eiusmod
+          labelIds:
+          - dolore commodo
+          - Ut in et irure
+          snippet: esse non
+          historyId: ex nulla nisi veniam dolor
+          internalDate: tempor pr
+          payload:
+            partId: dolor Excepteur consequat
+            mimeType: magna nulla
+            filename: non proident
+            headers:
+            - name: eiusmod nostrud reprehenderit proident
+              value: in ad
+            - name: consequat cillum
+              value: officia mollit e
+            body:
+              attachmentId: dolore id dolor esse
+              size: -9079183
+              data: aute L
+            parts:
+            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+          sizeEstimate: 11691603
+          raw: eiusmod esse
+        nextPageToken: ipsum reprehenderit Duis in veniam
+        resultSizeEstimate: -35985941
+    UsersSettingsDelegatesGetResponse1Example:
+      summary: Successful 200 response
+      value:
+        delegates:
+        - delegateEmail: 'veniam voluptate '
+          verificationStatus: accepted
+        - delegateEmail: qui ipsum
+          verificationStatus: expired
+    SettingsCseKeypairsGetResponse1Example:
+      summary: Successful 200 response
+      value:
+        cseKeyPairs:
+        - keyPairId: qui in ad ullamco
+          pkcs7: Lorem tempor
+          pem: ipsum fugiat Excepteu
+          subjectEmailAddresses:
+          - sunt
+          - in ullamco do
+          enablementState: enabled
+          disableTime: ad qui
+          privateKeyMetadata:
+          - privateKeyMetadataId: in
+            kaclsKeyMetadata:
+              kaclsUri: in et sed aute
+              kaclsData: laboris Lorem et esse
+            hardwareKeyMetadata:
+              description: adipisicing Excepteur
+          - privateKeyMetadataId: sit ea
+            kaclsKeyMetadata:
+              kaclsUri: adipisicing id Ut
+              kaclsData: minim
+            hardwareKeyMetadata:
+              description: eu officia tempor
+        - keyPairId: proident tempor dolore et id
+          pkcs7: deserunt ea eiusmod adipisicing
+          pem: ad enim
+          subjectEmailAddresses:
+          - nulla dolore
+          - ea aliqua Excepteur ut sit
+          enablementState: enabled
+          disableTime: dolor sed qui
+          privateKeyMetadata:
+          - privateKeyMetadataId: qui exercitation mollit
+            kaclsKeyMetadata:
+              kaclsUri: dolore dolor consequat veniam
+              kaclsData: occaecat consequat
+            hardwareKeyMetadata:
+              description: aute esse dolor ipsum
+          - privateKeyMetadataId: proident incididunt
+            kaclsKeyMetadata:
+              kaclsUri: elit
+              kaclsData: dolor nulla
+            hardwareKeyMetadata:
+              description: quis culpa
+        nextPageToken: eiusmod dolore anim pariatur
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for Google Books API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/books: Manage your Google Books library

@@ -1,0 +1,1122 @@
+openapi: 3.1.0
+info:
+  title: Google Books About Send API
+  description: API for retrieving Bookshelf and Volume resources from Google Books
+  version: 1.0.0
+  contact:
+    name: Google Books API
+    url: https://developers.google.com/books
+servers:
+- url: https://www.googleapis.com/books/v1
+  description: Google Books API v1
+tags:
+- name: Send
+  description: Operations related to Send
+paths:
+  /gmail/v1/users/{userId}/drafts/send:
+    post:
+      tags:
+      - Send
+      summary: Google Send Drafts
+      description: Sends the specified, existing draft to the recipients in the `To`, `Cc`, and `Bcc` headers.
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: '{{userID}}'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsersDraftsSendPostRequest'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersDraftsSendPostResponse'
+              examples:
+                UsersDraftsSendPostResponseExample:
+                  $ref: '#/components/examples/UsersDraftsSendPostResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: UsersDraftsSendPostResponseExample
+  /gmail/v1/users/{userId}/messages/send:
+    post:
+      tags:
+      - Send
+      summary: Google Send Messages
+      description: Sends the specified message to the recipients in the `To`, `Cc`, and `Bcc` headers. For example usage, see [Sending email](https://developers.google.com/gmail/api/guides/sending).
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: '{{userId}}'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsersMessagesSendPostRequest'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersMessagesSendPostResponse'
+              examples:
+                UsersMessagesSendPostResponseExample:
+                  $ref: '#/components/examples/UsersMessagesSendPostResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: UsersMessagesSendPostResponseExample
+  /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}:
+    get:
+      tags:
+      - Send
+      summary: Google Get Send As SMIME Info
+      description: Gets the specified S/MIME config for the specified send-as alias.
+      parameters:
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      - name: sendAsEmail
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SettingsSendAsSmimeInfoGetResponse'
+              examples:
+                SettingsSendAsSmimeInfoGetResponseExample:
+                  $ref: '#/components/examples/SettingsSendAsSmimeInfoGetResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SettingsSendAsSmimeInfoGetResponseExample
+    delete:
+      tags:
+      - Send
+      summary: Google Delete Send As SMIME INfo
+      description: Deletes the specified S/MIME config for the specified send-as alias.
+      parameters:
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      - name: sendAsEmail
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+  /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/verify:
+    post:
+      tags:
+      - Send
+      summary: Google Verify Send As
+      description: Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service account clients that have been delegated domain-wide authority.
+      parameters:
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      - name: sendAsEmail
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      requestBody:
+        content: {}
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+  /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}:
+    get:
+      tags:
+      - Send
+      summary: Google Get Send As
+      description: Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection.
+      parameters:
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      - name: sendAsEmail
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersSettingsSendAsGetResponse'
+              examples:
+                UsersSettingsSendAsGetResponseExample:
+                  $ref: '#/components/examples/UsersSettingsSendAsGetResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: UsersSettingsSendAsGetResponseExample
+    put:
+      tags:
+      - Send
+      summary: Google Update Send As Setting
+      description: Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      - name: sendAsEmail
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsersSettingsSendAsPutRequest'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersSettingsSendAsPutResponse'
+              examples:
+                UsersSettingsSendAsPutResponseExample:
+                  $ref: '#/components/examples/UsersSettingsSendAsPutResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: UsersSettingsSendAsPutResponseExample
+    patch:
+      tags:
+      - Send
+      summary: Google Patch Send As
+      description: Patch the specified send-as alias.
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      - name: sendAsEmail
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsersSettingsSendAsPatchRequest'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersSettingsSendAsPatchResponse'
+              examples:
+                UsersSettingsSendAsPatchResponseExample:
+                  $ref: '#/components/examples/UsersSettingsSendAsPatchResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: UsersSettingsSendAsPatchResponseExample
+    delete:
+      tags:
+      - Send
+      summary: Google Delete Send As
+      description: Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service account clients that have been delegated domain-wide authority.
+      parameters:
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      - name: sendAsEmail
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: SuccessExample
+  /gmail/v1/users/{userId}/settings/sendAs:
+    get:
+      tags:
+      - Send
+      summary: Google Get Send As
+      description: Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom "from" aliases.
+      parameters:
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersSettingsSendAsGetResponse1'
+              examples:
+                UsersSettingsSendAsGetResponse1Example:
+                  $ref: '#/components/examples/UsersSettingsSendAsGetResponse1Example'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: UsersSettingsSendAsGetResponse1Example
+    post:
+      tags:
+      - Send
+      summary: Google Create Send As
+      description: Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been delegated domain-wide authority.
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Accept
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: userId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: '(Required) '
+        example: incididunt labore i
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsersSettingsSendAsPostRequest'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersSettingsSendAsPostResponse'
+              examples:
+                UsersSettingsSendAsPostResponseExample:
+                  $ref: '#/components/examples/UsersSettingsSendAsPostResponseExample'
+      x-api-evangelist-processing:
+        ChooseTags: true
+      x-microcks-operation:
+        delay: 100
+        dispatcher: FALLBACK
+        dispatcherRules: UsersSettingsSendAsPostResponseExample
+components:
+  schemas:
+    UsersSettingsSendAsPutResponseSmtpMsa:
+      description: UsersSettingsSendAsPutResponseSmtpMsa schema
+      type: object
+      properties:
+        host:
+          type: string
+        port:
+          type: integer
+        username:
+          type: string
+        password:
+          type: string
+        securityMode:
+          type: string
+    UsersSettingsSendAsPostResponseSmtpMsa:
+      description: UsersSettingsSendAsPostResponseSmtpMsa schema
+      type: object
+      properties:
+        host:
+          type: string
+        port:
+          type: integer
+        username:
+          type: string
+        password:
+          type: string
+        securityMode:
+          type: string
+    UsersDraftsSendPostResponse:
+      description: UsersDraftsSendPostResponse schema
+      type: object
+      properties:
+        id:
+          type: string
+        threadId:
+          type: string
+        labelIds:
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        internalDate:
+          type: string
+        payload:
+          $ref: '#/components/schemas/UsersDraftsSendPostResponsePayload'
+        sizeEstimate:
+          type: integer
+        raw:
+          type: string
+    UsersDraftsSendPostRequest:
+      description: UsersDraftsSendPostRequest schema
+      type: object
+      example:
+        id: elit Lorem
+        message:
+          id: elit
+          threadId: enim ut ut fugiat
+          labelIds:
+          - incididunt et non cupidatat
+          - laboris deserunt do nostrud
+          snippet: nostrud in
+          historyId: ullamco
+          internalDate: dolor ullamco elit fugiat
+          payload:
+            partId: consequat ipsum qui
+            mimeType: enim quis dolor aliqua veniam
+            filename: laboris ad
+            headers:
+            - name: labore aute nisi
+              value: reprehenderit esse ex elit
+            - name: sed
+              value: anim ut veniam elit
+            body:
+              attachmentId: irure
+              size: -58003592
+              data: officia laboris
+            parts:
+            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+          sizeEstimate: -74092231
+          raw: in enim sit pariatur
+    UsersSettingsSendAsPutRequest:
+      description: UsersSettingsSendAsPutRequest schema
+      type: object
+      example:
+        sendAsEmail: ut nulla
+        displayName: Excepteur
+        replyToAddress: velit id culpa
+        signature: officia quis adipisicing
+        isPrimary: true
+        isDefault: true
+        treatAsAlias: false
+        smtpMsa:
+          host: in elit
+          port: -34532702
+          username: aliqua laborum aliquip do
+          password: tempor dolor velit
+          securityMode: securityModeUnspecified
+        verificationStatus: pending
+    UsersMessagesSendPostResponse:
+      description: UsersMessagesSendPostResponse schema
+      type: object
+      properties:
+        id:
+          type: string
+        threadId:
+          type: string
+        labelIds:
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        internalDate:
+          type: string
+        payload:
+          $ref: '#/components/schemas/UsersMessagesSendPostResponsePayload'
+        sizeEstimate:
+          type: integer
+        raw:
+          type: string
+    UsersSettingsSendAsPatchResponse:
+      description: UsersSettingsSendAsPatchResponse schema
+      type: object
+      properties:
+        sendAsEmail:
+          type: string
+        displayName:
+          type: string
+        replyToAddress:
+          type: string
+        signature:
+          type: string
+        isPrimary:
+          type: boolean
+        isDefault:
+          type: boolean
+        treatAsAlias:
+          type: boolean
+        smtpMsa:
+          $ref: '#/components/schemas/UsersSettingsSendAsPatchResponseSmtpMsa'
+        verificationStatus:
+          type: string
+    UsersMessagesSendPostResponsePayload:
+      description: UsersMessagesSendPostResponsePayload schema
+      type: object
+      properties:
+        partId:
+          type: string
+        mimeType:
+          type: string
+        filename:
+          type: string
+        headers:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        body:
+          $ref: '#/components/schemas/UsersMessagesSendPostResponsePayloadBody'
+        parts:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+    UsersSettingsSendAsPostRequest:
+      description: UsersSettingsSendAsPostRequest schema
+      type: object
+      example:
+        sendAsEmail: ut nulla
+        displayName: Excepteur
+        replyToAddress: velit id culpa
+        signature: officia quis adipisicing
+        isPrimary: true
+        isDefault: true
+        treatAsAlias: false
+        smtpMsa:
+          host: in elit
+          port: -34532702
+          username: aliqua laborum aliquip do
+          password: tempor dolor velit
+          securityMode: securityModeUnspecified
+        verificationStatus: pending
+    SettingsSendAsSmimeInfoGetResponse:
+      description: SettingsSendAsSmimeInfoGetResponse schema
+      type: object
+      properties:
+        id:
+          type: string
+        issuerCn:
+          type: string
+        isDefault:
+          type: boolean
+        expiration:
+          type: string
+        pem:
+          type: string
+        pkcs12:
+          type: string
+        encryptedKeyPassword:
+          type: string
+    UsersMessagesSendPostResponsePayloadBody:
+      description: UsersMessagesSendPostResponsePayloadBody schema
+      type: object
+      properties:
+        attachmentId:
+          type: string
+        size:
+          type: integer
+        data:
+          type: string
+    UsersSettingsSendAsGetResponseSmtpMsa:
+      description: UsersSettingsSendAsGetResponseSmtpMsa schema
+      type: object
+      properties:
+        host:
+          type: string
+        port:
+          type: integer
+        username:
+          type: string
+        password:
+          type: string
+        securityMode:
+          type: string
+    UsersSettingsSendAsPostResponse:
+      description: UsersSettingsSendAsPostResponse schema
+      type: object
+      properties:
+        sendAsEmail:
+          type: string
+        displayName:
+          type: string
+        replyToAddress:
+          type: string
+        signature:
+          type: string
+        isPrimary:
+          type: boolean
+        isDefault:
+          type: boolean
+        treatAsAlias:
+          type: boolean
+        smtpMsa:
+          $ref: '#/components/schemas/UsersSettingsSendAsPostResponseSmtpMsa'
+        verificationStatus:
+          type: string
+    UsersSettingsSendAsGetResponse1:
+      description: UsersSettingsSendAsGetResponse1 schema
+      type: object
+      properties:
+        sendAs:
+          type: array
+          items:
+            type: object
+            properties:
+              sendAsEmail:
+                type: string
+              displayName:
+                type: string
+              replyToAddress:
+                type: string
+              signature:
+                type: string
+              isPrimary:
+                type: boolean
+              isDefault:
+                type: boolean
+              treatAsAlias:
+                type: boolean
+              smtpMsa:
+                type: object
+                properties:
+                  host:
+                    type: string
+                  port:
+                    type: integer
+                  username:
+                    type: string
+                  password:
+                    type: string
+                  securityMode:
+                    type: string
+              verificationStatus:
+                type: string
+    UsersDraftsSendPostResponsePayloadBody:
+      description: UsersDraftsSendPostResponsePayloadBody schema
+      type: object
+      properties:
+        attachmentId:
+          type: string
+        size:
+          type: integer
+        data:
+          type: string
+    UsersSettingsSendAsGetResponse:
+      description: UsersSettingsSendAsGetResponse schema
+      type: object
+      properties:
+        sendAsEmail:
+          type: string
+        displayName:
+          type: string
+        replyToAddress:
+          type: string
+        signature:
+          type: string
+        isPrimary:
+          type: boolean
+        isDefault:
+          type: boolean
+        treatAsAlias:
+          type: boolean
+        smtpMsa:
+          $ref: '#/components/schemas/UsersSettingsSendAsGetResponseSmtpMsa'
+        verificationStatus:
+          type: string
+    UsersSettingsSendAsPutResponse:
+      description: UsersSettingsSendAsPutResponse schema
+      type: object
+      properties:
+        sendAsEmail:
+          type: string
+        displayName:
+          type: string
+        replyToAddress:
+          type: string
+        signature:
+          type: string
+        isPrimary:
+          type: boolean
+        isDefault:
+          type: boolean
+        treatAsAlias:
+          type: boolean
+        smtpMsa:
+          $ref: '#/components/schemas/UsersSettingsSendAsPutResponseSmtpMsa'
+        verificationStatus:
+          type: string
+    UsersSettingsSendAsPatchRequest:
+      description: UsersSettingsSendAsPatchRequest schema
+      type: object
+      example:
+        sendAsEmail: ut nulla
+        displayName: Excepteur
+        replyToAddress: velit id culpa
+        signature: officia quis adipisicing
+        isPrimary: true
+        isDefault: true
+        treatAsAlias: false
+        smtpMsa:
+          host: in elit
+          port: -34532702
+          username: aliqua laborum aliquip do
+          password: tempor dolor velit
+          securityMode: securityModeUnspecified
+        verificationStatus: pending
+    UsersMessagesSendPostRequest:
+      description: UsersMessagesSendPostRequest schema
+      type: object
+      example:
+        raw: '{{encodedMessage}}'
+    UsersDraftsSendPostResponsePayload:
+      description: UsersDraftsSendPostResponsePayload schema
+      type: object
+      properties:
+        partId:
+          type: string
+        mimeType:
+          type: string
+        filename:
+          type: string
+        headers:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        body:
+          $ref: '#/components/schemas/UsersDraftsSendPostResponsePayloadBody'
+        parts:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+    UsersSettingsSendAsPatchResponseSmtpMsa:
+      description: UsersSettingsSendAsPatchResponseSmtpMsa schema
+      type: object
+      properties:
+        host:
+          type: string
+        port:
+          type: integer
+        username:
+          type: string
+        password:
+          type: string
+        securityMode:
+          type: string
+  examples:
+    SettingsSendAsSmimeInfoGetResponseExample:
+      summary: Successful 200 response
+      value:
+        id: id
+        issuerCn: ipsum qui s
+        isDefault: false
+        expiration: dolore magna
+        pem: 'cillum labore '
+        pkcs12: in aute et
+        encryptedKeyPassword: cillum ut
+    UsersDraftsSendPostResponseExample:
+      summary: Successful 200 response
+      value:
+        id: eu incididunt laborum irure
+        threadId: magna Ut officia
+        labelIds:
+        - mollit amet dolore cupidatat
+        - cupidatat deserunt mollit
+        snippet: ut dolor
+        historyId: nisi tempor do
+        internalDate: cupidatat officia anim
+        payload:
+          partId: dolore velit incididunt est a
+          mimeType: sit dolor mollit
+          filename: ea commodo dolor nisi
+          headers:
+          - name: quis id velit laborum
+            value: et voluptate dolor ea
+          - name: sit nostrud
+            value: deserunt fugiat ex
+          body:
+            attachmentId: id nulla consequat
+            size: -93837667
+            data: ad in occaecat
+          parts:
+          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+        sizeEstimate: 21128811
+        raw: do laboris
+    UsersSettingsSendAsGetResponseExample:
+      summary: Successful 200 response
+      value:
+        sendAsEmail: ut nulla
+        displayName: Excepteur
+        replyToAddress: velit id culpa
+        signature: officia quis adipisicing
+        isPrimary: true
+        isDefault: true
+        treatAsAlias: false
+        smtpMsa:
+          host: in elit
+          port: -34532702
+          username: aliqua laborum aliquip do
+          password: tempor dolor velit
+          securityMode: securityModeUnspecified
+        verificationStatus: pending
+    UsersSettingsSendAsPostResponseExample:
+      summary: Successful 200 response
+      value:
+        sendAsEmail: ut nulla
+        displayName: Excepteur
+        replyToAddress: velit id culpa
+        signature: officia quis adipisicing
+        isPrimary: true
+        isDefault: true
+        treatAsAlias: false
+        smtpMsa:
+          host: in elit
+          port: -34532702
+          username: aliqua laborum aliquip do
+          password: tempor dolor velit
+          securityMode: securityModeUnspecified
+        verificationStatus: pending
+    UsersSettingsSendAsGetResponse1Example:
+      summary: Successful 200 response
+      value:
+        sendAs:
+        - sendAsEmail: exercitation
+          displayName: proident Duis
+          replyToAddress: deserunt do ut id
+          signature: tempor irure dolore qui dol
+          isPrimary: false
+          isDefault: true
+          treatAsAlias: true
+          smtpMsa:
+            host: irure sit non
+            port: -14344492
+            username: ipsum ad non
+            password: proident sunt eiusmod Lorem
+            securityMode: starttls
+          verificationStatus: accepted
+        - sendAsEmail: commodo et exercitatio
+          displayName: pariatur Ut sit deserunt quis
+          replyToAddress: in consectetur qui aliqua
+          signature: velit fug
+          isPrimary: false
+          isDefault: false
+          treatAsAlias: false
+          smtpMsa:
+            host: occaecat laborum magna aute
+            port: 42884741
+            username: voluptate sit adipisicing
+            password: incididunt ullamco
+            securityMode: ssl
+          verificationStatus: verificationStatusUnspecified
+    UsersMessagesSendPostResponseExample:
+      summary: Successful 200 response
+      value:
+        id: eu incididunt laborum irure
+        threadId: magna Ut officia
+        labelIds:
+        - mollit amet dolore cupidatat
+        - cupidatat deserunt mollit
+        snippet: ut dolor
+        historyId: nisi tempor do
+        internalDate: cupidatat officia anim
+        payload:
+          partId: dolore velit incididunt est a
+          mimeType: sit dolor mollit
+          filename: ea commodo dolor nisi
+          headers:
+          - name: quis id velit laborum
+            value: et voluptate dolor ea
+          - name: sit nostrud
+            value: deserunt fugiat ex
+          body:
+            attachmentId: id nulla consequat
+            size: -93837667
+            data: ad in occaecat
+          parts:
+          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+        sizeEstimate: 21128811
+        raw: do laboris
+    UsersSettingsSendAsPutResponseExample:
+      summary: Successful 200 response
+      value:
+        sendAsEmail: ut nulla
+        displayName: Excepteur
+        replyToAddress: velit id culpa
+        signature: officia quis adipisicing
+        isPrimary: true
+        isDefault: true
+        treatAsAlias: false
+        smtpMsa:
+          host: in elit
+          port: -34532702
+          username: aliqua laborum aliquip do
+          password: tempor dolor velit
+          securityMode: securityModeUnspecified
+        verificationStatus: pending
+    UsersSettingsSendAsPatchResponseExample:
+      summary: Successful 200 response
+      value:
+        sendAsEmail: ut nulla
+        displayName: Excepteur
+        replyToAddress: velit id culpa
+        signature: officia quis adipisicing
+        isPrimary: true
+        isDefault: true
+        treatAsAlias: false
+        smtpMsa:
+          host: in elit
+          port: -34532702
+          username: aliqua laborum aliquip do
+          password: tempor dolor velit
+          securityMode: securityModeUnspecified
+        verificationStatus: pending
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for Google Books API
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/books: Manage your Google Books library
