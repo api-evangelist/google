@@ -3,752 +3,3495 @@ url: https://raw.githubusercontent.com/api-evangelist/google/refs/heads/main/api
 parent: alphabet
 kind: company
 apis:
-  - aid: google:google-cloud-api-gateway
-    name: Google Cloud API Gateway
-    tags:
-      - API Gateway
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.example.com
-    contact:
-      - FN: Cloud Gateway Support
-        url: https://cloud.google.com/api-gateway/docs/support
-        email: ''
-    humanURL: https://cloud.google.com/api-gateway/docs
-    properties:
-      - url: https://cloud.google.com/api-gateway/docs/reference/rest
-        type: Documentation
-    description: >-
-      API Gateway enables you to provide secure access to your backend services through a well-defined REST API that is
-      consistent across all of your services, regardless of the service implementation. Clients consume your REST APIS
-      to implement standalone apps for a mobile device or tablet, through apps running in a browser, or through any
-      other type of app that can make a request to an HTTP endpoint.
-  - aid: google:books-api
-    name: Books API
-    tags:
-      - Books
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.example.com
-    contact:
-      - FN: Google Help
-        url: https://support.google.com/
-    humanURL: https://developers.google.com/books
-    properties:
-      - url: https://developers.google.com/books/docs/v1/using
-        type: Documentation
-      - url: https://developers.google.com/books/docs/v1/getting_started
-        type: GettingStarted
-      - url: openapi/books-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      This document is intended for developers who want to write applications that can interact with the Google Books
-      API. Google Books has a vision to digitize the world's books. You can use the Google Books API to search content,
-      organize an authenticated user's personal library and modify it as well.
-  - aid: google:google-drive-api
-    name: Google Drive API
-    tags:
-      - Documents
-      - Storage
-    humanURL: https://workspace.google.com/products/drive/
-    properties:
-      - url: https://developers.google.com/workspace/drive/api/guides/about-sdk
-        type: Documentation
-      - url: https://developers.google.com/workspace/drive/api/reference/rest/v3
-        type: APIReference
-      - url: openapi/google-drive-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Google Drive is a cloud-based storage service that lets users store, access, and share files from any device with
-      an internet connection.
-  - aid: google:google-drive-activity-api
-    name: Google Drive Activity API
-    tags:
-      - Activity
-      - Documents
-    humanURL: https://workspace.google.com/products/drive/
-    properties:
-      - url: https://developers.google.com/workspace/drive/activity/v2
-        type: Documentation
-      - url: openapi/google-drive-activity-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      The Google Drive Activity API consists of the DriveActivity resource, which represents changes made to objects
-      within a user's Google Drive, and the activity.query method, which allows you to retrieve information about those
-      changes.
-  - aid: google:google-drive-labels-api
-    name: Google Drive Labels API
-    tags:
-      - Documents
-      - Labels
-    humanURL: https://workspace.google.com/products/drive/
-    properties:
-      - url: https://developers.google.com/workspace/drive
-        type: Documentation
-      - url: openapi/google-drive-labels-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Labels are metadata that you define to help users organize, find, and apply policy to files in Google Drive. The
-      Drive Labels API is a RESTful API that supports business processes by attaching metadata to your Drive files.
-  - aid: google:google-calendar-api
-    name: Google Calendar API
-    tags:
-      - Calendar
-    humanURL: https://developers.google.com/workspace/calendar/api/guides/overview
-    properties:
-      - url: https://developers.google.com/workspace/calendar/api/guides/overview
-        type: Documentation
-      - url: openapi/google-calendar-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      The Google Calendar API is a RESTful API that can be accessed through explicit HTTP calls or using the Google
-      Client Libraries. The API exposes most of the features available in the Google Calendar Web interface.
-  - aid: google:google-gmail-api
-    name: Google Gmail API
-    tags:
-      - Email
-    humanURL: https://developers.google.com/workspace/gmail/api/guides
-    properties:
-      - url: https://developers.google.com/workspace/gmail/api/guides
-        type: Documentation
-      - url: openapi/google-gmail-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      The Gmail API is a RESTful API that can be used to access Gmail mailboxes and send mail. For most web applications
-      the Gmail API is the best choice for authorized access to a user's Gmail data and is suitable for various
-      applications.
-  - aid: google:google-sheets-api
-    name: Google Sheets API
-    tags:
-      - Spreadsheets
-    humanURL: https://developers.google.com/workspace/sheets/api/guides/concepts
-    properties:
-      - url: https://developers.google.com/workspace/sheets/api/guides/concepts
-        type: Documentation
-      - url: openapi/google-sheets-api-openapi.yml
-        type: OpenAPI
-    description: The Google Sheets API is a RESTful interface that lets you read and modify a spreadsheet's data..
-  - aid: google:google-docs-api
-    name: Google Docs API
-    tags:
-      - Documents
-    humanURL: https://developers.google.com/workspace/docs/api/reference/rest
-    properties:
-      - url: https://developers.google.com/workspace/docs/api/reference/rest
-        type: Documentation
-      - url: openapi/google-docs-api-openapi.yml
-        type: OpenAPI
-    description: Reads and writes Google Docs documents.
-  - aid: google:google-maps-api
-    name: Google Maps API
-    tags:
-      - Geolocation
-      - Maps
-    humanURL: https://developers.google.com/maps
-    properties:
-      - url: https://developers.google.com/maps
-        type: Documentation
-    description: >-
-      Create real-world, real-time experiences with the latest Maps, Routes, and Places features from Google Maps
-      Platform. Built by the Google team for developers everywhere.
-  - aid: google:google-places-api
-    name: Google Places API
-    tags:
-      - Places
-    humanURL: https://developers.google.com/maps/documentation/places/web-service
-    properties:
-      - url: https://developers.google.com/maps/documentation/places/web-service
-        type: Documentation
-      - url: openapi/google-places-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      The Google Places API provides programmatic access to detailed information about millions of places, including
-      names, addresses, reviews, photos, and geographic coordinates, enabling location-based search and discovery in
-      applications.
-  - aid: google:google-aggregate-places-api
-    name: Google Aggregate Places API
-    tags:
-      - Maps
-      - Places
-    humanURL: https://developers.google.com/maps/documentation/places-aggregate
-    properties:
-      - url: https://developers.google.com/maps/documentation/places-aggregate
-        type: Documentation
-    description: >-
-      The Google Places Aggregate API delivers aggregated insightssuch as the count or list of Place IDsfor places
-      within a defined area, based on filters like type (e.g., restaurants), price level, user ratings, or operational
-      status.
-  - aid: google:google-places-insights-api
-    name: Google Places Insights API
-    tags:
-      - Analytics
-      - Maps
-      - Places
-    humanURL: https://developers.google.com/maps/documentation/placesinsights
-    properties:
-      - url: https://developers.google.com/maps/documentation/placesinsights
-        type: Documentation
-    description: >-
-      The Google Places Insights API (now generally known as the Places Aggregate API) provides aggregated
-      intelligencesuch as counts of matching places or lists of Place IDswithin a defined geographic area, filtered by
-      attributes like place type, ratings, price, or operating status, to help analyze local density and distribution.
-  - aid: google:google-street-view-imagery-api
-    name: Google Street View Imagery API
-    tags:
-      - Images
-      - Maps
-      - Street View
-    humanURL: https://developers.google.com/maps/documentation/streetview
-    properties:
-      - url: https://developers.google.com/maps/documentation/streetview
-        type: Documentation
-    description: >-
-      The Google Street View Imagery API lets developers embed and display interactive 360-degree panoramic images from
-      Google Street View in their applications, enabling users to virtually explore real-world locations.
-  - aid: google:google-elevation-api
-    name: Google Elevation API
-    tags:
-      - Elevation
-      - Maps
-    humanURL: https://developers.google.com/maps/documentation/elevation
-    properties:
-      - url: https://developers.google.com/maps/documentation/elevation
-        type: Documentation
-    description: >-
-      The Google Elevation API provides elevation data for specific locations on the Earth's surface, including height
-      above sea level for points, paths, or sets of coordinates.
-  - aid: google:google-routes-api
-    name: Google Routes API
-    tags:
-      - Directions
-      - Maps
-      - Routes
-    humanURL: https://developers.google.com/maps/documentation/routes
-    properties:
-      - url: https://developers.google.com/maps/documentation/routes
-        type: Documentation
-    description: >-
-      The Google Routes API calculates routes between locations, providing directions, distances, travel times, and
-      additional data like traffic conditions, tolls, and alternative paths for various modes of transportation.
-  - aid: google:google-geocoding-api
-    name: Google Geocoding API
-    tags:
-      - Geocoding
-      - Maps
-    humanURL: https://developers.google.com/maps/documentation/geocoding
-    properties:
-      - url: https://developers.google.com/maps/documentation/geocoding
-        type: Documentation
-    description: >-
-      The Google Geocoding API converts addresses into geographic coordinates (latitude and longitude) and vice versa,
-      enabling applications to map locations and perform location-based queries.
-  - aid: google:google-geolocation-api
-    name: Google Geolocation API
-    tags:
-      - Geolocation
-      - Maps
-    humanURL: https://developers.google.com/maps/documentation/geolocation
-    properties:
-      - url: https://developers.google.com/maps/documentation/geolocation
-        type: Documentation
-    description: >-
-      The Google Geolocation API determines a devices approximate location based on nearby cell towers, Wi-Fi nodes, or
-      Bluetooth beacons, without requiring GPS.
-  - aid: google:google-address-validation-api
-    name: Google Address Validation API
-    tags:
-      - Address
-      - Maps
-      - Validation
-    humanURL: https://developers.google.com/maps/documentation/address-validation
-    properties:
-      - url: https://developers.google.com/maps/documentation/address-validation
-        type: Documentation
-    description: >-
-      The Google Address Validation API standardizes, validates, and enriches postal addresses by checking them against
-      authoritative data sources, ensuring accuracy and deliverability for shipping, billing, and location-based
-      services.
-  - aid: google:google-time-zone-api
-    name: Google Time Zone API
-    tags:
-      - Maps
-      - Time Zone
-    humanURL: https://developers.google.com/maps/documentation/timezone
-    properties:
-      - url: https://developers.google.com/maps/documentation/timezone
-        type: Documentation
-    description: >-
-      The Google Time Zone API provides time zone information for a given location, including the standard time offset
-      from UTC and daylight saving time details.
-  - aid: google:google-air-quality-api
-    name: Google Air Quality API
-    tags:
-      - Air Quality
-      - Environment
-      - Maps
-    humanURL: https://developers.google.com/maps/documentation/air-quality
-    properties:
-      - url: https://developers.google.com/maps/documentation/air-quality
-        type: Documentation
-    description: >-
-      The Google Air Quality API allows applications to access real-time, historical, and forecasted air quality
-      dataencompassing over 70 indices, pollutant details, health recommendations, and heatmap tiles for visualizing
-      atmospheric conditions at a high (500//500/m) resolution across more than 100 countries.
-  - aid: google:google-pollen-api
-    name: Google Pollen API
-    tags:
-      - Environment
-      - Maps
-      - Pollen
-    humanURL: https://developers.google.com/maps/documentation/pollen
-    properties:
-      - url: https://developers.google.com/maps/documentation/pollen
-        type: Documentation
-    description: >-
-      The Google Pollen API provides localized pollen informationincluding daily forecasts, pollen levels by plant type
-      (trees, weeds, grasses), and related health recommendationshelping applications inform users about allergy risks
-      in their area.
-  - aid: google:google-solar-api
-    name: Google Solar API
-    tags:
-      - Energy
-      - Maps
-      - Solar
-    humanURL: https://developers.google.com/maps/documentation/solar
-    properties:
-      - url: https://developers.google.com/maps/documentation/weather
-        type: Documentation
-    description: >-
-      The Google Solar API delivers solar potential data for buildings, including rooftop geometry, shading, sunlight
-      exposure, and energy production estimates, to support solar panel planning and deployment.
-  - aid: google:google-weather-api
-    name: Google Weather API
-    tags:
-      - Environment
-      - Maps
-      - Weather
-    humanURL: https://developers.google.com/maps/documentation/weather
-    properties:
-      - url: https://developers.google.com/maps/documentation/weather
-        type: Documentation
-    description: >-
-      The Google Weather API delivers hyperlocal, real-time weather dataincluding current conditions, hourly and 10day
-      forecasts, and the past 24 hours of historyfor any location worldwide, with information refreshed every 1530
-      minutes.
-  - aid: google:google-gemini-api
-    name: Google Gemini API
-    tags:
-      - AI
-      - Documents
-      - Machine Learning
-    humanURL: https://ai.google.dev/
-    properties:
-      - url: https://ai.google.dev/
-        type: Documentation
-      - url: https://ai.google.dev/gemini-api/docs
-        type: GettingStarted
-      - url: openapi/google-gemini-api-openapi.yml
-        type: OpenAPI
-  - aid: google:youtube-data-api
-    name: YouTube Data API
-    tags:
-      - Media
-      - Video
-    humanURL: https://developers.google.com/youtube/v3
-    properties:
-      - url: https://developers.google.com/youtube/v3/docs
-        type: Documentation
-      - url: https://developers.google.com/youtube/v3/getting-started
-        type: GettingStarted
-    description: >-
-      The YouTube Data API lets you incorporate functions normally executed on the YouTube website into your own website
-      or application, including searching for videos, retrieving standard feeds, and managing playlists and
-      subscriptions.
-  - aid: google:google-analytics-data-api
-    name: Google Analytics Data API
-    tags:
-      - Analytics
-      - Reporting
-    humanURL: https://developers.google.com/analytics/devguides/reporting/data/v1
-    properties:
-      - url: https://developers.google.com/analytics/devguides/reporting/data/v1
-        type: Documentation
-      - url: https://developers.google.com/analytics/devguides/reporting/data/v1/rest
-        type: APIReference
-    description: >-
-      The Google Analytics Data API provides programmatic methods to access report data in Google Analytics, enabling
-      custom dashboards, automated reporting workflows, and integration with other business applications.
-  - aid: google:google-ads-api
-    name: Google Ads API
-    tags:
-      - Advertising
-    humanURL: https://developers.google.com/google-ads/api
-    properties:
-      - url: https://developers.google.com/google-ads/api/docs/get-started/introduction
-        type: Documentation
-      - url: https://developers.google.com/google-ads/api/docs/get-started/make-first-call
-        type: GettingStarted
-    description: >-
-      The Google Ads API is the programmatic interface to Google Ads and is used for managing large or complex Google
-      Ads accounts and campaigns efficiently.
-  - aid: google:google-custom-search-json-api
-    name: Google Custom Search JSON API
-    tags:
-      - Search
-    humanURL: https://developers.google.com/custom-search/v1/overview
-    properties:
-      - url: https://developers.google.com/custom-search/v1/overview
-        type: Documentation
-      - url: https://developers.google.com/custom-search/v1/reference/rest
-        type: APIReference
-    description: >-
-      The Custom Search JSON API lets you develop websites and applications to retrieve and display search results from
-      Programmable Search Engine programmatically using RESTful requests to get web search or image search results in
-      JSON format.
-  - aid: google:google-cloud-translation-api
-    name: Google Cloud Translation API
-    tags:
-      - AI
-      - Machine Learning
-      - Translation
-    humanURL: https://cloud.google.com/translate
-    properties:
-      - url: https://cloud.google.com/translate/docs
-        type: Documentation
-      - url: https://cloud.google.com/translate/docs/reference/rest
-        type: APIReference
-    description: >-
-      The Cloud Translation API uses Google neural machine translation technology to let you dynamically translate text
-      through the API using a Google pre-trained or custom model, supporting over 100 language pairs.
-  - aid: google:google-cloud-vision-api
-    name: Google Cloud Vision API
-    tags:
-      - AI
-      - Machine Learning
-      - Vision
-    humanURL: https://cloud.google.com/vision
-    properties:
-      - url: https://cloud.google.com/vision/docs
-        type: Documentation
-    description: >-
-      The Cloud Vision API allows developers to integrate vision detection features within applications, including image
-      labeling, face and landmark detection, optical character recognition (OCR), and tagging of explicit content.
-  - aid: google:google-cloud-natural-language-api
-    name: Google Cloud Natural Language API
-    tags:
-      - AI
-      - Machine Learning
-      - Natural Language Processing
-    humanURL: https://cloud.google.com/natural-language
-    properties:
-      - url: https://cloud.google.com/natural-language/docs
-        type: Documentation
-    description: >-
-      The Cloud Natural Language API provides natural language understanding technologies including sentiment analysis,
-      entity analysis, entity sentiment analysis, content classification, and syntax analysis.
-  - aid: google:google-cloud-speech-to-text-api
-    name: Google Cloud Speech-to-Text API
-    tags:
-      - AI
-      - Machine Learning
-      - Speech
-    humanURL: https://cloud.google.com/speech-to-text
-    properties:
-      - url: https://cloud.google.com/speech-to-text/docs
-        type: Documentation
-    description: >-
-      The Cloud Speech-to-Text API enables developers to convert audio to text using powerful neural network models,
-      supporting over 125 languages and variants with automatic speech recognition.
-  - aid: google:google-cloud-text-to-speech-api
-    name: Google Cloud Text-to-Speech API
-    tags:
-      - AI
-      - Machine Learning
-      - Speech
-    humanURL: https://cloud.google.com/text-to-speech
-    properties:
-      - url: https://cloud.google.com/text-to-speech/docs
-        type: Documentation
-    description: >-
-      The Cloud Text-to-Speech API converts text into natural-sounding speech using an API powered by Google AI
-      technologies, with support for multiple languages, voices, and audio formats.
-  - aid: google:google-cloud-bigquery-api
-    name: Google Cloud BigQuery API
-    tags:
-      - Analytics
-      - Big Data
-      - Database
-    humanURL: https://cloud.google.com/bigquery
-    properties:
-      - url: https://cloud.google.com/bigquery/docs
-        type: Documentation
-      - url: https://cloud.google.com/bigquery/docs/reference/rest
-        type: APIReference
-    description: >-
-      BigQuery is a fully managed, petabyte-scale analytics data warehouse that lets you run analytics over vast amounts
-      of data in near real time using SQL queries.
-  - aid: google:google-fonts-api
-    name: Google Fonts API
-    tags:
-      - Design
-      - Fonts
-    humanURL: https://developers.google.com/fonts
-    properties:
-      - url: https://developers.google.com/fonts/docs/developer_api
-        type: Documentation
-      - url: https://developers.google.com/fonts/docs/getting_started
-        type: GettingStarted
-    description: >-
-      The Google Fonts Developer API provides programmatic access to the metadata for all font families served by Google
-      Fonts, allowing applications to query for available font families, styles, and subsets.
-  - aid: google:google-people-api
-    name: Google People API
-    tags:
-      - Contacts
-      - People
-    humanURL: https://developers.google.com/people
-    properties:
-      - url: https://developers.google.com/people
-        type: Documentation
-      - url: https://developers.google.com/people/api/rest
-        type: APIReference
-    description: >-
-      The Google People API provides access to information about profiles and contacts, allowing applications to read
-      and manage the authenticated user's contacts and profile data.
-  - aid: google:google-blogger-api
-    name: Google Blogger API
-    tags:
-      - Blogging
-    humanURL: https://developers.google.com/blogger
-    properties:
-      - url: https://developers.google.com/blogger/docs/3.0/getting_started
-        type: Documentation
-      - url: https://developers.google.com/blogger/docs/3.0/reference/
-        type: APIReference
-    description: >-
-      The Blogger API enables client applications to view and update Blogger content, providing programmatic access to
-      blog posts, comments, pages, and user information.
-  - aid: google:google-slides-api
-    name: Google Slides API
-    tags:
-      - Presentations
-    humanURL: https://developers.google.com/workspace/slides/api/guides/overview
-    properties:
-      - url: https://developers.google.com/workspace/slides/api/guides/overview
-        type: Documentation
-      - url: https://developers.google.com/workspace/slides/api/reference/rest
-        type: APIReference
-    description: >-
-      The Google Slides API lets you create and modify Google Slides presentations, enabling applications to build slide
-      decks automatically from user and system-provided data.
-  - aid: google:google-tasks-api
-    name: Google Tasks API
-    tags:
-      - Productivity
-      - Tasks
-    humanURL: https://developers.google.com/workspace/tasks/overview
-    properties:
-      - url: https://developers.google.com/workspace/tasks/overview
-        type: Documentation
-      - url: https://developers.google.com/workspace/tasks/reference/rest
-        type: APIReference
-    description: >-
-      The Google Tasks API lets you search, read, and update Google Tasks content and metadata using a RESTful
-      interface, enabling programmatic management of task lists and individual tasks.
-  - aid: google:google-chat-api
-    name: Google Chat API
-    tags:
-      - Chat
-      - Messaging
-    humanURL: https://developers.google.com/workspace/chat/overview
-    properties:
-      - url: https://developers.google.com/workspace/chat/overview
-        type: Documentation
-      - url: https://developers.google.com/workspace/chat/api/reference/rest
-        type: APIReference
-    description: >-
-      The Google Chat API enables developers to build Chat apps that bring services and resources into Google Chat,
-      letting users get information and take action without leaving the conversation.
-  - aid: google:google-classroom-api
-    name: Google Classroom API
-    tags:
-      - Classroom
-      - Education
-    humanURL: https://developers.google.com/classroom
-    properties:
-      - url: https://developers.google.com/workspace/classroom/guides/get-started
-        type: Documentation
-      - url: https://developers.google.com/workspace/classroom/reference/rest
-        type: APIReference
-    description: >-
-      The Google Classroom API lets you manage courses, rosters, assignments, and grades programmatically, enabling
-      integration with learning management systems and educational tools.
-  - aid: google:google-forms-api
-    name: Google Forms API
-    tags:
-      - Forms
-      - Surveys
-    humanURL: https://developers.google.com/forms
-    properties:
-      - url: https://developers.google.com/workspace/forms/api/guides
-        type: Documentation
-      - url: https://developers.google.com/workspace/forms/api/reference/rest
-        type: APIReference
-    description: >-
-      The Google Forms API is a RESTful interface that lets you create and modify forms and quizzes, retrieve form
-      responses and quiz grades, set up answer keys with automatic feedback, and receive push notifications.
-  - aid: google:google-meet-rest-api
-    name: Google Meet REST API
-    tags:
-      - Meetings
-      - Video Conferencing
-    humanURL: https://developers.google.com/workspace/meet/api/guides/overview
-    properties:
-      - url: https://developers.google.com/workspace/meet/api/guides/overview
-        type: Documentation
-      - url: https://developers.google.com/workspace/meet/api/reference/rest/v2
-        type: APIReference
-    description: >-
-      The Google Meet REST API lets you create and manage meetings for Google Meet, retrieve meeting and participant
-      information, and access meeting artifacts like recordings and transcripts.
-  - aid: google:google-knowledge-graph-search-api
-    name: Google Knowledge Graph Search API
-    tags:
-      - Knowledge Graph
-      - Search
-    humanURL: https://developers.google.com/knowledge-graph
-    properties:
-      - url: https://developers.google.com/knowledge-graph
-        type: Documentation
-    description: >-
-      The Knowledge Graph Search API lets you find entities in the Google Knowledge Graph, providing access to
-      information about people, places, and things that Google knows about.
-  - aid: google:google-pagespeed-insights-api
-    name: Google PageSpeed Insights API
-    tags:
-      - Performance
-      - Web
-    humanURL: https://developers.google.com/speed/docs/insights/v5/get-started
-    properties:
-      - url: https://developers.google.com/speed/docs/insights/v5/get-started
-        type: Documentation
-      - url: https://developers.google.com/speed/docs/insights/rest
-        type: APIReference
-    description: >-
-      The PageSpeed Insights API analyzes the performance of web pages and provides suggestions for improving page
-      speed, accessibility, and SEO.
-  - aid: google:google-civic-information-api
-    name: Google Civic Information API
-    tags:
-      - Civic
-      - Government
-    humanURL: https://developers.google.com/civic-information
-    properties:
-      - url: https://developers.google.com/civic-information
-        type: Documentation
-    description: >-
-      The Google Civic Information API lets developers build applications that display civic information, including
-      elected officials, polling places, and election data for US addresses.
-  - aid: google:google-roads-api
-    name: Google Roads API
-    tags:
-      - Maps
-      - Roads
-    humanURL: https://developers.google.com/maps/documentation/roads
-    properties:
-      - url: https://developers.google.com/maps/documentation/roads
-        type: Documentation
-    description: >-
-      The Google Roads API provides snap-to-road functionality that maps GPS coordinates to road geometry, identifies
-      nearest road segments, and returns speed limit data for road segments.
-  - aid: google:google-map-tiles-api
-    name: Google Map Tiles API
-    tags:
-      - Maps
-      - Tiles
-    humanURL: https://developers.google.com/maps/documentation/tile
-    properties:
-      - url: https://developers.google.com/maps/documentation/tile
-        type: Documentation
-    description: >-
-      The Map Tiles API provides high-resolution Photorealistic 3D Tiles, 2D Tiles, and Street View Tiles for building
-      immersive, customized map visualizations.
-  - aid: google:google-route-optimization-api
-    name: Google Route Optimization API
-    tags:
-      - Maps
-      - Optimization
-      - Routes
-    humanURL: https://developers.google.com/maps/documentation/route-optimization
-    properties:
-      - url: https://developers.google.com/maps/documentation/route-optimization
-        type: Documentation
-    description: >-
-      The Route Optimization API generates optimized route plans for single or multiple vehicles and their stops,
-      assigning tasks and routes to a vehicle fleet while optimizing against supplied objectives and constraints.
-  - aid: google:google-play-developer-api
-    name: Google Play Developer API
-    tags:
-      - Android
-      - App Store
-    humanURL: https://developers.google.com/android-publisher
-    properties:
-      - url: https://developers.google.com/android-publisher
-        type: Documentation
-      - url: https://developers.google.com/android-publisher/api-ref/rest
-        type: APIReference
-    description: >-
-      The Google Play Developer API allows you to perform publishing and app-management tasks, including managing in-app
-      purchases and subscriptions, retrieving reviews, and automating app publishing workflows.
-  - aid: google:firebase-api
-    name: Firebase API
-    tags:
-      - Backend
-      - Cloud
-      - Mobile
-    humanURL: https://firebase.google.com/
-    properties:
-      - url: https://firebase.google.com/docs
-        type: Documentation
-      - url: https://firebase.google.com/docs/reference
-        type: APIReference
-    description: >-
-      Firebase is a comprehensive app development platform that provides backend services, including real-time
-      databases, authentication, cloud messaging, storage, and hosting for web and mobile applications.
-  - aid: google:google-picker-api
-    name: Google Picker API
-    tags:
-      - Documents
-      - File Picker
-    humanURL: https://developers.google.com/workspace/drive/picker
-    properties:
-      - url: https://developers.google.com/workspace/drive/picker
-        type: Documentation
-    description: >-
-      The Google Picker API is a JavaScript API that allows users to select or upload Google Drive files through a
-      familiar dialog, providing a browser-based file picker for Drive content.
-  - aid: google:google-keep-api
-    name: Google Keep API
-    tags:
-      - Notes
-      - Productivity
-    humanURL: https://developers.google.com/workspace/keep/api
-    properties:
-      - url: https://developers.google.com/workspace/keep/api
-        type: Documentation
-    description: >-
-      The Google Keep API enables enterprise applications to programmatically manage and access Google Keep notes and
-      lists on behalf of users within a Google Workspace domain.
-  - aid: google:google-vault-api
-    name: Google Vault API
-    tags:
-      - Compliance
-      - Legal
-    humanURL: https://developers.google.com/workspace/vault
-    properties:
-      - url: https://developers.google.com/workspace/vault
-        type: Documentation
-    description: >-
-      The Google Vault API provides programmatic access to Vault functionality, enabling retention management, legal
-      hold management, and data export for compliance and eDiscovery purposes.
+- aid: google:google-cloud-api-gateway
+  name: Google Cloud API Gateway
+  tags:
+  - API Gateway
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  baseURL: https://api.example.com
+  contact:
+  - FN: Cloud Gateway Support
+    url: https://cloud.google.com/api-gateway/docs/support
+    email: ''
+  humanURL: https://cloud.google.com/api-gateway/docs
+  properties:
+  - url: https://cloud.google.com/api-gateway/docs/reference/rest
+    type: Documentation
+  description: >-
+    API Gateway enables you to provide secure access to your backend services through a well-defined REST
+    API that is consistent across all of your services, regardless of the service implementation. Clients
+    consume your REST APIS to implement standalone apps for a mobile device or tablet, through apps running
+    in a browser, or through any other type of app that can make a request to an HTTP endpoint.
+- aid: google:google-maps-api
+  name: Google Maps API
+  tags:
+  - Geolocation
+  - Maps
+  humanURL: https://developers.google.com/maps
+  properties:
+  - url: https://developers.google.com/maps
+    type: Documentation
+  description: >-
+    Create real-world, real-time experiences with the latest Maps, Routes, and Places features from Google
+    Maps Platform. Built by the Google team for developers everywhere.
+- aid: google:google-aggregate-places-api
+  name: Google Aggregate Places API
+  tags:
+  - Maps
+  - Places
+  humanURL: https://developers.google.com/maps/documentation/places-aggregate
+  properties:
+  - url: https://developers.google.com/maps/documentation/places-aggregate
+    type: Documentation
+  description: >-
+    The Google Places Aggregate API delivers aggregated insightssuch as the count or list of Place IDsfor
+    places within a defined area, based on filters like type (e.g., restaurants), price level, user ratings,
+    or operational status.
+- aid: google:google-places-insights-api
+  name: Google Places Insights API
+  tags:
+  - Analytics
+  - Maps
+  - Places
+  humanURL: https://developers.google.com/maps/documentation/placesinsights
+  properties:
+  - url: https://developers.google.com/maps/documentation/placesinsights
+    type: Documentation
+  description: >-
+    The Google Places Insights API (now generally known as the Places Aggregate API) provides aggregated
+    intelligencesuch as counts of matching places or lists of Place IDswithin a defined geographic area,
+    filtered by attributes like place type, ratings, price, or operating status, to help analyze local
+    density and distribution.
+- aid: google:google-street-view-imagery-api
+  name: Google Street View Imagery API
+  tags:
+  - Images
+  - Maps
+  - Street View
+  humanURL: https://developers.google.com/maps/documentation/streetview
+  properties:
+  - url: https://developers.google.com/maps/documentation/streetview
+    type: Documentation
+  description: >-
+    The Google Street View Imagery API lets developers embed and display interactive 360-degree panoramic
+    images from Google Street View in their applications, enabling users to virtually explore real-world
+    locations.
+- aid: google:google-elevation-api
+  name: Google Elevation API
+  tags:
+  - Elevation
+  - Maps
+  humanURL: https://developers.google.com/maps/documentation/elevation
+  properties:
+  - url: https://developers.google.com/maps/documentation/elevation
+    type: Documentation
+  description: >-
+    The Google Elevation API provides elevation data for specific locations on the Earth's surface, including
+    height above sea level for points, paths, or sets of coordinates.
+- aid: google:google-routes-api
+  name: Google Routes API
+  tags:
+  - Directions
+  - Maps
+  - Routes
+  humanURL: https://developers.google.com/maps/documentation/routes
+  properties:
+  - url: https://developers.google.com/maps/documentation/routes
+    type: Documentation
+  description: >-
+    The Google Routes API calculates routes between locations, providing directions, distances, travel
+    times, and additional data like traffic conditions, tolls, and alternative paths for various modes
+    of transportation.
+- aid: google:google-geocoding-api
+  name: Google Geocoding API
+  tags:
+  - Geocoding
+  - Maps
+  humanURL: https://developers.google.com/maps/documentation/geocoding
+  properties:
+  - url: https://developers.google.com/maps/documentation/geocoding
+    type: Documentation
+  description: >-
+    The Google Geocoding API converts addresses into geographic coordinates (latitude and longitude) and
+    vice versa, enabling applications to map locations and perform location-based queries.
+- aid: google:google-geolocation-api
+  name: Google Geolocation API
+  tags:
+  - Geolocation
+  - Maps
+  humanURL: https://developers.google.com/maps/documentation/geolocation
+  properties:
+  - url: https://developers.google.com/maps/documentation/geolocation
+    type: Documentation
+  description: >-
+    The Google Geolocation API determines a devices approximate location based on nearby cell towers,
+    Wi-Fi nodes, or Bluetooth beacons, without requiring GPS.
+- aid: google:google-address-validation-api
+  name: Google Address Validation API
+  tags:
+  - Address
+  - Maps
+  - Validation
+  humanURL: https://developers.google.com/maps/documentation/address-validation
+  properties:
+  - url: https://developers.google.com/maps/documentation/address-validation
+    type: Documentation
+  description: >-
+    The Google Address Validation API standardizes, validates, and enriches postal addresses by checking
+    them against authoritative data sources, ensuring accuracy and deliverability for shipping, billing,
+    and location-based services.
+- aid: google:google-time-zone-api
+  name: Google Time Zone API
+  tags:
+  - Maps
+  - Time Zone
+  humanURL: https://developers.google.com/maps/documentation/timezone
+  properties:
+  - url: https://developers.google.com/maps/documentation/timezone
+    type: Documentation
+  description: >-
+    The Google Time Zone API provides time zone information for a given location, including the standard
+    time offset from UTC and daylight saving time details.
+- aid: google:google-air-quality-api
+  name: Google Air Quality API
+  tags:
+  - Air Quality
+  - Environment
+  - Maps
+  humanURL: https://developers.google.com/maps/documentation/air-quality
+  properties:
+  - url: https://developers.google.com/maps/documentation/air-quality
+    type: Documentation
+  description: >-
+    The Google Air Quality API allows applications to access real-time, historical, and forecasted air
+    quality dataencompassing over 70 indices, pollutant details, health recommendations, and heatmap tiles
+    for visualizing atmospheric conditions at a high (500//500/m) resolution across more than 100 countries.
+- aid: google:google-pollen-api
+  name: Google Pollen API
+  tags:
+  - Environment
+  - Maps
+  - Pollen
+  humanURL: https://developers.google.com/maps/documentation/pollen
+  properties:
+  - url: https://developers.google.com/maps/documentation/pollen
+    type: Documentation
+  description: >-
+    The Google Pollen API provides localized pollen informationincluding daily forecasts, pollen levels
+    by plant type (trees, weeds, grasses), and related health recommendationshelping applications inform
+    users about allergy risks in their area.
+- aid: google:google-solar-api
+  name: Google Solar API
+  tags:
+  - Energy
+  - Maps
+  - Solar
+  humanURL: https://developers.google.com/maps/documentation/solar
+  properties:
+  - url: https://developers.google.com/maps/documentation/weather
+    type: Documentation
+  description: >-
+    The Google Solar API delivers solar potential data for buildings, including rooftop geometry, shading,
+    sunlight exposure, and energy production estimates, to support solar panel planning and deployment.
+- aid: google:google-weather-api
+  name: Google Weather API
+  tags:
+  - Environment
+  - Maps
+  - Weather
+  humanURL: https://developers.google.com/maps/documentation/weather
+  properties:
+  - url: https://developers.google.com/maps/documentation/weather
+    type: Documentation
+  description: >-
+    The Google Weather API delivers hyperlocal, real-time weather dataincluding current conditions, hourly
+    and 10day forecasts, and the past 24 hours of historyfor any location worldwide, with information
+    refreshed every 1530 minutes.
+- aid: google:youtube-data-api
+  name: YouTube Data API
+  tags:
+  - Media
+  - Video
+  humanURL: https://developers.google.com/youtube/v3
+  properties:
+  - url: https://developers.google.com/youtube/v3/docs
+    type: Documentation
+  - url: https://developers.google.com/youtube/v3/getting-started
+    type: GettingStarted
+  description: >-
+    The YouTube Data API lets you incorporate functions normally executed on the YouTube website into
+    your own website or application, including searching for videos, retrieving standard feeds, and managing
+    playlists and subscriptions.
+- aid: google:google-analytics-data-api
+  name: Google Analytics Data API
+  tags:
+  - Analytics
+  - Reporting
+  humanURL: https://developers.google.com/analytics/devguides/reporting/data/v1
+  properties:
+  - url: https://developers.google.com/analytics/devguides/reporting/data/v1
+    type: Documentation
+  - url: https://developers.google.com/analytics/devguides/reporting/data/v1/rest
+    type: APIReference
+  description: >-
+    The Google Analytics Data API provides programmatic methods to access report data in Google Analytics,
+    enabling custom dashboards, automated reporting workflows, and integration with other business applications.
+- aid: google:google-ads-api
+  name: Google Ads API
+  tags:
+  - Advertising
+  humanURL: https://developers.google.com/google-ads/api
+  properties:
+  - url: https://developers.google.com/google-ads/api/docs/get-started/introduction
+    type: Documentation
+  - url: https://developers.google.com/google-ads/api/docs/get-started/make-first-call
+    type: GettingStarted
+  description: >-
+    The Google Ads API is the programmatic interface to Google Ads and is used for managing large or complex
+    Google Ads accounts and campaigns efficiently.
+- aid: google:google-custom-search-json-api
+  name: Google Custom Search JSON API
+  tags:
+  - Search
+  humanURL: https://developers.google.com/custom-search/v1/overview
+  properties:
+  - url: https://developers.google.com/custom-search/v1/overview
+    type: Documentation
+  - url: https://developers.google.com/custom-search/v1/reference/rest
+    type: APIReference
+  description: >-
+    The Custom Search JSON API lets you develop websites and applications to retrieve and display search
+    results from Programmable Search Engine programmatically using RESTful requests to get web search
+    or image search results in JSON format.
+- aid: google:google-cloud-translation-api
+  name: Google Cloud Translation API
+  tags:
+  - AI
+  - Machine Learning
+  - Translation
+  humanURL: https://cloud.google.com/translate
+  properties:
+  - url: https://cloud.google.com/translate/docs
+    type: Documentation
+  - url: https://cloud.google.com/translate/docs/reference/rest
+    type: APIReference
+  description: >-
+    The Cloud Translation API uses Google neural machine translation technology to let you dynamically
+    translate text through the API using a Google pre-trained or custom model, supporting over 100 language
+    pairs.
+- aid: google:google-cloud-vision-api
+  name: Google Cloud Vision API
+  tags:
+  - AI
+  - Machine Learning
+  - Vision
+  humanURL: https://cloud.google.com/vision
+  properties:
+  - url: https://cloud.google.com/vision/docs
+    type: Documentation
+  description: >-
+    The Cloud Vision API allows developers to integrate vision detection features within applications,
+    including image labeling, face and landmark detection, optical character recognition (OCR), and tagging
+    of explicit content.
+- aid: google:google-cloud-natural-language-api
+  name: Google Cloud Natural Language API
+  tags:
+  - AI
+  - Machine Learning
+  - Natural Language Processing
+  humanURL: https://cloud.google.com/natural-language
+  properties:
+  - url: https://cloud.google.com/natural-language/docs
+    type: Documentation
+  description: >-
+    The Cloud Natural Language API provides natural language understanding technologies including sentiment
+    analysis, entity analysis, entity sentiment analysis, content classification, and syntax analysis.
+- aid: google:google-cloud-speech-to-text-api
+  name: Google Cloud Speech-to-Text API
+  tags:
+  - AI
+  - Machine Learning
+  - Speech
+  humanURL: https://cloud.google.com/speech-to-text
+  properties:
+  - url: https://cloud.google.com/speech-to-text/docs
+    type: Documentation
+  description: >-
+    The Cloud Speech-to-Text API enables developers to convert audio to text using powerful neural network
+    models, supporting over 125 languages and variants with automatic speech recognition.
+- aid: google:google-cloud-text-to-speech-api
+  name: Google Cloud Text-to-Speech API
+  tags:
+  - AI
+  - Machine Learning
+  - Speech
+  humanURL: https://cloud.google.com/text-to-speech
+  properties:
+  - url: https://cloud.google.com/text-to-speech/docs
+    type: Documentation
+  description: >-
+    The Cloud Text-to-Speech API converts text into natural-sounding speech using an API powered by Google
+    AI technologies, with support for multiple languages, voices, and audio formats.
+- aid: google:google-cloud-bigquery-api
+  name: Google Cloud BigQuery API
+  tags:
+  - Analytics
+  - Big Data
+  - Database
+  humanURL: https://cloud.google.com/bigquery
+  properties:
+  - url: https://cloud.google.com/bigquery/docs
+    type: Documentation
+  - url: https://cloud.google.com/bigquery/docs/reference/rest
+    type: APIReference
+  description: >-
+    BigQuery is a fully managed, petabyte-scale analytics data warehouse that lets you run analytics over
+    vast amounts of data in near real time using SQL queries.
+- aid: google:google-fonts-api
+  name: Google Fonts API
+  tags:
+  - Design
+  - Fonts
+  humanURL: https://developers.google.com/fonts
+  properties:
+  - url: https://developers.google.com/fonts/docs/developer_api
+    type: Documentation
+  - url: https://developers.google.com/fonts/docs/getting_started
+    type: GettingStarted
+  description: >-
+    The Google Fonts Developer API provides programmatic access to the metadata for all font families
+    served by Google Fonts, allowing applications to query for available font families, styles, and subsets.
+- aid: google:google-people-api
+  name: Google People API
+  tags:
+  - Contacts
+  - People
+  humanURL: https://developers.google.com/people
+  properties:
+  - url: https://developers.google.com/people
+    type: Documentation
+  - url: https://developers.google.com/people/api/rest
+    type: APIReference
+  description: >-
+    The Google People API provides access to information about profiles and contacts, allowing applications
+    to read and manage the authenticated user's contacts and profile data.
+- aid: google:google-blogger-api
+  name: Google Blogger API
+  tags:
+  - Blogging
+  humanURL: https://developers.google.com/blogger
+  properties:
+  - url: https://developers.google.com/blogger/docs/3.0/getting_started
+    type: Documentation
+  - url: https://developers.google.com/blogger/docs/3.0/reference/
+    type: APIReference
+  description: >-
+    The Blogger API enables client applications to view and update Blogger content, providing programmatic
+    access to blog posts, comments, pages, and user information.
+- aid: google:google-slides-api
+  name: Google Slides API
+  tags:
+  - Presentations
+  humanURL: https://developers.google.com/workspace/slides/api/guides/overview
+  properties:
+  - url: https://developers.google.com/workspace/slides/api/guides/overview
+    type: Documentation
+  - url: https://developers.google.com/workspace/slides/api/reference/rest
+    type: APIReference
+  description: >-
+    The Google Slides API lets you create and modify Google Slides presentations, enabling applications
+    to build slide decks automatically from user and system-provided data.
+- aid: google:google-tasks-api
+  name: Google Tasks API
+  tags:
+  - Productivity
+  - Tasks
+  humanURL: https://developers.google.com/workspace/tasks/overview
+  properties:
+  - url: https://developers.google.com/workspace/tasks/overview
+    type: Documentation
+  - url: https://developers.google.com/workspace/tasks/reference/rest
+    type: APIReference
+  description: >-
+    The Google Tasks API lets you search, read, and update Google Tasks content and metadata using a RESTful
+    interface, enabling programmatic management of task lists and individual tasks.
+- aid: google:google-chat-api
+  name: Google Chat API
+  tags:
+  - Chat
+  - Messaging
+  humanURL: https://developers.google.com/workspace/chat/overview
+  properties:
+  - url: https://developers.google.com/workspace/chat/overview
+    type: Documentation
+  - url: https://developers.google.com/workspace/chat/api/reference/rest
+    type: APIReference
+  description: >-
+    The Google Chat API enables developers to build Chat apps that bring services and resources into Google
+    Chat, letting users get information and take action without leaving the conversation.
+- aid: google:google-classroom-api
+  name: Google Classroom API
+  tags:
+  - Classroom
+  - Education
+  humanURL: https://developers.google.com/classroom
+  properties:
+  - url: https://developers.google.com/workspace/classroom/guides/get-started
+    type: Documentation
+  - url: https://developers.google.com/workspace/classroom/reference/rest
+    type: APIReference
+  description: >-
+    The Google Classroom API lets you manage courses, rosters, assignments, and grades programmatically,
+    enabling integration with learning management systems and educational tools.
+- aid: google:google-forms-api
+  name: Google Forms API
+  tags:
+  - Forms
+  - Surveys
+  humanURL: https://developers.google.com/forms
+  properties:
+  - url: https://developers.google.com/workspace/forms/api/guides
+    type: Documentation
+  - url: https://developers.google.com/workspace/forms/api/reference/rest
+    type: APIReference
+  description: >-
+    The Google Forms API is a RESTful interface that lets you create and modify forms and quizzes, retrieve
+    form responses and quiz grades, set up answer keys with automatic feedback, and receive push notifications.
+- aid: google:google-meet-rest-api
+  name: Google Meet REST API
+  tags:
+  - Meetings
+  - Video Conferencing
+  humanURL: https://developers.google.com/workspace/meet/api/guides/overview
+  properties:
+  - url: https://developers.google.com/workspace/meet/api/guides/overview
+    type: Documentation
+  - url: https://developers.google.com/workspace/meet/api/reference/rest/v2
+    type: APIReference
+  description: >-
+    The Google Meet REST API lets you create and manage meetings for Google Meet, retrieve meeting and
+    participant information, and access meeting artifacts like recordings and transcripts.
+- aid: google:google-knowledge-graph-search-api
+  name: Google Knowledge Graph Search API
+  tags:
+  - Knowledge Graph
+  - Search
+  humanURL: https://developers.google.com/knowledge-graph
+  properties:
+  - url: https://developers.google.com/knowledge-graph
+    type: Documentation
+  description: >-
+    The Knowledge Graph Search API lets you find entities in the Google Knowledge Graph, providing access
+    to information about people, places, and things that Google knows about.
+- aid: google:google-pagespeed-insights-api
+  name: Google PageSpeed Insights API
+  tags:
+  - Performance
+  - Web
+  humanURL: https://developers.google.com/speed/docs/insights/v5/get-started
+  properties:
+  - url: https://developers.google.com/speed/docs/insights/v5/get-started
+    type: Documentation
+  - url: https://developers.google.com/speed/docs/insights/rest
+    type: APIReference
+  description: >-
+    The PageSpeed Insights API analyzes the performance of web pages and provides suggestions for improving
+    page speed, accessibility, and SEO.
+- aid: google:google-civic-information-api
+  name: Google Civic Information API
+  tags:
+  - Civic
+  - Government
+  humanURL: https://developers.google.com/civic-information
+  properties:
+  - url: https://developers.google.com/civic-information
+    type: Documentation
+  description: >-
+    The Google Civic Information API lets developers build applications that display civic information,
+    including elected officials, polling places, and election data for US addresses.
+- aid: google:google-roads-api
+  name: Google Roads API
+  tags:
+  - Maps
+  - Roads
+  humanURL: https://developers.google.com/maps/documentation/roads
+  properties:
+  - url: https://developers.google.com/maps/documentation/roads
+    type: Documentation
+  description: >-
+    The Google Roads API provides snap-to-road functionality that maps GPS coordinates to road geometry,
+    identifies nearest road segments, and returns speed limit data for road segments.
+- aid: google:google-map-tiles-api
+  name: Google Map Tiles API
+  tags:
+  - Maps
+  - Tiles
+  humanURL: https://developers.google.com/maps/documentation/tile
+  properties:
+  - url: https://developers.google.com/maps/documentation/tile
+    type: Documentation
+  description: >-
+    The Map Tiles API provides high-resolution Photorealistic 3D Tiles, 2D Tiles, and Street View Tiles
+    for building immersive, customized map visualizations.
+- aid: google:google-route-optimization-api
+  name: Google Route Optimization API
+  tags:
+  - Maps
+  - Optimization
+  - Routes
+  humanURL: https://developers.google.com/maps/documentation/route-optimization
+  properties:
+  - url: https://developers.google.com/maps/documentation/route-optimization
+    type: Documentation
+  description: >-
+    The Route Optimization API generates optimized route plans for single or multiple vehicles and their
+    stops, assigning tasks and routes to a vehicle fleet while optimizing against supplied objectives
+    and constraints.
+- aid: google:google-play-developer-api
+  name: Google Play Developer API
+  tags:
+  - Android
+  - App Store
+  humanURL: https://developers.google.com/android-publisher
+  properties:
+  - url: https://developers.google.com/android-publisher
+    type: Documentation
+  - url: https://developers.google.com/android-publisher/api-ref/rest
+    type: APIReference
+  description: >-
+    The Google Play Developer API allows you to perform publishing and app-management tasks, including
+    managing in-app purchases and subscriptions, retrieving reviews, and automating app publishing workflows.
+- aid: google:firebase-api
+  name: Firebase API
+  tags:
+  - Backend
+  - Cloud
+  - Mobile
+  humanURL: https://firebase.google.com/
+  properties:
+  - url: https://firebase.google.com/docs
+    type: Documentation
+  - url: https://firebase.google.com/docs/reference
+    type: APIReference
+  description: >-
+    Firebase is a comprehensive app development platform that provides backend services, including real-time
+    databases, authentication, cloud messaging, storage, and hosting for web and mobile applications.
+- aid: google:google-picker-api
+  name: Google Picker API
+  tags:
+  - Documents
+  - File Picker
+  humanURL: https://developers.google.com/workspace/drive/picker
+  properties:
+  - url: https://developers.google.com/workspace/drive/picker
+    type: Documentation
+  description: >-
+    The Google Picker API is a JavaScript API that allows users to select or upload Google Drive files
+    through a familiar dialog, providing a browser-based file picker for Drive content.
+- aid: google:google-keep-api
+  name: Google Keep API
+  tags:
+  - Notes
+  - Productivity
+  humanURL: https://developers.google.com/workspace/keep/api
+  properties:
+  - url: https://developers.google.com/workspace/keep/api
+    type: Documentation
+  description: >-
+    The Google Keep API enables enterprise applications to programmatically manage and access Google Keep
+    notes and lists on behalf of users within a Google Workspace domain.
+- aid: google:google-vault-api
+  name: Google Vault API
+  tags:
+  - Compliance
+  - Legal
+  humanURL: https://developers.google.com/workspace/vault
+  properties:
+  - url: https://developers.google.com/workspace/vault
+    type: Documentation
+  description: >-
+    The Google Vault API provides programmatic access to Vault functionality, enabling retention management,
+    legal hold management, and data export for compliance and eDiscovery purposes.
+- aid: google:google-about-api
+  name: Google About API
+  description: Operations related to About
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - About
+  properties:
+  - type: OpenAPI
+    url: openapi/google-about-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-activity-api
+  name: Google Activity API
+  description: Operations related to Activity
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Activity
+  properties:
+  - type: OpenAPI
+    url: openapi/google-activity-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-address-api
+  name: Google Address API
+  description: Operations related to Address
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Address
+  properties:
+  - type: OpenAPI
+    url: openapi/google-address-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-addresses-api
+  name: Google Addresses API
+  description: Operations related to Addresses
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Addresses
+  properties:
+  - type: OpenAPI
+    url: openapi/google-addresses-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-append-api
+  name: Google Append API
+  description: Operations related to Append
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Append
+  properties:
+  - type: OpenAPI
+    url: openapi/google-append-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-applications-api
+  name: Google Applications API
+  description: The Applications API from Google — 2 operation(s) for applications.
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Applications
+  properties:
+  - type: OpenAPI
+    url: openapi/google-applications-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-attachments-api
+  name: Google Attachments API
+  description: Operations related to Attachments
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Attachments
+  properties:
+  - type: OpenAPI
+    url: openapi/google-attachments-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-audio-understanding-api
+  name: Google Audio Understanding API
+  description: Operations related to Audio Understanding
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Audio Understanding
+  properties:
+  - type: OpenAPI
+    url: openapi/google-audio-understanding-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-auto-api
+  name: Google Auto API
+  description: Operations related to Auto
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Auto
+  properties:
+  - type: OpenAPI
+    url: openapi/google-auto-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-batch-api
+  name: Google Batch API
+  description: Operations related to Batch
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Batch
+  properties:
+  - type: OpenAPI
+    url: openapi/google-batch-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-bookshelves-api
+  name: Google Bookshelves API
+  description: The Bookshelves API from Google — 3 operation(s) for bookshelves.
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Bookshelves
+  properties:
+  - type: OpenAPI
+    url: openapi/google-bookshelves-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-calendar-acl-rules-api
+  name: Google Calendar ACL Rules API
+  description: The Calendar ACL Rules API from Google — 1 operation(s) for calendar acl rules.
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Calendar ACL Rules
+  properties:
+  - type: OpenAPI
+    url: openapi/google-calendar-acl-rules-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-calendar-acls-api
+  name: Google Calendar ACLs API
+  description: The Calendar ACLs API from Google — 2 operation(s) for calendar acls.
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Calendar ACLs
+  properties:
+  - type: OpenAPI
+    url: openapi/google-calendar-acls-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-calendar-events-api
+  name: Google Calendar Events API
+  description: Operations related to Calendarscalendaridevents
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Calendar Events
+  properties:
+  - type: OpenAPI
+    url: openapi/google-calendar-events-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-calendars-api
+  name: Google Calendars API
+  description: Operations related to Calendars
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Calendars
+  properties:
+  - type: OpenAPI
+    url: openapi/google-calendars-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-changes-api
+  name: Google Changes API
+  description: Operations related to Changes
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Changes
+  properties:
+  - type: OpenAPI
+    url: openapi/google-changes-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-channels-api
+  name: Google Channels API
+  description: The Channels API from Google — 1 operation(s) for channels.
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Channels
+  properties:
+  - type: OpenAPI
+    url: openapi/google-channels-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-clear-api
+  name: Google Clear API
+  description: Operations related to Clear
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Clear
+  properties:
+  - type: OpenAPI
+    url: openapi/google-clear-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-colors-api
+  name: Google Colors API
+  description: Operations related to Default
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Colors
+  properties:
+  - type: OpenAPI
+    url: openapi/google-colors-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-comments-api
+  name: Google Comments API
+  description: Operations related to Comments
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Comments
+  properties:
+  - type: OpenAPI
+    url: openapi/google-comments-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-content-generation-api
+  name: Google Content Generation API
+  description: Operations related to Content Generation
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Content Generation
+  properties:
+  - type: OpenAPI
+    url: openapi/google-content-generation-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-copy-api
+  name: Google Copy API
+  description: Operations related to Copy
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Copy
+  properties:
+  - type: OpenAPI
+    url: openapi/google-copy-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-create-api
+  name: Google Create API
+  description: Operations related to Create
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Create
+  properties:
+  - type: OpenAPI
+    url: openapi/google-create-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-data-api
+  name: Google Data API
+  description: Operations related to Data
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Data
+  properties:
+  - type: OpenAPI
+    url: openapi/google-data-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-delegates-api
+  name: Google Delegates API
+  description: Operations related to Delegates
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Delegates
+  properties:
+  - type: OpenAPI
+    url: openapi/google-delegates-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-deletes-api
+  name: Google Deletes API
+  description: Operations related to Deletes
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Deletes
+  properties:
+  - type: OpenAPI
+    url: openapi/google-deletes-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-developer-api
+  name: Google Developer API
+  description: Operations related to Developer
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Developer
+  properties:
+  - type: OpenAPI
+    url: openapi/google-developer-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-disables-api
+  name: Google Disables API
+  description: Operations related to Disables
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Disables
+  properties:
+  - type: OpenAPI
+    url: openapi/google-disables-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-document-understanding-api
+  name: Google Document Understanding API
+  description: Operations related to Document Understanding
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Document Understanding
+  properties:
+  - type: OpenAPI
+    url: openapi/google-document-understanding-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-documents-api
+  name: Google Documents API
+  description: Operations related to Documents
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/google-documents-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-drafts-api
+  name: Google Drafts API
+  description: Operations related to Drafts
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Drafts
+  properties:
+  - type: OpenAPI
+    url: openapi/google-drafts-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-drives-api
+  name: Google Drives API
+  description: Operations related to Drives
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Drives
+  properties:
+  - type: OpenAPI
+    url: openapi/google-drives-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-enables-api
+  name: Google Enables API
+  description: Operations related to Enables
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Enables
+  properties:
+  - type: OpenAPI
+    url: openapi/google-enables-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-file-api-api
+  name: Google File Api API
+  description: Operations related to File Api
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - File Api
+  properties:
+  - type: OpenAPI
+    url: openapi/google-file-api-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-files-api
+  name: Google Files API
+  description: Operations related to Files
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Files
+  properties:
+  - type: OpenAPI
+    url: openapi/google-files-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-filter-api
+  name: Google Filter API
+  description: Operations related to Filter
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Filter
+  properties:
+  - type: OpenAPI
+    url: openapi/google-filter-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-free-busy-api
+  name: Google Free Busy API
+  description: The Free Busy API from Google — 1 operation(s) for free busy.
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Free Busy
+  properties:
+  - type: OpenAPI
+    url: openapi/google-free-busy-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-get-api
+  name: Google Get API
+  description: Operations related to Get
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Get
+  properties:
+  - type: OpenAPI
+    url: openapi/google-get-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-history-api
+  name: Google History API
+  description: Operations related to History
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - History
+  properties:
+  - type: OpenAPI
+    url: openapi/google-history-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-image-generation-api
+  name: Google Image Generation API
+  description: Operations related to Image Generation
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Image Generation
+  properties:
+  - type: OpenAPI
+    url: openapi/google-image-generation-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-import-api
+  name: Google Import API
+  description: Operations related to Import
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Import
+  properties:
+  - type: OpenAPI
+    url: openapi/google-import-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-info-api
+  name: Google Info API
+  description: Operations related to Info
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Info
+  properties:
+  - type: OpenAPI
+    url: openapi/google-info-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-insert-api
+  name: Google Insert API
+  description: Operations related to Insert
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Insert
+  properties:
+  - type: OpenAPI
+    url: openapi/google-insert-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-labels-api
+  name: Google Labels API
+  description: Operations related to Labels
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Labels
+  properties:
+  - type: OpenAPI
+    url: openapi/google-labels-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-language-api
+  name: Google Language API
+  description: Operations related to Language
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Language
+  properties:
+  - type: OpenAPI
+    url: openapi/google-language-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-limits-api
+  name: Google Limits API
+  description: Operations related to Limits
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Limits
+  properties:
+  - type: OpenAPI
+    url: openapi/google-limits-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-lists-api
+  name: Google Lists API
+  description: Operations related to Lists
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/google-lists-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-messages-api
+  name: Google Messages API
+  description: Operations related to Messages
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Messages
+  properties:
+  - type: OpenAPI
+    url: openapi/google-messages-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-modify-api
+  name: Google Modify API
+  description: Operations related to Modify
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Modify
+  properties:
+  - type: OpenAPI
+    url: openapi/google-modify-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-my-library-api
+  name: Google My Library API
+  description: The My Library API from Google — 7 operation(s) for my library.
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - My Library
+  properties:
+  - type: OpenAPI
+    url: openapi/google-my-library-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-notifications-api
+  name: Google Notifications API
+  description: Operations related to Notifications
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Notifications
+  properties:
+  - type: OpenAPI
+    url: openapi/google-notifications-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-obliterate-api
+  name: Google Obliterate API
+  description: Operations related to Obliterate
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Obliterate
+  properties:
+  - type: OpenAPI
+    url: openapi/google-obliterate-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-patch-api
+  name: Google Patch API
+  description: Operations related to Patch
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Patch
+  properties:
+  - type: OpenAPI
+    url: openapi/google-patch-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-permissions-api
+  name: Google Permissions API
+  description: Operations related to Permissions
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Permissions
+  properties:
+  - type: OpenAPI
+    url: openapi/google-permissions-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-pop-api
+  name: Google Pop API
+  description: Operations related to Pop
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Pop
+  properties:
+  - type: OpenAPI
+    url: openapi/google-pop-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-profile-api
+  name: Google Profile API
+  description: Operations related to Profile
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Profile
+  properties:
+  - type: OpenAPI
+    url: openapi/google-profile-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-replies-api
+  name: Google Replies API
+  description: Operations related to Replies
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Replies
+  properties:
+  - type: OpenAPI
+    url: openapi/google-replies-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-revisions-api
+  name: Google Revisions API
+  description: Operations related to Revisions
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Revisions
+  properties:
+  - type: OpenAPI
+    url: openapi/google-revisions-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-search-api
+  name: Google Search API
+  description: Operations related to Search
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/google-search-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-send-api
+  name: Google Send API
+  description: Operations related to Send
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Send
+  properties:
+  - type: OpenAPI
+    url: openapi/google-send-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-sets-api
+  name: Google Sets API
+  description: Operations related to Sets
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Sets
+  properties:
+  - type: OpenAPI
+    url: openapi/google-sets-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-setting-api
+  name: Google Setting API
+  description: Operations related to Setting
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Setting
+  properties:
+  - type: OpenAPI
+    url: openapi/google-setting-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-settings-api
+  name: Google Settings API
+  description: Operations related to Settings
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Settings
+  properties:
+  - type: OpenAPI
+    url: openapi/google-settings-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-sheet-api
+  name: Google Sheet API
+  description: Operations related to Sheet
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Sheet
+  properties:
+  - type: OpenAPI
+    url: openapi/google-sheet-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-speech-generation-api
+  name: Google Speech Generation API
+  description: Operations related to Speech Generation
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Speech Generation
+  properties:
+  - type: OpenAPI
+    url: openapi/google-speech-generation-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-stop-api
+  name: Google Stop API
+  description: Operations related to Stop
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Stop
+  properties:
+  - type: OpenAPI
+    url: openapi/google-stop-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-streaming-api
+  name: Google Streaming API
+  description: Operations related to Streaming
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Streaming
+  properties:
+  - type: OpenAPI
+    url: openapi/google-streaming-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-team-drives-api
+  name: Google Team Drives API
+  description: Operations related to Teamdrives
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Team Drives
+  properties:
+  - type: OpenAPI
+    url: openapi/google-team-drives-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-threads-api
+  name: Google Threads API
+  description: Operations related to Threads
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Threads
+  properties:
+  - type: OpenAPI
+    url: openapi/google-threads-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-trash-api
+  name: Google Trash API
+  description: Operations related to Trash
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Trash
+  properties:
+  - type: OpenAPI
+    url: openapi/google-trash-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-update-api
+  name: Google Update API
+  description: Operations related to Update
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Update
+  properties:
+  - type: OpenAPI
+    url: openapi/google-update-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-user-calendars-api
+  name: Google User Calendars API
+  description: Operations related to Usersmecalendarlist
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - User Calendars
+  properties:
+  - type: OpenAPI
+    url: openapi/google-user-calendars-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-user-settings-api
+  name: Google User Settings API
+  description: Operations related to Usersmesettings
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - User Settings
+  properties:
+  - type: OpenAPI
+    url: openapi/google-user-settings-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-users-api
+  name: Google Users API
+  description: Operations related to Users
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/google-users-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-vacation-api
+  name: Google Vacation API
+  description: Operations related to Vacation
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Vacation
+  properties:
+  - type: OpenAPI
+    url: openapi/google-vacation-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-values-api
+  name: Google Values API
+  description: Operations related to Values
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Values
+  properties:
+  - type: OpenAPI
+    url: openapi/google-values-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-verify-api
+  name: Google Verify API
+  description: Operations related to Verify
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Verify
+  properties:
+  - type: OpenAPI
+    url: openapi/google-verify-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-video-understanding-api
+  name: Google Video Understanding API
+  description: Operations related to Video Understanding
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Video Understanding
+  properties:
+  - type: OpenAPI
+    url: openapi/google-video-understanding-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-volumes-api
+  name: Google Volumes API
+  description: The Volumes API from Google — 2 operation(s) for volumes.
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Volumes
+  properties:
+  - type: OpenAPI
+    url: openapi/google-volumes-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
+- aid: google:google-watch-api
+  name: Google Watch API
+  description: Operations related to Watch
+  humanURL: https://cloud.google.com/api-gateway/docs
+  baseURL: https://api.example.com
+  tags:
+  - Watch
+  properties:
+  - type: OpenAPI
+    url: openapi/google-watch-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/books/docs/v1/using
+  - type: GettingStarted
+    url: https://developers.google.com/books/docs/v1/getting_started
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/api/guides/about-sdk
+  - type: APIReference
+    url: https://developers.google.com/workspace/drive/api/reference/rest/v3
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive/activity/v2
+  - type: Documentation
+    url: https://developers.google.com/workspace/drive
+  - type: Documentation
+    url: https://developers.google.com/workspace/calendar/api/guides/overview
+  - type: Documentation
+    url: https://developers.google.com/workspace/gmail/api/guides
+  - type: Documentation
+    url: https://developers.google.com/workspace/sheets/api/guides/concepts
+  - type: Documentation
+    url: https://developers.google.com/workspace/docs/api/reference/rest
+  - type: Documentation
+    url: https://developers.google.com/maps/documentation/places/web-service
+  - type: Documentation
+    url: https://ai.google.dev/
+  - type: GettingStarted
+    url: https://ai.google.dev/gemini-api/docs
 name: Google
 tags:
   - Advertising
@@ -758,6 +3501,19 @@ tags:
   - Platform
   - Search
   - T1
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png
 common:
   - type: AgenticAccess
