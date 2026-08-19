@@ -1,0 +1,229 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books About User Calendars API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Calendars",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Get Calendar List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/users/me/calendarList/:calendarId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a calendar from the user's calendar list."
+        },
+        {
+          "info": {
+            "name": "Google Update Calendar List",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.googleapis.com/books/v1/users/me/calendarList/:calendarId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing calendar on the user's calendar list."
+        },
+        {
+          "info": {
+            "name": "Google Patch Calendar List",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://www.googleapis.com/books/v1/users/me/calendarList/:calendarId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing calendar on the user's calendar list. This method supports patch semantics."
+        },
+        {
+          "info": {
+            "name": "Google Remove Calendar On List",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.googleapis.com/books/v1/users/me/calendarList/:calendarId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Removes a calendar from the user's calendar list."
+        },
+        {
+          "info": {
+            "name": "Google Insert Calendar On List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/users/me/calendarList",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Inserts an existing calendar into the user's calendar list."
+        },
+        {
+          "info": {
+            "name": "Google List Calendars",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/users/:userId/calendarList",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "{{userId}}",
+                "type": "path",
+                "description": "(Required)"
+              }
+            ]
+          },
+          "docs": "Returns the calendars on the user's calendar list."
+        },
+        {
+          "info": {
+            "name": "Google Watch Calendar List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/users/me/calendarList/watch",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Watch for changes to CalendarList resources."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

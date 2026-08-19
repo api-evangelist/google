@@ -1,0 +1,283 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books About Messages API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Messages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Untrash Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/messages/:id/untrash",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Removes the specified message from the trash."
+        },
+        {
+          "info": {
+            "name": "Google Modify Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/messages/:id/modify",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "{{userId}}",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "{{messageId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modifies the labels on the specified message."
+        },
+        {
+          "info": {
+            "name": "Google Import Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/messages/import",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Imports a message into only this user's mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. This method doesn't perform SPF checks, so it might not work for some spam messages, such as those attempting to perform domain spoofing. This method does not send a message."
+        },
+        {
+          "info": {
+            "name": "Google Send Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/messages/send",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "{{userId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sends the specified message to the recipients in the `To`, `Cc`, and `Bcc` headers. For example usage, see [Sending email](https://developers.google.com/gmail/api/guides/sending)."
+        },
+        {
+          "info": {
+            "name": "Google List Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/messages",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "maxResults",
+                "value": "{{maxResults}}",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "{{pageToken}}",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "{{q}}",
+                "type": "query"
+              },
+              {
+                "name": "userId",
+                "value": "{{userId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists the messages in the user's mailbox."
+        },
+        {
+          "info": {
+            "name": "Google Insert Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/messages",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Directly inserts a message into only this user's mailbox similar to `IMAP APPEND`, bypassing most scanning and classification. Does not send a message."
+        },
+        {
+          "info": {
+            "name": "Google Get Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/messages/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the specified message."
+        },
+        {
+          "info": {
+            "name": "Google Delete Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/messages/:id",
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Immediately and permanently deletes the specified message. This operation cannot be undone. Prefer `messages.trash` instead."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

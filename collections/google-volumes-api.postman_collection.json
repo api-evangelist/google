@@ -1,0 +1,701 @@
+{
+  "item": [
+    {
+      "id": "a2b14e13-31d9-4462-99a8-22d719b4bd9b",
+      "name": "Volumes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0a663953-9733-4e3c-83af-f313bed96629",
+          "name": "Google List Volumes",
+          "request": {
+            "name": "Google List Volumes",
+            "description": {
+              "content": "Performs a book search. Returns a list of volumes that match the search query.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "volumes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) Full-text search query string"
+                },
+                {
+                  "disabled": false,
+                  "key": "download",
+                  "value": "<string>",
+                  "description": "Restrict to volumes by download availability"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter search results"
+                },
+                {
+                  "disabled": false,
+                  "key": "langRestrict",
+                  "value": "<string>",
+                  "description": "Restrict results to books with this language code"
+                },
+                {
+                  "disabled": false,
+                  "key": "libraryRestrict",
+                  "value": "<string>",
+                  "description": "Restrict search to this user's library"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxResults",
+                  "value": "10",
+                  "description": "Maximum number of results to return (0 to 40)"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "Sort search results"
+                },
+                {
+                  "disabled": false,
+                  "key": "partner",
+                  "value": "<string>",
+                  "description": "Restrict and brand results for partner ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "printType",
+                  "value": "<string>",
+                  "description": "Restrict to books or magazines"
+                },
+                {
+                  "disabled": false,
+                  "key": "projection",
+                  "value": "<string>",
+                  "description": "Restrict information returned to a set of selected fields"
+                },
+                {
+                  "disabled": false,
+                  "key": "showPreorders",
+                  "value": "false",
+                  "description": "Set to true to show books available for preorder"
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "String to identify the originator of this request"
+                },
+                {
+                  "disabled": false,
+                  "key": "startIndex",
+                  "value": "0",
+                  "description": "Index of the first result to return (starts at 0)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "74c3c93e-ae1c-4296-a322-c33641bd046f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "volumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "flowers"
+                    },
+                    {
+                      "key": "download",
+                      "value": "epub"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "ebooks"
+                    },
+                    {
+                      "key": "langRestrict",
+                      "value": "en"
+                    },
+                    {
+                      "key": "libraryRestrict",
+                      "value": "no-restrict"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "relevance"
+                    },
+                    {
+                      "key": "partner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "printType",
+                      "value": "all"
+                    },
+                    {
+                      "key": "projection",
+                      "value": "full"
+                    },
+                    {
+                      "key": "showPreorders",
+                      "value": "false"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"books#volumes\",\n  \"totalItems\": 1234,\n  \"items\": [\n    {\n      \"kind\": \"books#volume\",\n      \"id\": \"zyTCAlFPjgYC\",\n      \"etag\": \"oTRt82b5z/Q\",\n      \"selfLink\": \"https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC\",\n      \"volumeInfo\": {\n        \"title\": \"The Google Story\",\n        \"authors\": [\n          \"David A. Vise\",\n          \"Mark Malseed\"\n        ],\n        \"publisher\": \"Delacorte Press\",\n        \"publishedDate\": \"2005-11-15\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1cdb33f-7d09-47db-8f84-4c41bcae301d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "volumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "flowers"
+                    },
+                    {
+                      "key": "download",
+                      "value": "epub"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "ebooks"
+                    },
+                    {
+                      "key": "langRestrict",
+                      "value": "en"
+                    },
+                    {
+                      "key": "libraryRestrict",
+                      "value": "no-restrict"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "relevance"
+                    },
+                    {
+                      "key": "partner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "printType",
+                      "value": "all"
+                    },
+                    {
+                      "key": "projection",
+                      "value": "full"
+                    },
+                    {
+                      "key": "showPreorders",
+                      "value": "false"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cd76d473-ffcc-46c7-9638-eb8672b271ac",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "volumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "flowers"
+                    },
+                    {
+                      "key": "download",
+                      "value": "epub"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "ebooks"
+                    },
+                    {
+                      "key": "langRestrict",
+                      "value": "en"
+                    },
+                    {
+                      "key": "libraryRestrict",
+                      "value": "no-restrict"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "relevance"
+                    },
+                    {
+                      "key": "partner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "printType",
+                      "value": "all"
+                    },
+                    {
+                      "key": "projection",
+                      "value": "full"
+                    },
+                    {
+                      "key": "showPreorders",
+                      "value": "false"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ee4c089-71a6-4775-8de7-7d6d5fb9e5e7",
+          "name": "Google Get Volume",
+          "request": {
+            "name": "Google Get Volume",
+            "description": {
+              "content": "Retrieves a Volume resource based on ID. More information about volume IDs can be found in the Google Books IDs section.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "volumes",
+                ":volumeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "partner",
+                  "value": "<string>",
+                  "description": "Brand results for partner ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "projection",
+                  "value": "<string>",
+                  "description": "Restrict information returned to a set of selected fields"
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "String to identify the originator of this request"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "volumeId",
+                  "description": "(Required) ID of volume to retrieve"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9fefa822-4a66-4ac9-9af9-9fd4c8eab04c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "volumes",
+                    ":volumeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "partner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "projection",
+                      "value": "full"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "volumeId",
+                      "description": "(Required) ID of volume to retrieve"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"books#volume\",\n  \"id\": \"zyTCAlFPjgYC\",\n  \"etag\": \"oTRt82b5z/Q\",\n  \"selfLink\": \"https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC\",\n  \"volumeInfo\": {\n    \"title\": \"The Google Story\",\n    \"authors\": [\n      \"David A. Vise\",\n      \"Mark Malseed\"\n    ],\n    \"publisher\": \"Delacorte Press\",\n    \"publishedDate\": \"2005-11-15\",\n    \"pageCount\": 207\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1773b7d-a733-412a-bde0-826894c8ba8f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "volumes",
+                    ":volumeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "partner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "projection",
+                      "value": "full"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "volumeId",
+                      "description": "(Required) ID of volume to retrieve"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "082fa14a-aaea-43b5-a8b0-ac885283dd25",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "volumes",
+                    ":volumeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "partner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "projection",
+                      "value": "full"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "volumeId",
+                      "description": "(Required) ID of volume to retrieve"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a5de6907-3553-4b1d-b31f-c8c07505f6a7",
+              "name": "Volume not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "volumes",
+                    ":volumeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "partner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "projection",
+                      "value": "full"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "volumeId",
+                      "description": "(Required) ID of volume to retrieve"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"User not found\",\n    \"errors\": [\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      },\n      {\n        \"domain\": \"global\",\n        \"reason\": \"notFound\",\n        \"message\": \"User not found\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b2d52266-fa8f-429c-ad34-f8ad5a1a3e90",
+    "name": "Google Books About Volumes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

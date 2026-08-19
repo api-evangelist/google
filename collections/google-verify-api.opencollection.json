@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books About Verify API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Verify",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Verify Send As",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail/verify",
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "sendAsEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service account clients that have been delegated domain-wide authority."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

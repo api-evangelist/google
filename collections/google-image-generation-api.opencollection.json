@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books About Image Generation API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Image Generation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Generate Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/models/:imageModel:generateContent",
+            "params": [
+              {
+                "name": "imageModel",
+                "value": "",
+                "type": "path",
+                "description": "The image generation model to use"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate and process images conversationally. Supports text-to-image, text-and-image-to-image, \nand multi-turn image editing. All generated images include a SynthID watermark.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

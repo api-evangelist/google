@@ -1,0 +1,834 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books About Get API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Get Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/profile",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "The Google Gmail API's Get Profile operation retrieves the current user's Gmail profile information by making a GET request to the endpoint /gmail/v1/users/{userId}/profile, where {userId} can be either the user's email address or the special value \"me\" to indicate the authenticated user. This operation returns basic profile details including the user's email address, the total number of messages in their mailbox, the total number of threads, and their history ID, which is useful for tracking ch"
+        },
+        {
+          "info": {
+            "name": "Google Get Drafts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/drafts/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "{{userId}}",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the specified draft."
+        },
+        {
+          "info": {
+            "name": "Google Get Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/messages/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the specified message."
+        },
+        {
+          "info": {
+            "name": "Google Get Attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/messages/:messageId/attachments/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "messageId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the specified message attachment."
+        },
+        {
+          "info": {
+            "name": "Google Get Labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/labels/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the specified label."
+        },
+        {
+          "info": {
+            "name": "Google Get Threads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/threads/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the specified thread."
+        },
+        {
+          "info": {
+            "name": "Google GET IMAP",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/imap",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets IMAP settings."
+        },
+        {
+          "info": {
+            "name": "Google Get POP Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/pop",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "{{userId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets POP settings."
+        },
+        {
+          "info": {
+            "name": "Google Get Vacation Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/vacation",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets vacation responder settings."
+        },
+        {
+          "info": {
+            "name": "Google Get Language Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/language",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets language settings."
+        },
+        {
+          "info": {
+            "name": "Google Get Auto Forwarding Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/autoForwarding",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the auto-forwarding setting for the specified account."
+        },
+        {
+          "info": {
+            "name": "Google Get Send As SMIME Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail/smimeInfo/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "sendAsEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the specified S/MIME config for the specified send-as alias."
+        },
+        {
+          "info": {
+            "name": "Google Get Send As",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "sendAsEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection."
+        },
+        {
+          "info": {
+            "name": "Google Get Send As",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/sendAs",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom \"from\" aliases."
+        },
+        {
+          "info": {
+            "name": "Google GET CSE Keypairs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/cse/keypairs/:keyPairId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "keyPairId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Retrieves an existing client-side encryption key pair."
+        },
+        {
+          "info": {
+            "name": "Google GET CSE Idenetites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/cse/identities/:cseEmailAddress",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "cseEmailAddress",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Retrieves a client-side encryption identity configuration."
+        },
+        {
+          "info": {
+            "name": "Google Get Filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/filters/:id",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets a filter."
+        },
+        {
+          "info": {
+            "name": "Google Get Forwarding Addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/forwardingAddresses/:forwardingEmail",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "forwardingEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the specified forwarding address."
+        },
+        {
+          "info": {
+            "name": "Google Get Delegates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/delegates/:delegateEmail",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "delegateEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account clients that have been delegated domain-wide authority."
+        },
+        {
+          "info": {
+            "name": "Google Get Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/v4/spreadsheets/:spreadsheetId/values/:range",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "majorDimension",
+                "value": "{{majorDimension}}",
+                "type": "query"
+              },
+              {
+                "name": "valueRenderOption",
+                "value": "{{valueRenderOption}}",
+                "type": "query"
+              },
+              {
+                "name": "dateTimeRenderOption",
+                "value": "{{dateTimeRenderOption}}",
+                "type": "query"
+              },
+              {
+                "name": "access_token",
+                "value": "{{accessToken}}",
+                "type": "query",
+                "description": "OAuth access token."
+              },
+              {
+                "name": "alt",
+                "value": "{{alt}}",
+                "type": "query",
+                "description": "Data format for response."
+              },
+              {
+                "name": "callback",
+                "value": "{{callback}}",
+                "type": "query",
+                "description": "JSONP"
+              },
+              {
+                "name": "fields",
+                "value": "{{fields}}",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "{{key}}",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "{{oauthToken}}",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "{{prettyPrint}}",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "{{quotaUser}}",
+                "type": "query",
+                "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+              },
+              {
+                "name": "upload_protocol",
+                "value": "{{uploadProtocol}}",
+                "type": "query",
+                "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+              },
+              {
+                "name": "uploadType",
+                "value": "{{uploadType}}",
+                "type": "query",
+                "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+              },
+              {
+                "name": "$.xgafv",
+                "value": "{{.Xgafv}}",
+                "type": "query",
+                "description": "V1 error format."
+              },
+              {
+                "name": "spreadsheetId",
+                "value": "{{spreadsheetId}}",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "range",
+                "value": "{{range}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Returns a range of values from a spreadsheet. The caller must specify the spreadsheet ID and a range."
+        },
+        {
+          "info": {
+            "name": "Google Get Values Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/v4/spreadsheets/:spreadsheetId/values:batchGet",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "spreadsheetId",
+                "value": "{{spreadsheetId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Returns one or more ranges of values from a spreadsheet. The caller must specify the spreadsheet ID and one or more ranges."
+        },
+        {
+          "info": {
+            "name": "Google Get Values By Data Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/v4/spreadsheets/:spreadsheetId/values:batchGetByDataFilter",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "spreadsheetId",
+                "value": "{{spreadsheetId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns one or more ranges of values that match the specified data filters. The caller must specify the spreadsheet ID and one or more DataFilters. Ranges that match any of the data filters in the request will be returned."
+        },
+        {
+          "info": {
+            "name": "Google Get Sheet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/v4/spreadsheets/:spreadsheetId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "spreadsheetId",
+                "value": "{{spreadsheetId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Returns the spreadsheet at the given ID. The caller must specify the spreadsheet ID. By default, data within grids is not returned. You can include grid data in one of 2 ways: * Specify a [field mask](https://developers.google.com/sheets/api/guides/field-masks) listing your desired fields using the `fields` URL parameter in HTTP * Set the includeGridData URL parameter to true. If a field mask is set, the `includeGridData` parameter is ignored For large spreadsheets, as a best practice, retrieve "
+        },
+        {
+          "info": {
+            "name": "Google Get Sheet by Data Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/v4/spreadsheets/:spreadsheetId:getByDataFilter",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "spreadsheetId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns the spreadsheet at the given ID. The caller must specify the spreadsheet ID. This method differs from GetSpreadsheet in that it allows selecting which subsets of spreadsheet data to return by specifying a dataFilters parameter. Multiple DataFilters can be specified. Specifying one or more data filters returns the portions of the spreadsheet that intersect ranges matched by any of the filters. By default, data within grids is not returned. You can include grid data one of 2 ways: * Specif"
+        },
+        {
+          "info": {
+            "name": "Google Get Developer Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/v4/spreadsheets/:spreadsheetId/developerMetadata/:metadataId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "spreadsheetId",
+                "value": "{{spreadsheetId}}",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "metadataId",
+                "value": "{{metadataId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Returns the developer metadata with the specified ID. The caller must specify the spreadsheet ID and the developer metadata's unique metadataId."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

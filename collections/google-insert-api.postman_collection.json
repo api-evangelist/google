@@ -1,0 +1,306 @@
+{
+  "item": [
+    {
+      "id": "23f12009-d009-4590-8d44-acd104a08fa5",
+      "name": "Insert",
+      "description": {
+        "content": "Operations related to Insert",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a30baea8-37d8-4067-bee9-d69b92efabaa",
+          "name": "Google Insert Messages",
+          "request": {
+            "name": "Google Insert Messages",
+            "description": {
+              "content": "Directly inserts a message into only this user's mailbox similar to `IMAP APPEND`, bypassing most scanning and classification. Does not send a message.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a06d4a7f-6ace-4b39-a282-cae3e4326977",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"threadId\": \"magna Ut officia\",\n  \"labelIds\": [\n    \"mollit amet dolore cupidatat\",\n    \"cupidatat deserunt mollit\"\n  ],\n  \"snippet\": \"ut dolor\",\n  \"historyId\": \"nisi tempor do\",\n  \"internalDate\": \"cupidatat officia anim\",\n  \"payload\": {\n    \"partId\": \"dolore velit incididunt est a\",\n    \"mimeType\": \"sit dolor mollit\",\n    \"filename\": \"ea commodo dolor nisi\",\n    \"headers\": [\n      {\n        \"name\": \"quis id velit laborum\",\n        \"value\": \"et voluptate dolor ea\"\n      },\n      {\n        \"name\": \"sit nostrud\",\n        \"value\": \"deserunt fugiat ex\"\n      }\n    ],\n    \"body\": {\n      \"attachmentId\": \"id nulla consequat\",\n      \"size\": -93837667,\n      \"data\": \"ad in occaecat\"\n    },\n    \"parts\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n      }\n    ]\n  },\n  \"sizeEstimate\": 21128811,\n  \"raw\": \"do laboris\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"eu incididunt laborum irure\",\n  \"threadId\": \"magna Ut officia\",\n  \"labelIds\": [\n    \"mollit amet dolore cupidatat\",\n    \"cupidatat deserunt mollit\"\n  ],\n  \"snippet\": \"ut dolor\",\n  \"historyId\": \"nisi tempor do\",\n  \"internalDate\": \"cupidatat officia anim\",\n  \"payload\": {\n    \"partId\": \"dolore velit incididunt est a\",\n    \"mimeType\": \"sit dolor mollit\",\n    \"filename\": \"ea commodo dolor nisi\",\n    \"headers\": [\n      {\n        \"name\": \"quis id velit laborum\",\n        \"value\": \"et voluptate dolor ea\"\n      },\n      {\n        \"name\": \"sit nostrud\",\n        \"value\": \"deserunt fugiat ex\"\n      }\n    ],\n    \"body\": {\n      \"attachmentId\": \"id nulla consequat\",\n      \"size\": -93837667,\n      \"data\": \"ad in occaecat\"\n    },\n    \"parts\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n      }\n    ]\n  },\n  \"sizeEstimate\": 21128811,\n  \"raw\": \"do laboris\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7cae8693-c008-4ed2-92bd-3ff84906713d",
+          "name": "Google Insert SMIME Info",
+          "request": {
+            "name": "Google Insert SMIME Info",
+            "description": {
+              "content": "Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "settings",
+                "sendAs",
+                ":sendAsEmail",
+                "smimeInfo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sendAsEmail",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b1cbeb56-bf83-461e-a5d3-06a6ca5ef6c4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "settings",
+                    "sendAs",
+                    ":sendAsEmail",
+                    "smimeInfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sendAsEmail",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"issuerCn\": \"ipsum qui s\",\n  \"isDefault\": false,\n  \"expiration\": \"dolore magna\",\n  \"pem\": \"cillum labore \",\n  \"pkcs12\": \"in aute et\",\n  \"encryptedKeyPassword\": \"cillum ut\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"id\",\n  \"issuerCn\": \"ipsum qui s\",\n  \"isDefault\": false,\n  \"expiration\": \"dolore magna\",\n  \"pem\": \"cillum labore \",\n  \"pkcs12\": \"in aute et\",\n  \"encryptedKeyPassword\": \"cillum ut\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "dedcc721-f74b-4bba-b784-07e5e8dc47be",
+    "name": "Google Books About Insert API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

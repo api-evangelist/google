@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books About Sets API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Set default S/MIME config",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail/smimeInfo/:id/setDefault",
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "sendAsEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Sets the default S/MIME config for the specified send-as alias."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

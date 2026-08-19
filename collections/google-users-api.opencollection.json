@@ -1,0 +1,179 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books About Users API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Retrieve Name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/v2/:name",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Required. The resource name of the user. Only \"users/me/capabilities\" is supported."
+              },
+              {
+                "name": "customer",
+                "value": "",
+                "type": "query",
+                "description": "The customer to scope this request to. For example: \"customers/abcd1234\". If unset, will return settings within the current customer."
+              },
+              {
+                "name": "useAdminAccess",
+                "value": "",
+                "type": "query",
+                "description": "Set to `true` in order to use the user's admin credentials. The server verifies that the user is an admin for the label before allowing access."
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "When specified, only certain fields belonging to the indicated view are returned."
+              },
+              {
+                "name": "$.xgafv",
+                "value": "",
+                "type": "query",
+                "description": "V1 error format."
+              },
+              {
+                "name": "access_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth access token."
+              },
+              {
+                "name": "alt",
+                "value": "",
+                "type": "query",
+                "description": "Data format for response."
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "JSONP"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "",
+                "type": "query",
+                "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+              },
+              {
+                "name": "upload_protocol",
+                "value": "",
+                "type": "query",
+                "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+              },
+              {
+                "name": "uploadType",
+                "value": "",
+                "type": "query",
+                "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+              }
+            ]
+          },
+          "docs": "Gets the user capabilities."
+        },
+        {
+          "info": {
+            "name": "Google Watch Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/watch",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The Watch Users operation in the Google Gmail API allows applications to set up push notifications for a user's mailbox by establishing a watch on their Gmail account. When called via POST to /gmail/v1/users/{userId}/watch, this endpoint configures Gmail to send notifications to a specified Cloud Pub/Sub topic whenever changes occur in the user's mailbox, such as receiving new emails, messages being deleted, or labels being modified. The watch remains active for a renewable period (default 7 day"
+        },
+        {
+          "info": {
+            "name": "Google Stop Notifications for User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/stop",
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Stop receiving push notifications for the given user mailbox."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

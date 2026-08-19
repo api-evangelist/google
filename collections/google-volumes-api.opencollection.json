@@ -1,0 +1,146 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books About Volumes API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Volumes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google List Volumes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/volumes",
+            "params": [
+              {
+                "name": "q",
+                "value": "flowers",
+                "type": "query",
+                "description": "Full-text search query string"
+              },
+              {
+                "name": "download",
+                "value": "epub",
+                "type": "query",
+                "description": "Restrict to volumes by download availability"
+              },
+              {
+                "name": "filter",
+                "value": "ebooks",
+                "type": "query",
+                "description": "Filter search results"
+              },
+              {
+                "name": "langRestrict",
+                "value": "en",
+                "type": "query",
+                "description": "Restrict results to books with this language code"
+              },
+              {
+                "name": "libraryRestrict",
+                "value": "no-restrict",
+                "type": "query",
+                "description": "Restrict search to this user's library"
+              },
+              {
+                "name": "maxResults",
+                "value": "10",
+                "type": "query",
+                "description": "Maximum number of results to return (0 to 40)"
+              },
+              {
+                "name": "orderBy",
+                "value": "relevance",
+                "type": "query",
+                "description": "Sort search results"
+              },
+              {
+                "name": "partner",
+                "value": "",
+                "type": "query",
+                "description": "Restrict and brand results for partner ID"
+              },
+              {
+                "name": "printType",
+                "value": "all",
+                "type": "query",
+                "description": "Restrict to books or magazines"
+              },
+              {
+                "name": "projection",
+                "value": "full",
+                "type": "query",
+                "description": "Restrict information returned to a set of selected fields"
+              },
+              {
+                "name": "showPreorders",
+                "value": "false",
+                "type": "query",
+                "description": "Set to true to show books available for preorder"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "String to identify the originator of this request"
+              },
+              {
+                "name": "startIndex",
+                "value": "0",
+                "type": "query",
+                "description": "Index of the first result to return (starts at 0)"
+              }
+            ]
+          },
+          "docs": "Performs a book search. Returns a list of volumes that match the search query."
+        },
+        {
+          "info": {
+            "name": "Google Get Volume",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/volumes/:volumeId",
+            "params": [
+              {
+                "name": "volumeId",
+                "value": "zyTCAlFPjgYC",
+                "type": "path",
+                "description": "ID of volume to retrieve"
+              },
+              {
+                "name": "partner",
+                "value": "",
+                "type": "query",
+                "description": "Brand results for partner ID"
+              },
+              {
+                "name": "projection",
+                "value": "full",
+                "type": "query",
+                "description": "Restrict information returned to a set of selected fields"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "String to identify the originator of this request"
+              }
+            ]
+          },
+          "docs": "Retrieves a Volume resource based on ID. More information about volume IDs can be found in the Google Books IDs section."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

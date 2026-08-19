@@ -1,0 +1,402 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books About Values API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Values",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Get Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/v4/spreadsheets/:spreadsheetId/values/:range",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "majorDimension",
+                "value": "{{majorDimension}}",
+                "type": "query"
+              },
+              {
+                "name": "valueRenderOption",
+                "value": "{{valueRenderOption}}",
+                "type": "query"
+              },
+              {
+                "name": "dateTimeRenderOption",
+                "value": "{{dateTimeRenderOption}}",
+                "type": "query"
+              },
+              {
+                "name": "access_token",
+                "value": "{{accessToken}}",
+                "type": "query",
+                "description": "OAuth access token."
+              },
+              {
+                "name": "alt",
+                "value": "{{alt}}",
+                "type": "query",
+                "description": "Data format for response."
+              },
+              {
+                "name": "callback",
+                "value": "{{callback}}",
+                "type": "query",
+                "description": "JSONP"
+              },
+              {
+                "name": "fields",
+                "value": "{{fields}}",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "{{key}}",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "{{oauthToken}}",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "{{prettyPrint}}",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "{{quotaUser}}",
+                "type": "query",
+                "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+              },
+              {
+                "name": "upload_protocol",
+                "value": "{{uploadProtocol}}",
+                "type": "query",
+                "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+              },
+              {
+                "name": "uploadType",
+                "value": "{{uploadType}}",
+                "type": "query",
+                "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+              },
+              {
+                "name": "$.xgafv",
+                "value": "{{.Xgafv}}",
+                "type": "query",
+                "description": "V1 error format."
+              },
+              {
+                "name": "spreadsheetId",
+                "value": "{{spreadsheetId}}",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "range",
+                "value": "{{range}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Returns a range of values from a spreadsheet. The caller must specify the spreadsheet ID and a range."
+        },
+        {
+          "info": {
+            "name": "Google Update Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.googleapis.com/books/v1/v4/spreadsheets/:spreadsheetId/values/:range",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "spreadsheetId",
+                "value": "{{spreadsheetId}}",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "range",
+                "value": "{{range}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sets values in a range of a spreadsheet. The caller must specify the spreadsheet ID, range, and a valueInputOption."
+        },
+        {
+          "info": {
+            "name": "Google Append Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/v4/spreadsheets/:spreadsheetId/values/:range:append",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "spreadsheetId",
+                "value": "{{spreadsheetId}}",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "range",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Appends values to a spreadsheet. The input range is used to search for existing data and find a \"table\" within that range. Values will be appended to the next row of the table, starting with the first column of the table. See the [guide](/sheets/api/guides/values#appending_values) and [sample code](/sheets/api/samples/writing#append_values) for specific details of how tables are detected and data is appended. The caller must specify the spreadsheet ID, range, and a valueInputOption. The `valueIn"
+        },
+        {
+          "info": {
+            "name": "Google Clear Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/v4/spreadsheets/:spreadsheetId/values/:range:clear",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "spreadsheetId",
+                "value": "{{spreadsheetId}}",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "range",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Clears values from a spreadsheet. The caller must specify the spreadsheet ID and range. Only values are cleared -- all other properties of the cell (such as formatting, data validation, etc..) are kept."
+        },
+        {
+          "info": {
+            "name": "Google Batch Clear Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/v4/spreadsheets/:spreadsheetId/values:batchClear",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "spreadsheetId",
+                "value": "{{spreadsheetId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Clears one or more ranges of values from a spreadsheet. The caller must specify the spreadsheet ID and one or more ranges. Only values are cleared -- all other properties of the cell (such as formatting and data validation) are kept."
+        },
+        {
+          "info": {
+            "name": "Google Batch Clear Values by Data Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/v4/spreadsheets/:spreadsheetId/values:batchClearByDataFilter",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "spreadsheetId",
+                "value": "{{spreadsheetId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Clears one or more ranges of values from a spreadsheet. The caller must specify the spreadsheet ID and one or more DataFilters. Ranges matching any of the specified data filters will be cleared. Only values are cleared -- all other properties of the cell (such as formatting, data validation, etc..) are kept."
+        },
+        {
+          "info": {
+            "name": "Google Get Values Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/v4/spreadsheets/:spreadsheetId/values:batchGet",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "spreadsheetId",
+                "value": "{{spreadsheetId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Returns one or more ranges of values from a spreadsheet. The caller must specify the spreadsheet ID and one or more ranges."
+        },
+        {
+          "info": {
+            "name": "Google Get Values By Data Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/v4/spreadsheets/:spreadsheetId/values:batchGetByDataFilter",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "spreadsheetId",
+                "value": "{{spreadsheetId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns one or more ranges of values that match the specified data filters. The caller must specify the spreadsheet ID and one or more DataFilters. Ranges that match any of the data filters in the request will be returned."
+        },
+        {
+          "info": {
+            "name": "Google Batch Update Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/v4/spreadsheets/:spreadsheetId/values:batchUpdate",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "spreadsheetId",
+                "value": "{{spreadsheetId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sets values in one or more ranges of a spreadsheet. The caller must specify the spreadsheet ID, a valueInputOption, and one or more ValueRanges."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

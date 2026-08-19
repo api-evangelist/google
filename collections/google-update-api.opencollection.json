@@ -1,0 +1,437 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books About Update API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Update",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Update Drafts",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/drafts/:id",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces a draft's content."
+        },
+        {
+          "info": {
+            "name": "Google Update Labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/labels/:id",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "id",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified label."
+        },
+        {
+          "info": {
+            "name": "Google Update IMAP",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/imap",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates IMAP settings."
+        },
+        {
+          "info": {
+            "name": "Google Update POP Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/pop",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates POP settings."
+        },
+        {
+          "info": {
+            "name": "Google Update Vacation Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/vacation",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates vacation responder settings."
+        },
+        {
+          "info": {
+            "name": "Google Update Language Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/language",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates language settings. If successful, the return object contains the `displayLanguage` that was saved for the user, which may differ from the value passed into the request. This is because the requested `displayLanguage` may not be directly supported by Gmail but have a close variant that is, and so the variant may be chosen and saved instead."
+        },
+        {
+          "info": {
+            "name": "Google Update Auto Forwarding",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/autoForwarding",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the auto-forwarding setting for the specified account. A verified forwarding address must be specified when auto-forwarding is enabled. This method is only available to service account clients that have been delegated domain-wide authority."
+        },
+        {
+          "info": {
+            "name": "Google Update Send As Setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "sendAsEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary address for the account can only be updated by service account clients that have been delegated domain-wide authority."
+        },
+        {
+          "info": {
+            "name": "Google Update Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.googleapis.com/books/v1/v4/spreadsheets/:spreadsheetId/values/:range",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "spreadsheetId",
+                "value": "{{spreadsheetId}}",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "range",
+                "value": "{{range}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sets values in a range of a spreadsheet. The caller must specify the spreadsheet ID, range, and a valueInputOption."
+        },
+        {
+          "info": {
+            "name": "Google Batch Update Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/v4/spreadsheets/:spreadsheetId/values:batchUpdate",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "spreadsheetId",
+                "value": "{{spreadsheetId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sets values in one or more ranges of a spreadsheet. The caller must specify the spreadsheet ID, a valueInputOption, and one or more ValueRanges."
+        },
+        {
+          "info": {
+            "name": "Google Update by Data Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/v4/spreadsheets/:spreadsheetId/values:batchUpdateByDataFilter",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "spreadsheetId",
+                "value": "{{spreadsheetId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sets values in one or more ranges of a spreadsheet. The caller must specify the spreadsheet ID, a valueInputOption, and one or more DataFilterValueRanges."
+        },
+        {
+          "info": {
+            "name": "Google Batch Update Sheets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/v4/spreadsheets/:spreadsheetId:batchUpdate",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "spreadsheetId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Applies one or more updates to the spreadsheet. Each request is validated before being applied. If any request is not valid then the entire request will fail and nothing will be applied. Some requests have replies to give you some information about how they are applied. The replies will mirror the requests. For example, if you applied 4 updates and the 3rd one had a reply, then the response will have 2 empty replies, the actual reply, and another empty reply, in that order. Due to the collaborat"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

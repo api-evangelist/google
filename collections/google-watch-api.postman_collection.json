@@ -1,0 +1,159 @@
+{
+  "item": [
+    {
+      "id": "bbdbd771-0f64-47d6-aa52-ffe834c49a6a",
+      "name": "Watch",
+      "description": {
+        "content": "Operations related to Watch",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7d217c1e-744b-4b4a-9880-590014cdd007",
+          "name": "Google Watch Users",
+          "request": {
+            "name": "Google Watch Users",
+            "description": {
+              "content": "The Watch Users operation in the Google Gmail API allows applications to set up push notifications for a user's mailbox by establishing a watch on their Gmail account. When called via POST to /gmail/v1/users/{userId}/watch, this endpoint configures Gmail to send notifications to a specified Cloud Pub/Sub topic whenever changes occur in the user's mailbox, such as receiving new emails, messages being deleted, or labels being modified. The watch remains active for a renewable period (default 7 days), and applications must include the target Pub/Sub topic details in the request body along with optional filters to specify which types of events should trigger notifications. This enables real-time synchronization and event-driven architectures without the need for constant polling of the mailbox.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "watch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1bba3f9d-cbf2-40c7-ac5d-4d8f7a53d522",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "watch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"labelIds\": [\n    \"officia ex reprehenderit et\",\n    \"labore ullamco ut\"\n  ],\n  \"labelFilterAction\": \"exclude\",\n  \"labelFilterBehavior\": \"include\",\n  \"topicName\": \"Ut enim in in\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"historyId\": \"quis aute sed\",\n  \"expiration\": \"dolore non exercitation Excepteur est\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "97d50a04-4bcd-4c56-ba85-606d41328832",
+    "name": "Google Books About Watch API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

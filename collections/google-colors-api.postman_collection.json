@@ -1,0 +1,114 @@
+{
+  "item": [
+    {
+      "id": "24fda5cd-d972-416f-8983-58f82d238195",
+      "name": "Colors",
+      "description": {
+        "content": "Operations related to Default",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d4ee7234-7f1f-4ac8-ae6e-c984cc31e626",
+          "name": "Google Get Calendar Colors",
+          "request": {
+            "name": "Google Get Calendar Colors",
+            "description": {
+              "content": "Returns the color definitions for calendars and events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "colors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f6c376c1-0375-4be4-b288-57641a51ed01",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "colors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"calendar\": {\n    \"qui_15\": {\n      \"background\": \"dolore et occaecat\",\n      \"foreground\": \"et est cupidatat ullamco\"\n    },\n    \"nulla_2\": {\n      \"background\": \"cupidatat ipsum Duis\",\n      \"foreground\": \"officia elit Excepteur dolore\"\n    },\n    \"laborisaf\": {\n      \"background\": \"ex proident culpa consectetur veniam\",\n      \"foreground\": \"cupidatat dolore mollit laborum\"\n    }\n  },\n  \"event\": {\n    \"Excepteure8\": {\n      \"background\": \"in\",\n      \"foreground\": \"Ut reprehenderit officia Duis\"\n    }\n  },\n  \"kind\": \"calendar#colors\",\n  \"updated\": \"1990-01-21T16:25:35.908Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f893f860-d823-41b9-b49c-4fbbd53c994e",
+    "name": "Google Books About Colors API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

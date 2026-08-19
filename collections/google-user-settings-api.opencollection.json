@@ -1,0 +1,96 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books About User Settings API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Settings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google List Calendar Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/users/me/settings",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns all user settings for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Google Get Calendar Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/users/me/settings/:setting",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "setting",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a single user setting."
+        },
+        {
+          "info": {
+            "name": "Google Watch Calendar Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/users/me/settings/watch",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Watch for changes to Settings resources."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

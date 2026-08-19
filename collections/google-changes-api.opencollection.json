@@ -1,0 +1,469 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books About Changes API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Changes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Get Changes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/changes",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "The token for continuing a previous list request on the next page. This should be set to the value of 'nextPageToken' from the previous response or to the response from the getStartPageToken method."
+              },
+              {
+                "name": "driveId",
+                "value": "",
+                "type": "query",
+                "description": "The shared drive from which changes will be returned. If specified the change IDs will be reflective of the shared drive; use the combined drive ID and change ID as an identifier."
+              },
+              {
+                "name": "includeCorpusRemovals",
+                "value": "",
+                "type": "query",
+                "description": "Whether changes should include the file resource if the file is still accessible by the user at the time of the request, even when a file was removed from the list of changes and there will be no further change entries for this file."
+              },
+              {
+                "name": "includeItemsFromAllDrives",
+                "value": "",
+                "type": "query",
+                "description": "Whether both My Drive and shared drive items should be included in results."
+              },
+              {
+                "name": "includeLabels",
+                "value": "",
+                "type": "query",
+                "description": "A comma-separated list of IDs of labels to include in the `labelInfo` part of the response."
+              },
+              {
+                "name": "includePermissionsForView",
+                "value": "",
+                "type": "query",
+                "description": "Specifies which additional view's permissions to include in the response. Only 'published' is supported."
+              },
+              {
+                "name": "includeRemoved",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include changes indicating that items have been removed from the list of changes, for example by deletion or loss of access."
+              },
+              {
+                "name": "includeTeamDriveItems",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use `includeItemsFromAllDrives` instead."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of changes to return per page."
+              },
+              {
+                "name": "restrictToMyDrive",
+                "value": "",
+                "type": "query",
+                "description": "Whether to restrict the results to changes inside the My Drive hierarchy. This omits changes to files such as those in the Application Data folder or shared files which have not been added to My Drive."
+              },
+              {
+                "name": "spaces",
+                "value": "",
+                "type": "query",
+                "description": "A comma-separated list of spaces to query within the corpora. Supported values are 'drive' and 'appDataFolder'."
+              },
+              {
+                "name": "supportsAllDrives",
+                "value": "",
+                "type": "query",
+                "description": "Whether the requesting application supports both My Drives and shared drives."
+              },
+              {
+                "name": "supportsTeamDrives",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use `supportsAllDrives` instead."
+              },
+              {
+                "name": "teamDriveId",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use `driveId` instead."
+              },
+              {
+                "name": "$.xgafv",
+                "value": "",
+                "type": "query",
+                "description": "V1 error format."
+              },
+              {
+                "name": "access_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth access token."
+              },
+              {
+                "name": "alt",
+                "value": "",
+                "type": "query",
+                "description": "Data format for response."
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "JSONP"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "",
+                "type": "query",
+                "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+              },
+              {
+                "name": "upload_protocol",
+                "value": "",
+                "type": "query",
+                "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+              },
+              {
+                "name": "uploadType",
+                "value": "",
+                "type": "query",
+                "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+              }
+            ]
+          },
+          "docs": "Lists the changes for a user or shared drive."
+        },
+        {
+          "info": {
+            "name": "Google Get Changes Startpagetoken",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/changes/startPageToken",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "driveId",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the shared drive for which the starting pageToken for listing future changes from that shared drive will be returned."
+              },
+              {
+                "name": "supportsAllDrives",
+                "value": "",
+                "type": "query",
+                "description": "Whether the requesting application supports both My Drives and shared drives."
+              },
+              {
+                "name": "supportsTeamDrives",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use `supportsAllDrives` instead."
+              },
+              {
+                "name": "teamDriveId",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use `driveId` instead."
+              },
+              {
+                "name": "$.xgafv",
+                "value": "",
+                "type": "query",
+                "description": "V1 error format."
+              },
+              {
+                "name": "access_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth access token."
+              },
+              {
+                "name": "alt",
+                "value": "",
+                "type": "query",
+                "description": "Data format for response."
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "JSONP"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "",
+                "type": "query",
+                "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+              },
+              {
+                "name": "upload_protocol",
+                "value": "",
+                "type": "query",
+                "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+              },
+              {
+                "name": "uploadType",
+                "value": "",
+                "type": "query",
+                "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+              }
+            ]
+          },
+          "docs": "Gets the starting pageToken for listing future changes."
+        },
+        {
+          "info": {
+            "name": "Google Post Changes Watch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/changes/watch",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "The token for continuing a previous list request on the next page. This should be set to the value of 'nextPageToken' from the previous response or to the response from the getStartPageToken method."
+              },
+              {
+                "name": "driveId",
+                "value": "",
+                "type": "query",
+                "description": "The shared drive from which changes will be returned. If specified the change IDs will be reflective of the shared drive; use the combined drive ID and change ID as an identifier."
+              },
+              {
+                "name": "includeCorpusRemovals",
+                "value": "",
+                "type": "query",
+                "description": "Whether changes should include the file resource if the file is still accessible by the user at the time of the request, even when a file was removed from the list of changes and there will be no further change entries for this file."
+              },
+              {
+                "name": "includeItemsFromAllDrives",
+                "value": "",
+                "type": "query",
+                "description": "Whether both My Drive and shared drive items should be included in results."
+              },
+              {
+                "name": "includeLabels",
+                "value": "",
+                "type": "query",
+                "description": "A comma-separated list of IDs of labels to include in the `labelInfo` part of the response."
+              },
+              {
+                "name": "includePermissionsForView",
+                "value": "",
+                "type": "query",
+                "description": "Specifies which additional view's permissions to include in the response. Only 'published' is supported."
+              },
+              {
+                "name": "includeRemoved",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include changes indicating that items have been removed from the list of changes, for example by deletion or loss of access."
+              },
+              {
+                "name": "includeTeamDriveItems",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use `includeItemsFromAllDrives` instead."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of changes to return per page."
+              },
+              {
+                "name": "restrictToMyDrive",
+                "value": "",
+                "type": "query",
+                "description": "Whether to restrict the results to changes inside the My Drive hierarchy. This omits changes to files such as those in the Application Data folder or shared files which have not been added to My Drive."
+              },
+              {
+                "name": "spaces",
+                "value": "",
+                "type": "query",
+                "description": "A comma-separated list of spaces to query within the corpora. Supported values are 'drive' and 'appDataFolder'."
+              },
+              {
+                "name": "supportsAllDrives",
+                "value": "",
+                "type": "query",
+                "description": "Whether the requesting application supports both My Drives and shared drives."
+              },
+              {
+                "name": "supportsTeamDrives",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use `supportsAllDrives` instead."
+              },
+              {
+                "name": "teamDriveId",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use `driveId` instead."
+              },
+              {
+                "name": "$.xgafv",
+                "value": "",
+                "type": "query",
+                "description": "V1 error format."
+              },
+              {
+                "name": "access_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth access token."
+              },
+              {
+                "name": "alt",
+                "value": "",
+                "type": "query",
+                "description": "Data format for response."
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "JSONP"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "",
+                "type": "query",
+                "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+              },
+              {
+                "name": "upload_protocol",
+                "value": "",
+                "type": "query",
+                "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+              },
+              {
+                "name": "uploadType",
+                "value": "",
+                "type": "query",
+                "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Subscribes to changes for a user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

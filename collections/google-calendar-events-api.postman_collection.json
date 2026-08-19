@@ -1,0 +1,2880 @@
+{
+  "item": [
+    {
+      "id": "9f2c92be-e81b-4511-a419-6f67a5620f1e",
+      "name": "Calendar Events",
+      "description": {
+        "content": "Operations related to Calendarscalendaridevents",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2113140e-f4dc-4f3f-8182-3c567c1a399d",
+          "name": "Google Get Event",
+          "request": {
+            "name": "Google Get Event",
+            "description": {
+              "content": "Returns an event based on its Google Calendar ID. To retrieve an event using its iCalendar ID, call the events.list method using the iCalUID parameter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendars",
+                ":calendarId",
+                "events",
+                ":eventId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "alwaysIncludeEmail",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxAttendees",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeZone",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "alt",
+                  "value": "<string>",
+                  "description": "Data format for the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Selector specifying which fields to include in a partial response."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+                },
+                {
+                  "disabled": false,
+                  "key": "oauth_token",
+                  "value": "<string>",
+                  "description": "OAuth 2.0 token for the current user."
+                },
+                {
+                  "disabled": false,
+                  "key": "prettyPrint",
+                  "value": "<boolean>",
+                  "description": "Returns response with indentations and line breaks."
+                },
+                {
+                  "disabled": false,
+                  "key": "quotaUser",
+                  "value": "<string>",
+                  "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+                },
+                {
+                  "disabled": false,
+                  "key": "userIp",
+                  "value": "<string>",
+                  "description": "Deprecated. Please use quotaUser instead."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b429b11d-9270-464c-a9cc-ccc9fa792842",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendars",
+                    ":calendarId",
+                    "events",
+                    ":eventId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "alwaysIncludeEmail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "maxAttendees",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "timeZone",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "alt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "key",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "oauth_token",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "prettyPrint",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "quotaUser",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "userIp",
+                      "value": "amet in"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-id\",\n  \"name\": \"Example Name\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d943047-a9e8-42df-aae4-d1165e064ec3",
+          "name": "Google Update Event",
+          "request": {
+            "name": "Google Update Event",
+            "description": {
+              "content": "Updates an event.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendars",
+                ":calendarId",
+                "events",
+                ":eventId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "alwaysIncludeEmail",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "conferenceDataVersion",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxAttendees",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sendNotifications",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sendUpdates",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "supportsAttachments",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "alt",
+                  "value": "<string>",
+                  "description": "Data format for the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Selector specifying which fields to include in a partial response."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+                },
+                {
+                  "disabled": false,
+                  "key": "oauth_token",
+                  "value": "<string>",
+                  "description": "OAuth 2.0 token for the current user."
+                },
+                {
+                  "disabled": false,
+                  "key": "prettyPrint",
+                  "value": "<boolean>",
+                  "description": "Returns response with indentations and line breaks."
+                },
+                {
+                  "disabled": false,
+                  "key": "quotaUser",
+                  "value": "<string>",
+                  "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+                },
+                {
+                  "disabled": false,
+                  "key": "userIp",
+                  "value": "<string>",
+                  "description": "Deprecated. Please use quotaUser instead."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "90771a4f-3cdf-4fee-894a-1a05e15e6c92",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendars",
+                    ":calendarId",
+                    "events",
+                    ":eventId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "alwaysIncludeEmail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "conferenceDataVersion",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxAttendees",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sendNotifications",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sendUpdates",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "supportsAttachments",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "alt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "key",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "oauth_token",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "prettyPrint",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "quotaUser",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "userIp",
+                      "value": "amet in"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-id\",\n  \"name\": \"Example Name\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2118079f-754d-4c1e-8038-8d0ae0fef277",
+          "name": "Google Patch Event",
+          "request": {
+            "name": "Google Patch Event",
+            "description": {
+              "content": "Updates an event. This method supports patch semantics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendars",
+                ":calendarId",
+                "events",
+                ":eventId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "alwaysIncludeEmail",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "conferenceDataVersion",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxAttendees",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sendNotifications",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sendUpdates",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "supportsAttachments",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "alt",
+                  "value": "<string>",
+                  "description": "Data format for the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Selector specifying which fields to include in a partial response."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+                },
+                {
+                  "disabled": false,
+                  "key": "oauth_token",
+                  "value": "<string>",
+                  "description": "OAuth 2.0 token for the current user."
+                },
+                {
+                  "disabled": false,
+                  "key": "prettyPrint",
+                  "value": "<boolean>",
+                  "description": "Returns response with indentations and line breaks."
+                },
+                {
+                  "disabled": false,
+                  "key": "quotaUser",
+                  "value": "<string>",
+                  "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+                },
+                {
+                  "disabled": false,
+                  "key": "userIp",
+                  "value": "<string>",
+                  "description": "Deprecated. Please use quotaUser instead."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e57e9fea-d17d-4801-bc55-4fd7f741d4cb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendars",
+                    ":calendarId",
+                    "events",
+                    ":eventId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "alwaysIncludeEmail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "conferenceDataVersion",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxAttendees",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sendNotifications",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sendUpdates",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "supportsAttachments",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "alt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "key",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "oauth_token",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "prettyPrint",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "quotaUser",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "userIp",
+                      "value": "amet in"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-id\",\n  \"name\": \"Example Name\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "473c2d8b-b403-4e67-9191-a58370c1e7ab",
+          "name": "Google Delete Event",
+          "request": {
+            "name": "Google Delete Event",
+            "description": {
+              "content": "Deletes an event.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendars",
+                ":calendarId",
+                "events",
+                ":eventId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sendNotifications",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sendUpdates",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "alt",
+                  "value": "<string>",
+                  "description": "Data format for the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Selector specifying which fields to include in a partial response."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+                },
+                {
+                  "disabled": false,
+                  "key": "oauth_token",
+                  "value": "<string>",
+                  "description": "OAuth 2.0 token for the current user."
+                },
+                {
+                  "disabled": false,
+                  "key": "prettyPrint",
+                  "value": "<boolean>",
+                  "description": "Returns response with indentations and line breaks."
+                },
+                {
+                  "disabled": false,
+                  "key": "quotaUser",
+                  "value": "<string>",
+                  "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+                },
+                {
+                  "disabled": false,
+                  "key": "userIp",
+                  "value": "<string>",
+                  "description": "Deprecated. Please use quotaUser instead."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "559c363b-5149-4b09-b76d-5b8f5394ced0",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendars",
+                    ":calendarId",
+                    "events",
+                    ":eventId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sendNotifications",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sendUpdates",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "alt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "key",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "oauth_token",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "prettyPrint",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "quotaUser",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "userIp",
+                      "value": "amet in"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "899ad655-d940-49fc-8070-c3e539752bdd",
+          "name": "Google Insert Event",
+          "request": {
+            "name": "Google Insert Event",
+            "description": {
+              "content": "Returns instances of the specified recurring event.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendars",
+                ":calendarId",
+                "events",
+                ":eventId",
+                "instances"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "alwaysIncludeEmail",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxAttendees",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "originalStart",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "showDeleted",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeMax",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeMin",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeZone",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "alt",
+                  "value": "<string>",
+                  "description": "Data format for the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Selector specifying which fields to include in a partial response."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+                },
+                {
+                  "disabled": false,
+                  "key": "oauth_token",
+                  "value": "<string>",
+                  "description": "OAuth 2.0 token for the current user."
+                },
+                {
+                  "disabled": false,
+                  "key": "prettyPrint",
+                  "value": "<boolean>",
+                  "description": "Returns response with indentations and line breaks."
+                },
+                {
+                  "disabled": false,
+                  "key": "quotaUser",
+                  "value": "<string>",
+                  "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+                },
+                {
+                  "disabled": false,
+                  "key": "userIp",
+                  "value": "<string>",
+                  "description": "Deprecated. Please use quotaUser instead."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e2e4494a-e7a1-48a3-9e05-ed970e93d247",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendars",
+                    ":calendarId",
+                    "events",
+                    ":eventId",
+                    "instances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "alwaysIncludeEmail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "maxAttendees",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "originalStart",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "showDeleted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "timeMax",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "timeMin",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "timeZone",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "alt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "key",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "oauth_token",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "prettyPrint",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "quotaUser",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "userIp",
+                      "value": "amet in"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-id\",\n  \"name\": \"Example Name\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "621f3660-d292-447d-a9e8-df6132509218",
+          "name": "Google Move Event",
+          "request": {
+            "name": "Google Move Event",
+            "description": {
+              "content": "Moves an event to another calendar, i.e. changes an event's organizer. Note that only default events can be moved; outOfOffice, focusTime and workingLocation events cannot be moved.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendars",
+                ":calendarId",
+                "events",
+                ":eventId",
+                "move"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "destination",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "sendNotifications",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sendUpdates",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "alt",
+                  "value": "<string>",
+                  "description": "Data format for the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Selector specifying which fields to include in a partial response."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+                },
+                {
+                  "disabled": false,
+                  "key": "oauth_token",
+                  "value": "<string>",
+                  "description": "OAuth 2.0 token for the current user."
+                },
+                {
+                  "disabled": false,
+                  "key": "prettyPrint",
+                  "value": "<boolean>",
+                  "description": "Returns response with indentations and line breaks."
+                },
+                {
+                  "disabled": false,
+                  "key": "quotaUser",
+                  "value": "<string>",
+                  "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+                },
+                {
+                  "disabled": false,
+                  "key": "userIp",
+                  "value": "<string>",
+                  "description": "Deprecated. Please use quotaUser instead."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "id": "cc5bb594-b1f5-4612-b488-71c710fe6fae",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendars",
+                    ":calendarId",
+                    "events",
+                    ":eventId",
+                    "move"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "destination",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "sendNotifications",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sendUpdates",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "alt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "key",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "oauth_token",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "prettyPrint",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "quotaUser",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "userIp",
+                      "value": "amet in"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-id\",\n  \"name\": \"Example Name\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "072d743d-066d-4ffd-ae2a-b494b20602d9",
+          "name": "Google Return Events From Calendar",
+          "request": {
+            "name": "Google Return Events From Calendar",
+            "description": {
+              "content": "Returns events on the specified calendar.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendars",
+                ":calendarId",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "alwaysIncludeEmail",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventTypes",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "iCalUID",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxAttendees",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "privateExtendedProperty",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sharedExtendedProperty",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "showDeleted",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "showHiddenInvitations",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "singleEvents",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "syncToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeMax",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeMin",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeZone",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedMin",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "alt",
+                  "value": "<string>",
+                  "description": "Data format for the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Selector specifying which fields to include in a partial response."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+                },
+                {
+                  "disabled": false,
+                  "key": "oauth_token",
+                  "value": "<string>",
+                  "description": "OAuth 2.0 token for the current user."
+                },
+                {
+                  "disabled": false,
+                  "key": "prettyPrint",
+                  "value": "<boolean>",
+                  "description": "Returns response with indentations and line breaks."
+                },
+                {
+                  "disabled": false,
+                  "key": "quotaUser",
+                  "value": "<string>",
+                  "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+                },
+                {
+                  "disabled": false,
+                  "key": "userIp",
+                  "value": "<string>",
+                  "description": "Deprecated. Please use quotaUser instead."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "02a819d8-8348-49b1-8ce2-c2d63e13bc47",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendars",
+                    ":calendarId",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "alwaysIncludeEmail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "eventTypes",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "iCalUID",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "maxAttendees",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "privateExtendedProperty",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "q",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "sharedExtendedProperty",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "showDeleted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "showHiddenInvitations",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "singleEvents",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "syncToken",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "timeMax",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "timeMin",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "timeZone",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "updatedMin",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "alt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "key",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "oauth_token",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "prettyPrint",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "quotaUser",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "userIp",
+                      "value": "amet in"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-id\",\n  \"name\": \"Example Name\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a54b851-1491-4013-bc4b-8c551b4077de",
+          "name": "Google Create An Event",
+          "request": {
+            "name": "Google Create An Event",
+            "description": {
+              "content": "Creates an event.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendars",
+                ":calendarId",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "conferenceDataVersion",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxAttendees",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sendNotifications",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sendUpdates",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "supportsAttachments",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "alt",
+                  "value": "<string>",
+                  "description": "Data format for the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Selector specifying which fields to include in a partial response."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+                },
+                {
+                  "disabled": false,
+                  "key": "oauth_token",
+                  "value": "<string>",
+                  "description": "OAuth 2.0 token for the current user."
+                },
+                {
+                  "disabled": false,
+                  "key": "prettyPrint",
+                  "value": "<boolean>",
+                  "description": "Returns response with indentations and line breaks."
+                },
+                {
+                  "disabled": false,
+                  "key": "quotaUser",
+                  "value": "<string>",
+                  "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+                },
+                {
+                  "disabled": false,
+                  "key": "userIp",
+                  "value": "<string>",
+                  "description": "Deprecated. Please use quotaUser instead."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4cb6bca8-04e3-4382-a913-a81c1a5b1d33",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendars",
+                    ":calendarId",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "conferenceDataVersion",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxAttendees",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sendNotifications",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sendUpdates",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "supportsAttachments",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "alt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "key",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "oauth_token",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "prettyPrint",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "quotaUser",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "userIp",
+                      "value": "amet in"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-id\",\n  \"name\": \"Example Name\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "84a3949a-54ca-4f59-9f67-6374f1d573c3",
+          "name": "Google Import Event",
+          "request": {
+            "name": "Google Import Event",
+            "description": {
+              "content": "Imports an event. This operation is used to add a private copy of an existing event to a calendar.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendars",
+                ":calendarId",
+                "events",
+                "import"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "conferenceDataVersion",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "supportsAttachments",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "alt",
+                  "value": "<string>",
+                  "description": "Data format for the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Selector specifying which fields to include in a partial response."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+                },
+                {
+                  "disabled": false,
+                  "key": "oauth_token",
+                  "value": "<string>",
+                  "description": "OAuth 2.0 token for the current user."
+                },
+                {
+                  "disabled": false,
+                  "key": "prettyPrint",
+                  "value": "<boolean>",
+                  "description": "Returns response with indentations and line breaks."
+                },
+                {
+                  "disabled": false,
+                  "key": "quotaUser",
+                  "value": "<string>",
+                  "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+                },
+                {
+                  "disabled": false,
+                  "key": "userIp",
+                  "value": "<string>",
+                  "description": "Deprecated. Please use quotaUser instead."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4a6d38b1-488e-443a-b8e9-28214d7489e7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendars",
+                    ":calendarId",
+                    "events",
+                    "import"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "conferenceDataVersion",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "supportsAttachments",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "alt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "key",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "oauth_token",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "prettyPrint",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "quotaUser",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "userIp",
+                      "value": "amet in"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-id\",\n  \"name\": \"Example Name\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26f7cdf9-6c2a-48b4-8aea-7ac37ff296f8",
+          "name": "Google Quick Add Event",
+          "request": {
+            "name": "Google Quick Add Event",
+            "description": {
+              "content": "Creates an event based on a simple text string.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendars",
+                ":calendarId",
+                "events",
+                "quickAdd"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "text",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "sendNotifications",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sendUpdates",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "alt",
+                  "value": "<string>",
+                  "description": "Data format for the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Selector specifying which fields to include in a partial response."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+                },
+                {
+                  "disabled": false,
+                  "key": "oauth_token",
+                  "value": "<string>",
+                  "description": "OAuth 2.0 token for the current user."
+                },
+                {
+                  "disabled": false,
+                  "key": "prettyPrint",
+                  "value": "<boolean>",
+                  "description": "Returns response with indentations and line breaks."
+                },
+                {
+                  "disabled": false,
+                  "key": "quotaUser",
+                  "value": "<string>",
+                  "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+                },
+                {
+                  "disabled": false,
+                  "key": "userIp",
+                  "value": "<string>",
+                  "description": "Deprecated. Please use quotaUser instead."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "id": "b5656858-315d-4fca-977f-a72a50fa4610",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendars",
+                    ":calendarId",
+                    "events",
+                    "quickAdd"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "text",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "sendNotifications",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sendUpdates",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "alt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "key",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "oauth_token",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "prettyPrint",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "quotaUser",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "userIp",
+                      "value": "amet in"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-id\",\n  \"name\": \"Example Name\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e2e52f9-1d5a-490a-be93-0b9fcdf564e8",
+          "name": "Google Watch Events",
+          "request": {
+            "name": "Google Watch Events",
+            "description": {
+              "content": "Watch for changes to Events resources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendars",
+                ":calendarId",
+                "events",
+                "watch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "alwaysIncludeEmail",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventTypes",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "iCalUID",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxAttendees",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "privateExtendedProperty",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sharedExtendedProperty",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "showDeleted",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "showHiddenInvitations",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "singleEvents",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "syncToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeMax",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeMin",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeZone",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedMin",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "alt",
+                  "value": "<string>",
+                  "description": "Data format for the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Selector specifying which fields to include in a partial response."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+                },
+                {
+                  "disabled": false,
+                  "key": "oauth_token",
+                  "value": "<string>",
+                  "description": "OAuth 2.0 token for the current user."
+                },
+                {
+                  "disabled": false,
+                  "key": "prettyPrint",
+                  "value": "<boolean>",
+                  "description": "Returns response with indentations and line breaks."
+                },
+                {
+                  "disabled": false,
+                  "key": "quotaUser",
+                  "value": "<string>",
+                  "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+                },
+                {
+                  "disabled": false,
+                  "key": "userIp",
+                  "value": "<string>",
+                  "description": "Deprecated. Please use quotaUser instead."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "667f453b-c640-4748-bfcf-8fbcfde5377b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendars",
+                    ":calendarId",
+                    "events",
+                    "watch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "alwaysIncludeEmail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "eventTypes",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "iCalUID",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "maxAttendees",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "privateExtendedProperty",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "q",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "sharedExtendedProperty",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "showDeleted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "showHiddenInvitations",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "singleEvents",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "syncToken",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "timeMax",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "timeMin",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "timeZone",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "updatedMin",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "alt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "key",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "oauth_token",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "prettyPrint",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "quotaUser",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "userIp",
+                      "value": "amet in"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"incididunt sed consequat\",\n  \"expiration\": \"velit ad aliq\",\n  \"kind\": \"api#channel\",\n  \"params\": {\n    \"reprehenderit5c\": \"non\",\n    \"sint_b\": \"cupidatat do\"\n  },\n  \"payload\": false,\n  \"resourceId\": \"aute\",\n  \"resourceUri\": \"fugiat consequat\",\n  \"token\": \"ullamco officia in\",\n  \"type\": \"ex eiusmod adipisicing mollit\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": \"incididunt sed consequat\",\n  \"expiration\": \"velit ad aliq\",\n  \"id\": \"velit eiusmod\",\n  \"kind\": \"api#channel\",\n  \"params\": {\n    \"reprehenderit5c\": \"non\",\n    \"sint_b\": \"cupidatat do\"\n  },\n  \"payload\": false,\n  \"resourceId\": \"aute\",\n  \"resourceUri\": \"fugiat consequat\",\n  \"token\": \"ullamco officia in\",\n  \"type\": \"ex eiusmod adipisicing mollit\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "feec7b00-6c4c-4e6b-b111-048585ad3994",
+    "name": "Google Books About Calendar Events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

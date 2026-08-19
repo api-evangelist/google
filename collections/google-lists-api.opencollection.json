@@ -1,0 +1,314 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books About Lists API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Lists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google List Drafts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/drafts",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "{{userID}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists the drafts in the user's mailbox."
+        },
+        {
+          "info": {
+            "name": "Google List History",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/history",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "{{userId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists the history of all changes to the given mailbox. History results are returned in chronological order (increasing `historyId`)."
+        },
+        {
+          "info": {
+            "name": "Google List Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/messages",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "maxResults",
+                "value": "{{maxResults}}",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "{{pageToken}}",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "{{q}}",
+                "type": "query"
+              },
+              {
+                "name": "userId",
+                "value": "{{userId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists the messages in the user's mailbox."
+        },
+        {
+          "info": {
+            "name": "Google List Labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/labels",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists all labels in the user's mailbox."
+        },
+        {
+          "info": {
+            "name": "Google List Threads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/threads",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "{{userID}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists the threads in the user's mailbox."
+        },
+        {
+          "info": {
+            "name": "Google List SMIME Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/sendAs/:sendAsEmail/smimeInfo",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              },
+              {
+                "name": "sendAsEmail",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists S/MIME configs for the specified send-as alias."
+        },
+        {
+          "info": {
+            "name": "Google List CSE Keypairs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/cse/keypairs",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists client-side encryption key pairs for an authenticated user."
+        },
+        {
+          "info": {
+            "name": "Google List CSE Identites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/cse/identities",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists the client-side encrypted identities for an authenticated user."
+        },
+        {
+          "info": {
+            "name": "Google List Filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/filters",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists the message filters of a Gmail user."
+        },
+        {
+          "info": {
+            "name": "Google List Forwarding Addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/forwardingAddresses",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists the forwarding addresses for the specified account."
+        },
+        {
+          "info": {
+            "name": "Google List Delegates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/settings/delegates",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

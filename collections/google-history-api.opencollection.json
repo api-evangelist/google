@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books About History API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "History",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google List History",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/history",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "{{userId}}",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ]
+          },
+          "docs": "Lists the history of all changes to the given mailbox. History results are returned in chronological order (increasing `historyId`)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

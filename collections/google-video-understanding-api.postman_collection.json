@@ -1,0 +1,594 @@
+{
+  "item": [
+    {
+      "id": "7f2e3ac4-9c9a-4fad-a132-d91c196271d0",
+      "name": "Video Understanding",
+      "description": {
+        "content": "Operations related to Video Understanding",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ed5694f7-b6f0-4fe0-afdc-8351295f8d12",
+          "name": "Google Upload File (Resumable)",
+          "request": {
+            "name": "Google Upload File (Resumable)",
+            "description": {
+              "content": "Upload a video, PDF, audio, or other media file using resumable upload protocol. Use this for files larger than 20MB, \nvideos longer than approximately 1 minute, or when you want to reuse the file across multiple requests.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Upload protocol type",
+                "key": "X-Goog-Upload-Protocol",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Upload command (start for initiation, \"upload, finalize\" for data upload)",
+                "key": "X-Goog-Upload-Command",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Total size of the file in bytes (required for start command)",
+                "key": "X-Goog-Upload-Header-Content-Length",
+                "value": "<integer>"
+              },
+              {
+                "disabled": false,
+                "description": "MIME type of the file (required for start command)",
+                "key": "X-Goog-Upload-Header-Content-Type",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Byte offset for upload (required for upload command)",
+                "key": "X-Goog-Upload-Offset",
+                "value": "<integer>"
+              },
+              {
+                "disabled": false,
+                "description": "Size of the current chunk being uploaded",
+                "key": "Content-Length",
+                "value": "<integer>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"file\": {\n    \"display_name\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c419b1e5-b0af-44f0-ac9b-3e50364d4353",
+              "name": "Upload initiated or completed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Upload protocol type",
+                    "key": "X-Goog-Upload-Protocol",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Upload command (start for initiation, \"upload, finalize\" for data upload)",
+                    "key": "X-Goog-Upload-Command",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Total size of the file in bytes (required for start command)",
+                    "key": "X-Goog-Upload-Header-Content-Length",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "MIME type of the file (required for start command)",
+                    "key": "X-Goog-Upload-Header-Content-Type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Byte offset for upload (required for upload command)",
+                    "key": "X-Goog-Upload-Offset",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Size of the current chunk being uploaded",
+                    "key": "Content-Length",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"file\": {\n    \"display_name\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "URL for uploading file data (returned on start command)",
+                  "key": "x-goog-upload-url",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"file\": {\n    \"name\": \"files/abc123\",\n    \"display_name\": \"string\",\n    \"mime_type\": \"video/mp4\",\n    \"size_bytes\": \"string\",\n    \"create_time\": \"2014-04-28T18:14:47.126Z\",\n    \"update_time\": \"1969-04-21T11:16:03.652Z\",\n    \"expiration_time\": \"2013-10-12T12:12:14.327Z\",\n    \"sha256_hash\": \"string\",\n    \"uri\": \"https://generativelanguage.googleapis.com/v1beta/files/abc123\",\n    \"state\": \"PROCESSING\",\n    \"error\": {\n      \"message\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96862967-5e6d-43ef-8cfd-6e2ca13a39d7",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Upload protocol type",
+                    "key": "X-Goog-Upload-Protocol",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Upload command (start for initiation, \"upload, finalize\" for data upload)",
+                    "key": "X-Goog-Upload-Command",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Total size of the file in bytes (required for start command)",
+                    "key": "X-Goog-Upload-Header-Content-Length",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "MIME type of the file (required for start command)",
+                    "key": "X-Goog-Upload-Header-Content-Type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Byte offset for upload (required for upload command)",
+                    "key": "X-Goog-Upload-Offset",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Size of the current chunk being uploaded",
+                    "key": "Content-Length",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"file\": {\n    \"display_name\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 9810,\n    \"message\": \"string\",\n    \"status\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2c2224b-f8e6-4e9b-8320-48b0f876f5fb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Upload protocol type",
+                    "key": "X-Goog-Upload-Protocol",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Upload command (start for initiation, \"upload, finalize\" for data upload)",
+                    "key": "X-Goog-Upload-Command",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Total size of the file in bytes (required for start command)",
+                    "key": "X-Goog-Upload-Header-Content-Length",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "MIME type of the file (required for start command)",
+                    "key": "X-Goog-Upload-Header-Content-Type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Byte offset for upload (required for upload command)",
+                    "key": "X-Goog-Upload-Offset",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Size of the current chunk being uploaded",
+                    "key": "Content-Length",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"file\": {\n    \"display_name\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 9810,\n    \"message\": \"string\",\n    \"status\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a95336e3-5619-43c1-839e-07a8d7f2c0a9",
+          "name": "Google Generate Content",
+          "request": {
+            "name": "Google Generate Content",
+            "description": {
+              "content": "Generates text output from various inputs including text, images, video, audio, and PDF documents.\n\n**Document Understanding**: Process PDF documents up to 1000 pages using native vision to:\n- Analyze and interpret text, images, diagrams, charts, and tables\n- Extract information into structured output formats\n- Summarize and answer questions based on visual and textual elements\n- Transcribe document content (e.g., to HTML) preserving layouts and formatting\n- Process multiple PDFs in a single request (within context window limits)\n\n**Video Understanding**: Process videos to describe, segment, and extract information, answer questions, \nand refer to specific timestamps.\n\n**Audio Understanding**: Analyze and understand audio input to:\n- Transcribe speech to text with timestamps\n- Translate audio content\n- Detect and label different speakers (speaker diarization)\n- Detect emotion in speech and music\n- Analyze specific segments and provide timestamps\n- Describe, summarize, or answer questions about audio content\n\n**Image Input**: Combine text with images for multimodal understanding.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "models",
+                "{{model}}:generateContent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"<string>\"\n        },\n        {\n          \"text\": \"<string>\"\n        }\n      ],\n      \"role\": \"<string>\"\n    },\n    {\n      \"parts\": [\n        {\n          \"text\": \"<string>\"\n        },\n        {\n          \"text\": \"<string>\"\n        }\n      ],\n      \"role\": \"<string>\"\n    }\n  ],\n  \"system_instruction\": {\n    \"parts\": [\n      {\n        \"text\": \"<string>\"\n      },\n      {\n        \"text\": \"<string>\"\n      }\n    ],\n    \"role\": \"<string>\"\n  },\n  \"generationConfig\": {\n    \"stopSequences\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"temperature\": 1,\n    \"topP\": \"<float>\",\n    \"topK\": \"<integer>\",\n    \"maxOutputTokens\": \"<integer>\",\n    \"thinkingConfig\": {\n      \"thinkingBudget\": null\n    },\n    \"response_mime_type\": \"<string>\",\n    \"response_schema\": {\n      \"key_0\": 5393\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1f746f1a-bf79-42da-a9db-7a9d25af82a1",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "{{model}}:generateContent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    },\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    }\n  ],\n  \"system_instruction\": {\n    \"parts\": [\n      {\n        \"text\": \"string\"\n      },\n      {\n        \"text\": \"string\"\n      }\n    ],\n    \"role\": \"model\"\n  },\n  \"generationConfig\": {\n    \"stopSequences\": [\n      \"string\",\n      \"string\"\n    ],\n    \"temperature\": 1,\n    \"topP\": 0.958857074740204,\n    \"topK\": 3937,\n    \"maxOutputTokens\": 9292,\n    \"thinkingConfig\": {\n      \"thinkingBudget\": null\n    },\n    \"response_mime_type\": \"application/json\",\n    \"response_schema\": {\n      \"key_0\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"candidates\": [\n    {\n      \"content\": {\n        \"parts\": [\n          {\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"role\": \"user\"\n      },\n      \"finishReason\": \"SAFETY\",\n      \"index\": 660,\n      \"safetyRatings\": [\n        {\n          \"category\": \"HARM_CATEGORY_UNSPECIFIED\",\n          \"probability\": \"HARM_PROBABILITY_UNSPECIFIED\"\n        },\n        {\n          \"category\": \"HARM_CATEGORY_SEXUAL\",\n          \"probability\": \"HARM_PROBABILITY_UNSPECIFIED\"\n        }\n      ]\n    },\n    {\n      \"content\": {\n        \"parts\": [\n          {\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"role\": \"model\"\n      },\n      \"finishReason\": \"MAX_TOKENS\",\n      \"index\": 5526,\n      \"safetyRatings\": [\n        {\n          \"category\": \"HARM_CATEGORY_DANGEROUS\",\n          \"probability\": \"LOW\"\n        },\n        {\n          \"category\": \"HARM_CATEGORY_HARASSMENT\",\n          \"probability\": \"LOW\"\n        }\n      ]\n    }\n  ],\n  \"promptFeedback\": {\n    \"blockReason\": \"SAFETY\",\n    \"safetyRatings\": [\n      {\n        \"category\": \"HARM_CATEGORY_HARASSMENT\",\n        \"probability\": \"LOW\"\n      },\n      {\n        \"category\": \"HARM_CATEGORY_SEXUALLY_EXPLICIT\",\n        \"probability\": \"NEGLIGIBLE\"\n      }\n    ]\n  },\n  \"usageMetadata\": {\n    \"promptTokenCount\": 1,\n    \"candidatesTokenCount\": 5365,\n    \"totalTokenCount\": 6290\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1bd86dcd-9dce-4c69-8af0-4db8103b7e32",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "{{model}}:generateContent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    },\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    }\n  ],\n  \"system_instruction\": {\n    \"parts\": [\n      {\n        \"text\": \"string\"\n      },\n      {\n        \"text\": \"string\"\n      }\n    ],\n    \"role\": \"model\"\n  },\n  \"generationConfig\": {\n    \"stopSequences\": [\n      \"string\",\n      \"string\"\n    ],\n    \"temperature\": 1,\n    \"topP\": 0.958857074740204,\n    \"topK\": 3937,\n    \"maxOutputTokens\": 9292,\n    \"thinkingConfig\": {\n      \"thinkingBudget\": null\n    },\n    \"response_mime_type\": \"application/json\",\n    \"response_schema\": {\n      \"key_0\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 9810,\n    \"message\": \"string\",\n    \"status\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df0a0651-e3b7-4396-8b44-4702aa40bbed",
+              "name": "Unauthorized - Invalid API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "{{model}}:generateContent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    },\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    }\n  ],\n  \"system_instruction\": {\n    \"parts\": [\n      {\n        \"text\": \"string\"\n      },\n      {\n        \"text\": \"string\"\n      }\n    ],\n    \"role\": \"model\"\n  },\n  \"generationConfig\": {\n    \"stopSequences\": [\n      \"string\",\n      \"string\"\n    ],\n    \"temperature\": 1,\n    \"topP\": 0.958857074740204,\n    \"topK\": 3937,\n    \"maxOutputTokens\": 9292,\n    \"thinkingConfig\": {\n      \"thinkingBudget\": null\n    },\n    \"response_mime_type\": \"application/json\",\n    \"response_schema\": {\n      \"key_0\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 9810,\n    \"message\": \"string\",\n    \"status\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ddb46cf-dd0d-4fb0-80ab-160375468f69",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "{{model}}:generateContent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    },\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    }\n  ],\n  \"system_instruction\": {\n    \"parts\": [\n      {\n        \"text\": \"string\"\n      },\n      {\n        \"text\": \"string\"\n      }\n    ],\n    \"role\": \"model\"\n  },\n  \"generationConfig\": {\n    \"stopSequences\": [\n      \"string\",\n      \"string\"\n    ],\n    \"temperature\": 1,\n    \"topP\": 0.958857074740204,\n    \"topK\": 3937,\n    \"maxOutputTokens\": 9292,\n    \"thinkingConfig\": {\n      \"thinkingBudget\": null\n    },\n    \"response_mime_type\": \"application/json\",\n    \"response_schema\": {\n      \"key_0\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 9810,\n    \"message\": \"string\",\n    \"status\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The model to use for generation",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "model"
+    }
+  ],
+  "info": {
+    "_postman_id": "d4e6d234-3285-4aa1-b4c8-3564c0069d02",
+    "name": "Google Books About Video Understanding API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

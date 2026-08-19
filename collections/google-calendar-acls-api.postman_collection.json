@@ -1,0 +1,691 @@
+{
+  "item": [
+    {
+      "id": "fb0a4e96-9400-49bd-9341-b84a4fef114e",
+      "name": "Calendar ACLs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9e663158-5617-43eb-bfa9-819059dd7093",
+          "name": "Google Return Access Control Rules",
+          "request": {
+            "name": "Google Return Access Control Rules",
+            "description": {
+              "content": "Returns the rules in the access control list for the calendar.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendars",
+                ":calendarId",
+                "acl"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "maxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "showDeleted",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "syncToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "alt",
+                  "value": "<string>",
+                  "description": "Data format for the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Selector specifying which fields to include in a partial response."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+                },
+                {
+                  "disabled": false,
+                  "key": "oauth_token",
+                  "value": "<string>",
+                  "description": "OAuth 2.0 token for the current user."
+                },
+                {
+                  "disabled": false,
+                  "key": "prettyPrint",
+                  "value": "<boolean>",
+                  "description": "Returns response with indentations and line breaks."
+                },
+                {
+                  "disabled": false,
+                  "key": "quotaUser",
+                  "value": "<string>",
+                  "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+                },
+                {
+                  "disabled": false,
+                  "key": "userIp",
+                  "value": "<string>",
+                  "description": "Deprecated. Please use quotaUser instead."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "183de824-1361-43f3-bc55-b4781dee251b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendars",
+                    ":calendarId",
+                    "acl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "showDeleted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "syncToken",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "alt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "key",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "oauth_token",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "prettyPrint",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "quotaUser",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "userIp",
+                      "value": "amet in"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"etag\": \"laborum ea d\",\n  \"items\": [\n    {\n      \"etag\": \"in in qui non dolore\",\n      \"id\": \"occaecat dolor qui eu ut\",\n      \"kind\": \"calendar#aclRule\",\n      \"role\": \"culpa magna tempor Excepteur\",\n      \"scope\": {\n        \"type\": \"culpa qui sint velit\",\n        \"value\": \"Lorem consectetur aliquip\"\n      }\n    },\n    {\n      \"etag\": \"quis id Lorem la\",\n      \"id\": \"quis\",\n      \"kind\": \"calendar#aclRule\",\n      \"role\": \"culpa deserunt officia commodo\",\n      \"scope\": {\n        \"type\": \"irure in quis ea\",\n        \"value\": \"ex dolore\"\n      }\n    }\n  ],\n  \"kind\": \"calendar#acl\",\n  \"nextPageToken\": \"dolore ex\",\n  \"nextSyncToken\": \"amet labore quis\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb6afd34-58dd-4973-a763-f89eae3a320a",
+          "name": "Google Insert Access Control Rule",
+          "request": {
+            "name": "Google Insert Access Control Rule",
+            "description": {
+              "content": "Creates an access control rule.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendars",
+                ":calendarId",
+                "acl"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sendNotifications",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "alt",
+                  "value": "<string>",
+                  "description": "Data format for the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Selector specifying which fields to include in a partial response."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+                },
+                {
+                  "disabled": false,
+                  "key": "oauth_token",
+                  "value": "<string>",
+                  "description": "OAuth 2.0 token for the current user."
+                },
+                {
+                  "disabled": false,
+                  "key": "prettyPrint",
+                  "value": "<boolean>",
+                  "description": "Returns response with indentations and line breaks."
+                },
+                {
+                  "disabled": false,
+                  "key": "quotaUser",
+                  "value": "<string>",
+                  "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+                },
+                {
+                  "disabled": false,
+                  "key": "userIp",
+                  "value": "<string>",
+                  "description": "Deprecated. Please use quotaUser instead."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "133dd491-112e-4ed3-a35a-ba1a2da9c062",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendars",
+                    ":calendarId",
+                    "acl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sendNotifications",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "alt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "key",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "oauth_token",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "prettyPrint",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "quotaUser",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "userIp",
+                      "value": "amet in"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"etag\": \"velit eu voluptate\",\n  \"kind\": \"calendar#aclRule\",\n  \"role\": \"et\",\n  \"scope\": {\n    \"type\": \"sit eiusmod culpa do\",\n    \"value\": \"quis esse\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"etag\": \"velit eu voluptate\",\n  \"id\": \"ex dolore in sint\",\n  \"kind\": \"calendar#aclRule\",\n  \"role\": \"et\",\n  \"scope\": {\n    \"type\": \"sit eiusmod culpa do\",\n    \"value\": \"quis esse\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "78f29786-a01f-4199-9b11-3b44b08524ed",
+          "name": "Google Watch Access Control Rules",
+          "request": {
+            "name": "Google Watch Access Control Rules",
+            "description": {
+              "content": "Watch for changes to ACL resources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendars",
+                ":calendarId",
+                "acl",
+                "watch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "maxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "showDeleted",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "syncToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "alt",
+                  "value": "<string>",
+                  "description": "Data format for the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Selector specifying which fields to include in a partial response."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+                },
+                {
+                  "disabled": false,
+                  "key": "oauth_token",
+                  "value": "<string>",
+                  "description": "OAuth 2.0 token for the current user."
+                },
+                {
+                  "disabled": false,
+                  "key": "prettyPrint",
+                  "value": "<boolean>",
+                  "description": "Returns response with indentations and line breaks."
+                },
+                {
+                  "disabled": false,
+                  "key": "quotaUser",
+                  "value": "<string>",
+                  "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters."
+                },
+                {
+                  "disabled": false,
+                  "key": "userIp",
+                  "value": "<string>",
+                  "description": "Deprecated. Please use quotaUser instead."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "617dc1bb-fa8b-493f-bf52-4ba6b4f57899",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendars",
+                    ":calendarId",
+                    "acl",
+                    "watch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "showDeleted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "syncToken",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "alt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "key",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "oauth_token",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "prettyPrint",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "quotaUser",
+                      "value": "amet in"
+                    },
+                    {
+                      "key": "userIp",
+                      "value": "amet in"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"incididunt sed consequat\",\n  \"expiration\": \"velit ad aliq\",\n  \"kind\": \"api#channel\",\n  \"params\": {\n    \"reprehenderit5c\": \"non\",\n    \"sint_b\": \"cupidatat do\"\n  },\n  \"payload\": false,\n  \"resourceId\": \"aute\",\n  \"resourceUri\": \"fugiat consequat\",\n  \"token\": \"ullamco officia in\",\n  \"type\": \"ex eiusmod adipisicing mollit\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": \"incididunt sed consequat\",\n  \"expiration\": \"velit ad aliq\",\n  \"id\": \"velit eiusmod\",\n  \"kind\": \"api#channel\",\n  \"params\": {\n    \"reprehenderit5c\": \"non\",\n    \"sint_b\": \"cupidatat do\"\n  },\n  \"payload\": false,\n  \"resourceId\": \"aute\",\n  \"resourceUri\": \"fugiat consequat\",\n  \"token\": \"ullamco officia in\",\n  \"type\": \"ex eiusmod adipisicing mollit\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8ca6cf16-072b-4448-8be4-cff627dc31b0",
+    "name": "Google Books About Calendar ACLs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

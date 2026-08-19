@@ -1,0 +1,467 @@
+{
+  "item": [
+    {
+      "id": "ebee3821-db45-4eed-bb79-62c5a3a9cf71",
+      "name": "Patch",
+      "description": {
+        "content": "Operations related to Patch",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "01058e45-60ff-4495-80de-af68f133a0b2",
+          "name": "Google Patch Labels",
+          "request": {
+            "name": "Google Patch Labels",
+            "description": {
+              "content": "Patch the specified label.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "labels",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3af3f416-362e-498d-950f-1d15050c3c3c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "labels",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"esse nulla occaecat\",\n  \"messageListVisibility\": \"show\",\n  \"labelListVisibility\": \"labelShow\",\n  \"type\": \"system\",\n  \"messagesTotal\": -34033607,\n  \"messagesUnread\": 96181517,\n  \"threadsTotal\": 7293200,\n  \"threadsUnread\": 86726755,\n  \"color\": {\n    \"textColor\": \"sunt fugiat ut voluptate\",\n    \"backgroundColor\": \"commodo est cupidatat in sed\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"nostrud officia pariatur\",\n  \"name\": \"esse nulla occaecat\",\n  \"messageListVisibility\": \"show\",\n  \"labelListVisibility\": \"labelShow\",\n  \"type\": \"system\",\n  \"messagesTotal\": -34033607,\n  \"messagesUnread\": 96181517,\n  \"threadsTotal\": 7293200,\n  \"threadsUnread\": 86726755,\n  \"color\": {\n    \"textColor\": \"sunt fugiat ut voluptate\",\n    \"backgroundColor\": \"commodo est cupidatat in sed\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "793d47f3-07f4-4792-be69-b3a9fa55c7f6",
+          "name": "Google Patch Send As",
+          "request": {
+            "name": "Google Patch Send As",
+            "description": {
+              "content": "Patch the specified send-as alias.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "settings",
+                "sendAs",
+                ":sendAsEmail"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sendAsEmail",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4341405e-5ea6-4107-960f-d116851e97fa",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "settings",
+                    "sendAs",
+                    ":sendAsEmail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sendAsEmail",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sendAsEmail\": \"ut nulla\",\n  \"displayName\": \"Excepteur\",\n  \"replyToAddress\": \"velit id culpa\",\n  \"signature\": \"officia quis adipisicing\",\n  \"isPrimary\": true,\n  \"isDefault\": true,\n  \"treatAsAlias\": false,\n  \"smtpMsa\": {\n    \"host\": \"in elit\",\n    \"port\": -34532702,\n    \"username\": \"aliqua laborum aliquip do\",\n    \"password\": \"tempor dolor velit\",\n    \"securityMode\": \"securityModeUnspecified\"\n  },\n  \"verificationStatus\": \"pending\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sendAsEmail\": \"ut nulla\",\n  \"displayName\": \"Excepteur\",\n  \"replyToAddress\": \"velit id culpa\",\n  \"signature\": \"officia quis adipisicing\",\n  \"isPrimary\": true,\n  \"isDefault\": true,\n  \"treatAsAlias\": false,\n  \"smtpMsa\": {\n    \"host\": \"in elit\",\n    \"port\": -34532702,\n    \"username\": \"aliqua laborum aliquip do\",\n    \"password\": \"tempor dolor velit\",\n    \"securityMode\": \"securityModeUnspecified\"\n  },\n  \"verificationStatus\": \"pending\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "48cc5459-8db3-4b79-b987-94020668c5e1",
+          "name": "Google PATCH CSE Identites",
+          "request": {
+            "name": "Google PATCH CSE Identites",
+            "description": {
+              "content": "Associates a different key pair with an existing client-side encryption identity. The updated key pair must validate against Google's [S/MIME certificate profiles](https://support.google.com/a/answer/7300887).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "settings",
+                "cse",
+                "identities",
+                ":emailAddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "emailAddress",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "69c6c2b4-79cf-456c-80df-d505a2f1abac",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "settings",
+                    "cse",
+                    "identities",
+                    ":emailAddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "emailAddress",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emailAddress\": \"aliquip quis id\",\n  \"primaryKeyPairId\": \"in exercitation esse\",\n  \"signAndEncryptKeyPairs\": {\n    \"signingKeyPairId\": \"est deserunt\",\n    \"encryptionKeyPairId\": \"elit nulla esse ut\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"emailAddress\": \"aliquip quis id\",\n  \"primaryKeyPairId\": \"in exercitation esse\",\n  \"signAndEncryptKeyPairs\": {\n    \"signingKeyPairId\": \"est deserunt\",\n    \"encryptionKeyPairId\": \"elit nulla esse ut\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "df2e1191-34af-4008-a74f-b6b7e41e2f18",
+    "name": "Google Books About Patch API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

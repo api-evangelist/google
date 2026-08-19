@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books About Bookshelves API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bookshelves",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google List Bookshelves",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/users/:userId/bookshelves",
+            "params": [
+              {
+                "name": "userId",
+                "value": "112624903452243252365",
+                "type": "path",
+                "description": "ID of user for whom to retrieve bookshelves"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "String to identify the originator of this request"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of public Bookshelf resources for the specified user. More information about user IDs can be found in the Google Books IDs section."
+        },
+        {
+          "info": {
+            "name": "Google Get Bookshelf",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/users/:userId/bookshelves/:shelf",
+            "params": [
+              {
+                "name": "userId",
+                "value": "112624903452243252365",
+                "type": "path",
+                "description": "ID of user for whom to retrieve bookshelves"
+              },
+              {
+                "name": "shelf",
+                "value": "0",
+                "type": "path",
+                "description": "ID of bookshelf to retrieve"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "String to identify the originator of this request"
+              }
+            ]
+          },
+          "docs": "Retrieves a specific Bookshelf resource for the specified user. More information about user IDs can be found in the Google Books IDs section."
+        },
+        {
+          "info": {
+            "name": "Google List Bookshelf Volumes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/users/:userId/bookshelves/:shelf/volumes",
+            "params": [
+              {
+                "name": "userId",
+                "value": "112624903452243252365",
+                "type": "path",
+                "description": "ID of user for whom to retrieve bookshelf volumes"
+              },
+              {
+                "name": "shelf",
+                "value": "0",
+                "type": "path",
+                "description": "ID of bookshelf to retrieve volumes"
+              },
+              {
+                "name": "maxResults",
+                "value": "10",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "showPreorders",
+                "value": "false",
+                "type": "query",
+                "description": "Set to true to show pre-ordered books"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "String to identify the originator of this request"
+              },
+              {
+                "name": "startIndex",
+                "value": "0",
+                "type": "query",
+                "description": "Index of the first element to return (starts at 0)"
+              }
+            ]
+          },
+          "docs": "Retrieves volumes in a specific bookshelf for the specified user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

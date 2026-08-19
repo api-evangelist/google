@@ -1,0 +1,269 @@
+{
+  "item": [
+    {
+      "id": "2856fb24-0e01-41c3-9094-8f33ece22f1d",
+      "name": "Developer",
+      "description": {
+        "content": "Operations related to Developer",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5253f993-f7a0-4d8f-a3d6-0eb5c4beda8c",
+          "name": "Google Get Developer Metadata",
+          "request": {
+            "name": "Google Get Developer Metadata",
+            "description": {
+              "content": "Returns the developer metadata with the specified ID. The caller must specify the spreadsheet ID and the developer metadata's unique metadataId.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "spreadsheets",
+                ":spreadsheetId",
+                "developerMetadata",
+                ":metadataId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "spreadsheetId",
+                  "description": "(Required) (Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "metadataId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "7d88934b-4602-440a-a526-7f87a1ecf9b4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "spreadsheets",
+                    ":spreadsheetId",
+                    "developerMetadata",
+                    ":metadataId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spreadsheetId",
+                      "description": "(Required) (Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metadataId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"location\": {\n    \"dimensionRange\": {\n      \"dimension\": \"ROWS\",\n      \"endIndex\": -94618933,\n      \"sheetId\": 54017992,\n      \"startIndex\": -52191558\n    },\n    \"locationType\": \"SHEET\",\n    \"sheetId\": 33310290,\n    \"spreadsheet\": false\n  },\n  \"metadataId\": -42137085,\n  \"metadataKey\": \"proident ex\",\n  \"metadataValue\": \"Lorem magna minim sunt\",\n  \"visibility\": \"DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f760b854-abf6-40c2-9049-3e3dc16ddb0f",
+          "name": "Google Search Developer Metadata",
+          "request": {
+            "name": "Google Search Developer Metadata",
+            "description": {
+              "content": "Returns all developer metadata matching the specified DataFilter. If the provided DataFilter represents a DeveloperMetadataLookup object, this will return all DeveloperMetadata entries selected by it. If the DataFilter represents a location in a spreadsheet, this will return all developer metadata associated with locations intersecting that region.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "spreadsheets",
+                ":spreadsheetId",
+                "developerMetadata:search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "spreadsheetId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "61444296-3336-4d58-b343-15be776712cc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "spreadsheets",
+                    ":spreadsheetId",
+                    "developerMetadata:search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spreadsheetId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dataFilters\": [\n    {\n      \"a1Range\": \"aute\",\n      \"developerMetadataLookup\": {\n        \"locationMatchingStrategy\": \"INTERSECTING_LOCATION\",\n        \"locationType\": \"DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED\",\n        \"metadataId\": -761178,\n        \"metadataKey\": \"consequat Duis\",\n        \"metadataLocation\": {\n          \"dimensionRange\": {\n            \"dimension\": \"COLUMNS\",\n            \"endIndex\": -22955243,\n            \"sheetId\": 41865153,\n            \"startIndex\": -49712859\n          },\n          \"locationType\": \"SHEET\",\n          \"sheetId\": 77477058,\n          \"spreadsheet\": true\n        },\n        \"metadataValue\": \"tempor\",\n        \"visibility\": \"DOCUMENT\"\n      },\n      \"gridRange\": {\n        \"endColumnIndex\": -69789235,\n        \"endRowIndex\": -98601086,\n        \"sheetId\": 32219017,\n        \"startColumnIndex\": -61197874,\n        \"startRowIndex\": -91350843\n      }\n    },\n    {\n      \"a1Range\": \"Ut cu\",\n      \"developerMetadataLookup\": {\n        \"locationMatchingStrategy\": \"INTERSECTING_LOCATION\",\n        \"locationType\": \"SHEET\",\n        \"metadataId\": -32999997,\n        \"metadataKey\": \"commodo sit esse consequat\",\n        \"metadataLocation\": {\n          \"dimensionRange\": {\n            \"dimension\": \"ROWS\",\n            \"endIndex\": 1730530,\n            \"sheetId\": -56140506,\n            \"startIndex\": 82831554\n          },\n          \"locationType\": \"SPREADSHEET\",\n          \"sheetId\": 58086209,\n          \"spreadsheet\": false\n        },\n        \"metadataValue\": \"in pariatur in Ut\",\n        \"visibility\": \"DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED\"\n      },\n      \"gridRange\": {\n        \"endColumnIndex\": 81731062,\n        \"endRowIndex\": 51216059,\n        \"sheetId\": -87090690,\n        \"startColumnIndex\": -26697783,\n        \"startRowIndex\": -36015480\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"matchedDeveloperMetadata\": [\n    {\n      \"dataFilters\": [\n        {\n          \"a1Range\": \"ullam\",\n          \"developerMetadataLookup\": {\n            \"locationMatchingStrategy\": \"EXACT_LOCATION\",\n            \"locationType\": \"SHEET\",\n            \"metadataId\": -96703507,\n            \"metadataKey\": \"cupidatat irure dolor eu\",\n            \"metadataLocation\": {\n              \"dimensionRange\": {\n                \"dimension\": \"COLUMNS\",\n                \"endIndex\": -47261175,\n                \"sheetId\": 3032031,\n                \"startIndex\": -13916935\n              },\n              \"locationType\": \"SHEET\",\n              \"sheetId\": 34119692,\n              \"spreadsheet\": true\n            },\n            \"metadataValue\": \"commodo\",\n            \"visibility\": \"DOCUMENT\"\n          },\n          \"gridRange\": {\n            \"endColumnIndex\": -92591699,\n            \"endRowIndex\": -77367572,\n            \"sheetId\": 21036335,\n            \"startColumnIndex\": -90121416,\n            \"startRowIndex\": -28441128\n          }\n        },\n        {\n          \"a1Range\": \"eu dolor minim Lorem\",\n          \"developerMetadataLookup\": {\n            \"locationMatchingStrategy\": \"EXACT_LOCATION\",\n            \"locationType\": \"DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED\",\n            \"metadataId\": -74716743,\n            \"metadataKey\": \"aliqua est anim nisi\",\n            \"metadataLocation\": {\n              \"dimensionRange\": {\n                \"dimension\": \"DIMENSION_UNSPECIFIED\",\n                \"endIndex\": 71729621,\n                \"sheetId\": 25577647,\n                \"startIndex\": 88154583\n              },\n              \"locationType\": \"DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED\",\n              \"sheetId\": 75611815,\n              \"spreadsheet\": false\n            },\n            \"metadataValue\": \"magna reprehenderit in minim\",\n            \"visibility\": \"PROJECT\"\n          },\n          \"gridRange\": {\n            \"endColumnIndex\": -84187908,\n            \"endRowIndex\": -74735246,\n            \"sheetId\": 96622353,\n            \"startColumnIndex\": -25608378,\n            \"startRowIndex\": -22957175\n          }\n        }\n      ],\n      \"developerMetadata\": {\n        \"location\": {\n          \"dimensionRange\": {\n            \"dimension\": \"DIMENSION_UNSPECIFIED\",\n            \"endIndex\": -3673940,\n            \"sheetId\": -65524837,\n            \"startIndex\": -54517761\n          },\n          \"locationType\": \"ROW\",\n          \"sheetId\": -56245453,\n          \"spreadsheet\": false\n        },\n        \"metadataId\": 34322524,\n        \"metadataKey\": \"laborum veniam fugiat\",\n        \"metadataValue\": \"eiusmod qui Lorem est\",\n        \"visibility\": \"DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED\"\n      }\n    },\n    {\n      \"dataFilters\": [\n        {\n          \"a1Range\": \"dolore\",\n          \"developerMetadataLookup\": {\n            \"locationMatchingStrategy\": \"EXACT_LOCATION\",\n            \"locationType\": \"DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED\",\n            \"metadataId\": -40811642,\n            \"metadataKey\": \"adipisicing laboris ut velit\",\n            \"metadataLocation\": {\n              \"dimensionRange\": {\n                \"dimension\": \"ROWS\",\n                \"endIndex\": -53824975,\n                \"sheetId\": -93273913,\n                \"startIndex\": 86130672\n              },\n              \"locationType\": \"ROW\",\n              \"sheetId\": 52856889,\n              \"spreadsheet\": true\n            },\n            \"metadataValue\": \"aliqua et aliquip occaecat aute\",\n            \"visibility\": \"PROJECT\"\n          },\n          \"gridRange\": {\n            \"endColumnIndex\": -73440610,\n            \"endRowIndex\": 28308616,\n            \"sheetId\": 37046200,\n            \"startColumnIndex\": -5275558,\n            \"startRowIndex\": -89666878\n          }\n        },\n        {\n          \"a1Range\": \"officia non\",\n          \"developerMetadataLookup\": {\n            \"locationMatchingStrategy\": \"INTERSECTING_LOCATION\",\n            \"locationType\": \"ROW\",\n            \"metadataId\": 14514280,\n            \"metadataKey\": \"ni\",\n            \"metadataLocation\": {\n              \"dimensionRange\": {\n                \"dimension\": \"DIMENSION_UNSPECIFIED\",\n                \"endIndex\": 90859887,\n                \"sheetId\": 24355574,\n                \"startIndex\": -70400658\n              },\n              \"locationType\": \"ROW\",\n              \"sheetId\": 8907501,\n              \"spreadsheet\": true\n            },\n            \"metadataValue\": \"ut aute dolore\",\n            \"visibility\": \"DOCUMENT\"\n          },\n          \"gridRange\": {\n            \"endColumnIndex\": -61886577,\n            \"endRowIndex\": -27471726,\n            \"sheetId\": 28840797,\n            \"startColumnIndex\": 13238176,\n            \"startRowIndex\": -28396473\n          }\n        }\n      ],\n      \"developerMetadata\": {\n        \"location\": {\n          \"dimensionRange\": {\n            \"dimension\": \"ROWS\",\n            \"endIndex\": 76653041,\n            \"sheetId\": -21267874,\n            \"startIndex\": -66439347\n          },\n          \"locationType\": \"SHEET\",\n          \"sheetId\": 21282299,\n          \"spreadsheet\": true\n        },\n        \"metadataId\": 8593114,\n        \"metadataKey\": \"sunt velit\",\n        \"metadataValue\": \"et\",\n        \"visibility\": \"DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4e8feb87-1a95-46a4-a300-f48c2c62fa27",
+    "name": "Google Books About Developer API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

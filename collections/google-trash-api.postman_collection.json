@@ -1,0 +1,290 @@
+{
+  "item": [
+    {
+      "id": "eef420fc-4033-434d-a70a-ad3c7e02448a",
+      "name": "Trash",
+      "description": {
+        "content": "Operations related to Trash",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6fdaa9d3-a301-426c-8825-47246a11ad56",
+          "name": "Google Trash Messsages",
+          "request": {
+            "name": "Google Trash Messsages",
+            "description": {
+              "content": "Moves the specified message to the trash.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "messages",
+                ":id",
+                "trash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "id": "2dab4586-3aa6-4f9d-ae55-60e6371be9b3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "messages",
+                    ":id",
+                    "trash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"eu incididunt laborum irure\",\n  \"threadId\": \"magna Ut officia\",\n  \"labelIds\": [\n    \"mollit amet dolore cupidatat\",\n    \"cupidatat deserunt mollit\"\n  ],\n  \"snippet\": \"ut dolor\",\n  \"historyId\": \"nisi tempor do\",\n  \"internalDate\": \"cupidatat officia anim\",\n  \"payload\": {\n    \"partId\": \"dolore velit incididunt est a\",\n    \"mimeType\": \"sit dolor mollit\",\n    \"filename\": \"ea commodo dolor nisi\",\n    \"headers\": [\n      {\n        \"name\": \"quis id velit laborum\",\n        \"value\": \"et voluptate dolor ea\"\n      },\n      {\n        \"name\": \"sit nostrud\",\n        \"value\": \"deserunt fugiat ex\"\n      }\n    ],\n    \"body\": {\n      \"attachmentId\": \"id nulla consequat\",\n      \"size\": -93837667,\n      \"data\": \"ad in occaecat\"\n    },\n    \"parts\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n      }\n    ]\n  },\n  \"sizeEstimate\": 21128811,\n  \"raw\": \"do laboris\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b4457d04-b87d-4b7e-8b5f-34cde928407b",
+          "name": "Google Trash Threads",
+          "request": {
+            "name": "Google Trash Threads",
+            "description": {
+              "content": "Moves the specified thread to the trash. Any messages that belong to the thread are also moved to the trash.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "threads",
+                ":id",
+                "trash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "id": "db364fb2-972f-4024-9501-140c1fef39b3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "threads",
+                    ":id",
+                    "trash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"nostrud deserunt\",\n  \"snippet\": \"cillum quis\",\n  \"historyId\": \"id ea ad amet venia\",\n  \"messages\": [\n    {\n      \"id\": \"exercitation sint\",\n      \"threadId\": \"Ut sed occaecat\",\n      \"labelIds\": [\n        \"in commodo\",\n        \"sit dolor\"\n      ],\n      \"snippet\": \"dolor fugiat Ut\",\n      \"historyId\": \"Lorem quis ullamco veniam\",\n      \"internalDate\": \"consectetur elit dolor\",\n      \"payload\": {\n        \"partId\": \"mi\",\n        \"mimeType\": \"elit\",\n        \"filename\": \"ex\",\n        \"headers\": [\n          {\n            \"name\": \"velit do voluptate\",\n            \"value\": \"in reprehenderit sit pariatur\"\n          },\n          {\n            \"name\": \"enim\",\n            \"value\": \"vel\"\n          }\n        ],\n        \"body\": {\n          \"attachmentId\": \"e\",\n          \"size\": 62147464,\n          \"data\": \"aliquip aute in Excepteur\"\n        },\n        \"parts\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n          }\n        ]\n      },\n      \"sizeEstimate\": -33441686,\n      \"raw\": \"Ut sit\"\n    },\n    {\n      \"id\": \"magna pariatur\",\n      \"threadId\": \"et\",\n      \"labelIds\": [\n        \"est dolore\",\n        \"Lorem Duis amet dolore\"\n      ],\n      \"snippet\": \"dolore est reprehender\",\n      \"historyId\": \"in ex veniam nulla\",\n      \"internalDate\": \"ut\",\n      \"payload\": {\n        \"partId\": \"do consectetur tempor qui in\",\n        \"mimeType\": \"Excepteur in\",\n        \"filename\": \"reprehenderit\",\n        \"headers\": [\n          {\n            \"name\": \"nulla sed ut\",\n            \"value\": \"et occaecat\"\n          },\n          {\n            \"name\": \"mollit elit commodo nostrud pariatur\",\n            \"value\": \"aliqua\"\n          }\n        ],\n        \"body\": {\n          \"attachmentId\": \"sit sunt occaecat\",\n          \"size\": 23654047,\n          \"data\": \"dolor ut\"\n        },\n        \"parts\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n          }\n        ]\n      },\n      \"sizeEstimate\": 2028457,\n      \"raw\": \"ipsum enim minim\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "922c236a-5800-46ed-88f5-33663feb4e0d",
+    "name": "Google Books About Trash API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

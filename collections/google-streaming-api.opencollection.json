@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books About Streaming API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Streaming",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Stream Generate Content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/models/:model:streamGenerateContent",
+            "params": [
+              {
+                "name": "model",
+                "value": "",
+                "type": "path",
+                "description": "The model to use for generation"
+              },
+              {
+                "name": "alt",
+                "value": "",
+                "type": "query",
+                "description": "Alternative response format"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates text output with streaming responses, receiving GenerateContentResponse instances incrementally"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

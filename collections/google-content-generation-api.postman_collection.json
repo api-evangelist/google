@@ -1,0 +1,651 @@
+{
+  "item": [
+    {
+      "id": "6ad237a0-14bb-4c04-95ef-a93dc444c960",
+      "name": "Content Generation",
+      "description": {
+        "content": "Operations related to Content Generation",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b7f4d9bc-71ee-4823-8d80-92ec056315ed",
+          "name": "Google Count Tokens",
+          "request": {
+            "name": "Google Count Tokens",
+            "description": {
+              "content": "Get a count of the number of tokens in content, including audio, video, images, and text.\nUseful for estimating costs and ensuring content fits within model context windows.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "models",
+                "{{model}}:countTokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"<string>\"\n        },\n        {\n          \"text\": \"<string>\"\n        }\n      ],\n      \"role\": \"<string>\"\n    },\n    {\n      \"parts\": [\n        {\n          \"text\": \"<string>\"\n        },\n        {\n          \"text\": \"<string>\"\n        }\n      ],\n      \"role\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0a94ad5f-7e8a-49c3-afce-d2ccebcd0973",
+              "name": "Token count retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "{{model}}:countTokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"file_data\": {\n            \"mime_type\": \"audio/mp3\",\n            \"file_uri\": \"https://generativelanguage.googleapis.com/v1beta/files/abc123\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalTokens\": 7998,\n  \"totalBillableCharacters\": 4106\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b9f9aad-2715-4ae4-9369-6b0413ded4f6",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "{{model}}:countTokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"file_data\": {\n            \"mime_type\": \"audio/mp3\",\n            \"file_uri\": \"https://generativelanguage.googleapis.com/v1beta/files/abc123\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 9795,\n    \"message\": \"string\",\n    \"status\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6378858-aa08-4be0-bce5-66ada589bcc6",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "{{model}}:countTokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"file_data\": {\n            \"mime_type\": \"audio/mp3\",\n            \"file_uri\": \"https://generativelanguage.googleapis.com/v1beta/files/abc123\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 9795,\n    \"message\": \"string\",\n    \"status\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c8602fd-b4bc-4af1-b007-80345b68a5cd",
+          "name": "Google Generate Content",
+          "request": {
+            "name": "Google Generate Content",
+            "description": {
+              "content": "Generates text output from various inputs including text, images, video, audio, and PDF documents.\n\n**Document Understanding**: Process PDF documents up to 1000 pages using native vision to:\n- Analyze and interpret text, images, diagrams, charts, and tables\n- Extract information into structured output formats\n- Summarize and answer questions based on visual and textual elements\n- Transcribe document content (e.g., to HTML) preserving layouts and formatting\n- Process multiple PDFs in a single request (within context window limits)\n\n**Video Understanding**: Process videos to describe, segment, and extract information, answer questions, \nand refer to specific timestamps.\n\n**Audio Understanding**: Analyze and understand audio input to:\n- Transcribe speech to text with timestamps\n- Translate audio content\n- Detect and label different speakers (speaker diarization)\n- Detect emotion in speech and music\n- Analyze specific segments and provide timestamps\n- Describe, summarize, or answer questions about audio content\n\n**Image Input**: Combine text with images for multimodal understanding.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "models",
+                "{{model}}:generateContent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"<string>\"\n        },\n        {\n          \"text\": \"<string>\"\n        }\n      ],\n      \"role\": \"<string>\"\n    },\n    {\n      \"parts\": [\n        {\n          \"text\": \"<string>\"\n        },\n        {\n          \"text\": \"<string>\"\n        }\n      ],\n      \"role\": \"<string>\"\n    }\n  ],\n  \"system_instruction\": {\n    \"parts\": [\n      {\n        \"text\": \"<string>\"\n      },\n      {\n        \"text\": \"<string>\"\n      }\n    ],\n    \"role\": \"<string>\"\n  },\n  \"generationConfig\": {\n    \"stopSequences\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"temperature\": 1,\n    \"topP\": \"<float>\",\n    \"topK\": \"<integer>\",\n    \"maxOutputTokens\": \"<integer>\",\n    \"thinkingConfig\": {\n      \"thinkingBudget\": null\n    },\n    \"response_mime_type\": \"<string>\",\n    \"response_schema\": {\n      \"key_0\": 4440.000883387999,\n      \"key_1\": \"string\",\n      \"key_2\": 4376.268632770335\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "41b54463-f8e1-489b-885a-fc70538f2642",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "{{model}}:generateContent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    },\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    }\n  ],\n  \"system_instruction\": {\n    \"parts\": [\n      {\n        \"text\": \"string\"\n      },\n      {\n        \"text\": \"string\"\n      }\n    ],\n    \"role\": \"user\"\n  },\n  \"generationConfig\": {\n    \"stopSequences\": [\n      \"string\",\n      \"string\"\n    ],\n    \"temperature\": 1,\n    \"topP\": 0.2236289032380634,\n    \"topK\": 4618,\n    \"maxOutputTokens\": 9372,\n    \"thinkingConfig\": {\n      \"thinkingBudget\": null\n    },\n    \"response_mime_type\": \"application/json\",\n    \"response_schema\": {\n      \"key_0\": 1615.142062576541\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"candidates\": [\n    {\n      \"content\": {\n        \"parts\": [\n          {\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"role\": \"model\"\n      },\n      \"finishReason\": \"STOP\",\n      \"index\": 7748,\n      \"safetyRatings\": [\n        {\n          \"category\": \"HARM_CATEGORY_SEXUAL\",\n          \"probability\": \"LOW\"\n        },\n        {\n          \"category\": \"HARM_CATEGORY_UNSPECIFIED\",\n          \"probability\": \"HIGH\"\n        }\n      ]\n    },\n    {\n      \"content\": {\n        \"parts\": [\n          {\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"role\": \"model\"\n      },\n      \"finishReason\": \"SAFETY\",\n      \"index\": 6167,\n      \"safetyRatings\": [\n        {\n          \"category\": \"HARM_CATEGORY_VIOLENCE\",\n          \"probability\": \"LOW\"\n        },\n        {\n          \"category\": \"HARM_CATEGORY_TOXICITY\",\n          \"probability\": \"MEDIUM\"\n        }\n      ]\n    }\n  ],\n  \"promptFeedback\": {\n    \"blockReason\": \"SAFETY\",\n    \"safetyRatings\": [\n      {\n        \"category\": \"HARM_CATEGORY_MEDICAL\",\n        \"probability\": \"MEDIUM\"\n      },\n      {\n        \"category\": \"HARM_CATEGORY_MEDICAL\",\n        \"probability\": \"NEGLIGIBLE\"\n      }\n    ]\n  },\n  \"usageMetadata\": {\n    \"promptTokenCount\": 6472,\n    \"candidatesTokenCount\": 8816,\n    \"totalTokenCount\": 1500\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "093dd8e0-9e1a-4b8e-b9bb-80e6fb5b6ad7",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "{{model}}:generateContent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    },\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    }\n  ],\n  \"system_instruction\": {\n    \"parts\": [\n      {\n        \"text\": \"string\"\n      },\n      {\n        \"text\": \"string\"\n      }\n    ],\n    \"role\": \"user\"\n  },\n  \"generationConfig\": {\n    \"stopSequences\": [\n      \"string\",\n      \"string\"\n    ],\n    \"temperature\": 1,\n    \"topP\": 0.2236289032380634,\n    \"topK\": 4618,\n    \"maxOutputTokens\": 9372,\n    \"thinkingConfig\": {\n      \"thinkingBudget\": null\n    },\n    \"response_mime_type\": \"application/json\",\n    \"response_schema\": {\n      \"key_0\": 1615.142062576541\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 9795,\n    \"message\": \"string\",\n    \"status\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cffc8106-ec52-417b-8c4c-4f6ef3206582",
+              "name": "Unauthorized - Invalid API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "{{model}}:generateContent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    },\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    }\n  ],\n  \"system_instruction\": {\n    \"parts\": [\n      {\n        \"text\": \"string\"\n      },\n      {\n        \"text\": \"string\"\n      }\n    ],\n    \"role\": \"user\"\n  },\n  \"generationConfig\": {\n    \"stopSequences\": [\n      \"string\",\n      \"string\"\n    ],\n    \"temperature\": 1,\n    \"topP\": 0.2236289032380634,\n    \"topK\": 4618,\n    \"maxOutputTokens\": 9372,\n    \"thinkingConfig\": {\n      \"thinkingBudget\": null\n    },\n    \"response_mime_type\": \"application/json\",\n    \"response_schema\": {\n      \"key_0\": 1615.142062576541\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 9795,\n    \"message\": \"string\",\n    \"status\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de07c266-942c-42ca-8186-0dcd55eb2f15",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "{{model}}:generateContent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    },\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    }\n  ],\n  \"system_instruction\": {\n    \"parts\": [\n      {\n        \"text\": \"string\"\n      },\n      {\n        \"text\": \"string\"\n      }\n    ],\n    \"role\": \"user\"\n  },\n  \"generationConfig\": {\n    \"stopSequences\": [\n      \"string\",\n      \"string\"\n    ],\n    \"temperature\": 1,\n    \"topP\": 0.2236289032380634,\n    \"topK\": 4618,\n    \"maxOutputTokens\": 9372,\n    \"thinkingConfig\": {\n      \"thinkingBudget\": null\n    },\n    \"response_mime_type\": \"application/json\",\n    \"response_schema\": {\n      \"key_0\": 1615.142062576541\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 9795,\n    \"message\": \"string\",\n    \"status\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "780bc151-5e57-4007-9b40-226faace40c4",
+          "name": "Google Stream Generate Content",
+          "request": {
+            "name": "Google Stream Generate Content",
+            "description": {
+              "content": "Generates text output with streaming responses, receiving GenerateContentResponse instances incrementally",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "models",
+                "{{model}}:streamGenerateContent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "alt",
+                  "value": "<string>",
+                  "description": "(Required) Alternative response format"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/event-stream"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"<string>\"\n        },\n        {\n          \"text\": \"<string>\"\n        }\n      ],\n      \"role\": \"<string>\"\n    },\n    {\n      \"parts\": [\n        {\n          \"text\": \"<string>\"\n        },\n        {\n          \"text\": \"<string>\"\n        }\n      ],\n      \"role\": \"<string>\"\n    }\n  ],\n  \"system_instruction\": {\n    \"parts\": [\n      {\n        \"text\": \"<string>\"\n      },\n      {\n        \"text\": \"<string>\"\n      }\n    ],\n    \"role\": \"<string>\"\n  },\n  \"generationConfig\": {\n    \"stopSequences\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"temperature\": 1,\n    \"topP\": \"<float>\",\n    \"topK\": \"<integer>\",\n    \"maxOutputTokens\": \"<integer>\",\n    \"thinkingConfig\": {\n      \"thinkingBudget\": null\n    },\n    \"response_mime_type\": \"<string>\",\n    \"response_schema\": {\n      \"key_0\": 4440.000883387999,\n      \"key_1\": \"string\",\n      \"key_2\": 4376.268632770335\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "44938acf-5e9c-49ad-afe1-89370e601fa4",
+              "name": "Successful streaming response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "{{model}}:streamGenerateContent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "alt",
+                      "value": "sse"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/event-stream"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    },\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    }\n  ],\n  \"system_instruction\": {\n    \"parts\": [\n      {\n        \"text\": \"string\"\n      },\n      {\n        \"text\": \"string\"\n      }\n    ],\n    \"role\": \"user\"\n  },\n  \"generationConfig\": {\n    \"stopSequences\": [\n      \"string\",\n      \"string\"\n    ],\n    \"temperature\": 1,\n    \"topP\": 0.2236289032380634,\n    \"topK\": 4618,\n    \"maxOutputTokens\": 9372,\n    \"thinkingConfig\": {\n      \"thinkingBudget\": null\n    },\n    \"response_mime_type\": \"application/json\",\n    \"response_schema\": {\n      \"key_0\": 1615.142062576541\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/event-stream"
+                }
+              ],
+              "body": "string-value",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3cc6831f-9432-46b2-9a41-5bab19b6b6e9",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "{{model}}:streamGenerateContent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "alt",
+                      "value": "sse"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    },\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    }\n  ],\n  \"system_instruction\": {\n    \"parts\": [\n      {\n        \"text\": \"string\"\n      },\n      {\n        \"text\": \"string\"\n      }\n    ],\n    \"role\": \"user\"\n  },\n  \"generationConfig\": {\n    \"stopSequences\": [\n      \"string\",\n      \"string\"\n    ],\n    \"temperature\": 1,\n    \"topP\": 0.2236289032380634,\n    \"topK\": 4618,\n    \"maxOutputTokens\": 9372,\n    \"thinkingConfig\": {\n      \"thinkingBudget\": null\n    },\n    \"response_mime_type\": \"application/json\",\n    \"response_schema\": {\n      \"key_0\": 1615.142062576541\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 9795,\n    \"message\": \"string\",\n    \"status\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "422633db-2a4e-465f-9731-5097c1d5dea4",
+              "name": "Unauthorized - Invalid API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "{{model}}:streamGenerateContent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "alt",
+                      "value": "sse"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    },\n    {\n      \"parts\": [\n        {\n          \"text\": \"string\"\n        },\n        {\n          \"text\": \"string\"\n        }\n      ],\n      \"role\": \"model\"\n    }\n  ],\n  \"system_instruction\": {\n    \"parts\": [\n      {\n        \"text\": \"string\"\n      },\n      {\n        \"text\": \"string\"\n      }\n    ],\n    \"role\": \"user\"\n  },\n  \"generationConfig\": {\n    \"stopSequences\": [\n      \"string\",\n      \"string\"\n    ],\n    \"temperature\": 1,\n    \"topP\": 0.2236289032380634,\n    \"topK\": 4618,\n    \"maxOutputTokens\": 9372,\n    \"thinkingConfig\": {\n      \"thinkingBudget\": null\n    },\n    \"response_mime_type\": \"application/json\",\n    \"response_schema\": {\n      \"key_0\": 1615.142062576541\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 9795,\n    \"message\": \"string\",\n    \"status\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The model to use for token counting",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "model"
+    }
+  ],
+  "info": {
+    "_postman_id": "3d461916-1a14-4186-9b8a-37327cc3b7c0",
+    "name": "Google Books About Content Generation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

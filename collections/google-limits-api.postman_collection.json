@@ -1,0 +1,233 @@
+{
+  "item": [
+    {
+      "id": "3d95358f-7195-4337-82ef-4b90e2633acf",
+      "name": "Limits",
+      "description": {
+        "content": "Operations related to Limits",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "004963db-63c0-42aa-898f-3657a2a20d10",
+          "name": "Google Retrieve Limits Label",
+          "request": {
+            "name": "Google Retrieve Limits Label",
+            "description": {
+              "content": "Get the constraints on the structure of a Label; such as, the maximum number of Fields allowed and maximum length of the label title.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "limits",
+                "label"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Required. Label revision resource name Must be: \"limits/label\""
+                },
+                {
+                  "disabled": false,
+                  "key": "$.xgafv",
+                  "value": "<string>",
+                  "description": "V1 error format."
+                },
+                {
+                  "disabled": false,
+                  "key": "access_token",
+                  "value": "<string>",
+                  "description": "OAuth access token."
+                },
+                {
+                  "disabled": false,
+                  "key": "alt",
+                  "value": "<string>",
+                  "description": "Data format for response."
+                },
+                {
+                  "disabled": false,
+                  "key": "callback",
+                  "value": "<string>",
+                  "description": "JSONP"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Selector specifying which fields to include in a partial response."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+                },
+                {
+                  "disabled": false,
+                  "key": "oauth_token",
+                  "value": "<string>",
+                  "description": "OAuth 2.0 token for the current user."
+                },
+                {
+                  "disabled": false,
+                  "key": "prettyPrint",
+                  "value": "<boolean>",
+                  "description": "Returns response with indentations and line breaks."
+                },
+                {
+                  "disabled": false,
+                  "key": "quotaUser",
+                  "value": "<string>",
+                  "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+                },
+                {
+                  "disabled": false,
+                  "key": "upload_protocol",
+                  "value": "<string>",
+                  "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+                },
+                {
+                  "disabled": false,
+                  "key": "uploadType",
+                  "value": "<string>",
+                  "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "1d925b67-38a8-4bde-b470-82435252e09b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "limits",
+                    "label"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$.xgafv",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "access_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "alt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "oauth_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prettyPrint",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "quotaUser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "upload_protocol",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "uploadType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fieldLimits\": {\n    \"dateLimits\": {\n      \"maxValue\": {\n        \"day\": 2537,\n        \"month\": 9488,\n        \"year\": 7882\n      },\n      \"minValue\": {\n        \"day\": 4028,\n        \"month\": 2030,\n        \"year\": 5280\n      }\n    },\n    \"integerLimits\": {\n      \"maxValue\": \"string\",\n      \"minValue\": \"string\"\n    },\n    \"longTextLimits\": {\n      \"maxLength\": 3882,\n      \"minLength\": 4918\n    },\n    \"maxDescriptionLength\": 3428,\n    \"maxDisplayNameLength\": 6203,\n    \"maxIdLength\": 530,\n    \"selectionLimits\": {\n      \"listLimits\": {\n        \"maxEntries\": 8601\n      },\n      \"maxChoices\": 3071,\n      \"maxDeletedChoices\": 9296,\n      \"maxDisplayNameLength\": 1490,\n      \"maxIdLength\": 3456\n    },\n    \"textLimits\": {\n      \"maxLength\": 3401,\n      \"minLength\": 9539\n    },\n    \"userLimits\": {\n      \"listLimits\": {\n        \"maxEntries\": 2052\n      }\n    }\n  },\n  \"maxDeletedFields\": 2809,\n  \"maxDescriptionLength\": 5289,\n  \"maxDraftRevisions\": 5440,\n  \"maxFields\": 4252,\n  \"maxTitleLength\": 8730,\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d53d1343-d4ae-4729-a021-a6b528e85266",
+    "name": "Google Books About Limits API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

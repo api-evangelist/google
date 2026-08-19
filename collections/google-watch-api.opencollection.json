@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books About Watch API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Watch",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Watch Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/gmail/v1/users/:userId/watch",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "incididunt labore i",
+                "type": "path",
+                "description": "(Required) "
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The Watch Users operation in the Google Gmail API allows applications to set up push notifications for a user's mailbox by establishing a watch on their Gmail account. When called via POST to /gmail/v1/users/{userId}/watch, this endpoint configures Gmail to send notifications to a specified Cloud Pub/Sub topic whenever changes occur in the user's mailbox, such as receiving new emails, messages being deleted, or labels being modified. The watch remains active for a renewable period (default 7 day"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

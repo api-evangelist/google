@@ -1,0 +1,137 @@
+{
+  "item": [
+    {
+      "id": "76b970d0-5d10-4c66-9ea5-15d363d52215",
+      "name": "Channels",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "51aea5da-d527-4c1e-b028-db9e4ee21bf2",
+          "name": "Google Stop Calendar Channel",
+          "request": {
+            "name": "Google Stop Calendar Channel",
+            "description": {
+              "content": "Stop watching resources through this channel",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "channels",
+                "stop"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cfd469af-97fa-4ce8-8992-5b38480bf402",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "channels",
+                    "stop"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"incididunt sed consequat\",\n  \"expiration\": \"velit ad aliq\",\n  \"kind\": \"api#channel\",\n  \"params\": {\n    \"reprehenderit5c\": \"non\",\n    \"sint_b\": \"cupidatat do\"\n  },\n  \"payload\": false,\n  \"resourceId\": \"aute\",\n  \"resourceUri\": \"fugiat consequat\",\n  \"token\": \"ullamco officia in\",\n  \"type\": \"ex eiusmod adipisicing mollit\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ba56ad43-65e4-4360-83e5-a2a3371541f0",
+    "name": "Google Books About Channels API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

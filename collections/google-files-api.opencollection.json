@@ -1,0 +1,1476 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books About Files API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Files",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Get Files",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/files",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corpora",
+                "value": "",
+                "type": "query",
+                "description": "Bodies of items (files/documents) to which the query applies. Supported bodies are 'user', 'domain', 'drive', and 'allDrives'. Prefer 'user' or 'drive' to 'allDrives' for efficiency. By default, corpora is set to 'user'. However, this can change depending on the filter set through the 'q' parameter."
+              },
+              {
+                "name": "corpus",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: The source of files to list. Use 'corpora' instead."
+              },
+              {
+                "name": "driveId",
+                "value": "",
+                "type": "query",
+                "description": "ID of the shared drive to search."
+              },
+              {
+                "name": "includeItemsFromAllDrives",
+                "value": "",
+                "type": "query",
+                "description": "Whether both My Drive and shared drive items should be included in results."
+              },
+              {
+                "name": "includeLabels",
+                "value": "",
+                "type": "query",
+                "description": "A comma-separated list of IDs of labels to include in the `labelInfo` part of the response."
+              },
+              {
+                "name": "includePermissionsForView",
+                "value": "",
+                "type": "query",
+                "description": "Specifies which additional view's permissions to include in the response. Only 'published' is supported."
+              },
+              {
+                "name": "includeTeamDriveItems",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use `includeItemsFromAllDrives` instead."
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "A comma-separated list of sort keys. Valid keys are 'createdTime', 'folder', 'modifiedByMeTime', 'modifiedTime', 'name', 'name_natural', 'quotaBytesUsed', 'recency', 'sharedWithMeTime', 'starred', and 'viewedByMeTime'. Each key sorts ascending by default, but can be reversed with the 'desc' modifier. Example usage: ?orderBy=folder,modifiedTime desc,name."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of files to return per page. Partial or empty result pages are possible even before the end of the files list has been reached."
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "The token for continuing a previous list request on the next page. This should be set to the value of 'nextPageToken' from the previous response."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "A query for filtering the file results. See the \"Search for files & folders\" guide for supported syntax."
+              },
+              {
+                "name": "spaces",
+                "value": "",
+                "type": "query",
+                "description": "A comma-separated list of spaces to query within the corpora. Supported values are 'drive' and 'appDataFolder'."
+              },
+              {
+                "name": "supportsAllDrives",
+                "value": "",
+                "type": "query",
+                "description": "Whether the requesting application supports both My Drives and shared drives."
+              },
+              {
+                "name": "supportsTeamDrives",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use `supportsAllDrives` instead."
+              },
+              {
+                "name": "teamDriveId",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use `driveId` instead."
+              },
+              {
+                "name": "$.xgafv",
+                "value": "",
+                "type": "query",
+                "description": "V1 error format."
+              },
+              {
+                "name": "access_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth access token."
+              },
+              {
+                "name": "alt",
+                "value": "",
+                "type": "query",
+                "description": "Data format for response."
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "JSONP"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "",
+                "type": "query",
+                "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+              },
+              {
+                "name": "upload_protocol",
+                "value": "",
+                "type": "query",
+                "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+              },
+              {
+                "name": "uploadType",
+                "value": "",
+                "type": "query",
+                "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+              }
+            ]
+          },
+          "docs": " Lists the user's files. This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information, see the [Search for files & folders](/drive/api/guides/search-files) guide. *Note:* This method returns *all* files by default, including trashed files. If you don't want trashed files to appear in the list, use the `trashed=false` query parameter to remove trashed files from the results."
+        },
+        {
+          "info": {
+            "name": "Google Post Files",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/files",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "enforceSingleParent",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated. Creating files in multiple folders is no longer supported."
+              },
+              {
+                "name": "ignoreDefaultVisibility",
+                "value": "",
+                "type": "query",
+                "description": "Whether to ignore the domain's default visibility settings for the created file. Domain administrators can choose to make all uploaded files visible to the domain by default; this parameter bypasses that behavior for the request. Permissions are still inherited from parent folders."
+              },
+              {
+                "name": "includeLabels",
+                "value": "",
+                "type": "query",
+                "description": "A comma-separated list of IDs of labels to include in the `labelInfo` part of the response."
+              },
+              {
+                "name": "includePermissionsForView",
+                "value": "",
+                "type": "query",
+                "description": "Specifies which additional view's permissions to include in the response. Only 'published' is supported."
+              },
+              {
+                "name": "keepRevisionForever",
+                "value": "",
+                "type": "query",
+                "description": "Whether to set the 'keepForever' field in the new head revision. This is only applicable to files with binary content in Google Drive. Only 200 revisions for the file can be kept forever. If the limit is reached, try deleting pinned revisions."
+              },
+              {
+                "name": "ocrLanguage",
+                "value": "",
+                "type": "query",
+                "description": "A language hint for OCR processing during image import (ISO 639-1 code)."
+              },
+              {
+                "name": "supportsAllDrives",
+                "value": "",
+                "type": "query",
+                "description": "Whether the requesting application supports both My Drives and shared drives."
+              },
+              {
+                "name": "supportsTeamDrives",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use `supportsAllDrives` instead."
+              },
+              {
+                "name": "useContentAsIndexableText",
+                "value": "",
+                "type": "query",
+                "description": "Whether to use the uploaded content as indexable text."
+              },
+              {
+                "name": "$.xgafv",
+                "value": "",
+                "type": "query",
+                "description": "V1 error format."
+              },
+              {
+                "name": "access_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth access token."
+              },
+              {
+                "name": "alt",
+                "value": "",
+                "type": "query",
+                "description": "Data format for response."
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "JSONP"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "",
+                "type": "query",
+                "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+              },
+              {
+                "name": "upload_protocol",
+                "value": "",
+                "type": "query",
+                "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+              },
+              {
+                "name": "uploadType",
+                "value": "",
+                "type": "query",
+                "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+              }
+            ]
+          },
+          "docs": " Creates a new file. This method supports an */upload* URI and accepts uploaded media with the following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*/*` Note: Specify a valid MIME type, rather than the literal `*/*` value. The literal `*/*` is only used to indicate that any valid MIME type can be uploaded. For more information on uploading files, see [Upload file data](/drive/api/guides/manage-uploads). Apps creating shortcuts with `files.create` must specify"
+        },
+        {
+          "info": {
+            "name": "Google Get Files Generateids",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/files/generateIds",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "The number of IDs to return."
+              },
+              {
+                "name": "space",
+                "value": "",
+                "type": "query",
+                "description": "The space in which the IDs can be used to create new files. Supported values are 'drive' and 'appDataFolder'. (Default: 'drive')"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "The type of items which the IDs can be used for. Supported values are 'files' and 'shortcuts'. Note that 'shortcuts' are only supported in the `drive` 'space'. (Default: 'files')"
+              },
+              {
+                "name": "$.xgafv",
+                "value": "",
+                "type": "query",
+                "description": "V1 error format."
+              },
+              {
+                "name": "access_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth access token."
+              },
+              {
+                "name": "alt",
+                "value": "",
+                "type": "query",
+                "description": "Data format for response."
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "JSONP"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "",
+                "type": "query",
+                "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+              },
+              {
+                "name": "upload_protocol",
+                "value": "",
+                "type": "query",
+                "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+              },
+              {
+                "name": "uploadType",
+                "value": "",
+                "type": "query",
+                "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+              }
+            ]
+          },
+          "docs": "Generates a set of file IDs which can be provided in create or copy requests."
+        },
+        {
+          "info": {
+            "name": "Google Delete Files Trash",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.googleapis.com/books/v1/files/trash",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "driveId",
+                "value": "",
+                "type": "query",
+                "description": "If set, empties the trash of the provided shared drive."
+              },
+              {
+                "name": "enforceSingleParent",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: If an item is not in a shared drive and its last parent is deleted but the item itself is not, the item will be placed under its owner's root."
+              },
+              {
+                "name": "$.xgafv",
+                "value": "",
+                "type": "query",
+                "description": "V1 error format."
+              },
+              {
+                "name": "access_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth access token."
+              },
+              {
+                "name": "alt",
+                "value": "",
+                "type": "query",
+                "description": "Data format for response."
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "JSONP"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "",
+                "type": "query",
+                "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+              },
+              {
+                "name": "upload_protocol",
+                "value": "",
+                "type": "query",
+                "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+              },
+              {
+                "name": "uploadType",
+                "value": "",
+                "type": "query",
+                "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+              }
+            ]
+          },
+          "docs": "Permanently deletes all of the user's trashed files."
+        },
+        {
+          "info": {
+            "name": "Google Get Files Fileid",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/files/:fileId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the file."
+              },
+              {
+                "name": "acknowledgeAbuse",
+                "value": "",
+                "type": "query",
+                "description": "Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media."
+              },
+              {
+                "name": "includeLabels",
+                "value": "",
+                "type": "query",
+                "description": "A comma-separated list of IDs of labels to include in the `labelInfo` part of the response."
+              },
+              {
+                "name": "includePermissionsForView",
+                "value": "",
+                "type": "query",
+                "description": "Specifies which additional view's permissions to include in the response. Only 'published' is supported."
+              },
+              {
+                "name": "supportsAllDrives",
+                "value": "",
+                "type": "query",
+                "description": "Whether the requesting application supports both My Drives and shared drives."
+              },
+              {
+                "name": "supportsTeamDrives",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use `supportsAllDrives` instead."
+              },
+              {
+                "name": "$.xgafv",
+                "value": "",
+                "type": "query",
+                "description": "V1 error format."
+              },
+              {
+                "name": "access_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth access token."
+              },
+              {
+                "name": "alt",
+                "value": "",
+                "type": "query",
+                "description": "Data format for response."
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "JSONP"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "",
+                "type": "query",
+                "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+              },
+              {
+                "name": "upload_protocol",
+                "value": "",
+                "type": "query",
+                "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+              },
+              {
+                "name": "uploadType",
+                "value": "",
+                "type": "query",
+                "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+              }
+            ]
+          },
+          "docs": " Gets a file's metadata or content by ID. If you provide the URL parameter `alt=media`, then the response includes the file contents in the response body. Downloading content with `alt=media` only works if the file is stored in Drive. To download Google Docs, Sheets, and Slides use [`files.export`](/drive/api/reference/rest/v3/files/export) instead. For more information, see [Download & export files](/drive/api/guides/manage-downloads)."
+        },
+        {
+          "info": {
+            "name": "Google Patch Files Fileid",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://www.googleapis.com/books/v1/files/:fileId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the file."
+              },
+              {
+                "name": "addParents",
+                "value": "",
+                "type": "query",
+                "description": "A comma-separated list of parent IDs to add."
+              },
+              {
+                "name": "enforceSingleParent",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Adding files to multiple folders is no longer supported. Use shortcuts instead."
+              },
+              {
+                "name": "includeLabels",
+                "value": "",
+                "type": "query",
+                "description": "A comma-separated list of IDs of labels to include in the `labelInfo` part of the response."
+              },
+              {
+                "name": "includePermissionsForView",
+                "value": "",
+                "type": "query",
+                "description": "Specifies which additional view's permissions to include in the response. Only 'published' is supported."
+              },
+              {
+                "name": "keepRevisionForever",
+                "value": "",
+                "type": "query",
+                "description": "Whether to set the 'keepForever' field in the new head revision. This is only applicable to files with binary content in Google Drive. Only 200 revisions for the file can be kept forever. If the limit is reached, try deleting pinned revisions."
+              },
+              {
+                "name": "ocrLanguage",
+                "value": "",
+                "type": "query",
+                "description": "A language hint for OCR processing during image import (ISO 639-1 code)."
+              },
+              {
+                "name": "removeParents",
+                "value": "",
+                "type": "query",
+                "description": "A comma-separated list of parent IDs to remove."
+              },
+              {
+                "name": "supportsAllDrives",
+                "value": "",
+                "type": "query",
+                "description": "Whether the requesting application supports both My Drives and shared drives."
+              },
+              {
+                "name": "supportsTeamDrives",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use `supportsAllDrives` instead."
+              },
+              {
+                "name": "useContentAsIndexableText",
+                "value": "",
+                "type": "query",
+                "description": "Whether to use the uploaded content as indexable text."
+              },
+              {
+                "name": "$.xgafv",
+                "value": "",
+                "type": "query",
+                "description": "V1 error format."
+              },
+              {
+                "name": "access_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth access token."
+              },
+              {
+                "name": "alt",
+                "value": "",
+                "type": "query",
+                "description": "Data format for response."
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "JSONP"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "",
+                "type": "query",
+                "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+              },
+              {
+                "name": "upload_protocol",
+                "value": "",
+                "type": "query",
+                "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+              },
+              {
+                "name": "uploadType",
+                "value": "",
+                "type": "query",
+                "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+              }
+            ]
+          },
+          "docs": " Updates a file's metadata and/or content. When calling this method, only populate fields in the request that you want to modify. When updating fields, some fields might be changed automatically, such as `modifiedDate`. This method supports patch semantics. This method supports an */upload* URI and accepts uploaded media with the following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*/*` Note: Specify a valid MIME type, rather than the literal `*/*` value. The"
+        },
+        {
+          "info": {
+            "name": "Google Delete Files Fileid",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.googleapis.com/books/v1/files/:fileId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the file."
+              },
+              {
+                "name": "enforceSingleParent",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: If an item is not in a shared drive and its last parent is deleted but the item itself is not, the item will be placed under its owner's root."
+              },
+              {
+                "name": "supportsAllDrives",
+                "value": "",
+                "type": "query",
+                "description": "Whether the requesting application supports both My Drives and shared drives."
+              },
+              {
+                "name": "supportsTeamDrives",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use `supportsAllDrives` instead."
+              },
+              {
+                "name": "$.xgafv",
+                "value": "",
+                "type": "query",
+                "description": "V1 error format."
+              },
+              {
+                "name": "access_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth access token."
+              },
+              {
+                "name": "alt",
+                "value": "",
+                "type": "query",
+                "description": "Data format for response."
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "JSONP"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "",
+                "type": "query",
+                "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+              },
+              {
+                "name": "upload_protocol",
+                "value": "",
+                "type": "query",
+                "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+              },
+              {
+                "name": "uploadType",
+                "value": "",
+                "type": "query",
+                "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+              }
+            ]
+          },
+          "docs": "Permanently deletes a file owned by the user without moving it to the trash. If the file belongs to a shared drive, the user must be an `organizer` on the parent folder. If the target is a folder, all descendants owned by the user are also deleted."
+        },
+        {
+          "info": {
+            "name": "Google Post Files Fileid Copy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/files/:fileId/copy",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the file."
+              },
+              {
+                "name": "enforceSingleParent",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated. Copying files into multiple folders is no longer supported. Use shortcuts instead."
+              },
+              {
+                "name": "ignoreDefaultVisibility",
+                "value": "",
+                "type": "query",
+                "description": "Whether to ignore the domain's default visibility settings for the created file. Domain administrators can choose to make all uploaded files visible to the domain by default; this parameter bypasses that behavior for the request. Permissions are still inherited from parent folders."
+              },
+              {
+                "name": "includeLabels",
+                "value": "",
+                "type": "query",
+                "description": "A comma-separated list of IDs of labels to include in the `labelInfo` part of the response."
+              },
+              {
+                "name": "includePermissionsForView",
+                "value": "",
+                "type": "query",
+                "description": "Specifies which additional view's permissions to include in the response. Only 'published' is supported."
+              },
+              {
+                "name": "keepRevisionForever",
+                "value": "",
+                "type": "query",
+                "description": "Whether to set the 'keepForever' field in the new head revision. This is only applicable to files with binary content in Google Drive. Only 200 revisions for the file can be kept forever. If the limit is reached, try deleting pinned revisions."
+              },
+              {
+                "name": "ocrLanguage",
+                "value": "",
+                "type": "query",
+                "description": "A language hint for OCR processing during image import (ISO 639-1 code)."
+              },
+              {
+                "name": "supportsAllDrives",
+                "value": "",
+                "type": "query",
+                "description": "Whether the requesting application supports both My Drives and shared drives."
+              },
+              {
+                "name": "supportsTeamDrives",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use `supportsAllDrives` instead."
+              },
+              {
+                "name": "$.xgafv",
+                "value": "",
+                "type": "query",
+                "description": "V1 error format."
+              },
+              {
+                "name": "access_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth access token."
+              },
+              {
+                "name": "alt",
+                "value": "",
+                "type": "query",
+                "description": "Data format for response."
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "JSONP"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "",
+                "type": "query",
+                "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+              },
+              {
+                "name": "upload_protocol",
+                "value": "",
+                "type": "query",
+                "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+              },
+              {
+                "name": "uploadType",
+                "value": "",
+                "type": "query",
+                "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a copy of a file and applies any requested updates with patch semantics."
+        },
+        {
+          "info": {
+            "name": "Google Get Files Fileid Export",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/files/:fileId/export",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the file."
+              },
+              {
+                "name": "mimeType",
+                "value": "",
+                "type": "query",
+                "description": "Required. The MIME type of the format requested for this export."
+              },
+              {
+                "name": "$.xgafv",
+                "value": "",
+                "type": "query",
+                "description": "V1 error format."
+              },
+              {
+                "name": "access_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth access token."
+              },
+              {
+                "name": "alt",
+                "value": "",
+                "type": "query",
+                "description": "Data format for response."
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "JSONP"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "",
+                "type": "query",
+                "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+              },
+              {
+                "name": "upload_protocol",
+                "value": "",
+                "type": "query",
+                "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+              },
+              {
+                "name": "uploadType",
+                "value": "",
+                "type": "query",
+                "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+              }
+            ]
+          },
+          "docs": "Exports a Google Workspace document to the requested MIME type and returns exported byte content. Note that the exported content is limited to 10MB."
+        },
+        {
+          "info": {
+            "name": "Google Get Files Fileid Listlabels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/files/:fileId/listLabels",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "The ID for the file."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of labels to return per page. When not set, defaults to 100."
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "The token for continuing a previous list request on the next page. This should be set to the value of 'nextPageToken' from the previous response."
+              },
+              {
+                "name": "$.xgafv",
+                "value": "",
+                "type": "query",
+                "description": "V1 error format."
+              },
+              {
+                "name": "access_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth access token."
+              },
+              {
+                "name": "alt",
+                "value": "",
+                "type": "query",
+                "description": "Data format for response."
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "JSONP"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "",
+                "type": "query",
+                "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+              },
+              {
+                "name": "upload_protocol",
+                "value": "",
+                "type": "query",
+                "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+              },
+              {
+                "name": "uploadType",
+                "value": "",
+                "type": "query",
+                "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+              }
+            ]
+          },
+          "docs": "Lists the labels on a file."
+        },
+        {
+          "info": {
+            "name": "Google Post Files Fileid Modifylabels",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/files/:fileId/modifyLabels",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the file to which the labels belong."
+              },
+              {
+                "name": "$.xgafv",
+                "value": "",
+                "type": "query",
+                "description": "V1 error format."
+              },
+              {
+                "name": "access_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth access token."
+              },
+              {
+                "name": "alt",
+                "value": "",
+                "type": "query",
+                "description": "Data format for response."
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "JSONP"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "",
+                "type": "query",
+                "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+              },
+              {
+                "name": "upload_protocol",
+                "value": "",
+                "type": "query",
+                "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+              },
+              {
+                "name": "uploadType",
+                "value": "",
+                "type": "query",
+                "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modifies the set of labels applied to a file. Returns a list of the labels that were added or modified."
+        },
+        {
+          "info": {
+            "name": "Google Post Files Fileid Watch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/files/:fileId/watch",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the file."
+              },
+              {
+                "name": "acknowledgeAbuse",
+                "value": "",
+                "type": "query",
+                "description": "Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media."
+              },
+              {
+                "name": "includeLabels",
+                "value": "",
+                "type": "query",
+                "description": "A comma-separated list of IDs of labels to include in the `labelInfo` part of the response."
+              },
+              {
+                "name": "includePermissionsForView",
+                "value": "",
+                "type": "query",
+                "description": "Specifies which additional view's permissions to include in the response. Only 'published' is supported."
+              },
+              {
+                "name": "supportsAllDrives",
+                "value": "",
+                "type": "query",
+                "description": "Whether the requesting application supports both My Drives and shared drives."
+              },
+              {
+                "name": "supportsTeamDrives",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: Use `supportsAllDrives` instead."
+              },
+              {
+                "name": "$.xgafv",
+                "value": "",
+                "type": "query",
+                "description": "V1 error format."
+              },
+              {
+                "name": "access_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth access token."
+              },
+              {
+                "name": "alt",
+                "value": "",
+                "type": "query",
+                "description": "Data format for response."
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "JSONP"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Selector specifying which fields to include in a partial response."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+              },
+              {
+                "name": "oauth_token",
+                "value": "",
+                "type": "query",
+                "description": "OAuth 2.0 token for the current user."
+              },
+              {
+                "name": "prettyPrint",
+                "value": "",
+                "type": "query",
+                "description": "Returns response with indentations and line breaks."
+              },
+              {
+                "name": "quotaUser",
+                "value": "",
+                "type": "query",
+                "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+              },
+              {
+                "name": "upload_protocol",
+                "value": "",
+                "type": "query",
+                "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+              },
+              {
+                "name": "uploadType",
+                "value": "",
+                "type": "query",
+                "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Subscribes to changes to a file."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

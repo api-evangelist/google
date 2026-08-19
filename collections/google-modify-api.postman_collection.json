@@ -1,0 +1,445 @@
+{
+  "item": [
+    {
+      "id": "ee661a48-9ae4-4192-b49b-153e5c1ac82d",
+      "name": "Modify",
+      "description": {
+        "content": "Operations related to Modify",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4c4b23a7-8f88-418d-bec9-8bf3d3dfcdde",
+          "name": "Google Modify Messages",
+          "request": {
+            "name": "Google Modify Messages",
+            "description": {
+              "content": "Modifies the labels on the specified message.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "messages",
+                ":id",
+                "modify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "15130382-81a6-46a7-a146-51685e6b6d05",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "messages",
+                    ":id",
+                    "modify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"addLabelIds\": [\n    \"qui eu do ex\",\n    \"do sit esse dolor proident\"\n  ],\n  \"removeLabelIds\": [\n    \"Lorem sit\",\n    \"sed\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"eu incididunt laborum irure\",\n  \"threadId\": \"magna Ut officia\",\n  \"labelIds\": [\n    \"mollit amet dolore cupidatat\",\n    \"cupidatat deserunt mollit\"\n  ],\n  \"snippet\": \"ut dolor\",\n  \"historyId\": \"nisi tempor do\",\n  \"internalDate\": \"cupidatat officia anim\",\n  \"payload\": {\n    \"partId\": \"dolore velit incididunt est a\",\n    \"mimeType\": \"sit dolor mollit\",\n    \"filename\": \"ea commodo dolor nisi\",\n    \"headers\": [\n      {\n        \"name\": \"quis id velit laborum\",\n        \"value\": \"et voluptate dolor ea\"\n      },\n      {\n        \"name\": \"sit nostrud\",\n        \"value\": \"deserunt fugiat ex\"\n      }\n    ],\n    \"body\": {\n      \"attachmentId\": \"id nulla consequat\",\n      \"size\": -93837667,\n      \"data\": \"ad in occaecat\"\n    },\n    \"parts\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n      }\n    ]\n  },\n  \"sizeEstimate\": 21128811,\n  \"raw\": \"do laboris\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "003f412c-1e81-4324-b70a-7e3fcc227749",
+          "name": "Google Batch Modify",
+          "request": {
+            "name": "Google Batch Modify",
+            "description": {
+              "content": "Modifies the labels on the specified messages.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "messages",
+                "batchModify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "19601e05-2e86-4d43-9e93-c2d346cd0541",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "messages",
+                    "batchModify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ids\": [\n    \"ullamco aliqua anim dolo\",\n    \"irure ea\"\n  ],\n  \"addLabelIds\": [\n    \"irure Lorem ex proident\",\n    \"proident \"\n  ],\n  \"removeLabelIds\": [\n    \"do anim ad nulla\",\n    \"minim irure\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5dfc1cb-ca76-42ed-b446-7bd53325a8c2",
+          "name": "Google Modify Threads",
+          "request": {
+            "name": "Google Modify Threads",
+            "description": {
+              "content": "Modifies the labels applied to the thread. This applies to all messages in the thread.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "threads",
+                ":id",
+                "modify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "72fda67c-4cb7-40d1-8219-fcc332c159b9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "threads",
+                    ":id",
+                    "modify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"addLabelIds\": [\n    \"labore anim culpa aliqua\",\n    \"Duis sed irure Ut aliqua\"\n  ],\n  \"removeLabelIds\": [\n    \"consectetur et dolore Lorem\",\n    \"reprehenderit tempor id dolore incididunt\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"nostrud deserunt\",\n  \"snippet\": \"cillum quis\",\n  \"historyId\": \"id ea ad amet venia\",\n  \"messages\": [\n    {\n      \"id\": \"exercitation sint\",\n      \"threadId\": \"Ut sed occaecat\",\n      \"labelIds\": [\n        \"in commodo\",\n        \"sit dolor\"\n      ],\n      \"snippet\": \"dolor fugiat Ut\",\n      \"historyId\": \"Lorem quis ullamco veniam\",\n      \"internalDate\": \"consectetur elit dolor\",\n      \"payload\": {\n        \"partId\": \"mi\",\n        \"mimeType\": \"elit\",\n        \"filename\": \"ex\",\n        \"headers\": [\n          {\n            \"name\": \"velit do voluptate\",\n            \"value\": \"in reprehenderit sit pariatur\"\n          },\n          {\n            \"name\": \"enim\",\n            \"value\": \"vel\"\n          }\n        ],\n        \"body\": {\n          \"attachmentId\": \"e\",\n          \"size\": 62147464,\n          \"data\": \"aliquip aute in Excepteur\"\n        },\n        \"parts\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n          }\n        ]\n      },\n      \"sizeEstimate\": -33441686,\n      \"raw\": \"Ut sit\"\n    },\n    {\n      \"id\": \"magna pariatur\",\n      \"threadId\": \"et\",\n      \"labelIds\": [\n        \"est dolore\",\n        \"Lorem Duis amet dolore\"\n      ],\n      \"snippet\": \"dolore est reprehender\",\n      \"historyId\": \"in ex veniam nulla\",\n      \"internalDate\": \"ut\",\n      \"payload\": {\n        \"partId\": \"do consectetur tempor qui in\",\n        \"mimeType\": \"Excepteur in\",\n        \"filename\": \"reprehenderit\",\n        \"headers\": [\n          {\n            \"name\": \"nulla sed ut\",\n            \"value\": \"et occaecat\"\n          },\n          {\n            \"name\": \"mollit elit commodo nostrud pariatur\",\n            \"value\": \"aliqua\"\n          }\n        ],\n        \"body\": {\n          \"attachmentId\": \"sit sunt occaecat\",\n          \"size\": 23654047,\n          \"data\": \"dolor ut\"\n        },\n        \"parts\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n          }\n        ]\n      },\n      \"sizeEstimate\": 2028457,\n      \"raw\": \"ipsum enim minim\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e7e2b785-8f5d-4a7d-925c-60a299ed658b",
+    "name": "Google Books About Modify API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

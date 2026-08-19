@@ -1,0 +1,132 @@
+{
+  "item": [
+    {
+      "id": "a3dbc8b0-98b5-46ed-9897-913c1bdbc496",
+      "name": "Profile",
+      "description": {
+        "content": "Operations related to Profile",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "28f2b438-9a77-4431-b49e-942d5fa9e8aa",
+          "name": "Google Get Profile",
+          "request": {
+            "name": "Google Get Profile",
+            "description": {
+              "content": "The Google Gmail API's Get Profile operation retrieves the current user's Gmail profile information by making a GET request to the endpoint /gmail/v1/users/{userId}/profile, where {userId} can be either the user's email address or the special value \"me\" to indicate the authenticated user. This operation returns basic profile details including the user's email address, the total number of messages in their mailbox, the total number of threads, and their history ID, which is useful for tracking changes to the mailbox over time. The response provides essential metadata about the Gmail account without accessing the actual content of emails, making it a lightweight way to verify account details and obtain summary statistics. This endpoint requires appropriate OAuth 2.0 authorization scopes, typically gmail.readonly or gmail.metadata, to access the user's profile information securely.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "profile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "60652ca5-a061-4564-b5c9-4684d375c361",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"emailAddress\": \"anim officia cillum\",\n  \"messagesTotal\": -17389993,\n  \"threadsTotal\": -18322134,\n  \"historyId\": \"velit deserunt commodo\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d4cce0e6-7297-4377-81d5-e82cb536b52d",
+    "name": "Google Books About Profile API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

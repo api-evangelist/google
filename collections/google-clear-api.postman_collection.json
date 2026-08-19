@@ -1,0 +1,416 @@
+{
+  "item": [
+    {
+      "id": "d3fe7006-1b5f-425d-84ad-9c190b7ffea9",
+      "name": "Clear",
+      "description": {
+        "content": "Operations related to Clear",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a3a5019c-5071-4540-8502-e1bf052e8242",
+          "name": "Google Clear Values",
+          "request": {
+            "name": "Google Clear Values",
+            "description": {
+              "content": "Clears values from a spreadsheet. The caller must specify the spreadsheet ID and range. Only values are cleared -- all other properties of the cell (such as formatting, data validation, etc..) are kept.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "spreadsheets",
+                ":spreadsheetId",
+                "values",
+                "{{range}}:clear"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "spreadsheetId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "edad63cf-ddf9-4351-8637-3c9b1f313fb7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "spreadsheets",
+                    ":spreadsheetId",
+                    "values",
+                    "{{range}}:clear"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spreadsheetId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"clearedRange\": \"mollit sunt reprehenderit\",\n  \"spreadsheetId\": \"dolor in enim\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33c8ffd8-57ef-48f7-aa8a-1bcd37405cf2",
+          "name": "Google Batch Clear Values",
+          "request": {
+            "name": "Google Batch Clear Values",
+            "description": {
+              "content": "Clears one or more ranges of values from a spreadsheet. The caller must specify the spreadsheet ID and one or more ranges. Only values are cleared -- all other properties of the cell (such as formatting and data validation) are kept.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "spreadsheets",
+                ":spreadsheetId",
+                "values:batchClear"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "spreadsheetId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "339d7b54-557c-4665-92ca-0ca4f57620e9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "spreadsheets",
+                    ":spreadsheetId",
+                    "values:batchClear"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spreadsheetId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ranges\": [\n    \"nostrud sunt reprehenderit proident cillum\",\n    \"laborum eiusmod dolor ali\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"clearedRanges\": [\n    \"laboris in mollit\",\n    \"magna adipisicing\"\n  ],\n  \"spreadsheetId\": \"cupidatat eiusmod commodo ad\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e890534-b474-49a8-8332-7b8d56cdbe66",
+          "name": "Google Batch Clear Values by Data Filter",
+          "request": {
+            "name": "Google Batch Clear Values by Data Filter",
+            "description": {
+              "content": "Clears one or more ranges of values from a spreadsheet. The caller must specify the spreadsheet ID and one or more DataFilters. Ranges matching any of the specified data filters will be cleared. Only values are cleared -- all other properties of the cell (such as formatting, data validation, etc..) are kept.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "spreadsheets",
+                ":spreadsheetId",
+                "values:batchClearByDataFilter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "spreadsheetId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4979431e-7965-4635-8d1a-300dbcecbcc0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "spreadsheets",
+                    ":spreadsheetId",
+                    "values:batchClearByDataFilter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spreadsheetId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dataFilters\": [\n    {\n      \"a1Range\": \"commodo ea in ut\",\n      \"developerMetadataLookup\": {\n        \"locationMatchingStrategy\": \"INTERSECTING_LOCATION\",\n        \"locationType\": \"SHEET\",\n        \"metadataId\": -27000770,\n        \"metadataKey\": \"ip\",\n        \"metadataLocation\": {\n          \"dimensionRange\": {\n            \"dimension\": \"DIMENSION_UNSPECIFIED\",\n            \"endIndex\": 91540263,\n            \"sheetId\": -64167623,\n            \"startIndex\": 63800966\n          },\n          \"locationType\": \"DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED\",\n          \"sheetId\": 46858270,\n          \"spreadsheet\": false\n        },\n        \"metadataValue\": \"Excepteur\",\n        \"visibility\": \"DOCUMENT\"\n      },\n      \"gridRange\": {\n        \"endColumnIndex\": 6998754,\n        \"endRowIndex\": 43176042,\n        \"sheetId\": -9008085,\n        \"startColumnIndex\": -17508638,\n        \"startRowIndex\": 21352870\n      }\n    },\n    {\n      \"a1Range\": \"esse eiusmod\",\n      \"developerMetadataLookup\": {\n        \"locationMatchingStrategy\": \"EXACT_LOCATION\",\n        \"locationType\": \"SHEET\",\n        \"metadataId\": -9620585,\n        \"metadataKey\": \"in\",\n        \"metadataLocation\": {\n          \"dimensionRange\": {\n            \"dimension\": \"COLUMNS\",\n            \"endIndex\": -85774445,\n            \"sheetId\": 81988143,\n            \"startIndex\": -35232572\n          },\n          \"locationType\": \"SPREADSHEET\",\n          \"sheetId\": -39029265,\n          \"spreadsheet\": false\n        },\n        \"metadataValue\": \"voluptate adipisicing amet dolor\",\n        \"visibility\": \"PROJECT\"\n      },\n      \"gridRange\": {\n        \"endColumnIndex\": -87815739,\n        \"endRowIndex\": -52115573,\n        \"sheetId\": 67629865,\n        \"startColumnIndex\": 66943098,\n        \"startRowIndex\": 74725547\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"clearedRanges\": [\n    \"cillum\",\n    \"dolo\"\n  ],\n  \"spreadsheetId\": \"in consequat\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "range"
+    }
+  ],
+  "info": {
+    "_postman_id": "c3f0bcc4-80b2-4cc6-ac78-a61467c2309a",
+    "name": "Google Books About Clear API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

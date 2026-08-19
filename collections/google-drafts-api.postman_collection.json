@@ -1,0 +1,757 @@
+{
+  "item": [
+    {
+      "id": "7a39ef40-b1e1-4092-9dc2-fa7992a47efc",
+      "name": "Drafts",
+      "description": {
+        "content": "Operations related to Drafts",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "26a158da-a832-42dc-9e0a-63117f20a57d",
+          "name": "Google Send Drafts",
+          "request": {
+            "name": "Google Send Drafts",
+            "description": {
+              "content": "Sends the specified, existing draft to the recipients in the `To`, `Cc`, and `Bcc` headers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "drafts",
+                "send"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8d0540f4-8338-49ba-a367-152ebcb5771c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "drafts",
+                    "send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": {\n    \"threadId\": \"enim ut ut fugiat\",\n    \"labelIds\": [\n      \"incididunt et non cupidatat\",\n      \"laboris deserunt do nostrud\"\n    ],\n    \"snippet\": \"nostrud in\",\n    \"historyId\": \"ullamco\",\n    \"internalDate\": \"dolor ullamco elit fugiat\",\n    \"payload\": {\n      \"partId\": \"consequat ipsum qui\",\n      \"mimeType\": \"enim quis dolor aliqua veniam\",\n      \"filename\": \"laboris ad\",\n      \"headers\": [\n        {\n          \"name\": \"labore aute nisi\",\n          \"value\": \"reprehenderit esse ex elit\"\n        },\n        {\n          \"name\": \"sed\",\n          \"value\": \"anim ut veniam elit\"\n        }\n      ],\n      \"body\": {\n        \"attachmentId\": \"irure\",\n        \"size\": -58003592,\n        \"data\": \"officia laboris\"\n      },\n      \"parts\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n        }\n      ]\n    },\n    \"sizeEstimate\": -74092231,\n    \"raw\": \"in enim sit pariatur\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"eu incididunt laborum irure\",\n  \"threadId\": \"magna Ut officia\",\n  \"labelIds\": [\n    \"mollit amet dolore cupidatat\",\n    \"cupidatat deserunt mollit\"\n  ],\n  \"snippet\": \"ut dolor\",\n  \"historyId\": \"nisi tempor do\",\n  \"internalDate\": \"cupidatat officia anim\",\n  \"payload\": {\n    \"partId\": \"dolore velit incididunt est a\",\n    \"mimeType\": \"sit dolor mollit\",\n    \"filename\": \"ea commodo dolor nisi\",\n    \"headers\": [\n      {\n        \"name\": \"quis id velit laborum\",\n        \"value\": \"et voluptate dolor ea\"\n      },\n      {\n        \"name\": \"sit nostrud\",\n        \"value\": \"deserunt fugiat ex\"\n      }\n    ],\n    \"body\": {\n      \"attachmentId\": \"id nulla consequat\",\n      \"size\": -93837667,\n      \"data\": \"ad in occaecat\"\n    },\n    \"parts\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n      }\n    ]\n  },\n  \"sizeEstimate\": 21128811,\n  \"raw\": \"do laboris\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7c049aa-4225-4e64-817c-63b5aba71394",
+          "name": "Google Get Drafts",
+          "request": {
+            "name": "Google Get Drafts",
+            "description": {
+              "content": "Gets the specified draft.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "drafts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c1d547ce-ed26-4427-9743-7d1e4318023f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "drafts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"elit Lorem\",\n  \"message\": {\n    \"id\": \"elit\",\n    \"threadId\": \"enim ut ut fugiat\",\n    \"labelIds\": [\n      \"incididunt et non cupidatat\",\n      \"laboris deserunt do nostrud\"\n    ],\n    \"snippet\": \"nostrud in\",\n    \"historyId\": \"ullamco\",\n    \"internalDate\": \"dolor ullamco elit fugiat\",\n    \"payload\": {\n      \"partId\": \"consequat ipsum qui\",\n      \"mimeType\": \"enim quis dolor aliqua veniam\",\n      \"filename\": \"laboris ad\",\n      \"headers\": [\n        {\n          \"name\": \"labore aute nisi\",\n          \"value\": \"reprehenderit esse ex elit\"\n        },\n        {\n          \"name\": \"sed\",\n          \"value\": \"anim ut veniam elit\"\n        }\n      ],\n      \"body\": {\n        \"attachmentId\": \"irure\",\n        \"size\": -58003592,\n        \"data\": \"officia laboris\"\n      },\n      \"parts\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n        }\n      ]\n    },\n    \"sizeEstimate\": -74092231,\n    \"raw\": \"in enim sit pariatur\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dac6b139-67ae-44ae-b4da-296e5ee5f25d",
+          "name": "Google Update Drafts",
+          "request": {
+            "name": "Google Update Drafts",
+            "description": {
+              "content": "Replaces a draft's content.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "drafts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c1b6c95b-f231-41ef-af0d-349ce8b7b146",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "drafts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": {\n    \"threadId\": \"enim ut ut fugiat\",\n    \"labelIds\": [\n      \"incididunt et non cupidatat\",\n      \"laboris deserunt do nostrud\"\n    ],\n    \"snippet\": \"nostrud in\",\n    \"historyId\": \"ullamco\",\n    \"internalDate\": \"dolor ullamco elit fugiat\",\n    \"payload\": {\n      \"partId\": \"consequat ipsum qui\",\n      \"mimeType\": \"enim quis dolor aliqua veniam\",\n      \"filename\": \"laboris ad\",\n      \"headers\": [\n        {\n          \"name\": \"labore aute nisi\",\n          \"value\": \"reprehenderit esse ex elit\"\n        },\n        {\n          \"name\": \"sed\",\n          \"value\": \"anim ut veniam elit\"\n        }\n      ],\n      \"body\": {\n        \"attachmentId\": \"irure\",\n        \"size\": -58003592,\n        \"data\": \"officia laboris\"\n      },\n      \"parts\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n        }\n      ]\n    },\n    \"sizeEstimate\": -74092231,\n    \"raw\": \"in enim sit pariatur\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"elit Lorem\",\n  \"message\": {\n    \"id\": \"elit\",\n    \"threadId\": \"enim ut ut fugiat\",\n    \"labelIds\": [\n      \"incididunt et non cupidatat\",\n      \"laboris deserunt do nostrud\"\n    ],\n    \"snippet\": \"nostrud in\",\n    \"historyId\": \"ullamco\",\n    \"internalDate\": \"dolor ullamco elit fugiat\",\n    \"payload\": {\n      \"partId\": \"consequat ipsum qui\",\n      \"mimeType\": \"enim quis dolor aliqua veniam\",\n      \"filename\": \"laboris ad\",\n      \"headers\": [\n        {\n          \"name\": \"labore aute nisi\",\n          \"value\": \"reprehenderit esse ex elit\"\n        },\n        {\n          \"name\": \"sed\",\n          \"value\": \"anim ut veniam elit\"\n        }\n      ],\n      \"body\": {\n        \"attachmentId\": \"irure\",\n        \"size\": -58003592,\n        \"data\": \"officia laboris\"\n      },\n      \"parts\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n        }\n      ]\n    },\n    \"sizeEstimate\": -74092231,\n    \"raw\": \"in enim sit pariatur\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f50955cf-6403-4a10-8bbf-e4de209d9f53",
+          "name": "Google Delete Drafts",
+          "request": {
+            "name": "Google Delete Drafts",
+            "description": {
+              "content": "Immediately and permanently deletes the specified draft. Does not simply trash it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "drafts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "97071d13-816c-4f30-a39e-8564e29a4122",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "drafts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa58057d-8906-40c1-987e-32cb36de4f23",
+          "name": "Google List Drafts",
+          "request": {
+            "name": "Google List Drafts",
+            "description": {
+              "content": "Lists the drafts in the user's mailbox.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "drafts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "22054e78-166c-4eda-a9ba-6fd245bfb1f9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "drafts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"drafts\": [\n    {\n      \"id\": \"labore do cupidatat dolor consectetur\",\n      \"message\": {\n        \"id\": \"cillum incididunt eiusmod anim\",\n        \"threadId\": \"quis non proident\",\n        \"labelIds\": [\n          \"dolor dol\",\n          \"nulla ad sed exercitation\"\n        ],\n        \"snippet\": \"aute ad\",\n        \"historyId\": \"quis anim a\",\n        \"internalDate\": \"sint dolore\",\n        \"payload\": {\n          \"partId\": \"enim nulla ad\",\n          \"mimeType\": \"id ani\",\n          \"filename\": \"pariatur\",\n          \"headers\": [\n            {\n              \"name\": \"dolor est\",\n              \"value\": \"veniam ut nostrud culpa\"\n            },\n            {\n              \"name\": \"sed minim\",\n              \"value\": \"ipsum occaecat sed dolor\"\n            }\n          ],\n          \"body\": {\n            \"attachmentId\": \"dolore quis et\",\n            \"size\": -13145088,\n            \"data\": \"pariatur magna in Duis in\"\n          },\n          \"parts\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n            }\n          ]\n        },\n        \"sizeEstimate\": -49941379,\n        \"raw\": \"non veniam eiusmod\"\n      }\n    },\n    {\n      \"id\": \"anim\",\n      \"message\": {\n        \"id\": \"consectetur\",\n        \"threadId\": \"veniam in fugiat adipisicing esse\",\n        \"labelIds\": [\n          \"ut\",\n          \"anim proident magna esse\"\n        ],\n        \"snippet\": \"quis tempor laborum officia fugiat\",\n        \"historyId\": \"dolor\",\n        \"internalDate\": \"cupidatat velit ut sint in\",\n        \"payload\": {\n          \"partId\": \"tempor\",\n          \"mimeType\": \"deseru\",\n          \"filename\": \"dolore veniam\",\n          \"headers\": [\n            {\n              \"name\": \"veni\",\n              \"value\": \"eu in\"\n            },\n            {\n              \"name\": \"qui irure aliqua cupidatat\",\n              \"value\": \"commodo laborum nostrud id\"\n            }\n          ],\n          \"body\": {\n            \"attachmentId\": \"non eiusmod Excepteur\",\n            \"size\": 69980865,\n            \"data\": \"Excepteur reprehenderit proident sed\"\n          },\n          \"parts\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n            }\n          ]\n        },\n        \"sizeEstimate\": 15653869,\n        \"raw\": \"ipsum dolor qui\"\n      }\n    }\n  ],\n  \"nextPageToken\": \"veniam laborum labore Ut aliquip\",\n  \"resultSizeEstimate\": 46963148\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92555d34-3775-4dcf-936a-54c4d4d43356",
+          "name": "Google Create Drafts",
+          "request": {
+            "name": "Google Create Drafts",
+            "description": {
+              "content": "Creates a new draft with the `DRAFT` label.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "drafts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9dd967bd-ecc3-4b83-b64c-685d3b21d732",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "drafts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"raw\": \"{{encodedMessage}}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"elit Lorem\",\n  \"message\": {\n    \"id\": \"elit\",\n    \"threadId\": \"enim ut ut fugiat\",\n    \"labelIds\": [\n      \"incididunt et non cupidatat\",\n      \"laboris deserunt do nostrud\"\n    ],\n    \"snippet\": \"nostrud in\",\n    \"historyId\": \"ullamco\",\n    \"internalDate\": \"dolor ullamco elit fugiat\",\n    \"payload\": {\n      \"partId\": \"consequat ipsum qui\",\n      \"mimeType\": \"enim quis dolor aliqua veniam\",\n      \"filename\": \"laboris ad\",\n      \"headers\": [\n        {\n          \"name\": \"labore aute nisi\",\n          \"value\": \"reprehenderit esse ex elit\"\n        },\n        {\n          \"name\": \"sed\",\n          \"value\": \"anim ut veniam elit\"\n        }\n      ],\n      \"body\": {\n        \"attachmentId\": \"irure\",\n        \"size\": -58003592,\n        \"data\": \"officia laboris\"\n      },\n      \"parts\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n        }\n      ]\n    },\n    \"sizeEstimate\": -74092231,\n    \"raw\": \"in enim sit pariatur\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f65871b3-5acd-42ea-aadc-0d7cf5454823",
+    "name": "Google Books About Drafts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

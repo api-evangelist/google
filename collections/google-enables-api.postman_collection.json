@@ -1,0 +1,175 @@
+{
+  "item": [
+    {
+      "id": "835b51b2-a47c-45ba-a6fe-220852ecb3b9",
+      "name": "Enables",
+      "description": {
+        "content": "Operations related to Enables",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ce95cfe0-7aa1-42a4-9e05-fad6ee05e47d",
+          "name": "Google Enable CSE Keypairs",
+          "request": {
+            "name": "Google Enable CSE Keypairs",
+            "description": {
+              "content": "Turns on a client-side encryption key pair that was turned off. The key pair becomes active again for any associated client-side encryption identities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "settings",
+                "cse",
+                "keypairs",
+                "{{keyPairId}}:enable"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "41fd1d67-e067-4bf6-bee5-e3b9dd3ea84b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "settings",
+                    "cse",
+                    "keypairs",
+                    "{{keyPairId}}:enable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"keyPairId\": \"Lorem eiusmod\",\n  \"pkcs7\": \"ex incididunt\",\n  \"pem\": \"irure quis\",\n  \"subjectEmailAddresses\": [\n    \"Excepteur Ut commodo aliquip\",\n    \"eu Lorem nulla\"\n  ],\n  \"enablementState\": \"disabled\",\n  \"disableTime\": \"cill\",\n  \"privateKeyMetadata\": [\n    {\n      \"privateKeyMetadataId\": \"proident fugiat eu dolore\",\n      \"kaclsKeyMetadata\": {\n        \"kaclsUri\": \"voluptate ipsum ad\",\n        \"kaclsData\": \"Duis laborum aute\"\n      },\n      \"hardwareKeyMetadata\": {\n        \"description\": \"mollit la\"\n      }\n    },\n    {\n      \"privateKeyMetadataId\": \"nulla ullamco\",\n      \"kaclsKeyMetadata\": {\n        \"kaclsUri\": \"minim in\",\n        \"kaclsData\": \"sint eiusmod\"\n      },\n      \"hardwareKeyMetadata\": {\n        \"description\": \"ut\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "keyPairId"
+    }
+  ],
+  "info": {
+    "_postman_id": "4ee80451-ca0d-49ee-b49b-2aece1499a9d",
+    "name": "Google Books About Enables API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

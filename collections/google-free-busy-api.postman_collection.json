@@ -1,0 +1,141 @@
+{
+  "item": [
+    {
+      "id": "b289732e-c207-43f4-920e-794a3c9bfd16",
+      "name": "Free Busy",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5c352546-f537-4f4a-b4a3-0d421a4df9b0",
+          "name": "Google Query Free Busy",
+          "request": {
+            "name": "Google Query Free Busy",
+            "description": {
+              "content": "Returns free/busy information for a set of calendars.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "freeBusy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6ae5b32e-cad2-4c71-ae44-63167b84a1b9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "freeBusy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"calendarExpansionMax\": -12276786,\n  \"groupExpansionMax\": 73067826,\n  \"items\": [\n    {},\n    {}\n  ],\n  \"timeMax\": \"1974-03-05T08:59:00.048Z\",\n  \"timeMin\": \"1992-03-30T15:21:47.410Z\",\n  \"timeZone\": \"UTC\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"calendars\": {\n    \"ea8_a\": {\n      \"busy\": [\n        {\n          \"end\": \"2015-07-24T01:15:56.179Z\",\n          \"start\": \"1981-06-16T20:23:49.974Z\"\n        },\n        {\n          \"end\": \"1957-12-14T21:19:55.990Z\",\n          \"start\": \"2012-06-19T05:53:57.552Z\"\n        }\n      ],\n      \"errors\": [\n        {\n          \"domain\": \"l\",\n          \"reason\": \"qui minim in\"\n        },\n        {\n          \"domain\": \"ea proident non ad aliquip\",\n          \"reason\": \"non mollit ad dolore\"\n        }\n      ]\n    },\n    \"tempor__\": {\n      \"busy\": [\n        {\n          \"end\": \"2012-06-15T15:09:24.939Z\",\n          \"start\": \"2008-07-23T06:48:49.875Z\"\n        },\n        {\n          \"end\": \"2001-10-07T01:39:27.884Z\",\n          \"start\": \"1962-01-18T06:39:30.566Z\"\n        }\n      ],\n      \"errors\": [\n        {\n          \"domain\": \"nostrud ad enim\",\n          \"reason\": \"cupidatat Lorem velit et quis\"\n        },\n        {\n          \"domain\": \"consectetur repr\",\n          \"reason\": \"Ut\"\n        }\n      ]\n    }\n  },\n  \"groups\": {\n    \"amet_0\": {\n      \"calendars\": [\n        \"veniam ad est tempor\",\n        \"eu qui proident\"\n      ],\n      \"errors\": [\n        {\n          \"domain\": \"do\",\n          \"reason\": \"exercitation\"\n        },\n        {\n          \"domain\": \"exer\",\n          \"reason\": \"dolor\"\n        }\n      ]\n    },\n    \"occaecat_3\": {\n      \"calendars\": [\n        \"ipsum nulla\",\n        \"ad nisi dolor\"\n      ],\n      \"errors\": [\n        {\n          \"domain\": \"ad dolor tempor sunt reprehenderit\",\n          \"reason\": \"in tempor deserunt\"\n        },\n        {\n          \"domain\": \"consectetur eu ea\",\n          \"reason\": \"est exercitation\"\n        }\n      ]\n    }\n  },\n  \"kind\": \"calendar#freeBusy\",\n  \"timeMax\": \"2011-01-28T06:05:22.021Z\",\n  \"timeMin\": \"1978-06-06T06:26:44.109Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "06524a32-ffb0-46be-a624-7c5857907c34",
+    "name": "Google Books About Free Busy API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

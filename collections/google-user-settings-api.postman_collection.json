@@ -1,0 +1,337 @@
+{
+  "item": [
+    {
+      "id": "8f930c58-8136-4a3c-8e17-38483b7f397a",
+      "name": "User Settings",
+      "description": {
+        "content": "Operations related to Usersmesettings",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "42a55058-55eb-4729-abd1-6f02ee92bfa2",
+          "name": "Google List Calendar Settings",
+          "request": {
+            "name": "Google List Calendar Settings",
+            "description": {
+              "content": "Returns all user settings for the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "07ceb629-13cb-4335-a2db-4257b1a1ddc7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"etag\": \"in officia sed exercitation sit\",\n  \"items\": [\n    {\n      \"etag\": \"do commodo\",\n      \"id\": \"dolor Ut\",\n      \"kind\": \"calendar#setting\",\n      \"value\": \"non labore occaecat ut\"\n    },\n    {\n      \"etag\": \"culpa labore ut\",\n      \"id\": \"ullamco ut quis\",\n      \"kind\": \"calendar#setting\",\n      \"value\": \"laborum consectetur eu in\"\n    }\n  ],\n  \"kind\": \"calendar#settings\",\n  \"nextPageToken\": \"ullamco\",\n  \"nextSyncToken\": \"mag\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "abaa9865-f4c8-42cf-9f49-7ca199631b07",
+          "name": "Google Get Calendar Settings",
+          "request": {
+            "name": "Google Get Calendar Settings",
+            "description": {
+              "content": "Returns a single user setting.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "settings",
+                ":setting"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "setting",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "20353b4c-6d1e-48ce-bee1-d24bbee4981d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "settings",
+                    ":setting"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "setting",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"etag\": \"nisi cupidatat non dolor\",\n  \"id\": \"sint velit sit\",\n  \"kind\": \"calendar#setting\",\n  \"value\": \"in\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "361700e7-bdd0-4fb1-bf30-e1504e093752",
+          "name": "Google Watch Calendar Settings",
+          "request": {
+            "name": "Google Watch Calendar Settings",
+            "description": {
+              "content": "Watch for changes to Settings resources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "settings",
+                "watch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1be10cc5-0c74-4f14-af03-7757aeec5928",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "settings",
+                    "watch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"incididunt sed consequat\",\n  \"expiration\": \"velit ad aliq\",\n  \"kind\": \"api#channel\",\n  \"params\": {\n    \"reprehenderit5c\": \"non\",\n    \"sint_b\": \"cupidatat do\"\n  },\n  \"payload\": false,\n  \"resourceId\": \"aute\",\n  \"resourceUri\": \"fugiat consequat\",\n  \"token\": \"ullamco officia in\",\n  \"type\": \"ex eiusmod adipisicing mollit\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": \"incididunt sed consequat\",\n  \"expiration\": \"velit ad aliq\",\n  \"id\": \"velit eiusmod\",\n  \"kind\": \"api#channel\",\n  \"params\": {\n    \"reprehenderit5c\": \"non\",\n    \"sint_b\": \"cupidatat do\"\n  },\n  \"payload\": false,\n  \"resourceId\": \"aute\",\n  \"resourceUri\": \"fugiat consequat\",\n  \"token\": \"ullamco officia in\",\n  \"type\": \"ex eiusmod adipisicing mollit\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "176f5c1f-307a-4c5d-9476-6f834444938d",
+    "name": "Google Books About User Settings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

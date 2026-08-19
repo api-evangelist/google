@@ -1,0 +1,535 @@
+{
+  "item": [
+    {
+      "id": "a19bd172-fe16-4ed8-b3c9-fc6edeca645e",
+      "name": "File Api",
+      "description": {
+        "content": "Operations related to File Api",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a836df3c-5402-437b-b48c-ec424836b2ff",
+          "name": "Google Upload File (Resumable)",
+          "request": {
+            "name": "Google Upload File (Resumable)",
+            "description": {
+              "content": "Upload a video, PDF, audio, or other media file using resumable upload protocol. Use this for files larger than 20MB, \nvideos longer than approximately 1 minute, or when you want to reuse the file across multiple requests.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Upload protocol type",
+                "key": "X-Goog-Upload-Protocol",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Upload command (start for initiation, \"upload, finalize\" for data upload)",
+                "key": "X-Goog-Upload-Command",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Total size of the file in bytes (required for start command)",
+                "key": "X-Goog-Upload-Header-Content-Length",
+                "value": "<integer>"
+              },
+              {
+                "disabled": false,
+                "description": "MIME type of the file (required for start command)",
+                "key": "X-Goog-Upload-Header-Content-Type",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Byte offset for upload (required for upload command)",
+                "key": "X-Goog-Upload-Offset",
+                "value": "<integer>"
+              },
+              {
+                "disabled": false,
+                "description": "Size of the current chunk being uploaded",
+                "key": "Content-Length",
+                "value": "<integer>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"file\": {\n    \"display_name\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1ba521c7-3cb4-4532-ac51-5923f6562fc6",
+              "name": "Upload initiated or completed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Upload protocol type",
+                    "key": "X-Goog-Upload-Protocol",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Upload command (start for initiation, \"upload, finalize\" for data upload)",
+                    "key": "X-Goog-Upload-Command",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Total size of the file in bytes (required for start command)",
+                    "key": "X-Goog-Upload-Header-Content-Length",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "MIME type of the file (required for start command)",
+                    "key": "X-Goog-Upload-Header-Content-Type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Byte offset for upload (required for upload command)",
+                    "key": "X-Goog-Upload-Offset",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Size of the current chunk being uploaded",
+                    "key": "Content-Length",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"file\": {\n    \"display_name\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "URL for uploading file data (returned on start command)",
+                  "key": "x-goog-upload-url",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"file\": {\n    \"name\": \"files/abc123\",\n    \"display_name\": \"string\",\n    \"mime_type\": \"video/mp4\",\n    \"size_bytes\": \"string\",\n    \"create_time\": \"1967-09-22T08:41:17.636Z\",\n    \"update_time\": \"1970-02-28T13:13:46.890Z\",\n    \"expiration_time\": \"1988-01-22T08:48:38.943Z\",\n    \"sha256_hash\": \"string\",\n    \"uri\": \"https://generativelanguage.googleapis.com/v1beta/files/abc123\",\n    \"state\": \"PROCESSING\",\n    \"error\": {\n      \"message\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e51d0373-3089-46ce-b163-fa801121b767",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Upload protocol type",
+                    "key": "X-Goog-Upload-Protocol",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Upload command (start for initiation, \"upload, finalize\" for data upload)",
+                    "key": "X-Goog-Upload-Command",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Total size of the file in bytes (required for start command)",
+                    "key": "X-Goog-Upload-Header-Content-Length",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "MIME type of the file (required for start command)",
+                    "key": "X-Goog-Upload-Header-Content-Type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Byte offset for upload (required for upload command)",
+                    "key": "X-Goog-Upload-Offset",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Size of the current chunk being uploaded",
+                    "key": "Content-Length",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"file\": {\n    \"display_name\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 2035,\n    \"message\": \"string\",\n    \"status\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e2ae5e86-9daf-45a2-97a0-c9f7d9397db2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Upload protocol type",
+                    "key": "X-Goog-Upload-Protocol",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Upload command (start for initiation, \"upload, finalize\" for data upload)",
+                    "key": "X-Goog-Upload-Command",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Total size of the file in bytes (required for start command)",
+                    "key": "X-Goog-Upload-Header-Content-Length",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "MIME type of the file (required for start command)",
+                    "key": "X-Goog-Upload-Header-Content-Type",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Byte offset for upload (required for upload command)",
+                    "key": "X-Goog-Upload-Offset",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Size of the current chunk being uploaded",
+                    "key": "Content-Length",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"file\": {\n    \"display_name\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 2035,\n    \"message\": \"string\",\n    \"status\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ef78815-0fa2-4bbd-af33-39d53872f336",
+          "name": "Google Get File Metadata",
+          "request": {
+            "name": "Google Get File Metadata",
+            "description": {
+              "content": "Retrieve metadata for an uploaded file. Use this to verify the file was successfully \nstored and to check its processing state.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "files",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The resource name of the file (e.g., \"files/abc123\")"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c59cd16b-76f4-454e-837c-044984ab475b",
+              "name": "File metadata retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The resource name of the file (e.g., \"files/abc123\")"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"file\": {\n    \"name\": \"files/abc123\",\n    \"display_name\": \"string\",\n    \"mime_type\": \"video/mp4\",\n    \"size_bytes\": \"string\",\n    \"create_time\": \"1967-09-22T08:41:17.636Z\",\n    \"update_time\": \"1970-02-28T13:13:46.890Z\",\n    \"expiration_time\": \"1988-01-22T08:48:38.943Z\",\n    \"sha256_hash\": \"string\",\n    \"uri\": \"https://generativelanguage.googleapis.com/v1beta/files/abc123\",\n    \"state\": \"PROCESSING\",\n    \"error\": {\n      \"message\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91105481-1add-44c3-829b-261bd7d03bc1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The resource name of the file (e.g., \"files/abc123\")"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 2035,\n    \"message\": \"string\",\n    \"status\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "830ba12e-7d65-4ee5-9cf9-653514034293",
+              "name": "File not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The resource name of the file (e.g., \"files/abc123\")"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 2035,\n    \"message\": \"string\",\n    \"status\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1103deee-f7d2-491e-ab72-8b1419aee5a2",
+    "name": "Google Books About File Api API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

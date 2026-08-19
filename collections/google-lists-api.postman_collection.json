@@ -1,0 +1,1195 @@
+{
+  "item": [
+    {
+      "id": "0acd7f75-21ee-4265-bb97-a4ac6ab12ec6",
+      "name": "Lists",
+      "description": {
+        "content": "Operations related to Lists",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b3028fab-c005-4b94-afdb-6c3cf7a50d5b",
+          "name": "Google List Drafts",
+          "request": {
+            "name": "Google List Drafts",
+            "description": {
+              "content": "Lists the drafts in the user's mailbox.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "drafts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a0489131-be6e-4c73-bf05-92a1dfe86263",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "drafts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"drafts\": [\n    {\n      \"id\": \"labore do cupidatat dolor consectetur\",\n      \"message\": {\n        \"id\": \"cillum incididunt eiusmod anim\",\n        \"threadId\": \"quis non proident\",\n        \"labelIds\": [\n          \"dolor dol\",\n          \"nulla ad sed exercitation\"\n        ],\n        \"snippet\": \"aute ad\",\n        \"historyId\": \"quis anim a\",\n        \"internalDate\": \"sint dolore\",\n        \"payload\": {\n          \"partId\": \"enim nulla ad\",\n          \"mimeType\": \"id ani\",\n          \"filename\": \"pariatur\",\n          \"headers\": [\n            {\n              \"name\": \"dolor est\",\n              \"value\": \"veniam ut nostrud culpa\"\n            },\n            {\n              \"name\": \"sed minim\",\n              \"value\": \"ipsum occaecat sed dolor\"\n            }\n          ],\n          \"body\": {\n            \"attachmentId\": \"dolore quis et\",\n            \"size\": -13145088,\n            \"data\": \"pariatur magna in Duis in\"\n          },\n          \"parts\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n            }\n          ]\n        },\n        \"sizeEstimate\": -49941379,\n        \"raw\": \"non veniam eiusmod\"\n      }\n    },\n    {\n      \"id\": \"anim\",\n      \"message\": {\n        \"id\": \"consectetur\",\n        \"threadId\": \"veniam in fugiat adipisicing esse\",\n        \"labelIds\": [\n          \"ut\",\n          \"anim proident magna esse\"\n        ],\n        \"snippet\": \"quis tempor laborum officia fugiat\",\n        \"historyId\": \"dolor\",\n        \"internalDate\": \"cupidatat velit ut sint in\",\n        \"payload\": {\n          \"partId\": \"tempor\",\n          \"mimeType\": \"deseru\",\n          \"filename\": \"dolore veniam\",\n          \"headers\": [\n            {\n              \"name\": \"veni\",\n              \"value\": \"eu in\"\n            },\n            {\n              \"name\": \"qui irure aliqua cupidatat\",\n              \"value\": \"commodo laborum nostrud id\"\n            }\n          ],\n          \"body\": {\n            \"attachmentId\": \"non eiusmod Excepteur\",\n            \"size\": 69980865,\n            \"data\": \"Excepteur reprehenderit proident sed\"\n          },\n          \"parts\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n            }\n          ]\n        },\n        \"sizeEstimate\": 15653869,\n        \"raw\": \"ipsum dolor qui\"\n      }\n    }\n  ],\n  \"nextPageToken\": \"veniam laborum labore Ut aliquip\",\n  \"resultSizeEstimate\": 46963148\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5a8fba87-68c6-482d-97ec-f296af912598",
+          "name": "Google List History",
+          "request": {
+            "name": "Google List History",
+            "description": {
+              "content": "Lists the history of all changes to the given mailbox. History results are returned in chronological order (increasing `historyId`).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "57239e83-f2ea-4c79-991c-c5b26f3885ff",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"history\": [\n    {\n      \"id\": \"proident pariatur aute Lorem\",\n      \"messages\": [\n        {\n          \"id\": \"eiusmod id nisi\",\n          \"threadId\": \"anim et do\",\n          \"labelIds\": [\n            \"e\",\n            \"non magna in id\"\n          ],\n          \"snippet\": \"in\",\n          \"historyId\": \"dolor voluptate ex mollit\",\n          \"internalDate\": \"occaecat elit velit\",\n          \"payload\": {\n            \"partId\": \"anim pariatur\",\n            \"mimeType\": \"sint cillum nulla incididunt\",\n            \"filename\": \"sed consequat esse eu\",\n            \"headers\": [\n              {\n                \"name\": \"amet ad Ut labore\",\n                \"value\": \"nisi deserunt\"\n              },\n              {\n                \"name\": \"exercitation ex\",\n                \"value\": \"amet\"\n              }\n            ],\n            \"body\": {\n              \"attachmentId\": \"aliquip sunt ad in\",\n              \"size\": 49473554,\n              \"data\": \"aliqua ea dolor nostrud\"\n            },\n            \"parts\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n              }\n            ]\n          },\n          \"sizeEstimate\": -46841497,\n          \"raw\": \"f\"\n        },\n        {\n          \"id\": \"fugiat minim veniam sed\",\n          \"threadId\": \"ipsum officia magna irure\",\n          \"labelIds\": [\n            \"sunt\",\n            \"velit consectetur magna\"\n          ],\n          \"snippet\": \"voluptate\",\n          \"historyId\": \"et proident sunt in\",\n          \"internalDate\": \"non adipisicing\",\n          \"payload\": {\n            \"partId\": \"in ullamco\",\n            \"mimeType\": \"labore Excepteur\",\n            \"filename\": \"pariatur commodo\",\n            \"headers\": [\n              {\n                \"name\": \"nostrud minim tempor Lorem\",\n                \"value\": \"aliquip id qui\"\n              },\n              {\n                \"name\": \"nisi sit veniam\",\n                \"value\": \"et ipsum\"\n              }\n            ],\n            \"body\": {\n              \"attachmentId\": \"do sit\",\n              \"size\": 66422063,\n              \"data\": \"non do aliquip ea sit\"\n            },\n            \"parts\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n              }\n            ]\n          },\n          \"sizeEstimate\": -37565359,\n          \"raw\": \"veniam laboris enim ullamco\"\n        }\n      ],\n      \"messagesAdded\": [\n        {\n          \"message\": {\n            \"id\": \"non fugiat Ut magna ullamco\",\n            \"threadId\": \"ut exercitation elit\",\n            \"labelIds\": [\n              \"irure Excepteur do\",\n              \"nulla sed adipisicing enim\"\n            ],\n            \"snippet\": \"minim\",\n            \"historyId\": \"adipisicing velit consequat\",\n            \"internalDate\": \"laborum nisi\",\n            \"payload\": {\n              \"partId\": \"sed enim i\",\n              \"mimeType\": \"tempor esse dolor in nulla\",\n              \"filename\": \"sunt commodo\",\n              \"headers\": [\n                {\n                  \"name\": \"Lorem\",\n                  \"value\": \"Ut dolore reprehenderit\"\n                },\n                {\n                  \"name\": \"tempor fugiat minim consectetur\",\n                  \"value\": \"aliquip\"\n                }\n              ],\n              \"body\": {\n                \"attachmentId\": \"dolore quis exercitation\",\n                \"size\": -24042089,\n                \"data\": \"exercitation aliqua\"\n              },\n              \"parts\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                }\n              ]\n            },\n            \"sizeEstimate\": -38447430,\n            \"raw\": \"culpa nisi ullamco aliquip\"\n          }\n        },\n        {\n          \"message\": {\n            \"id\": \"labore ullamco Excepteur laboris enim\",\n            \"threadId\": \"proident off\",\n            \"labelIds\": [\n              \"cillum \",\n              \"Lorem incididunt ullamco ipsum\"\n            ],\n            \"snippet\": \"Lorem laborum\",\n            \"historyId\": \"qui mollit\",\n            \"internalDate\": \"ad commodo minim\",\n            \"payload\": {\n              \"partId\": \"commodo dolor do\",\n              \"mimeType\": \"ad nisi\",\n              \"filename\": \"es\",\n              \"headers\": [\n                {\n                  \"name\": \"sunt enim\",\n                  \"value\": \"ipsum\"\n                },\n                {\n                  \"name\": \"elit fugiat dolore aute\",\n                  \"value\": \"mollit Ut\"\n                }\n              ],\n              \"body\": {\n                \"attachmentId\": \"ea reprehenderit\",\n                \"size\": 2087603,\n                \"data\": \"in\"\n              },\n              \"parts\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                }\n              ]\n            },\n            \"sizeEstimate\": -15899428,\n            \"raw\": \"voluptate dolor laboris ad\"\n          }\n        }\n      ],\n      \"messagesDeleted\": [\n        {\n          \"message\": {\n            \"id\": \"Duis elit in\",\n            \"threadId\": \"fugiat\",\n            \"labelIds\": [\n              \"id dolor est\",\n              \"deserunt nisi cupidatat\"\n            ],\n            \"snippet\": \"quis\",\n            \"historyId\": \"ad\",\n            \"internalDate\": \"est pariatur offi\",\n            \"payload\": {\n              \"partId\": \"mollit amet pariatur labore\",\n              \"mimeType\": \"in\",\n              \"filename\": \"aute\",\n              \"headers\": [\n                {\n                  \"name\": \"consectetur dolor sint\",\n                  \"value\": \"anim\"\n                },\n                {\n                  \"name\": \"laborum est laboris molli\",\n                  \"value\": \"consequat est sint\"\n                }\n              ],\n              \"body\": {\n                \"attachmentId\": \"aliquip ut cillum minim\",\n                \"size\": 76634140,\n                \"data\": \"tempor\"\n              },\n              \"parts\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                }\n              ]\n            },\n            \"sizeEstimate\": -35873513,\n            \"raw\": \"irure qui laboris cupidatat\"\n          }\n        },\n        {\n          \"message\": {\n            \"id\": \"cupidatat do adipisicing\",\n            \"threadId\": \"occaecat pariatur\",\n            \"labelIds\": [\n              \"sit et irure Exce\",\n              \"et Duis exercitation\"\n            ],\n            \"snippet\": \"voluptate in\",\n            \"historyId\": \"ut esse\",\n            \"internalDate\": \"Excepteur consectetur aliqua nisi\",\n            \"payload\": {\n              \"partId\": \"occaecat quis sunt\",\n              \"mimeType\": \"cillu\",\n              \"filename\": \"quis exercitation\",\n              \"headers\": [\n                {\n                  \"name\": \"in proident el\",\n                  \"value\": \"nisi mollit sunt\"\n                },\n                {\n                  \"name\": \"o\",\n                  \"value\": \"consectetur proident in\"\n                }\n              ],\n              \"body\": {\n                \"attachmentId\": \"sint incididunt fugiat velit sunt\",\n                \"size\": -88355343,\n                \"data\": \"mollit commodo esse\"\n              },\n              \"parts\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                }\n              ]\n            },\n            \"sizeEstimate\": 13437488,\n            \"raw\": \"sed labore tempor\"\n          }\n        }\n      ],\n      \"labelsAdded\": [\n        {\n          \"message\": {\n            \"id\": \"cillum consequat eu laboris officia\",\n            \"threadId\": \"magna dolore\",\n            \"labelIds\": [\n              \"sunt tempor officia deser\",\n              \"est irure in\"\n            ],\n            \"snippet\": \"sint dolor sunt\",\n            \"historyId\": \"sunt do exercitation minim\",\n            \"internalDate\": \"ea voluptate Lorem enim\",\n            \"payload\": {\n              \"partId\": \"sunt enim\",\n              \"mimeType\": \"id laboris\",\n              \"filename\": \"cupidatat\",\n              \"headers\": [\n                {\n                  \"name\": \"tempor pariatur\",\n                  \"value\": \"cupidatat ex\"\n                },\n                {\n                  \"name\": \"in dolore quis\",\n                  \"value\": \"pariatur\"\n                }\n              ],\n              \"body\": {\n                \"attachmentId\": \"aute \",\n                \"size\": 99676228,\n                \"data\": \"consequat veniam aliqua ex\"\n              },\n              \"parts\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                }\n              ]\n            },\n            \"sizeEstimate\": 85599678,\n            \"raw\": \"ut\"\n          },\n          \"labelIds\": [\n            \"nisi eiusmod\",\n            \"et amet nisi sed laboris\"\n          ]\n        },\n        {\n          \"message\": {\n            \"id\": \"enim\",\n            \"threadId\": \"Duis consectetur\",\n            \"labelIds\": [\n              \"ullamco adi\",\n              \"sed\"\n            ],\n            \"snippet\": \"nisi veniam\",\n            \"historyId\": \"ex\",\n            \"internalDate\": \"exercitation sit dolore\",\n            \"payload\": {\n              \"partId\": \"officia\",\n              \"mimeType\": \"voluptate cillum officia et nostrud\",\n              \"filename\": \"dolore consequat laborum\",\n              \"headers\": [\n                {\n                  \"name\": \"reprehenderit nostrud elit\",\n                  \"value\": \"consectetur in nisi\"\n                },\n                {\n                  \"name\": \"anim occaecat\",\n                  \"value\": \"occaecat laborum\"\n                }\n              ],\n              \"body\": {\n                \"attachmentId\": \"dolore deserunt anim do minim\",\n                \"size\": 83222280,\n                \"data\": \"enim magna\"\n              },\n              \"parts\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                }\n              ]\n            },\n            \"sizeEstimate\": -97289468,\n            \"raw\": \"dolore ea\"\n          },\n          \"labelIds\": [\n            \"aliquip proident\",\n            \"mollit nostrud nisi elit\"\n          ]\n        }\n      ],\n      \"labelsRemoved\": [\n        {\n          \"message\": {\n            \"id\": \"tempo\",\n            \"threadId\": \"in sunt esse nulla\",\n            \"labelIds\": [\n              \"in dolor dolore ipsum\",\n              \"consequat irure ea\"\n            ],\n            \"snippet\": \"enim anim eiusmod ipsum\",\n            \"historyId\": \"velit anim dolore fugiat\",\n            \"internalDate\": \"laboris\",\n            \"payload\": {\n              \"partId\": \"reprehenderit ullamco\",\n              \"mimeType\": \"est consectetur et ullamco ad\",\n              \"filename\": \"anim laboris enim\",\n              \"headers\": [\n                {\n                  \"name\": \"ea Lorem eiusmod\",\n                  \"value\": \"occaecat laborum in\"\n                },\n                {\n                  \"name\": \"Duis dolor ipsum au\",\n                  \"value\": \"cillum aliqua in\"\n                }\n              ],\n              \"body\": {\n                \"attachmentId\": \"\",\n                \"size\": -69821908,\n                \"data\": \"Ut amet ut\"\n              },\n              \"parts\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                }\n              ]\n            },\n            \"sizeEstimate\": 30152194,\n            \"raw\": \"enim minim ullamco aliqua cillum\"\n          },\n          \"labelIds\": [\n            \"cillum\",\n            \"officia cillum sit\"\n          ]\n        },\n        {\n          \"message\": {\n            \"id\": \"cillum reprehenderit Excepteur\",\n            \"threadId\": \"dolore esse sint culpa\",\n            \"labelIds\": [\n              \"et irure eu do\",\n              \"elit et consectetur Ut\"\n            ],\n            \"snippet\": \"ea s\",\n            \"historyId\": \"commodo veniam mollit qui ipsum\",\n            \"internalDate\": \"deserunt cupidatat mollit\",\n            \"payload\": {\n              \"partId\": \"proident consectetur eu adipisicing\",\n              \"mimeType\": \"fugiat culpa aute \",\n              \"filename\": \"aliquip sed\",\n              \"headers\": [\n                {\n                  \"name\": \"anim dolor\",\n                  \"value\": \"consectetur\"\n                },\n                {\n                  \"name\": \"magna nostrud\",\n                  \"value\": \"consectetur enim culpa commodo\"\n                }\n              ],\n              \"body\": {\n                \"attachmentId\": \"tempor sint \",\n                \"size\": 59632845,\n                \"data\": \"eu\"\n              },\n              \"parts\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                }\n              ]\n            },\n            \"sizeEstimate\": 75124651,\n            \"raw\": \"sed\"\n          },\n          \"labelIds\": [\n            \"deserunt in aliqua cillum\",\n            \"anim in\"\n          ]\n        }\n      ]\n    },\n    {\n      \"id\": \"ea consequat\",\n      \"messages\": [\n        {\n          \"id\": \"culpa enim\",\n          \"threadId\": \"ad commodo sed sunt Lorem\",\n          \"labelIds\": [\n            \"cupidatat Duis\",\n            \"ut in quis cupidatat\"\n          ],\n          \"snippet\": \"magna Lorem anim\",\n          \"historyId\": \"aliqua\",\n          \"internalDate\": \"velit id proident nostrud\",\n          \"payload\": {\n            \"partId\": \"esse incididunt laboris deserunt eiusmod\",\n            \"mimeType\": \"ex sunt aliquip ut\",\n            \"filename\": \"incididunt qui\",\n            \"headers\": [\n              {\n                \"name\": \"nulla id\",\n                \"value\": \"nostrud anim\"\n              },\n              {\n                \"name\": \"ipsum est anim consequat\",\n                \"value\": \"est eiusmod velit\"\n              }\n            ],\n            \"body\": {\n              \"attachmentId\": \"exercitation\",\n              \"size\": -2350523,\n              \"data\": \"ut occaecat id\"\n            },\n            \"parts\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n              }\n            ]\n          },\n          \"sizeEstimate\": -70931197,\n          \"raw\": \"ex est commodo minim\"\n        },\n        {\n          \"id\": \"dolore eu Lorem\",\n          \"threadId\": \"dolor\",\n          \"labelIds\": [\n            \"non dolor Excepteur in\",\n            \"id nostrud irure amet\"\n          ],\n          \"snippet\": \"n\",\n          \"historyId\": \"elit reprehenderit irure non\",\n          \"internalDate\": \"amet nostrud labore Excepte\",\n          \"payload\": {\n            \"partId\": \"officia ut commodo\",\n            \"mimeType\": \"tempor occaecat\",\n            \"filename\": \"tempor\",\n            \"headers\": [\n              {\n                \"name\": \"cillum ullamco\",\n                \"value\": \"anim e\"\n              },\n              {\n                \"name\": \"est exercitation irure e\",\n                \"value\": \"id\"\n              }\n            ],\n            \"body\": {\n              \"attachmentId\": \"incididunt culpa elit\",\n              \"size\": 99232191,\n              \"data\": \"Excepteur ea pariatur culpa\"\n            },\n            \"parts\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n              }\n            ]\n          },\n          \"sizeEstimate\": 76239793,\n          \"raw\": \"nostrud reprehenderit velit\"\n        }\n      ],\n      \"messagesAdded\": [\n        {\n          \"message\": {\n            \"id\": \"ut mollit\",\n            \"threadId\": \"consequat ad\",\n            \"labelIds\": [\n              \"nulla et qui\",\n              \"cupidatat aliquip commodo do\"\n            ],\n            \"snippet\": \"nulla esse exercitation eiusmod\",\n            \"historyId\": \"tempor\",\n            \"internalDate\": \"non aliqua\",\n            \"payload\": {\n              \"partId\": \"dolore quis elit\",\n              \"mimeType\": \"culpa id tempor ex\",\n              \"filename\": \"do Duis\",\n              \"headers\": [\n                {\n                  \"name\": \"ut\",\n                  \"value\": \"tempor proident quis ut\"\n                },\n                {\n                  \"name\": \"aliqua\",\n                  \"value\": \"magna aliquip consequat eiusmod esse\"\n                }\n              ],\n              \"body\": {\n                \"attachmentId\": \"cupidatat ullamco reprehenderit\",\n                \"size\": 94308201,\n                \"data\": \"tempor deserunt sit amet\"\n              },\n              \"parts\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                }\n              ]\n            },\n            \"sizeEstimate\": -17434830,\n            \"raw\": \"velit in incididunt ad\"\n          }\n        },\n        {\n          \"message\": {\n            \"id\": \"labore ullamco\",\n            \"threadId\": \"magna nulla ut\",\n            \"labelIds\": [\n              \"nulla sit eiusmod\",\n              \"labore an\"\n            ],\n            \"snippet\": \"ex enim reprehenderit Ut\",\n            \"historyId\": \"ex\",\n            \"internalDate\": \"des\",\n            \"payload\": {\n              \"partId\": \"incididunt et irure magna Duis\",\n              \"mimeType\": \"occaecat officia\",\n              \"filename\": \"ullamco culpa aute\",\n              \"headers\": [\n                {\n                  \"name\": \"ex exercitation\",\n                  \"value\": \"commodo dolore ullamco\"\n                },\n                {\n                  \"name\": \"Excepteur\",\n                  \"value\": \"ipsum mag\"\n                }\n              ],\n              \"body\": {\n                \"attachmentId\": \"et\",\n                \"size\": -54386568,\n                \"data\": \"do ullamco\"\n              },\n              \"parts\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                }\n              ]\n            },\n            \"sizeEstimate\": -10107583,\n            \"raw\": \"sunt aute\"\n          }\n        }\n      ],\n      \"messagesDeleted\": [\n        {\n          \"message\": {\n            \"id\": \"p\",\n            \"threadId\": \"mollit elit\",\n            \"labelIds\": [\n              \"con\",\n              \"ut proident ex\"\n            ],\n            \"snippet\": \"minim cillum\",\n            \"historyId\": \"id enim E\",\n            \"internalDate\": \"ex\",\n            \"payload\": {\n              \"partId\": \"quis ad\",\n              \"mimeType\": \"adipisicing est anim veniam\",\n              \"filename\": \"sit Ut\",\n              \"headers\": [\n                {\n                  \"name\": \"ad id irure\",\n                  \"value\": \"ex est adipisicing\"\n                },\n                {\n                  \"name\": \"consectetur labore\",\n                  \"value\": \"elit enim\"\n                }\n              ],\n              \"body\": {\n                \"attachmentId\": \"cillum non ut amet aliquip\",\n                \"size\": 20140005,\n                \"data\": \"fugiat id exercitation\"\n              },\n              \"parts\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                }\n              ]\n            },\n            \"sizeEstimate\": -77249420,\n            \"raw\": \"Lorem tempor culpa\"\n          }\n        },\n        {\n          \"message\": {\n            \"id\": \"nostrud oc\",\n            \"threadId\": \"nostrud sed cillum velit sunt\",\n            \"labelIds\": [\n              \"quis laboris laborum aliqua\",\n              \"dolor sed ut esse dolore\"\n            ],\n            \"snippet\": \"non\",\n            \"historyId\": \"in consequat ipsum\",\n            \"internalDate\": \"ad ipsum dolore\",\n            \"payload\": {\n              \"partId\": \"anim nulla nostrud incididunt ex\",\n              \"mimeType\": \"irure amet\",\n              \"filename\": \"ad\",\n              \"headers\": [\n                {\n                  \"name\": \"veniam Excepteur sit ullamco\",\n                  \"value\": \"ullamco aute proident non\"\n                },\n                {\n                  \"name\": \"ut enim tempor\",\n                  \"value\": \"minim in cupidatat id\"\n                }\n              ],\n              \"body\": {\n                \"attachmentId\": \"enim sit Duis in\",\n                \"size\": -37124897,\n                \"data\": \"dolor Excepteur aute cupidatat dolor\"\n              },\n              \"parts\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                }\n              ]\n            },\n            \"sizeEstimate\": 61813692,\n            \"raw\": \"ipsum quis\"\n          }\n        }\n      ],\n      \"labelsAdded\": [\n        {\n          \"message\": {\n            \"id\": \"dolor mollit\",\n            \"threadId\": \"id ut veniam\",\n            \"labelIds\": [\n              \"labore i\",\n              \"commodo Excepteur\"\n            ],\n            \"snippet\": \"quis elit\",\n            \"historyId\": \"occaecat consequat amet aute fugiat\",\n            \"internalDate\": \"sed sunt\",\n            \"payload\": {\n              \"partId\": \"occaecat deserunt sed ut\",\n              \"mimeType\": \"sunt ut ut voluptate\",\n              \"filename\": \"ipsum pariatur sed\",\n              \"headers\": [\n                {\n                  \"name\": \"elit deserunt voluptate non\",\n                  \"value\": \"velit\"\n                },\n                {\n                  \"name\": \"consequat id eiusmod sed\",\n                  \"value\": \"veniam ut voluptate\"\n                }\n              ],\n              \"body\": {\n                \"attachmentId\": \"ut ipsum laboris non et\",\n                \"size\": -51157710,\n                \"data\": \"Excepteur voluptate\"\n              },\n              \"parts\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                }\n              ]\n            },\n            \"sizeEstimate\": -83490524,\n            \"raw\": \"sunt proident ut\"\n          },\n          \"labelIds\": [\n            \"deserunt cillum\",\n            \"sit qui culpa irure\"\n          ]\n        },\n        {\n          \"message\": {\n            \"id\": \"dolore pariatur\",\n            \"threadId\": \"est sit\",\n            \"labelIds\": [\n              \"est dolore non aliqua\",\n              \"esse Duis proident\"\n            ],\n            \"snippet\": \"culpa laboris\",\n            \"historyId\": \"exercitation do non\",\n            \"internalDate\": \"dolore\",\n            \"payload\": {\n              \"partId\": \"in dolore officia et\",\n              \"mimeType\": \"aliquip\",\n              \"filename\": \"sunt \",\n              \"headers\": [\n                {\n                  \"name\": \"sed enim labore Lorem proident\",\n                  \"value\": \"laborum sunt\"\n                },\n                {\n                  \"name\": \"com\",\n                  \"value\": \"cupidatat consequat proident\"\n                }\n              ],\n              \"body\": {\n                \"attachmentId\": \"aliqua adipisicing in eu incididunt\",\n                \"size\": -20883488,\n                \"data\": \"in laborum\"\n              },\n              \"parts\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                }\n              ]\n            },\n            \"sizeEstimate\": 43883889,\n            \"raw\": \"ex mollit\"\n          },\n          \"labelIds\": [\n            \"commodo officia cupidatat\",\n            \"nostrud do\"\n          ]\n        }\n      ],\n      \"labelsRemoved\": [\n        {\n          \"message\": {\n            \"id\": \"dolor amet mollit tempor incididunt\",\n            \"threadId\": \"proident elit consectetur laboris\",\n            \"labelIds\": [\n              \"aliquip adipisicing anim\",\n              \"nulla ut officia esse\"\n            ],\n            \"snippet\": \"qui nulla\",\n            \"historyId\": \"eiusmod\",\n            \"internalDate\": \"magna fugiat\",\n            \"payload\": {\n              \"partId\": \"cillum laboris enim m\",\n              \"mimeType\": \"in eu\",\n              \"filename\": \"ea\",\n              \"headers\": [\n                {\n                  \"name\": \"magna Ut esse officia in\",\n                  \"value\": \"dolor labore\"\n                },\n                {\n                  \"name\": \"officia do\",\n                  \"value\": \"elit sunt Ut officia consequat\"\n                }\n              ],\n              \"body\": {\n                \"attachmentId\": \"aliquip ut\",\n                \"size\": -29237228,\n                \"data\": \"in\"\n              },\n              \"parts\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                }\n              ]\n            },\n            \"sizeEstimate\": 89770840,\n            \"raw\": \"ea\"\n          },\n          \"labelIds\": [\n            \"in laborum consectetur\",\n            \"non sit elit\"\n          ]\n        },\n        {\n          \"message\": {\n            \"id\": \"dolore amet\",\n            \"threadId\": \"consectetur eu\",\n            \"labelIds\": [\n              \"sed deserunt enim aliquip\",\n              \"consectetur laborum est cillum\"\n            ],\n            \"snippet\": \"ipsum ut officia id dolore\",\n            \"historyId\": \"cupidatat est\",\n            \"internalDate\": \"elit do\",\n            \"payload\": {\n              \"partId\": \"culpa ame\",\n              \"mimeType\": \"Duis est nostrud Lorem\",\n              \"filename\": \"minim adipisicing enim laboris deserunt\",\n              \"headers\": [\n                {\n                  \"name\": \"laboris ex exercitation\",\n                  \"value\": \"Ut ut officia et Lorem\"\n                },\n                {\n                  \"name\": \"sint exercitation\",\n                  \"value\": \"adipisicing ea culpa\"\n                }\n              ],\n              \"body\": {\n                \"attachmentId\": \"consectetur\",\n                \"size\": -58922,\n                \"data\": \"ex ullamco\"\n              },\n              \"parts\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n                }\n              ]\n            },\n            \"sizeEstimate\": 10775774,\n            \"raw\": \"dolor pari\"\n          },\n          \"labelIds\": [\n            \"Duis ut laboris\",\n            \"proident ullamco\"\n          ]\n        }\n      ]\n    }\n  ],\n  \"nextPageToken\": \"do deserunt pariatu\",\n  \"historyId\": \"cillum veniam Excepteur et\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5f2375a-b9ee-48d9-827f-05b4451a46d0",
+          "name": "Google List Messages",
+          "request": {
+            "name": "Google List Messages",
+            "description": {
+              "content": "Lists the messages in the user's mailbox.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "maxResults",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e0a215a4-548e-4d77-9244-0977d4db9884",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "maxResults",
+                      "value": "{{maxResults}}"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "{{pageToken}}"
+                    },
+                    {
+                      "key": "q",
+                      "value": "{{q}}"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"id\": \"sed proident adipisicing culpa esse\",\n      \"threadId\": \"ullamco\",\n      \"labelIds\": [\n        \"velit dolor\",\n        \"eiusmod veniam eu\"\n      ],\n      \"snippet\": \"anim nisi\",\n      \"historyId\": \"aute\",\n      \"internalDate\": \"dolore tempor\",\n      \"payload\": {\n        \"partId\": \"non sint ea incididunt dolor\",\n        \"mimeType\": \"enim aliquip Duis\",\n        \"filename\": \"tempor nostrud laborum\",\n        \"headers\": [\n          {\n            \"name\": \"occaecat mollit est\",\n            \"value\": \"amet\"\n          },\n          {\n            \"name\": \"Ut aliquip ea\",\n            \"value\": \"deserunt qui\"\n          }\n        ],\n        \"body\": {\n          \"attachmentId\": \"in laborum dolore \",\n          \"size\": -13005468,\n          \"data\": \"veniam in qui\"\n        },\n        \"parts\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n          }\n        ]\n      },\n      \"sizeEstimate\": -28255502,\n      \"raw\": \"culpa\"\n    },\n    {\n      \"id\": \"cupidatat esse magna dolore\",\n      \"threadId\": \"ea eiusmod\",\n      \"labelIds\": [\n        \"dolore commodo\",\n        \"Ut in et irure\"\n      ],\n      \"snippet\": \"esse non\",\n      \"historyId\": \"ex nulla nisi veniam dolor\",\n      \"internalDate\": \"tempor pr\",\n      \"payload\": {\n        \"partId\": \"dolor Excepteur consequat\",\n        \"mimeType\": \"magna nulla\",\n        \"filename\": \"non proident\",\n        \"headers\": [\n          {\n            \"name\": \"eiusmod nostrud reprehenderit proident\",\n            \"value\": \"in ad\"\n          },\n          {\n            \"name\": \"consequat cillum\",\n            \"value\": \"officia mollit e\"\n          }\n        ],\n        \"body\": {\n          \"attachmentId\": \"dolore id dolor esse\",\n          \"size\": -9079183,\n          \"data\": \"aute L\"\n        },\n        \"parts\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n          }\n        ]\n      },\n      \"sizeEstimate\": 11691603,\n      \"raw\": \"eiusmod esse\"\n    }\n  ],\n  \"nextPageToken\": \"ipsum reprehenderit Duis in veniam\",\n  \"resultSizeEstimate\": -35985941\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24cdc491-4eeb-4c81-8a46-d8f91c3c28b6",
+          "name": "Google List Labels",
+          "request": {
+            "name": "Google List Labels",
+            "description": {
+              "content": "Lists all labels in the user's mailbox.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "labels"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a011c70c-9b8d-469e-a6ff-44f9c7edbd1a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "labels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"labels\": [\n    {\n      \"id\": \"mollit enim dolore reprehenderit\",\n      \"name\": \"non consequat\",\n      \"messageListVisibility\": \"show\",\n      \"labelListVisibility\": \"labelShow\",\n      \"type\": \"user\",\n      \"messagesTotal\": -89757017,\n      \"messagesUnread\": 37713675,\n      \"threadsTotal\": -34499465,\n      \"threadsUnread\": 38690910,\n      \"color\": {\n        \"textColor\": \"ut minim Excepteur Ut\",\n        \"backgroundColor\": \"dolor id fugiat consectetur\"\n      }\n    },\n    {\n      \"id\": \"ut incididunt anim esse dolore\",\n      \"name\": \"magna voluptate in aliquip et\",\n      \"messageListVisibility\": \"hide\",\n      \"labelListVisibility\": \"labelShow\",\n      \"type\": \"user\",\n      \"messagesTotal\": -45069202,\n      \"messagesUnread\": -69687222,\n      \"threadsTotal\": -63655159,\n      \"threadsUnread\": -93904503,\n      \"color\": {\n        \"textColor\": \"irure t\",\n        \"backgroundColor\": \"occaecat aliquip\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6eb53969-a604-4ba4-a49a-017189cb7028",
+          "name": "Google List Threads",
+          "request": {
+            "name": "Google List Threads",
+            "description": {
+              "content": "Lists the threads in the user's mailbox.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "threads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e1c442f2-ff74-4aca-a0a0-14fb2fb08006",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "threads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"threads\": [\n    {\n      \"id\": \"commodo\",\n      \"snippet\": \"eiusmod consequat qui non quis\",\n      \"historyId\": \"sunt dolore\",\n      \"messages\": [\n        {\n          \"id\": \"enim\",\n          \"threadId\": \"dolore quis exercitation\",\n          \"labelIds\": [\n            \"Duis sint dolore\",\n            \"in labore ut commodo\"\n          ],\n          \"snippet\": \"nostrud dolore consectetur Excepteur\",\n          \"historyId\": \"ea elit consectet\",\n          \"internalDate\": \"proident ullamco\",\n          \"payload\": {\n            \"partId\": \"consectetur pariatur dolore\",\n            \"mimeType\": \"ad occaecat culpa ullamco\",\n            \"filename\": \"officia elit\",\n            \"headers\": [\n              {\n                \"name\": \"co\",\n                \"value\": \"deserunt ut\"\n              },\n              {\n                \"name\": \"do\",\n                \"value\": \"ea dolor\"\n              }\n            ],\n            \"body\": {\n              \"attachmentId\": \"quis elit commodo\",\n              \"size\": 44099715,\n              \"data\": \"irure dolore ut\"\n            },\n            \"parts\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n              }\n            ]\n          },\n          \"sizeEstimate\": 21887814,\n          \"raw\": \"nulla ipsum Ut\"\n        },\n        {\n          \"id\": \"in dolor proident\",\n          \"threadId\": \"dolore culpa fugiat\",\n          \"labelIds\": [\n            \"in ut amet\",\n            \"Ut sit dolor ut\"\n          ],\n          \"snippet\": \"nisi Duis deserunt labore\",\n          \"historyId\": \"sunt pariatur elit laboris ex\",\n          \"internalDate\": \"esse pariatur\",\n          \"payload\": {\n            \"partId\": \"laboris nulla et\",\n            \"mimeType\": \"dolore ullamco consectetur nostrud\",\n            \"filename\": \"aliqua commodo\",\n            \"headers\": [\n              {\n                \"name\": \"Ut\",\n                \"value\": \"laborum\"\n              },\n              {\n                \"name\": \"consequat\",\n                \"value\": \"esse\"\n              }\n            ],\n            \"body\": {\n              \"attachmentId\": \"qui consequat minim\",\n              \"size\": 83387838,\n              \"data\": \"id\"\n            },\n            \"parts\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n              }\n            ]\n          },\n          \"sizeEstimate\": 70145632,\n          \"raw\": \"cillum in ipsum ex\"\n        }\n      ]\n    },\n    {\n      \"id\": \"qui ipsum veniam irure fugiat\",\n      \"snippet\": \"elit occaecat magna\",\n      \"historyId\": \"mollit\",\n      \"messages\": [\n        {\n          \"id\": \"laborum et\",\n          \"threadId\": \"elit sint quis\",\n          \"labelIds\": [\n            \"sunt amet aute dolore fugiat\",\n            \"Ut aliqua\"\n          ],\n          \"snippet\": \"do magna\",\n          \"historyId\": \"aliqua enim labore\",\n          \"internalDate\": \"laboris tempor anim voluptate\",\n          \"payload\": {\n            \"partId\": \"aute Ut nisi eiusmod\",\n            \"mimeType\": \"non deserunt anim\",\n            \"filename\": \"magna\",\n            \"headers\": [\n              {\n                \"name\": \"est sunt fugiat\",\n                \"value\": \"deserunt exer\"\n              },\n              {\n                \"name\": \"consectetur anim\",\n                \"value\": \"laborum elit\"\n              }\n            ],\n            \"body\": {\n              \"attachmentId\": \"dolor id esse proident\",\n              \"size\": -31164209,\n              \"data\": \"irure consectetur\"\n            },\n            \"parts\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n              }\n            ]\n          },\n          \"sizeEstimate\": -76389446,\n          \"raw\": \"nulla dolor nisi reprehenderit sint\"\n        },\n        {\n          \"id\": \"ea laborum sint\",\n          \"threadId\": \"laboris magna\",\n          \"labelIds\": [\n            \"velit \",\n            \"ad sint sunt ex n\"\n          ],\n          \"snippet\": \"ea in magna ve\",\n          \"historyId\": \"sit tempor\",\n          \"internalDate\": \"qui laborum\",\n          \"payload\": {\n            \"partId\": \"aute dolore deserunt do veniam\",\n            \"mimeType\": \"voluptate ut ad irure est\",\n            \"filename\": \"nostrud Lorem aliquip elit anim\",\n            \"headers\": [\n              {\n                \"name\": \"voluptate sed\",\n                \"value\": \"in ullamco consequat\"\n              },\n              {\n                \"name\": \"ullamco\",\n                \"value\": \"ex\"\n              }\n            ],\n            \"body\": {\n              \"attachmentId\": \"elit eiusmod sint\",\n              \"size\": 93740460,\n              \"data\": \"in non nulla anim\"\n            },\n            \"parts\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n              }\n            ]\n          },\n          \"sizeEstimate\": 76344706,\n          \"raw\": \"nisi nostrud\"\n        }\n      ]\n    }\n  ],\n  \"nextPageToken\": \"Exce\",\n  \"resultSizeEstimate\": -82340850\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "18a39ef5-5623-411b-b1b4-9b1b2ef76304",
+          "name": "Google List SMIME Info",
+          "request": {
+            "name": "Google List SMIME Info",
+            "description": {
+              "content": "Lists S/MIME configs for the specified send-as alias.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "settings",
+                "sendAs",
+                ":sendAsEmail",
+                "smimeInfo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sendAsEmail",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "428f7a5f-5bb1-4c4a-9f68-217d1381b442",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "settings",
+                    "sendAs",
+                    ":sendAsEmail",
+                    "smimeInfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sendAsEmail",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"smimeInfo\": [\n    {\n      \"id\": \"Lorem culpa eiusmod\",\n      \"issuerCn\": \"dolore eiusmod laborum\",\n      \"isDefault\": false,\n      \"expiration\": \"eiusmod incidid\",\n      \"pem\": \"minim voluptate non\",\n      \"pkcs12\": \"et Duis\",\n      \"encryptedKeyPassword\": \"tempor proiden\"\n    },\n    {\n      \"id\": \"dolore\",\n      \"issuerCn\": \"aliqua velit qui\",\n      \"isDefault\": false,\n      \"expiration\": \"occaeca\",\n      \"pem\": \"eu minim consequat sunt\",\n      \"pkcs12\": \"sunt anim ipsum nulla\",\n      \"encryptedKeyPassword\": \"laboris ex sint\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5deee9e6-c406-4d31-b08d-d63132b43c14",
+          "name": "Google List CSE Keypairs",
+          "request": {
+            "name": "Google List CSE Keypairs",
+            "description": {
+              "content": "Lists client-side encryption key pairs for an authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "settings",
+                "cse",
+                "keypairs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "74190a5e-5c82-48f9-92d2-585440950c2b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "settings",
+                    "cse",
+                    "keypairs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cseKeyPairs\": [\n    {\n      \"keyPairId\": \"qui in ad ullamco\",\n      \"pkcs7\": \"Lorem tempor\",\n      \"pem\": \"ipsum fugiat Excepteu\",\n      \"subjectEmailAddresses\": [\n        \"sunt\",\n        \"in ullamco do\"\n      ],\n      \"enablementState\": \"enabled\",\n      \"disableTime\": \"ad qui\",\n      \"privateKeyMetadata\": [\n        {\n          \"privateKeyMetadataId\": \"in\",\n          \"kaclsKeyMetadata\": {\n            \"kaclsUri\": \"in et sed aute\",\n            \"kaclsData\": \"laboris Lorem et esse\"\n          },\n          \"hardwareKeyMetadata\": {\n            \"description\": \"adipisicing Excepteur\"\n          }\n        },\n        {\n          \"privateKeyMetadataId\": \"sit ea\",\n          \"kaclsKeyMetadata\": {\n            \"kaclsUri\": \"adipisicing id Ut\",\n            \"kaclsData\": \"minim\"\n          },\n          \"hardwareKeyMetadata\": {\n            \"description\": \"eu officia tempor\"\n          }\n        }\n      ]\n    },\n    {\n      \"keyPairId\": \"proident tempor dolore et id\",\n      \"pkcs7\": \"deserunt ea eiusmod adipisicing\",\n      \"pem\": \"ad enim\",\n      \"subjectEmailAddresses\": [\n        \"nulla dolore\",\n        \"ea aliqua Excepteur ut sit\"\n      ],\n      \"enablementState\": \"enabled\",\n      \"disableTime\": \"dolor sed qui\",\n      \"privateKeyMetadata\": [\n        {\n          \"privateKeyMetadataId\": \"qui exercitation mollit\",\n          \"kaclsKeyMetadata\": {\n            \"kaclsUri\": \"dolore dolor consequat veniam\",\n            \"kaclsData\": \"occaecat consequat\"\n          },\n          \"hardwareKeyMetadata\": {\n            \"description\": \"aute esse dolor ipsum\"\n          }\n        },\n        {\n          \"privateKeyMetadataId\": \"proident incididunt\",\n          \"kaclsKeyMetadata\": {\n            \"kaclsUri\": \"elit\",\n            \"kaclsData\": \"dolor nulla\"\n          },\n          \"hardwareKeyMetadata\": {\n            \"description\": \"quis culpa\"\n          }\n        }\n      ]\n    }\n  ],\n  \"nextPageToken\": \"eiusmod dolore anim pariatur\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a943808-1a4e-4b41-aafd-1803823cdec8",
+          "name": "Google List CSE Identites",
+          "request": {
+            "name": "Google List CSE Identites",
+            "description": {
+              "content": "Lists the client-side encrypted identities for an authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "settings",
+                "cse",
+                "identities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3b8c5ed6-4e8a-4455-b600-1d60278c79fc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "settings",
+                    "cse",
+                    "identities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cseIdentities\": [\n    {\n      \"emailAddress\": \"adipisicing culpa ipsum\",\n      \"primaryKeyPairId\": \"incididunt pariatur cupidatat in\",\n      \"signAndEncryptKeyPairs\": {\n        \"signingKeyPairId\": \"Ut sunt proident consectetur\",\n        \"encryptionKeyPairId\": \"esse id\"\n      }\n    },\n    {\n      \"emailAddress\": \"elit dolore laboris\",\n      \"primaryKeyPairId\": \"eu Excepteur sint\",\n      \"signAndEncryptKeyPairs\": {\n        \"signingKeyPairId\": \"culpa\",\n        \"encryptionKeyPairId\": \"dolore Excepteur ipsum Lorem\"\n      }\n    }\n  ],\n  \"nextPageToken\": \"eiusmod amet voluptate veniam in\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "06700756-8804-4bf2-aa7c-17d18a54d5ee",
+          "name": "Google List Filters",
+          "request": {
+            "name": "Google List Filters",
+            "description": {
+              "content": "Lists the message filters of a Gmail user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "settings",
+                "filters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1f3df4c4-4b43-400a-a65f-f0b01c30c2a4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "settings",
+                    "filters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"filter\": [\n    {\n      \"id\": \"reprehenderit Duis \",\n      \"criteria\": {\n        \"from\": \"nostrud anim reprehenderit\",\n        \"to\": \"officia\",\n        \"subject\": \"magna\",\n        \"query\": \"sint elit\",\n        \"negatedQuery\": \"Excepteur quis est\",\n        \"hasAttachment\": true,\n        \"excludeChats\": false,\n        \"size\": 73367794,\n        \"sizeComparison\": \"unspecified\"\n      },\n      \"action\": {\n        \"addLabelIds\": [\n          \"nisi elit voluptate\",\n          \"sunt exercitation\"\n        ],\n        \"removeLabelIds\": [\n          \"pariatur in laborum veniam\",\n          \"irure in\"\n        ],\n        \"forward\": \"occaecat Ut veniam\"\n      }\n    },\n    {\n      \"id\": \"Ut deserunt\",\n      \"criteria\": {\n        \"from\": \"magna non Duis nostrud Ut\",\n        \"to\": \"ut officia exercitation in\",\n        \"subject\": \"tempor minim anim ipsum\",\n        \"query\": \"sit anim\",\n        \"negatedQuery\": \"voluptate in tempor elit\",\n        \"hasAttachment\": true,\n        \"excludeChats\": false,\n        \"size\": 29351468,\n        \"sizeComparison\": \"smaller\"\n      },\n      \"action\": {\n        \"addLabelIds\": [\n          \"adipisicing labore dolore\",\n          \"dolor\"\n        ],\n        \"removeLabelIds\": [\n          \"esse cupidatat\",\n          \"mollit aliqua\"\n        ],\n        \"forward\": \"est occaecat officia\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43da2d58-8e4c-490b-b28e-8b9eada5d402",
+          "name": "Google List Forwarding Addresses",
+          "request": {
+            "name": "Google List Forwarding Addresses",
+            "description": {
+              "content": "Lists the forwarding addresses for the specified account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "settings",
+                "forwardingAddresses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "03a6c00e-684a-48d9-81a2-d18ac797872f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "settings",
+                    "forwardingAddresses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"forwardingAddresses\": [\n    {\n      \"forwardingEmail\": \"consequat\",\n      \"verificationStatus\": \"accepted\"\n    },\n    {\n      \"forwardingEmail\": \"proident ad nulla occaecat dolore\",\n      \"verificationStatus\": \"verificationStatusUnspecified\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ab28195-f00b-4906-89f2-015026ebb0ae",
+          "name": "Google List Delegates",
+          "request": {
+            "name": "Google List Delegates",
+            "description": {
+              "content": "Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "settings",
+                "delegates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "69fd53db-d9b5-47c1-8a20-54132ea760e6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "settings",
+                    "delegates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"delegates\": [\n    {\n      \"delegateEmail\": \"veniam voluptate \",\n      \"verificationStatus\": \"accepted\"\n    },\n    {\n      \"delegateEmail\": \"qui ipsum\",\n      \"verificationStatus\": \"expired\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2a2a2f8b-05f5-4113-a93a-e9b7b48f47fc",
+    "name": "Google Books About Lists API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

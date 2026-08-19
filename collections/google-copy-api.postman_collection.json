@@ -1,0 +1,168 @@
+{
+  "item": [
+    {
+      "id": "f8a861b3-8a3f-4183-bb4d-8bcadcf2eb68",
+      "name": "Copy",
+      "description": {
+        "content": "Operations related to Copy",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "71343d79-38fa-4358-ac24-712d50e5331d",
+          "name": "Google Copy To Sheet",
+          "request": {
+            "name": "Google Copy To Sheet",
+            "description": {
+              "content": "Copies a single sheet from a spreadsheet to another spreadsheet. Returns the properties of the newly created sheet.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "spreadsheets",
+                ":spreadsheetId",
+                "sheets",
+                "{{sheetId}}:copyTo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "spreadsheetId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8429063d-97ca-4ba5-95b6-e6f3c35feddb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "spreadsheets",
+                    ":spreadsheetId",
+                    "sheets",
+                    "{{sheetId}}:copyTo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "spreadsheetId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"destinationSpreadsheetId\": \"eu fugiat\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dataSourceSheetProperties\": {\n    \"columns\": [\n      {\n        \"formula\": \"id et ex reprehenderit\",\n        \"reference\": {\n          \"name\": \"minim in\"\n        }\n      },\n      {\n        \"formula\": \"culpa sint et\",\n        \"reference\": {\n          \"name\": \"velit\"\n        }\n      }\n    ],\n    \"dataExecutionStatus\": {\n      \"errorCode\": \"DATA_EXECUTION_ERROR_CODE_UNSPECIFIED\",\n      \"errorMessage\": \"officia incididunt ipsum\",\n      \"lastRefreshTime\": \"incidid\",\n      \"state\": \"DATA_EXECUTION_STATE_UNSPECIFIED\"\n    },\n    \"dataSourceId\": \"in Ut dolore sunt\"\n  },\n  \"gridProperties\": {\n    \"columnCount\": -39728991,\n    \"columnGroupControlAfter\": false,\n    \"frozenColumnCount\": -34736494,\n    \"frozenRowCount\": -70465816,\n    \"hideGridlines\": false,\n    \"rowCount\": 14366497,\n    \"rowGroupControlAfter\": true\n  },\n  \"hidden\": true,\n  \"index\": 34136900,\n  \"rightToLeft\": false,\n  \"sheetId\": -19636375,\n  \"sheetType\": \"OBJECT\",\n  \"tabColor\": {\n    \"alpha\": 9104888.265400872,\n    \"blue\": -38148126.52548318,\n    \"green\": -49770222.52454422,\n    \"red\": 11795874.261146635\n  },\n  \"tabColorStyle\": {\n    \"rgbColor\": {\n      \"alpha\": -27908346.978851378,\n      \"blue\": 85938099.78494695,\n      \"green\": -35336997.9560505,\n      \"red\": -70387559.7048357\n    },\n    \"themeColor\": \"ACCENT2\"\n  },\n  \"title\": \"nisi reprehenderit cupidatat enim\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "sheetId"
+    }
+  ],
+  "info": {
+    "_postman_id": "127ba522-c548-4712-9d4c-145829c0b525",
+    "name": "Google Books About Copy API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

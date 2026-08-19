@@ -1,0 +1,161 @@
+{
+  "item": [
+    {
+      "id": "7de7c4ed-2c4c-4057-9af1-879d9f1d6fc5",
+      "name": "Import",
+      "description": {
+        "content": "Operations related to Import",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1df16fbf-b172-4957-8f84-2e3bbffcfecb",
+          "name": "Google Import Messages",
+          "request": {
+            "name": "Google Import Messages",
+            "description": {
+              "content": "Imports a message into only this user's mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. This method doesn't perform SPF checks, so it might not work for some spam messages, such as those attempting to perform domain spoofing. This method does not send a message.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "messages",
+                "import"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "138973bc-83fe-4c85-a9ae-40359a64ea35",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "messages",
+                    "import"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"threadId\": \"magna Ut officia\",\n  \"labelIds\": [\n    \"mollit amet dolore cupidatat\",\n    \"cupidatat deserunt mollit\"\n  ],\n  \"snippet\": \"ut dolor\",\n  \"historyId\": \"nisi tempor do\",\n  \"internalDate\": \"cupidatat officia anim\",\n  \"payload\": {\n    \"partId\": \"dolore velit incididunt est a\",\n    \"mimeType\": \"sit dolor mollit\",\n    \"filename\": \"ea commodo dolor nisi\",\n    \"headers\": [\n      {\n        \"name\": \"quis id velit laborum\",\n        \"value\": \"et voluptate dolor ea\"\n      },\n      {\n        \"name\": \"sit nostrud\",\n        \"value\": \"deserunt fugiat ex\"\n      }\n    ],\n    \"body\": {\n      \"attachmentId\": \"id nulla consequat\",\n      \"size\": -93837667,\n      \"data\": \"ad in occaecat\"\n    },\n    \"parts\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n      }\n    ]\n  },\n  \"sizeEstimate\": 21128811,\n  \"raw\": \"do laboris\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"eu incididunt laborum irure\",\n  \"threadId\": \"magna Ut officia\",\n  \"labelIds\": [\n    \"mollit amet dolore cupidatat\",\n    \"cupidatat deserunt mollit\"\n  ],\n  \"snippet\": \"ut dolor\",\n  \"historyId\": \"nisi tempor do\",\n  \"internalDate\": \"cupidatat officia anim\",\n  \"payload\": {\n    \"partId\": \"dolore velit incididunt est a\",\n    \"mimeType\": \"sit dolor mollit\",\n    \"filename\": \"ea commodo dolor nisi\",\n    \"headers\": [\n      {\n        \"name\": \"quis id velit laborum\",\n        \"value\": \"et voluptate dolor ea\"\n      },\n      {\n        \"name\": \"sit nostrud\",\n        \"value\": \"deserunt fugiat ex\"\n      }\n    ],\n    \"body\": {\n      \"attachmentId\": \"id nulla consequat\",\n      \"size\": -93837667,\n      \"data\": \"ad in occaecat\"\n    },\n    \"parts\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/MessagePart detected>\"\n      }\n    ]\n  },\n  \"sizeEstimate\": 21128811,\n  \"raw\": \"do laboris\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d100b8f8-c757-44b3-9625-90fd99ad00b8",
+    "name": "Google Books About Import API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

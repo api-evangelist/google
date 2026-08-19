@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books About Speech Generation API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Speech Generation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Generate Speech (Text-to-Speech)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/models/:ttsModel:generateContent",
+            "params": [
+              {
+                "name": "ttsModel",
+                "value": "",
+                "type": "path",
+                "description": "The TTS model to use for speech generation"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Transform text input into single-speaker or multi-speaker audio using native text-to-speech (TTS) \ngeneration capabilities. TTS is controllable through natural language to guide style, accent, pace, \nand tone of the audio.\n\n**Capabilities:**\n- Single-speaker or multi-speaker audio (up to 2 speakers)\n- 30 voice options with different characteristics (bright, upbeat, informative, etc.)\n- 24 supported languages with automatic language detection\n- Controllable style, tone, accent, and pace via promp"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

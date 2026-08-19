@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Books About File Api API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "File Api",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Upload File (Resumable)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.googleapis.com/books/v1/files",
+            "headers": [
+              {
+                "name": "X-Goog-Upload-Protocol",
+                "value": ""
+              },
+              {
+                "name": "X-Goog-Upload-Command",
+                "value": ""
+              },
+              {
+                "name": "X-Goog-Upload-Header-Content-Length",
+                "value": ""
+              },
+              {
+                "name": "X-Goog-Upload-Header-Content-Type",
+                "value": ""
+              },
+              {
+                "name": "X-Goog-Upload-Offset",
+                "value": ""
+              },
+              {
+                "name": "Content-Length",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upload a video, PDF, audio, or other media file using resumable upload protocol. Use this for files larger than 20MB, \nvideos longer than approximately 1 minute, or when you want to reuse the file across multiple requests.\n"
+        },
+        {
+          "info": {
+            "name": "Google Get File Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.googleapis.com/books/v1/files/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "files/abc123",
+                "type": "path",
+                "description": "The resource name of the file (e.g., \"files/abc123\")"
+              }
+            ]
+          },
+          "docs": "Retrieve metadata for an uploaded file. Use this to verify the file was successfully \nstored and to check its processing state.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

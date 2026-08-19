@@ -1,0 +1,175 @@
+{
+  "item": [
+    {
+      "id": "9562af97-338e-4ac2-a090-d735f18569d8",
+      "name": "Disables",
+      "description": {
+        "content": "Operations related to Disables",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d464485d-050e-4b96-bd4e-30c2ffa35f26",
+          "name": "Google Disable CSE Keypairs",
+          "request": {
+            "name": "Google Disable CSE Keypairs",
+            "description": {
+              "content": "Turns off a client-side encryption key pair. The authenticated user can no longer use the key pair to decrypt incoming CSE message texts or sign outgoing CSE mail. To regain access, use the EnableCseKeyPair to turn on the key pair. After 30 days, you can permanently delete the key pair by using the ObliterateCseKeyPair method.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "settings",
+                "cse",
+                "keypairs",
+                "{{keyPairId}}:disable"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7b041e9e-5c21-4879-af9b-0b1349031608",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "settings",
+                    "cse",
+                    "keypairs",
+                    "{{keyPairId}}:disable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"keyPairId\": \"Lorem eiusmod\",\n  \"pkcs7\": \"ex incididunt\",\n  \"pem\": \"irure quis\",\n  \"subjectEmailAddresses\": [\n    \"Excepteur Ut commodo aliquip\",\n    \"eu Lorem nulla\"\n  ],\n  \"enablementState\": \"disabled\",\n  \"disableTime\": \"cill\",\n  \"privateKeyMetadata\": [\n    {\n      \"privateKeyMetadataId\": \"proident fugiat eu dolore\",\n      \"kaclsKeyMetadata\": {\n        \"kaclsUri\": \"voluptate ipsum ad\",\n        \"kaclsData\": \"Duis laborum aute\"\n      },\n      \"hardwareKeyMetadata\": {\n        \"description\": \"mollit la\"\n      }\n    },\n    {\n      \"privateKeyMetadataId\": \"nulla ullamco\",\n      \"kaclsKeyMetadata\": {\n        \"kaclsUri\": \"minim in\",\n        \"kaclsData\": \"sint eiusmod\"\n      },\n      \"hardwareKeyMetadata\": {\n        \"description\": \"ut\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "keyPairId"
+    }
+  ],
+  "info": {
+    "_postman_id": "d2e43799-32a9-4760-a0a8-df2346857660",
+    "name": "Google Books About Disables API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}

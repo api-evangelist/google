@@ -1,0 +1,177 @@
+{
+  "item": [
+    {
+      "id": "206d6d00-5f8d-4126-9556-b8d85f0fadb4",
+      "name": "Setting",
+      "description": {
+        "content": "Operations related to Setting",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "44b1022a-f89b-4e1d-9485-7543ebd8121b",
+          "name": "Google Update Send As Setting",
+          "request": {
+            "name": "Google Update Send As Setting",
+            "description": {
+              "content": "Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary address for the account can only be updated by service account clients that have been delegated domain-wide authority.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gmail",
+                "v1",
+                "users",
+                ":userId",
+                "settings",
+                "sendAs",
+                ":sendAsEmail"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) (Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sendAsEmail",
+                  "description": "(Required) (Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dfc66e9c-235e-49eb-8081-3a6f306ef8d9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gmail",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "settings",
+                    "sendAs",
+                    ":sendAsEmail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) (Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sendAsEmail",
+                      "description": "(Required) (Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sendAsEmail\": \"ut nulla\",\n  \"displayName\": \"Excepteur\",\n  \"replyToAddress\": \"velit id culpa\",\n  \"signature\": \"officia quis adipisicing\",\n  \"isPrimary\": true,\n  \"isDefault\": true,\n  \"treatAsAlias\": false,\n  \"smtpMsa\": {\n    \"host\": \"in elit\",\n    \"port\": -34532702,\n    \"username\": \"aliqua laborum aliquip do\",\n    \"password\": \"tempor dolor velit\",\n    \"securityMode\": \"securityModeUnspecified\"\n  },\n  \"verificationStatus\": \"pending\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sendAsEmail\": \"ut nulla\",\n  \"displayName\": \"Excepteur\",\n  \"replyToAddress\": \"velit id culpa\",\n  \"signature\": \"officia quis adipisicing\",\n  \"isPrimary\": true,\n  \"isDefault\": true,\n  \"treatAsAlias\": false,\n  \"smtpMsa\": {\n    \"host\": \"in elit\",\n    \"port\": -34532702,\n    \"username\": \"aliqua laborum aliquip do\",\n    \"password\": \"tempor dolor velit\",\n    \"securityMode\": \"securityModeUnspecified\"\n  },\n  \"verificationStatus\": \"pending\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/books/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "070baa88-4133-4f5d-ae81-41557d0b5bcc",
+    "name": "Google Books About Setting API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Bookshelf and Volume resources from Google Books\n\nContact Support:\n Name: Google Books API",
+      "type": "text/plain"
+    }
+  }
+}
