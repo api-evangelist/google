@@ -65,6 +65,10 @@ apis:
 - aid: google:google-street-view-imagery-api
   name: Google Street View Imagery API
   tags:
+  - Image
+  - Maps
+  - Street View
+  tags_raw:
   - Images
   - Maps
   - Street View
@@ -143,6 +147,9 @@ apis:
 - aid: google:google-time-zone-api
   name: Google Time Zone API
   tags:
+  - Maps
+  - Timezone
+  tags_raw:
   - Maps
   - Time Zone
   humanURL: https://developers.google.com/maps/documentation/timezone
@@ -266,6 +273,10 @@ apis:
 - aid: google:google-cloud-translation-api
   name: Google Cloud Translation API
   tags:
+  - Artificial Intelligence
+  - Machine-Learning
+  - Translation
+  tags_raw:
   - AI
   - Machine Learning
   - Translation
@@ -282,6 +293,10 @@ apis:
 - aid: google:google-cloud-vision-api
   name: Google Cloud Vision API
   tags:
+  - Artificial Intelligence
+  - Machine-Learning
+  - Vision
+  tags_raw:
   - AI
   - Machine Learning
   - Vision
@@ -296,6 +311,10 @@ apis:
 - aid: google:google-cloud-natural-language-api
   name: Google Cloud Natural Language API
   tags:
+  - Artificial Intelligence
+  - Machine-Learning
+  - Natural Language Processing
+  tags_raw:
   - AI
   - Machine Learning
   - Natural Language Processing
@@ -309,6 +328,10 @@ apis:
 - aid: google:google-cloud-speech-to-text-api
   name: Google Cloud Speech-to-Text API
   tags:
+  - Artificial Intelligence
+  - Machine-Learning
+  - Speech
+  tags_raw:
   - AI
   - Machine Learning
   - Speech
@@ -322,6 +345,10 @@ apis:
 - aid: google:google-cloud-text-to-speech-api
   name: Google Cloud Text-to-Speech API
   tags:
+  - Artificial Intelligence
+  - Machine-Learning
+  - Speech
+  tags_raw:
   - AI
   - Machine Learning
   - Speech
@@ -404,6 +431,9 @@ apis:
 - aid: google:google-tasks-api
   name: Google Tasks API
   tags:
+  - Productivity
+  - Task
+  tags_raw:
   - Productivity
   - Tasks
   humanURL: https://developers.google.com/workspace/tasks/overview
@@ -798,6 +828,8 @@ apis:
   humanURL: https://cloud.google.com/api-gateway/docs
   baseURL: https://api.example.com
   tags:
+  - Application
+  tags_raw:
   - Applications
   properties:
   - type: OpenAPI
@@ -1409,7 +1441,8 @@ apis:
   description: Operations related to Create
   humanURL: https://cloud.google.com/api-gateway/docs
   baseURL: https://api.example.com
-  tags:
+  tags: []
+  tags_raw:
   - Create
   properties:
   - type: OpenAPI
@@ -1517,7 +1550,8 @@ apis:
   description: Operations related to Deletes
   humanURL: https://cloud.google.com/api-gateway/docs
   baseURL: https://api.example.com
-  tags:
+  tags: []
+  tags_raw:
   - Deletes
   properties:
   - type: OpenAPI
@@ -1554,6 +1588,8 @@ apis:
   humanURL: https://cloud.google.com/api-gateway/docs
   baseURL: https://api.example.com
   tags:
+  - Developers
+  tags_raw:
   - Developer
   properties:
   - type: OpenAPI
@@ -1806,6 +1842,8 @@ apis:
   humanURL: https://cloud.google.com/api-gateway/docs
   baseURL: https://api.example.com
   tags:
+  - File API
+  tags_raw:
   - File Api
   properties:
   - type: OpenAPI
@@ -1842,6 +1880,8 @@ apis:
   humanURL: https://cloud.google.com/api-gateway/docs
   baseURL: https://api.example.com
   tags:
+  - File
+  tags_raw:
   - Files
   properties:
   - type: OpenAPI
@@ -1949,7 +1989,8 @@ apis:
   description: Operations related to Get
   humanURL: https://cloud.google.com/api-gateway/docs
   baseURL: https://api.example.com
-  tags:
+  tags: []
+  tags_raw:
   - Get
   properties:
   - type: OpenAPI
@@ -2022,6 +2063,8 @@ apis:
   humanURL: https://cloud.google.com/api-gateway/docs
   baseURL: https://api.example.com
   tags:
+  - Image-Generation
+  tags_raw:
   - Image Generation
   properties:
   - type: OpenAPI
@@ -2274,6 +2317,8 @@ apis:
   humanURL: https://cloud.google.com/api-gateway/docs
   baseURL: https://api.example.com
   tags:
+  - List
+  tags_raw:
   - Lists
   properties:
   - type: OpenAPI
@@ -2310,6 +2355,8 @@ apis:
   humanURL: https://cloud.google.com/api-gateway/docs
   baseURL: https://api.example.com
   tags:
+  - Message
+  tags_raw:
   - Messages
   properties:
   - type: OpenAPI
@@ -2418,6 +2465,8 @@ apis:
   humanURL: https://cloud.google.com/api-gateway/docs
   baseURL: https://api.example.com
   tags:
+  - Notification
+  tags_raw:
   - Notifications
   properties:
   - type: OpenAPI
@@ -2489,7 +2538,8 @@ apis:
   description: Operations related to Patch
   humanURL: https://cloud.google.com/api-gateway/docs
   baseURL: https://api.example.com
-  tags:
+  tags: []
+  tags_raw:
   - Patch
   properties:
   - type: OpenAPI
@@ -3137,7 +3187,8 @@ apis:
   description: Operations related to Update
   humanURL: https://cloud.google.com/api-gateway/docs
   baseURL: https://api.example.com
-  tags:
+  tags: []
+  tags_raw:
   - Update
   properties:
   - type: OpenAPI
@@ -3246,6 +3297,8 @@ apis:
   humanURL: https://cloud.google.com/api-gateway/docs
   baseURL: https://api.example.com
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -3494,6 +3547,14 @@ apis:
     url: https://ai.google.dev/gemini-api/docs
 name: Google
 tags:
+  - Advertising
+  - Cloud
+  - Developers
+  - Google
+  - Platform
+  - Search
+  - T1
+tags_raw:
   - Advertising
   - Cloud
   - Developer
