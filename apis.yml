@@ -3566,14 +3566,16 @@ accessModel:
   pricing: free
   onboarding: self-serve
   trial: false
-  try_now: true
+  try_now: false
   public: false
   label: Free · Self-serve signup
-  confidence: high
+  confidence: medium
+  try_now_blocked_by: example-domain
   source:
   - plans
   - authentication
-  generated: '2026-07-22'
+  - security
+  generated: '2026-08-26'
   method: derived
 image: https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png
 common:
