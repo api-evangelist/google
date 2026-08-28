@@ -3562,6 +3562,18 @@ tags_raw:
   - Platform
   - Search
   - T1
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: self-serve
@@ -3579,6 +3591,9 @@ accessModel:
   method: derived
 image: https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png
 common:
+  - type: CapabilityMap
+    url: capabilities/google-capability-edges.yml
+    name: Google Business Capability Map
   - type: AgenticAccess
     url: agentic-access/google-agentic-access.yml
   - type: VulnerabilityDisclosure
