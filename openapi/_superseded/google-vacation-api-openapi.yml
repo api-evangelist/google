@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Google Books About Vacation API
   description: API for retrieving Bookshelf and Volume resources from Google Books
@@ -103,30 +103,19 @@ paths:
         dispatcher: FALLBACK
         dispatcherRules: UsersSettingsVacationPutResponseExample
 components:
-  examples:
-    UsersSettingsVacationGetResponseExample:
-      summary: Successful 200 response
-      value:
-        enableAutoReply: false
-        responseSubject: ei
-        responseBodyPlainText: veniam reprehe
-        responseBodyHtml: id
-        restrictToContacts: false
-        restrictToDomain: true
-        startTime: est mollit
-        endTime: enim in aliqua Ut commodo
-    UsersSettingsVacationPutResponseExample:
-      summary: Successful 200 response
-      value:
-        enableAutoReply: false
-        responseSubject: ei
-        responseBodyPlainText: veniam reprehe
-        responseBodyHtml: id
-        restrictToContacts: false
-        restrictToDomain: true
-        startTime: est mollit
-        endTime: enim in aliqua Ut commodo
   schemas:
+    UsersSettingsVacationPutRequest:
+      description: UsersSettingsVacationPutRequest schema
+      type: object
+      example:
+        enableAutoReply: false
+        responseSubject: ei
+        responseBodyPlainText: veniam reprehe
+        responseBodyHtml: id
+        restrictToContacts: false
+        restrictToDomain: true
+        startTime: est mollit
+        endTime: enim in aliqua Ut commodo
     UsersSettingsVacationPutResponse:
       description: UsersSettingsVacationPutResponse schema
       type: object
@@ -167,10 +156,21 @@ components:
           type: string
         endTime:
           type: string
-    UsersSettingsVacationPutRequest:
-      description: UsersSettingsVacationPutRequest schema
-      type: object
-      example:
+  examples:
+    UsersSettingsVacationGetResponseExample:
+      summary: Successful 200 response
+      value:
+        enableAutoReply: false
+        responseSubject: ei
+        responseBodyPlainText: veniam reprehe
+        responseBodyHtml: id
+        restrictToContacts: false
+        restrictToDomain: true
+        startTime: est mollit
+        endTime: enim in aliqua Ut commodo
+    UsersSettingsVacationPutResponseExample:
+      summary: Successful 200 response
+      value:
         enableAutoReply: false
         responseSubject: ei
         responseBodyPlainText: veniam reprehe

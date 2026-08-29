@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Google Books About Values API
   description: API for retrieving Bookshelf and Volume resources from Google Books
@@ -567,106 +567,13 @@ paths:
         dispatcherRules: SpreadsheetsValuesbatchUpdatePostResponseExample
 components:
   schemas:
-    SpreadsheetsValuesPostResponse1:
-      description: SpreadsheetsValuesPostResponse1 schema
+    SpreadsheetsValuesPostRequest:
+      description: SpreadsheetsValuesPostRequest schema
       type: object
-      properties:
-        clearedRange:
-          type: string
-        spreadsheetId:
-          type: string
-    SpreadsheetsValuesGetResponse:
-      description: SpreadsheetsValuesGetResponse schema
-      type: object
-    SpreadsheetsValuesbatchClearByDataFilterPostRequest:
-      description: SpreadsheetsValuesbatchClearByDataFilterPostRequest schema
-      type: object
-      example:
-        dataFilters:
-        - a1Range: commodo ea in ut
-          developerMetadataLookup:
-            locationMatchingStrategy: INTERSECTING_LOCATION
-            locationType: SHEET
-            metadataId: -27000770
-            metadataKey: ip
-            metadataLocation:
-              dimensionRange:
-                dimension: DIMENSION_UNSPECIFIED
-                endIndex: 91540263
-                sheetId: -64167623
-                startIndex: 63800966
-              locationType: DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED
-              sheetId: 46858270
-              spreadsheet: false
-            metadataValue: Excepteur
-            visibility: DOCUMENT
-          gridRange:
-            endColumnIndex: 6998754
-            endRowIndex: 43176042
-            sheetId: -9008085
-            startColumnIndex: -17508638
-            startRowIndex: 21352870
-        - a1Range: esse eiusmod
-          developerMetadataLookup:
-            locationMatchingStrategy: EXACT_LOCATION
-            locationType: SHEET
-            metadataId: -9620585
-            metadataKey: in
-            metadataLocation:
-              dimensionRange:
-                dimension: COLUMNS
-                endIndex: -85774445
-                sheetId: 81988143
-                startIndex: -35232572
-              locationType: SPREADSHEET
-              sheetId: -39029265
-              spreadsheet: false
-            metadataValue: voluptate adipisicing amet dolor
-            visibility: PROJECT
-          gridRange:
-            endColumnIndex: -87815739
-            endRowIndex: -52115573
-            sheetId: 67629865
-            startColumnIndex: 66943098
-            startRowIndex: 74725547
+      example: null
     SpreadsheetsValuesPutResponse:
       description: SpreadsheetsValuesPutResponse schema
       type: object
-    SpreadsheetsValuesbatchGetGetResponse:
-      description: SpreadsheetsValuesbatchGetGetResponse schema
-      type: object
-    SpreadsheetsValuesbatchClearByDataFilterPostResponse:
-      description: SpreadsheetsValuesbatchClearByDataFilterPostResponse schema
-      type: object
-      properties:
-        clearedRanges:
-          type: array
-          items:
-            type: string
-        spreadsheetId:
-          type: string
-    SpreadsheetsValuesbatchUpdatePostResponse:
-      description: SpreadsheetsValuesbatchUpdatePostResponse schema
-      type: object
-    SpreadsheetsValuesPutRequest:
-      description: SpreadsheetsValuesPutRequest schema
-      type: object
-      example: null
-    SpreadsheetsValuesbatchUpdatePostRequest:
-      description: SpreadsheetsValuesbatchUpdatePostRequest schema
-      type: object
-      example: null
-    SpreadsheetsValuesPostRequest1:
-      description: SpreadsheetsValuesPostRequest1 schema
-      type: object
-      example: {}
-    SpreadsheetsValuesbatchClearPostRequest:
-      description: SpreadsheetsValuesbatchClearPostRequest schema
-      type: object
-      example:
-        ranges:
-        - nostrud sunt reprehenderit proident cillum
-        - laborum eiusmod dolor ali
     SpreadsheetsValuesbatchClearPostResponse:
       description: SpreadsheetsValuesbatchClearPostResponse schema
       type: object
@@ -677,10 +584,28 @@ components:
             type: string
         spreadsheetId:
           type: string
-    SpreadsheetsValuesPostRequest:
-      description: SpreadsheetsValuesPostRequest schema
+    SpreadsheetsValuesPostResponse1:
+      description: SpreadsheetsValuesPostResponse1 schema
+      type: object
+      properties:
+        clearedRange:
+          type: string
+        spreadsheetId:
+          type: string
+    SpreadsheetsValuesbatchUpdatePostRequest:
+      description: SpreadsheetsValuesbatchUpdatePostRequest schema
       type: object
       example: null
+    SpreadsheetsValuesbatchClearByDataFilterPostResponse:
+      description: SpreadsheetsValuesbatchClearByDataFilterPostResponse schema
+      type: object
+      properties:
+        clearedRanges:
+          type: array
+          items:
+            type: string
+        spreadsheetId:
+          type: string
     SpreadsheetsValuesbatchGetByDataFilterPostRequest:
       description: SpreadsheetsValuesbatchGetByDataFilterPostRequest schema
       type: object
@@ -735,19 +660,114 @@ components:
         dateTimeRenderOption: FORMATTED_STRING
         majorDimension: DIMENSION_UNSPECIFIED
         valueRenderOption: FORMULA
-    SpreadsheetsValuesPostResponse:
-      description: SpreadsheetsValuesPostResponse schema
+    SpreadsheetsValuesbatchClearByDataFilterPostRequest:
+      description: SpreadsheetsValuesbatchClearByDataFilterPostRequest schema
       type: object
+      example:
+        dataFilters:
+        - a1Range: commodo ea in ut
+          developerMetadataLookup:
+            locationMatchingStrategy: INTERSECTING_LOCATION
+            locationType: SHEET
+            metadataId: -27000770
+            metadataKey: ip
+            metadataLocation:
+              dimensionRange:
+                dimension: DIMENSION_UNSPECIFIED
+                endIndex: 91540263
+                sheetId: -64167623
+                startIndex: 63800966
+              locationType: DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED
+              sheetId: 46858270
+              spreadsheet: false
+            metadataValue: Excepteur
+            visibility: DOCUMENT
+          gridRange:
+            endColumnIndex: 6998754
+            endRowIndex: 43176042
+            sheetId: -9008085
+            startColumnIndex: -17508638
+            startRowIndex: 21352870
+        - a1Range: esse eiusmod
+          developerMetadataLookup:
+            locationMatchingStrategy: EXACT_LOCATION
+            locationType: SHEET
+            metadataId: -9620585
+            metadataKey: in
+            metadataLocation:
+              dimensionRange:
+                dimension: COLUMNS
+                endIndex: -85774445
+                sheetId: 81988143
+                startIndex: -35232572
+              locationType: SPREADSHEET
+              sheetId: -39029265
+              spreadsheet: false
+            metadataValue: voluptate adipisicing amet dolor
+            visibility: PROJECT
+          gridRange:
+            endColumnIndex: -87815739
+            endRowIndex: -52115573
+            sheetId: 67629865
+            startColumnIndex: 66943098
+            startRowIndex: 74725547
+    SpreadsheetsValuesbatchClearPostRequest:
+      description: SpreadsheetsValuesbatchClearPostRequest schema
+      type: object
+      example:
+        ranges:
+        - nostrud sunt reprehenderit proident cillum
+        - laborum eiusmod dolor ali
     SpreadsheetsValuesbatchGetByDataFilterPostResponse:
       description: SpreadsheetsValuesbatchGetByDataFilterPostResponse schema
       type: object
+    SpreadsheetsValuesbatchUpdatePostResponse:
+      description: SpreadsheetsValuesbatchUpdatePostResponse schema
+      type: object
+    SpreadsheetsValuesGetResponse:
+      description: SpreadsheetsValuesGetResponse schema
+      type: object
+    SpreadsheetsValuesPostResponse:
+      description: SpreadsheetsValuesPostResponse schema
+      type: object
+    SpreadsheetsValuesPutRequest:
+      description: SpreadsheetsValuesPutRequest schema
+      type: object
+      example: null
+    SpreadsheetsValuesbatchGetGetResponse:
+      description: SpreadsheetsValuesbatchGetGetResponse schema
+      type: object
+    SpreadsheetsValuesPostRequest1:
+      description: SpreadsheetsValuesPostRequest1 schema
+      type: object
+      example: {}
   examples:
-    SpreadsheetsValuesbatchGetByDataFilterPostResponseExample:
+    SpreadsheetsValuesPutResponseExample:
       summary: Successful 200 response
       value:
         id: example-id
         name: Example Name
-    SpreadsheetsValuesPutResponseExample:
+    SpreadsheetsValuesbatchGetGetResponseExample:
+      summary: Successful 200 response
+      value:
+        id: example-id
+        name: Example Name
+    SpreadsheetsValuesPostResponseExample:
+      summary: Successful 200 response
+      value:
+        id: example-id
+        name: Example Name
+    SpreadsheetsValuesPostResponse1Example:
+      summary: Successful 200 response
+      value:
+        clearedRange: mollit sunt reprehenderit
+        spreadsheetId: dolor in enim
+    SpreadsheetsValuesGetResponseExample:
+      summary: Successful 200 response
+      value:
+        id: example-id
+        name: Example Name
+    SpreadsheetsValuesbatchGetByDataFilterPostResponseExample:
       summary: Successful 200 response
       value:
         id: example-id
@@ -764,26 +784,6 @@ components:
         - laboris in mollit
         - magna adipisicing
         spreadsheetId: cupidatat eiusmod commodo ad
-    SpreadsheetsValuesbatchGetGetResponseExample:
-      summary: Successful 200 response
-      value:
-        id: example-id
-        name: Example Name
-    SpreadsheetsValuesPostResponse1Example:
-      summary: Successful 200 response
-      value:
-        clearedRange: mollit sunt reprehenderit
-        spreadsheetId: dolor in enim
-    SpreadsheetsValuesPostResponseExample:
-      summary: Successful 200 response
-      value:
-        id: example-id
-        name: Example Name
-    SpreadsheetsValuesGetResponseExample:
-      summary: Successful 200 response
-      value:
-        id: example-id
-        name: Example Name
     SpreadsheetsValuesbatchClearByDataFilterPostResponseExample:
       summary: Successful 200 response
       value:

@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Google Books About Streaming API
   description: API for retrieving Bookshelf and Volume resources from Google Books
@@ -74,22 +74,87 @@ paths:
         dispatcherRules: ModelsPostResponseExample
 components:
   schemas:
-    Content:
+    GenerateContentRequest:
       type: object
-      properties:
-        role:
-          type: string
-          enum:
-          - user
-          - model
-          description: The role of the content producer (optional for single-turn, required for multi-turn)
-        parts:
-          type: array
-          description: Ordered parts that constitute a single message
-          items:
-            $ref: '#/components/schemas/Part'
       required:
-      - parts
+      - contents
+      properties:
+        contents:
+          type: array
+          description: The content of the current conversation with the model
+          items:
+            $ref: '#/components/schemas/Content'
+        system_instruction:
+          $ref: '#/components/schemas/Content'
+          description: System instructions to guide model behavior
+        generationConfig:
+          $ref: '#/components/schemas/GenerationConfig'
+          description: Configuration options for model generation
+    FileData:
+      type: object
+      description: Reference to a file uploaded via the File API or a YouTube URL
+      properties:
+        mime_type:
+          type: string
+          description: MIME type of the file (optional for YouTube URLs)
+          example: video/mp4
+        file_uri:
+          type: string
+          description: URI of the file from File API or YouTube URL
+          examples:
+          - https://generativelanguage.googleapis.com/v1beta/files/abc123
+          - https://www.youtube.com/watch?v=9hE5-98ZeCg
+      required:
+      - file_uri
+    ModelsPostResponse:
+      type: string
+      description: Server-Sent Events stream of GenerateContentResponse objects
+    VideoMetadata:
+      type: object
+      description: Metadata for customizing video processing
+      properties:
+        start_offset:
+          type: string
+          description: Start time offset for video clipping (format like "1250s")
+          pattern: ^\d+s$
+          example: 1250s
+        end_offset:
+          type: string
+          description: End time offset for video clipping (format like "1570s")
+          pattern: ^\d+s$
+          example: 1570s
+        fps:
+          type: number
+          format: float
+          description: Custom frame rate sampling (frames per second). Default is 1 FPS. Use <1 for long videos, >1 for rapidly changing visuals
+          minimum: 0.1
+          example: 5
+    Part:
+      type: object
+      description: A part of the content, can be text, inline data, or file data
+      oneOf:
+      - type: object
+        required:
+        - text
+        properties:
+          text:
+            type: string
+            description: Text content
+      - type: object
+        required:
+        - inline_data
+        properties:
+          inline_data:
+            $ref: '#/components/schemas/InlineData'
+      - type: object
+        required:
+        - file_data
+        properties:
+          file_data:
+            $ref: '#/components/schemas/FileData'
+          video_metadata:
+            $ref: '#/components/schemas/VideoMetadata'
+            description: Optional metadata for video processing (clipping, FPS)
     ThinkingConfig:
       type: object
       description: Configuration for thinking mode in Gemini 2.5 models
@@ -144,41 +209,21 @@ components:
           type: object
           description: JSON schema for structured output format
           additionalProperties: true
-    ModelsPostResponse:
-      type: string
-      description: Server-Sent Events stream of GenerateContentResponse objects
-    GenerateContentRequest:
+    Error:
       type: object
-      required:
-      - contents
       properties:
-        contents:
-          type: array
-          description: The content of the current conversation with the model
-          items:
-            $ref: '#/components/schemas/Content'
-        system_instruction:
-          $ref: '#/components/schemas/Content'
-          description: System instructions to guide model behavior
-        generationConfig:
-          $ref: '#/components/schemas/GenerationConfig'
-          description: Configuration options for model generation
-    FileData:
-      type: object
-      description: Reference to a file uploaded via the File API or a YouTube URL
-      properties:
-        mime_type:
-          type: string
-          description: MIME type of the file (optional for YouTube URLs)
-          example: video/mp4
-        file_uri:
-          type: string
-          description: URI of the file from File API or YouTube URL
-          examples:
-          - https://generativelanguage.googleapis.com/v1beta/files/abc123
-          - https://www.youtube.com/watch?v=9hE5-98ZeCg
-      required:
-      - file_uri
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: HTTP status code
+            message:
+              type: string
+              description: Error message
+            status:
+              type: string
+              description: Error status
     InlineData:
       type: object
       required:
@@ -212,67 +257,22 @@ components:
           type: string
           format: byte
           description: Base64 encoded data
-    Error:
+    Content:
       type: object
       properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-              description: HTTP status code
-            message:
-              type: string
-              description: Error message
-            status:
-              type: string
-              description: Error status
-    Part:
-      type: object
-      description: A part of the content, can be text, inline data, or file data
-      oneOf:
-      - type: object
-        required:
-        - text
-        properties:
-          text:
-            type: string
-            description: Text content
-      - type: object
-        required:
-        - inline_data
-        properties:
-          inline_data:
-            $ref: '#/components/schemas/InlineData'
-      - type: object
-        required:
-        - file_data
-        properties:
-          file_data:
-            $ref: '#/components/schemas/FileData'
-          video_metadata:
-            $ref: '#/components/schemas/VideoMetadata'
-            description: Optional metadata for video processing (clipping, FPS)
-    VideoMetadata:
-      type: object
-      description: Metadata for customizing video processing
-      properties:
-        start_offset:
+        role:
           type: string
-          description: Start time offset for video clipping (format like "1250s")
-          pattern: ^\d+s$
-          example: 1250s
-        end_offset:
-          type: string
-          description: End time offset for video clipping (format like "1570s")
-          pattern: ^\d+s$
-          example: 1570s
-        fps:
-          type: number
-          format: float
-          description: Custom frame rate sampling (frames per second). Default is 1 FPS. Use <1 for long videos, >1 for rapidly changing visuals
-          minimum: 0.1
-          example: 5
+          enum:
+          - user
+          - model
+          description: The role of the content producer (optional for single-turn, required for multi-turn)
+        parts:
+          type: array
+          description: Ordered parts that constitute a single message
+          items:
+            $ref: '#/components/schemas/Part'
+      required:
+      - parts
   examples:
     ModelsPostResponseExample:
       summary: Successful 200 response

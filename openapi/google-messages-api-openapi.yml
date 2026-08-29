@@ -1,14 +1,13 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Google Books About Messages API
-  description: API for retrieving Bookshelf and Volume resources from Google Books
+  title: Google Gmail Messages API
+  description: The Gmail API is a RESTful API that can be used to access Gmail mailboxes and send mail. For most web applications the Gmail API is the best choice for authorized access to a user's Gmail data and is suitable for various applications.
   version: 1.0.0
-  contact:
-    name: Google Books API
-    url: https://developers.google.com/books
 servers:
-- url: https://www.googleapis.com/books/v1
-  description: Google Books API v1
+- url: https://gmail.googleapis.com
+  description: Google Gmail API Server
+security:
+- oauth2Auth: []
 tags:
 - name: Messages
   description: Operations related to Messages
@@ -119,56 +118,6 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersMessagesModifyPostResponseExample
-  /gmail/v1/users/{userId}/messages/import:
-    post:
-      tags:
-      - Messages
-      summary: Google Import Messages
-      description: Imports a message into only this user's mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. This method doesn't perform SPF checks, so it might not work for some spam messages, such as those attempting to perform domain spoofing. This method does not send a message.
-      parameters:
-      - name: Content-Type
-        in: header
-        schema:
-          type: string
-        example: application/json
-      - name: Accept
-        in: header
-        schema:
-          type: string
-        example: application/json
-      - name: userId
-        in: path
-        schema:
-          type: string
-        required: true
-        description: '(Required) '
-        example: incididunt labore i
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UsersMessagesImportPostRequest'
-      responses:
-        '200':
-          description: OK
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UsersMessagesImportPostResponse'
-              examples:
-                UsersMessagesImportPostResponseExample:
-                  $ref: '#/components/examples/UsersMessagesImportPostResponseExample'
-      x-api-evangelist-processing:
-        ChooseTags: true
-      x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersMessagesImportPostResponseExample
   /gmail/v1/users/{userId}/messages/send:
     post:
       tags:
@@ -219,224 +168,10 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersMessagesSendPostResponseExample
-  /gmail/v1/users/{userId}/messages:
-    get:
-      tags:
-      - Messages
-      summary: Google List Messages
-      description: Lists the messages in the user's mailbox.
-      parameters:
-      - name: Accept
-        in: header
-        schema:
-          type: string
-        example: application/json
-      - name: maxResults
-        in: query
-        schema:
-          type: string
-        example: '{{maxResults}}'
-      - name: pageToken
-        in: query
-        schema:
-          type: string
-        example: '{{pageToken}}'
-      - name: q
-        in: query
-        schema:
-          type: string
-        example: '{{q}}'
-      - name: userId
-        in: path
-        schema:
-          type: string
-        required: true
-        description: '(Required) '
-        example: '{{userId}}'
-      responses:
-        '200':
-          description: OK
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GmailUsersMessagesGetResponse'
-              examples:
-                GmailUsersMessagesGetResponseExample:
-                  $ref: '#/components/examples/GmailUsersMessagesGetResponseExample'
-      x-api-evangelist-processing:
-        ChooseTags: true
-      x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersMessagesGetResponseExample
-    post:
-      tags:
-      - Messages
-      summary: Google Insert Messages
-      description: Directly inserts a message into only this user's mailbox similar to `IMAP APPEND`, bypassing most scanning and classification. Does not send a message.
-      parameters:
-      - name: Content-Type
-        in: header
-        schema:
-          type: string
-        example: application/json
-      - name: Accept
-        in: header
-        schema:
-          type: string
-        example: application/json
-      - name: userId
-        in: path
-        schema:
-          type: string
-        required: true
-        description: '(Required) '
-        example: incididunt labore i
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GmailUsersMessagesPostRequest'
-      responses:
-        '200':
-          description: OK
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GmailUsersMessagesPostResponse'
-              examples:
-                GmailUsersMessagesPostResponseExample:
-                  $ref: '#/components/examples/GmailUsersMessagesPostResponseExample'
-      x-api-evangelist-processing:
-        ChooseTags: true
-      x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersMessagesPostResponseExample
-  /gmail/v1/users/{userId}/messages/{id}:
-    get:
-      tags:
-      - Messages
-      summary: Google Get Messages
-      description: Gets the specified message.
-      parameters:
-      - name: Accept
-        in: header
-        schema:
-          type: string
-        example: application/json
-      - name: userId
-        in: path
-        schema:
-          type: string
-        required: true
-        description: '(Required) '
-        example: incididunt labore i
-      - name: id
-        in: path
-        schema:
-          type: string
-        required: true
-        description: '(Required) '
-        example: incididunt labore i
-      responses:
-        '200':
-          description: OK
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GmailUsersMessagesGetResponse1'
-              examples:
-                GmailUsersMessagesGetResponse1Example:
-                  $ref: '#/components/examples/GmailUsersMessagesGetResponse1Example'
-      x-api-evangelist-processing:
-        ChooseTags: true
-      x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersMessagesGetResponse1Example
-    delete:
-      tags:
-      - Messages
-      summary: Google Delete Messages
-      description: Immediately and permanently deletes the specified message. This operation cannot be undone. Prefer `messages.trash` instead.
-      parameters:
-      - name: userId
-        in: path
-        schema:
-          type: string
-        required: true
-        description: '(Required) '
-        example: incididunt labore i
-      - name: id
-        in: path
-        schema:
-          type: string
-        required: true
-        description: '(Required) '
-        example: incididunt labore i
-      responses:
-        '204':
-          description: No Content
-          content:
-            text/plain:
-              schema:
-                type: string
-      x-api-evangelist-processing:
-        ChooseTags: true
-      x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
 components:
   schemas:
-    UsersMessagesImportPostRequest:
-      description: UsersMessagesImportPostRequest schema
-      type: object
-      example:
-        id: eu incididunt laborum irure
-        threadId: magna Ut officia
-        labelIds:
-        - mollit amet dolore cupidatat
-        - cupidatat deserunt mollit
-        snippet: ut dolor
-        historyId: nisi tempor do
-        internalDate: cupidatat officia anim
-        payload:
-          partId: dolore velit incididunt est a
-          mimeType: sit dolor mollit
-          filename: ea commodo dolor nisi
-          headers:
-          - name: quis id velit laborum
-            value: et voluptate dolor ea
-          - name: sit nostrud
-            value: deserunt fugiat ex
-          body:
-            attachmentId: id nulla consequat
-            size: -93837667
-            data: ad in occaecat
-          parts:
-          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-        sizeEstimate: 21128811
-        raw: do laboris
-    UsersMessagesImportPostResponsePayloadBody:
-      description: UsersMessagesImportPostResponsePayloadBody schema
+    UsersMessagesSendPostResponsePayloadBody:
+      description: UsersMessagesSendPostResponsePayloadBody schema
       type: object
       properties:
         attachmentId:
@@ -445,260 +180,6 @@ components:
           type: integer
         data:
           type: string
-    UsersMessagesModifyPostRequest:
-      description: UsersMessagesModifyPostRequest schema
-      type: object
-      example:
-        addLabelIds:
-        - qui eu do ex
-        - do sit esse dolor proident
-        removeLabelIds:
-        - Lorem sit
-        - sed
-    GmailUsersMessagesPostResponsePayloadBody:
-      description: GmailUsersMessagesPostResponsePayloadBody schema
-      type: object
-      properties:
-        attachmentId:
-          type: string
-        size:
-          type: integer
-        data:
-          type: string
-    UsersMessagesImportPostResponsePayload:
-      description: UsersMessagesImportPostResponsePayload schema
-      type: object
-      properties:
-        partId:
-          type: string
-        mimeType:
-          type: string
-        filename:
-          type: string
-        headers:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-        body:
-          $ref: '#/components/schemas/UsersMessagesImportPostResponsePayloadBody'
-        parts:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
-    UsersMessagesSendPostResponse:
-      description: UsersMessagesSendPostResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/UsersMessagesSendPostResponsePayload'
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
-    GmailUsersMessagesPostRequest:
-      description: GmailUsersMessagesPostRequest schema
-      type: object
-      example:
-        id: eu incididunt laborum irure
-        threadId: magna Ut officia
-        labelIds:
-        - mollit amet dolore cupidatat
-        - cupidatat deserunt mollit
-        snippet: ut dolor
-        historyId: nisi tempor do
-        internalDate: cupidatat officia anim
-        payload:
-          partId: dolore velit incididunt est a
-          mimeType: sit dolor mollit
-          filename: ea commodo dolor nisi
-          headers:
-          - name: quis id velit laborum
-            value: et voluptate dolor ea
-          - name: sit nostrud
-            value: deserunt fugiat ex
-          body:
-            attachmentId: id nulla consequat
-            size: -93837667
-            data: ad in occaecat
-          parts:
-          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-        sizeEstimate: 21128811
-        raw: do laboris
-    UsersMessagesUntrashPostResponsePayload:
-      description: UsersMessagesUntrashPostResponsePayload schema
-      type: object
-      properties:
-        partId:
-          type: string
-        mimeType:
-          type: string
-        filename:
-          type: string
-        headers:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-        body:
-          $ref: '#/components/schemas/UsersMessagesUntrashPostResponsePayloadBody'
-        parts:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
-    UsersMessagesUntrashPostResponse:
-      description: UsersMessagesUntrashPostResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/UsersMessagesUntrashPostResponsePayload'
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
-    UsersMessagesImportPostResponse:
-      description: UsersMessagesImportPostResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/UsersMessagesImportPostResponsePayload'
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
-    GmailUsersMessagesGetResponse1:
-      description: GmailUsersMessagesGetResponse1 schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/GmailUsersMessagesGetResponse1Payload'
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
-    GmailUsersMessagesPostResponse:
-      description: GmailUsersMessagesPostResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/GmailUsersMessagesPostResponsePayload'
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
-    GmailUsersMessagesGetResponse1Payload:
-      description: GmailUsersMessagesGetResponse1Payload schema
-      type: object
-      properties:
-        partId:
-          type: string
-        mimeType:
-          type: string
-        filename:
-          type: string
-        headers:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-        body:
-          $ref: '#/components/schemas/GmailUsersMessagesGetResponse1PayloadBody'
-        parts:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
     UsersMessagesSendPostResponsePayload:
       description: UsersMessagesSendPostResponsePayload schema
       type: object
@@ -727,68 +208,6 @@ components:
             properties:
               value:
                 type: string
-    UsersMessagesSendPostResponsePayloadBody:
-      description: UsersMessagesSendPostResponsePayloadBody schema
-      type: object
-      properties:
-        attachmentId:
-          type: string
-        size:
-          type: integer
-        data:
-          type: string
-    GmailUsersMessagesPostResponsePayload:
-      description: GmailUsersMessagesPostResponsePayload schema
-      type: object
-      properties:
-        partId:
-          type: string
-        mimeType:
-          type: string
-        filename:
-          type: string
-        headers:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-        body:
-          $ref: '#/components/schemas/GmailUsersMessagesPostResponsePayloadBody'
-        parts:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
-    UsersMessagesModifyPostResponse:
-      description: UsersMessagesModifyPostResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/UsersMessagesModifyPostResponsePayload'
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
     UsersMessagesModifyPostResponsePayloadBody:
       description: UsersMessagesModifyPostResponsePayloadBody schema
       type: object
@@ -799,86 +218,6 @@ components:
           type: integer
         data:
           type: string
-    UsersMessagesUntrashPostResponsePayloadBody:
-      description: UsersMessagesUntrashPostResponsePayloadBody schema
-      type: object
-      properties:
-        attachmentId:
-          type: string
-        size:
-          type: integer
-        data:
-          type: string
-    UsersMessagesSendPostRequest:
-      description: UsersMessagesSendPostRequest schema
-      type: object
-      example:
-        raw: '{{encodedMessage}}'
-    GmailUsersMessagesGetResponse:
-      description: GmailUsersMessagesGetResponse schema
-      type: object
-      properties:
-        messages:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              threadId:
-                type: string
-              labelIds:
-                type: array
-                items:
-                  type: string
-              snippet:
-                type: string
-              historyId:
-                type: string
-              internalDate:
-                type: string
-              payload:
-                type: object
-                properties:
-                  partId:
-                    type: string
-                  mimeType:
-                    type: string
-                  filename:
-                    type: string
-                  headers:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        name:
-                          type: string
-                        value:
-                          type: string
-                  body:
-                    type: object
-                    properties:
-                      attachmentId:
-                        type: string
-                      size:
-                        type: integer
-                      data:
-                        type: string
-                  parts:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        value:
-                          type: string
-              sizeEstimate:
-                type: integer
-              raw:
-                type: string
-        nextPageToken:
-          type: string
-        resultSizeEstimate:
-          type: integer
     UsersMessagesModifyPostResponsePayload:
       description: UsersMessagesModifyPostResponsePayload schema
       type: object
@@ -907,8 +246,8 @@ components:
             properties:
               value:
                 type: string
-    GmailUsersMessagesGetResponse1PayloadBody:
-      description: GmailUsersMessagesGetResponse1PayloadBody schema
+    UsersMessagesUntrashPostResponsePayloadBody:
+      description: UsersMessagesUntrashPostResponsePayloadBody schema
       type: object
       properties:
         attachmentId:
@@ -917,8 +256,123 @@ components:
           type: integer
         data:
           type: string
+    UsersMessagesUntrashPostResponsePayload:
+      description: UsersMessagesUntrashPostResponsePayload schema
+      type: object
+      properties:
+        partId:
+          type: string
+        mimeType:
+          type: string
+        filename:
+          type: string
+        headers:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        body:
+          $ref: '#/components/schemas/UsersMessagesUntrashPostResponsePayloadBody'
+        parts:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+    UsersMessagesSendPostRequest:
+      description: UsersMessagesSendPostRequest schema
+      type: object
+      example:
+        raw: '{{encodedMessage}}'
+    UsersMessagesSendPostResponse:
+      description: UsersMessagesSendPostResponse schema
+      type: object
+      properties:
+        id:
+          type: string
+        threadId:
+          type: string
+        labelIds:
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        internalDate:
+          type: string
+        payload:
+          $ref: '#/components/schemas/UsersMessagesSendPostResponsePayload'
+        sizeEstimate:
+          type: integer
+        raw:
+          type: string
+    UsersMessagesModifyPostRequest:
+      description: UsersMessagesModifyPostRequest schema
+      type: object
+      example:
+        addLabelIds:
+        - qui eu do ex
+        - do sit esse dolor proident
+        removeLabelIds:
+        - Lorem sit
+        - sed
+    UsersMessagesUntrashPostResponse:
+      description: UsersMessagesUntrashPostResponse schema
+      type: object
+      properties:
+        id:
+          type: string
+        threadId:
+          type: string
+        labelIds:
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        internalDate:
+          type: string
+        payload:
+          $ref: '#/components/schemas/UsersMessagesUntrashPostResponsePayload'
+        sizeEstimate:
+          type: integer
+        raw:
+          type: string
+    UsersMessagesModifyPostResponse:
+      description: UsersMessagesModifyPostResponse schema
+      type: object
+      properties:
+        id:
+          type: string
+        threadId:
+          type: string
+        labelIds:
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        internalDate:
+          type: string
+        payload:
+          $ref: '#/components/schemas/UsersMessagesModifyPostResponsePayload'
+        sizeEstimate:
+          type: integer
+        raw:
+          type: string
   examples:
-    UsersMessagesUntrashPostResponseExample:
+    UsersMessagesSendPostResponseExample:
       summary: Successful 200 response
       value:
         id: eu incididunt laborum irure
@@ -947,7 +401,7 @@ components:
           - value: '<Circular reference to #/components/schemas/MessagePart detected>'
         sizeEstimate: 21128811
         raw: do laboris
-    UsersMessagesImportPostResponseExample:
+    UsersMessagesUntrashPostResponseExample:
       summary: Successful 200 response
       value:
         id: eu incididunt laborum irure
@@ -1005,158 +459,7 @@ components:
           - value: '<Circular reference to #/components/schemas/MessagePart detected>'
         sizeEstimate: 21128811
         raw: do laboris
-    UsersMessagesSendPostResponseExample:
-      summary: Successful 200 response
-      value:
-        id: eu incididunt laborum irure
-        threadId: magna Ut officia
-        labelIds:
-        - mollit amet dolore cupidatat
-        - cupidatat deserunt mollit
-        snippet: ut dolor
-        historyId: nisi tempor do
-        internalDate: cupidatat officia anim
-        payload:
-          partId: dolore velit incididunt est a
-          mimeType: sit dolor mollit
-          filename: ea commodo dolor nisi
-          headers:
-          - name: quis id velit laborum
-            value: et voluptate dolor ea
-          - name: sit nostrud
-            value: deserunt fugiat ex
-          body:
-            attachmentId: id nulla consequat
-            size: -93837667
-            data: ad in occaecat
-          parts:
-          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-        sizeEstimate: 21128811
-        raw: do laboris
-    GmailUsersMessagesPostResponseExample:
-      summary: Successful 200 response
-      value:
-        id: eu incididunt laborum irure
-        threadId: magna Ut officia
-        labelIds:
-        - mollit amet dolore cupidatat
-        - cupidatat deserunt mollit
-        snippet: ut dolor
-        historyId: nisi tempor do
-        internalDate: cupidatat officia anim
-        payload:
-          partId: dolore velit incididunt est a
-          mimeType: sit dolor mollit
-          filename: ea commodo dolor nisi
-          headers:
-          - name: quis id velit laborum
-            value: et voluptate dolor ea
-          - name: sit nostrud
-            value: deserunt fugiat ex
-          body:
-            attachmentId: id nulla consequat
-            size: -93837667
-            data: ad in occaecat
-          parts:
-          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-        sizeEstimate: 21128811
-        raw: do laboris
-    GmailUsersMessagesGetResponse1Example:
-      summary: Successful 200 response
-      value:
-        id: eu incididunt laborum irure
-        threadId: magna Ut officia
-        labelIds:
-        - mollit amet dolore cupidatat
-        - cupidatat deserunt mollit
-        snippet: ut dolor
-        historyId: nisi tempor do
-        internalDate: cupidatat officia anim
-        payload:
-          partId: dolore velit incididunt est a
-          mimeType: sit dolor mollit
-          filename: ea commodo dolor nisi
-          headers:
-          - name: quis id velit laborum
-            value: et voluptate dolor ea
-          - name: sit nostrud
-            value: deserunt fugiat ex
-          body:
-            attachmentId: id nulla consequat
-            size: -93837667
-            data: ad in occaecat
-          parts:
-          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-        sizeEstimate: 21128811
-        raw: do laboris
-    GmailUsersMessagesGetResponseExample:
-      summary: Successful 200 response
-      value:
-        messages:
-        - id: sed proident adipisicing culpa esse
-          threadId: ullamco
-          labelIds:
-          - velit dolor
-          - eiusmod veniam eu
-          snippet: anim nisi
-          historyId: aute
-          internalDate: dolore tempor
-          payload:
-            partId: non sint ea incididunt dolor
-            mimeType: enim aliquip Duis
-            filename: tempor nostrud laborum
-            headers:
-            - name: occaecat mollit est
-              value: amet
-            - name: Ut aliquip ea
-              value: deserunt qui
-            body:
-              attachmentId: 'in laborum dolore '
-              size: -13005468
-              data: veniam in qui
-            parts:
-            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-          sizeEstimate: -28255502
-          raw: culpa
-        - id: cupidatat esse magna dolore
-          threadId: ea eiusmod
-          labelIds:
-          - dolore commodo
-          - Ut in et irure
-          snippet: esse non
-          historyId: ex nulla nisi veniam dolor
-          internalDate: tempor pr
-          payload:
-            partId: dolor Excepteur consequat
-            mimeType: magna nulla
-            filename: non proident
-            headers:
-            - name: eiusmod nostrud reprehenderit proident
-              value: in ad
-            - name: consequat cillum
-              value: officia mollit e
-            body:
-              attachmentId: dolore id dolor esse
-              size: -9079183
-              data: aute L
-            parts:
-            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-          sizeEstimate: 11691603
-          raw: eiusmod esse
-        nextPageToken: ipsum reprehenderit Duis in veniam
-        resultSizeEstimate: -35985941
   securitySchemes:
-    OAuth2:
-      type: oauth2
-      description: OAuth 2.0 authentication for Google Books API
-      flows:
-        authorizationCode:
-          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
-          tokenUrl: https://oauth2.googleapis.com/token
-          scopes:
-            https://www.googleapis.com/auth/books: Manage your Google Books library
+    oauth2Auth:
+      type: http
+      scheme: oauth2

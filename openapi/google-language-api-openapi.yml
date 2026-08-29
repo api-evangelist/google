@@ -1,58 +1,18 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Google Books About Language API
-  description: API for retrieving Bookshelf and Volume resources from Google Books
+  title: Google Gmail Language API
+  description: The Gmail API is a RESTful API that can be used to access Gmail mailboxes and send mail. For most web applications the Gmail API is the best choice for authorized access to a user's Gmail data and is suitable for various applications.
   version: 1.0.0
-  contact:
-    name: Google Books API
-    url: https://developers.google.com/books
 servers:
-- url: https://www.googleapis.com/books/v1
-  description: Google Books API v1
+- url: https://gmail.googleapis.com
+  description: Google Gmail API Server
+security:
+- oauth2Auth: []
 tags:
 - name: Language
   description: Operations related to Language
 paths:
   /gmail/v1/users/{userId}/settings/language:
-    get:
-      tags:
-      - Language
-      summary: Google Get Language Settings
-      description: Gets language settings.
-      parameters:
-      - name: Accept
-        in: header
-        schema:
-          type: string
-        example: application/json
-      - name: userId
-        in: path
-        schema:
-          type: string
-        required: true
-        description: '(Required) '
-        example: incididunt labore i
-      responses:
-        '200':
-          description: OK
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UsersSettingsLanguageGetResponse'
-              examples:
-                UsersSettingsLanguageGetResponseExample:
-                  $ref: '#/components/examples/UsersSettingsLanguageGetResponseExample'
-      x-api-evangelist-processing:
-        ChooseTags: true
-      x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsLanguageGetResponseExample
     put:
       tags:
       - Language
@@ -103,22 +63,7 @@ paths:
         dispatcher: FALLBACK
         dispatcherRules: UsersSettingsLanguagePutResponseExample
 components:
-  examples:
-    UsersSettingsLanguagePutResponseExample:
-      summary: Successful 200 response
-      value:
-        displayLanguage: occaecat adipisicing
-    UsersSettingsLanguageGetResponseExample:
-      summary: Successful 200 response
-      value:
-        displayLanguage: occaecat adipisicing
   schemas:
-    UsersSettingsLanguageGetResponse:
-      description: UsersSettingsLanguageGetResponse schema
-      type: object
-      properties:
-        displayLanguage:
-          type: string
     UsersSettingsLanguagePutResponse:
       description: UsersSettingsLanguagePutResponse schema
       type: object
@@ -130,13 +75,12 @@ components:
       type: object
       example:
         displayLanguage: occaecat adipisicing
+  examples:
+    UsersSettingsLanguagePutResponseExample:
+      summary: Successful 200 response
+      value:
+        displayLanguage: occaecat adipisicing
   securitySchemes:
-    OAuth2:
-      type: oauth2
-      description: OAuth 2.0 authentication for Google Books API
-      flows:
-        authorizationCode:
-          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
-          tokenUrl: https://oauth2.googleapis.com/token
-          scopes:
-            https://www.googleapis.com/auth/books: Manage your Google Books library
+    oauth2Auth:
+      type: http
+      scheme: oauth2

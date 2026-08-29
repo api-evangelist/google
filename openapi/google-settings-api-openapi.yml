@@ -1,147 +1,18 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Google Books About Settings API
-  description: API for retrieving Bookshelf and Volume resources from Google Books
+  title: Google Gmail Settings API
+  description: The Gmail API is a RESTful API that can be used to access Gmail mailboxes and send mail. For most web applications the Gmail API is the best choice for authorized access to a user's Gmail data and is suitable for various applications.
   version: 1.0.0
-  contact:
-    name: Google Books API
-    url: https://developers.google.com/books
 servers:
-- url: https://www.googleapis.com/books/v1
-  description: Google Books API v1
+- url: https://gmail.googleapis.com
+  description: Google Gmail API Server
+security:
+- oauth2Auth: []
 tags:
 - name: Settings
   description: Operations related to Settings
 paths:
-  /gmail/v1/users/{userId}/settings/pop:
-    get:
-      tags:
-      - Settings
-      summary: Google Get POP Settings
-      description: Gets POP settings.
-      parameters:
-      - name: Accept
-        in: header
-        schema:
-          type: string
-        example: application/json
-      - name: userId
-        in: path
-        schema:
-          type: string
-        required: true
-        description: '(Required) '
-        example: '{{userId}}'
-      responses:
-        '200':
-          description: OK
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UsersSettingsPopGetResponse'
-              examples:
-                UsersSettingsPopGetResponseExample:
-                  $ref: '#/components/examples/UsersSettingsPopGetResponseExample'
-      x-api-evangelist-processing:
-        ChooseTags: true
-      x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsPopGetResponseExample
-    put:
-      tags:
-      - Settings
-      summary: Google Update POP Settings
-      description: Updates POP settings.
-      parameters:
-      - name: Content-Type
-        in: header
-        schema:
-          type: string
-        example: application/json
-      - name: Accept
-        in: header
-        schema:
-          type: string
-        example: application/json
-      - name: userId
-        in: path
-        schema:
-          type: string
-        required: true
-        description: '(Required) '
-        example: incididunt labore i
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UsersSettingsPopPutRequest'
-      responses:
-        '200':
-          description: OK
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UsersSettingsPopPutResponse'
-              examples:
-                UsersSettingsPopPutResponseExample:
-                  $ref: '#/components/examples/UsersSettingsPopPutResponseExample'
-      x-api-evangelist-processing:
-        ChooseTags: true
-      x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsPopPutResponseExample
   /gmail/v1/users/{userId}/settings/vacation:
-    get:
-      tags:
-      - Settings
-      summary: Google Get Vacation Settings
-      description: Gets vacation responder settings.
-      parameters:
-      - name: Accept
-        in: header
-        schema:
-          type: string
-        example: application/json
-      - name: userId
-        in: path
-        schema:
-          type: string
-        required: true
-        description: '(Required) '
-        example: incididunt labore i
-      responses:
-        '200':
-          description: OK
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UsersSettingsVacationGetResponse'
-              examples:
-                UsersSettingsVacationGetResponseExample:
-                  $ref: '#/components/examples/UsersSettingsVacationGetResponseExample'
-      x-api-evangelist-processing:
-        ChooseTags: true
-      x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsVacationGetResponseExample
     put:
       tags:
       - Settings
@@ -191,177 +62,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersSettingsVacationPutResponseExample
-  /gmail/v1/users/{userId}/settings/language:
-    get:
-      tags:
-      - Settings
-      summary: Google Get Language Settings
-      description: Gets language settings.
-      parameters:
-      - name: Accept
-        in: header
-        schema:
-          type: string
-        example: application/json
-      - name: userId
-        in: path
-        schema:
-          type: string
-        required: true
-        description: '(Required) '
-        example: incididunt labore i
-      responses:
-        '200':
-          description: OK
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UsersSettingsLanguageGetResponse'
-              examples:
-                UsersSettingsLanguageGetResponseExample:
-                  $ref: '#/components/examples/UsersSettingsLanguageGetResponseExample'
-      x-api-evangelist-processing:
-        ChooseTags: true
-      x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsLanguageGetResponseExample
-    put:
-      tags:
-      - Settings
-      summary: Google Update Language Settings
-      description: Updates language settings. If successful, the return object contains the `displayLanguage` that was saved for the user, which may differ from the value passed into the request. This is because the requested `displayLanguage` may not be directly supported by Gmail but have a close variant that is, and so the variant may be chosen and saved instead.
-      parameters:
-      - name: Content-Type
-        in: header
-        schema:
-          type: string
-        example: application/json
-      - name: Accept
-        in: header
-        schema:
-          type: string
-        example: application/json
-      - name: userId
-        in: path
-        schema:
-          type: string
-        required: true
-        description: '(Required) '
-        example: incididunt labore i
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UsersSettingsLanguagePutRequest'
-      responses:
-        '200':
-          description: OK
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UsersSettingsLanguagePutResponse'
-              examples:
-                UsersSettingsLanguagePutResponseExample:
-                  $ref: '#/components/examples/UsersSettingsLanguagePutResponseExample'
-      x-api-evangelist-processing:
-        ChooseTags: true
-      x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsLanguagePutResponseExample
-  /gmail/v1/users/{userId}/settings/autoForwarding:
-    get:
-      tags:
-      - Settings
-      summary: Google Get Auto Forwarding Settings
-      description: Gets the auto-forwarding setting for the specified account.
-      parameters:
-      - name: Accept
-        in: header
-        schema:
-          type: string
-        example: application/json
-      - name: userId
-        in: path
-        schema:
-          type: string
-        required: true
-        description: '(Required) '
-        example: incididunt labore i
-      responses:
-        '200':
-          description: OK
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UsersSettingsAutoForwardingGetResponse'
-              examples:
-                UsersSettingsAutoForwardingGetResponseExample:
-                  $ref: '#/components/examples/UsersSettingsAutoForwardingGetResponseExample'
-      x-api-evangelist-processing:
-        ChooseTags: true
-      x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersSettingsAutoForwardingGetResponseExample
 components:
   schemas:
-    UsersSettingsPopPutResponse:
-      description: UsersSettingsPopPutResponse schema
-      type: object
-      properties:
-        accessWindow:
-          type: string
-        disposition:
-          type: string
-    UsersSettingsPopGetResponse:
-      description: UsersSettingsPopGetResponse schema
-      type: object
-      properties:
-        accessWindow:
-          type: string
-        disposition:
-          type: string
-    UsersSettingsPopPutRequest:
-      description: UsersSettingsPopPutRequest schema
-      type: object
-      example:
-        accessWindow: fromNowOn
-        disposition: dispositionUnspecified
-    UsersSettingsVacationPutRequest:
-      description: UsersSettingsVacationPutRequest schema
-      type: object
-      example:
-        enableAutoReply: false
-        responseSubject: ei
-        responseBodyPlainText: veniam reprehe
-        responseBodyHtml: id
-        restrictToContacts: false
-        restrictToDomain: true
-        startTime: est mollit
-        endTime: enim in aliqua Ut commodo
-    UsersSettingsLanguagePutResponse:
-      description: UsersSettingsLanguagePutResponse schema
-      type: object
-      properties:
-        displayLanguage:
-          type: string
     UsersSettingsVacationPutResponse:
       description: UsersSettingsVacationPutResponse schema
       type: object
@@ -382,60 +84,10 @@ components:
           type: string
         endTime:
           type: string
-    UsersSettingsLanguageGetResponse:
-      description: UsersSettingsLanguageGetResponse schema
-      type: object
-      properties:
-        displayLanguage:
-          type: string
-    UsersSettingsVacationGetResponse:
-      description: UsersSettingsVacationGetResponse schema
-      type: object
-      properties:
-        enableAutoReply:
-          type: boolean
-        responseSubject:
-          type: string
-        responseBodyPlainText:
-          type: string
-        responseBodyHtml:
-          type: string
-        restrictToContacts:
-          type: boolean
-        restrictToDomain:
-          type: boolean
-        startTime:
-          type: string
-        endTime:
-          type: string
-    UsersSettingsAutoForwardingGetResponse:
-      description: UsersSettingsAutoForwardingGetResponse schema
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        emailAddress:
-          type: string
-        disposition:
-          type: string
-    UsersSettingsLanguagePutRequest:
-      description: UsersSettingsLanguagePutRequest schema
+    UsersSettingsVacationPutRequest:
+      description: UsersSettingsVacationPutRequest schema
       type: object
       example:
-        displayLanguage: occaecat adipisicing
-  examples:
-    UsersSettingsPopPutResponseExample:
-      summary: Successful 200 response
-      value:
-        accessWindow: fromNowOn
-        disposition: dispositionUnspecified
-    UsersSettingsLanguagePutResponseExample:
-      summary: Successful 200 response
-      value:
-        displayLanguage: occaecat adipisicing
-    UsersSettingsVacationGetResponseExample:
-      summary: Successful 200 response
-      value:
         enableAutoReply: false
         responseSubject: ei
         responseBodyPlainText: veniam reprehe
@@ -444,15 +96,7 @@ components:
         restrictToDomain: true
         startTime: est mollit
         endTime: enim in aliqua Ut commodo
-    UsersSettingsPopGetResponseExample:
-      summary: Successful 200 response
-      value:
-        accessWindow: fromNowOn
-        disposition: dispositionUnspecified
-    UsersSettingsLanguageGetResponseExample:
-      summary: Successful 200 response
-      value:
-        displayLanguage: occaecat adipisicing
+  examples:
     UsersSettingsVacationPutResponseExample:
       summary: Successful 200 response
       value:
@@ -464,19 +108,7 @@ components:
         restrictToDomain: true
         startTime: est mollit
         endTime: enim in aliqua Ut commodo
-    UsersSettingsAutoForwardingGetResponseExample:
-      summary: Successful 200 response
-      value:
-        enabled: false
-        emailAddress: officia ullamco Ut laboris eu
-        disposition: trash
   securitySchemes:
-    OAuth2:
-      type: oauth2
-      description: OAuth 2.0 authentication for Google Books API
-      flows:
-        authorizationCode:
-          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
-          tokenUrl: https://oauth2.googleapis.com/token
-          scopes:
-            https://www.googleapis.com/auth/books: Manage your Google Books library
+    oauth2Auth:
+      type: http
+      scheme: oauth2

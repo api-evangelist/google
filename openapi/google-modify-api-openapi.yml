@@ -1,112 +1,17 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Google Books About Modify API
-  description: API for retrieving Bookshelf and Volume resources from Google Books
+  title: Google Gmail Modify API
+  description: The Gmail API is a RESTful API that can be used to access Gmail mailboxes and send mail. For most web applications the Gmail API is the best choice for authorized access to a user's Gmail data and is suitable for various applications.
   version: 1.0.0
-  contact:
-    name: Google Books API
-    url: https://developers.google.com/books
 servers:
-- url: https://www.googleapis.com/books/v1
-  description: Google Books API v1
+- url: https://gmail.googleapis.com
+  description: Google Gmail API Server
+security:
+- oauth2Auth: []
 tags:
 - name: Modify
   description: Operations related to Modify
 paths:
-  /gmail/v1/users/{userId}/messages/{id}/modify:
-    post:
-      tags:
-      - Modify
-      summary: Google Modify Messages
-      description: Modifies the labels on the specified message.
-      parameters:
-      - name: Content-Type
-        in: header
-        schema:
-          type: string
-        example: application/json
-      - name: Accept
-        in: header
-        schema:
-          type: string
-        example: application/json
-      - name: userId
-        in: path
-        schema:
-          type: string
-        required: true
-        description: '(Required) '
-        example: '{{userId}}'
-      - name: id
-        in: path
-        schema:
-          type: string
-        required: true
-        description: '(Required) '
-        example: '{{messageId}}'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UsersMessagesModifyPostRequest'
-      responses:
-        '200':
-          description: OK
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UsersMessagesModifyPostResponse'
-              examples:
-                UsersMessagesModifyPostResponseExample:
-                  $ref: '#/components/examples/UsersMessagesModifyPostResponseExample'
-      x-api-evangelist-processing:
-        ChooseTags: true
-      x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: UsersMessagesModifyPostResponseExample
-  /gmail/v1/users/{userId}/messages/batchModify:
-    post:
-      tags:
-      - Modify
-      summary: Google Batch Modify
-      description: Modifies the labels on the specified messages.
-      parameters:
-      - name: Content-Type
-        in: header
-        schema:
-          type: string
-        example: application/json
-      - name: userId
-        in: path
-        schema:
-          type: string
-        required: true
-        description: '(Required) '
-        example: incididunt labore i
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UsersMessagesBatchModifyPostRequest'
-      responses:
-        '204':
-          description: No Content
-          content:
-            text/plain:
-              schema:
-                type: string
-      x-api-evangelist-processing:
-        ChooseTags: true
-      x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: SuccessExample
   /gmail/v1/users/{userId}/threads/{id}/modify:
     post:
       tags:
@@ -166,34 +71,6 @@ paths:
         dispatcherRules: UsersThreadsModifyPostResponseExample
 components:
   schemas:
-    UsersMessagesModifyPostResponsePayload:
-      description: UsersMessagesModifyPostResponsePayload schema
-      type: object
-      properties:
-        partId:
-          type: string
-        mimeType:
-          type: string
-        filename:
-          type: string
-        headers:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-        body:
-          $ref: '#/components/schemas/UsersMessagesModifyPostResponsePayloadBody'
-        parts:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
     UsersThreadsModifyPostResponse:
       description: UsersThreadsModifyPostResponse schema
       type: object
@@ -261,39 +138,6 @@ components:
                 type: integer
               raw:
                 type: string
-    UsersMessagesModifyPostRequest:
-      description: UsersMessagesModifyPostRequest schema
-      type: object
-      example:
-        addLabelIds:
-        - qui eu do ex
-        - do sit esse dolor proident
-        removeLabelIds:
-        - Lorem sit
-        - sed
-    UsersMessagesBatchModifyPostRequest:
-      description: UsersMessagesBatchModifyPostRequest schema
-      type: object
-      example:
-        ids:
-        - ullamco aliqua anim dolo
-        - irure ea
-        addLabelIds:
-        - irure Lorem ex proident
-        - 'proident '
-        removeLabelIds:
-        - do anim ad nulla
-        - minim irure
-    UsersMessagesModifyPostResponsePayloadBody:
-      description: UsersMessagesModifyPostResponsePayloadBody schema
-      type: object
-      properties:
-        attachmentId:
-          type: string
-        size:
-          type: integer
-        data:
-          type: string
     UsersThreadsModifyPostRequest:
       description: UsersThreadsModifyPostRequest schema
       type: object
@@ -304,60 +148,7 @@ components:
         removeLabelIds:
         - consectetur et dolore Lorem
         - reprehenderit tempor id dolore incididunt
-    UsersMessagesModifyPostResponse:
-      description: UsersMessagesModifyPostResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/UsersMessagesModifyPostResponsePayload'
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
   examples:
-    UsersMessagesModifyPostResponseExample:
-      summary: Successful 200 response
-      value:
-        id: eu incididunt laborum irure
-        threadId: magna Ut officia
-        labelIds:
-        - mollit amet dolore cupidatat
-        - cupidatat deserunt mollit
-        snippet: ut dolor
-        historyId: nisi tempor do
-        internalDate: cupidatat officia anim
-        payload:
-          partId: dolore velit incididunt est a
-          mimeType: sit dolor mollit
-          filename: ea commodo dolor nisi
-          headers:
-          - name: quis id velit laborum
-            value: et voluptate dolor ea
-          - name: sit nostrud
-            value: deserunt fugiat ex
-          body:
-            attachmentId: id nulla consequat
-            size: -93837667
-            data: ad in occaecat
-          parts:
-          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-        sizeEstimate: 21128811
-        raw: do laboris
     UsersThreadsModifyPostResponseExample:
       summary: Successful 200 response
       value:
@@ -418,12 +209,6 @@ components:
           sizeEstimate: 2028457
           raw: ipsum enim minim
   securitySchemes:
-    OAuth2:
-      type: oauth2
-      description: OAuth 2.0 authentication for Google Books API
-      flows:
-        authorizationCode:
-          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
-          tokenUrl: https://oauth2.googleapis.com/token
-          scopes:
-            https://www.googleapis.com/auth/books: Manage your Google Books library
+    oauth2Auth:
+      type: http
+      scheme: oauth2

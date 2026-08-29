@@ -1,75 +1,17 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Google Books About Patch API
-  description: API for retrieving Bookshelf and Volume resources from Google Books
+  title: Google Gmail Patch API
+  description: The Gmail API is a RESTful API that can be used to access Gmail mailboxes and send mail. For most web applications the Gmail API is the best choice for authorized access to a user's Gmail data and is suitable for various applications.
   version: 1.0.0
-  contact:
-    name: Google Books API
-    url: https://developers.google.com/books
 servers:
-- url: https://www.googleapis.com/books/v1
-  description: Google Books API v1
+- url: https://gmail.googleapis.com
+  description: Google Gmail API Server
+security:
+- oauth2Auth: []
 tags:
 - name: Patch
   description: Operations related to Patch
 paths:
-  /gmail/v1/users/{userId}/labels/{id}:
-    patch:
-      tags:
-      - Patch
-      summary: Google Patch Labels
-      description: Patch the specified label.
-      parameters:
-      - name: Content-Type
-        in: header
-        schema:
-          type: string
-        example: application/json
-      - name: Accept
-        in: header
-        schema:
-          type: string
-        example: application/json
-      - name: userId
-        in: path
-        schema:
-          type: string
-        required: true
-        description: '(Required) '
-        example: incididunt labore i
-      - name: id
-        in: path
-        schema:
-          type: string
-        required: true
-        description: '(Required) '
-        example: incididunt labore i
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GmailUsersLabelsPatchRequest'
-      responses:
-        '200':
-          description: OK
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GmailUsersLabelsPatchResponse'
-              examples:
-                GmailUsersLabelsPatchResponseExample:
-                  $ref: '#/components/examples/GmailUsersLabelsPatchResponseExample'
-      x-api-evangelist-processing:
-        ChooseTags: true
-      x-microcks-operation:
-        delay: 100
-        dispatcher: FALLBACK
-        dispatcherRules: GmailUsersLabelsPatchResponseExample
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}:
     patch:
       tags:
@@ -185,136 +127,6 @@ paths:
         dispatcher: FALLBACK
         dispatcherRules: SettingsCseIdentitiesPatchResponseExample
 components:
-  schemas:
-    GmailUsersLabelsPatchRequest:
-      description: GmailUsersLabelsPatchRequest schema
-      type: object
-      example:
-        id: nostrud officia pariatur
-        name: esse nulla occaecat
-        messageListVisibility: show
-        labelListVisibility: labelShow
-        type: system
-        messagesTotal: -34033607
-        messagesUnread: 96181517
-        threadsTotal: 7293200
-        threadsUnread: 86726755
-        color:
-          textColor: sunt fugiat ut voluptate
-          backgroundColor: commodo est cupidatat in sed
-    SettingsCseIdentitiesPatchResponseSignAndEncryptKeyPairs:
-      description: SettingsCseIdentitiesPatchResponseSignAndEncryptKeyPairs schema
-      type: object
-      properties:
-        signingKeyPairId:
-          type: string
-        encryptionKeyPairId:
-          type: string
-    GmailUsersLabelsPatchResponseColor:
-      description: GmailUsersLabelsPatchResponseColor schema
-      type: object
-      properties:
-        textColor:
-          type: string
-        backgroundColor:
-          type: string
-    SettingsCseIdentitiesPatchResponse:
-      description: SettingsCseIdentitiesPatchResponse schema
-      type: object
-      properties:
-        emailAddress:
-          type: string
-        primaryKeyPairId:
-          type: string
-        signAndEncryptKeyPairs:
-          $ref: '#/components/schemas/SettingsCseIdentitiesPatchResponseSignAndEncryptKeyPairs'
-    UsersSettingsSendAsPatchResponseSmtpMsa:
-      description: UsersSettingsSendAsPatchResponseSmtpMsa schema
-      type: object
-      properties:
-        host:
-          type: string
-        port:
-          type: integer
-        username:
-          type: string
-        password:
-          type: string
-        securityMode:
-          type: string
-    UsersSettingsSendAsPatchResponse:
-      description: UsersSettingsSendAsPatchResponse schema
-      type: object
-      properties:
-        sendAsEmail:
-          type: string
-        displayName:
-          type: string
-        replyToAddress:
-          type: string
-        signature:
-          type: string
-        isPrimary:
-          type: boolean
-        isDefault:
-          type: boolean
-        treatAsAlias:
-          type: boolean
-        smtpMsa:
-          $ref: '#/components/schemas/UsersSettingsSendAsPatchResponseSmtpMsa'
-        verificationStatus:
-          type: string
-    GmailUsersLabelsPatchResponse:
-      description: GmailUsersLabelsPatchResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        messageListVisibility:
-          type: string
-        labelListVisibility:
-          type: string
-        type:
-          type: string
-        messagesTotal:
-          type: integer
-        messagesUnread:
-          type: integer
-        threadsTotal:
-          type: integer
-        threadsUnread:
-          type: integer
-        color:
-          $ref: '#/components/schemas/GmailUsersLabelsPatchResponseColor'
-    UsersSettingsSendAsPatchRequest:
-      description: UsersSettingsSendAsPatchRequest schema
-      type: object
-      example:
-        sendAsEmail: ut nulla
-        displayName: Excepteur
-        replyToAddress: velit id culpa
-        signature: officia quis adipisicing
-        isPrimary: true
-        isDefault: true
-        treatAsAlias: false
-        smtpMsa:
-          host: in elit
-          port: -34532702
-          username: aliqua laborum aliquip do
-          password: tempor dolor velit
-          securityMode: securityModeUnspecified
-        verificationStatus: pending
-    SettingsCseIdentitiesPatchRequest:
-      description: SettingsCseIdentitiesPatchRequest schema
-      type: object
-      example:
-        emailAddress: aliquip quis id
-        primaryKeyPairId: in exercitation esse
-        signAndEncryptKeyPairs:
-          signingKeyPairId: est deserunt
-          encryptionKeyPairId: elit nulla esse ut
   examples:
     UsersSettingsSendAsPatchResponseExample:
       summary: Successful 200 response
@@ -341,28 +153,89 @@ components:
         signAndEncryptKeyPairs:
           signingKeyPairId: est deserunt
           encryptionKeyPairId: elit nulla esse ut
-    GmailUsersLabelsPatchResponseExample:
-      summary: Successful 200 response
-      value:
-        id: nostrud officia pariatur
-        name: esse nulla occaecat
-        messageListVisibility: show
-        labelListVisibility: labelShow
-        type: system
-        messagesTotal: -34033607
-        messagesUnread: 96181517
-        threadsTotal: 7293200
-        threadsUnread: 86726755
-        color:
-          textColor: sunt fugiat ut voluptate
-          backgroundColor: commodo est cupidatat in sed
+  schemas:
+    UsersSettingsSendAsPatchResponseSmtpMsa:
+      description: UsersSettingsSendAsPatchResponseSmtpMsa schema
+      type: object
+      properties:
+        host:
+          type: string
+        port:
+          type: integer
+        username:
+          type: string
+        password:
+          type: string
+        securityMode:
+          type: string
+    SettingsCseIdentitiesPatchRequest:
+      description: SettingsCseIdentitiesPatchRequest schema
+      type: object
+      example:
+        emailAddress: aliquip quis id
+        primaryKeyPairId: in exercitation esse
+        signAndEncryptKeyPairs:
+          signingKeyPairId: est deserunt
+          encryptionKeyPairId: elit nulla esse ut
+    SettingsCseIdentitiesPatchResponse:
+      description: SettingsCseIdentitiesPatchResponse schema
+      type: object
+      properties:
+        emailAddress:
+          type: string
+        primaryKeyPairId:
+          type: string
+        signAndEncryptKeyPairs:
+          $ref: '#/components/schemas/SettingsCseIdentitiesPatchResponseSignAndEncryptKeyPairs'
+    UsersSettingsSendAsPatchResponse:
+      description: UsersSettingsSendAsPatchResponse schema
+      type: object
+      properties:
+        sendAsEmail:
+          type: string
+        displayName:
+          type: string
+        replyToAddress:
+          type: string
+        signature:
+          type: string
+        isPrimary:
+          type: boolean
+        isDefault:
+          type: boolean
+        treatAsAlias:
+          type: boolean
+        smtpMsa:
+          $ref: '#/components/schemas/UsersSettingsSendAsPatchResponseSmtpMsa'
+        verificationStatus:
+          type: string
+    UsersSettingsSendAsPatchRequest:
+      description: UsersSettingsSendAsPatchRequest schema
+      type: object
+      example:
+        sendAsEmail: ut nulla
+        displayName: Excepteur
+        replyToAddress: velit id culpa
+        signature: officia quis adipisicing
+        isPrimary: true
+        isDefault: true
+        treatAsAlias: false
+        smtpMsa:
+          host: in elit
+          port: -34532702
+          username: aliqua laborum aliquip do
+          password: tempor dolor velit
+          securityMode: securityModeUnspecified
+        verificationStatus: pending
+    SettingsCseIdentitiesPatchResponseSignAndEncryptKeyPairs:
+      description: SettingsCseIdentitiesPatchResponseSignAndEncryptKeyPairs schema
+      type: object
+      properties:
+        signingKeyPairId:
+          type: string
+        encryptionKeyPairId:
+          type: string
   securitySchemes:
-    OAuth2:
-      type: oauth2
-      description: OAuth 2.0 authentication for Google Books API
-      flows:
-        authorizationCode:
-          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
-          tokenUrl: https://oauth2.googleapis.com/token
-          scopes:
-            https://www.googleapis.com/auth/books: Manage your Google Books library
+    oauth2Auth:
+      type: http
+      scheme: oauth2

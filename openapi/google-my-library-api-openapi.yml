@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Google Books About My Library API
+  title: Google Books My Library API
   description: API for retrieving Bookshelf and Volume resources from Google Books
   version: 1.0.0
   contact:
@@ -430,126 +430,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    Bookshelf:
-      type: object
-      description: A bookshelf resource represents the metadata for a bookshelf, it does not include the volumes in the bookshelf
-      properties:
-        kind:
-          type: string
-          description: Resource type for bookshelf metadata
-          enum:
-          - books#bookshelf
-          example: books#bookshelf
-        id:
-          type: integer
-          description: ID of this bookshelf
-          example: 0
-        selfLink:
-          type: string
-          format: uri
-          description: URL to this resource
-          example: https://www.googleapis.com/books/v1/users/112624903452243252365/bookshelves/0
-        title:
-          type: string
-          description: Title of this bookshelf
-          example: Favorites
-        description:
-          type: string
-          description: Description of this bookshelf
-          example: My favorite books to read
-        access:
-          type: string
-          description: Whether this bookshelf is PUBLIC or PRIVATE
-          enum:
-          - PUBLIC
-          - PRIVATE
-          example: PUBLIC
-        updated:
-          type: string
-          format: date-time
-          description: Last modified time of this bookshelf (formatted UTC timestamp with millisecond resolution)
-          example: '2024-01-15T10:30:00.000Z'
-        created:
-          type: string
-          format: date-time
-          description: Created time for this bookshelf (formatted UTC timestamp with millisecond resolution)
-          example: '2023-01-15T10:30:00.000Z'
-        volumeCount:
-          type: integer
-          description: Number of volumes in this bookshelf
-          example: 42
-        volumesLastUpdated:
-          type: string
-          format: date-time
-          description: Last time a volume was added or removed from this bookshelf (formatted UTC timestamp with millisecond resolution)
-          example: '2024-01-15T10:30:00.000Z'
-    VolumesResponse:
-      type: object
-      description: Response containing a list of volumes from a search
-      required:
-      - kind
-      properties:
-        kind:
-          type: string
-          description: Resource type
-          enum:
-          - books#volumes
-          example: books#volumes
-        totalItems:
-          type: integer
-          description: Total number of volumes found. This might be greater than the number of volumes returned in this response if results have been paginated.
-          example: 1234
-        items:
-          type: array
-          description: A list of volumes
-          items:
-            $ref: '#/components/schemas/Volume'
-    BookshelvesResponse:
-      type: object
-      description: Response containing a list of bookshelves
-      required:
-      - kind
-      properties:
-        kind:
-          type: string
-          description: Resource type
-          enum:
-          - books#bookshelves
-          example: books#bookshelves
-        items:
-          type: array
-          description: A list of bookshelves
-          items:
-            $ref: '#/components/schemas/Bookshelf'
-    Error:
-      type: object
-      description: Error response
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-              description: HTTP status code
-              example: 404
-            message:
-              type: string
-              description: Error message
-              example: User not found
-            errors:
-              type: array
-              items:
-                type: object
-                properties:
-                  domain:
-                    type: string
-                    example: global
-                  reason:
-                    type: string
-                    example: notFound
-                  message:
-                    type: string
-                    example: User not found
     Volume:
       type: object
       description: A Volume represents information that Google Books hosts about a book or a magazine. It contains metadata, such as title and author, as well as personalized data, such as whether or not it has been purchased.
@@ -922,6 +802,126 @@ components:
             textSnippet:
               type: string
               description: A text snippet containing the search query.
+    Error:
+      type: object
+      description: Error response
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: HTTP status code
+              example: 404
+            message:
+              type: string
+              description: Error message
+              example: User not found
+            errors:
+              type: array
+              items:
+                type: object
+                properties:
+                  domain:
+                    type: string
+                    example: global
+                  reason:
+                    type: string
+                    example: notFound
+                  message:
+                    type: string
+                    example: User not found
+    Bookshelf:
+      type: object
+      description: A bookshelf resource represents the metadata for a bookshelf, it does not include the volumes in the bookshelf
+      properties:
+        kind:
+          type: string
+          description: Resource type for bookshelf metadata
+          enum:
+          - books#bookshelf
+          example: books#bookshelf
+        id:
+          type: integer
+          description: ID of this bookshelf
+          example: 0
+        selfLink:
+          type: string
+          format: uri
+          description: URL to this resource
+          example: https://www.googleapis.com/books/v1/users/112624903452243252365/bookshelves/0
+        title:
+          type: string
+          description: Title of this bookshelf
+          example: Favorites
+        description:
+          type: string
+          description: Description of this bookshelf
+          example: My favorite books to read
+        access:
+          type: string
+          description: Whether this bookshelf is PUBLIC or PRIVATE
+          enum:
+          - PUBLIC
+          - PRIVATE
+          example: PUBLIC
+        updated:
+          type: string
+          format: date-time
+          description: Last modified time of this bookshelf (formatted UTC timestamp with millisecond resolution)
+          example: '2024-01-15T10:30:00.000Z'
+        created:
+          type: string
+          format: date-time
+          description: Created time for this bookshelf (formatted UTC timestamp with millisecond resolution)
+          example: '2023-01-15T10:30:00.000Z'
+        volumeCount:
+          type: integer
+          description: Number of volumes in this bookshelf
+          example: 42
+        volumesLastUpdated:
+          type: string
+          format: date-time
+          description: Last time a volume was added or removed from this bookshelf (formatted UTC timestamp with millisecond resolution)
+          example: '2024-01-15T10:30:00.000Z'
+    VolumesResponse:
+      type: object
+      description: Response containing a list of volumes from a search
+      required:
+      - kind
+      properties:
+        kind:
+          type: string
+          description: Resource type
+          enum:
+          - books#volumes
+          example: books#volumes
+        totalItems:
+          type: integer
+          description: Total number of volumes found. This might be greater than the number of volumes returned in this response if results have been paginated.
+          example: 1234
+        items:
+          type: array
+          description: A list of volumes
+          items:
+            $ref: '#/components/schemas/Volume'
+    BookshelvesResponse:
+      type: object
+      description: Response containing a list of bookshelves
+      required:
+      - kind
+      properties:
+        kind:
+          type: string
+          description: Resource type
+          enum:
+          - books#bookshelves
+          example: books#bookshelves
+        items:
+          type: array
+          description: A list of bookshelves
+          items:
+            $ref: '#/components/schemas/Bookshelf'
   securitySchemes:
     OAuth2:
       type: oauth2
