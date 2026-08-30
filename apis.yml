@@ -148,7 +148,7 @@ apis:
   name: Google Time Zone API
   tags:
   - Maps
-  - Timezone
+  - Time Zone
   tags_raw:
   - Maps
   - Time Zone
@@ -1806,7 +1806,7 @@ apis:
   humanURL: https://cloud.google.com/api-gateway/docs
   baseURL: https://api.example.com
   tags:
-  - File API
+  - File Api
   tags_raw:
   - File Api
   properties:
