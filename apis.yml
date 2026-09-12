@@ -3123,6 +3123,8 @@ accessModel:
   method: derived
 image: https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png
 common:
+  - type: Website
+    url: https://www.google.com/
   - type: CapabilityMap
     url: capabilities/google-capability-edges.yml
     name: Google Business Capability Map
