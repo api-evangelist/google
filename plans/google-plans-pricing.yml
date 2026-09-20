@@ -10,6 +10,10 @@ provenance:
   grounding: every price_text was found verbatim in the fetched page text
 audience: developer-api
 pricing_basis: usage-other
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-09-20'
 published: true
 note: Usage-based pricing for Pub/Sub (per TiB throughput, per GiB-month storage) and Pub/Sub Lite (reserved
   capacity per mebibyte hour). Example monthly cost tables also shown.
