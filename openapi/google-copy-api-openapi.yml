@@ -69,8 +69,15 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SpreadsheetsSheetsPostResponseExample
+      operationId: postV4SpreadsheetsBySpreadsheetIdSheets{sheetId}:copyTo
+      x-operation-id-source: derived
 components:
   schemas:
+    SpreadsheetsSheetsPostRequest:
+      description: SpreadsheetsSheetsPostRequest schema
+      type: object
+      example:
+        destinationSpreadsheetId: eu fugiat
     SpreadsheetsSheetsPostResponseTabColor:
       description: SpreadsheetsSheetsPostResponseTabColor schema
       type: object
@@ -83,6 +90,56 @@ components:
           type: number
         red:
           type: number
+    SpreadsheetsSheetsPostResponseTabColorStyle:
+      description: SpreadsheetsSheetsPostResponseTabColorStyle schema
+      type: object
+      properties:
+        rgbColor:
+          $ref: '#/components/schemas/SpreadsheetsSheetsPostResponseTabColorStyleRgbColor'
+        themeColor:
+          type: string
+    SpreadsheetsSheetsPostResponseTabColorStyleRgbColor:
+      description: SpreadsheetsSheetsPostResponseTabColorStyleRgbColor schema
+      type: object
+      properties:
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
+    SpreadsheetsSheetsPostResponseDataSourceSheetPropertiesDataExecutionStatus:
+      description: SpreadsheetsSheetsPostResponseDataSourceSheetPropertiesDataExecutionStatus schema
+      type: object
+      properties:
+        errorCode:
+          type: string
+        errorMessage:
+          type: string
+        lastRefreshTime:
+          type: string
+        state:
+          type: string
+    SpreadsheetsSheetsPostResponseGridProperties:
+      description: SpreadsheetsSheetsPostResponseGridProperties schema
+      type: object
+      properties:
+        columnCount:
+          type: integer
+        columnGroupControlAfter:
+          type: boolean
+        frozenColumnCount:
+          type: integer
+        frozenRowCount:
+          type: integer
+        hideGridlines:
+          type: boolean
+        rowCount:
+          type: integer
+        rowGroupControlAfter:
+          type: boolean
     SpreadsheetsSheetsPostResponse:
       description: SpreadsheetsSheetsPostResponse schema
       type: object
@@ -126,61 +183,6 @@ components:
         dataExecutionStatus:
           $ref: '#/components/schemas/SpreadsheetsSheetsPostResponseDataSourceSheetPropertiesDataExecutionStatus'
         dataSourceId:
-          type: string
-    SpreadsheetsSheetsPostResponseGridProperties:
-      description: SpreadsheetsSheetsPostResponseGridProperties schema
-      type: object
-      properties:
-        columnCount:
-          type: integer
-        columnGroupControlAfter:
-          type: boolean
-        frozenColumnCount:
-          type: integer
-        frozenRowCount:
-          type: integer
-        hideGridlines:
-          type: boolean
-        rowCount:
-          type: integer
-        rowGroupControlAfter:
-          type: boolean
-    SpreadsheetsSheetsPostRequest:
-      description: SpreadsheetsSheetsPostRequest schema
-      type: object
-      example:
-        destinationSpreadsheetId: eu fugiat
-    SpreadsheetsSheetsPostResponseDataSourceSheetPropertiesDataExecutionStatus:
-      description: SpreadsheetsSheetsPostResponseDataSourceSheetPropertiesDataExecutionStatus schema
-      type: object
-      properties:
-        errorCode:
-          type: string
-        errorMessage:
-          type: string
-        lastRefreshTime:
-          type: string
-        state:
-          type: string
-    SpreadsheetsSheetsPostResponseTabColorStyleRgbColor:
-      description: SpreadsheetsSheetsPostResponseTabColorStyleRgbColor schema
-      type: object
-      properties:
-        alpha:
-          type: number
-        blue:
-          type: number
-        green:
-          type: number
-        red:
-          type: number
-    SpreadsheetsSheetsPostResponseTabColorStyle:
-      description: SpreadsheetsSheetsPostResponseTabColorStyle schema
-      type: object
-      properties:
-        rgbColor:
-          $ref: '#/components/schemas/SpreadsheetsSheetsPostResponseTabColorStyleRgbColor'
-        themeColor:
           type: string
   examples:
     SpreadsheetsSheetsPostResponseExample:

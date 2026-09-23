@@ -59,6 +59,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersSettingsForwardingAddressesGetResponseExample
+      operationId: getGmailV1UsersByUserIdSettingsForwardingAddressesByForwardingEmail
+      x-operation-id-source: derived
     delete:
       tags:
       - Addresses
@@ -92,6 +94,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SuccessExample
+      operationId: deleteGmailV1UsersByUserIdSettingsForwardingAddressesByForwardingEmail
+      x-operation-id-source: derived
   /gmail/v1/users/{userId}/settings/forwardingAddresses:
     get:
       tags:
@@ -132,7 +136,31 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersSettingsForwardingAddressesGetResponse1Example
+      operationId: getGmailV1UsersByUserIdSettingsForwardingAddresses
+      x-operation-id-source: derived
 components:
+  schemas:
+    UsersSettingsForwardingAddressesGetResponse1:
+      description: UsersSettingsForwardingAddressesGetResponse1 schema
+      type: object
+      properties:
+        forwardingAddresses:
+          type: array
+          items:
+            type: object
+            properties:
+              forwardingEmail:
+                type: string
+              verificationStatus:
+                type: string
+    UsersSettingsForwardingAddressesGetResponse:
+      description: UsersSettingsForwardingAddressesGetResponse schema
+      type: object
+      properties:
+        forwardingEmail:
+          type: string
+        verificationStatus:
+          type: string
   examples:
     UsersSettingsForwardingAddressesGetResponse1Example:
       summary: Successful 200 response
@@ -147,28 +175,6 @@ components:
       value:
         forwardingEmail: ad tempor dolor
         verificationStatus: pending
-  schemas:
-    UsersSettingsForwardingAddressesGetResponse:
-      description: UsersSettingsForwardingAddressesGetResponse schema
-      type: object
-      properties:
-        forwardingEmail:
-          type: string
-        verificationStatus:
-          type: string
-    UsersSettingsForwardingAddressesGetResponse1:
-      description: UsersSettingsForwardingAddressesGetResponse1 schema
-      type: object
-      properties:
-        forwardingAddresses:
-          type: array
-          items:
-            type: object
-            properties:
-              forwardingEmail:
-                type: string
-              verificationStatus:
-                type: string
   securitySchemes:
     oauth2Auth:
       type: http

@@ -55,6 +55,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SuccessExample
+      operationId: postGmailV1UsersByUserIdSettingsSendAsBySendAsEmailSmimeInfoByIdSetDefault
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oauth2Auth:

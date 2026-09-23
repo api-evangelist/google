@@ -244,6 +244,19 @@ paths:
         dispatcherRules: SuccessExample
 components:
   schemas:
+    AppIcons:
+      properties:
+        category:
+          description: 'Category of the icon. Allowed values are: * `application` - The icon for the application. * `document` - The icon for a file associated with the app. * `documentShared` - The icon for a shared file associated with the app.'
+          type: string
+        iconUrl:
+          description: URL for the icon.
+          type: string
+        size:
+          description: Size of the icon. Represented as the maximum of the width and height.
+          format: int32
+          type: integer
+      type: object
     App:
       description: The `apps` resource provides a list of apps that a user has installed, with information about each app's supported MIME types, file extensions, and other details. Some resource methods (such as `apps.get`) require an `appId`. Use the `apps.list` method to retrieve the ID for an installed application.
       properties:
@@ -351,19 +364,6 @@ components:
         selfLink:
           description: A link back to this list.
           type: string
-      type: object
-    AppIcons:
-      properties:
-        category:
-          description: 'Category of the icon. Allowed values are: * `application` - The icon for the application. * `document` - The icon for a file associated with the app. * `documentShared` - The icon for a shared file associated with the app.'
-          type: string
-        iconUrl:
-          description: URL for the icon.
-          type: string
-        size:
-          description: Size of the icon. Represented as the maximum of the width and height.
-          format: int32
-          type: integer
       type: object
   securitySchemes:
     Oauth2:

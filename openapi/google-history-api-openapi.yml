@@ -52,328 +52,9 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: GmailUsersHistoryGetResponseExample
+      operationId: getGmailV1UsersByUserIdHistory
+      x-operation-id-source: derived
 components:
-  schemas:
-    GmailUsersHistoryGetResponse:
-      description: GmailUsersHistoryGetResponse schema
-      type: object
-      properties:
-        history:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              messages:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    threadId:
-                      type: string
-                    labelIds:
-                      type: array
-                      items:
-                        type: string
-                    snippet:
-                      type: string
-                    historyId:
-                      type: string
-                    internalDate:
-                      type: string
-                    payload:
-                      type: object
-                      properties:
-                        partId:
-                          type: string
-                        mimeType:
-                          type: string
-                        filename:
-                          type: string
-                        headers:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              name:
-                                type: string
-                              value:
-                                type: string
-                        body:
-                          type: object
-                          properties:
-                            attachmentId:
-                              type: string
-                            size:
-                              type: integer
-                            data:
-                              type: string
-                        parts:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              value:
-                                type: string
-                    sizeEstimate:
-                      type: integer
-                    raw:
-                      type: string
-              messagesAdded:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    message:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                        threadId:
-                          type: string
-                        labelIds:
-                          type: array
-                          items:
-                            type: string
-                        snippet:
-                          type: string
-                        historyId:
-                          type: string
-                        internalDate:
-                          type: string
-                        payload:
-                          type: object
-                          properties:
-                            partId:
-                              type: string
-                            mimeType:
-                              type: string
-                            filename:
-                              type: string
-                            headers:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  name:
-                                    type: string
-                                  value:
-                                    type: string
-                            body:
-                              type: object
-                              properties:
-                                attachmentId:
-                                  type: string
-                                size:
-                                  type: integer
-                                data:
-                                  type: string
-                            parts:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  value:
-                                    type: string
-                        sizeEstimate:
-                          type: integer
-                        raw:
-                          type: string
-              messagesDeleted:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    message:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                        threadId:
-                          type: string
-                        labelIds:
-                          type: array
-                          items:
-                            type: string
-                        snippet:
-                          type: string
-                        historyId:
-                          type: string
-                        internalDate:
-                          type: string
-                        payload:
-                          type: object
-                          properties:
-                            partId:
-                              type: string
-                            mimeType:
-                              type: string
-                            filename:
-                              type: string
-                            headers:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  name:
-                                    type: string
-                                  value:
-                                    type: string
-                            body:
-                              type: object
-                              properties:
-                                attachmentId:
-                                  type: string
-                                size:
-                                  type: integer
-                                data:
-                                  type: string
-                            parts:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  value:
-                                    type: string
-                        sizeEstimate:
-                          type: integer
-                        raw:
-                          type: string
-              labelsAdded:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    message:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                        threadId:
-                          type: string
-                        labelIds:
-                          type: array
-                          items:
-                            type: string
-                        snippet:
-                          type: string
-                        historyId:
-                          type: string
-                        internalDate:
-                          type: string
-                        payload:
-                          type: object
-                          properties:
-                            partId:
-                              type: string
-                            mimeType:
-                              type: string
-                            filename:
-                              type: string
-                            headers:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  name:
-                                    type: string
-                                  value:
-                                    type: string
-                            body:
-                              type: object
-                              properties:
-                                attachmentId:
-                                  type: string
-                                size:
-                                  type: integer
-                                data:
-                                  type: string
-                            parts:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  value:
-                                    type: string
-                        sizeEstimate:
-                          type: integer
-                        raw:
-                          type: string
-                    labelIds:
-                      type: array
-                      items:
-                        type: string
-              labelsRemoved:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    message:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                        threadId:
-                          type: string
-                        labelIds:
-                          type: array
-                          items:
-                            type: string
-                        snippet:
-                          type: string
-                        historyId:
-                          type: string
-                        internalDate:
-                          type: string
-                        payload:
-                          type: object
-                          properties:
-                            partId:
-                              type: string
-                            mimeType:
-                              type: string
-                            filename:
-                              type: string
-                            headers:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  name:
-                                    type: string
-                                  value:
-                                    type: string
-                            body:
-                              type: object
-                              properties:
-                                attachmentId:
-                                  type: string
-                                size:
-                                  type: integer
-                                data:
-                                  type: string
-                            parts:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  value:
-                                    type: string
-                        sizeEstimate:
-                          type: integer
-                        raw:
-                          type: string
-                    labelIds:
-                      type: array
-                      items:
-                        type: string
-        nextPageToken:
-          type: string
-        historyId:
-          type: string
   examples:
     GmailUsersHistoryGetResponseExample:
       summary: Successful 200 response
@@ -953,6 +634,327 @@ components:
             - proident ullamco
         nextPageToken: do deserunt pariatu
         historyId: cillum veniam Excepteur et
+  schemas:
+    GmailUsersHistoryGetResponse:
+      description: GmailUsersHistoryGetResponse schema
+      type: object
+      properties:
+        history:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              messages:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    threadId:
+                      type: string
+                    labelIds:
+                      type: array
+                      items:
+                        type: string
+                    snippet:
+                      type: string
+                    historyId:
+                      type: string
+                    internalDate:
+                      type: string
+                    payload:
+                      type: object
+                      properties:
+                        partId:
+                          type: string
+                        mimeType:
+                          type: string
+                        filename:
+                          type: string
+                        headers:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                              value:
+                                type: string
+                        body:
+                          type: object
+                          properties:
+                            attachmentId:
+                              type: string
+                            size:
+                              type: integer
+                            data:
+                              type: string
+                        parts:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              value:
+                                type: string
+                    sizeEstimate:
+                      type: integer
+                    raw:
+                      type: string
+              messagesAdded:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    message:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        threadId:
+                          type: string
+                        labelIds:
+                          type: array
+                          items:
+                            type: string
+                        snippet:
+                          type: string
+                        historyId:
+                          type: string
+                        internalDate:
+                          type: string
+                        payload:
+                          type: object
+                          properties:
+                            partId:
+                              type: string
+                            mimeType:
+                              type: string
+                            filename:
+                              type: string
+                            headers:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                  value:
+                                    type: string
+                            body:
+                              type: object
+                              properties:
+                                attachmentId:
+                                  type: string
+                                size:
+                                  type: integer
+                                data:
+                                  type: string
+                            parts:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  value:
+                                    type: string
+                        sizeEstimate:
+                          type: integer
+                        raw:
+                          type: string
+              messagesDeleted:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    message:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        threadId:
+                          type: string
+                        labelIds:
+                          type: array
+                          items:
+                            type: string
+                        snippet:
+                          type: string
+                        historyId:
+                          type: string
+                        internalDate:
+                          type: string
+                        payload:
+                          type: object
+                          properties:
+                            partId:
+                              type: string
+                            mimeType:
+                              type: string
+                            filename:
+                              type: string
+                            headers:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                  value:
+                                    type: string
+                            body:
+                              type: object
+                              properties:
+                                attachmentId:
+                                  type: string
+                                size:
+                                  type: integer
+                                data:
+                                  type: string
+                            parts:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  value:
+                                    type: string
+                        sizeEstimate:
+                          type: integer
+                        raw:
+                          type: string
+              labelsAdded:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    message:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        threadId:
+                          type: string
+                        labelIds:
+                          type: array
+                          items:
+                            type: string
+                        snippet:
+                          type: string
+                        historyId:
+                          type: string
+                        internalDate:
+                          type: string
+                        payload:
+                          type: object
+                          properties:
+                            partId:
+                              type: string
+                            mimeType:
+                              type: string
+                            filename:
+                              type: string
+                            headers:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                  value:
+                                    type: string
+                            body:
+                              type: object
+                              properties:
+                                attachmentId:
+                                  type: string
+                                size:
+                                  type: integer
+                                data:
+                                  type: string
+                            parts:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  value:
+                                    type: string
+                        sizeEstimate:
+                          type: integer
+                        raw:
+                          type: string
+                    labelIds:
+                      type: array
+                      items:
+                        type: string
+              labelsRemoved:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    message:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        threadId:
+                          type: string
+                        labelIds:
+                          type: array
+                          items:
+                            type: string
+                        snippet:
+                          type: string
+                        historyId:
+                          type: string
+                        internalDate:
+                          type: string
+                        payload:
+                          type: object
+                          properties:
+                            partId:
+                              type: string
+                            mimeType:
+                              type: string
+                            filename:
+                              type: string
+                            headers:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                  value:
+                                    type: string
+                            body:
+                              type: object
+                              properties:
+                                attachmentId:
+                                  type: string
+                                size:
+                                  type: integer
+                                data:
+                                  type: string
+                            parts:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  value:
+                                    type: string
+                        sizeEstimate:
+                          type: integer
+                        raw:
+                          type: string
+                    labelIds:
+                      type: array
+                      items:
+                        type: string
+        nextPageToken:
+          type: string
+        historyId:
+          type: string
   securitySchemes:
     oauth2Auth:
       type: http

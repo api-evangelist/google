@@ -381,38 +381,23 @@ paths:
         dispatcher: FALLBACK
         dispatcherRules: SuccessExample
 components:
-  examples:
-    CalendarsAclPutResponseExample:
-      summary: Successful 200 response
-      value:
-        etag: velit eu voluptate
-        id: ex dolore in sint
-        kind: calendar#aclRule
-        role: et
-        scope:
-          type: sit eiusmod culpa do
-          value: quis esse
-    CalendarsAclGetResponseExample:
-      summary: Successful 200 response
-      value:
-        etag: velit eu voluptate
-        id: ex dolore in sint
-        kind: calendar#aclRule
-        role: et
-        scope:
-          type: sit eiusmod culpa do
-          value: quis esse
-    CalendarsAclPatchResponseExample:
-      summary: Successful 200 response
-      value:
-        etag: velit eu voluptate
-        id: ex dolore in sint
-        kind: calendar#aclRule
-        role: et
-        scope:
-          type: sit eiusmod culpa do
-          value: quis esse
   schemas:
+    CalendarsAclPutResponseScope:
+      description: CalendarsAclPutResponseScope schema
+      type: object
+      properties:
+        type:
+          type: string
+        value:
+          type: string
+    CalendarsAclPatchResponseScope:
+      description: CalendarsAclPatchResponseScope schema
+      type: object
+      properties:
+        type:
+          type: string
+        value:
+          type: string
     CalendarsAclPatchResponse:
       description: CalendarsAclPatchResponse schema
       type: object
@@ -427,6 +412,28 @@ components:
           type: string
         scope:
           $ref: '#/components/schemas/CalendarsAclPatchResponseScope'
+    CalendarsAclPatchRequest:
+      description: CalendarsAclPatchRequest schema
+      type: object
+      example:
+        etag: velit eu voluptate
+        id: ex dolore in sint
+        kind: calendar#aclRule
+        role: et
+        scope:
+          type: sit eiusmod culpa do
+          value: quis esse
+    CalendarsAclPutRequest:
+      description: CalendarsAclPutRequest schema
+      type: object
+      example:
+        etag: velit eu voluptate
+        id: ex dolore in sint
+        kind: calendar#aclRule
+        role: et
+        scope:
+          type: sit eiusmod culpa do
+          value: quis esse
     CalendarsAclPutResponse:
       description: CalendarsAclPutResponse schema
       type: object
@@ -441,46 +448,8 @@ components:
           type: string
         scope:
           $ref: '#/components/schemas/CalendarsAclPutResponseScope'
-    CalendarsAclPutRequest:
-      description: CalendarsAclPutRequest schema
-      type: object
-      example:
-        etag: velit eu voluptate
-        id: ex dolore in sint
-        kind: calendar#aclRule
-        role: et
-        scope:
-          type: sit eiusmod culpa do
-          value: quis esse
     CalendarsAclGetResponseScope:
       description: CalendarsAclGetResponseScope schema
-      type: object
-      properties:
-        type:
-          type: string
-        value:
-          type: string
-    CalendarsAclPutResponseScope:
-      description: CalendarsAclPutResponseScope schema
-      type: object
-      properties:
-        type:
-          type: string
-        value:
-          type: string
-    CalendarsAclPatchRequest:
-      description: CalendarsAclPatchRequest schema
-      type: object
-      example:
-        etag: velit eu voluptate
-        id: ex dolore in sint
-        kind: calendar#aclRule
-        role: et
-        scope:
-          type: sit eiusmod culpa do
-          value: quis esse
-    CalendarsAclPatchResponseScope:
-      description: CalendarsAclPatchResponseScope schema
       type: object
       properties:
         type:
@@ -501,6 +470,37 @@ components:
           type: string
         scope:
           $ref: '#/components/schemas/CalendarsAclGetResponseScope'
+  examples:
+    CalendarsAclPutResponseExample:
+      summary: Successful 200 response
+      value:
+        etag: velit eu voluptate
+        id: ex dolore in sint
+        kind: calendar#aclRule
+        role: et
+        scope:
+          type: sit eiusmod culpa do
+          value: quis esse
+    CalendarsAclPatchResponseExample:
+      summary: Successful 200 response
+      value:
+        etag: velit eu voluptate
+        id: ex dolore in sint
+        kind: calendar#aclRule
+        role: et
+        scope:
+          type: sit eiusmod culpa do
+          value: quis esse
+    CalendarsAclGetResponseExample:
+      summary: Successful 200 response
+      value:
+        etag: velit eu voluptate
+        id: ex dolore in sint
+        kind: calendar#aclRule
+        role: et
+        scope:
+          type: sit eiusmod culpa do
+          value: quis esse
   securitySchemes:
     oauth2Auth:
       type: http

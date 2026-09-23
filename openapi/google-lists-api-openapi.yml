@@ -67,6 +67,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: GmailUsersMessagesGetResponseExample
+      operationId: getGmailV1UsersByUserIdMessages
+      x-operation-id-source: derived
   /gmail/v1/users/{userId}/threads:
     get:
       tags:
@@ -107,6 +109,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: GmailUsersThreadsGetResponse1Example
+      operationId: getGmailV1UsersByUserIdThreads
+      x-operation-id-source: derived
   /gmail/v1/users/{userId}/settings/cse/keypairs:
     get:
       tags:
@@ -147,6 +151,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SettingsCseKeypairsGetResponse1Example
+      operationId: getGmailV1UsersByUserIdSettingsCseKeypairs
+      x-operation-id-source: derived
   /gmail/v1/users/{userId}/settings/cse/identities:
     get:
       tags:
@@ -187,6 +193,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SettingsCseIdentitiesGetResponseExample
+      operationId: getGmailV1UsersByUserIdSettingsCseIdentities
+      x-operation-id-source: derived
   /gmail/v1/users/{userId}/settings/filters:
     get:
       tags:
@@ -227,52 +235,55 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersSettingsFiltersGetResponse1Example
+      operationId: getGmailV1UsersByUserIdSettingsFilters
+      x-operation-id-source: derived
 components:
   schemas:
-    SettingsCseKeypairsGetResponse1:
-      description: SettingsCseKeypairsGetResponse1 schema
+    UsersSettingsFiltersGetResponse1:
+      description: UsersSettingsFiltersGetResponse1 schema
       type: object
       properties:
-        cseKeyPairs:
+        filter:
           type: array
           items:
             type: object
             properties:
-              keyPairId:
+              id:
                 type: string
-              pkcs7:
-                type: string
-              pem:
-                type: string
-              subjectEmailAddresses:
-                type: array
-                items:
-                  type: string
-              enablementState:
-                type: string
-              disableTime:
-                type: string
-              privateKeyMetadata:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    privateKeyMetadataId:
+              criteria:
+                type: object
+                properties:
+                  from:
+                    type: string
+                  to:
+                    type: string
+                  subject:
+                    type: string
+                  query:
+                    type: string
+                  negatedQuery:
+                    type: string
+                  hasAttachment:
+                    type: boolean
+                  excludeChats:
+                    type: boolean
+                  size:
+                    type: integer
+                  sizeComparison:
+                    type: string
+              action:
+                type: object
+                properties:
+                  addLabelIds:
+                    type: array
+                    items:
                       type: string
-                    kaclsKeyMetadata:
-                      type: object
-                      properties:
-                        kaclsUri:
-                          type: string
-                        kaclsData:
-                          type: string
-                    hardwareKeyMetadata:
-                      type: object
-                      properties:
-                        description:
-                          type: string
-        nextPageToken:
-          type: string
+                  removeLabelIds:
+                    type: array
+                    items:
+                      type: string
+                  forward:
+                    type: string
     GmailUsersMessagesGetResponse:
       description: GmailUsersMessagesGetResponse schema
       type: object
@@ -338,73 +349,6 @@ components:
           type: string
         resultSizeEstimate:
           type: integer
-    UsersSettingsFiltersGetResponse1:
-      description: UsersSettingsFiltersGetResponse1 schema
-      type: object
-      properties:
-        filter:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              criteria:
-                type: object
-                properties:
-                  from:
-                    type: string
-                  to:
-                    type: string
-                  subject:
-                    type: string
-                  query:
-                    type: string
-                  negatedQuery:
-                    type: string
-                  hasAttachment:
-                    type: boolean
-                  excludeChats:
-                    type: boolean
-                  size:
-                    type: integer
-                  sizeComparison:
-                    type: string
-              action:
-                type: object
-                properties:
-                  addLabelIds:
-                    type: array
-                    items:
-                      type: string
-                  removeLabelIds:
-                    type: array
-                    items:
-                      type: string
-                  forward:
-                    type: string
-    SettingsCseIdentitiesGetResponse:
-      description: SettingsCseIdentitiesGetResponse schema
-      type: object
-      properties:
-        cseIdentities:
-          type: array
-          items:
-            type: object
-            properties:
-              emailAddress:
-                type: string
-              primaryKeyPairId:
-                type: string
-              signAndEncryptKeyPairs:
-                type: object
-                properties:
-                  signingKeyPairId:
-                    type: string
-                  encryptionKeyPairId:
-                    type: string
-        nextPageToken:
-          type: string
     GmailUsersThreadsGetResponse1:
       description: GmailUsersThreadsGetResponse1 schema
       type: object
@@ -481,22 +425,73 @@ components:
           type: string
         resultSizeEstimate:
           type: integer
-  examples:
-    SettingsCseIdentitiesGetResponseExample:
-      summary: Successful 200 response
-      value:
+    SettingsCseIdentitiesGetResponse:
+      description: SettingsCseIdentitiesGetResponse schema
+      type: object
+      properties:
         cseIdentities:
-        - emailAddress: adipisicing culpa ipsum
-          primaryKeyPairId: incididunt pariatur cupidatat in
-          signAndEncryptKeyPairs:
-            signingKeyPairId: Ut sunt proident consectetur
-            encryptionKeyPairId: esse id
-        - emailAddress: elit dolore laboris
-          primaryKeyPairId: eu Excepteur sint
-          signAndEncryptKeyPairs:
-            signingKeyPairId: culpa
-            encryptionKeyPairId: dolore Excepteur ipsum Lorem
-        nextPageToken: eiusmod amet voluptate veniam in
+          type: array
+          items:
+            type: object
+            properties:
+              emailAddress:
+                type: string
+              primaryKeyPairId:
+                type: string
+              signAndEncryptKeyPairs:
+                type: object
+                properties:
+                  signingKeyPairId:
+                    type: string
+                  encryptionKeyPairId:
+                    type: string
+        nextPageToken:
+          type: string
+    SettingsCseKeypairsGetResponse1:
+      description: SettingsCseKeypairsGetResponse1 schema
+      type: object
+      properties:
+        cseKeyPairs:
+          type: array
+          items:
+            type: object
+            properties:
+              keyPairId:
+                type: string
+              pkcs7:
+                type: string
+              pem:
+                type: string
+              subjectEmailAddresses:
+                type: array
+                items:
+                  type: string
+              enablementState:
+                type: string
+              disableTime:
+                type: string
+              privateKeyMetadata:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    privateKeyMetadataId:
+                      type: string
+                    kaclsKeyMetadata:
+                      type: object
+                      properties:
+                        kaclsUri:
+                          type: string
+                        kaclsData:
+                          type: string
+                    hardwareKeyMetadata:
+                      type: object
+                      properties:
+                        description:
+                          type: string
+        nextPageToken:
+          type: string
+  examples:
     GmailUsersMessagesGetResponseExample:
       summary: Successful 200 response
       value:
@@ -555,48 +550,6 @@ components:
           raw: eiusmod esse
         nextPageToken: ipsum reprehenderit Duis in veniam
         resultSizeEstimate: -35985941
-    UsersSettingsFiltersGetResponse1Example:
-      summary: Successful 200 response
-      value:
-        filter:
-        - id: 'reprehenderit Duis '
-          criteria:
-            from: nostrud anim reprehenderit
-            to: officia
-            subject: magna
-            query: sint elit
-            negatedQuery: Excepteur quis est
-            hasAttachment: true
-            excludeChats: false
-            size: 73367794
-            sizeComparison: unspecified
-          action:
-            addLabelIds:
-            - nisi elit voluptate
-            - sunt exercitation
-            removeLabelIds:
-            - pariatur in laborum veniam
-            - irure in
-            forward: occaecat Ut veniam
-        - id: Ut deserunt
-          criteria:
-            from: magna non Duis nostrud Ut
-            to: ut officia exercitation in
-            subject: tempor minim anim ipsum
-            query: sit anim
-            negatedQuery: voluptate in tempor elit
-            hasAttachment: true
-            excludeChats: false
-            size: 29351468
-            sizeComparison: smaller
-          action:
-            addLabelIds:
-            - adipisicing labore dolore
-            - dolor
-            removeLabelIds:
-            - esse cupidatat
-            - mollit aliqua
-            forward: est occaecat officia
     GmailUsersThreadsGetResponse1Example:
       summary: Successful 200 response
       value:
@@ -715,6 +668,63 @@ components:
             raw: nisi nostrud
         nextPageToken: Exce
         resultSizeEstimate: -82340850
+    UsersSettingsFiltersGetResponse1Example:
+      summary: Successful 200 response
+      value:
+        filter:
+        - id: 'reprehenderit Duis '
+          criteria:
+            from: nostrud anim reprehenderit
+            to: officia
+            subject: magna
+            query: sint elit
+            negatedQuery: Excepteur quis est
+            hasAttachment: true
+            excludeChats: false
+            size: 73367794
+            sizeComparison: unspecified
+          action:
+            addLabelIds:
+            - nisi elit voluptate
+            - sunt exercitation
+            removeLabelIds:
+            - pariatur in laborum veniam
+            - irure in
+            forward: occaecat Ut veniam
+        - id: Ut deserunt
+          criteria:
+            from: magna non Duis nostrud Ut
+            to: ut officia exercitation in
+            subject: tempor minim anim ipsum
+            query: sit anim
+            negatedQuery: voluptate in tempor elit
+            hasAttachment: true
+            excludeChats: false
+            size: 29351468
+            sizeComparison: smaller
+          action:
+            addLabelIds:
+            - adipisicing labore dolore
+            - dolor
+            removeLabelIds:
+            - esse cupidatat
+            - mollit aliqua
+            forward: est occaecat officia
+    SettingsCseIdentitiesGetResponseExample:
+      summary: Successful 200 response
+      value:
+        cseIdentities:
+        - emailAddress: adipisicing culpa ipsum
+          primaryKeyPairId: incididunt pariatur cupidatat in
+          signAndEncryptKeyPairs:
+            signingKeyPairId: Ut sunt proident consectetur
+            encryptionKeyPairId: esse id
+        - emailAddress: elit dolore laboris
+          primaryKeyPairId: eu Excepteur sint
+          signAndEncryptKeyPairs:
+            signingKeyPairId: culpa
+            encryptionKeyPairId: dolore Excepteur ipsum Lorem
+        nextPageToken: eiusmod amet voluptate veniam in
     SettingsCseKeypairsGetResponse1Example:
       summary: Successful 200 response
       value:

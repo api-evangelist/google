@@ -46,6 +46,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SuccessExample
+      operationId: deleteGmailV1UsersByUserIdDraftsById
+      x-operation-id-source: derived
   /gmail/v1/users/{userId}/messages/{id}:
     delete:
       tags:
@@ -80,6 +82,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SuccessExample
+      operationId: deleteGmailV1UsersByUserIdMessagesById
+      x-operation-id-source: derived
   /gmail/v1/users/{userId}/labels/{id}:
     delete:
       tags:
@@ -114,6 +118,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SuccessExample
+      operationId: deleteGmailV1UsersByUserIdLabelsById
+      x-operation-id-source: derived
   /gmail/v1/users/{userId}/threads/{id}:
     delete:
       tags:
@@ -148,6 +154,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SuccessExample
+      operationId: deleteGmailV1UsersByUserIdThreadsById
+      x-operation-id-source: derived
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}:
     delete:
       tags:
@@ -189,6 +197,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SuccessExample
+      operationId: deleteGmailV1UsersByUserIdSettingsSendAsBySendAsEmailSmimeInfoById
+      x-operation-id-source: derived
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}:
     delete:
       tags:
@@ -223,6 +233,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SuccessExample
+      operationId: deleteGmailV1UsersByUserIdSettingsSendAsBySendAsEmail
+      x-operation-id-source: derived
   /gmail/v1/users/{userId}/settings/cse/identities/{cseEmailAddress}:
     delete:
       tags:
@@ -257,6 +269,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SuccessExample
+      operationId: deleteGmailV1UsersByUserIdSettingsCseIdentitiesByCseEmailAddress
+      x-operation-id-source: derived
   /gmail/v1/users/{userId}/settings/filters/{id}:
     delete:
       tags:
@@ -291,6 +305,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SuccessExample
+      operationId: deleteGmailV1UsersByUserIdSettingsFiltersById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oauth2Auth:

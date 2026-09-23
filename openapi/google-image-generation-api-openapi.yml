@@ -1,9 +1,7 @@
 openapi: 3.2.0
 info:
   title: Google Gemini Image Generation API
-  description: 'The Gemini API can generate text output from various inputs, including text, images, video, and audio, leveraging Gemini models.
-
-    '
+  description: The Gemini API can generate text output from various inputs, including text, images, video, and audio, leveraging Gemini models.
   version: 1.0.0
   contact:
     name: Google AI
@@ -22,7 +20,9 @@ paths:
       tags:
       - Image Generation
       summary: Google Generate Images
-      description: "Generate and process images conversationally. Supports text-to-image, text-and-image-to-image, \nand multi-turn image editing. All generated images include a SynthID watermark.\n"
+      description: 'Generate and process images conversationally. Supports text-to-image, text-and-image-to-image,
+
+        and multi-turn image editing. All generated images include a SynthID watermark.'
       operationId: generateImage
       parameters:
       - name: imageModel
@@ -72,83 +72,39 @@ paths:
         dispatcherRules: SuccessExample
 components:
   schemas:
-    ImageGenerationConfig:
-      type: object
-      description: Configuration options for image generation
-      properties:
-        responseModalities:
-          type: array
-          description: Modalities to include in the response
-          items:
-            type: string
-            enum:
-            - TEXT
-            - IMAGE
-          example:
-          - TEXT
-          - IMAGE
-        imageConfig:
-          $ref: '#/components/schemas/ImageConfig'
-          description: Configuration for image generation
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-              description: HTTP status code
-            message:
-              type: string
-              description: Error message
-            status:
-              type: string
-              description: Error status
-    ImageContent:
-      type: object
-      properties:
-        role:
-          type: string
-          enum:
-          - user
-          - model
-          description: The role of the content producer
-        parts:
-          type: array
-          description: Ordered parts that constitute a single message (can include text and inline image data)
-          items:
-            $ref: '#/components/schemas/Part'
-      required:
-      - parts
-    ImageGenerationRequest:
+    InlineData:
       type: object
       required:
-      - contents
+      - mime_type
+      - data
       properties:
-        contents:
-          type: array
-          description: The content of the current conversation with the model
-          items:
-            $ref: '#/components/schemas/Content'
-        generationConfig:
-          $ref: '#/components/schemas/ImageGenerationConfig'
-          description: Configuration options for image generation
-    PromptFeedback:
-      type: object
-      properties:
-        blockReason:
+        mime_type:
           type: string
+          description: MIME type of the data
           enum:
-          - BLOCK_REASON_UNSPECIFIED
-          - SAFETY
-          - OTHER
-          description: Reason why prompt was blocked
-        safetyRatings:
-          type: array
-          items:
-            $ref: '#/components/schemas/SafetyRating'
-          description: Safety ratings for the prompt
+          - image/jpeg
+          - image/png
+          - image/webp
+          - video/mp4
+          - video/mpeg
+          - video/mov
+          - video/avi
+          - video/x-flv
+          - video/mpg
+          - video/webm
+          - video/wmv
+          - video/3gpp
+          - audio/wav
+          - audio/mp3
+          - audio/aiff
+          - audio/aac
+          - audio/ogg
+          - audio/flac
+          - application/pdf
+        data:
+          type: string
+          format: byte
+          description: Base64 encoded data
     SafetyRating:
       type: object
       properties:
@@ -212,6 +168,67 @@ components:
           - 2K
           - 4K
           example: 2K
+    ImageGenerationConfig:
+      type: object
+      description: Configuration options for image generation
+      properties:
+        responseModalities:
+          type: array
+          description: Modalities to include in the response
+          items:
+            type: string
+            enum:
+            - TEXT
+            - IMAGE
+          example:
+          - TEXT
+          - IMAGE
+        imageConfig:
+          $ref: '#/components/schemas/ImageConfig'
+          description: Configuration for image generation
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: HTTP status code
+            message:
+              type: string
+              description: Error message
+            status:
+              type: string
+              description: Error status
+    ImageContent:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+          - user
+          - model
+          description: The role of the content producer
+        parts:
+          type: array
+          description: Ordered parts that constitute a single message (can include text and inline image data)
+          items:
+            $ref: '#/components/schemas/Part'
+      required:
+      - parts
+    UsageMetadata:
+      type: object
+      properties:
+        promptTokenCount:
+          type: integer
+          description: Number of tokens in the prompt
+        candidatesTokenCount:
+          type: integer
+          description: Number of tokens in generated candidates
+        totalTokenCount:
+          type: integer
+          description: Total token count
     Part:
       type: object
       description: A part of the content, can be text, inline data, or file data
@@ -238,54 +255,6 @@ components:
           video_metadata:
             $ref: '#/components/schemas/VideoMetadata'
             description: Optional metadata for video processing (clipping, FPS)
-    UsageMetadata:
-      type: object
-      properties:
-        promptTokenCount:
-          type: integer
-          description: Number of tokens in the prompt
-        candidatesTokenCount:
-          type: integer
-          description: Number of tokens in generated candidates
-        totalTokenCount:
-          type: integer
-          description: Total token count
-    VideoMetadata:
-      type: object
-      description: Metadata for customizing video processing
-      properties:
-        start_offset:
-          type: string
-          description: Start time offset for video clipping (format like "1250s")
-          pattern: ^\d+s$
-          example: 1250s
-        end_offset:
-          type: string
-          description: End time offset for video clipping (format like "1570s")
-          pattern: ^\d+s$
-          example: 1570s
-        fps:
-          type: number
-          format: float
-          description: Custom frame rate sampling (frames per second). Default is 1 FPS. Use <1 for long videos, >1 for rapidly changing visuals
-          minimum: 0.1
-          example: 5
-    FileData:
-      type: object
-      description: Reference to a file uploaded via the File API or a YouTube URL
-      properties:
-        mime_type:
-          type: string
-          description: MIME type of the file (optional for YouTube URLs)
-          example: video/mp4
-        file_uri:
-          type: string
-          description: URI of the file from File API or YouTube URL
-          examples:
-          - https://generativelanguage.googleapis.com/v1beta/files/abc123
-          - https://www.youtube.com/watch?v=9hE5-98ZeCg
-      required:
-      - file_uri
     ImageCandidate:
       type: object
       properties:
@@ -310,6 +279,70 @@ components:
           items:
             $ref: '#/components/schemas/SafetyRating'
           description: Safety ratings for the generated content
+    VideoMetadata:
+      type: object
+      description: Metadata for customizing video processing
+      properties:
+        start_offset:
+          type: string
+          description: Start time offset for video clipping (format like "1250s")
+          pattern: ^\d+s$
+          example: 1250s
+        end_offset:
+          type: string
+          description: End time offset for video clipping (format like "1570s")
+          pattern: ^\d+s$
+          example: 1570s
+        fps:
+          type: number
+          format: float
+          description: Custom frame rate sampling (frames per second). Default is 1 FPS. Use <1 for long videos, >1 for rapidly changing visuals
+          minimum: 0.1
+          example: 5
+    ImageGenerationRequest:
+      type: object
+      required:
+      - contents
+      properties:
+        contents:
+          type: array
+          description: The content of the current conversation with the model
+          items:
+            $ref: '#/components/schemas/Content'
+        generationConfig:
+          $ref: '#/components/schemas/ImageGenerationConfig'
+          description: Configuration options for image generation
+    FileData:
+      type: object
+      description: Reference to a file uploaded via the File API or a YouTube URL
+      properties:
+        mime_type:
+          type: string
+          description: MIME type of the file (optional for YouTube URLs)
+          example: video/mp4
+        file_uri:
+          type: string
+          description: URI of the file from File API or YouTube URL
+          examples:
+          - https://generativelanguage.googleapis.com/v1beta/files/abc123
+          - https://www.youtube.com/watch?v=9hE5-98ZeCg
+      required:
+      - file_uri
+    PromptFeedback:
+      type: object
+      properties:
+        blockReason:
+          type: string
+          enum:
+          - BLOCK_REASON_UNSPECIFIED
+          - SAFETY
+          - OTHER
+          description: Reason why prompt was blocked
+        safetyRatings:
+          type: array
+          items:
+            $ref: '#/components/schemas/SafetyRating'
+          description: Safety ratings for the prompt
     ImageGenerationResponse:
       type: object
       properties:
@@ -324,39 +357,6 @@ components:
         usageMetadata:
           $ref: '#/components/schemas/UsageMetadata'
           description: Token usage information
-    InlineData:
-      type: object
-      required:
-      - mime_type
-      - data
-      properties:
-        mime_type:
-          type: string
-          description: MIME type of the data
-          enum:
-          - image/jpeg
-          - image/png
-          - image/webp
-          - video/mp4
-          - video/mpeg
-          - video/mov
-          - video/avi
-          - video/x-flv
-          - video/mpg
-          - video/webm
-          - video/wmv
-          - video/3gpp
-          - audio/wav
-          - audio/mp3
-          - audio/aiff
-          - audio/aac
-          - audio/ogg
-          - audio/flac
-          - application/pdf
-        data:
-          type: string
-          format: byte
-          description: Base64 encoded data
   securitySchemes:
     ApiKeyHeader:
       type: apiKey

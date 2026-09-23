@@ -1,9 +1,7 @@
 openapi: 3.2.0
 info:
   title: Google Gemini File API
-  description: 'The Gemini API can generate text output from various inputs, including text, images, video, and audio, leveraging Gemini models.
-
-    '
+  description: The Gemini API can generate text output from various inputs, including text, images, video, and audio, leveraging Gemini models.
   version: 1.0.0
   contact:
     name: Google AI
@@ -14,15 +12,17 @@ servers:
 security:
 - ApiKeyHeader: []
 tags:
-- name: File Api
+- name: File API
   description: Operations related to File Api
 paths:
   /files/{name}:
     get:
       tags:
-      - File Api
+      - File API
       summary: Google Get File Metadata
-      description: "Retrieve metadata for an uploaded file. Use this to verify the file was successfully \nstored and to check its processing state.\n"
+      description: 'Retrieve metadata for an uploaded file. Use this to verify the file was successfully
+
+        stored and to check its processing state.'
       operationId: getFile
       parameters:
       - name: name
@@ -57,21 +57,6 @@ paths:
         dispatcherRules: SuccessExample
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-              description: HTTP status code
-            message:
-              type: string
-              description: Error message
-            status:
-              type: string
-              description: Error status
     FileUploadResponse:
       type: object
       properties:
@@ -125,6 +110,21 @@ components:
               properties:
                 message:
                   type: string
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: HTTP status code
+            message:
+              type: string
+              description: Error message
+            status:
+              type: string
+              description: Error status
   securitySchemes:
     ApiKeyHeader:
       type: apiKey

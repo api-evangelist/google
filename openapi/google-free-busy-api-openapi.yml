@@ -57,8 +57,8 @@ paths:
         dispatcherRules: FreeBusyPostResponseExample
 components:
   schemas:
-    FreeBusyPostResponseCalendarsEa8A:
-      description: FreeBusyPostResponseCalendarsEa8A schema
+    FreeBusyPostResponseCalendarsTempor:
+      description: FreeBusyPostResponseCalendarsTempor schema
       type: object
       properties:
         busy:
@@ -89,20 +89,16 @@ components:
           $ref: '#/components/schemas/FreeBusyPostResponseGroupsAmet0'
         occaecat_3:
           $ref: '#/components/schemas/FreeBusyPostResponseGroupsOccaecat3'
-    FreeBusyPostRequest:
-      description: FreeBusyPostRequest schema
+    FreeBusyPostResponseCalendars:
+      description: FreeBusyPostResponseCalendars schema
       type: object
-      example:
-        calendarExpansionMax: -12276786
-        groupExpansionMax: 73067826
-        items:
-        - id: aliqua in
-        - id: pariatur do et
-        timeMax: '1974-03-05T08:59:00.048Z'
-        timeMin: '1992-03-30T15:21:47.410Z'
-        timeZone: UTC
-    FreeBusyPostResponseCalendarsTempor:
-      description: FreeBusyPostResponseCalendarsTempor schema
+      properties:
+        ea8_a:
+          $ref: '#/components/schemas/FreeBusyPostResponseCalendarsEa8A'
+        tempor__:
+          $ref: '#/components/schemas/FreeBusyPostResponseCalendarsTempor'
+    FreeBusyPostResponseCalendarsEa8A:
+      description: FreeBusyPostResponseCalendarsEa8A schema
       type: object
       properties:
         busy:
@@ -142,14 +138,6 @@ components:
                 type: string
               reason:
                 type: string
-    FreeBusyPostResponseCalendars:
-      description: FreeBusyPostResponseCalendars schema
-      type: object
-      properties:
-        ea8_a:
-          $ref: '#/components/schemas/FreeBusyPostResponseCalendarsEa8A'
-        tempor__:
-          $ref: '#/components/schemas/FreeBusyPostResponseCalendarsTempor'
     FreeBusyPostResponse:
       description: FreeBusyPostResponse schema
       type: object
@@ -183,6 +171,18 @@ components:
                 type: string
               reason:
                 type: string
+    FreeBusyPostRequest:
+      description: FreeBusyPostRequest schema
+      type: object
+      example:
+        calendarExpansionMax: -12276786
+        groupExpansionMax: 73067826
+        items:
+        - id: aliqua in
+        - id: pariatur do et
+        timeMax: '1974-03-05T08:59:00.048Z'
+        timeMin: '1992-03-30T15:21:47.410Z'
+        timeZone: UTC
   examples:
     FreeBusyPostResponseExample:
       summary: Successful 200 response

@@ -59,6 +59,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersSettingsDelegatesGetResponseExample
+      operationId: getGmailV1UsersByUserIdSettingsDelegatesByDelegateEmail
+      x-operation-id-source: derived
     delete:
       tags:
       - Delegates
@@ -92,6 +94,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SuccessExample
+      operationId: deleteGmailV1UsersByUserIdSettingsDelegatesByDelegateEmail
+      x-operation-id-source: derived
   /gmail/v1/users/{userId}/settings/delegates:
     get:
       tags:
@@ -132,16 +136,10 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersSettingsDelegatesGetResponse1Example
+      operationId: getGmailV1UsersByUserIdSettingsDelegates
+      x-operation-id-source: derived
 components:
   schemas:
-    UsersSettingsDelegatesGetResponse:
-      description: UsersSettingsDelegatesGetResponse schema
-      type: object
-      properties:
-        delegateEmail:
-          type: string
-        verificationStatus:
-          type: string
     UsersSettingsDelegatesGetResponse1:
       description: UsersSettingsDelegatesGetResponse1 schema
       type: object
@@ -155,12 +153,15 @@ components:
                 type: string
               verificationStatus:
                 type: string
+    UsersSettingsDelegatesGetResponse:
+      description: UsersSettingsDelegatesGetResponse schema
+      type: object
+      properties:
+        delegateEmail:
+          type: string
+        verificationStatus:
+          type: string
   examples:
-    UsersSettingsDelegatesGetResponseExample:
-      summary: Successful 200 response
-      value:
-        delegateEmail: Duis commodo enim irure
-        verificationStatus: rejected
     UsersSettingsDelegatesGetResponse1Example:
       summary: Successful 200 response
       value:
@@ -169,6 +170,11 @@ components:
           verificationStatus: accepted
         - delegateEmail: qui ipsum
           verificationStatus: expired
+    UsersSettingsDelegatesGetResponseExample:
+      summary: Successful 200 response
+      value:
+        delegateEmail: Duis commodo enim irure
+        verificationStatus: rejected
   securitySchemes:
     oauth2Auth:
       type: http

@@ -527,6 +527,22 @@ components:
           description: Output only. A link to the user's profile photo, if available.
           type: string
       type: object
+    RevisionList:
+      description: A list of revisions of a file.
+      properties:
+        kind:
+          default: drive#revisionList
+          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#revisionList"`.'
+          type: string
+        nextPageToken:
+          description: The page token for the next page of revisions. This will be absent if the end of the revisions list has been reached. If the token is rejected for any reason, it should be discarded, and pagination should be restarted from the first page of results. The page token is typically valid for several hours. However, if new items are added or removed, your expected results might differ.
+          type: string
+        revisions:
+          description: The list of revisions. If nextPageToken is populated, then this list may be incomplete and an additional page of results should be fetched.
+          items:
+            $ref: '#/components/schemas/Revision'
+          type: array
+      type: object
     Revision:
       description: The metadata for a revision to a file. Some resource methods (such as `revisions.update`) require a `revisionId`. Use the `revisions.list` method to retrieve the ID for a revision.
       properties:
@@ -577,22 +593,6 @@ components:
           description: Output only. The size of the revision's content in bytes. This is only applicable to files with binary content in Drive.
           format: int64
           type: string
-      type: object
-    RevisionList:
-      description: A list of revisions of a file.
-      properties:
-        kind:
-          default: drive#revisionList
-          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#revisionList"`.'
-          type: string
-        nextPageToken:
-          description: The page token for the next page of revisions. This will be absent if the end of the revisions list has been reached. If the token is rejected for any reason, it should be discarded, and pagination should be restarted from the first page of results. The page token is typically valid for several hours. However, if new items are added or removed, your expected results might differ.
-          type: string
-        revisions:
-          description: The list of revisions. If nextPageToken is populated, then this list may be incomplete and an additional page of results should be fetched.
-          items:
-            $ref: '#/components/schemas/Revision'
-          type: array
       type: object
   securitySchemes:
     Oauth2:

@@ -437,165 +437,21 @@ paths:
         dispatcher: FALLBACK
         dispatcherRules: CalendarsPostResponseExample
 components:
-  schemas:
-    CalendarsPatchRequest:
-      description: CalendarsPatchRequest schema
-      type: object
-      example:
-        conferenceProperties:
-          allowedConferenceSolutionTypes:
-          - anim enim ut veniam
-          - sit labore
-        description: officia enim aliquip ex
-        etag: labore adipisicing fugiat
-        id: est pro
-        kind: calendar#calendar
-        location: in voluptate commodo
-        summary: labore adipisicing enim
-        timeZone: cupidatat sed
-    CalendarsPatchResponse:
-      description: CalendarsPatchResponse schema
-      type: object
-      properties:
-        conferenceProperties:
-          $ref: '#/components/schemas/CalendarsPatchResponseConferenceProperties'
-        description:
-          type: string
-        etag:
-          type: string
-        id:
-          type: string
-        kind:
-          type: string
-        location:
-          type: string
-        summary:
-          type: string
-        timeZone:
-          type: string
-    CalendarsPutResponse:
-      description: CalendarsPutResponse schema
-      type: object
-      properties:
-        conferenceProperties:
-          $ref: '#/components/schemas/CalendarsPutResponseConferenceProperties'
-        description:
-          type: string
-        etag:
-          type: string
-        id:
-          type: string
-        kind:
-          type: string
-        location:
-          type: string
-        summary:
-          type: string
-        timeZone:
-          type: string
-    CalendarsPatchResponseConferenceProperties:
-      description: CalendarsPatchResponseConferenceProperties schema
-      type: object
-      properties:
-        allowedConferenceSolutionTypes:
-          type: array
-          items:
-            type: string
-    CalendarsPutRequest:
-      description: CalendarsPutRequest schema
-      type: object
-      example:
-        conferenceProperties:
-          allowedConferenceSolutionTypes:
-          - anim enim ut veniam
-          - sit labore
-        description: officia enim aliquip ex
-        etag: labore adipisicing fugiat
-        id: est pro
-        kind: calendar#calendar
-        location: in voluptate commodo
-        summary: labore adipisicing enim
-        timeZone: cupidatat sed
-    CalendarsGetResponse:
-      description: CalendarsGetResponse schema
-      type: object
-      properties:
-        conferenceProperties:
-          $ref: '#/components/schemas/CalendarsGetResponseConferenceProperties'
-        description:
-          type: string
-        etag:
-          type: string
-        id:
-          type: string
-        kind:
-          type: string
-        location:
-          type: string
-        summary:
-          type: string
-        timeZone:
-          type: string
-    CalendarsGetResponseConferenceProperties:
-      description: CalendarsGetResponseConferenceProperties schema
-      type: object
-      properties:
-        allowedConferenceSolutionTypes:
-          type: array
-          items:
-            type: string
-    CalendarsPutResponseConferenceProperties:
-      description: CalendarsPutResponseConferenceProperties schema
-      type: object
-      properties:
-        allowedConferenceSolutionTypes:
-          type: array
-          items:
-            type: string
-    CalendarsPostRequest:
-      description: CalendarsPostRequest schema
-      type: object
-      example:
-        conferenceProperties:
-          allowedConferenceSolutionTypes:
-          - anim enim ut veniam
-          - sit labore
-        description: officia enim aliquip ex
-        etag: labore adipisicing fugiat
-        id: est pro
-        kind: calendar#calendar
-        location: in voluptate commodo
-        summary: labore adipisicing enim
-        timeZone: cupidatat sed
-    CalendarsPostResponseConferenceProperties:
-      description: CalendarsPostResponseConferenceProperties schema
-      type: object
-      properties:
-        allowedConferenceSolutionTypes:
-          type: array
-          items:
-            type: string
-    CalendarsPostResponse:
-      description: CalendarsPostResponse schema
-      type: object
-      properties:
-        conferenceProperties:
-          $ref: '#/components/schemas/CalendarsPostResponseConferenceProperties'
-        description:
-          type: string
-        etag:
-          type: string
-        id:
-          type: string
-        kind:
-          type: string
-        location:
-          type: string
-        summary:
-          type: string
-        timeZone:
-          type: string
   examples:
+    CalendarsPutResponseExample:
+      summary: Successful 200 response
+      value:
+        conferenceProperties:
+          allowedConferenceSolutionTypes:
+          - anim enim ut veniam
+          - sit labore
+        description: officia enim aliquip ex
+        etag: labore adipisicing fugiat
+        id: est pro
+        kind: calendar#calendar
+        location: in voluptate commodo
+        summary: labore adipisicing enim
+        timeZone: cupidatat sed
     CalendarsPostResponseExample:
       summary: Successful 200 response
       value:
@@ -638,9 +494,75 @@ components:
         location: in voluptate commodo
         summary: labore adipisicing enim
         timeZone: cupidatat sed
-    CalendarsPutResponseExample:
-      summary: Successful 200 response
-      value:
+  schemas:
+    CalendarsPutResponseConferenceProperties:
+      description: CalendarsPutResponseConferenceProperties schema
+      type: object
+      properties:
+        allowedConferenceSolutionTypes:
+          type: array
+          items:
+            type: string
+    CalendarsPatchResponse:
+      description: CalendarsPatchResponse schema
+      type: object
+      properties:
+        conferenceProperties:
+          $ref: '#/components/schemas/CalendarsPatchResponseConferenceProperties'
+        description:
+          type: string
+        etag:
+          type: string
+        id:
+          type: string
+        kind:
+          type: string
+        location:
+          type: string
+        summary:
+          type: string
+        timeZone:
+          type: string
+    CalendarsGetResponse:
+      description: CalendarsGetResponse schema
+      type: object
+      properties:
+        conferenceProperties:
+          $ref: '#/components/schemas/CalendarsGetResponseConferenceProperties'
+        description:
+          type: string
+        etag:
+          type: string
+        id:
+          type: string
+        kind:
+          type: string
+        location:
+          type: string
+        summary:
+          type: string
+        timeZone:
+          type: string
+    CalendarsGetResponseConferenceProperties:
+      description: CalendarsGetResponseConferenceProperties schema
+      type: object
+      properties:
+        allowedConferenceSolutionTypes:
+          type: array
+          items:
+            type: string
+    CalendarsPostResponseConferenceProperties:
+      description: CalendarsPostResponseConferenceProperties schema
+      type: object
+      properties:
+        allowedConferenceSolutionTypes:
+          type: array
+          items:
+            type: string
+    CalendarsPatchRequest:
+      description: CalendarsPatchRequest schema
+      type: object
+      example:
         conferenceProperties:
           allowedConferenceSolutionTypes:
           - anim enim ut veniam
@@ -652,6 +574,84 @@ components:
         location: in voluptate commodo
         summary: labore adipisicing enim
         timeZone: cupidatat sed
+    CalendarsPostRequest:
+      description: CalendarsPostRequest schema
+      type: object
+      example:
+        conferenceProperties:
+          allowedConferenceSolutionTypes:
+          - anim enim ut veniam
+          - sit labore
+        description: officia enim aliquip ex
+        etag: labore adipisicing fugiat
+        id: est pro
+        kind: calendar#calendar
+        location: in voluptate commodo
+        summary: labore adipisicing enim
+        timeZone: cupidatat sed
+    CalendarsPutRequest:
+      description: CalendarsPutRequest schema
+      type: object
+      example:
+        conferenceProperties:
+          allowedConferenceSolutionTypes:
+          - anim enim ut veniam
+          - sit labore
+        description: officia enim aliquip ex
+        etag: labore adipisicing fugiat
+        id: est pro
+        kind: calendar#calendar
+        location: in voluptate commodo
+        summary: labore adipisicing enim
+        timeZone: cupidatat sed
+    CalendarsPutResponse:
+      description: CalendarsPutResponse schema
+      type: object
+      properties:
+        conferenceProperties:
+          $ref: '#/components/schemas/CalendarsPutResponseConferenceProperties'
+        description:
+          type: string
+        etag:
+          type: string
+        id:
+          type: string
+        kind:
+          type: string
+        location:
+          type: string
+        summary:
+          type: string
+        timeZone:
+          type: string
+    CalendarsPostResponse:
+      description: CalendarsPostResponse schema
+      type: object
+      properties:
+        conferenceProperties:
+          $ref: '#/components/schemas/CalendarsPostResponseConferenceProperties'
+        description:
+          type: string
+        etag:
+          type: string
+        id:
+          type: string
+        kind:
+          type: string
+        location:
+          type: string
+        summary:
+          type: string
+        timeZone:
+          type: string
+    CalendarsPatchResponseConferenceProperties:
+      description: CalendarsPatchResponseConferenceProperties schema
+      type: object
+      properties:
+        allowedConferenceSolutionTypes:
+          type: array
+          items:
+            type: string
   securitySchemes:
     oauth2Auth:
       type: http

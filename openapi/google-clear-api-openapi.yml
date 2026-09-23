@@ -69,6 +69,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SpreadsheetsValuesPostResponse1Example
+      operationId: postV4SpreadsheetsBySpreadsheetIdValues{range}:clear
+      x-operation-id-source: derived
 components:
   examples:
     SpreadsheetsValuesPostResponse1Example:
@@ -77,10 +79,6 @@ components:
         clearedRange: mollit sunt reprehenderit
         spreadsheetId: dolor in enim
   schemas:
-    SpreadsheetsValuesPostRequest1:
-      description: SpreadsheetsValuesPostRequest1 schema
-      type: object
-      example: {}
     SpreadsheetsValuesPostResponse1:
       description: SpreadsheetsValuesPostResponse1 schema
       type: object
@@ -89,6 +87,10 @@ components:
           type: string
         spreadsheetId:
           type: string
+    SpreadsheetsValuesPostRequest1:
+      description: SpreadsheetsValuesPostRequest1 schema
+      type: object
+      example: {}
   securitySchemes:
     oauth2Auth:
       type: http

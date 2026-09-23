@@ -62,36 +62,10 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersMessagesImportPostResponseExample
+      operationId: postGmailV1UsersByUserIdMessagesImport
+      x-operation-id-source: derived
 components:
   schemas:
-    UsersMessagesImportPostResponsePayload:
-      description: UsersMessagesImportPostResponsePayload schema
-      type: object
-      properties:
-        partId:
-          type: string
-        mimeType:
-          type: string
-        filename:
-          type: string
-        headers:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-        body:
-          $ref: '#/components/schemas/UsersMessagesImportPostResponsePayloadBody'
-        parts:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
     UsersMessagesImportPostRequest:
       description: UsersMessagesImportPostRequest schema
       type: object
@@ -156,6 +130,34 @@ components:
           type: integer
         raw:
           type: string
+    UsersMessagesImportPostResponsePayload:
+      description: UsersMessagesImportPostResponsePayload schema
+      type: object
+      properties:
+        partId:
+          type: string
+        mimeType:
+          type: string
+        filename:
+          type: string
+        headers:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        body:
+          $ref: '#/components/schemas/UsersMessagesImportPostResponsePayloadBody'
+        parts:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
   examples:
     UsersMessagesImportPostResponseExample:
       summary: Successful 200 response

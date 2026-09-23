@@ -321,10 +321,32 @@ paths:
         dispatcher: FALLBACK
         dispatcherRules: MeCalendarListWatchPostResponseExample
 components:
-  examples:
-    MeCalendarListWatchPostResponseExample:
-      summary: Successful 200 response
-      value:
+  schemas:
+    UsersMeCalendarListGetResponseConferenceProperties:
+      description: UsersMeCalendarListGetResponseConferenceProperties schema
+      type: object
+      properties:
+        allowedConferenceSolutionTypes:
+          type: array
+          items:
+            type: string
+    UsersMeCalendarListPutResponseNotificationSettings:
+      description: UsersMeCalendarListPutResponseNotificationSettings schema
+      type: object
+      properties:
+        notifications:
+          type: array
+          items:
+            type: object
+            properties:
+              method:
+                type: string
+              type:
+                type: string
+    MeCalendarListWatchPostRequest:
+      description: MeCalendarListWatchPostRequest schema
+      type: object
+      example:
         address: incididunt sed consequat
         expiration: velit ad aliq
         id: velit eiusmod
@@ -337,221 +359,113 @@ components:
         resourceUri: fugiat consequat
         token: ullamco officia in
         type: ex eiusmod adipisicing mollit
-    UsersMeCalendarListPostResponseExample:
-      summary: Successful 200 response
-      value:
-        accessRole: dolore deserunt nisi sunt
-        backgroundColor: consequat tempor esse voluptate
-        colorId: eiusmod pariatur et
+    UsersMeCalendarListPatchResponseNotificationSettings:
+      description: UsersMeCalendarListPatchResponseNotificationSettings schema
+      type: object
+      properties:
+        notifications:
+          type: array
+          items:
+            type: object
+            properties:
+              method:
+                type: string
+              type:
+                type: string
+    MeCalendarListWatchPostResponse:
+      description: MeCalendarListWatchPostResponse schema
+      type: object
+      properties:
+        address:
+          type: string
+        expiration:
+          type: string
+        id:
+          type: string
+        kind:
+          type: string
+        params:
+          $ref: '#/components/schemas/MeCalendarListWatchPostResponseParams'
+        payload:
+          type: boolean
+        resourceId:
+          type: string
+        resourceUri:
+          type: string
+        token:
+          type: string
+        type:
+          type: string
+    UsersMeCalendarListPostResponse:
+      description: UsersMeCalendarListPostResponse schema
+      type: object
+      properties:
+        accessRole:
+          type: string
+        backgroundColor:
+          type: string
+        colorId:
+          type: string
         conferenceProperties:
-          allowedConferenceSolutionTypes:
-          - culpa elit
-          - cillum
+          $ref: '#/components/schemas/UsersMeCalendarListPostResponseConferenceProperties'
         defaultReminders:
-        - method: Excepteur
-          minutes: 35541699
-        - method: in magna culpa consequat
-          minutes: 74169785
-        deleted: 'false'
-        description: nulla
-        etag: incididunt elit in
-        foregroundColor: labore fugiat
-        hidden: 'false'
-        id: nulla
-        kind: calendar#calendarListEntry
-        location: aliqua
+          type: array
+          items:
+            type: object
+            properties:
+              method:
+                type: string
+              minutes:
+                type: integer
+        deleted:
+          type: string
+        description:
+          type: string
+        etag:
+          type: string
+        foregroundColor:
+          type: string
+        hidden:
+          type: string
+        id:
+          type: string
+        kind:
+          type: string
+        location:
+          type: string
         notificationSettings:
-          notifications:
-          - method: id dolor minim
-            type: ut occaecat sit e
-          - method: consequat minim nisi consecte
-            type: nulla id
-        primary: 'false'
-        selected: 'false'
-        summary: anim Duis culpa quis consequ
-        summaryOverride: deserunt elit reprehenderit
-        timeZone: minim commodo incididunt reprehenderit sed
-    UsersMeCalendarListPutResponseExample:
-      summary: Successful 200 response
-      value:
-        accessRole: dolore deserunt nisi sunt
-        backgroundColor: consequat tempor esse voluptate
-        colorId: eiusmod pariatur et
-        conferenceProperties:
-          allowedConferenceSolutionTypes:
-          - culpa elit
-          - cillum
-        defaultReminders:
-        - method: Excepteur
-          minutes: 35541699
-        - method: in magna culpa consequat
-          minutes: 74169785
-        deleted: 'false'
-        description: nulla
-        etag: incididunt elit in
-        foregroundColor: labore fugiat
-        hidden: 'false'
-        id: nulla
-        kind: calendar#calendarListEntry
-        location: aliqua
-        notificationSettings:
-          notifications:
-          - method: id dolor minim
-            type: ut occaecat sit e
-          - method: consequat minim nisi consecte
-            type: nulla id
-        primary: 'false'
-        selected: 'false'
-        summary: anim Duis culpa quis consequ
-        summaryOverride: deserunt elit reprehenderit
-        timeZone: minim commodo incididunt reprehenderit sed
-    UsersMeCalendarListPatchResponseExample:
-      summary: Successful 200 response
-      value:
-        accessRole: dolore deserunt nisi sunt
-        backgroundColor: consequat tempor esse voluptate
-        colorId: eiusmod pariatur et
-        conferenceProperties:
-          allowedConferenceSolutionTypes:
-          - culpa elit
-          - cillum
-        defaultReminders:
-        - method: Excepteur
-          minutes: 35541699
-        - method: in magna culpa consequat
-          minutes: 74169785
-        deleted: 'false'
-        description: nulla
-        etag: incididunt elit in
-        foregroundColor: labore fugiat
-        hidden: 'false'
-        id: nulla
-        kind: calendar#calendarListEntry
-        location: aliqua
-        notificationSettings:
-          notifications:
-          - method: id dolor minim
-            type: ut occaecat sit e
-          - method: consequat minim nisi consecte
-            type: nulla id
-        primary: 'false'
-        selected: 'false'
-        summary: anim Duis culpa quis consequ
-        summaryOverride: deserunt elit reprehenderit
-        timeZone: minim commodo incididunt reprehenderit sed
-    UsersMeCalendarListGetResponseExample:
-      summary: Successful 200 response
-      value:
-        accessRole: dolore deserunt nisi sunt
-        backgroundColor: consequat tempor esse voluptate
-        colorId: eiusmod pariatur et
-        conferenceProperties:
-          allowedConferenceSolutionTypes:
-          - culpa elit
-          - cillum
-        defaultReminders:
-        - method: Excepteur
-          minutes: 35541699
-        - method: in magna culpa consequat
-          minutes: 74169785
-        deleted: 'false'
-        description: nulla
-        etag: incididunt elit in
-        foregroundColor: labore fugiat
-        hidden: 'false'
-        id: nulla
-        kind: calendar#calendarListEntry
-        location: aliqua
-        notificationSettings:
-          notifications:
-          - method: id dolor minim
-            type: ut occaecat sit e
-          - method: consequat minim nisi consecte
-            type: nulla id
-        primary: 'false'
-        selected: 'false'
-        summary: anim Duis culpa quis consequ
-        summaryOverride: deserunt elit reprehenderit
-        timeZone: minim commodo incididunt reprehenderit sed
-    UsersCalendarListGetResponseExample:
-      summary: Successful 200 response
-      value:
-        etag: qui labore aliqua in
-        items:
-        - accessRole: qui incididunt do Excepteur
-          backgroundColor: ad esse nulla labore adipisicing
-          colorId: ipsum
-          conferenceProperties:
-            allowedConferenceSolutionTypes:
-            - adipisici
-            - Duis of
-          defaultReminders:
-          - method: id cupidatat
-            minutes: -16296761
-          - method: magna mollit proident
-            minutes: -16227132
-          deleted: 'false'
-          description: cupidatat Excepteur
-          etag: 'ea '
-          foregroundColor: amet enim velit in
-          hidden: 'false'
-          id: sunt ad ipsum dolore
-          kind: calendar#calendarListEntry
-          location: deserunt ullamco proident occaecat id
-          notificationSettings:
-            notifications:
-            - method: aliquip
-              type: Lorem reprehenderit
-            - method: pariatur incididunt
-              type: anim consectetur deserunt
-          primary: 'false'
-          selected: 'false'
-          summary: qui
-          summaryOverride: velit id eiusmod minim amet
-          timeZone: nisi Ut cillum sunt sit
-        - accessRole: ea dolor ex sunt ut
-          backgroundColor: dolore enim officia amet
-          colorId: laborum amet nostrud ipsum deserunt
-          conferenceProperties:
-            allowedConferenceSolutionTypes:
-            - anim consequat
-            - dolor Ut ut
-          defaultReminders:
-          - method: sit qui
-            minutes: 60974334
-          - method: in culpa
-            minutes: 48454696
-          deleted: 'false'
-          description: eiusmod do minim
-          etag: adipisicing ut laborum ea
-          foregroundColor: ipsum cillum
-          hidden: 'false'
-          id: quis Excepteur deserunt
-          kind: calendar#calendarListEntry
-          location: consequat Excepteur dolor
-          notificationSettings:
-            notifications:
-            - method: nostrud aliquip non
-              type: dolor laboris
-            - method: fugiat voluptate mollit
-              type: officia veniam
-          primary: 'false'
-          selected: 'false'
-          summary: sit ex exercitation aliqua
-          summaryOverride: aute exercitation
-          timeZone: fugiat do ut
-        kind: calendar#calendarList
-        nextPageToken: sit ea
-        nextSyncToken: labore consectetur proident occaecat
-  schemas:
-    UsersMeCalendarListGetResponseConferenceProperties:
-      description: UsersMeCalendarListGetResponseConferenceProperties schema
+          $ref: '#/components/schemas/UsersMeCalendarListPostResponseNotificationSettings'
+        primary:
+          type: string
+        selected:
+          type: string
+        summary:
+          type: string
+        summaryOverride:
+          type: string
+        timeZone:
+          type: string
+    UsersMeCalendarListPostResponseConferenceProperties:
+      description: UsersMeCalendarListPostResponseConferenceProperties schema
       type: object
       properties:
         allowedConferenceSolutionTypes:
           type: array
           items:
             type: string
+    UsersMeCalendarListPostResponseNotificationSettings:
+      description: UsersMeCalendarListPostResponseNotificationSettings schema
+      type: object
+      properties:
+        notifications:
+          type: array
+          items:
+            type: object
+            properties:
+              method:
+                type: string
+              type:
+                type: string
     UsersMeCalendarListPatchRequest:
       description: UsersMeCalendarListPatchRequest schema
       type: object
@@ -587,163 +501,6 @@ components:
         summary: anim Duis culpa quis consequ
         summaryOverride: deserunt elit reprehenderit
         timeZone: minim commodo incididunt reprehenderit sed
-    UsersMeCalendarListPutRequest:
-      description: UsersMeCalendarListPutRequest schema
-      type: object
-      example:
-        accessRole: dolore deserunt nisi sunt
-        backgroundColor: consequat tempor esse voluptate
-        colorId: eiusmod pariatur et
-        conferenceProperties:
-          allowedConferenceSolutionTypes:
-          - culpa elit
-          - cillum
-        defaultReminders:
-        - method: Excepteur
-          minutes: 35541699
-        - method: in magna culpa consequat
-          minutes: 74169785
-        deleted: 'false'
-        description: nulla
-        etag: incididunt elit in
-        foregroundColor: labore fugiat
-        hidden: 'false'
-        id: nulla
-        kind: calendar#calendarListEntry
-        location: aliqua
-        notificationSettings:
-          notifications:
-          - method: id dolor minim
-            type: ut occaecat sit e
-          - method: consequat minim nisi consecte
-            type: nulla id
-        primary: 'false'
-        selected: 'false'
-        summary: anim Duis culpa quis consequ
-        summaryOverride: deserunt elit reprehenderit
-        timeZone: minim commodo incididunt reprehenderit sed
-    MeCalendarListWatchPostResponse:
-      description: MeCalendarListWatchPostResponse schema
-      type: object
-      properties:
-        address:
-          type: string
-        expiration:
-          type: string
-        id:
-          type: string
-        kind:
-          type: string
-        params:
-          $ref: '#/components/schemas/MeCalendarListWatchPostResponseParams'
-        payload:
-          type: boolean
-        resourceId:
-          type: string
-        resourceUri:
-          type: string
-        token:
-          type: string
-        type:
-          type: string
-    UsersMeCalendarListPutResponseConferenceProperties:
-      description: UsersMeCalendarListPutResponseConferenceProperties schema
-      type: object
-      properties:
-        allowedConferenceSolutionTypes:
-          type: array
-          items:
-            type: string
-    UsersMeCalendarListPostResponseNotificationSettings:
-      description: UsersMeCalendarListPostResponseNotificationSettings schema
-      type: object
-      properties:
-        notifications:
-          type: array
-          items:
-            type: object
-            properties:
-              method:
-                type: string
-              type:
-                type: string
-    UsersCalendarListGetResponse:
-      description: UsersCalendarListGetResponse schema
-      type: object
-      properties:
-        etag:
-          type: string
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              accessRole:
-                type: string
-              backgroundColor:
-                type: string
-              colorId:
-                type: string
-              conferenceProperties:
-                type: object
-                properties:
-                  allowedConferenceSolutionTypes:
-                    type: array
-                    items:
-                      type: string
-              defaultReminders:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    method:
-                      type: string
-                    minutes:
-                      type: integer
-              deleted:
-                type: string
-              description:
-                type: string
-              etag:
-                type: string
-              foregroundColor:
-                type: string
-              hidden:
-                type: string
-              id:
-                type: string
-              kind:
-                type: string
-              location:
-                type: string
-              notificationSettings:
-                type: object
-                properties:
-                  notifications:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        method:
-                          type: string
-                        type:
-                          type: string
-              primary:
-                type: string
-              selected:
-                type: string
-              summary:
-                type: string
-              summaryOverride:
-                type: string
-              timeZone:
-                type: string
-        kind:
-          type: string
-        nextPageToken:
-          type: string
-        nextSyncToken:
-          type: string
     UsersMeCalendarListPatchResponse:
       description: UsersMeCalendarListPatchResponse schema
       type: object
@@ -863,14 +620,92 @@ components:
           type: string
         sint_b:
           type: string
-    UsersMeCalendarListPostResponseConferenceProperties:
-      description: UsersMeCalendarListPostResponseConferenceProperties schema
+    UsersMeCalendarListPatchResponseConferenceProperties:
+      description: UsersMeCalendarListPatchResponseConferenceProperties schema
       type: object
       properties:
         allowedConferenceSolutionTypes:
           type: array
           items:
             type: string
+    UsersMeCalendarListPutRequest:
+      description: UsersMeCalendarListPutRequest schema
+      type: object
+      example:
+        accessRole: dolore deserunt nisi sunt
+        backgroundColor: consequat tempor esse voluptate
+        colorId: eiusmod pariatur et
+        conferenceProperties:
+          allowedConferenceSolutionTypes:
+          - culpa elit
+          - cillum
+        defaultReminders:
+        - method: Excepteur
+          minutes: 35541699
+        - method: in magna culpa consequat
+          minutes: 74169785
+        deleted: 'false'
+        description: nulla
+        etag: incididunt elit in
+        foregroundColor: labore fugiat
+        hidden: 'false'
+        id: nulla
+        kind: calendar#calendarListEntry
+        location: aliqua
+        notificationSettings:
+          notifications:
+          - method: id dolor minim
+            type: ut occaecat sit e
+          - method: consequat minim nisi consecte
+            type: nulla id
+        primary: 'false'
+        selected: 'false'
+        summary: anim Duis culpa quis consequ
+        summaryOverride: deserunt elit reprehenderit
+        timeZone: minim commodo incididunt reprehenderit sed
+    UsersMeCalendarListPutResponseConferenceProperties:
+      description: UsersMeCalendarListPutResponseConferenceProperties schema
+      type: object
+      properties:
+        allowedConferenceSolutionTypes:
+          type: array
+          items:
+            type: string
+    UsersMeCalendarListPostRequest:
+      description: UsersMeCalendarListPostRequest schema
+      type: object
+      example:
+        accessRole: dolore deserunt nisi sunt
+        backgroundColor: consequat tempor esse voluptate
+        colorId: eiusmod pariatur et
+        conferenceProperties:
+          allowedConferenceSolutionTypes:
+          - culpa elit
+          - cillum
+        defaultReminders:
+        - method: Excepteur
+          minutes: 35541699
+        - method: in magna culpa consequat
+          minutes: 74169785
+        deleted: 'false'
+        description: nulla
+        etag: incididunt elit in
+        foregroundColor: labore fugiat
+        hidden: 'false'
+        id: nulla
+        kind: calendar#calendarListEntry
+        location: aliqua
+        notificationSettings:
+          notifications:
+          - method: id dolor minim
+            type: ut occaecat sit e
+          - method: consequat minim nisi consecte
+            type: nulla id
+        primary: 'false'
+        selected: 'false'
+        summary: anim Duis culpa quis consequ
+        summaryOverride: deserunt elit reprehenderit
+        timeZone: minim commodo incididunt reprehenderit sed
     UsersMeCalendarListPutResponse:
       description: UsersMeCalendarListPutResponse schema
       type: object
@@ -920,10 +755,87 @@ components:
           type: string
         timeZone:
           type: string
-    UsersMeCalendarListPostRequest:
-      description: UsersMeCalendarListPostRequest schema
+    UsersCalendarListGetResponse:
+      description: UsersCalendarListGetResponse schema
       type: object
-      example:
+      properties:
+        etag:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              accessRole:
+                type: string
+              backgroundColor:
+                type: string
+              colorId:
+                type: string
+              conferenceProperties:
+                type: object
+                properties:
+                  allowedConferenceSolutionTypes:
+                    type: array
+                    items:
+                      type: string
+              defaultReminders:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    method:
+                      type: string
+                    minutes:
+                      type: integer
+              deleted:
+                type: string
+              description:
+                type: string
+              etag:
+                type: string
+              foregroundColor:
+                type: string
+              hidden:
+                type: string
+              id:
+                type: string
+              kind:
+                type: string
+              location:
+                type: string
+              notificationSettings:
+                type: object
+                properties:
+                  notifications:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        method:
+                          type: string
+                        type:
+                          type: string
+              primary:
+                type: string
+              selected:
+                type: string
+              summary:
+                type: string
+              summaryOverride:
+                type: string
+              timeZone:
+                type: string
+        kind:
+          type: string
+        nextPageToken:
+          type: string
+        nextSyncToken:
+          type: string
+  examples:
+    UsersMeCalendarListGetResponseExample:
+      summary: Successful 200 response
+      value:
         accessRole: dolore deserunt nisi sunt
         backgroundColor: consequat tempor esse voluptate
         colorId: eiusmod pariatur et
@@ -955,44 +867,147 @@ components:
         summary: anim Duis culpa quis consequ
         summaryOverride: deserunt elit reprehenderit
         timeZone: minim commodo incididunt reprehenderit sed
-    UsersMeCalendarListPatchResponseConferenceProperties:
-      description: UsersMeCalendarListPatchResponseConferenceProperties schema
-      type: object
-      properties:
-        allowedConferenceSolutionTypes:
-          type: array
-          items:
-            type: string
-    UsersMeCalendarListPatchResponseNotificationSettings:
-      description: UsersMeCalendarListPatchResponseNotificationSettings schema
-      type: object
-      properties:
-        notifications:
-          type: array
-          items:
-            type: object
-            properties:
-              method:
-                type: string
-              type:
-                type: string
-    UsersMeCalendarListPutResponseNotificationSettings:
-      description: UsersMeCalendarListPutResponseNotificationSettings schema
-      type: object
-      properties:
-        notifications:
-          type: array
-          items:
-            type: object
-            properties:
-              method:
-                type: string
-              type:
-                type: string
-    MeCalendarListWatchPostRequest:
-      description: MeCalendarListWatchPostRequest schema
-      type: object
-      example:
+    UsersMeCalendarListPatchResponseExample:
+      summary: Successful 200 response
+      value:
+        accessRole: dolore deserunt nisi sunt
+        backgroundColor: consequat tempor esse voluptate
+        colorId: eiusmod pariatur et
+        conferenceProperties:
+          allowedConferenceSolutionTypes:
+          - culpa elit
+          - cillum
+        defaultReminders:
+        - method: Excepteur
+          minutes: 35541699
+        - method: in magna culpa consequat
+          minutes: 74169785
+        deleted: 'false'
+        description: nulla
+        etag: incididunt elit in
+        foregroundColor: labore fugiat
+        hidden: 'false'
+        id: nulla
+        kind: calendar#calendarListEntry
+        location: aliqua
+        notificationSettings:
+          notifications:
+          - method: id dolor minim
+            type: ut occaecat sit e
+          - method: consequat minim nisi consecte
+            type: nulla id
+        primary: 'false'
+        selected: 'false'
+        summary: anim Duis culpa quis consequ
+        summaryOverride: deserunt elit reprehenderit
+        timeZone: minim commodo incididunt reprehenderit sed
+    UsersCalendarListGetResponseExample:
+      summary: Successful 200 response
+      value:
+        etag: qui labore aliqua in
+        items:
+        - accessRole: qui incididunt do Excepteur
+          backgroundColor: ad esse nulla labore adipisicing
+          colorId: ipsum
+          conferenceProperties:
+            allowedConferenceSolutionTypes:
+            - adipisici
+            - Duis of
+          defaultReminders:
+          - method: id cupidatat
+            minutes: -16296761
+          - method: magna mollit proident
+            minutes: -16227132
+          deleted: 'false'
+          description: cupidatat Excepteur
+          etag: 'ea '
+          foregroundColor: amet enim velit in
+          hidden: 'false'
+          id: sunt ad ipsum dolore
+          kind: calendar#calendarListEntry
+          location: deserunt ullamco proident occaecat id
+          notificationSettings:
+            notifications:
+            - method: aliquip
+              type: Lorem reprehenderit
+            - method: pariatur incididunt
+              type: anim consectetur deserunt
+          primary: 'false'
+          selected: 'false'
+          summary: qui
+          summaryOverride: velit id eiusmod minim amet
+          timeZone: nisi Ut cillum sunt sit
+        - accessRole: ea dolor ex sunt ut
+          backgroundColor: dolore enim officia amet
+          colorId: laborum amet nostrud ipsum deserunt
+          conferenceProperties:
+            allowedConferenceSolutionTypes:
+            - anim consequat
+            - dolor Ut ut
+          defaultReminders:
+          - method: sit qui
+            minutes: 60974334
+          - method: in culpa
+            minutes: 48454696
+          deleted: 'false'
+          description: eiusmod do minim
+          etag: adipisicing ut laborum ea
+          foregroundColor: ipsum cillum
+          hidden: 'false'
+          id: quis Excepteur deserunt
+          kind: calendar#calendarListEntry
+          location: consequat Excepteur dolor
+          notificationSettings:
+            notifications:
+            - method: nostrud aliquip non
+              type: dolor laboris
+            - method: fugiat voluptate mollit
+              type: officia veniam
+          primary: 'false'
+          selected: 'false'
+          summary: sit ex exercitation aliqua
+          summaryOverride: aute exercitation
+          timeZone: fugiat do ut
+        kind: calendar#calendarList
+        nextPageToken: sit ea
+        nextSyncToken: labore consectetur proident occaecat
+    UsersMeCalendarListPutResponseExample:
+      summary: Successful 200 response
+      value:
+        accessRole: dolore deserunt nisi sunt
+        backgroundColor: consequat tempor esse voluptate
+        colorId: eiusmod pariatur et
+        conferenceProperties:
+          allowedConferenceSolutionTypes:
+          - culpa elit
+          - cillum
+        defaultReminders:
+        - method: Excepteur
+          minutes: 35541699
+        - method: in magna culpa consequat
+          minutes: 74169785
+        deleted: 'false'
+        description: nulla
+        etag: incididunt elit in
+        foregroundColor: labore fugiat
+        hidden: 'false'
+        id: nulla
+        kind: calendar#calendarListEntry
+        location: aliqua
+        notificationSettings:
+          notifications:
+          - method: id dolor minim
+            type: ut occaecat sit e
+          - method: consequat minim nisi consecte
+            type: nulla id
+        primary: 'false'
+        selected: 'false'
+        summary: anim Duis culpa quis consequ
+        summaryOverride: deserunt elit reprehenderit
+        timeZone: minim commodo incididunt reprehenderit sed
+    MeCalendarListWatchPostResponseExample:
+      summary: Successful 200 response
+      value:
         address: incididunt sed consequat
         expiration: velit ad aliq
         id: velit eiusmod
@@ -1005,55 +1020,40 @@ components:
         resourceUri: fugiat consequat
         token: ullamco officia in
         type: ex eiusmod adipisicing mollit
-    UsersMeCalendarListPostResponse:
-      description: UsersMeCalendarListPostResponse schema
-      type: object
-      properties:
-        accessRole:
-          type: string
-        backgroundColor:
-          type: string
-        colorId:
-          type: string
+    UsersMeCalendarListPostResponseExample:
+      summary: Successful 200 response
+      value:
+        accessRole: dolore deserunt nisi sunt
+        backgroundColor: consequat tempor esse voluptate
+        colorId: eiusmod pariatur et
         conferenceProperties:
-          $ref: '#/components/schemas/UsersMeCalendarListPostResponseConferenceProperties'
+          allowedConferenceSolutionTypes:
+          - culpa elit
+          - cillum
         defaultReminders:
-          type: array
-          items:
-            type: object
-            properties:
-              method:
-                type: string
-              minutes:
-                type: integer
-        deleted:
-          type: string
-        description:
-          type: string
-        etag:
-          type: string
-        foregroundColor:
-          type: string
-        hidden:
-          type: string
-        id:
-          type: string
-        kind:
-          type: string
-        location:
-          type: string
+        - method: Excepteur
+          minutes: 35541699
+        - method: in magna culpa consequat
+          minutes: 74169785
+        deleted: 'false'
+        description: nulla
+        etag: incididunt elit in
+        foregroundColor: labore fugiat
+        hidden: 'false'
+        id: nulla
+        kind: calendar#calendarListEntry
+        location: aliqua
         notificationSettings:
-          $ref: '#/components/schemas/UsersMeCalendarListPostResponseNotificationSettings'
-        primary:
-          type: string
-        selected:
-          type: string
-        summary:
-          type: string
-        summaryOverride:
-          type: string
-        timeZone:
-          type: string
+          notifications:
+          - method: id dolor minim
+            type: ut occaecat sit e
+          - method: consequat minim nisi consecte
+            type: nulla id
+        primary: 'false'
+        selected: 'false'
+        summary: anim Duis culpa quis consequ
+        summaryOverride: deserunt elit reprehenderit
+        timeZone: minim commodo incididunt reprehenderit sed
   securitySchemes:
     oauth2Auth:
       type: http

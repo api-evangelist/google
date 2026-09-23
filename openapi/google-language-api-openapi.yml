@@ -62,6 +62,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersSettingsLanguagePutResponseExample
+      operationId: putGmailV1UsersByUserIdSettingsLanguage
+      x-operation-id-source: derived
 components:
   schemas:
     UsersSettingsLanguagePutResponse:

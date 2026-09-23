@@ -52,6 +52,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersSettingsAutoForwardingGetResponseExample
+      operationId: getGmailV1UsersByUserIdSettingsAutoForwarding
+      x-operation-id-source: derived
     put:
       tags:
       - Auto
@@ -101,23 +103,12 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersSettingsAutoForwardingPutResponseExample
+      operationId: putGmailV1UsersByUserIdSettingsAutoForwarding
+      x-operation-id-source: derived
 components:
-  examples:
-    UsersSettingsAutoForwardingGetResponseExample:
-      summary: Successful 200 response
-      value:
-        enabled: false
-        emailAddress: officia ullamco Ut laboris eu
-        disposition: trash
-    UsersSettingsAutoForwardingPutResponseExample:
-      summary: Successful 200 response
-      value:
-        enabled: false
-        emailAddress: officia ullamco Ut laboris eu
-        disposition: trash
   schemas:
-    UsersSettingsAutoForwardingGetResponse:
-      description: UsersSettingsAutoForwardingGetResponse schema
+    UsersSettingsAutoForwardingPutResponse:
+      description: UsersSettingsAutoForwardingPutResponse schema
       type: object
       properties:
         enabled:
@@ -133,8 +124,8 @@ components:
         enabled: false
         emailAddress: officia ullamco Ut laboris eu
         disposition: trash
-    UsersSettingsAutoForwardingPutResponse:
-      description: UsersSettingsAutoForwardingPutResponse schema
+    UsersSettingsAutoForwardingGetResponse:
+      description: UsersSettingsAutoForwardingGetResponse schema
       type: object
       properties:
         enabled:
@@ -143,6 +134,19 @@ components:
           type: string
         disposition:
           type: string
+  examples:
+    UsersSettingsAutoForwardingGetResponseExample:
+      summary: Successful 200 response
+      value:
+        enabled: false
+        emailAddress: officia ullamco Ut laboris eu
+        disposition: trash
+    UsersSettingsAutoForwardingPutResponseExample:
+      summary: Successful 200 response
+      value:
+        enabled: false
+        emailAddress: officia ullamco Ut laboris eu
+        disposition: trash
   securitySchemes:
     oauth2Auth:
       type: http

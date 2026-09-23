@@ -103,7 +103,8 @@
     "tag 'Batch' spans 2 source specs (google-gmail-api-openapi.yml, google-sheets-api-openapi.yml): per-path servers applied",
     "tag 'Create' spans 2 source specs (google-gmail-api-openapi.yml, google-sheets-api-openapi.yml): per-path servers applied",
     "tag 'Get' spans 2 source specs (google-gmail-api-openapi.yml, google-sheets-api-openapi.yml): per-path servers applied",
-    "tag 'Update' spans 2 source specs (google-gmail-api-openapi.yml, google-sheets-api-openapi.yml): per-path servers applied"
+    "tag 'Update' spans 2 source specs (google-gmail-api-openapi.yml, google-sheets-api-openapi.yml): per-path servers applied",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "google-about-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -134,14 +135,12 @@
     "google-deletes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-developer-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-disables-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "google-document-understanding-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-documents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-drafts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-drives-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-enables-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-file-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-files-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "google-filter-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-free-busy-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-get-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-history-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -161,18 +160,12 @@
     "google-patch-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-permissions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-pop-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "google-profile-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-replies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-revisions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "google-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-send-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-sets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "google-setting-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-settings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "google-sheet-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-speech-generation-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "google-stop-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "google-streaming-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-team-drives-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-threads-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-trash-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -180,11 +173,6 @@
     "google-user-calendars-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-user-settings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "google-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "google-vacation-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "google-values-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "google-verify-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "google-video-understanding-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "google-volumes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "google-watch-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+    "google-volumes-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
 }

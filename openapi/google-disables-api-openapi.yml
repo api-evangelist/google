@@ -67,8 +67,14 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SettingsCseKeypairsPostResponse1Example
+      operationId: postGmailV1UsersByUserIdSettingsCseKeypairs{keyPairId}:disable
+      x-operation-id-source: derived
 components:
   schemas:
+    SettingsCseKeypairsPostRequest1:
+      description: SettingsCseKeypairsPostRequest1 schema
+      type: object
+      example: {}
     SettingsCseKeypairsPostResponse1:
       description: SettingsCseKeypairsPostResponse1 schema
       type: object
@@ -106,10 +112,6 @@ components:
                 properties:
                   description:
                     type: string
-    SettingsCseKeypairsPostRequest1:
-      description: SettingsCseKeypairsPostRequest1 schema
-      type: object
-      example: {}
   examples:
     SettingsCseKeypairsPostResponse1Example:
       summary: Successful 200 response

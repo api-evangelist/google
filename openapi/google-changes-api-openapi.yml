@@ -533,6 +533,16 @@ paths:
         dispatcherRules: SuccessExample
 components:
   schemas:
+    StartPageToken:
+      properties:
+        kind:
+          default: drive#startPageToken
+          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#startPageToken"`.'
+          type: string
+        startPageToken:
+          description: The starting page token for listing future changes. The page token doesn't expire.
+          type: string
+      type: object
     LabelField:
       description: Representation of field, which is a typed key-value pair.
       properties:
@@ -571,6 +581,48 @@ components:
           type: array
         valueType:
           description: 'The field type. While new values may be supported in the future, the following are currently allowed: * `dateString` * `integer` * `selection` * `text` * `user`'
+          type: string
+      type: object
+    Change:
+      description: A change to a file or shared drive.
+      properties:
+        changeType:
+          description: The type of the change. Possible values are `file` and `drive`.
+          type: string
+        drive:
+          $ref: '#/components/schemas/Drive'
+          description: The updated state of the shared drive. Present if the changeType is drive, the user is still a member of the shared drive, and the shared drive has not been deleted.
+        driveId:
+          description: The ID of the shared drive associated with this change.
+          type: string
+        file:
+          $ref: '#/components/schemas/File'
+          description: The updated state of the file. Present if the type is file and the file has not been removed from this list of changes.
+        fileId:
+          description: The ID of the file which has changed.
+          type: string
+        kind:
+          default: drive#change
+          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#change"`.'
+          type: string
+        removed:
+          description: Whether the file or shared drive has been removed from this list of changes, for example by deletion or loss of access.
+          type: boolean
+        teamDrive:
+          $ref: '#/components/schemas/TeamDrive'
+          deprecated: true
+          description: 'Deprecated: Use `drive` instead.'
+        teamDriveId:
+          deprecated: true
+          description: 'Deprecated: Use `driveId` instead.'
+          type: string
+        time:
+          description: The time of this change (RFC 3339 date-time).
+          format: date-time
+          type: string
+        type:
+          deprecated: true
+          description: 'Deprecated: Use `changeType` instead.'
           type: string
       type: object
     User:
@@ -622,52 +674,129 @@ components:
           description: Output only. The type of the content restriction. Currently the only possible value is `globalContentRestriction`.
           type: string
       type: object
-    Channel:
-      description: A notification channel used to watch for resource changes.
+    Permission:
+      description: A permission for a file. A permission grants a user, group, domain, or the world access to a file or a folder hierarchy. Some resource methods (such as `permissions.update`) require a `permissionId`. Use the `permissions.list` method to retrieve the ID for a file, folder, or shared drive.
       properties:
-        address:
-          description: The address where notifications are delivered for this channel.
+        allowFileDiscovery:
+          description: Whether the permission allows the file to be discovered through search. This is only applicable for permissions of type `domain` or `anyone`.
+          type: boolean
+        deleted:
+          description: Output only. Whether the account associated with this permission has been deleted. This field only pertains to user and group permissions.
+          type: boolean
+        displayName:
+          description: 'Output only. The "pretty" name of the value of the permission. The following is a list of examples for each type of permission: * `user` - User''s full name, as defined for their Google account, such as "Joe Smith." * `group` - Name of the Google Group, such as "The Company Administrators." * `domain` - String domain name, such as "thecompany.com." * `anyone` - No `displayName` is present.'
           type: string
-        expiration:
-          description: Date and time of notification channel expiration, expressed as a Unix timestamp, in milliseconds. Optional.
-          format: int64
+        domain:
+          description: The domain to which this permission refers.
+          type: string
+        emailAddress:
+          description: The email address of the user or group to which this permission refers.
+          type: string
+        expirationTime:
+          description: 'The time at which this permission will expire (RFC 3339 date-time). Expiration times have the following restrictions: - They can only be set on user and group permissions - The time must be in the future - The time cannot be more than a year in the future'
+          format: date-time
           type: string
         id:
-          description: A UUID or similar unique string that identifies this channel.
+          description: Output only. The ID of this permission. This is a unique identifier for the grantee, and is published in User resources as `permissionId`. IDs should be treated as opaque values.
           type: string
         kind:
-          default: api#channel
-          description: Identifies this as a notification channel used to watch for changes to a resource, which is `api#channel`.
+          default: drive#permission
+          description: 'Output only. Identifies what kind of resource this is. Value: the fixed string `"drive#permission"`.'
           type: string
-        params:
-          additionalProperties:
-            type: string
-          description: Additional parameters controlling delivery channel behavior. Optional.
-          type: object
-        payload:
-          description: A Boolean value to indicate whether payload is wanted. Optional.
+        pendingOwner:
+          description: Whether the account associated with this permission is a pending owner. Only populated for `user` type permissions for files that are not in a shared drive.
           type: boolean
-        resourceId:
-          description: An opaque ID that identifies the resource being watched on this channel. Stable across different API versions.
+        permissionDetails:
+          description: Output only. Details of whether the permissions on this shared drive item are inherited or directly on this item. This is an output-only field which is present only for shared drive items.
+          items:
+            properties:
+              inherited:
+                description: Output only. Whether this permission is inherited. This field is always populated. This is an output-only field.
+                type: boolean
+              inheritedFrom:
+                description: Output only. The ID of the item from which this permission is inherited. This is an output-only field.
+                type: string
+              permissionType:
+                description: 'Output only. The permission type for this user. While new values may be added in future, the following are currently possible: * `file` * `member`'
+                type: string
+              role:
+                description: 'Output only. The primary role for this user. While new values may be added in the future, the following are currently possible: * `organizer` * `fileOrganizer` * `writer` * `commenter` * `reader`'
+                type: string
+            type: object
+          readOnly: true
+          type: array
+        photoLink:
+          description: Output only. A link to the user's profile photo, if available.
           type: string
-        resourceUri:
-          description: A version-specific identifier for the watched resource.
+        role:
+          description: 'The role granted by this permission. While new values may be supported in the future, the following are currently allowed: * `owner` * `organizer` * `fileOrganizer` * `writer` * `commenter` * `reader`'
           type: string
-        token:
-          description: An arbitrary string delivered to the target address with each notification delivered over this channel. Optional.
-          type: string
+        teamDrivePermissionDetails:
+          deprecated: true
+          description: 'Output only. Deprecated: Output only. Use `permissionDetails` instead.'
+          items:
+            properties:
+              inherited:
+                deprecated: true
+                description: 'Deprecated: Output only. Use `permissionDetails/inherited` instead.'
+                type: boolean
+              inheritedFrom:
+                deprecated: true
+                description: 'Deprecated: Output only. Use `permissionDetails/inheritedFrom` instead.'
+                type: string
+              role:
+                deprecated: true
+                description: 'Deprecated: Output only. Use `permissionDetails/role` instead.'
+                type: string
+              teamDrivePermissionType:
+                deprecated: true
+                description: 'Deprecated: Output only. Use `permissionDetails/permissionType` instead.'
+                type: string
+            type: object
+          readOnly: true
+          type: array
         type:
-          description: The type of delivery mechanism used for this channel. Valid values are "web_hook" or "webhook".
+          description: 'The type of the grantee. Valid values are: * `user` * `group` * `domain` * `anyone` When creating a permission, if `type` is `user` or `group`, you must provide an `emailAddress` for the user or group. When `type` is `domain`, you must provide a `domain`. There isn''t extra information required for an `anyone` type.'
+          type: string
+        view:
+          description: Indicates the view for this permission. Only populated for permissions that belong to a view. 'published' is the only supported value.
           type: string
       type: object
-    StartPageToken:
+    ChangeList:
+      description: A list of changes for a user.
       properties:
+        changes:
+          description: The list of changes. If nextPageToken is populated, then this list may be incomplete and an additional page of results should be fetched.
+          items:
+            $ref: '#/components/schemas/Change'
+          type: array
         kind:
-          default: drive#startPageToken
-          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#startPageToken"`.'
+          default: drive#changeList
+          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#changeList"`.'
           type: string
-        startPageToken:
-          description: The starting page token for listing future changes. The page token doesn't expire.
+        newStartPageToken:
+          description: The starting page token for future changes. This will be present only if the end of the current changes list has been reached. The page token doesn't expire.
+          type: string
+        nextPageToken:
+          description: The page token for the next page of changes. This will be absent if the end of the changes list has been reached. The page token doesn't expire.
+          type: string
+      type: object
+    Label:
+      description: Representation of label and label fields.
+      properties:
+        fields:
+          additionalProperties:
+            $ref: '#/components/schemas/LabelField'
+          description: A map of the fields on the label, keyed by the field's ID.
+          type: object
+        id:
+          description: The ID of the label.
+          type: string
+        kind:
+          description: This is always drive#label
+          type: string
+        revisionId:
+          description: The revision ID of the label.
           type: string
       type: object
     File:
@@ -1167,111 +1296,140 @@ components:
           description: Whether users with only `writer` permission can modify the file's permissions. Not populated for items in shared drives.
           type: boolean
       type: object
-    Permission:
-      description: A permission for a file. A permission grants a user, group, domain, or the world access to a file or a folder hierarchy. Some resource methods (such as `permissions.update`) require a `permissionId`. Use the `permissions.list` method to retrieve the ID for a file, folder, or shared drive.
+    TeamDrive:
+      description: 'Deprecated: use the drive collection instead.'
       properties:
-        allowFileDiscovery:
-          description: Whether the permission allows the file to be discovered through search. This is only applicable for permissions of type `domain` or `anyone`.
-          type: boolean
-        deleted:
-          description: Output only. Whether the account associated with this permission has been deleted. This field only pertains to user and group permissions.
-          type: boolean
-        displayName:
-          description: 'Output only. The "pretty" name of the value of the permission. The following is a list of examples for each type of permission: * `user` - User''s full name, as defined for their Google account, such as "Joe Smith." * `group` - Name of the Google Group, such as "The Company Administrators." * `domain` - String domain name, such as "thecompany.com." * `anyone` - No `displayName` is present.'
+        backgroundImageFile:
+          description: An image file and cropping parameters from which a background image for this Team Drive is set. This is a write only field; it can only be set on `drive.teamdrives.update` requests that don't set `themeId`. When specified, all fields of the `backgroundImageFile` must be set.
+          properties:
+            id:
+              description: The ID of an image file in Drive to use for the background image.
+              type: string
+            width:
+              description: The width of the cropped image in the closed range of 0 to 1. This value represents the width of the cropped image divided by the width of the entire image. The height is computed by applying a width to height aspect ratio of 80 to 9. The resulting image must be at least 1280 pixels wide and 144 pixels high.
+              format: float
+              type: number
+            xCoordinate:
+              description: The X coordinate of the upper left corner of the cropping area in the background image. This is a value in the closed range of 0 to 1. This value represents the horizontal distance from the left side of the entire image to the left side of the cropping area divided by the width of the entire image.
+              format: float
+              type: number
+            yCoordinate:
+              description: The Y coordinate of the upper left corner of the cropping area in the background image. This is a value in the closed range of 0 to 1. This value represents the vertical distance from the top side of the entire image to the top side of the cropping area divided by the height of the entire image.
+              format: float
+              type: number
+          type: object
+        backgroundImageLink:
+          description: A short-lived link to this Team Drive's background image.
           type: string
-        domain:
-          description: The domain to which this permission refers.
+        capabilities:
+          description: Capabilities the current user has on this Team Drive.
+          properties:
+            canAddChildren:
+              description: Whether the current user can add children to folders in this Team Drive.
+              type: boolean
+            canChangeCopyRequiresWriterPermissionRestriction:
+              description: Whether the current user can change the `copyRequiresWriterPermission` restriction of this Team Drive.
+              type: boolean
+            canChangeDomainUsersOnlyRestriction:
+              description: Whether the current user can change the `domainUsersOnly` restriction of this Team Drive.
+              type: boolean
+            canChangeSharingFoldersRequiresOrganizerPermissionRestriction:
+              description: Whether the current user can change the `sharingFoldersRequiresOrganizerPermission` restriction of this Team Drive.
+              type: boolean
+            canChangeTeamDriveBackground:
+              description: Whether the current user can change the background of this Team Drive.
+              type: boolean
+            canChangeTeamMembersOnlyRestriction:
+              description: Whether the current user can change the `teamMembersOnly` restriction of this Team Drive.
+              type: boolean
+            canComment:
+              description: Whether the current user can comment on files in this Team Drive.
+              type: boolean
+            canCopy:
+              description: Whether the current user can copy files in this Team Drive.
+              type: boolean
+            canDeleteChildren:
+              description: Whether the current user can delete children from folders in this Team Drive.
+              type: boolean
+            canDeleteTeamDrive:
+              description: Whether the current user can delete this Team Drive. Attempting to delete the Team Drive may still fail if there are untrashed items inside the Team Drive.
+              type: boolean
+            canDownload:
+              description: Whether the current user can download files in this Team Drive.
+              type: boolean
+            canEdit:
+              description: Whether the current user can edit files in this Team Drive
+              type: boolean
+            canListChildren:
+              description: Whether the current user can list the children of folders in this Team Drive.
+              type: boolean
+            canManageMembers:
+              description: Whether the current user can add members to this Team Drive or remove them or change their role.
+              type: boolean
+            canReadRevisions:
+              description: Whether the current user can read the revisions resource of files in this Team Drive.
+              type: boolean
+            canRemoveChildren:
+              deprecated: true
+              description: 'Deprecated: Use `canDeleteChildren` or `canTrashChildren` instead.'
+              type: boolean
+            canRename:
+              description: Whether the current user can rename files or folders in this Team Drive.
+              type: boolean
+            canRenameTeamDrive:
+              description: Whether the current user can rename this Team Drive.
+              type: boolean
+            canResetTeamDriveRestrictions:
+              description: Whether the current user can reset the Team Drive restrictions to defaults.
+              type: boolean
+            canShare:
+              description: Whether the current user can share files or folders in this Team Drive.
+              type: boolean
+            canTrashChildren:
+              description: Whether the current user can trash children from folders in this Team Drive.
+              type: boolean
+          type: object
+        colorRgb:
+          description: The color of this Team Drive as an RGB hex string. It can only be set on a `drive.teamdrives.update` request that does not set `themeId`.
           type: string
-        emailAddress:
-          description: The email address of the user or group to which this permission refers.
-          type: string
-        expirationTime:
-          description: 'The time at which this permission will expire (RFC 3339 date-time). Expiration times have the following restrictions: - They can only be set on user and group permissions - The time must be in the future - The time cannot be more than a year in the future'
+        createdTime:
+          description: The time at which the Team Drive was created (RFC 3339 date-time).
           format: date-time
           type: string
         id:
-          description: Output only. The ID of this permission. This is a unique identifier for the grantee, and is published in User resources as `permissionId`. IDs should be treated as opaque values.
+          description: The ID of this Team Drive which is also the ID of the top level folder of this Team Drive.
           type: string
         kind:
-          default: drive#permission
-          description: 'Output only. Identifies what kind of resource this is. Value: the fixed string `"drive#permission"`.'
+          default: drive#teamDrive
+          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#teamDrive"`.'
           type: string
-        pendingOwner:
-          description: Whether the account associated with this permission is a pending owner. Only populated for `user` type permissions for files that are not in a shared drive.
-          type: boolean
-        permissionDetails:
-          description: Output only. Details of whether the permissions on this shared drive item are inherited or directly on this item. This is an output-only field which is present only for shared drive items.
-          items:
-            properties:
-              inherited:
-                description: Output only. Whether this permission is inherited. This field is always populated. This is an output-only field.
-                type: boolean
-              inheritedFrom:
-                description: Output only. The ID of the item from which this permission is inherited. This is an output-only field.
-                type: string
-              permissionType:
-                description: 'Output only. The permission type for this user. While new values may be added in future, the following are currently possible: * `file` * `member`'
-                type: string
-              role:
-                description: 'Output only. The primary role for this user. While new values may be added in the future, the following are currently possible: * `organizer` * `fileOrganizer` * `writer` * `commenter` * `reader`'
-                type: string
-            type: object
-          readOnly: true
-          type: array
-        photoLink:
-          description: Output only. A link to the user's profile photo, if available.
+        name:
+          description: The name of this Team Drive.
           type: string
-        role:
-          description: 'The role granted by this permission. While new values may be supported in the future, the following are currently allowed: * `owner` * `organizer` * `fileOrganizer` * `writer` * `commenter` * `reader`'
+        orgUnitId:
+          description: The organizational unit of this shared drive. This field is only populated on `drives.list` responses when the `useDomainAdminAccess` parameter is set to `true`.
           type: string
-        teamDrivePermissionDetails:
-          deprecated: true
-          description: 'Output only. Deprecated: Output only. Use `permissionDetails` instead.'
-          items:
-            properties:
-              inherited:
-                deprecated: true
-                description: 'Deprecated: Output only. Use `permissionDetails/inherited` instead.'
-                type: boolean
-              inheritedFrom:
-                deprecated: true
-                description: 'Deprecated: Output only. Use `permissionDetails/inheritedFrom` instead.'
-                type: string
-              role:
-                deprecated: true
-                description: 'Deprecated: Output only. Use `permissionDetails/role` instead.'
-                type: string
-              teamDrivePermissionType:
-                deprecated: true
-                description: 'Deprecated: Output only. Use `permissionDetails/permissionType` instead.'
-                type: string
-            type: object
-          readOnly: true
-          type: array
-        type:
-          description: 'The type of the grantee. Valid values are: * `user` * `group` * `domain` * `anyone` When creating a permission, if `type` is `user` or `group`, you must provide an `emailAddress` for the user or group. When `type` is `domain`, you must provide a `domain`. There isn''t extra information required for an `anyone` type.'
-          type: string
-        view:
-          description: Indicates the view for this permission. Only populated for permissions that belong to a view. 'published' is the only supported value.
-          type: string
-      type: object
-    ChangeList:
-      description: A list of changes for a user.
-      properties:
-        changes:
-          description: The list of changes. If nextPageToken is populated, then this list may be incomplete and an additional page of results should be fetched.
-          items:
-            $ref: '#/components/schemas/Change'
-          type: array
-        kind:
-          default: drive#changeList
-          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#changeList"`.'
-          type: string
-        newStartPageToken:
-          description: The starting page token for future changes. This will be present only if the end of the current changes list has been reached. The page token doesn't expire.
-          type: string
-        nextPageToken:
-          description: The page token for the next page of changes. This will be absent if the end of the changes list has been reached. The page token doesn't expire.
+        restrictions:
+          description: A set of restrictions that apply to this Team Drive or items inside this Team Drive.
+          properties:
+            adminManagedRestrictions:
+              description: Whether administrative privileges on this Team Drive are required to modify restrictions.
+              type: boolean
+            copyRequiresWriterPermission:
+              description: Whether the options to copy, print, or download files inside this Team Drive, should be disabled for readers and commenters. When this restriction is set to `true`, it will override the similarly named field to `true` for any file inside this Team Drive.
+              type: boolean
+            domainUsersOnly:
+              description: Whether access to this Team Drive and items inside this Team Drive is restricted to users of the domain to which this Team Drive belongs. This restriction may be overridden by other sharing policies controlled outside of this Team Drive.
+              type: boolean
+            sharingFoldersRequiresOrganizerPermission:
+              description: If true, only users with the organizer role can share folders. If false, users with either the organizer role or the file organizer role can share folders.
+              type: boolean
+            teamMembersOnly:
+              description: Whether access to items inside this Team Drive is restricted to members of this Team Drive.
+              type: boolean
+          type: object
+        themeId:
+          description: The ID of the theme from which the background image and color will be set. The set of possible `teamDriveThemes` can be retrieved from a `drive.about.get` response. When not specified on a `drive.teamdrives.create` request, a random theme is chosen from which the background image and color are set. This is a write-only field; it can only be set on requests that don't set `colorRgb` or `backgroundImageFile`.
           type: string
       type: object
     Drive:
@@ -1409,200 +1567,42 @@ components:
           description: The ID of the theme from which the background image and color will be set. The set of possible `driveThemes` can be retrieved from a `drive.about.get` response. When not specified on a `drive.drives.create` request, a random theme is chosen from which the background image and color are set. This is a write-only field; it can only be set on requests that don't set `colorRgb` or `backgroundImageFile`.
           type: string
       type: object
-    Label:
-      description: Representation of label and label fields.
+    Channel:
+      description: A notification channel used to watch for resource changes.
       properties:
-        fields:
+        address:
+          description: The address where notifications are delivered for this channel.
+          type: string
+        expiration:
+          description: Date and time of notification channel expiration, expressed as a Unix timestamp, in milliseconds. Optional.
+          format: int64
+          type: string
+        id:
+          description: A UUID or similar unique string that identifies this channel.
+          type: string
+        kind:
+          default: api#channel
+          description: Identifies this as a notification channel used to watch for changes to a resource, which is `api#channel`.
+          type: string
+        params:
           additionalProperties:
-            $ref: '#/components/schemas/LabelField'
-          description: A map of the fields on the label, keyed by the field's ID.
+            type: string
+          description: Additional parameters controlling delivery channel behavior. Optional.
           type: object
-        id:
-          description: The ID of the label.
-          type: string
-        kind:
-          description: This is always drive#label
-          type: string
-        revisionId:
-          description: The revision ID of the label.
-          type: string
-      type: object
-    TeamDrive:
-      description: 'Deprecated: use the drive collection instead.'
-      properties:
-        backgroundImageFile:
-          description: An image file and cropping parameters from which a background image for this Team Drive is set. This is a write only field; it can only be set on `drive.teamdrives.update` requests that don't set `themeId`. When specified, all fields of the `backgroundImageFile` must be set.
-          properties:
-            id:
-              description: The ID of an image file in Drive to use for the background image.
-              type: string
-            width:
-              description: The width of the cropped image in the closed range of 0 to 1. This value represents the width of the cropped image divided by the width of the entire image. The height is computed by applying a width to height aspect ratio of 80 to 9. The resulting image must be at least 1280 pixels wide and 144 pixels high.
-              format: float
-              type: number
-            xCoordinate:
-              description: The X coordinate of the upper left corner of the cropping area in the background image. This is a value in the closed range of 0 to 1. This value represents the horizontal distance from the left side of the entire image to the left side of the cropping area divided by the width of the entire image.
-              format: float
-              type: number
-            yCoordinate:
-              description: The Y coordinate of the upper left corner of the cropping area in the background image. This is a value in the closed range of 0 to 1. This value represents the vertical distance from the top side of the entire image to the top side of the cropping area divided by the height of the entire image.
-              format: float
-              type: number
-          type: object
-        backgroundImageLink:
-          description: A short-lived link to this Team Drive's background image.
-          type: string
-        capabilities:
-          description: Capabilities the current user has on this Team Drive.
-          properties:
-            canAddChildren:
-              description: Whether the current user can add children to folders in this Team Drive.
-              type: boolean
-            canChangeCopyRequiresWriterPermissionRestriction:
-              description: Whether the current user can change the `copyRequiresWriterPermission` restriction of this Team Drive.
-              type: boolean
-            canChangeDomainUsersOnlyRestriction:
-              description: Whether the current user can change the `domainUsersOnly` restriction of this Team Drive.
-              type: boolean
-            canChangeSharingFoldersRequiresOrganizerPermissionRestriction:
-              description: Whether the current user can change the `sharingFoldersRequiresOrganizerPermission` restriction of this Team Drive.
-              type: boolean
-            canChangeTeamDriveBackground:
-              description: Whether the current user can change the background of this Team Drive.
-              type: boolean
-            canChangeTeamMembersOnlyRestriction:
-              description: Whether the current user can change the `teamMembersOnly` restriction of this Team Drive.
-              type: boolean
-            canComment:
-              description: Whether the current user can comment on files in this Team Drive.
-              type: boolean
-            canCopy:
-              description: Whether the current user can copy files in this Team Drive.
-              type: boolean
-            canDeleteChildren:
-              description: Whether the current user can delete children from folders in this Team Drive.
-              type: boolean
-            canDeleteTeamDrive:
-              description: Whether the current user can delete this Team Drive. Attempting to delete the Team Drive may still fail if there are untrashed items inside the Team Drive.
-              type: boolean
-            canDownload:
-              description: Whether the current user can download files in this Team Drive.
-              type: boolean
-            canEdit:
-              description: Whether the current user can edit files in this Team Drive
-              type: boolean
-            canListChildren:
-              description: Whether the current user can list the children of folders in this Team Drive.
-              type: boolean
-            canManageMembers:
-              description: Whether the current user can add members to this Team Drive or remove them or change their role.
-              type: boolean
-            canReadRevisions:
-              description: Whether the current user can read the revisions resource of files in this Team Drive.
-              type: boolean
-            canRemoveChildren:
-              deprecated: true
-              description: 'Deprecated: Use `canDeleteChildren` or `canTrashChildren` instead.'
-              type: boolean
-            canRename:
-              description: Whether the current user can rename files or folders in this Team Drive.
-              type: boolean
-            canRenameTeamDrive:
-              description: Whether the current user can rename this Team Drive.
-              type: boolean
-            canResetTeamDriveRestrictions:
-              description: Whether the current user can reset the Team Drive restrictions to defaults.
-              type: boolean
-            canShare:
-              description: Whether the current user can share files or folders in this Team Drive.
-              type: boolean
-            canTrashChildren:
-              description: Whether the current user can trash children from folders in this Team Drive.
-              type: boolean
-          type: object
-        colorRgb:
-          description: The color of this Team Drive as an RGB hex string. It can only be set on a `drive.teamdrives.update` request that does not set `themeId`.
-          type: string
-        createdTime:
-          description: The time at which the Team Drive was created (RFC 3339 date-time).
-          format: date-time
-          type: string
-        id:
-          description: The ID of this Team Drive which is also the ID of the top level folder of this Team Drive.
-          type: string
-        kind:
-          default: drive#teamDrive
-          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#teamDrive"`.'
-          type: string
-        name:
-          description: The name of this Team Drive.
-          type: string
-        orgUnitId:
-          description: The organizational unit of this shared drive. This field is only populated on `drives.list` responses when the `useDomainAdminAccess` parameter is set to `true`.
-          type: string
-        restrictions:
-          description: A set of restrictions that apply to this Team Drive or items inside this Team Drive.
-          properties:
-            adminManagedRestrictions:
-              description: Whether administrative privileges on this Team Drive are required to modify restrictions.
-              type: boolean
-            copyRequiresWriterPermission:
-              description: Whether the options to copy, print, or download files inside this Team Drive, should be disabled for readers and commenters. When this restriction is set to `true`, it will override the similarly named field to `true` for any file inside this Team Drive.
-              type: boolean
-            domainUsersOnly:
-              description: Whether access to this Team Drive and items inside this Team Drive is restricted to users of the domain to which this Team Drive belongs. This restriction may be overridden by other sharing policies controlled outside of this Team Drive.
-              type: boolean
-            sharingFoldersRequiresOrganizerPermission:
-              description: If true, only users with the organizer role can share folders. If false, users with either the organizer role or the file organizer role can share folders.
-              type: boolean
-            teamMembersOnly:
-              description: Whether access to items inside this Team Drive is restricted to members of this Team Drive.
-              type: boolean
-          type: object
-        themeId:
-          description: The ID of the theme from which the background image and color will be set. The set of possible `teamDriveThemes` can be retrieved from a `drive.about.get` response. When not specified on a `drive.teamdrives.create` request, a random theme is chosen from which the background image and color are set. This is a write-only field; it can only be set on requests that don't set `colorRgb` or `backgroundImageFile`.
-          type: string
-      type: object
-    Change:
-      description: A change to a file or shared drive.
-      properties:
-        changeType:
-          description: The type of the change. Possible values are `file` and `drive`.
-          type: string
-        drive:
-          $ref: '#/components/schemas/Drive'
-          description: The updated state of the shared drive. Present if the changeType is drive, the user is still a member of the shared drive, and the shared drive has not been deleted.
-        driveId:
-          description: The ID of the shared drive associated with this change.
-          type: string
-        file:
-          $ref: '#/components/schemas/File'
-          description: The updated state of the file. Present if the type is file and the file has not been removed from this list of changes.
-        fileId:
-          description: The ID of the file which has changed.
-          type: string
-        kind:
-          default: drive#change
-          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#change"`.'
-          type: string
-        removed:
-          description: Whether the file or shared drive has been removed from this list of changes, for example by deletion or loss of access.
+        payload:
+          description: A Boolean value to indicate whether payload is wanted. Optional.
           type: boolean
-        teamDrive:
-          $ref: '#/components/schemas/TeamDrive'
-          deprecated: true
-          description: 'Deprecated: Use `drive` instead.'
-        teamDriveId:
-          deprecated: true
-          description: 'Deprecated: Use `driveId` instead.'
+        resourceId:
+          description: An opaque ID that identifies the resource being watched on this channel. Stable across different API versions.
           type: string
-        time:
-          description: The time of this change (RFC 3339 date-time).
-          format: date-time
+        resourceUri:
+          description: A version-specific identifier for the watched resource.
+          type: string
+        token:
+          description: An arbitrary string delivered to the target address with each notification delivered over this channel. Optional.
           type: string
         type:
-          deprecated: true
-          description: 'Deprecated: Use `changeType` instead.'
+          description: The type of delivery mechanism used for this channel. Valid values are "web_hook" or "webhook".
           type: string
       type: object
   securitySchemes:

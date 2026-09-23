@@ -23,7 +23,7 @@ paths:
       tags:
       - Files
       summary: Google Get Files
-      description: ' Lists the user''s files. This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information, see the [Search for files & folders](/drive/api/guides/search-files) guide. *Note:* This method returns *all* files by default, including trashed files. If you don''t want trashed files to appear in the list, use the `trashed=false` query parameter to remove trashed files from the results.'
+      description: Lists the user's files. This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information, see the Search for files & folders guide. *Note:* This method returns *all* files by default, including trashed files. If you don't want trashed files to appear in the list, use the `trashed=false` query parameter to remove trashed files from the results.
       operationId: googleDriveFilesList
       security:
       - Oauth2:
@@ -218,7 +218,7 @@ paths:
       tags:
       - Files
       summary: Google Post Files
-      description: ' Creates a new file. This method supports an */upload* URI and accepts uploaded media with the following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*/*` Note: Specify a valid MIME type, rather than the literal `*/*` value. The literal `*/*` is only used to indicate that any valid MIME type can be uploaded. For more information on uploading files, see [Upload file data](/drive/api/guides/manage-uploads). Apps creating shortcuts with `files.create` must specify the MIME type `application/vnd.google-apps.shortcut`. Apps should specify a file extension in the `name` property when inserting files with the API. For example, an operation to insert a JPEG file should specify something like `"name": "cat.jpg"` in the metadata. Subsequent `GET` requests include the read-only `fileExtension` property populated with the extension originally specified in the `title` property. When a Google Drive user requests to download a file, or when the file is downloaded through the sync client, Drive builds a full filename (with extension) based on the title. In cases where the extension is missing, Drive attempts to determine the extension based on the file''s MIME type.'
+      description: 'Creates a new file. This method supports an */upload* URI and accepts uploaded media with the following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*/*` Note: Specify a valid MIME type, rather than the literal `*/*` value. The literal `*/*` is only used to indicate that any valid MIME type can be uploaded. For more information on uploading files, see Upload file data. Apps creating shortcuts with `files.create` must specify the MIME type `application/vnd.google-apps.shortcut`. Apps should specify a file extension in the `name` property when inserting files with the API. For example, an operation to insert a JPEG file should specify something like `"name": "cat.jpg"` in the metadata. Subsequent `GET` requests include the read-only `fileExtension` property populated with the extension originally specified in the `title` property. When a Google Drive user requests to download a file, or when the file is downloaded through the sync client, Drive builds a full filename (with extension) based on the title. In cases where the extension is missing, Drive attempts to determine the extension based on the file''s MIME type.'
       operationId: googleDriveFilesCreate
       security:
       - Oauth2:
@@ -577,7 +577,7 @@ paths:
       tags:
       - Files
       summary: Google Get Files Fileid
-      description: ' Gets a file''s metadata or content by ID. If you provide the URL parameter `alt=media`, then the response includes the file contents in the response body. Downloading content with `alt=media` only works if the file is stored in Drive. To download Google Docs, Sheets, and Slides use [`files.export`](/drive/api/reference/rest/v3/files/export) instead. For more information, see [Download & export files](/drive/api/guides/manage-downloads).'
+      description: Gets a file's metadata or content by ID. If you provide the URL parameter `alt=media`, then the response includes the file contents in the response body. Downloading content with `alt=media` only works if the file is stored in Drive. To download Google Docs, Sheets, and Slides use `files.export` instead. For more information, see Download & export files.
       operationId: googleDriveFilesGet
       security:
       - Oauth2:
@@ -723,7 +723,7 @@ paths:
       tags:
       - Files
       summary: Google Patch Files Fileid
-      description: ' Updates a file''s metadata and/or content. When calling this method, only populate fields in the request that you want to modify. When updating fields, some fields might be changed automatically, such as `modifiedDate`. This method supports patch semantics. This method supports an */upload* URI and accepts uploaded media with the following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*/*` Note: Specify a valid MIME type, rather than the literal `*/*` value. The literal `*/*` is only used to indicate that any valid MIME type can be uploaded. For more information on uploading files, see [Upload file data](/drive/api/guides/manage-uploads).'
+      description: 'Updates a file''s metadata and/or content. When calling this method, only populate fields in the request that you want to modify. When updating fields, some fields might be changed automatically, such as `modifiedDate`. This method supports patch semantics. This method supports an */upload* URI and accepts uploaded media with the following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*/*` Note: Specify a valid MIME type, rather than the literal `*/*` value. The literal `*/*` is only used to indicate that any valid MIME type can be uploaded. For more information on uploading files, see Upload file data.'
       operationId: googleDriveFilesUpdate
       security:
       - Oauth2:
@@ -1685,6 +1685,43 @@ components:
           description: 'The field type. While new values may be supported in the future, the following are currently allowed: * `dateString` * `integer` * `selection` * `text` * `user`'
           type: string
       type: object
+    LabelModification:
+      description: A modification to a label on a file. A LabelModification can be used to apply a label to a file, update an existing label on a file, or remove a label from a file.
+      properties:
+        fieldModifications:
+          description: The list of modifications to this label's fields.
+          items:
+            $ref: '#/components/schemas/LabelFieldModification'
+          type: array
+        kind:
+          description: This is always drive#labelModification.
+          type: string
+        labelId:
+          description: The ID of the label to modify.
+          type: string
+        removeLabel:
+          description: If true, the label will be removed from the file.
+          type: boolean
+      type: object
+    FileList:
+      description: A list of files.
+      properties:
+        files:
+          description: The list of files. If nextPageToken is populated, then this list may be incomplete and an additional page of results should be fetched.
+          items:
+            $ref: '#/components/schemas/File'
+          type: array
+        incompleteSearch:
+          description: Whether the search process was incomplete. If true, then some search results might be missing, since all documents were not searched. This can occur when searching multiple drives with the 'allDrives' corpora, but all corpora couldn't be searched. When this happens, it's suggested that clients narrow their query by choosing a different corpus such as 'user' or 'drive'.
+          type: boolean
+        kind:
+          default: drive#fileList
+          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#fileList"`.'
+          type: string
+        nextPageToken:
+          description: The page token for the next page of files. This will be absent if the end of the files list has been reached. If the token is rejected for any reason, it should be discarded, and pagination should be restarted from the first page of results. The page token is typically valid for several hours. However, if new items are added or removed, your expected results might differ.
+          type: string
+      type: object
     User:
       description: Information about a Drive user.
       properties:
@@ -1734,42 +1771,122 @@ components:
           description: Output only. The type of the content restriction. Currently the only possible value is `globalContentRestriction`.
           type: string
       type: object
-    Channel:
-      description: A notification channel used to watch for resource changes.
+    ModifyLabelsResponse:
+      description: Response to a ModifyLabels request. This contains only those labels which were added or updated by the request.
       properties:
-        address:
-          description: The address where notifications are delivered for this channel.
+        kind:
+          description: This is always drive#modifyLabelsResponse
           type: string
-        expiration:
-          description: Date and time of notification channel expiration, expressed as a Unix timestamp, in milliseconds. Optional.
-          format: int64
+        modifiedLabels:
+          description: The list of labels which were added or updated by the request.
+          items:
+            $ref: '#/components/schemas/Label'
+          type: array
+      type: object
+    Permission:
+      description: A permission for a file. A permission grants a user, group, domain, or the world access to a file or a folder hierarchy. Some resource methods (such as `permissions.update`) require a `permissionId`. Use the `permissions.list` method to retrieve the ID for a file, folder, or shared drive.
+      properties:
+        allowFileDiscovery:
+          description: Whether the permission allows the file to be discovered through search. This is only applicable for permissions of type `domain` or `anyone`.
+          type: boolean
+        deleted:
+          description: Output only. Whether the account associated with this permission has been deleted. This field only pertains to user and group permissions.
+          type: boolean
+        displayName:
+          description: 'Output only. The "pretty" name of the value of the permission. The following is a list of examples for each type of permission: * `user` - User''s full name, as defined for their Google account, such as "Joe Smith." * `group` - Name of the Google Group, such as "The Company Administrators." * `domain` - String domain name, such as "thecompany.com." * `anyone` - No `displayName` is present.'
+          type: string
+        domain:
+          description: The domain to which this permission refers.
+          type: string
+        emailAddress:
+          description: The email address of the user or group to which this permission refers.
+          type: string
+        expirationTime:
+          description: 'The time at which this permission will expire (RFC 3339 date-time). Expiration times have the following restrictions: - They can only be set on user and group permissions - The time must be in the future - The time cannot be more than a year in the future'
+          format: date-time
           type: string
         id:
-          description: A UUID or similar unique string that identifies this channel.
+          description: Output only. The ID of this permission. This is a unique identifier for the grantee, and is published in User resources as `permissionId`. IDs should be treated as opaque values.
           type: string
         kind:
-          default: api#channel
-          description: Identifies this as a notification channel used to watch for changes to a resource, which is `api#channel`.
+          default: drive#permission
+          description: 'Output only. Identifies what kind of resource this is. Value: the fixed string `"drive#permission"`.'
           type: string
-        params:
-          additionalProperties:
-            type: string
-          description: Additional parameters controlling delivery channel behavior. Optional.
-          type: object
-        payload:
-          description: A Boolean value to indicate whether payload is wanted. Optional.
+        pendingOwner:
+          description: Whether the account associated with this permission is a pending owner. Only populated for `user` type permissions for files that are not in a shared drive.
           type: boolean
-        resourceId:
-          description: An opaque ID that identifies the resource being watched on this channel. Stable across different API versions.
+        permissionDetails:
+          description: Output only. Details of whether the permissions on this shared drive item are inherited or directly on this item. This is an output-only field which is present only for shared drive items.
+          items:
+            properties:
+              inherited:
+                description: Output only. Whether this permission is inherited. This field is always populated. This is an output-only field.
+                type: boolean
+              inheritedFrom:
+                description: Output only. The ID of the item from which this permission is inherited. This is an output-only field.
+                type: string
+              permissionType:
+                description: 'Output only. The permission type for this user. While new values may be added in future, the following are currently possible: * `file` * `member`'
+                type: string
+              role:
+                description: 'Output only. The primary role for this user. While new values may be added in the future, the following are currently possible: * `organizer` * `fileOrganizer` * `writer` * `commenter` * `reader`'
+                type: string
+            type: object
+          readOnly: true
+          type: array
+        photoLink:
+          description: Output only. A link to the user's profile photo, if available.
           type: string
-        resourceUri:
-          description: A version-specific identifier for the watched resource.
+        role:
+          description: 'The role granted by this permission. While new values may be supported in the future, the following are currently allowed: * `owner` * `organizer` * `fileOrganizer` * `writer` * `commenter` * `reader`'
           type: string
-        token:
-          description: An arbitrary string delivered to the target address with each notification delivered over this channel. Optional.
-          type: string
+        teamDrivePermissionDetails:
+          deprecated: true
+          description: 'Output only. Deprecated: Output only. Use `permissionDetails` instead.'
+          items:
+            properties:
+              inherited:
+                deprecated: true
+                description: 'Deprecated: Output only. Use `permissionDetails/inherited` instead.'
+                type: boolean
+              inheritedFrom:
+                deprecated: true
+                description: 'Deprecated: Output only. Use `permissionDetails/inheritedFrom` instead.'
+                type: string
+              role:
+                deprecated: true
+                description: 'Deprecated: Output only. Use `permissionDetails/role` instead.'
+                type: string
+              teamDrivePermissionType:
+                deprecated: true
+                description: 'Deprecated: Output only. Use `permissionDetails/permissionType` instead.'
+                type: string
+            type: object
+          readOnly: true
+          type: array
         type:
-          description: The type of delivery mechanism used for this channel. Valid values are "web_hook" or "webhook".
+          description: 'The type of the grantee. Valid values are: * `user` * `group` * `domain` * `anyone` When creating a permission, if `type` is `user` or `group`, you must provide an `emailAddress` for the user or group. When `type` is `domain`, you must provide a `domain`. There isn''t extra information required for an `anyone` type.'
+          type: string
+        view:
+          description: Indicates the view for this permission. Only populated for permissions that belong to a view. 'published' is the only supported value.
+          type: string
+      type: object
+    Label:
+      description: Representation of label and label fields.
+      properties:
+        fields:
+          additionalProperties:
+            $ref: '#/components/schemas/LabelField'
+          description: A map of the fields on the label, keyed by the field's ID.
+          type: object
+        id:
+          description: The ID of the label.
+          type: string
+        kind:
+          description: This is always drive#label
+          type: string
+        revisionId:
+          description: The revision ID of the label.
           type: string
       type: object
     ModifyLabelsRequest:
@@ -1784,45 +1901,21 @@ components:
             $ref: '#/components/schemas/LabelModification'
           type: array
       type: object
-    LabelFieldModification:
-      description: A modification to a label's field.
+    GeneratedIds:
+      description: A list of generated file IDs which can be provided in create requests.
       properties:
-        fieldId:
-          description: The ID of the field to be modified.
-          type: string
+        ids:
+          description: The IDs generated for the requesting user in the specified space.
+          items:
+            type: string
+          type: array
         kind:
-          description: This is always drive#labelFieldModification.
+          default: drive#generatedIds
+          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#generatedIds"`.'
           type: string
-        setDateValues:
-          description: 'Replaces the value of a dateString Field with these new values. The string must be in the RFC 3339 full-date format: YYYY-MM-DD.'
-          items:
-            format: date
-            type: string
-          type: array
-        setIntegerValues:
-          description: Replaces the value of an `integer` field with these new values.
-          items:
-            format: int64
-            type: string
-          type: array
-        setSelectionValues:
-          description: Replaces a `selection` field with these new values.
-          items:
-            type: string
-          type: array
-        setTextValues:
-          description: Sets the value of a `text` field.
-          items:
-            type: string
-          type: array
-        setUserValues:
-          description: Replaces a `user` field with these new values. The values must be valid email addresses.
-          items:
-            type: string
-          type: array
-        unsetValues:
-          description: Unsets the values for this field.
-          type: boolean
+        space:
+          description: The type of file that can be created with these IDs.
+          type: string
       type: object
     File:
       description: The metadata for a file. Some resource methods (such as `files.update`) require a `fileId`. Use the `files.list` method to retrieve the ID for a file.
@@ -2321,142 +2414,6 @@ components:
           description: Whether users with only `writer` permission can modify the file's permissions. Not populated for items in shared drives.
           type: boolean
       type: object
-    ModifyLabelsResponse:
-      description: Response to a ModifyLabels request. This contains only those labels which were added or updated by the request.
-      properties:
-        kind:
-          description: This is always drive#modifyLabelsResponse
-          type: string
-        modifiedLabels:
-          description: The list of labels which were added or updated by the request.
-          items:
-            $ref: '#/components/schemas/Label'
-          type: array
-      type: object
-    Label:
-      description: Representation of label and label fields.
-      properties:
-        fields:
-          additionalProperties:
-            $ref: '#/components/schemas/LabelField'
-          description: A map of the fields on the label, keyed by the field's ID.
-          type: object
-        id:
-          description: The ID of the label.
-          type: string
-        kind:
-          description: This is always drive#label
-          type: string
-        revisionId:
-          description: The revision ID of the label.
-          type: string
-      type: object
-    Permission:
-      description: A permission for a file. A permission grants a user, group, domain, or the world access to a file or a folder hierarchy. Some resource methods (such as `permissions.update`) require a `permissionId`. Use the `permissions.list` method to retrieve the ID for a file, folder, or shared drive.
-      properties:
-        allowFileDiscovery:
-          description: Whether the permission allows the file to be discovered through search. This is only applicable for permissions of type `domain` or `anyone`.
-          type: boolean
-        deleted:
-          description: Output only. Whether the account associated with this permission has been deleted. This field only pertains to user and group permissions.
-          type: boolean
-        displayName:
-          description: 'Output only. The "pretty" name of the value of the permission. The following is a list of examples for each type of permission: * `user` - User''s full name, as defined for their Google account, such as "Joe Smith." * `group` - Name of the Google Group, such as "The Company Administrators." * `domain` - String domain name, such as "thecompany.com." * `anyone` - No `displayName` is present.'
-          type: string
-        domain:
-          description: The domain to which this permission refers.
-          type: string
-        emailAddress:
-          description: The email address of the user or group to which this permission refers.
-          type: string
-        expirationTime:
-          description: 'The time at which this permission will expire (RFC 3339 date-time). Expiration times have the following restrictions: - They can only be set on user and group permissions - The time must be in the future - The time cannot be more than a year in the future'
-          format: date-time
-          type: string
-        id:
-          description: Output only. The ID of this permission. This is a unique identifier for the grantee, and is published in User resources as `permissionId`. IDs should be treated as opaque values.
-          type: string
-        kind:
-          default: drive#permission
-          description: 'Output only. Identifies what kind of resource this is. Value: the fixed string `"drive#permission"`.'
-          type: string
-        pendingOwner:
-          description: Whether the account associated with this permission is a pending owner. Only populated for `user` type permissions for files that are not in a shared drive.
-          type: boolean
-        permissionDetails:
-          description: Output only. Details of whether the permissions on this shared drive item are inherited or directly on this item. This is an output-only field which is present only for shared drive items.
-          items:
-            properties:
-              inherited:
-                description: Output only. Whether this permission is inherited. This field is always populated. This is an output-only field.
-                type: boolean
-              inheritedFrom:
-                description: Output only. The ID of the item from which this permission is inherited. This is an output-only field.
-                type: string
-              permissionType:
-                description: 'Output only. The permission type for this user. While new values may be added in future, the following are currently possible: * `file` * `member`'
-                type: string
-              role:
-                description: 'Output only. The primary role for this user. While new values may be added in the future, the following are currently possible: * `organizer` * `fileOrganizer` * `writer` * `commenter` * `reader`'
-                type: string
-            type: object
-          readOnly: true
-          type: array
-        photoLink:
-          description: Output only. A link to the user's profile photo, if available.
-          type: string
-        role:
-          description: 'The role granted by this permission. While new values may be supported in the future, the following are currently allowed: * `owner` * `organizer` * `fileOrganizer` * `writer` * `commenter` * `reader`'
-          type: string
-        teamDrivePermissionDetails:
-          deprecated: true
-          description: 'Output only. Deprecated: Output only. Use `permissionDetails` instead.'
-          items:
-            properties:
-              inherited:
-                deprecated: true
-                description: 'Deprecated: Output only. Use `permissionDetails/inherited` instead.'
-                type: boolean
-              inheritedFrom:
-                deprecated: true
-                description: 'Deprecated: Output only. Use `permissionDetails/inheritedFrom` instead.'
-                type: string
-              role:
-                deprecated: true
-                description: 'Deprecated: Output only. Use `permissionDetails/role` instead.'
-                type: string
-              teamDrivePermissionType:
-                deprecated: true
-                description: 'Deprecated: Output only. Use `permissionDetails/permissionType` instead.'
-                type: string
-            type: object
-          readOnly: true
-          type: array
-        type:
-          description: 'The type of the grantee. Valid values are: * `user` * `group` * `domain` * `anyone` When creating a permission, if `type` is `user` or `group`, you must provide an `emailAddress` for the user or group. When `type` is `domain`, you must provide a `domain`. There isn''t extra information required for an `anyone` type.'
-          type: string
-        view:
-          description: Indicates the view for this permission. Only populated for permissions that belong to a view. 'published' is the only supported value.
-          type: string
-      type: object
-    LabelModification:
-      description: A modification to a label on a file. A LabelModification can be used to apply a label to a file, update an existing label on a file, or remove a label from a file.
-      properties:
-        fieldModifications:
-          description: The list of modifications to this label's fields.
-          items:
-            $ref: '#/components/schemas/LabelFieldModification'
-          type: array
-        kind:
-          description: This is always drive#labelModification.
-          type: string
-        labelId:
-          description: The ID of the label to modify.
-          type: string
-        removeLabel:
-          description: If true, the label will be removed from the file.
-          type: boolean
-      type: object
     LabelList:
       description: A list of labels applied to a file.
       properties:
@@ -2472,40 +2429,83 @@ components:
           description: The page token for the next page of labels. This field will be absent if the end of the list has been reached. If the token is rejected for any reason, it should be discarded, and pagination should be restarted from the first page of results. The page token is typically valid for several hours. However, if new items are added or removed, your expected results might differ.
           type: string
       type: object
-    GeneratedIds:
-      description: A list of generated file IDs which can be provided in create requests.
+    Channel:
+      description: A notification channel used to watch for resource changes.
       properties:
-        ids:
-          description: The IDs generated for the requesting user in the specified space.
+        address:
+          description: The address where notifications are delivered for this channel.
+          type: string
+        expiration:
+          description: Date and time of notification channel expiration, expressed as a Unix timestamp, in milliseconds. Optional.
+          format: int64
+          type: string
+        id:
+          description: A UUID or similar unique string that identifies this channel.
+          type: string
+        kind:
+          default: api#channel
+          description: Identifies this as a notification channel used to watch for changes to a resource, which is `api#channel`.
+          type: string
+        params:
+          additionalProperties:
+            type: string
+          description: Additional parameters controlling delivery channel behavior. Optional.
+          type: object
+        payload:
+          description: A Boolean value to indicate whether payload is wanted. Optional.
+          type: boolean
+        resourceId:
+          description: An opaque ID that identifies the resource being watched on this channel. Stable across different API versions.
+          type: string
+        resourceUri:
+          description: A version-specific identifier for the watched resource.
+          type: string
+        token:
+          description: An arbitrary string delivered to the target address with each notification delivered over this channel. Optional.
+          type: string
+        type:
+          description: The type of delivery mechanism used for this channel. Valid values are "web_hook" or "webhook".
+          type: string
+      type: object
+    LabelFieldModification:
+      description: A modification to a label's field.
+      properties:
+        fieldId:
+          description: The ID of the field to be modified.
+          type: string
+        kind:
+          description: This is always drive#labelFieldModification.
+          type: string
+        setDateValues:
+          description: 'Replaces the value of a dateString Field with these new values. The string must be in the RFC 3339 full-date format: YYYY-MM-DD.'
+          items:
+            format: date
+            type: string
+          type: array
+        setIntegerValues:
+          description: Replaces the value of an `integer` field with these new values.
+          items:
+            format: int64
+            type: string
+          type: array
+        setSelectionValues:
+          description: Replaces a `selection` field with these new values.
           items:
             type: string
           type: array
-        kind:
-          default: drive#generatedIds
-          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#generatedIds"`.'
-          type: string
-        space:
-          description: The type of file that can be created with these IDs.
-          type: string
-      type: object
-    FileList:
-      description: A list of files.
-      properties:
-        files:
-          description: The list of files. If nextPageToken is populated, then this list may be incomplete and an additional page of results should be fetched.
+        setTextValues:
+          description: Sets the value of a `text` field.
           items:
-            $ref: '#/components/schemas/File'
+            type: string
           type: array
-        incompleteSearch:
-          description: Whether the search process was incomplete. If true, then some search results might be missing, since all documents were not searched. This can occur when searching multiple drives with the 'allDrives' corpora, but all corpora couldn't be searched. When this happens, it's suggested that clients narrow their query by choosing a different corpus such as 'user' or 'drive'.
+        setUserValues:
+          description: Replaces a `user` field with these new values. The values must be valid email addresses.
+          items:
+            type: string
+          type: array
+        unsetValues:
+          description: Unsets the values for this field.
           type: boolean
-        kind:
-          default: drive#fileList
-          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#fileList"`.'
-          type: string
-        nextPageToken:
-          description: The page token for the next page of files. This will be absent if the end of the files list has been reached. If the token is rejected for any reason, it should be discarded, and pagination should be restarted from the first page of results. The page token is typically valid for several hours. However, if new items are added or removed, your expected results might differ.
-          type: string
       type: object
   securitySchemes:
     Oauth2:

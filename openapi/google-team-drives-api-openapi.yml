@@ -539,6 +539,22 @@ paths:
         dispatcherRules: SuccessExample
 components:
   schemas:
+    TeamDriveList:
+      description: A list of Team Drives.
+      properties:
+        kind:
+          default: drive#teamDriveList
+          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#teamDriveList"`.'
+          type: string
+        nextPageToken:
+          description: The page token for the next page of Team Drives. This will be absent if the end of the Team Drives list has been reached. If the token is rejected for any reason, it should be discarded, and pagination should be restarted from the first page of results. The page token is typically valid for several hours. However, if new items are added or removed, your expected results might differ.
+          type: string
+        teamDrives:
+          description: The list of Team Drives. If nextPageToken is populated, then this list may be incomplete and an additional page of results should be fetched.
+          items:
+            $ref: '#/components/schemas/TeamDrive'
+          type: array
+      type: object
     TeamDrive:
       description: 'Deprecated: use the drive collection instead.'
       properties:
@@ -674,22 +690,6 @@ components:
         themeId:
           description: The ID of the theme from which the background image and color will be set. The set of possible `teamDriveThemes` can be retrieved from a `drive.about.get` response. When not specified on a `drive.teamdrives.create` request, a random theme is chosen from which the background image and color are set. This is a write-only field; it can only be set on requests that don't set `colorRgb` or `backgroundImageFile`.
           type: string
-      type: object
-    TeamDriveList:
-      description: A list of Team Drives.
-      properties:
-        kind:
-          default: drive#teamDriveList
-          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#teamDriveList"`.'
-          type: string
-        nextPageToken:
-          description: The page token for the next page of Team Drives. This will be absent if the end of the Team Drives list has been reached. If the token is rejected for any reason, it should be discarded, and pagination should be restarted from the first page of results. The page token is typically valid for several hours. However, if new items are added or removed, your expected results might differ.
-          type: string
-        teamDrives:
-          description: The list of Team Drives. If nextPageToken is populated, then this list may be incomplete and an additional page of results should be fetched.
-          items:
-            $ref: '#/components/schemas/TeamDrive'
-          type: array
       type: object
   securitySchemes:
     Oauth2:

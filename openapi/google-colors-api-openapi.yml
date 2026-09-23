@@ -48,6 +48,68 @@ paths:
         dispatcher: FALLBACK
         dispatcherRules: ColorsGetResponseExample
 components:
+  schemas:
+    ColorsGetResponse:
+      description: ColorsGetResponse schema
+      type: object
+      properties:
+        calendar:
+          $ref: '#/components/schemas/ColorsGetResponseCalendar'
+        event:
+          $ref: '#/components/schemas/ColorsGetResponseEvent'
+        kind:
+          type: string
+        updated:
+          type: string
+          format: date-time
+    ColorsGetResponseCalendarQui15:
+      description: ColorsGetResponseCalendarQui15 schema
+      type: object
+      properties:
+        background:
+          type: string
+        foreground:
+          type: string
+    ColorsGetResponseCalendarLaborisaf:
+      description: ColorsGetResponseCalendarLaborisaf schema
+      type: object
+      properties:
+        background:
+          type: string
+        foreground:
+          type: string
+    ColorsGetResponseCalendarNulla2:
+      description: ColorsGetResponseCalendarNulla2 schema
+      type: object
+      properties:
+        background:
+          type: string
+        foreground:
+          type: string
+    ColorsGetResponseCalendar:
+      description: ColorsGetResponseCalendar schema
+      type: object
+      properties:
+        qui_15:
+          $ref: '#/components/schemas/ColorsGetResponseCalendarQui15'
+        nulla_2:
+          $ref: '#/components/schemas/ColorsGetResponseCalendarNulla2'
+        laborisaf:
+          $ref: '#/components/schemas/ColorsGetResponseCalendarLaborisaf'
+    ColorsGetResponseEventExcepteure8:
+      description: ColorsGetResponseEventExcepteure8 schema
+      type: object
+      properties:
+        background:
+          type: string
+        foreground:
+          type: string
+    ColorsGetResponseEvent:
+      description: ColorsGetResponseEvent schema
+      type: object
+      properties:
+        Excepteure8:
+          $ref: '#/components/schemas/ColorsGetResponseEventExcepteure8'
   examples:
     ColorsGetResponseExample:
       summary: Successful 200 response
@@ -68,68 +130,6 @@ components:
             foreground: Ut reprehenderit officia Duis
         kind: calendar#colors
         updated: '1990-01-21T16:25:35.908Z'
-  schemas:
-    ColorsGetResponseCalendarQui15:
-      description: ColorsGetResponseCalendarQui15 schema
-      type: object
-      properties:
-        background:
-          type: string
-        foreground:
-          type: string
-    ColorsGetResponseEventExcepteure8:
-      description: ColorsGetResponseEventExcepteure8 schema
-      type: object
-      properties:
-        background:
-          type: string
-        foreground:
-          type: string
-    ColorsGetResponseEvent:
-      description: ColorsGetResponseEvent schema
-      type: object
-      properties:
-        Excepteure8:
-          $ref: '#/components/schemas/ColorsGetResponseEventExcepteure8'
-    ColorsGetResponseCalendarNulla2:
-      description: ColorsGetResponseCalendarNulla2 schema
-      type: object
-      properties:
-        background:
-          type: string
-        foreground:
-          type: string
-    ColorsGetResponseCalendarLaborisaf:
-      description: ColorsGetResponseCalendarLaborisaf schema
-      type: object
-      properties:
-        background:
-          type: string
-        foreground:
-          type: string
-    ColorsGetResponse:
-      description: ColorsGetResponse schema
-      type: object
-      properties:
-        calendar:
-          $ref: '#/components/schemas/ColorsGetResponseCalendar'
-        event:
-          $ref: '#/components/schemas/ColorsGetResponseEvent'
-        kind:
-          type: string
-        updated:
-          type: string
-          format: date-time
-    ColorsGetResponseCalendar:
-      description: ColorsGetResponseCalendar schema
-      type: object
-      properties:
-        qui_15:
-          $ref: '#/components/schemas/ColorsGetResponseCalendarQui15'
-        nulla_2:
-          $ref: '#/components/schemas/ColorsGetResponseCalendarNulla2'
-        laborisaf:
-          $ref: '#/components/schemas/ColorsGetResponseCalendarLaborisaf'
   securitySchemes:
     oauth2Auth:
       type: http

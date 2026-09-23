@@ -23,7 +23,7 @@ paths:
       tags:
       - Drives
       summary: Google Get Drives
-      description: ' Lists the user''s shared drives. This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information, see the [Search for shared drives](/drive/api/guides/search-shareddrives) guide.'
+      description: Lists the user's shared drives. This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information, see the Search for shared drives guide.
       operationId: googleDriveDrivesList
       security:
       - Oauth2:
@@ -743,22 +743,6 @@ paths:
         dispatcherRules: SuccessExample
 components:
   schemas:
-    DriveList:
-      description: A list of shared drives.
-      properties:
-        drives:
-          description: The list of shared drives. If nextPageToken is populated, then this list may be incomplete and an additional page of results should be fetched.
-          items:
-            $ref: '#/components/schemas/Drive'
-          type: array
-        kind:
-          default: drive#driveList
-          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#driveList"`.'
-          type: string
-        nextPageToken:
-          description: The page token for the next page of shared drives. This will be absent if the end of the list has been reached. If the token is rejected for any reason, it should be discarded, and pagination should be restarted from the first page of results. The page token is typically valid for several hours. However, if new items are added or removed, your expected results might differ.
-          type: string
-      type: object
     Drive:
       description: Representation of a shared drive. Some resource methods (such as `drives.update`) require a `driveId`. Use the `drives.list` method to retrieve the ID for a shared drive.
       properties:
@@ -892,6 +876,22 @@ components:
           type: object
         themeId:
           description: The ID of the theme from which the background image and color will be set. The set of possible `driveThemes` can be retrieved from a `drive.about.get` response. When not specified on a `drive.drives.create` request, a random theme is chosen from which the background image and color are set. This is a write-only field; it can only be set on requests that don't set `colorRgb` or `backgroundImageFile`.
+          type: string
+      type: object
+    DriveList:
+      description: A list of shared drives.
+      properties:
+        drives:
+          description: The list of shared drives. If nextPageToken is populated, then this list may be incomplete and an additional page of results should be fetched.
+          items:
+            $ref: '#/components/schemas/Drive'
+          type: array
+        kind:
+          default: drive#driveList
+          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#driveList"`.'
+          type: string
+        nextPageToken:
+          description: The page token for the next page of shared drives. This will be absent if the end of the list has been reached. If the token is rejected for any reason, it should be discarded, and pagination should be restarted from the first page of results. The page token is typically valid for several hours. However, if new items are added or removed, your expected results might differ.
           type: string
       type: object
   securitySchemes:

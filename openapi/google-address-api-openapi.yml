@@ -62,7 +62,15 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersSettingsForwardingAddressesPostResponseExample
+      operationId: postGmailV1UsersByUserIdSettingsForwardingAddresses
+      x-operation-id-source: derived
 components:
+  examples:
+    UsersSettingsForwardingAddressesPostResponseExample:
+      summary: Successful 200 response
+      value:
+        forwardingEmail: ad tempor dolor
+        verificationStatus: pending
   schemas:
     UsersSettingsForwardingAddressesPostResponse:
       description: UsersSettingsForwardingAddressesPostResponse schema
@@ -76,12 +84,6 @@ components:
       description: UsersSettingsForwardingAddressesPostRequest schema
       type: object
       example:
-        forwardingEmail: ad tempor dolor
-        verificationStatus: pending
-  examples:
-    UsersSettingsForwardingAddressesPostResponseExample:
-      summary: Successful 200 response
-      value:
         forwardingEmail: ad tempor dolor
         verificationStatus: pending
   securitySchemes:

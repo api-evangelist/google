@@ -61,7 +61,69 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersThreadsTrashPostResponseExample
+      operationId: postGmailV1UsersByUserIdThreadsByIdTrash
+      x-operation-id-source: derived
 components:
+  examples:
+    UsersThreadsTrashPostResponseExample:
+      summary: Successful 200 response
+      value:
+        id: nostrud deserunt
+        snippet: cillum quis
+        historyId: id ea ad amet venia
+        messages:
+        - id: exercitation sint
+          threadId: Ut sed occaecat
+          labelIds:
+          - in commodo
+          - sit dolor
+          snippet: dolor fugiat Ut
+          historyId: Lorem quis ullamco veniam
+          internalDate: consectetur elit dolor
+          payload:
+            partId: mi
+            mimeType: elit
+            filename: ex
+            headers:
+            - name: velit do voluptate
+              value: in reprehenderit sit pariatur
+            - name: enim
+              value: vel
+            body:
+              attachmentId: e
+              size: 62147464
+              data: aliquip aute in Excepteur
+            parts:
+            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+          sizeEstimate: -33441686
+          raw: Ut sit
+        - id: magna pariatur
+          threadId: et
+          labelIds:
+          - est dolore
+          - Lorem Duis amet dolore
+          snippet: dolore est reprehender
+          historyId: in ex veniam nulla
+          internalDate: ut
+          payload:
+            partId: do consectetur tempor qui in
+            mimeType: Excepteur in
+            filename: reprehenderit
+            headers:
+            - name: nulla sed ut
+              value: et occaecat
+            - name: mollit elit commodo nostrud pariatur
+              value: aliqua
+            body:
+              attachmentId: sit sunt occaecat
+              size: 23654047
+              data: dolor ut
+            parts:
+            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+          sizeEstimate: 2028457
+          raw: ipsum enim minim
   schemas:
     UsersThreadsTrashPostResponse:
       description: UsersThreadsTrashPostResponse schema
@@ -130,66 +192,6 @@ components:
                 type: integer
               raw:
                 type: string
-  examples:
-    UsersThreadsTrashPostResponseExample:
-      summary: Successful 200 response
-      value:
-        id: nostrud deserunt
-        snippet: cillum quis
-        historyId: id ea ad amet venia
-        messages:
-        - id: exercitation sint
-          threadId: Ut sed occaecat
-          labelIds:
-          - in commodo
-          - sit dolor
-          snippet: dolor fugiat Ut
-          historyId: Lorem quis ullamco veniam
-          internalDate: consectetur elit dolor
-          payload:
-            partId: mi
-            mimeType: elit
-            filename: ex
-            headers:
-            - name: velit do voluptate
-              value: in reprehenderit sit pariatur
-            - name: enim
-              value: vel
-            body:
-              attachmentId: e
-              size: 62147464
-              data: aliquip aute in Excepteur
-            parts:
-            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-          sizeEstimate: -33441686
-          raw: Ut sit
-        - id: magna pariatur
-          threadId: et
-          labelIds:
-          - est dolore
-          - Lorem Duis amet dolore
-          snippet: dolore est reprehender
-          historyId: in ex veniam nulla
-          internalDate: ut
-          payload:
-            partId: do consectetur tempor qui in
-            mimeType: Excepteur in
-            filename: reprehenderit
-            headers:
-            - name: nulla sed ut
-              value: et occaecat
-            - name: mollit elit commodo nostrud pariatur
-              value: aliqua
-            body:
-              attachmentId: sit sunt occaecat
-              size: 23654047
-              data: dolor ut
-            parts:
-            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-          sizeEstimate: 2028457
-          raw: ipsum enim minim
   securitySchemes:
     oauth2Auth:
       type: http

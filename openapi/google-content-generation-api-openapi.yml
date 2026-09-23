@@ -1,9 +1,7 @@
 openapi: 3.2.0
 info:
   title: Google Gemini Content Generation API
-  description: 'The Gemini API can generate text output from various inputs, including text, images, video, and audio, leveraging Gemini models.
-
-    '
+  description: The Gemini API can generate text output from various inputs, including text, images, video, and audio, leveraging Gemini models.
   version: 1.0.0
   contact:
     name: Google AI
@@ -78,6 +76,82 @@ paths:
         dispatcherRules: ModelsPostResponseExample
 components:
   schemas:
+    InlineData:
+      type: object
+      required:
+      - mime_type
+      - data
+      properties:
+        mime_type:
+          type: string
+          description: MIME type of the data
+          enum:
+          - image/jpeg
+          - image/png
+          - image/webp
+          - video/mp4
+          - video/mpeg
+          - video/mov
+          - video/avi
+          - video/x-flv
+          - video/mpg
+          - video/webm
+          - video/wmv
+          - video/3gpp
+          - audio/wav
+          - audio/mp3
+          - audio/aiff
+          - audio/aac
+          - audio/ogg
+          - audio/flac
+          - application/pdf
+        data:
+          type: string
+          format: byte
+          description: Base64 encoded data
+    Content:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+          - user
+          - model
+          description: The role of the content producer (optional for single-turn, required for multi-turn)
+        parts:
+          type: array
+          description: Ordered parts that constitute a single message
+          items:
+            $ref: '#/components/schemas/Part'
+      required:
+      - parts
+    ModelsPostResponse:
+      type: string
+      description: Server-Sent Events stream of GenerateContentResponse objects
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: HTTP status code
+            message:
+              type: string
+              description: Error message
+            status:
+              type: string
+              description: Error status
+    ThinkingConfig:
+      type: object
+      description: Configuration for thinking mode in Gemini 2.5 models
+      properties:
+        thinkingBudget:
+          type: integer
+          description: Thinking budget, set to 0 to disable thinking
+          minimum: 0
+          default: null
     GenerationConfig:
       type: object
       description: Configuration options for model generation and outputs
@@ -123,21 +197,6 @@ components:
           type: object
           description: JSON schema for structured output format
           additionalProperties: true
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-              description: HTTP status code
-            message:
-              type: string
-              description: Error message
-            status:
-              type: string
-              description: Error status
     GenerateContentRequest:
       type: object
       required:
@@ -154,25 +213,6 @@ components:
         generationConfig:
           $ref: '#/components/schemas/GenerationConfig'
           description: Configuration options for model generation
-    ModelsPostResponse:
-      type: string
-      description: Server-Sent Events stream of GenerateContentResponse objects
-    Content:
-      type: object
-      properties:
-        role:
-          type: string
-          enum:
-          - user
-          - model
-          description: The role of the content producer (optional for single-turn, required for multi-turn)
-        parts:
-          type: array
-          description: Ordered parts that constitute a single message
-          items:
-            $ref: '#/components/schemas/Part'
-      required:
-      - parts
     Part:
       type: object
       description: A part of the content, can be text, inline data, or file data
@@ -235,48 +275,6 @@ components:
           - https://www.youtube.com/watch?v=9hE5-98ZeCg
       required:
       - file_uri
-    ThinkingConfig:
-      type: object
-      description: Configuration for thinking mode in Gemini 2.5 models
-      properties:
-        thinkingBudget:
-          type: integer
-          description: Thinking budget, set to 0 to disable thinking
-          minimum: 0
-          default: null
-    InlineData:
-      type: object
-      required:
-      - mime_type
-      - data
-      properties:
-        mime_type:
-          type: string
-          description: MIME type of the data
-          enum:
-          - image/jpeg
-          - image/png
-          - image/webp
-          - video/mp4
-          - video/mpeg
-          - video/mov
-          - video/avi
-          - video/x-flv
-          - video/mpg
-          - video/webm
-          - video/wmv
-          - video/3gpp
-          - audio/wav
-          - audio/mp3
-          - audio/aiff
-          - audio/aac
-          - audio/ogg
-          - audio/flac
-          - application/pdf
-        data:
-          type: string
-          format: byte
-          description: Base64 encoded data
   examples:
     ModelsPostResponseExample:
       summary: Successful 200 response

@@ -61,6 +61,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SpreadsheetsDeveloperMetadataGetResponseExample
+      operationId: getV4SpreadsheetsBySpreadsheetIdDeveloperMetadataByMetadataId
+      x-operation-id-source: derived
   /v4/spreadsheets/{spreadsheetId}/developerMetadata:search:
     post:
       tags:
@@ -113,8 +115,75 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SpreadsheetsDeveloperMetadatasearchPostResponseExample
+      operationId: postV4SpreadsheetsBySpreadsheetIdDeveloperMetadata:search
+      x-operation-id-source: derived
 components:
   schemas:
+    SpreadsheetsDeveloperMetadataGetResponse:
+      description: SpreadsheetsDeveloperMetadataGetResponse schema
+      type: object
+      properties:
+        location:
+          $ref: '#/components/schemas/SpreadsheetsDeveloperMetadataGetResponseLocation'
+        metadataId:
+          type: integer
+        metadataKey:
+          type: string
+        metadataValue:
+          type: string
+        visibility:
+          type: string
+    SpreadsheetsDeveloperMetadatasearchPostRequest:
+      description: SpreadsheetsDeveloperMetadatasearchPostRequest schema
+      type: object
+      example:
+        dataFilters:
+        - a1Range: aute
+          developerMetadataLookup:
+            locationMatchingStrategy: INTERSECTING_LOCATION
+            locationType: DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED
+            metadataId: -761178
+            metadataKey: consequat Duis
+            metadataLocation:
+              dimensionRange:
+                dimension: COLUMNS
+                endIndex: -22955243
+                sheetId: 41865153
+                startIndex: -49712859
+              locationType: SHEET
+              sheetId: 77477058
+              spreadsheet: true
+            metadataValue: tempor
+            visibility: DOCUMENT
+          gridRange:
+            endColumnIndex: -69789235
+            endRowIndex: -98601086
+            sheetId: 32219017
+            startColumnIndex: -61197874
+            startRowIndex: -91350843
+        - a1Range: Ut cu
+          developerMetadataLookup:
+            locationMatchingStrategy: INTERSECTING_LOCATION
+            locationType: SHEET
+            metadataId: -32999997
+            metadataKey: commodo sit esse consequat
+            metadataLocation:
+              dimensionRange:
+                dimension: ROWS
+                endIndex: 1730530
+                sheetId: -56140506
+                startIndex: 82831554
+              locationType: SPREADSHEET
+              sheetId: 58086209
+              spreadsheet: false
+            metadataValue: in pariatur in Ut
+            visibility: DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED
+          gridRange:
+            endColumnIndex: 81731062
+            endRowIndex: 51216059
+            sheetId: -87090690
+            startColumnIndex: -26697783
+            startRowIndex: -36015480
     SpreadsheetsDeveloperMetadatasearchPostResponse:
       description: SpreadsheetsDeveloperMetadatasearchPostResponse schema
       type: object
@@ -210,20 +279,6 @@ components:
                     type: string
                   visibility:
                     type: string
-    SpreadsheetsDeveloperMetadataGetResponse:
-      description: SpreadsheetsDeveloperMetadataGetResponse schema
-      type: object
-      properties:
-        location:
-          $ref: '#/components/schemas/SpreadsheetsDeveloperMetadataGetResponseLocation'
-        metadataId:
-          type: integer
-        metadataKey:
-          type: string
-        metadataValue:
-          type: string
-        visibility:
-          type: string
     SpreadsheetsDeveloperMetadataGetResponseLocationDimensionRange:
       description: SpreadsheetsDeveloperMetadataGetResponseLocationDimensionRange schema
       type: object
@@ -236,57 +291,6 @@ components:
           type: integer
         startIndex:
           type: integer
-    SpreadsheetsDeveloperMetadatasearchPostRequest:
-      description: SpreadsheetsDeveloperMetadatasearchPostRequest schema
-      type: object
-      example:
-        dataFilters:
-        - a1Range: aute
-          developerMetadataLookup:
-            locationMatchingStrategy: INTERSECTING_LOCATION
-            locationType: DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED
-            metadataId: -761178
-            metadataKey: consequat Duis
-            metadataLocation:
-              dimensionRange:
-                dimension: COLUMNS
-                endIndex: -22955243
-                sheetId: 41865153
-                startIndex: -49712859
-              locationType: SHEET
-              sheetId: 77477058
-              spreadsheet: true
-            metadataValue: tempor
-            visibility: DOCUMENT
-          gridRange:
-            endColumnIndex: -69789235
-            endRowIndex: -98601086
-            sheetId: 32219017
-            startColumnIndex: -61197874
-            startRowIndex: -91350843
-        - a1Range: Ut cu
-          developerMetadataLookup:
-            locationMatchingStrategy: INTERSECTING_LOCATION
-            locationType: SHEET
-            metadataId: -32999997
-            metadataKey: commodo sit esse consequat
-            metadataLocation:
-              dimensionRange:
-                dimension: ROWS
-                endIndex: 1730530
-                sheetId: -56140506
-                startIndex: 82831554
-              locationType: SPREADSHEET
-              sheetId: 58086209
-              spreadsheet: false
-            metadataValue: in pariatur in Ut
-            visibility: DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED
-          gridRange:
-            endColumnIndex: 81731062
-            endRowIndex: 51216059
-            sheetId: -87090690
-            startColumnIndex: -26697783
-            startRowIndex: -36015480
     SpreadsheetsDeveloperMetadataGetResponseLocation:
       description: SpreadsheetsDeveloperMetadataGetResponseLocation schema
       type: object
@@ -300,6 +304,22 @@ components:
         spreadsheet:
           type: boolean
   examples:
+    SpreadsheetsDeveloperMetadataGetResponseExample:
+      summary: Successful 200 response
+      value:
+        location:
+          dimensionRange:
+            dimension: ROWS
+            endIndex: -94618933
+            sheetId: 54017992
+            startIndex: -52191558
+          locationType: SHEET
+          sheetId: 33310290
+          spreadsheet: false
+        metadataId: -42137085
+        metadataKey: proident ex
+        metadataValue: Lorem magna minim sunt
+        visibility: DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED
     SpreadsheetsDeveloperMetadatasearchPostResponseExample:
       summary: Successful 200 response
       value:
@@ -426,22 +446,6 @@ components:
             metadataKey: sunt velit
             metadataValue: et
             visibility: DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED
-    SpreadsheetsDeveloperMetadataGetResponseExample:
-      summary: Successful 200 response
-      value:
-        location:
-          dimensionRange:
-            dimension: ROWS
-            endIndex: -94618933
-            sheetId: 54017992
-            startIndex: -52191558
-          locationType: SHEET
-          sheetId: 33310290
-          spreadsheet: false
-        metadataId: -42137085
-        metadataKey: proident ex
-        metadataValue: Lorem magna minim sunt
-        visibility: DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED
   securitySchemes:
     oauth2Auth:
       type: http

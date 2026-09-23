@@ -64,6 +64,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: GmailUsersDraftsPostResponseExample
+      operationId: postGmailV1UsersByUserIdDrafts
+      x-operation-id-source: derived
     servers:
     - url: https://gmail.googleapis.com
       description: Google Gmail API Server
@@ -117,6 +119,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: GmailUsersLabelsPostResponseExample
+      operationId: postGmailV1UsersByUserIdLabels
+      x-operation-id-source: derived
     servers:
     - url: https://gmail.googleapis.com
       description: Google Gmail API Server
@@ -170,6 +174,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersSettingsSendAsPostResponseExample
+      operationId: postGmailV1UsersByUserIdSettingsSendAs
+      x-operation-id-source: derived
     servers:
     - url: https://gmail.googleapis.com
       description: Google Gmail API Server
@@ -223,6 +229,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SettingsCseKeypairsPostResponse2Example
+      operationId: postGmailV1UsersByUserIdSettingsCseKeypairs
+      x-operation-id-source: derived
     servers:
     - url: https://gmail.googleapis.com
       description: Google Gmail API Server
@@ -276,6 +284,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SettingsCseIdentitiesPostResponseExample
+      operationId: postGmailV1UsersByUserIdSettingsCseIdentities
+      x-operation-id-source: derived
     servers:
     - url: https://gmail.googleapis.com
       description: Google Gmail API Server
@@ -329,6 +339,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersSettingsFiltersPostResponseExample
+      operationId: postGmailV1UsersByUserIdSettingsFilters
+      x-operation-id-source: derived
     servers:
     - url: https://gmail.googleapis.com
       description: Google Gmail API Server
@@ -382,6 +394,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersSettingsDelegatesPostResponseExample
+      operationId: postGmailV1UsersByUserIdSettingsDelegates
+      x-operation-id-source: derived
     servers:
     - url: https://gmail.googleapis.com
       description: Google Gmail API Server
@@ -430,36 +444,137 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SpreadsheetsPostResponseExample
+      operationId: postV4Spreadsheets
+      x-operation-id-source: derived
     servers:
     - url: https://sheets.googleapis.com
       description: Google Sheets API Server
 components:
   schemas:
-    SettingsCseIdentitiesPostResponse:
-      description: SettingsCseIdentitiesPostResponse schema
+    UsersSettingsSendAsPostResponseSmtpMsa:
+      description: UsersSettingsSendAsPostResponseSmtpMsa schema
       type: object
       properties:
-        emailAddress:
+        host:
           type: string
-        primaryKeyPairId:
+        port:
+          type: integer
+        username:
           type: string
+        password:
+          type: string
+        securityMode:
+          type: string
+    UsersSettingsSendAsPostRequest:
+      description: UsersSettingsSendAsPostRequest schema
+      type: object
+      example:
+        sendAsEmail: ut nulla
+        displayName: Excepteur
+        replyToAddress: velit id culpa
+        signature: officia quis adipisicing
+        isPrimary: true
+        isDefault: true
+        treatAsAlias: false
+        smtpMsa:
+          host: in elit
+          port: -34532702
+          username: aliqua laborum aliquip do
+          password: tempor dolor velit
+          securityMode: securityModeUnspecified
+        verificationStatus: pending
+    UsersSettingsSendAsPostResponse:
+      description: UsersSettingsSendAsPostResponse schema
+      type: object
+      properties:
+        sendAsEmail:
+          type: string
+        displayName:
+          type: string
+        replyToAddress:
+          type: string
+        signature:
+          type: string
+        isPrimary:
+          type: boolean
+        isDefault:
+          type: boolean
+        treatAsAlias:
+          type: boolean
+        smtpMsa:
+          $ref: '#/components/schemas/UsersSettingsSendAsPostResponseSmtpMsa'
+        verificationStatus:
+          type: string
+    SettingsCseIdentitiesPostRequest:
+      description: SettingsCseIdentitiesPostRequest schema
+      type: object
+      example:
+        emailAddress: aliquip quis id
+        primaryKeyPairId: in exercitation esse
         signAndEncryptKeyPairs:
-          $ref: '#/components/schemas/SettingsCseIdentitiesPostResponseSignAndEncryptKeyPairs'
+          signingKeyPairId: est deserunt
+          encryptionKeyPairId: elit nulla esse ut
     GmailUsersDraftsPostRequest:
       description: GmailUsersDraftsPostRequest schema
       type: object
       example:
         raw: '{{encodedMessage}}'
-    GmailUsersDraftsPostResponseMessagePayloadBody:
-      description: GmailUsersDraftsPostResponseMessagePayloadBody schema
+    GmailUsersDraftsPostResponse:
+      description: GmailUsersDraftsPostResponse schema
       type: object
       properties:
-        attachmentId:
+        id:
           type: string
-        size:
+        message:
+          $ref: '#/components/schemas/GmailUsersDraftsPostResponseMessage'
+    UsersSettingsDelegatesPostResponse:
+      description: UsersSettingsDelegatesPostResponse schema
+      type: object
+      properties:
+        delegateEmail:
+          type: string
+        verificationStatus:
+          type: string
+    UsersSettingsDelegatesPostRequest:
+      description: UsersSettingsDelegatesPostRequest schema
+      type: object
+      example:
+        delegateEmail: Duis commodo enim irure
+        verificationStatus: rejected
+    GmailUsersDraftsPostResponseMessage:
+      description: GmailUsersDraftsPostResponseMessage schema
+      type: object
+      properties:
+        id:
+          type: string
+        threadId:
+          type: string
+        labelIds:
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        internalDate:
+          type: string
+        payload:
+          $ref: '#/components/schemas/GmailUsersDraftsPostResponseMessagePayload'
+        sizeEstimate:
           type: integer
-        data:
+        raw:
           type: string
+    UsersSettingsFiltersPostResponse:
+      description: UsersSettingsFiltersPostResponse schema
+      type: object
+      properties:
+        id:
+          type: string
+        criteria:
+          $ref: '#/components/schemas/UsersSettingsFiltersPostResponseCriteria'
+        action:
+          $ref: '#/components/schemas/UsersSettingsFiltersPostResponseAction'
     GmailUsersLabelsPostResponse:
       description: GmailUsersLabelsPostResponse schema
       type: object
@@ -484,117 +599,6 @@ components:
           type: integer
         color:
           $ref: '#/components/schemas/GmailUsersLabelsPostResponseColor'
-    SettingsCseKeypairsPostRequest3:
-      description: SettingsCseKeypairsPostRequest3 schema
-      type: object
-      example:
-        keyPairId: Lorem eiusmod
-        pkcs7: ex incididunt
-        pem: irure quis
-        subjectEmailAddresses:
-        - Excepteur Ut commodo aliquip
-        - eu Lorem nulla
-        enablementState: disabled
-        disableTime: cill
-        privateKeyMetadata:
-        - privateKeyMetadataId: proident fugiat eu dolore
-          kaclsKeyMetadata:
-            kaclsUri: voluptate ipsum ad
-            kaclsData: Duis laborum aute
-          hardwareKeyMetadata:
-            description: mollit la
-        - privateKeyMetadataId: nulla ullamco
-          kaclsKeyMetadata:
-            kaclsUri: minim in
-            kaclsData: sint eiusmod
-          hardwareKeyMetadata:
-            description: ut
-    UsersSettingsFiltersPostResponse:
-      description: UsersSettingsFiltersPostResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        criteria:
-          $ref: '#/components/schemas/UsersSettingsFiltersPostResponseCriteria'
-        action:
-          $ref: '#/components/schemas/UsersSettingsFiltersPostResponseAction'
-    UsersSettingsSendAsPostResponse:
-      description: UsersSettingsSendAsPostResponse schema
-      type: object
-      properties:
-        sendAsEmail:
-          type: string
-        displayName:
-          type: string
-        replyToAddress:
-          type: string
-        signature:
-          type: string
-        isPrimary:
-          type: boolean
-        isDefault:
-          type: boolean
-        treatAsAlias:
-          type: boolean
-        smtpMsa:
-          $ref: '#/components/schemas/UsersSettingsSendAsPostResponseSmtpMsa'
-        verificationStatus:
-          type: string
-    UsersSettingsFiltersPostRequest:
-      description: UsersSettingsFiltersPostRequest schema
-      type: object
-      example:
-        id: in aute anim
-        criteria:
-          from: nulla adipisicing veniam et mollit
-          to: veniam commodo
-          subject: sit exercitation
-          query: nulla cupidatat officia commodo laborum
-          negatedQuery: exercitation laboris
-          hasAttachment: true
-          excludeChats: false
-          size: -52983385
-          sizeComparison: smaller
-        action:
-          addLabelIds:
-          - nostrud laboris sed esse
-          - et ad
-          removeLabelIds:
-          - Lorem consequat l
-          - minim Excepteur
-          forward: culpa do
-    UsersSettingsFiltersPostResponseCriteria:
-      description: UsersSettingsFiltersPostResponseCriteria schema
-      type: object
-      properties:
-        from:
-          type: string
-        to:
-          type: string
-        subject:
-          type: string
-        query:
-          type: string
-        negatedQuery:
-          type: string
-        hasAttachment:
-          type: boolean
-        excludeChats:
-          type: boolean
-        size:
-          type: integer
-        sizeComparison:
-          type: string
-    SettingsCseIdentitiesPostRequest:
-      description: SettingsCseIdentitiesPostRequest schema
-      type: object
-      example:
-        emailAddress: aliquip quis id
-        primaryKeyPairId: in exercitation esse
-        signAndEncryptKeyPairs:
-          signingKeyPairId: est deserunt
-          encryptionKeyPairId: elit nulla esse ut
     GmailUsersDraftsPostResponseMessagePayload:
       description: GmailUsersDraftsPostResponseMessagePayload schema
       type: object
@@ -623,66 +627,102 @@ components:
             properties:
               value:
                 type: string
-    UsersSettingsDelegatesPostResponse:
-      description: UsersSettingsDelegatesPostResponse schema
-      type: object
-      properties:
-        delegateEmail:
-          type: string
-        verificationStatus:
-          type: string
-    UsersSettingsSendAsPostRequest:
-      description: UsersSettingsSendAsPostRequest schema
+    GmailUsersLabelsPostRequest:
+      description: GmailUsersLabelsPostRequest schema
       type: object
       example:
-        sendAsEmail: ut nulla
-        displayName: Excepteur
-        replyToAddress: velit id culpa
-        signature: officia quis adipisicing
-        isPrimary: true
-        isDefault: true
-        treatAsAlias: false
-        smtpMsa:
-          host: in elit
-          port: -34532702
-          username: aliqua laborum aliquip do
-          password: tempor dolor velit
-          securityMode: securityModeUnspecified
-        verificationStatus: pending
-    UsersSettingsDelegatesPostRequest:
-      description: UsersSettingsDelegatesPostRequest schema
+        id: nostrud officia pariatur
+        name: esse nulla occaecat
+        messageListVisibility: show
+        labelListVisibility: labelShow
+        type: system
+        messagesTotal: -34033607
+        messagesUnread: 96181517
+        threadsTotal: 7293200
+        threadsUnread: 86726755
+        color:
+          textColor: sunt fugiat ut voluptate
+          backgroundColor: commodo est cupidatat in sed
+    SettingsCseKeypairsPostRequest3:
+      description: SettingsCseKeypairsPostRequest3 schema
       type: object
       example:
-        delegateEmail: Duis commodo enim irure
-        verificationStatus: rejected
-    UsersSettingsSendAsPostResponseSmtpMsa:
-      description: UsersSettingsSendAsPostResponseSmtpMsa schema
+        keyPairId: Lorem eiusmod
+        pkcs7: ex incididunt
+        pem: irure quis
+        subjectEmailAddresses:
+        - Excepteur Ut commodo aliquip
+        - eu Lorem nulla
+        enablementState: disabled
+        disableTime: cill
+        privateKeyMetadata:
+        - privateKeyMetadataId: proident fugiat eu dolore
+          kaclsKeyMetadata:
+            kaclsUri: voluptate ipsum ad
+            kaclsData: Duis laborum aute
+          hardwareKeyMetadata:
+            description: mollit la
+        - privateKeyMetadataId: nulla ullamco
+          kaclsKeyMetadata:
+            kaclsUri: minim in
+            kaclsData: sint eiusmod
+          hardwareKeyMetadata:
+            description: ut
+    SettingsCseIdentitiesPostResponse:
+      description: SettingsCseIdentitiesPostResponse schema
       type: object
       properties:
-        host:
+        emailAddress:
           type: string
-        port:
+        primaryKeyPairId:
+          type: string
+        signAndEncryptKeyPairs:
+          $ref: '#/components/schemas/SettingsCseIdentitiesPostResponseSignAndEncryptKeyPairs'
+    UsersSettingsFiltersPostResponseCriteria:
+      description: UsersSettingsFiltersPostResponseCriteria schema
+      type: object
+      properties:
+        from:
+          type: string
+        to:
+          type: string
+        subject:
+          type: string
+        query:
+          type: string
+        negatedQuery:
+          type: string
+        hasAttachment:
+          type: boolean
+        excludeChats:
+          type: boolean
+        size:
           type: integer
-        username:
+        sizeComparison:
           type: string
-        password:
-          type: string
-        securityMode:
-          type: string
-    UsersSettingsFiltersPostResponseAction:
-      description: UsersSettingsFiltersPostResponseAction schema
+    UsersSettingsFiltersPostRequest:
+      description: UsersSettingsFiltersPostRequest schema
       type: object
-      properties:
-        addLabelIds:
-          type: array
-          items:
-            type: string
-        removeLabelIds:
-          type: array
-          items:
-            type: string
-        forward:
-          type: string
+      example:
+        id: in aute anim
+        criteria:
+          from: nulla adipisicing veniam et mollit
+          to: veniam commodo
+          subject: sit exercitation
+          query: nulla cupidatat officia commodo laborum
+          negatedQuery: exercitation laboris
+          hasAttachment: true
+          excludeChats: false
+          size: -52983385
+          sizeComparison: smaller
+        action:
+          addLabelIds:
+          - nostrud laboris sed esse
+          - et ad
+          removeLabelIds:
+          - Lorem consequat l
+          - minim Excepteur
+          forward: culpa do
     SettingsCseKeypairsPostResponse2:
       description: SettingsCseKeypairsPostResponse2 schema
       type: object
@@ -720,46 +760,6 @@ components:
                 properties:
                   description:
                     type: string
-    GmailUsersLabelsPostRequest:
-      description: GmailUsersLabelsPostRequest schema
-      type: object
-      example:
-        id: nostrud officia pariatur
-        name: esse nulla occaecat
-        messageListVisibility: show
-        labelListVisibility: labelShow
-        type: system
-        messagesTotal: -34033607
-        messagesUnread: 96181517
-        threadsTotal: 7293200
-        threadsUnread: 86726755
-        color:
-          textColor: sunt fugiat ut voluptate
-          backgroundColor: commodo est cupidatat in sed
-    GmailUsersDraftsPostResponseMessage:
-      description: GmailUsersDraftsPostResponseMessage schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/GmailUsersDraftsPostResponseMessagePayload'
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
     SettingsCseIdentitiesPostResponseSignAndEncryptKeyPairs:
       description: SettingsCseIdentitiesPostResponseSignAndEncryptKeyPairs schema
       type: object
@@ -767,6 +767,20 @@ components:
         signingKeyPairId:
           type: string
         encryptionKeyPairId:
+          type: string
+    UsersSettingsFiltersPostResponseAction:
+      description: UsersSettingsFiltersPostResponseAction schema
+      type: object
+      properties:
+        addLabelIds:
+          type: array
+          items:
+            type: string
+        removeLabelIds:
+          type: array
+          items:
+            type: string
+        forward:
           type: string
     GmailUsersLabelsPostResponseColor:
       description: GmailUsersLabelsPostResponseColor schema
@@ -776,16 +790,26 @@ components:
           type: string
         backgroundColor:
           type: string
-    GmailUsersDraftsPostResponse:
-      description: GmailUsersDraftsPostResponse schema
+    GmailUsersDraftsPostResponseMessagePayloadBody:
+      description: GmailUsersDraftsPostResponseMessagePayloadBody schema
       type: object
       properties:
-        id:
+        attachmentId:
           type: string
-        message:
-          $ref: '#/components/schemas/GmailUsersDraftsPostResponseMessage'
-    SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColor:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColor schema
+        size:
+          type: integer
+        data:
+          type: string
+    SpreadsheetsPostResponsePropertiesDefaultFormatTextRotation:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatTextRotation schema
+      type: object
+      properties:
+        angle:
+          type: integer
+        vertical:
+          type: boolean
+    SpreadsheetsPostResponsePropertiesDefaultFormatBackgroundColorStyleRgbColor:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatBackgroundColorStyleRgbColor schema
       type: object
       properties:
         alpha:
@@ -796,8 +820,16 @@ components:
           type: number
         red:
           type: number
-    SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColor:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColor schema
+    SpreadsheetsPostResponsePropertiesDefaultFormatNumberFormat:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatNumberFormat schema
+      type: object
+      properties:
+        pattern:
+          type: string
+        type:
+          type: string
+    SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatForegroundColor:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatForegroundColor schema
       type: object
       properties:
         alpha:
@@ -808,6 +840,26 @@ components:
           type: number
         red:
           type: number
+    SpreadsheetsPostResponsePropertiesDefaultFormatBorders:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatBorders schema
+      type: object
+      properties:
+        bottom:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottom'
+        left:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeft'
+        right:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersRight'
+        top:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersTop'
+    SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColorStyle:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColorStyle schema
+      type: object
+      properties:
+        rgbColor:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColorStyleRgbColor'
+        themeColor:
+          type: string
     SpreadsheetsPostResponsePropertiesDefaultFormatPadding:
       description: SpreadsheetsPostResponsePropertiesDefaultFormatPadding schema
       type: object
@@ -3508,166 +3560,55 @@ components:
               title: exercitation Lorem
         spreadsheetId: tempor qui laboris labore
         spreadsheetUrl: nisi ipsum eiusmod aliquip
-    SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottom:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottom schema
+    SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatForegroundColorStyle:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatForegroundColorStyle schema
+      type: object
+      properties:
+        rgbColor:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatForegroundColorStyleRgbColor'
+        themeColor:
+          type: string
+    SpreadsheetsPostResponsePropertiesDefaultFormatBordersTop:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersTop schema
       type: object
       properties:
         color:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColor'
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersTopColor'
         colorStyle:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColorStyle'
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersTopColorStyle'
         style:
           type: string
         width:
           type: integer
-    SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColorStyleRgbColor:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColorStyleRgbColor schema
+    SpreadsheetsPostResponsePropertiesSpreadsheetTheme:
+      description: SpreadsheetsPostResponsePropertiesSpreadsheetTheme schema
       type: object
       properties:
-        alpha:
-          type: number
-        blue:
-          type: number
-        green:
-          type: number
-        red:
-          type: number
-    SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeft:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeft schema
-      type: object
-      properties:
-        color:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColor'
-        colorStyle:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColorStyle'
-        style:
+        primaryFontFamily:
           type: string
-        width:
-          type: integer
-    SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatLink:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatLink schema
-      type: object
-      properties:
-        uri:
-          type: string
-    SpreadsheetsPostResponsePropertiesDefaultFormatNumberFormat:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatNumberFormat schema
-      type: object
-      properties:
-        pattern:
-          type: string
-        type:
-          type: string
-    SpreadsheetsPostResponsePropertiesDefaultFormatBordersRightColorStyle:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersRightColorStyle schema
-      type: object
-      properties:
-        rgbColor:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersRightColorStyleRgbColor'
-        themeColor:
-          type: string
-    SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColorStyleRgbColor:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColorStyleRgbColor schema
-      type: object
-      properties:
-        alpha:
-          type: number
-        blue:
-          type: number
-        green:
-          type: number
-        red:
-          type: number
-    SpreadsheetsPostResponsePropertiesDefaultFormatTextRotation:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatTextRotation schema
-      type: object
-      properties:
-        angle:
-          type: integer
-        vertical:
-          type: boolean
-    SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatForegroundColor:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatForegroundColor schema
-      type: object
-      properties:
-        alpha:
-          type: number
-        blue:
-          type: number
-        green:
-          type: number
-        red:
-          type: number
-    SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColorStyle:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColorStyle schema
-      type: object
-      properties:
-        rgbColor:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColorStyleRgbColor'
-        themeColor:
-          type: string
-    SpreadsheetsPostResponsePropertiesDefaultFormatTextFormat:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatTextFormat schema
-      type: object
-      properties:
-        bold:
-          type: boolean
-        fontFamily:
-          type: string
-        fontSize:
-          type: integer
-        foregroundColor:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatForegroundColor'
-        foregroundColorStyle:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatForegroundColorStyle'
-        italic:
-          type: boolean
-        link:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatLink'
-        strikethrough:
-          type: boolean
-        underline:
-          type: boolean
-    SpreadsheetsPostResponsePropertiesDefaultFormatBackgroundColorStyle:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatBackgroundColorStyle schema
-      type: object
-      properties:
-        rgbColor:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBackgroundColorStyleRgbColor'
-        themeColor:
-          type: string
-    SpreadsheetsPostResponsePropertiesDefaultFormatBordersTopColor:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersTopColor schema
-      type: object
-      properties:
-        alpha:
-          type: number
-        blue:
-          type: number
-        green:
-          type: number
-        red:
-          type: number
-    SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColorStyle:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColorStyle schema
-      type: object
-      properties:
-        rgbColor:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColorStyleRgbColor'
-        themeColor:
-          type: string
-    SpreadsheetsPostResponsePropertiesDefaultFormatBordersRightColorStyleRgbColor:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersRightColorStyleRgbColor schema
-      type: object
-      properties:
-        alpha:
-          type: number
-        blue:
-          type: number
-        green:
-          type: number
-        red:
-          type: number
+        themeColors:
+          type: array
+          items:
+            type: object
+            properties:
+              color:
+                type: object
+                properties:
+                  rgbColor:
+                    type: object
+                    properties:
+                      alpha:
+                        type: number
+                      blue:
+                        type: number
+                      green:
+                        type: number
+                      red:
+                        type: number
+                  themeColor:
+                    type: string
+              colorType:
+                type: string
     SpreadsheetsPostResponsePropertiesIterativeCalculationSettings:
       description: SpreadsheetsPostResponsePropertiesIterativeCalculationSettings schema
       type: object
@@ -3676,24 +3617,30 @@ components:
           type: number
         maxIterations:
           type: integer
-    SpreadsheetsPostResponseProperties:
-      description: SpreadsheetsPostResponseProperties schema
+    SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColor:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColor schema
       type: object
       properties:
-        autoRecalc:
-          type: string
-        defaultFormat:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormat'
-        iterativeCalculationSettings:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesIterativeCalculationSettings'
-        locale:
-          type: string
-        spreadsheetTheme:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesSpreadsheetTheme'
-        timeZone:
-          type: string
-        title:
-          type: string
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
+    SpreadsheetsPostResponsePropertiesDefaultFormatBackgroundColor:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatBackgroundColor schema
+      type: object
+      properties:
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
     SpreadsheetsPostResponsePropertiesDefaultFormatBordersRightColor:
       description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersRightColor schema
       type: object
@@ -3706,8 +3653,8 @@ components:
           type: number
         red:
           type: number
-    SpreadsheetsPostResponsePropertiesDefaultFormatBackgroundColorStyleRgbColor:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatBackgroundColorStyleRgbColor schema
+    SpreadsheetsPostResponsePropertiesDefaultFormatBordersRightColorStyleRgbColor:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersRightColorStyleRgbColor schema
       type: object
       properties:
         alpha:
@@ -3718,18 +3665,30 @@ components:
           type: number
         red:
           type: number
-    SpreadsheetsPostResponsePropertiesDefaultFormatBorders:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatBorders schema
+    SpreadsheetsPostResponsePropertiesDefaultFormatBordersTopColorStyleRgbColor:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersTopColorStyleRgbColor schema
       type: object
       properties:
-        bottom:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottom'
-        left:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeft'
-        right:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersRight'
-        top:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersTop'
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
+    SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColorStyleRgbColor:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColorStyleRgbColor schema
+      type: object
+      properties:
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
     SpreadsheetsPostResponse:
       description: SpreadsheetsPostResponse schema
       type: object
@@ -9808,6 +9767,80 @@ components:
           type: string
         spreadsheetUrl:
           type: string
+    SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatLink:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatLink schema
+      type: object
+      properties:
+        uri:
+          type: string
+    SpreadsheetsPostResponsePropertiesDefaultFormatBordersRightColorStyle:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersRightColorStyle schema
+      type: object
+      properties:
+        rgbColor:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersRightColorStyleRgbColor'
+        themeColor:
+          type: string
+    SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottom:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottom schema
+      type: object
+      properties:
+        color:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColor'
+        colorStyle:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColorStyle'
+        style:
+          type: string
+        width:
+          type: integer
+    SpreadsheetsPostResponsePropertiesDefaultFormatBackgroundColorStyle:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatBackgroundColorStyle schema
+      type: object
+      properties:
+        rgbColor:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBackgroundColorStyleRgbColor'
+        themeColor:
+          type: string
+    SpreadsheetsPostResponsePropertiesDefaultFormatTextFormat:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatTextFormat schema
+      type: object
+      properties:
+        bold:
+          type: boolean
+        fontFamily:
+          type: string
+        fontSize:
+          type: integer
+        foregroundColor:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatForegroundColor'
+        foregroundColorStyle:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatForegroundColorStyle'
+        italic:
+          type: boolean
+        link:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatLink'
+        strikethrough:
+          type: boolean
+        underline:
+          type: boolean
+    SpreadsheetsPostResponseProperties:
+      description: SpreadsheetsPostResponseProperties schema
+      type: object
+      properties:
+        autoRecalc:
+          type: string
+        defaultFormat:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormat'
+        iterativeCalculationSettings:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesIterativeCalculationSettings'
+        locale:
+          type: string
+        spreadsheetTheme:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesSpreadsheetTheme'
+        timeZone:
+          type: string
+        title:
+          type: string
     SpreadsheetsPostResponsePropertiesDefaultFormatBordersTopColorStyle:
       description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersTopColorStyle schema
       type: object
@@ -9816,50 +9849,6 @@ components:
           $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersTopColorStyleRgbColor'
         themeColor:
           type: string
-    SpreadsheetsPostResponsePropertiesDefaultFormatBackgroundColor:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatBackgroundColor schema
-      type: object
-      properties:
-        alpha:
-          type: number
-        blue:
-          type: number
-        green:
-          type: number
-        red:
-          type: number
-    SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatForegroundColorStyle:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatForegroundColorStyle schema
-      type: object
-      properties:
-        rgbColor:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatForegroundColorStyleRgbColor'
-        themeColor:
-          type: string
-    SpreadsheetsPostResponsePropertiesDefaultFormatBordersTop:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersTop schema
-      type: object
-      properties:
-        color:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersTopColor'
-        colorStyle:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersTopColorStyle'
-        style:
-          type: string
-        width:
-          type: integer
-    SpreadsheetsPostResponsePropertiesDefaultFormatBordersRight:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersRight schema
-      type: object
-      properties:
-        color:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersRightColor'
-        colorStyle:
-          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersRightColorStyle'
-        style:
-          type: string
-        width:
-          type: integer
     SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatForegroundColorStyleRgbColor:
       description: SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatForegroundColorStyleRgbColor schema
       type: object
@@ -9872,6 +9861,62 @@ components:
           type: number
         red:
           type: number
+    SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColor:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColor schema
+      type: object
+      properties:
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
+    SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColorStyleRgbColor:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColorStyleRgbColor schema
+      type: object
+      properties:
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
+    SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeft:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeft schema
+      type: object
+      properties:
+        color:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColor'
+        colorStyle:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColorStyle'
+        style:
+          type: string
+        width:
+          type: integer
+    SpreadsheetsPostResponsePropertiesDefaultFormatBordersTopColor:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersTopColor schema
+      type: object
+      properties:
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
+    SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColorStyle:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColorStyle schema
+      type: object
+      properties:
+        rgbColor:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColorStyleRgbColor'
+        themeColor:
+          type: string
     SpreadsheetsPostResponsePropertiesDefaultFormat:
       description: SpreadsheetsPostResponsePropertiesDefaultFormat schema
       type: object
@@ -9900,63 +9945,41 @@ components:
           type: string
         wrapStrategy:
           type: string
-    SpreadsheetsPostResponsePropertiesDefaultFormatBordersTopColorStyleRgbColor:
-      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersTopColorStyleRgbColor schema
+    SpreadsheetsPostResponsePropertiesDefaultFormatBordersRight:
+      description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersRight schema
       type: object
       properties:
-        alpha:
-          type: number
-        blue:
-          type: number
-        green:
-          type: number
-        red:
-          type: number
-    SpreadsheetsPostResponsePropertiesSpreadsheetTheme:
-      description: SpreadsheetsPostResponsePropertiesSpreadsheetTheme schema
-      type: object
-      properties:
-        primaryFontFamily:
+        color:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersRightColor'
+        colorStyle:
+          $ref: '#/components/schemas/SpreadsheetsPostResponsePropertiesDefaultFormatBordersRightColorStyle'
+        style:
           type: string
-        themeColors:
-          type: array
-          items:
-            type: object
-            properties:
-              color:
-                type: object
-                properties:
-                  rgbColor:
-                    type: object
-                    properties:
-                      alpha:
-                        type: number
-                      blue:
-                        type: number
-                      green:
-                        type: number
-                      red:
-                        type: number
-                  themeColor:
-                    type: string
-              colorType:
-                type: string
+        width:
+          type: integer
   examples:
-    GmailUsersLabelsPostResponseExample:
+    UsersSettingsFiltersPostResponseExample:
       summary: Successful 200 response
       value:
-        id: nostrud officia pariatur
-        name: esse nulla occaecat
-        messageListVisibility: show
-        labelListVisibility: labelShow
-        type: system
-        messagesTotal: -34033607
-        messagesUnread: 96181517
-        threadsTotal: 7293200
-        threadsUnread: 86726755
-        color:
-          textColor: sunt fugiat ut voluptate
-          backgroundColor: commodo est cupidatat in sed
+        id: in aute anim
+        criteria:
+          from: nulla adipisicing veniam et mollit
+          to: veniam commodo
+          subject: sit exercitation
+          query: nulla cupidatat officia commodo laborum
+          negatedQuery: exercitation laboris
+          hasAttachment: true
+          excludeChats: false
+          size: -52983385
+          sizeComparison: smaller
+        action:
+          addLabelIds:
+          - nostrud laboris sed esse
+          - et ad
+          removeLabelIds:
+          - Lorem consequat l
+          - minim Excepteur
+          forward: culpa do
     SettingsCseKeypairsPostResponse2Example:
       summary: Successful 200 response
       value:
@@ -9981,6 +10004,34 @@ components:
             kaclsData: sint eiusmod
           hardwareKeyMetadata:
             description: ut
+    UsersSettingsDelegatesPostResponseExample:
+      summary: Successful 200 response
+      value:
+        delegateEmail: Duis commodo enim irure
+        verificationStatus: rejected
+    SettingsCseIdentitiesPostResponseExample:
+      summary: Successful 200 response
+      value:
+        emailAddress: aliquip quis id
+        primaryKeyPairId: in exercitation esse
+        signAndEncryptKeyPairs:
+          signingKeyPairId: est deserunt
+          encryptionKeyPairId: elit nulla esse ut
+    GmailUsersLabelsPostResponseExample:
+      summary: Successful 200 response
+      value:
+        id: nostrud officia pariatur
+        name: esse nulla occaecat
+        messageListVisibility: show
+        labelListVisibility: labelShow
+        type: system
+        messagesTotal: -34033607
+        messagesUnread: 96181517
+        threadsTotal: 7293200
+        threadsUnread: 86726755
+        color:
+          textColor: sunt fugiat ut voluptate
+          backgroundColor: commodo est cupidatat in sed
     UsersSettingsSendAsPostResponseExample:
       summary: Successful 200 response
       value:
@@ -9998,36 +10049,6 @@ components:
           password: tempor dolor velit
           securityMode: securityModeUnspecified
         verificationStatus: pending
-    UsersSettingsFiltersPostResponseExample:
-      summary: Successful 200 response
-      value:
-        id: in aute anim
-        criteria:
-          from: nulla adipisicing veniam et mollit
-          to: veniam commodo
-          subject: sit exercitation
-          query: nulla cupidatat officia commodo laborum
-          negatedQuery: exercitation laboris
-          hasAttachment: true
-          excludeChats: false
-          size: -52983385
-          sizeComparison: smaller
-        action:
-          addLabelIds:
-          - nostrud laboris sed esse
-          - et ad
-          removeLabelIds:
-          - Lorem consequat l
-          - minim Excepteur
-          forward: culpa do
-    SettingsCseIdentitiesPostResponseExample:
-      summary: Successful 200 response
-      value:
-        emailAddress: aliquip quis id
-        primaryKeyPairId: in exercitation esse
-        signAndEncryptKeyPairs:
-          signingKeyPairId: est deserunt
-          encryptionKeyPairId: elit nulla esse ut
     GmailUsersDraftsPostResponseExample:
       summary: Successful 200 response
       value:
@@ -10059,11 +10080,6 @@ components:
             - value: '<Circular reference to #/components/schemas/MessagePart detected>'
           sizeEstimate: -74092231
           raw: in enim sit pariatur
-    UsersSettingsDelegatesPostResponseExample:
-      summary: Successful 200 response
-      value:
-        delegateEmail: Duis commodo enim irure
-        verificationStatus: rejected
     SpreadsheetsPostResponseExample:
       summary: Successful 200 response
       value:

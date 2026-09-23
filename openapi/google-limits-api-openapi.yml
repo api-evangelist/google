@@ -127,6 +127,13 @@ paths:
         dispatcherRules: SuccessExample
 components:
   schemas:
+    GoogleAppsDriveLabelsV2UserLimits:
+      description: Limits for Field.Type.USER.
+      properties:
+        listLimits:
+          $ref: '#/components/schemas/GoogleAppsDriveLabelsV2ListLimits'
+          description: Limits for list-variant of a Field type.
+      type: object
     GoogleAppsDriveLabelsV2LabelLimits:
       description: Label constraints governing the structure of a Label; such as, the maximum number of Fields allowed and maximum length of the label title.
       properties:
@@ -157,34 +164,6 @@ components:
           description: Resource name.
           type: string
       type: object
-    GoogleTypeDate:
-      description: 'Represents a whole or partial calendar date, such as a birthday. The time of day and time zone are either specified elsewhere or are insignificant. The date is relative to the Gregorian Calendar. This can represent one of the following: * A full date, with non-zero year, month, and day values. * A month and day, with a zero year (for example, an anniversary). * A year on its own, with a zero month and a zero day. * A year and month, with a zero day (for example, a credit card expiration date). Related types: * google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp'
-      properties:
-        day:
-          description: Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant.
-          format: int32
-          type: integer
-        month:
-          description: Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day.
-          format: int32
-          type: integer
-        year:
-          description: Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year.
-          format: int32
-          type: integer
-      type: object
-    GoogleAppsDriveLabelsV2LongTextLimits:
-      description: Limits for long text Field type.
-      properties:
-        maxLength:
-          description: Maximum length allowed for a long text Field type.
-          format: int32
-          type: integer
-        minLength:
-          description: Minimum length allowed for a long text Field type.
-          format: int32
-          type: integer
-      type: object
     GoogleAppsDriveLabelsV2IntegerLimits:
       description: Limits for integer Field type.
       properties:
@@ -197,13 +176,15 @@ components:
           format: int64
           type: string
       type: object
-    GoogleAppsDriveLabelsV2ListLimits:
-      description: Limits for list-variant of a Field type.
+    GoogleAppsDriveLabelsV2DateLimits:
+      description: Limits for date Field type.
       properties:
-        maxEntries:
-          description: Maximum number of values allowed for the Field type.
-          format: int32
-          type: integer
+        maxValue:
+          $ref: '#/components/schemas/GoogleTypeDate'
+          description: Maximum value for the date Field type.
+        minValue:
+          $ref: '#/components/schemas/GoogleTypeDate'
+          description: Minimum value for the date Field type.
       type: object
     GoogleAppsDriveLabelsV2SelectionLimits:
       description: Limits for selection Field type.
@@ -228,6 +209,26 @@ components:
           format: int32
           type: integer
       type: object
+    GoogleAppsDriveLabelsV2ListLimits:
+      description: Limits for list-variant of a Field type.
+      properties:
+        maxEntries:
+          description: Maximum number of values allowed for the Field type.
+          format: int32
+          type: integer
+      type: object
+    GoogleAppsDriveLabelsV2LongTextLimits:
+      description: Limits for long text Field type.
+      properties:
+        maxLength:
+          description: Maximum length allowed for a long text Field type.
+          format: int32
+          type: integer
+        minLength:
+          description: Minimum length allowed for a long text Field type.
+          format: int32
+          type: integer
+      type: object
     GoogleAppsDriveLabelsV2TextLimits:
       description: Limits for text Field type.
       properties:
@@ -237,6 +238,22 @@ components:
           type: integer
         minLength:
           description: Minimum length allowed for a text Field type.
+          format: int32
+          type: integer
+      type: object
+    GoogleTypeDate:
+      description: 'Represents a whole or partial calendar date, such as a birthday. The time of day and time zone are either specified elsewhere or are insignificant. The date is relative to the Gregorian Calendar. This can represent one of the following: * A full date, with non-zero year, month, and day values. * A month and day, with a zero year (for example, an anniversary). * A year on its own, with a zero month and a zero day. * A year and month, with a zero day (for example, a credit card expiration date). Related types: * google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp'
+      properties:
+        day:
+          description: Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant.
+          format: int32
+          type: integer
+        month:
+          description: Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day.
+          format: int32
+          type: integer
+        year:
+          description: Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year.
           format: int32
           type: integer
       type: object
@@ -273,23 +290,6 @@ components:
         userLimits:
           $ref: '#/components/schemas/GoogleAppsDriveLabelsV2UserLimits'
           description: User Field limits.
-      type: object
-    GoogleAppsDriveLabelsV2UserLimits:
-      description: Limits for Field.Type.USER.
-      properties:
-        listLimits:
-          $ref: '#/components/schemas/GoogleAppsDriveLabelsV2ListLimits'
-          description: Limits for list-variant of a Field type.
-      type: object
-    GoogleAppsDriveLabelsV2DateLimits:
-      description: Limits for date Field type.
-      properties:
-        maxValue:
-          $ref: '#/components/schemas/GoogleTypeDate'
-          description: Maximum value for the date Field type.
-        minValue:
-          $ref: '#/components/schemas/GoogleTypeDate'
-          description: Minimum value for the date Field type.
       type: object
   securitySchemes:
     Oauth2:

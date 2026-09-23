@@ -61,7 +61,39 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersMessagesTrashPostResponseExample
+      operationId: postGmailV1UsersByUserIdMessagesByIdTrash
+      x-operation-id-source: derived
 components:
+  examples:
+    UsersMessagesTrashPostResponseExample:
+      summary: Successful 200 response
+      value:
+        id: eu incididunt laborum irure
+        threadId: magna Ut officia
+        labelIds:
+        - mollit amet dolore cupidatat
+        - cupidatat deserunt mollit
+        snippet: ut dolor
+        historyId: nisi tempor do
+        internalDate: cupidatat officia anim
+        payload:
+          partId: dolore velit incididunt est a
+          mimeType: sit dolor mollit
+          filename: ea commodo dolor nisi
+          headers:
+          - name: quis id velit laborum
+            value: et voluptate dolor ea
+          - name: sit nostrud
+            value: deserunt fugiat ex
+          body:
+            attachmentId: id nulla consequat
+            size: -93837667
+            data: ad in occaecat
+          parts:
+          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+        sizeEstimate: 21128811
+        raw: do laboris
   schemas:
     UsersMessagesTrashPostResponsePayload:
       description: UsersMessagesTrashPostResponsePayload schema
@@ -125,36 +157,6 @@ components:
           type: integer
         raw:
           type: string
-  examples:
-    UsersMessagesTrashPostResponseExample:
-      summary: Successful 200 response
-      value:
-        id: eu incididunt laborum irure
-        threadId: magna Ut officia
-        labelIds:
-        - mollit amet dolore cupidatat
-        - cupidatat deserunt mollit
-        snippet: ut dolor
-        historyId: nisi tempor do
-        internalDate: cupidatat officia anim
-        payload:
-          partId: dolore velit incididunt est a
-          mimeType: sit dolor mollit
-          filename: ea commodo dolor nisi
-          headers:
-          - name: quis id velit laborum
-            value: et voluptate dolor ea
-          - name: sit nostrud
-            value: deserunt fugiat ex
-          body:
-            attachmentId: id nulla consequat
-            size: -93837667
-            data: ad in occaecat
-          parts:
-          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-        sizeEstimate: 21128811
-        raw: do laboris
   securitySchemes:
     oauth2Auth:
       type: http

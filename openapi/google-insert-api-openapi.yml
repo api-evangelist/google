@@ -62,8 +62,20 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: GmailUsersMessagesPostResponseExample
+      operationId: postGmailV1UsersByUserIdMessages
+      x-operation-id-source: derived
 components:
   schemas:
+    GmailUsersMessagesPostResponsePayloadBody:
+      description: GmailUsersMessagesPostResponsePayloadBody schema
+      type: object
+      properties:
+        attachmentId:
+          type: string
+        size:
+          type: integer
+        data:
+          type: string
     GmailUsersMessagesPostRequest:
       description: GmailUsersMessagesPostRequest schema
       type: object
@@ -94,16 +106,6 @@ components:
           - value: '<Circular reference to #/components/schemas/MessagePart detected>'
         sizeEstimate: 21128811
         raw: do laboris
-    GmailUsersMessagesPostResponsePayloadBody:
-      description: GmailUsersMessagesPostResponsePayloadBody schema
-      type: object
-      properties:
-        attachmentId:
-          type: string
-        size:
-          type: integer
-        data:
-          type: string
     GmailUsersMessagesPostResponse:
       description: GmailUsersMessagesPostResponse schema
       type: object

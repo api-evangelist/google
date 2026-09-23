@@ -64,6 +64,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersSettingsImapPutResponseExample
+      operationId: putGmailV1UsersByUserIdSettingsImap
+      x-operation-id-source: derived
     servers:
     - url: https://gmail.googleapis.com
       description: Google Gmail API Server
@@ -126,6 +128,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SpreadsheetsValuesPutResponseExample
+      operationId: putV4SpreadsheetsBySpreadsheetIdValuesByRange
+      x-operation-id-source: derived
     servers:
     - url: https://sheets.googleapis.com
       description: Google Sheets API Server

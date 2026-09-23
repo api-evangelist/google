@@ -54,6 +54,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SuccessExample
+      operationId: postGmailV1UsersByUserIdSettingsCseKeypairs{keyPairId}:obliterate
+      x-operation-id-source: derived
 components:
   schemas:
     SettingsCseKeypairsPostRequest2:

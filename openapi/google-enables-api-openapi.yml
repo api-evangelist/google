@@ -67,6 +67,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SettingsCseKeypairsPostResponseExample
+      operationId: postGmailV1UsersByUserIdSettingsCseKeypairs{keyPairId}:enable
+      x-operation-id-source: derived
 components:
   schemas:
     SettingsCseKeypairsPostResponse:

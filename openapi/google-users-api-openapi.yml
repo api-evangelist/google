@@ -194,6 +194,8 @@ paths:
         dispatcherRules: GmailUsersWatchPostResponseExample
       security:
       - oauth2Auth: []
+      operationId: postGmailV1UsersByUserIdWatch
+      x-operation-id-source: derived
     servers:
     - url: https://gmail.googleapis.com
       description: Google Gmail API Server

@@ -59,6 +59,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SettingsSendAsSmimeInfoGetResponse1Example
+      operationId: getGmailV1UsersByUserIdSettingsSendAsBySendAsEmailSmimeInfo
+      x-operation-id-source: derived
     post:
       tags:
       - Info
@@ -115,19 +117,10 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SettingsSendAsSmimeInfoPostResponseExample
+      operationId: postGmailV1UsersByUserIdSettingsSendAsBySendAsEmailSmimeInfo
+      x-operation-id-source: derived
 components:
   schemas:
-    SettingsSendAsSmimeInfoPostRequest:
-      description: SettingsSendAsSmimeInfoPostRequest schema
-      type: object
-      example:
-        id: id
-        issuerCn: ipsum qui s
-        isDefault: false
-        expiration: dolore magna
-        pem: 'cillum labore '
-        pkcs12: in aute et
-        encryptedKeyPassword: cillum ut
     SettingsSendAsSmimeInfoPostResponse:
       description: SettingsSendAsSmimeInfoPostResponse schema
       type: object
@@ -169,7 +162,28 @@ components:
                 type: string
               encryptedKeyPassword:
                 type: string
+    SettingsSendAsSmimeInfoPostRequest:
+      description: SettingsSendAsSmimeInfoPostRequest schema
+      type: object
+      example:
+        id: id
+        issuerCn: ipsum qui s
+        isDefault: false
+        expiration: dolore magna
+        pem: 'cillum labore '
+        pkcs12: in aute et
+        encryptedKeyPassword: cillum ut
   examples:
+    SettingsSendAsSmimeInfoPostResponseExample:
+      summary: Successful 200 response
+      value:
+        id: id
+        issuerCn: ipsum qui s
+        isDefault: false
+        expiration: dolore magna
+        pem: 'cillum labore '
+        pkcs12: in aute et
+        encryptedKeyPassword: cillum ut
     SettingsSendAsSmimeInfoGetResponse1Example:
       summary: Successful 200 response
       value:
@@ -188,16 +202,6 @@ components:
           pem: eu minim consequat sunt
           pkcs12: sunt anim ipsum nulla
           encryptedKeyPassword: laboris ex sint
-    SettingsSendAsSmimeInfoPostResponseExample:
-      summary: Successful 200 response
-      value:
-        id: id
-        issuerCn: ipsum qui s
-        isDefault: false
-        expiration: dolore magna
-        pem: 'cillum labore '
-        pkcs12: in aute et
-        encryptedKeyPassword: cillum ut
   securitySchemes:
     oauth2Auth:
       type: http

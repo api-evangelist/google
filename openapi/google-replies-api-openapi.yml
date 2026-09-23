@@ -601,29 +601,6 @@ paths:
         dispatcherRules: SuccessExample
 components:
   schemas:
-    User:
-      description: Information about a Drive user.
-      properties:
-        displayName:
-          description: Output only. A plain text displayable name for this user.
-          type: string
-        emailAddress:
-          description: Output only. The email address of the user. This may not be present in certain contexts if the user has not made their email address visible to the requester.
-          type: string
-        kind:
-          default: drive#user
-          description: 'Output only. Identifies what kind of resource this is. Value: the fixed string `"drive#user"`.'
-          type: string
-        me:
-          description: Output only. Whether this user is the requesting user.
-          type: boolean
-        permissionId:
-          description: Output only. The user's ID as visible in Permission resources.
-          type: string
-        photoLink:
-          description: Output only. A link to the user's profile photo, if available.
-          type: string
-      type: object
     Reply:
       description: A reply to a comment on a file. Some resource methods (such as `replies.update`) require a `replyId`. Use the `replies.list` method to retrieve the ID for a reply.
       properties:
@@ -656,6 +633,29 @@ components:
         modifiedTime:
           description: The last time the reply was modified (RFC 3339 date-time).
           format: date-time
+          type: string
+      type: object
+    User:
+      description: Information about a Drive user.
+      properties:
+        displayName:
+          description: Output only. A plain text displayable name for this user.
+          type: string
+        emailAddress:
+          description: Output only. The email address of the user. This may not be present in certain contexts if the user has not made their email address visible to the requester.
+          type: string
+        kind:
+          default: drive#user
+          description: 'Output only. Identifies what kind of resource this is. Value: the fixed string `"drive#user"`.'
+          type: string
+        me:
+          description: Output only. Whether this user is the requesting user.
+          type: boolean
+        permissionId:
+          description: Output only. The user's ID as visible in Permission resources.
+          type: string
+        photoLink:
+          description: Output only. A link to the user's profile photo, if available.
           type: string
       type: object
     ReplyList:

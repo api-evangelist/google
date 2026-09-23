@@ -61,6 +61,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersMessagesUntrashPostResponseExample
+      operationId: postGmailV1UsersByUserIdMessagesByIdUntrash
+      x-operation-id-source: derived
   /gmail/v1/users/{userId}/messages/{id}/modify:
     post:
       tags:
@@ -118,12 +120,14 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersMessagesModifyPostResponseExample
+      operationId: postGmailV1UsersByUserIdMessagesByIdModify
+      x-operation-id-source: derived
   /gmail/v1/users/{userId}/messages/send:
     post:
       tags:
       - Messages
       summary: Google Send Messages
-      description: Sends the specified message to the recipients in the `To`, `Cc`, and `Bcc` headers. For example usage, see [Sending email](https://developers.google.com/gmail/api/guides/sending).
+      description: Sends the specified message to the recipients in the `To`, `Cc`, and `Bcc` headers. For example usage, see Sending email.
       parameters:
       - name: Content-Type
         in: header
@@ -168,8 +172,34 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersMessagesSendPostResponseExample
+      operationId: postGmailV1UsersByUserIdMessagesSend
+      x-operation-id-source: derived
 components:
   schemas:
+    UsersMessagesModifyPostResponse:
+      description: UsersMessagesModifyPostResponse schema
+      type: object
+      properties:
+        id:
+          type: string
+        threadId:
+          type: string
+        labelIds:
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        internalDate:
+          type: string
+        payload:
+          $ref: '#/components/schemas/UsersMessagesModifyPostResponsePayload'
+        sizeEstimate:
+          type: integer
+        raw:
+          type: string
     UsersMessagesSendPostResponsePayloadBody:
       description: UsersMessagesSendPostResponsePayloadBody schema
       type: object
@@ -179,6 +209,40 @@ components:
         size:
           type: integer
         data:
+          type: string
+    UsersMessagesModifyPostRequest:
+      description: UsersMessagesModifyPostRequest schema
+      type: object
+      example:
+        addLabelIds:
+        - qui eu do ex
+        - do sit esse dolor proident
+        removeLabelIds:
+        - Lorem sit
+        - sed
+    UsersMessagesSendPostResponse:
+      description: UsersMessagesSendPostResponse schema
+      type: object
+      properties:
+        id:
+          type: string
+        threadId:
+          type: string
+        labelIds:
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        internalDate:
+          type: string
+        payload:
+          $ref: '#/components/schemas/UsersMessagesSendPostResponsePayload'
+        sizeEstimate:
+          type: integer
+        raw:
           type: string
     UsersMessagesSendPostResponsePayload:
       description: UsersMessagesSendPostResponsePayload schema
@@ -208,15 +272,29 @@ components:
             properties:
               value:
                 type: string
-    UsersMessagesModifyPostResponsePayloadBody:
-      description: UsersMessagesModifyPostResponsePayloadBody schema
+    UsersMessagesUntrashPostResponse:
+      description: UsersMessagesUntrashPostResponse schema
       type: object
       properties:
-        attachmentId:
+        id:
           type: string
-        size:
+        threadId:
+          type: string
+        labelIds:
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        internalDate:
+          type: string
+        payload:
+          $ref: '#/components/schemas/UsersMessagesUntrashPostResponsePayload'
+        sizeEstimate:
           type: integer
-        data:
+        raw:
           type: string
     UsersMessagesModifyPostResponsePayload:
       description: UsersMessagesModifyPostResponsePayload schema
@@ -246,6 +324,21 @@ components:
             properties:
               value:
                 type: string
+    UsersMessagesSendPostRequest:
+      description: UsersMessagesSendPostRequest schema
+      type: object
+      example:
+        raw: '{{encodedMessage}}'
+    UsersMessagesModifyPostResponsePayloadBody:
+      description: UsersMessagesModifyPostResponsePayloadBody schema
+      type: object
+      properties:
+        attachmentId:
+          type: string
+        size:
+          type: integer
+        data:
+          type: string
     UsersMessagesUntrashPostResponsePayloadBody:
       description: UsersMessagesUntrashPostResponsePayloadBody schema
       type: object
@@ -284,93 +377,6 @@ components:
             properties:
               value:
                 type: string
-    UsersMessagesSendPostRequest:
-      description: UsersMessagesSendPostRequest schema
-      type: object
-      example:
-        raw: '{{encodedMessage}}'
-    UsersMessagesSendPostResponse:
-      description: UsersMessagesSendPostResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/UsersMessagesSendPostResponsePayload'
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
-    UsersMessagesModifyPostRequest:
-      description: UsersMessagesModifyPostRequest schema
-      type: object
-      example:
-        addLabelIds:
-        - qui eu do ex
-        - do sit esse dolor proident
-        removeLabelIds:
-        - Lorem sit
-        - sed
-    UsersMessagesUntrashPostResponse:
-      description: UsersMessagesUntrashPostResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/UsersMessagesUntrashPostResponsePayload'
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
-    UsersMessagesModifyPostResponse:
-      description: UsersMessagesModifyPostResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/UsersMessagesModifyPostResponsePayload'
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
   examples:
     UsersMessagesSendPostResponseExample:
       summary: Successful 200 response

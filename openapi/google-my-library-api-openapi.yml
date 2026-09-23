@@ -802,35 +802,23 @@ components:
             textSnippet:
               type: string
               description: A text snippet containing the search query.
-    Error:
+    BookshelvesResponse:
       type: object
-      description: Error response
+      description: Response containing a list of bookshelves
+      required:
+      - kind
       properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-              description: HTTP status code
-              example: 404
-            message:
-              type: string
-              description: Error message
-              example: User not found
-            errors:
-              type: array
-              items:
-                type: object
-                properties:
-                  domain:
-                    type: string
-                    example: global
-                  reason:
-                    type: string
-                    example: notFound
-                  message:
-                    type: string
-                    example: User not found
+        kind:
+          type: string
+          description: Resource type
+          enum:
+          - books#bookshelves
+          example: books#bookshelves
+        items:
+          type: array
+          description: A list of bookshelves
+          items:
+            $ref: '#/components/schemas/Bookshelf'
     Bookshelf:
       type: object
       description: A bookshelf resource represents the metadata for a bookshelf, it does not include the volumes in the bookshelf
@@ -884,6 +872,35 @@ components:
           format: date-time
           description: Last time a volume was added or removed from this bookshelf (formatted UTC timestamp with millisecond resolution)
           example: '2024-01-15T10:30:00.000Z'
+    Error:
+      type: object
+      description: Error response
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: HTTP status code
+              example: 404
+            message:
+              type: string
+              description: Error message
+              example: User not found
+            errors:
+              type: array
+              items:
+                type: object
+                properties:
+                  domain:
+                    type: string
+                    example: global
+                  reason:
+                    type: string
+                    example: notFound
+                  message:
+                    type: string
+                    example: User not found
     VolumesResponse:
       type: object
       description: Response containing a list of volumes from a search
@@ -905,23 +922,6 @@ components:
           description: A list of volumes
           items:
             $ref: '#/components/schemas/Volume'
-    BookshelvesResponse:
-      type: object
-      description: Response containing a list of bookshelves
-      required:
-      - kind
-      properties:
-        kind:
-          type: string
-          description: Resource type
-          enum:
-          - books#bookshelves
-          example: books#bookshelves
-        items:
-          type: array
-          description: A list of bookshelves
-          items:
-            $ref: '#/components/schemas/Bookshelf'
   securitySchemes:
     OAuth2:
       type: oauth2

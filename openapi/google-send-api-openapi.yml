@@ -48,6 +48,8 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SuccessExample
+      operationId: postGmailV1UsersByUserIdSettingsSendAsBySendAsEmailVerify
+      x-operation-id-source: derived
   /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}:
     put:
       tags:
@@ -105,30 +107,10 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersSettingsSendAsPutResponseExample
+      operationId: putGmailV1UsersByUserIdSettingsSendAsBySendAsEmail
+      x-operation-id-source: derived
 components:
   schemas:
-    UsersSettingsSendAsPutResponse:
-      description: UsersSettingsSendAsPutResponse schema
-      type: object
-      properties:
-        sendAsEmail:
-          type: string
-        displayName:
-          type: string
-        replyToAddress:
-          type: string
-        signature:
-          type: string
-        isPrimary:
-          type: boolean
-        isDefault:
-          type: boolean
-        treatAsAlias:
-          type: boolean
-        smtpMsa:
-          $ref: '#/components/schemas/UsersSettingsSendAsPutResponseSmtpMsa'
-        verificationStatus:
-          type: string
     UsersSettingsSendAsPutResponseSmtpMsa:
       description: UsersSettingsSendAsPutResponseSmtpMsa schema
       type: object
@@ -161,6 +143,28 @@ components:
           password: tempor dolor velit
           securityMode: securityModeUnspecified
         verificationStatus: pending
+    UsersSettingsSendAsPutResponse:
+      description: UsersSettingsSendAsPutResponse schema
+      type: object
+      properties:
+        sendAsEmail:
+          type: string
+        displayName:
+          type: string
+        replyToAddress:
+          type: string
+        signature:
+          type: string
+        isPrimary:
+          type: boolean
+        isDefault:
+          type: boolean
+        treatAsAlias:
+          type: boolean
+        smtpMsa:
+          $ref: '#/components/schemas/UsersSettingsSendAsPutResponseSmtpMsa'
+        verificationStatus:
+          type: string
   examples:
     UsersSettingsSendAsPutResponseExample:
       summary: Successful 200 response

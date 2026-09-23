@@ -69,12 +69,14 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: UsersSettingsSendAsPatchResponseExample
+      operationId: patchGmailV1UsersByUserIdSettingsSendAsBySendAsEmail
+      x-operation-id-source: derived
   /gmail/v1/users/{userId}/settings/cse/identities/{emailAddress}:
     patch:
       tags:
       - Patch
       summary: Google PATCH CSE Identites
-      description: Associates a different key pair with an existing client-side encryption identity. The updated key pair must validate against Google's [S/MIME certificate profiles](https://support.google.com/a/answer/7300887).
+      description: Associates a different key pair with an existing client-side encryption identity. The updated key pair must validate against Google's S/MIME certificate profiles.
       parameters:
       - name: Content-Type
         in: header
@@ -126,7 +128,91 @@ paths:
         delay: 100
         dispatcher: FALLBACK
         dispatcherRules: SettingsCseIdentitiesPatchResponseExample
+      operationId: patchGmailV1UsersByUserIdSettingsCseIdentitiesByEmailAddress
+      x-operation-id-source: derived
 components:
+  schemas:
+    UsersSettingsSendAsPatchResponse:
+      description: UsersSettingsSendAsPatchResponse schema
+      type: object
+      properties:
+        sendAsEmail:
+          type: string
+        displayName:
+          type: string
+        replyToAddress:
+          type: string
+        signature:
+          type: string
+        isPrimary:
+          type: boolean
+        isDefault:
+          type: boolean
+        treatAsAlias:
+          type: boolean
+        smtpMsa:
+          $ref: '#/components/schemas/UsersSettingsSendAsPatchResponseSmtpMsa'
+        verificationStatus:
+          type: string
+    UsersSettingsSendAsPatchResponseSmtpMsa:
+      description: UsersSettingsSendAsPatchResponseSmtpMsa schema
+      type: object
+      properties:
+        host:
+          type: string
+        port:
+          type: integer
+        username:
+          type: string
+        password:
+          type: string
+        securityMode:
+          type: string
+    SettingsCseIdentitiesPatchResponseSignAndEncryptKeyPairs:
+      description: SettingsCseIdentitiesPatchResponseSignAndEncryptKeyPairs schema
+      type: object
+      properties:
+        signingKeyPairId:
+          type: string
+        encryptionKeyPairId:
+          type: string
+    SettingsCseIdentitiesPatchRequest:
+      description: SettingsCseIdentitiesPatchRequest schema
+      type: object
+      example:
+        emailAddress: aliquip quis id
+        primaryKeyPairId: in exercitation esse
+        signAndEncryptKeyPairs:
+          signingKeyPairId: est deserunt
+          encryptionKeyPairId: elit nulla esse ut
+    SettingsCseIdentitiesPatchResponse:
+      description: SettingsCseIdentitiesPatchResponse schema
+      type: object
+      properties:
+        emailAddress:
+          type: string
+        primaryKeyPairId:
+          type: string
+        signAndEncryptKeyPairs:
+          $ref: '#/components/schemas/SettingsCseIdentitiesPatchResponseSignAndEncryptKeyPairs'
+    UsersSettingsSendAsPatchRequest:
+      description: UsersSettingsSendAsPatchRequest schema
+      type: object
+      example:
+        sendAsEmail: ut nulla
+        displayName: Excepteur
+        replyToAddress: velit id culpa
+        signature: officia quis adipisicing
+        isPrimary: true
+        isDefault: true
+        treatAsAlias: false
+        smtpMsa:
+          host: in elit
+          port: -34532702
+          username: aliqua laborum aliquip do
+          password: tempor dolor velit
+          securityMode: securityModeUnspecified
+        verificationStatus: pending
   examples:
     UsersSettingsSendAsPatchResponseExample:
       summary: Successful 200 response
@@ -153,88 +239,6 @@ components:
         signAndEncryptKeyPairs:
           signingKeyPairId: est deserunt
           encryptionKeyPairId: elit nulla esse ut
-  schemas:
-    UsersSettingsSendAsPatchResponseSmtpMsa:
-      description: UsersSettingsSendAsPatchResponseSmtpMsa schema
-      type: object
-      properties:
-        host:
-          type: string
-        port:
-          type: integer
-        username:
-          type: string
-        password:
-          type: string
-        securityMode:
-          type: string
-    SettingsCseIdentitiesPatchRequest:
-      description: SettingsCseIdentitiesPatchRequest schema
-      type: object
-      example:
-        emailAddress: aliquip quis id
-        primaryKeyPairId: in exercitation esse
-        signAndEncryptKeyPairs:
-          signingKeyPairId: est deserunt
-          encryptionKeyPairId: elit nulla esse ut
-    SettingsCseIdentitiesPatchResponse:
-      description: SettingsCseIdentitiesPatchResponse schema
-      type: object
-      properties:
-        emailAddress:
-          type: string
-        primaryKeyPairId:
-          type: string
-        signAndEncryptKeyPairs:
-          $ref: '#/components/schemas/SettingsCseIdentitiesPatchResponseSignAndEncryptKeyPairs'
-    UsersSettingsSendAsPatchResponse:
-      description: UsersSettingsSendAsPatchResponse schema
-      type: object
-      properties:
-        sendAsEmail:
-          type: string
-        displayName:
-          type: string
-        replyToAddress:
-          type: string
-        signature:
-          type: string
-        isPrimary:
-          type: boolean
-        isDefault:
-          type: boolean
-        treatAsAlias:
-          type: boolean
-        smtpMsa:
-          $ref: '#/components/schemas/UsersSettingsSendAsPatchResponseSmtpMsa'
-        verificationStatus:
-          type: string
-    UsersSettingsSendAsPatchRequest:
-      description: UsersSettingsSendAsPatchRequest schema
-      type: object
-      example:
-        sendAsEmail: ut nulla
-        displayName: Excepteur
-        replyToAddress: velit id culpa
-        signature: officia quis adipisicing
-        isPrimary: true
-        isDefault: true
-        treatAsAlias: false
-        smtpMsa:
-          host: in elit
-          port: -34532702
-          username: aliqua laborum aliquip do
-          password: tempor dolor velit
-          securityMode: securityModeUnspecified
-        verificationStatus: pending
-    SettingsCseIdentitiesPatchResponseSignAndEncryptKeyPairs:
-      description: SettingsCseIdentitiesPatchResponseSignAndEncryptKeyPairs schema
-      type: object
-      properties:
-        signingKeyPairId:
-          type: string
-        encryptionKeyPairId:
-          type: string
   securitySchemes:
     oauth2Auth:
       type: http
