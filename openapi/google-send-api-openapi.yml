@@ -110,21 +110,25 @@ paths:
       operationId: putGmailV1UsersByUserIdSettingsSendAsBySendAsEmail
       x-operation-id-source: derived
 components:
+  examples:
+    UsersSettingsSendAsPutResponseExample:
+      summary: Successful 200 response
+      value:
+        sendAsEmail: ut nulla
+        displayName: Excepteur
+        replyToAddress: velit id culpa
+        signature: officia quis adipisicing
+        isPrimary: true
+        isDefault: true
+        treatAsAlias: false
+        smtpMsa:
+          host: in elit
+          port: -34532702
+          username: aliqua laborum aliquip do
+          password: tempor dolor velit
+          securityMode: securityModeUnspecified
+        verificationStatus: pending
   schemas:
-    UsersSettingsSendAsPutResponseSmtpMsa:
-      description: UsersSettingsSendAsPutResponseSmtpMsa schema
-      type: object
-      properties:
-        host:
-          type: string
-        port:
-          type: integer
-        username:
-          type: string
-        password:
-          type: string
-        securityMode:
-          type: string
     UsersSettingsSendAsPutRequest:
       description: UsersSettingsSendAsPutRequest schema
       type: object
@@ -143,6 +147,20 @@ components:
           password: tempor dolor velit
           securityMode: securityModeUnspecified
         verificationStatus: pending
+    UsersSettingsSendAsPutResponseSmtpMsa:
+      description: UsersSettingsSendAsPutResponseSmtpMsa schema
+      type: object
+      properties:
+        host:
+          type: string
+        port:
+          type: integer
+        username:
+          type: string
+        password:
+          type: string
+        securityMode:
+          type: string
     UsersSettingsSendAsPutResponse:
       description: UsersSettingsSendAsPutResponse schema
       type: object
@@ -165,24 +183,6 @@ components:
           $ref: '#/components/schemas/UsersSettingsSendAsPutResponseSmtpMsa'
         verificationStatus:
           type: string
-  examples:
-    UsersSettingsSendAsPutResponseExample:
-      summary: Successful 200 response
-      value:
-        sendAsEmail: ut nulla
-        displayName: Excepteur
-        replyToAddress: velit id culpa
-        signature: officia quis adipisicing
-        isPrimary: true
-        isDefault: true
-        treatAsAlias: false
-        smtpMsa:
-          host: in elit
-          port: -34532702
-          username: aliqua laborum aliquip do
-          password: tempor dolor velit
-          securityMode: securityModeUnspecified
-        verificationStatus: pending
   securitySchemes:
     oauth2Auth:
       type: http

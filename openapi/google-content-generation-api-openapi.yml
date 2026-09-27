@@ -76,6 +76,92 @@ paths:
         dispatcherRules: ModelsPostResponseExample
 components:
   schemas:
+    ThinkingConfig:
+      type: object
+      description: Configuration for thinking mode in Gemini 2.5 models
+      properties:
+        thinkingBudget:
+          type: integer
+          description: Thinking budget, set to 0 to disable thinking
+          minimum: 0
+          default: null
+    Part:
+      type: object
+      description: A part of the content, can be text, inline data, or file data
+      oneOf:
+      - type: object
+        required:
+        - text
+        properties:
+          text:
+            type: string
+            description: Text content
+      - type: object
+        required:
+        - inline_data
+        properties:
+          inline_data:
+            $ref: '#/components/schemas/InlineData'
+      - type: object
+        required:
+        - file_data
+        properties:
+          file_data:
+            $ref: '#/components/schemas/FileData'
+          video_metadata:
+            $ref: '#/components/schemas/VideoMetadata'
+            description: Optional metadata for video processing (clipping, FPS)
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: HTTP status code
+            message:
+              type: string
+              description: Error message
+            status:
+              type: string
+              description: Error status
+    FileData:
+      type: object
+      description: Reference to a file uploaded via the File API or a YouTube URL
+      properties:
+        mime_type:
+          type: string
+          description: MIME type of the file (optional for YouTube URLs)
+          example: video/mp4
+        file_uri:
+          type: string
+          description: URI of the file from File API or YouTube URL
+          examples:
+          - https://generativelanguage.googleapis.com/v1beta/files/abc123
+          - https://www.youtube.com/watch?v=9hE5-98ZeCg
+      required:
+      - file_uri
+    VideoMetadata:
+      type: object
+      description: Metadata for customizing video processing
+      properties:
+        start_offset:
+          type: string
+          description: Start time offset for video clipping (format like "1250s")
+          pattern: ^\d+s$
+          example: 1250s
+        end_offset:
+          type: string
+          description: End time offset for video clipping (format like "1570s")
+          pattern: ^\d+s$
+          example: 1570s
+        fps:
+          type: number
+          format: float
+          description: Custom frame rate sampling (frames per second). Default is 1 FPS. Use <1 for long videos, >1 for rapidly changing visuals
+          minimum: 0.1
+          example: 5
     InlineData:
       type: object
       required:
@@ -109,49 +195,6 @@ components:
           type: string
           format: byte
           description: Base64 encoded data
-    Content:
-      type: object
-      properties:
-        role:
-          type: string
-          enum:
-          - user
-          - model
-          description: The role of the content producer (optional for single-turn, required for multi-turn)
-        parts:
-          type: array
-          description: Ordered parts that constitute a single message
-          items:
-            $ref: '#/components/schemas/Part'
-      required:
-      - parts
-    ModelsPostResponse:
-      type: string
-      description: Server-Sent Events stream of GenerateContentResponse objects
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-              description: HTTP status code
-            message:
-              type: string
-              description: Error message
-            status:
-              type: string
-              description: Error status
-    ThinkingConfig:
-      type: object
-      description: Configuration for thinking mode in Gemini 2.5 models
-      properties:
-        thinkingBudget:
-          type: integer
-          description: Thinking budget, set to 0 to disable thinking
-          minimum: 0
-          default: null
     GenerationConfig:
       type: object
       description: Configuration options for model generation and outputs
@@ -197,6 +240,25 @@ components:
           type: object
           description: JSON schema for structured output format
           additionalProperties: true
+    Content:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+          - user
+          - model
+          description: The role of the content producer (optional for single-turn, required for multi-turn)
+        parts:
+          type: array
+          description: Ordered parts that constitute a single message
+          items:
+            $ref: '#/components/schemas/Part'
+      required:
+      - parts
+    ModelsPostResponse:
+      type: string
+      description: Server-Sent Events stream of GenerateContentResponse objects
     GenerateContentRequest:
       type: object
       required:
@@ -213,68 +275,6 @@ components:
         generationConfig:
           $ref: '#/components/schemas/GenerationConfig'
           description: Configuration options for model generation
-    Part:
-      type: object
-      description: A part of the content, can be text, inline data, or file data
-      oneOf:
-      - type: object
-        required:
-        - text
-        properties:
-          text:
-            type: string
-            description: Text content
-      - type: object
-        required:
-        - inline_data
-        properties:
-          inline_data:
-            $ref: '#/components/schemas/InlineData'
-      - type: object
-        required:
-        - file_data
-        properties:
-          file_data:
-            $ref: '#/components/schemas/FileData'
-          video_metadata:
-            $ref: '#/components/schemas/VideoMetadata'
-            description: Optional metadata for video processing (clipping, FPS)
-    VideoMetadata:
-      type: object
-      description: Metadata for customizing video processing
-      properties:
-        start_offset:
-          type: string
-          description: Start time offset for video clipping (format like "1250s")
-          pattern: ^\d+s$
-          example: 1250s
-        end_offset:
-          type: string
-          description: End time offset for video clipping (format like "1570s")
-          pattern: ^\d+s$
-          example: 1570s
-        fps:
-          type: number
-          format: float
-          description: Custom frame rate sampling (frames per second). Default is 1 FPS. Use <1 for long videos, >1 for rapidly changing visuals
-          minimum: 0.1
-          example: 5
-    FileData:
-      type: object
-      description: Reference to a file uploaded via the File API or a YouTube URL
-      properties:
-        mime_type:
-          type: string
-          description: MIME type of the file (optional for YouTube URLs)
-          example: video/mp4
-        file_uri:
-          type: string
-          description: URI of the file from File API or YouTube URL
-          examples:
-          - https://generativelanguage.googleapis.com/v1beta/files/abc123
-          - https://www.youtube.com/watch?v=9hE5-98ZeCg
-      required:
-      - file_uri
   examples:
     ModelsPostResponseExample:
       summary: Successful 200 response

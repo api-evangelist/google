@@ -135,70 +135,7 @@ paths:
         dispatcher: FALLBACK
         dispatcherRules: MeSettingsWatchPostResponseExample
 components:
-  examples:
-    UsersMeSettingsGetResponseExample:
-      summary: Successful 200 response
-      value:
-        etag: in officia sed exercitation sit
-        items:
-        - etag: do commodo
-          id: dolor Ut
-          kind: calendar#setting
-          value: non labore occaecat ut
-        - etag: culpa labore ut
-          id: ullamco ut quis
-          kind: calendar#setting
-          value: laborum consectetur eu in
-        kind: calendar#settings
-        nextPageToken: ullamco
-        nextSyncToken: mag
-    UsersMeSettingsGetResponse1Example:
-      summary: Successful 200 response
-      value:
-        etag: nisi cupidatat non dolor
-        id: sint velit sit
-        kind: calendar#setting
-        value: in
-    MeSettingsWatchPostResponseExample:
-      summary: Successful 200 response
-      value:
-        address: incididunt sed consequat
-        expiration: velit ad aliq
-        id: velit eiusmod
-        kind: api#channel
-        params:
-          reprehenderit5c: non
-          sint_b: cupidatat do
-        payload: false
-        resourceId: aute
-        resourceUri: fugiat consequat
-        token: ullamco officia in
-        type: ex eiusmod adipisicing mollit
   schemas:
-    MeSettingsWatchPostResponse:
-      description: MeSettingsWatchPostResponse schema
-      type: object
-      properties:
-        address:
-          type: string
-        expiration:
-          type: string
-        id:
-          type: string
-        kind:
-          type: string
-        params:
-          $ref: '#/components/schemas/MeSettingsWatchPostResponseParams'
-        payload:
-          type: boolean
-        resourceId:
-          type: string
-        resourceUri:
-          type: string
-        token:
-          type: string
-        type:
-          type: string
     UsersMeSettingsGetResponse:
       description: UsersMeSettingsGetResponse schema
       type: object
@@ -224,6 +161,14 @@ components:
           type: string
         nextSyncToken:
           type: string
+    MeSettingsWatchPostResponseParams:
+      description: MeSettingsWatchPostResponseParams schema
+      type: object
+      properties:
+        reprehenderit5c:
+          type: string
+        sint_b:
+          type: string
     MeSettingsWatchPostRequest:
       description: MeSettingsWatchPostRequest schema
       type: object
@@ -240,6 +185,30 @@ components:
         resourceUri: fugiat consequat
         token: ullamco officia in
         type: ex eiusmod adipisicing mollit
+    MeSettingsWatchPostResponse:
+      description: MeSettingsWatchPostResponse schema
+      type: object
+      properties:
+        address:
+          type: string
+        expiration:
+          type: string
+        id:
+          type: string
+        kind:
+          type: string
+        params:
+          $ref: '#/components/schemas/MeSettingsWatchPostResponseParams'
+        payload:
+          type: boolean
+        resourceId:
+          type: string
+        resourceUri:
+          type: string
+        token:
+          type: string
+        type:
+          type: string
     UsersMeSettingsGetResponse1:
       description: UsersMeSettingsGetResponse1 schema
       type: object
@@ -252,14 +221,45 @@ components:
           type: string
         value:
           type: string
-    MeSettingsWatchPostResponseParams:
-      description: MeSettingsWatchPostResponseParams schema
-      type: object
-      properties:
-        reprehenderit5c:
-          type: string
-        sint_b:
-          type: string
+  examples:
+    UsersMeSettingsGetResponseExample:
+      summary: Successful 200 response
+      value:
+        etag: in officia sed exercitation sit
+        items:
+        - etag: do commodo
+          id: dolor Ut
+          kind: calendar#setting
+          value: non labore occaecat ut
+        - etag: culpa labore ut
+          id: ullamco ut quis
+          kind: calendar#setting
+          value: laborum consectetur eu in
+        kind: calendar#settings
+        nextPageToken: ullamco
+        nextSyncToken: mag
+    MeSettingsWatchPostResponseExample:
+      summary: Successful 200 response
+      value:
+        address: incididunt sed consequat
+        expiration: velit ad aliq
+        id: velit eiusmod
+        kind: api#channel
+        params:
+          reprehenderit5c: non
+          sint_b: cupidatat do
+        payload: false
+        resourceId: aute
+        resourceUri: fugiat consequat
+        token: ullamco officia in
+        type: ex eiusmod adipisicing mollit
+    UsersMeSettingsGetResponse1Example:
+      summary: Successful 200 response
+      value:
+        etag: nisi cupidatat non dolor
+        id: sint velit sit
+        kind: calendar#setting
+        value: in
   securitySchemes:
     oauth2Auth:
       type: http

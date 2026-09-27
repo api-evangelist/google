@@ -373,6 +373,13 @@ paths:
       description: Google Sheets API Server
 components:
   schemas:
+    UsersMessagesBatchDeletePostRequest:
+      description: UsersMessagesBatchDeletePostRequest schema
+      type: object
+      example:
+        ids:
+        - labore conseq
+        - sit
     UsersMessagesBatchModifyPostRequest:
       description: UsersMessagesBatchModifyPostRequest schema
       type: object
@@ -386,13 +393,54 @@ components:
         removeLabelIds:
         - do anim ad nulla
         - minim irure
-    UsersMessagesBatchDeletePostRequest:
-      description: UsersMessagesBatchDeletePostRequest schema
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColor:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColor schema
+      type: object
+      properties:
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesSpreadsheetTheme:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesSpreadsheetTheme schema
+      type: object
+      properties:
+        primaryFontFamily:
+          type: string
+        themeColors:
+          type: array
+          items:
+            type: object
+            properties:
+              color:
+                type: object
+                properties:
+                  rgbColor:
+                    type: object
+                    properties:
+                      alpha:
+                        type: number
+                      blue:
+                        type: number
+                      green:
+                        type: number
+                      red:
+                        type: number
+                  themeColor:
+                    type: string
+              colorType:
+                type: string
+    SpreadsheetsValuesbatchClearPostRequest:
+      description: SpreadsheetsValuesbatchClearPostRequest schema
       type: object
       example:
-        ids:
-        - labore conseq
-        - sit
+        ranges:
+        - nostrud sunt reprehenderit proident cillum
+        - laborum eiusmod dolor ali
     SpreadsheetsPostRequest1:
       description: SpreadsheetsPostRequest1 schema
       type: object
@@ -6353,6 +6401,70 @@ components:
         responseIncludeGridData: true
         responseRanges:
         - reprehenderit consectetur
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColorStyleRgbColor:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColorStyleRgbColor schema
+      type: object
+      properties:
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTop:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTop schema
+      type: object
+      properties:
+        color:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColor'
+        colorStyle:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColorStyle'
+        style:
+          type: string
+        width:
+          type: integer
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColorStyleRgbColor:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColorStyleRgbColor schema
+      type: object
+      properties:
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeft:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeft schema
+      type: object
+      properties:
+        color:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColor'
+        colorStyle:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColorStyle'
+        style:
+          type: string
+        width:
+          type: integer
+    SpreadsheetsValuesbatchUpdatePostRequest:
+      description: SpreadsheetsValuesbatchUpdatePostRequest schema
+      type: object
+      example: null
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColor:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColor schema
+      type: object
+      properties:
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
     SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColor:
       description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColor schema
       type: object
@@ -6365,106 +6477,14 @@ components:
           type: number
         red:
           type: number
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatNumberFormat:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatNumberFormat schema
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatLink:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatLink schema
       type: object
       properties:
-        pattern:
+        uri:
           type: string
-        type:
-          type: string
-    SpreadsheetsValuesbatchClearPostRequest:
-      description: SpreadsheetsValuesbatchClearPostRequest schema
-      type: object
-      example:
-        ranges:
-        - nostrud sunt reprehenderit proident cillum
-        - laborum eiusmod dolor ali
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColor:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColor schema
-      type: object
-      properties:
-        alpha:
-          type: number
-        blue:
-          type: number
-        green:
-          type: number
-        red:
-          type: number
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColorStyle:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColorStyle schema
-      type: object
-      properties:
-        rgbColor:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColorStyleRgbColor'
-        themeColor:
-          type: string
-    SpreadsheetsValuesbatchClearByDataFilterPostRequest:
-      description: SpreadsheetsValuesbatchClearByDataFilterPostRequest schema
-      type: object
-      example:
-        dataFilters:
-        - a1Range: commodo ea in ut
-          developerMetadataLookup:
-            locationMatchingStrategy: INTERSECTING_LOCATION
-            locationType: SHEET
-            metadataId: -27000770
-            metadataKey: ip
-            metadataLocation:
-              dimensionRange:
-                dimension: DIMENSION_UNSPECIFIED
-                endIndex: 91540263
-                sheetId: -64167623
-                startIndex: 63800966
-              locationType: DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED
-              sheetId: 46858270
-              spreadsheet: false
-            metadataValue: Excepteur
-            visibility: DOCUMENT
-          gridRange:
-            endColumnIndex: 6998754
-            endRowIndex: 43176042
-            sheetId: -9008085
-            startColumnIndex: -17508638
-            startRowIndex: 21352870
-        - a1Range: esse eiusmod
-          developerMetadataLookup:
-            locationMatchingStrategy: EXACT_LOCATION
-            locationType: SHEET
-            metadataId: -9620585
-            metadataKey: in
-            metadataLocation:
-              dimensionRange:
-                dimension: COLUMNS
-                endIndex: -85774445
-                sheetId: 81988143
-                startIndex: -35232572
-              locationType: SPREADSHEET
-              sheetId: -39029265
-              spreadsheet: false
-            metadataValue: voluptate adipisicing amet dolor
-            visibility: PROJECT
-          gridRange:
-            endColumnIndex: -87815739
-            endRowIndex: -52115573
-            sheetId: 67629865
-            startColumnIndex: 66943098
-            startRowIndex: 74725547
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatPadding:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatPadding schema
-      type: object
-      properties:
-        bottom:
-          type: integer
-        left:
-          type: integer
-        right:
-          type: integer
-        top:
-          type: integer
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColorStyleRgbColor:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColorStyleRgbColor schema
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColorStyleRgbColor:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColorStyleRgbColor schema
       type: object
       properties:
         alpha:
@@ -6487,135 +6507,6 @@ components:
           type: string
         width:
           type: integer
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColorStyleRgbColor:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColorStyleRgbColor schema
-      type: object
-      properties:
-        alpha:
-          type: number
-        blue:
-          type: number
-        green:
-          type: number
-        red:
-          type: number
-    SpreadsheetsValuesbatchUpdatePostRequest:
-      description: SpreadsheetsValuesbatchUpdatePostRequest schema
-      type: object
-      example: null
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColorStyleRgbColor:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColorStyleRgbColor schema
-      type: object
-      properties:
-        alpha:
-          type: number
-        blue:
-          type: number
-        green:
-          type: number
-        red:
-          type: number
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColor:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColor schema
-      type: object
-      properties:
-        alpha:
-          type: number
-        blue:
-          type: number
-        green:
-          type: number
-        red:
-          type: number
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormat:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormat schema
-      type: object
-      properties:
-        bold:
-          type: boolean
-        fontFamily:
-          type: string
-        fontSize:
-          type: integer
-        foregroundColor:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColor'
-        foregroundColorStyle:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColorStyle'
-        italic:
-          type: boolean
-        link:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatLink'
-        strikethrough:
-          type: boolean
-        underline:
-          type: boolean
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextRotation:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextRotation schema
-      type: object
-      properties:
-        angle:
-          type: integer
-        vertical:
-          type: boolean
-    SpreadsheetsValuesbatchGetGetResponse:
-      description: SpreadsheetsValuesbatchGetGetResponse schema
-      type: object
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormat:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormat schema
-      type: object
-      properties:
-        backgroundColor:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColor'
-        backgroundColorStyle:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColorStyle'
-        borders:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBorders'
-        horizontalAlignment:
-          type: string
-        hyperlinkDisplayType:
-          type: string
-        numberFormat:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatNumberFormat'
-        padding:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatPadding'
-        textDirection:
-          type: string
-        textFormat:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormat'
-        textRotation:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextRotation'
-        verticalAlignment:
-          type: string
-        wrapStrategy:
-          type: string
-    SpreadsheetsValuesbatchClearPostResponse:
-      description: SpreadsheetsValuesbatchClearPostResponse schema
-      type: object
-      properties:
-        clearedRanges:
-          type: array
-          items:
-            type: string
-        spreadsheetId:
-          type: string
-    SpreadsheetsValuesbatchClearByDataFilterPostResponse:
-      description: SpreadsheetsValuesbatchClearByDataFilterPostResponse schema
-      type: object
-      properties:
-        clearedRanges:
-          type: array
-          items:
-            type: string
-        spreadsheetId:
-          type: string
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColorStyle:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColorStyle schema
-      type: object
-      properties:
-        rgbColor:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColorStyleRgbColor'
-        themeColor:
-          type: string
     SpreadsheetsPostResponse1UpdatedSpreadsheet:
       description: SpreadsheetsPostResponse1UpdatedSpreadsheet schema
       type: object
@@ -12694,161 +12585,6 @@ components:
           type: string
         spreadsheetUrl:
           type: string
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColorStyleRgbColor:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColorStyleRgbColor schema
-      type: object
-      properties:
-        alpha:
-          type: number
-        blue:
-          type: number
-        green:
-          type: number
-        red:
-          type: number
-    SpreadsheetsPostResponse1UpdatedSpreadsheetProperties:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetProperties schema
-      type: object
-      properties:
-        autoRecalc:
-          type: string
-        defaultFormat:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormat'
-        iterativeCalculationSettings:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesIterativeCalculationSettings'
-        locale:
-          type: string
-        spreadsheetTheme:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesSpreadsheetTheme'
-        timeZone:
-          type: string
-        title:
-          type: string
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTop:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTop schema
-      type: object
-      properties:
-        color:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColor'
-        colorStyle:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColorStyle'
-        style:
-          type: string
-        width:
-          type: integer
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBorders:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBorders schema
-      type: object
-      properties:
-        bottom:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottom'
-        left:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeft'
-        right:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRight'
-        top:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTop'
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColorStyle:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColorStyle schema
-      type: object
-      properties:
-        rgbColor:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColorStyleRgbColor'
-        themeColor:
-          type: string
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColorStyle:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColorStyle schema
-      type: object
-      properties:
-        rgbColor:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColorStyleRgbColor'
-        themeColor:
-          type: string
-    SpreadsheetsValuesbatchUpdatePostResponse:
-      description: SpreadsheetsValuesbatchUpdatePostResponse schema
-      type: object
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeft:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeft schema
-      type: object
-      properties:
-        color:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColor'
-        colorStyle:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColorStyle'
-        style:
-          type: string
-        width:
-          type: integer
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColorStyleRgbColor:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColorStyleRgbColor schema
-      type: object
-      properties:
-        alpha:
-          type: number
-        blue:
-          type: number
-        green:
-          type: number
-        red:
-          type: number
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColorStyle:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColorStyle schema
-      type: object
-      properties:
-        rgbColor:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColorStyleRgbColor'
-        themeColor:
-          type: string
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColorStyleRgbColor:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColorStyleRgbColor schema
-      type: object
-      properties:
-        alpha:
-          type: number
-        blue:
-          type: number
-        green:
-          type: number
-        red:
-          type: number
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColorStyle:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColorStyle schema
-      type: object
-      properties:
-        rgbColor:
-          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColorStyleRgbColor'
-        themeColor:
-          type: string
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColor:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColor schema
-      type: object
-      properties:
-        alpha:
-          type: number
-        blue:
-          type: number
-        green:
-          type: number
-        red:
-          type: number
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatLink:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatLink schema
-      type: object
-      properties:
-        uri:
-          type: string
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColor:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColor schema
-      type: object
-      properties:
-        alpha:
-          type: number
-        blue:
-          type: number
-        green:
-          type: number
-        red:
-          type: number
     SpreadsheetsPostResponse1:
       description: SpreadsheetsPostResponse1 schema
       type: object
@@ -18632,45 +18368,8 @@ components:
           type: string
         updatedSpreadsheet:
           $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheet'
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesSpreadsheetTheme:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesSpreadsheetTheme schema
-      type: object
-      properties:
-        primaryFontFamily:
-          type: string
-        themeColors:
-          type: array
-          items:
-            type: object
-            properties:
-              color:
-                type: object
-                properties:
-                  rgbColor:
-                    type: object
-                    properties:
-                      alpha:
-                        type: number
-                      blue:
-                        type: number
-                      green:
-                        type: number
-                      red:
-                        type: number
-                  themeColor:
-                    type: string
-              colorType:
-                type: string
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesIterativeCalculationSettings:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesIterativeCalculationSettings schema
-      type: object
-      properties:
-        convergenceThreshold:
-          type: number
-        maxIterations:
-          type: integer
-    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColor:
-      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColor schema
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColorStyleRgbColor:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColorStyleRgbColor schema
       type: object
       properties:
         alpha:
@@ -18681,6 +18380,127 @@ components:
           type: number
         red:
           type: number
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColor:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColor schema
+      type: object
+      properties:
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColorStyle:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColorStyle schema
+      type: object
+      properties:
+        rgbColor:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColorStyleRgbColor'
+        themeColor:
+          type: string
+    SpreadsheetsValuesbatchClearByDataFilterPostRequest:
+      description: SpreadsheetsValuesbatchClearByDataFilterPostRequest schema
+      type: object
+      example:
+        dataFilters:
+        - a1Range: commodo ea in ut
+          developerMetadataLookup:
+            locationMatchingStrategy: INTERSECTING_LOCATION
+            locationType: SHEET
+            metadataId: -27000770
+            metadataKey: ip
+            metadataLocation:
+              dimensionRange:
+                dimension: DIMENSION_UNSPECIFIED
+                endIndex: 91540263
+                sheetId: -64167623
+                startIndex: 63800966
+              locationType: DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED
+              sheetId: 46858270
+              spreadsheet: false
+            metadataValue: Excepteur
+            visibility: DOCUMENT
+          gridRange:
+            endColumnIndex: 6998754
+            endRowIndex: 43176042
+            sheetId: -9008085
+            startColumnIndex: -17508638
+            startRowIndex: 21352870
+        - a1Range: esse eiusmod
+          developerMetadataLookup:
+            locationMatchingStrategy: EXACT_LOCATION
+            locationType: SHEET
+            metadataId: -9620585
+            metadataKey: in
+            metadataLocation:
+              dimensionRange:
+                dimension: COLUMNS
+                endIndex: -85774445
+                sheetId: 81988143
+                startIndex: -35232572
+              locationType: SPREADSHEET
+              sheetId: -39029265
+              spreadsheet: false
+            metadataValue: voluptate adipisicing amet dolor
+            visibility: PROJECT
+          gridRange:
+            endColumnIndex: -87815739
+            endRowIndex: -52115573
+            sheetId: 67629865
+            startColumnIndex: 66943098
+            startRowIndex: 74725547
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColorStyleRgbColor:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColorStyleRgbColor schema
+      type: object
+      properties:
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormat:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormat schema
+      type: object
+      properties:
+        bold:
+          type: boolean
+        fontFamily:
+          type: string
+        fontSize:
+          type: integer
+        foregroundColor:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColor'
+        foregroundColorStyle:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColorStyle'
+        italic:
+          type: boolean
+        link:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatLink'
+        strikethrough:
+          type: boolean
+        underline:
+          type: boolean
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatNumberFormat:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatNumberFormat schema
+      type: object
+      properties:
+        pattern:
+          type: string
+        type:
+          type: string
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesIterativeCalculationSettings:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesIterativeCalculationSettings schema
+      type: object
+      properties:
+        convergenceThreshold:
+          type: number
+        maxIterations:
+          type: integer
     SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRight:
       description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRight schema
       type: object
@@ -18693,31 +18513,192 @@ components:
           type: string
         width:
           type: integer
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBorders:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBorders schema
+      type: object
+      properties:
+        bottom:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottom'
+        left:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeft'
+        right:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRight'
+        top:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTop'
+    SpreadsheetsValuesbatchGetGetResponse:
+      description: SpreadsheetsValuesbatchGetGetResponse schema
+      type: object
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColor:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColor schema
+      type: object
+      properties:
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColorStyleRgbColor:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColorStyleRgbColor schema
+      type: object
+      properties:
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColorStyle:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColorStyle schema
+      type: object
+      properties:
+        rgbColor:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColorStyleRgbColor'
+        themeColor:
+          type: string
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColorStyle:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColorStyle schema
+      type: object
+      properties:
+        rgbColor:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColorStyleRgbColor'
+        themeColor:
+          type: string
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColorStyle:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColorStyle schema
+      type: object
+      properties:
+        rgbColor:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColorStyleRgbColor'
+        themeColor:
+          type: string
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatPadding:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatPadding schema
+      type: object
+      properties:
+        bottom:
+          type: integer
+        left:
+          type: integer
+        right:
+          type: integer
+        top:
+          type: integer
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColor:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColor schema
+      type: object
+      properties:
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
+    SpreadsheetsValuesbatchUpdatePostResponse:
+      description: SpreadsheetsValuesbatchUpdatePostResponse schema
+      type: object
+    SpreadsheetsValuesbatchClearByDataFilterPostResponse:
+      description: SpreadsheetsValuesbatchClearByDataFilterPostResponse schema
+      type: object
+      properties:
+        clearedRanges:
+          type: array
+          items:
+            type: string
+        spreadsheetId:
+          type: string
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextRotation:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextRotation schema
+      type: object
+      properties:
+        angle:
+          type: integer
+        vertical:
+          type: boolean
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColorStyle:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColorStyle schema
+      type: object
+      properties:
+        rgbColor:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColorStyleRgbColor'
+        themeColor:
+          type: string
+    SpreadsheetsPostResponse1UpdatedSpreadsheetProperties:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetProperties schema
+      type: object
+      properties:
+        autoRecalc:
+          type: string
+        defaultFormat:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormat'
+        iterativeCalculationSettings:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesIterativeCalculationSettings'
+        locale:
+          type: string
+        spreadsheetTheme:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesSpreadsheetTheme'
+        timeZone:
+          type: string
+        title:
+          type: string
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColorStyle:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColorStyle schema
+      type: object
+      properties:
+        rgbColor:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColorStyleRgbColor'
+        themeColor:
+          type: string
+    SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormat:
+      description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormat schema
+      type: object
+      properties:
+        backgroundColor:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColor'
+        backgroundColorStyle:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColorStyle'
+        borders:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBorders'
+        horizontalAlignment:
+          type: string
+        hyperlinkDisplayType:
+          type: string
+        numberFormat:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatNumberFormat'
+        padding:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatPadding'
+        textDirection:
+          type: string
+        textFormat:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormat'
+        textRotation:
+          $ref: '#/components/schemas/SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextRotation'
+        verticalAlignment:
+          type: string
+        wrapStrategy:
+          type: string
+    SpreadsheetsValuesbatchClearPostResponse:
+      description: SpreadsheetsValuesbatchClearPostResponse schema
+      type: object
+      properties:
+        clearedRanges:
+          type: array
+          items:
+            type: string
+        spreadsheetId:
+          type: string
   examples:
-    SpreadsheetsValuesbatchGetGetResponseExample:
-      summary: Successful 200 response
-      value:
-        id: example-id
-        name: Example Name
     SpreadsheetsValuesbatchUpdatePostResponseExample:
       summary: Successful 200 response
       value:
         id: example-id
         name: Example Name
-    SpreadsheetsValuesbatchClearByDataFilterPostResponseExample:
-      summary: Successful 200 response
-      value:
-        clearedRanges:
-        - cillum
-        - dolo
-        spreadsheetId: in consequat
-    SpreadsheetsValuesbatchClearPostResponseExample:
-      summary: Successful 200 response
-      value:
-        clearedRanges:
-        - laboris in mollit
-        - magna adipisicing
-        spreadsheetId: cupidatat eiusmod commodo ad
     SpreadsheetsPostResponse1Example:
       summary: Successful 200 response
       value:
@@ -23853,6 +23834,25 @@ components:
                 title: quis id
           spreadsheetId: sit consequat exercitation
           spreadsheetUrl: laborum
+    SpreadsheetsValuesbatchGetGetResponseExample:
+      summary: Successful 200 response
+      value:
+        id: example-id
+        name: Example Name
+    SpreadsheetsValuesbatchClearPostResponseExample:
+      summary: Successful 200 response
+      value:
+        clearedRanges:
+        - laboris in mollit
+        - magna adipisicing
+        spreadsheetId: cupidatat eiusmod commodo ad
+    SpreadsheetsValuesbatchClearByDataFilterPostResponseExample:
+      summary: Successful 200 response
+      value:
+        clearedRanges:
+        - cillum
+        - dolo
+        spreadsheetId: in consequat
   securitySchemes:
     oauth2Auth:
       type: http

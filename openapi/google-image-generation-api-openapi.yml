@@ -72,163 +72,6 @@ paths:
         dispatcherRules: SuccessExample
 components:
   schemas:
-    InlineData:
-      type: object
-      required:
-      - mime_type
-      - data
-      properties:
-        mime_type:
-          type: string
-          description: MIME type of the data
-          enum:
-          - image/jpeg
-          - image/png
-          - image/webp
-          - video/mp4
-          - video/mpeg
-          - video/mov
-          - video/avi
-          - video/x-flv
-          - video/mpg
-          - video/webm
-          - video/wmv
-          - video/3gpp
-          - audio/wav
-          - audio/mp3
-          - audio/aiff
-          - audio/aac
-          - audio/ogg
-          - audio/flac
-          - application/pdf
-        data:
-          type: string
-          format: byte
-          description: Base64 encoded data
-    SafetyRating:
-      type: object
-      properties:
-        category:
-          type: string
-          enum:
-          - HARM_CATEGORY_UNSPECIFIED
-          - HARM_CATEGORY_DEROGATORY
-          - HARM_CATEGORY_TOXICITY
-          - HARM_CATEGORY_VIOLENCE
-          - HARM_CATEGORY_SEXUAL
-          - HARM_CATEGORY_MEDICAL
-          - HARM_CATEGORY_DANGEROUS
-          - HARM_CATEGORY_HARASSMENT
-          - HARM_CATEGORY_HATE_SPEECH
-          - HARM_CATEGORY_SEXUALLY_EXPLICIT
-          - HARM_CATEGORY_DANGEROUS_CONTENT
-        probability:
-          type: string
-          enum:
-          - HARM_PROBABILITY_UNSPECIFIED
-          - NEGLIGIBLE
-          - LOW
-          - MEDIUM
-          - HIGH
-    Content:
-      type: object
-      properties:
-        role:
-          type: string
-          enum:
-          - user
-          - model
-          description: The role of the content producer (optional for single-turn, required for multi-turn)
-        parts:
-          type: array
-          description: Ordered parts that constitute a single message
-          items:
-            $ref: '#/components/schemas/Part'
-      required:
-      - parts
-    ImageConfig:
-      type: object
-      description: Configuration for image generation parameters
-      properties:
-        aspectRatio:
-          type: string
-          description: Aspect ratio for generated images
-          enum:
-          - '1:1'
-          - '3:4'
-          - '4:3'
-          - '9:16'
-          - '16:9'
-          example: '16:9'
-        imageSize:
-          type: string
-          description: Size of generated images
-          enum:
-          - 1K
-          - 2K
-          - 4K
-          example: 2K
-    ImageGenerationConfig:
-      type: object
-      description: Configuration options for image generation
-      properties:
-        responseModalities:
-          type: array
-          description: Modalities to include in the response
-          items:
-            type: string
-            enum:
-            - TEXT
-            - IMAGE
-          example:
-          - TEXT
-          - IMAGE
-        imageConfig:
-          $ref: '#/components/schemas/ImageConfig'
-          description: Configuration for image generation
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-              description: HTTP status code
-            message:
-              type: string
-              description: Error message
-            status:
-              type: string
-              description: Error status
-    ImageContent:
-      type: object
-      properties:
-        role:
-          type: string
-          enum:
-          - user
-          - model
-          description: The role of the content producer
-        parts:
-          type: array
-          description: Ordered parts that constitute a single message (can include text and inline image data)
-          items:
-            $ref: '#/components/schemas/Part'
-      required:
-      - parts
-    UsageMetadata:
-      type: object
-      properties:
-        promptTokenCount:
-          type: integer
-          description: Number of tokens in the prompt
-        candidatesTokenCount:
-          type: integer
-          description: Number of tokens in generated candidates
-        totalTokenCount:
-          type: integer
-          description: Total token count
     Part:
       type: object
       description: A part of the content, can be text, inline data, or file data
@@ -279,6 +122,121 @@ components:
           items:
             $ref: '#/components/schemas/SafetyRating'
           description: Safety ratings for the generated content
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: HTTP status code
+            message:
+              type: string
+              description: Error message
+            status:
+              type: string
+              description: Error status
+    FileData:
+      type: object
+      description: Reference to a file uploaded via the File API or a YouTube URL
+      properties:
+        mime_type:
+          type: string
+          description: MIME type of the file (optional for YouTube URLs)
+          example: video/mp4
+        file_uri:
+          type: string
+          description: URI of the file from File API or YouTube URL
+          examples:
+          - https://generativelanguage.googleapis.com/v1beta/files/abc123
+          - https://www.youtube.com/watch?v=9hE5-98ZeCg
+      required:
+      - file_uri
+    SafetyRating:
+      type: object
+      properties:
+        category:
+          type: string
+          enum:
+          - HARM_CATEGORY_UNSPECIFIED
+          - HARM_CATEGORY_DEROGATORY
+          - HARM_CATEGORY_TOXICITY
+          - HARM_CATEGORY_VIOLENCE
+          - HARM_CATEGORY_SEXUAL
+          - HARM_CATEGORY_MEDICAL
+          - HARM_CATEGORY_DANGEROUS
+          - HARM_CATEGORY_HARASSMENT
+          - HARM_CATEGORY_HATE_SPEECH
+          - HARM_CATEGORY_SEXUALLY_EXPLICIT
+          - HARM_CATEGORY_DANGEROUS_CONTENT
+        probability:
+          type: string
+          enum:
+          - HARM_PROBABILITY_UNSPECIFIED
+          - NEGLIGIBLE
+          - LOW
+          - MEDIUM
+          - HIGH
+    PromptFeedback:
+      type: object
+      properties:
+        blockReason:
+          type: string
+          enum:
+          - BLOCK_REASON_UNSPECIFIED
+          - SAFETY
+          - OTHER
+          description: Reason why prompt was blocked
+        safetyRatings:
+          type: array
+          items:
+            $ref: '#/components/schemas/SafetyRating'
+          description: Safety ratings for the prompt
+    UsageMetadata:
+      type: object
+      properties:
+        promptTokenCount:
+          type: integer
+          description: Number of tokens in the prompt
+        candidatesTokenCount:
+          type: integer
+          description: Number of tokens in generated candidates
+        totalTokenCount:
+          type: integer
+          description: Total token count
+    ImageGenerationConfig:
+      type: object
+      description: Configuration options for image generation
+      properties:
+        responseModalities:
+          type: array
+          description: Modalities to include in the response
+          items:
+            type: string
+            enum:
+            - TEXT
+            - IMAGE
+          example:
+          - TEXT
+          - IMAGE
+        imageConfig:
+          $ref: '#/components/schemas/ImageConfig'
+          description: Configuration for image generation
+    ImageGenerationResponse:
+      type: object
+      properties:
+        candidates:
+          type: array
+          description: Generated content candidates with images
+          items:
+            $ref: '#/components/schemas/ImageCandidate'
+        promptFeedback:
+          $ref: '#/components/schemas/PromptFeedback'
+          description: Feedback about the prompt
+        usageMetadata:
+          $ref: '#/components/schemas/UsageMetadata'
+          description: Token usage information
     VideoMetadata:
       type: object
       description: Metadata for customizing video processing
@@ -299,6 +257,39 @@ components:
           description: Custom frame rate sampling (frames per second). Default is 1 FPS. Use <1 for long videos, >1 for rapidly changing visuals
           minimum: 0.1
           example: 5
+    InlineData:
+      type: object
+      required:
+      - mime_type
+      - data
+      properties:
+        mime_type:
+          type: string
+          description: MIME type of the data
+          enum:
+          - image/jpeg
+          - image/png
+          - image/webp
+          - video/mp4
+          - video/mpeg
+          - video/mov
+          - video/avi
+          - video/x-flv
+          - video/mpg
+          - video/webm
+          - video/wmv
+          - video/3gpp
+          - audio/wav
+          - audio/mp3
+          - audio/aiff
+          - audio/aac
+          - audio/ogg
+          - audio/flac
+          - application/pdf
+        data:
+          type: string
+          format: byte
+          description: Base64 encoded data
     ImageGenerationRequest:
       type: object
       required:
@@ -312,51 +303,60 @@ components:
         generationConfig:
           $ref: '#/components/schemas/ImageGenerationConfig'
           description: Configuration options for image generation
-    FileData:
+    ImageConfig:
       type: object
-      description: Reference to a file uploaded via the File API or a YouTube URL
+      description: Configuration for image generation parameters
       properties:
-        mime_type:
+        aspectRatio:
           type: string
-          description: MIME type of the file (optional for YouTube URLs)
-          example: video/mp4
-        file_uri:
+          description: Aspect ratio for generated images
+          enum:
+          - '1:1'
+          - '3:4'
+          - '4:3'
+          - '9:16'
+          - '16:9'
+          example: '16:9'
+        imageSize:
           type: string
-          description: URI of the file from File API or YouTube URL
-          examples:
-          - https://generativelanguage.googleapis.com/v1beta/files/abc123
-          - https://www.youtube.com/watch?v=9hE5-98ZeCg
-      required:
-      - file_uri
-    PromptFeedback:
+          description: Size of generated images
+          enum:
+          - 1K
+          - 2K
+          - 4K
+          example: 2K
+    ImageContent:
       type: object
       properties:
-        blockReason:
+        role:
           type: string
           enum:
-          - BLOCK_REASON_UNSPECIFIED
-          - SAFETY
-          - OTHER
-          description: Reason why prompt was blocked
-        safetyRatings:
+          - user
+          - model
+          description: The role of the content producer
+        parts:
           type: array
+          description: Ordered parts that constitute a single message (can include text and inline image data)
           items:
-            $ref: '#/components/schemas/SafetyRating'
-          description: Safety ratings for the prompt
-    ImageGenerationResponse:
+            $ref: '#/components/schemas/Part'
+      required:
+      - parts
+    Content:
       type: object
       properties:
-        candidates:
+        role:
+          type: string
+          enum:
+          - user
+          - model
+          description: The role of the content producer (optional for single-turn, required for multi-turn)
+        parts:
           type: array
-          description: Generated content candidates with images
+          description: Ordered parts that constitute a single message
           items:
-            $ref: '#/components/schemas/ImageCandidate'
-        promptFeedback:
-          $ref: '#/components/schemas/PromptFeedback'
-          description: Feedback about the prompt
-        usageMetadata:
-          $ref: '#/components/schemas/UsageMetadata'
-          description: Token usage information
+            $ref: '#/components/schemas/Part'
+      required:
+      - parts
   securitySchemes:
     ApiKeyHeader:
       type: apiKey

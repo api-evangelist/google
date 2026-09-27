@@ -49,6 +49,20 @@ paths:
         dispatcherRules: ColorsGetResponseExample
 components:
   schemas:
+    ColorsGetResponseCalendarLaborisaf:
+      description: ColorsGetResponseCalendarLaborisaf schema
+      type: object
+      properties:
+        background:
+          type: string
+        foreground:
+          type: string
+    ColorsGetResponseEvent:
+      description: ColorsGetResponseEvent schema
+      type: object
+      properties:
+        Excepteure8:
+          $ref: '#/components/schemas/ColorsGetResponseEventExcepteure8'
     ColorsGetResponse:
       description: ColorsGetResponse schema
       type: object
@@ -62,30 +76,6 @@ components:
         updated:
           type: string
           format: date-time
-    ColorsGetResponseCalendarQui15:
-      description: ColorsGetResponseCalendarQui15 schema
-      type: object
-      properties:
-        background:
-          type: string
-        foreground:
-          type: string
-    ColorsGetResponseCalendarLaborisaf:
-      description: ColorsGetResponseCalendarLaborisaf schema
-      type: object
-      properties:
-        background:
-          type: string
-        foreground:
-          type: string
-    ColorsGetResponseCalendarNulla2:
-      description: ColorsGetResponseCalendarNulla2 schema
-      type: object
-      properties:
-        background:
-          type: string
-        foreground:
-          type: string
     ColorsGetResponseCalendar:
       description: ColorsGetResponseCalendar schema
       type: object
@@ -96,6 +86,14 @@ components:
           $ref: '#/components/schemas/ColorsGetResponseCalendarNulla2'
         laborisaf:
           $ref: '#/components/schemas/ColorsGetResponseCalendarLaborisaf'
+    ColorsGetResponseCalendarNulla2:
+      description: ColorsGetResponseCalendarNulla2 schema
+      type: object
+      properties:
+        background:
+          type: string
+        foreground:
+          type: string
     ColorsGetResponseEventExcepteure8:
       description: ColorsGetResponseEventExcepteure8 schema
       type: object
@@ -104,12 +102,14 @@ components:
           type: string
         foreground:
           type: string
-    ColorsGetResponseEvent:
-      description: ColorsGetResponseEvent schema
+    ColorsGetResponseCalendarQui15:
+      description: ColorsGetResponseCalendarQui15 schema
       type: object
       properties:
-        Excepteure8:
-          $ref: '#/components/schemas/ColorsGetResponseEventExcepteure8'
+        background:
+          type: string
+        foreground:
+          type: string
   examples:
     ColorsGetResponseExample:
       summary: Successful 200 response

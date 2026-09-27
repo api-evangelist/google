@@ -66,46 +66,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    GmailUsersMessagesPostResponsePayloadBody:
-      description: GmailUsersMessagesPostResponsePayloadBody schema
-      type: object
-      properties:
-        attachmentId:
-          type: string
-        size:
-          type: integer
-        data:
-          type: string
-    GmailUsersMessagesPostRequest:
-      description: GmailUsersMessagesPostRequest schema
-      type: object
-      example:
-        id: eu incididunt laborum irure
-        threadId: magna Ut officia
-        labelIds:
-        - mollit amet dolore cupidatat
-        - cupidatat deserunt mollit
-        snippet: ut dolor
-        historyId: nisi tempor do
-        internalDate: cupidatat officia anim
-        payload:
-          partId: dolore velit incididunt est a
-          mimeType: sit dolor mollit
-          filename: ea commodo dolor nisi
-          headers:
-          - name: quis id velit laborum
-            value: et voluptate dolor ea
-          - name: sit nostrud
-            value: deserunt fugiat ex
-          body:
-            attachmentId: id nulla consequat
-            size: -93837667
-            data: ad in occaecat
-          parts:
-          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-        sizeEstimate: 21128811
-        raw: do laboris
     GmailUsersMessagesPostResponse:
       description: GmailUsersMessagesPostResponse schema
       type: object
@@ -158,6 +118,46 @@ components:
             properties:
               value:
                 type: string
+    GmailUsersMessagesPostResponsePayloadBody:
+      description: GmailUsersMessagesPostResponsePayloadBody schema
+      type: object
+      properties:
+        attachmentId:
+          type: string
+        size:
+          type: integer
+        data:
+          type: string
+    GmailUsersMessagesPostRequest:
+      description: GmailUsersMessagesPostRequest schema
+      type: object
+      example:
+        id: eu incididunt laborum irure
+        threadId: magna Ut officia
+        labelIds:
+        - mollit amet dolore cupidatat
+        - cupidatat deserunt mollit
+        snippet: ut dolor
+        historyId: nisi tempor do
+        internalDate: cupidatat officia anim
+        payload:
+          partId: dolore velit incididunt est a
+          mimeType: sit dolor mollit
+          filename: ea commodo dolor nisi
+          headers:
+          - name: quis id velit laborum
+            value: et voluptate dolor ea
+          - name: sit nostrud
+            value: deserunt fugiat ex
+          body:
+            attachmentId: id nulla consequat
+            size: -93837667
+            data: ad in occaecat
+          parts:
+          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+        sizeEstimate: 21128811
+        raw: do laboris
   examples:
     GmailUsersMessagesPostResponseExample:
       summary: Successful 200 response

@@ -139,6 +139,20 @@ paths:
       operationId: getGmailV1UsersByUserIdSettingsDelegates
       x-operation-id-source: derived
 components:
+  examples:
+    UsersSettingsDelegatesGetResponseExample:
+      summary: Successful 200 response
+      value:
+        delegateEmail: Duis commodo enim irure
+        verificationStatus: rejected
+    UsersSettingsDelegatesGetResponse1Example:
+      summary: Successful 200 response
+      value:
+        delegates:
+        - delegateEmail: 'veniam voluptate '
+          verificationStatus: accepted
+        - delegateEmail: qui ipsum
+          verificationStatus: expired
   schemas:
     UsersSettingsDelegatesGetResponse1:
       description: UsersSettingsDelegatesGetResponse1 schema
@@ -161,20 +175,6 @@ components:
           type: string
         verificationStatus:
           type: string
-  examples:
-    UsersSettingsDelegatesGetResponse1Example:
-      summary: Successful 200 response
-      value:
-        delegates:
-        - delegateEmail: 'veniam voluptate '
-          verificationStatus: accepted
-        - delegateEmail: qui ipsum
-          verificationStatus: expired
-    UsersSettingsDelegatesGetResponseExample:
-      summary: Successful 200 response
-      value:
-        delegateEmail: Duis commodo enim irure
-        verificationStatus: rejected
   securitySchemes:
     oauth2Auth:
       type: http

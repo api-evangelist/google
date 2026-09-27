@@ -73,16 +73,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    UsersThreadsModifyPostRequest:
-      description: UsersThreadsModifyPostRequest schema
-      type: object
-      example:
-        addLabelIds:
-        - labore anim culpa aliqua
-        - Duis sed irure Ut aliqua
-        removeLabelIds:
-        - consectetur et dolore Lorem
-        - reprehenderit tempor id dolore incididunt
     UsersThreadsModifyPostResponse:
       description: UsersThreadsModifyPostResponse schema
       type: object
@@ -150,6 +140,16 @@ components:
                 type: integer
               raw:
                 type: string
+    UsersThreadsModifyPostRequest:
+      description: UsersThreadsModifyPostRequest schema
+      type: object
+      example:
+        addLabelIds:
+        - labore anim culpa aliqua
+        - Duis sed irure Ut aliqua
+        removeLabelIds:
+        - consectetur et dolore Lorem
+        - reprehenderit tempor id dolore incididunt
   examples:
     UsersThreadsModifyPostResponseExample:
       summary: Successful 200 response

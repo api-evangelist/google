@@ -323,79 +323,7 @@ paths:
         dispatcher: FALLBACK
         dispatcherRules: CalendarsAclWatchPostResponseExample
 components:
-  examples:
-    CalendarsAclWatchPostResponseExample:
-      summary: Successful 200 response
-      value:
-        address: incididunt sed consequat
-        expiration: velit ad aliq
-        id: velit eiusmod
-        kind: api#channel
-        params:
-          reprehenderit5c: non
-          sint_b: cupidatat do
-        payload: false
-        resourceId: aute
-        resourceUri: fugiat consequat
-        token: ullamco officia in
-        type: ex eiusmod adipisicing mollit
-    CalendarsAclGetResponse1Example:
-      summary: Successful 200 response
-      value:
-        etag: laborum ea d
-        items:
-        - etag: in in qui non dolore
-          id: occaecat dolor qui eu ut
-          kind: calendar#aclRule
-          role: culpa magna tempor Excepteur
-          scope:
-            type: culpa qui sint velit
-            value: Lorem consectetur aliquip
-        - etag: quis id Lorem la
-          id: quis
-          kind: calendar#aclRule
-          role: culpa deserunt officia commodo
-          scope:
-            type: irure in quis ea
-            value: ex dolore
-        kind: calendar#acl
-        nextPageToken: dolore ex
-        nextSyncToken: amet labore quis
-    CalendarsAclPostResponseExample:
-      summary: Successful 200 response
-      value:
-        etag: velit eu voluptate
-        id: ex dolore in sint
-        kind: calendar#aclRule
-        role: et
-        scope:
-          type: sit eiusmod culpa do
-          value: quis esse
   schemas:
-    CalendarsAclWatchPostRequest:
-      description: CalendarsAclWatchPostRequest schema
-      type: object
-      example:
-        address: incididunt sed consequat
-        expiration: velit ad aliq
-        id: velit eiusmod
-        kind: api#channel
-        params:
-          reprehenderit5c: non
-          sint_b: cupidatat do
-        payload: false
-        resourceId: aute
-        resourceUri: fugiat consequat
-        token: ullamco officia in
-        type: ex eiusmod adipisicing mollit
-    CalendarsAclPostResponseScope:
-      description: CalendarsAclPostResponseScope schema
-      type: object
-      properties:
-        type:
-          type: string
-        value:
-          type: string
     CalendarsAclWatchPostResponse:
       description: CalendarsAclWatchPostResponse schema
       type: object
@@ -419,6 +347,52 @@ components:
         token:
           type: string
         type:
+          type: string
+    CalendarsAclPostResponseScope:
+      description: CalendarsAclPostResponseScope schema
+      type: object
+      properties:
+        type:
+          type: string
+        value:
+          type: string
+    CalendarsAclPostResponse:
+      description: CalendarsAclPostResponse schema
+      type: object
+      properties:
+        etag:
+          type: string
+        id:
+          type: string
+        kind:
+          type: string
+        role:
+          type: string
+        scope:
+          $ref: '#/components/schemas/CalendarsAclPostResponseScope'
+    CalendarsAclWatchPostRequest:
+      description: CalendarsAclWatchPostRequest schema
+      type: object
+      example:
+        address: incididunt sed consequat
+        expiration: velit ad aliq
+        id: velit eiusmod
+        kind: api#channel
+        params:
+          reprehenderit5c: non
+          sint_b: cupidatat do
+        payload: false
+        resourceId: aute
+        resourceUri: fugiat consequat
+        token: ullamco officia in
+        type: ex eiusmod adipisicing mollit
+    CalendarsAclWatchPostResponseParams:
+      description: CalendarsAclWatchPostResponseParams schema
+      type: object
+      properties:
+        reprehenderit5c:
+          type: string
+        sint_b:
           type: string
     CalendarsAclGetResponse1:
       description: CalendarsAclGetResponse1 schema
@@ -452,28 +426,6 @@ components:
           type: string
         nextSyncToken:
           type: string
-    CalendarsAclPostResponse:
-      description: CalendarsAclPostResponse schema
-      type: object
-      properties:
-        etag:
-          type: string
-        id:
-          type: string
-        kind:
-          type: string
-        role:
-          type: string
-        scope:
-          $ref: '#/components/schemas/CalendarsAclPostResponseScope'
-    CalendarsAclWatchPostResponseParams:
-      description: CalendarsAclWatchPostResponseParams schema
-      type: object
-      properties:
-        reprehenderit5c:
-          type: string
-        sint_b:
-          type: string
     CalendarsAclPostRequest:
       description: CalendarsAclPostRequest schema
       type: object
@@ -485,6 +437,54 @@ components:
         scope:
           type: sit eiusmod culpa do
           value: quis esse
+  examples:
+    CalendarsAclPostResponseExample:
+      summary: Successful 200 response
+      value:
+        etag: velit eu voluptate
+        id: ex dolore in sint
+        kind: calendar#aclRule
+        role: et
+        scope:
+          type: sit eiusmod culpa do
+          value: quis esse
+    CalendarsAclGetResponse1Example:
+      summary: Successful 200 response
+      value:
+        etag: laborum ea d
+        items:
+        - etag: in in qui non dolore
+          id: occaecat dolor qui eu ut
+          kind: calendar#aclRule
+          role: culpa magna tempor Excepteur
+          scope:
+            type: culpa qui sint velit
+            value: Lorem consectetur aliquip
+        - etag: quis id Lorem la
+          id: quis
+          kind: calendar#aclRule
+          role: culpa deserunt officia commodo
+          scope:
+            type: irure in quis ea
+            value: ex dolore
+        kind: calendar#acl
+        nextPageToken: dolore ex
+        nextSyncToken: amet labore quis
+    CalendarsAclWatchPostResponseExample:
+      summary: Successful 200 response
+      value:
+        address: incididunt sed consequat
+        expiration: velit ad aliq
+        id: velit eiusmod
+        kind: api#channel
+        params:
+          reprehenderit5c: non
+          sint_b: cupidatat do
+        payload: false
+        resourceId: aute
+        resourceUri: fugiat consequat
+        token: ullamco officia in
+        type: ex eiusmod adipisicing mollit
   securitySchemes:
     oauth2Auth:
       type: http

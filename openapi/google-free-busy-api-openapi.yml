@@ -57,6 +57,31 @@ paths:
         dispatcherRules: FreeBusyPostResponseExample
 components:
   schemas:
+    FreeBusyPostResponseGroups:
+      description: FreeBusyPostResponseGroups schema
+      type: object
+      properties:
+        amet_0:
+          $ref: '#/components/schemas/FreeBusyPostResponseGroupsAmet0'
+        occaecat_3:
+          $ref: '#/components/schemas/FreeBusyPostResponseGroupsOccaecat3'
+    FreeBusyPostResponseGroupsOccaecat3:
+      description: FreeBusyPostResponseGroupsOccaecat3 schema
+      type: object
+      properties:
+        calendars:
+          type: array
+          items:
+            type: string
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              domain:
+                type: string
+              reason:
+                type: string
     FreeBusyPostResponseCalendarsTempor:
       description: FreeBusyPostResponseCalendarsTempor schema
       type: object
@@ -72,63 +97,6 @@ components:
               start:
                 type: string
                 format: date-time
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              domain:
-                type: string
-              reason:
-                type: string
-    FreeBusyPostResponseGroups:
-      description: FreeBusyPostResponseGroups schema
-      type: object
-      properties:
-        amet_0:
-          $ref: '#/components/schemas/FreeBusyPostResponseGroupsAmet0'
-        occaecat_3:
-          $ref: '#/components/schemas/FreeBusyPostResponseGroupsOccaecat3'
-    FreeBusyPostResponseCalendars:
-      description: FreeBusyPostResponseCalendars schema
-      type: object
-      properties:
-        ea8_a:
-          $ref: '#/components/schemas/FreeBusyPostResponseCalendarsEa8A'
-        tempor__:
-          $ref: '#/components/schemas/FreeBusyPostResponseCalendarsTempor'
-    FreeBusyPostResponseCalendarsEa8A:
-      description: FreeBusyPostResponseCalendarsEa8A schema
-      type: object
-      properties:
-        busy:
-          type: array
-          items:
-            type: object
-            properties:
-              end:
-                type: string
-                format: date-time
-              start:
-                type: string
-                format: date-time
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              domain:
-                type: string
-              reason:
-                type: string
-    FreeBusyPostResponseGroupsAmet0:
-      description: FreeBusyPostResponseGroupsAmet0 schema
-      type: object
-      properties:
-        calendars:
-          type: array
-          items:
-            type: string
         errors:
           type: array
           items:
@@ -154,8 +122,8 @@ components:
         timeMin:
           type: string
           format: date-time
-    FreeBusyPostResponseGroupsOccaecat3:
-      description: FreeBusyPostResponseGroupsOccaecat3 schema
+    FreeBusyPostResponseGroupsAmet0:
+      description: FreeBusyPostResponseGroupsAmet0 schema
       type: object
       properties:
         calendars:
@@ -171,6 +139,14 @@ components:
                 type: string
               reason:
                 type: string
+    FreeBusyPostResponseCalendars:
+      description: FreeBusyPostResponseCalendars schema
+      type: object
+      properties:
+        ea8_a:
+          $ref: '#/components/schemas/FreeBusyPostResponseCalendarsEa8A'
+        tempor__:
+          $ref: '#/components/schemas/FreeBusyPostResponseCalendarsTempor'
     FreeBusyPostRequest:
       description: FreeBusyPostRequest schema
       type: object
@@ -183,6 +159,30 @@ components:
         timeMax: '1974-03-05T08:59:00.048Z'
         timeMin: '1992-03-30T15:21:47.410Z'
         timeZone: UTC
+    FreeBusyPostResponseCalendarsEa8A:
+      description: FreeBusyPostResponseCalendarsEa8A schema
+      type: object
+      properties:
+        busy:
+          type: array
+          items:
+            type: object
+            properties:
+              end:
+                type: string
+                format: date-time
+              start:
+                type: string
+                format: date-time
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              domain:
+                type: string
+              reason:
+                type: string
   examples:
     FreeBusyPostResponseExample:
       summary: Successful 200 response

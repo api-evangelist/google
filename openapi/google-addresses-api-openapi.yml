@@ -139,28 +139,6 @@ paths:
       operationId: getGmailV1UsersByUserIdSettingsForwardingAddresses
       x-operation-id-source: derived
 components:
-  schemas:
-    UsersSettingsForwardingAddressesGetResponse1:
-      description: UsersSettingsForwardingAddressesGetResponse1 schema
-      type: object
-      properties:
-        forwardingAddresses:
-          type: array
-          items:
-            type: object
-            properties:
-              forwardingEmail:
-                type: string
-              verificationStatus:
-                type: string
-    UsersSettingsForwardingAddressesGetResponse:
-      description: UsersSettingsForwardingAddressesGetResponse schema
-      type: object
-      properties:
-        forwardingEmail:
-          type: string
-        verificationStatus:
-          type: string
   examples:
     UsersSettingsForwardingAddressesGetResponse1Example:
       summary: Successful 200 response
@@ -175,6 +153,28 @@ components:
       value:
         forwardingEmail: ad tempor dolor
         verificationStatus: pending
+  schemas:
+    UsersSettingsForwardingAddressesGetResponse:
+      description: UsersSettingsForwardingAddressesGetResponse schema
+      type: object
+      properties:
+        forwardingEmail:
+          type: string
+        verificationStatus:
+          type: string
+    UsersSettingsForwardingAddressesGetResponse1:
+      description: UsersSettingsForwardingAddressesGetResponse1 schema
+      type: object
+      properties:
+        forwardingAddresses:
+          type: array
+          items:
+            type: object
+            properties:
+              forwardingEmail:
+                type: string
+              verificationStatus:
+                type: string
   securitySchemes:
     oauth2Auth:
       type: http

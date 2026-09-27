@@ -257,12 +257,13 @@ apis:
   name: Google Cloud Translation API
   tags:
   - Artificial Intelligence
-  - Machine-Learning
+  - Machine Learning
   - Translation
   tags_raw:
   - AI
   - Machine Learning
   - Translation
+  - Machine-Learning
   humanURL: https://cloud.google.com/translate
   properties:
   - url: https://cloud.google.com/translate/docs
@@ -276,12 +277,13 @@ apis:
   name: Google Cloud Vision API
   tags:
   - Artificial Intelligence
-  - Machine-Learning
+  - Machine Learning
   - Vision
   tags_raw:
   - AI
   - Machine Learning
   - Vision
+  - Machine-Learning
   humanURL: https://cloud.google.com/vision
   properties:
   - url: https://cloud.google.com/vision/docs
@@ -293,12 +295,13 @@ apis:
   name: Google Cloud Natural Language API
   tags:
   - Artificial Intelligence
-  - Machine-Learning
+  - Machine Learning
   - Natural Language Processing
   tags_raw:
   - AI
   - Machine Learning
   - Natural Language Processing
+  - Machine-Learning
   humanURL: https://cloud.google.com/natural-language
   properties:
   - url: https://cloud.google.com/natural-language/docs
@@ -310,12 +313,13 @@ apis:
   name: Google Cloud Speech-to-Text API
   tags:
   - Artificial Intelligence
-  - Machine-Learning
+  - Machine Learning
   - Speech
   tags_raw:
   - AI
   - Machine Learning
   - Speech
+  - Machine-Learning
   humanURL: https://cloud.google.com/speech-to-text
   properties:
   - url: https://cloud.google.com/speech-to-text/docs
@@ -326,12 +330,13 @@ apis:
   name: Google Cloud Text-to-Speech API
   tags:
   - Artificial Intelligence
-  - Machine-Learning
+  - Machine Learning
   - Speech
   tags_raw:
   - AI
   - Machine Learning
   - Speech
+  - Machine-Learning
   humanURL: https://cloud.google.com/text-to-speech
   properties:
   - url: https://cloud.google.com/text-to-speech/docs
@@ -1954,9 +1959,10 @@ apis:
   humanURL: https://cloud.google.com/api-gateway/docs
   baseURL: https://api.example.com
   tags:
-  - Image-Generation
+  - Image Generation
   tags_raw:
   - Image Generation
+  - Image-Generation
   properties:
   - type: OpenAPI
     url: openapi/google-image-generation-api-openapi.yml
@@ -3049,6 +3055,10 @@ tags:
 - Platform
 - Search
 - T1
+- Agentic Commerce
+- Universal Commerce Protocol
+- AP2
+- A2A
 tags_raw:
 - Advertising
 - Cloud
@@ -3057,6 +3067,10 @@ tags_raw:
 - Platform
 - Search
 - T1
+- Agentic Commerce
+- Universal Commerce Protocol
+- AP2
+- A2A
 deliveryModel:
   model: saas
   open_source: false

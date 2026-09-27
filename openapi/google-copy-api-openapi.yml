@@ -73,30 +73,17 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    SpreadsheetsSheetsPostRequest:
-      description: SpreadsheetsSheetsPostRequest schema
-      type: object
-      example:
-        destinationSpreadsheetId: eu fugiat
-    SpreadsheetsSheetsPostResponseTabColor:
-      description: SpreadsheetsSheetsPostResponseTabColor schema
+    SpreadsheetsSheetsPostResponseDataSourceSheetPropertiesDataExecutionStatus:
+      description: SpreadsheetsSheetsPostResponseDataSourceSheetPropertiesDataExecutionStatus schema
       type: object
       properties:
-        alpha:
-          type: number
-        blue:
-          type: number
-        green:
-          type: number
-        red:
-          type: number
-    SpreadsheetsSheetsPostResponseTabColorStyle:
-      description: SpreadsheetsSheetsPostResponseTabColorStyle schema
-      type: object
-      properties:
-        rgbColor:
-          $ref: '#/components/schemas/SpreadsheetsSheetsPostResponseTabColorStyleRgbColor'
-        themeColor:
+        errorCode:
+          type: string
+        errorMessage:
+          type: string
+        lastRefreshTime:
+          type: string
+        state:
           type: string
     SpreadsheetsSheetsPostResponseTabColorStyleRgbColor:
       description: SpreadsheetsSheetsPostResponseTabColorStyleRgbColor schema
@@ -110,18 +97,6 @@ components:
           type: number
         red:
           type: number
-    SpreadsheetsSheetsPostResponseDataSourceSheetPropertiesDataExecutionStatus:
-      description: SpreadsheetsSheetsPostResponseDataSourceSheetPropertiesDataExecutionStatus schema
-      type: object
-      properties:
-        errorCode:
-          type: string
-        errorMessage:
-          type: string
-        lastRefreshTime:
-          type: string
-        state:
-          type: string
     SpreadsheetsSheetsPostResponseGridProperties:
       description: SpreadsheetsSheetsPostResponseGridProperties schema
       type: object
@@ -140,6 +115,51 @@ components:
           type: integer
         rowGroupControlAfter:
           type: boolean
+    SpreadsheetsSheetsPostResponseTabColor:
+      description: SpreadsheetsSheetsPostResponseTabColor schema
+      type: object
+      properties:
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
+    SpreadsheetsSheetsPostResponseDataSourceSheetProperties:
+      description: SpreadsheetsSheetsPostResponseDataSourceSheetProperties schema
+      type: object
+      properties:
+        columns:
+          type: array
+          items:
+            type: object
+            properties:
+              formula:
+                type: string
+              reference:
+                type: object
+                properties:
+                  name:
+                    type: string
+        dataExecutionStatus:
+          $ref: '#/components/schemas/SpreadsheetsSheetsPostResponseDataSourceSheetPropertiesDataExecutionStatus'
+        dataSourceId:
+          type: string
+    SpreadsheetsSheetsPostResponseTabColorStyle:
+      description: SpreadsheetsSheetsPostResponseTabColorStyle schema
+      type: object
+      properties:
+        rgbColor:
+          $ref: '#/components/schemas/SpreadsheetsSheetsPostResponseTabColorStyleRgbColor'
+        themeColor:
+          type: string
+    SpreadsheetsSheetsPostRequest:
+      description: SpreadsheetsSheetsPostRequest schema
+      type: object
+      example:
+        destinationSpreadsheetId: eu fugiat
     SpreadsheetsSheetsPostResponse:
       description: SpreadsheetsSheetsPostResponse schema
       type: object
@@ -163,26 +183,6 @@ components:
         tabColorStyle:
           $ref: '#/components/schemas/SpreadsheetsSheetsPostResponseTabColorStyle'
         title:
-          type: string
-    SpreadsheetsSheetsPostResponseDataSourceSheetProperties:
-      description: SpreadsheetsSheetsPostResponseDataSourceSheetProperties schema
-      type: object
-      properties:
-        columns:
-          type: array
-          items:
-            type: object
-            properties:
-              formula:
-                type: string
-              reference:
-                type: object
-                properties:
-                  name:
-                    type: string
-        dataExecutionStatus:
-          $ref: '#/components/schemas/SpreadsheetsSheetsPostResponseDataSourceSheetPropertiesDataExecutionStatus'
-        dataSourceId:
           type: string
   examples:
     SpreadsheetsSheetsPostResponseExample:

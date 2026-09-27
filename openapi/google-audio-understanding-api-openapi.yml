@@ -242,31 +242,115 @@ paths:
         dispatcherRules: SuccessExample
 components:
   schemas:
-    SafetyRating:
+    ThinkingConfig:
+      type: object
+      description: Configuration for thinking mode in Gemini 2.5 models
+      properties:
+        thinkingBudget:
+          type: integer
+          description: Thinking budget, set to 0 to disable thinking
+          minimum: 0
+          default: null
+    ModelsPostRequest:
+      description: ModelsPostRequest schema
+      type: object
+      required:
+      - contents
+      properties:
+        contents:
+          type: array
+          description: The content to count tokens for
+          items:
+            $ref: '#/components/schemas/Content'
+    CountTokensResponse:
       type: object
       properties:
-        category:
+        totalTokens:
+          type: integer
+          description: Total number of tokens in the provided content
+        totalBillableCharacters:
+          type: integer
+          description: Total billable characters (for audio/video content)
+    GenerationConfig:
+      type: object
+      description: Configuration options for model generation and outputs
+      properties:
+        stopSequences:
+          type: array
+          description: Set of character sequences that will stop output generation
+          items:
+            type: string
+          maxItems: 5
+        temperature:
+          type: number
+          format: float
+          description: Controls randomness of output (default 1.0 for Gemini 3 models)
+          minimum: 0.0
+          maximum: 2.0
+          default: 1.0
+        topP:
+          type: number
+          format: float
+          description: Maximum cumulative probability of tokens to consider
+          minimum: 0.0
+          maximum: 1.0
+        topK:
+          type: integer
+          description: Maximum number of tokens to consider
+          minimum: 1
+        maxOutputTokens:
+          type: integer
+          description: Maximum number of tokens to generate
+          minimum: 1
+        thinkingConfig:
+          $ref: '#/components/schemas/ThinkingConfig'
+          description: Configuration for thinking mode (Gemini 2.5 models)
+        response_mime_type:
+          type: string
+          description: MIME type for structured output (e.g., application/json)
+          enum:
+          - text/plain
+          - application/json
+          example: application/json
+        response_schema:
+          type: object
+          description: JSON schema for structured output format
+          additionalProperties: true
+    FilesPostRequest1:
+      description: FilesPostRequest1 schema
+      type: string
+      format: binary
+    Content:
+      type: object
+      properties:
+        role:
           type: string
           enum:
-          - HARM_CATEGORY_UNSPECIFIED
-          - HARM_CATEGORY_DEROGATORY
-          - HARM_CATEGORY_TOXICITY
-          - HARM_CATEGORY_VIOLENCE
-          - HARM_CATEGORY_SEXUAL
-          - HARM_CATEGORY_MEDICAL
-          - HARM_CATEGORY_DANGEROUS
-          - HARM_CATEGORY_HARASSMENT
-          - HARM_CATEGORY_HATE_SPEECH
-          - HARM_CATEGORY_SEXUALLY_EXPLICIT
-          - HARM_CATEGORY_DANGEROUS_CONTENT
-        probability:
-          type: string
-          enum:
-          - HARM_PROBABILITY_UNSPECIFIED
-          - NEGLIGIBLE
-          - LOW
-          - MEDIUM
-          - HIGH
+          - user
+          - model
+          description: The role of the content producer (optional for single-turn, required for multi-turn)
+        parts:
+          type: array
+          description: Ordered parts that constitute a single message
+          items:
+            $ref: '#/components/schemas/Part'
+      required:
+      - parts
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: HTTP status code
+            message:
+              type: string
+              description: Error message
+            status:
+              type: string
+              description: Error status
     GenerateContentResponse:
       type: object
       properties:
@@ -281,19 +365,39 @@ components:
         usageMetadata:
           $ref: '#/components/schemas/UsageMetadata'
           description: Token usage information
-    FilesPostRequest1:
-      description: FilesPostRequest1 schema
-      type: string
-      format: binary
-    ThinkingConfig:
+    Part:
       type: object
-      description: Configuration for thinking mode in Gemini 2.5 models
+      description: A part of the content, can be text, inline data, or file data
+      oneOf:
+      - type: object
+        required:
+        - text
+        properties:
+          text:
+            type: string
+            description: Text content
+      - type: object
+        required:
+        - inline_data
+        properties:
+          inline_data:
+            $ref: '#/components/schemas/InlineData'
+      - type: object
+        required:
+        - file_data
+        properties:
+          file_data:
+            $ref: '#/components/schemas/FileData'
+          video_metadata:
+            $ref: '#/components/schemas/VideoMetadata'
+            description: Optional metadata for video processing (clipping, FPS)
+    FilesPostRequestFile:
+      description: FilesPostRequestFile schema
+      type: object
       properties:
-        thinkingBudget:
-          type: integer
-          description: Thinking budget, set to 0 to disable thinking
-          minimum: 0
-          default: null
+        display_name:
+          type: string
+          description: Display name for the file
     PromptFeedback:
       type: object
       properties:
@@ -342,56 +446,43 @@ components:
           type: string
           format: byte
           description: Base64 encoded data
-    Candidate:
+    SafetyRating:
       type: object
       properties:
-        content:
-          $ref: '#/components/schemas/Content'
-          description: Generated content
-        finishReason:
+        category:
           type: string
           enum:
-          - FINISH_REASON_UNSPECIFIED
-          - STOP
-          - MAX_TOKENS
-          - SAFETY
-          - RECITATION
-          - OTHER
-          description: Reason why generation stopped
-        index:
-          type: integer
-          description: Index of the candidate
-        safetyRatings:
-          type: array
-          items:
-            $ref: '#/components/schemas/SafetyRating'
-          description: Safety ratings for the generated content
-    Part:
+          - HARM_CATEGORY_UNSPECIFIED
+          - HARM_CATEGORY_DEROGATORY
+          - HARM_CATEGORY_TOXICITY
+          - HARM_CATEGORY_VIOLENCE
+          - HARM_CATEGORY_SEXUAL
+          - HARM_CATEGORY_MEDICAL
+          - HARM_CATEGORY_DANGEROUS
+          - HARM_CATEGORY_HARASSMENT
+          - HARM_CATEGORY_HATE_SPEECH
+          - HARM_CATEGORY_SEXUALLY_EXPLICIT
+          - HARM_CATEGORY_DANGEROUS_CONTENT
+        probability:
+          type: string
+          enum:
+          - HARM_PROBABILITY_UNSPECIFIED
+          - NEGLIGIBLE
+          - LOW
+          - MEDIUM
+          - HIGH
+    UsageMetadata:
       type: object
-      description: A part of the content, can be text, inline data, or file data
-      oneOf:
-      - type: object
-        required:
-        - text
-        properties:
-          text:
-            type: string
-            description: Text content
-      - type: object
-        required:
-        - inline_data
-        properties:
-          inline_data:
-            $ref: '#/components/schemas/InlineData'
-      - type: object
-        required:
-        - file_data
-        properties:
-          file_data:
-            $ref: '#/components/schemas/FileData'
-          video_metadata:
-            $ref: '#/components/schemas/VideoMetadata'
-            description: Optional metadata for video processing (clipping, FPS)
+      properties:
+        promptTokenCount:
+          type: integer
+          description: Number of tokens in the prompt
+        candidatesTokenCount:
+          type: integer
+          description: Number of tokens in generated candidates
+        totalTokenCount:
+          type: integer
+          description: Total token count
     GenerateContentRequest:
       type: object
       required:
@@ -408,127 +499,28 @@ components:
         generationConfig:
           $ref: '#/components/schemas/GenerationConfig'
           description: Configuration options for model generation
-    CountTokensResponse:
+    FileData:
       type: object
+      description: Reference to a file uploaded via the File API or a YouTube URL
       properties:
-        totalTokens:
-          type: integer
-          description: Total number of tokens in the provided content
-        totalBillableCharacters:
-          type: integer
-          description: Total billable characters (for audio/video content)
-    Content:
-      type: object
-      properties:
-        role:
+        mime_type:
           type: string
-          enum:
-          - user
-          - model
-          description: The role of the content producer (optional for single-turn, required for multi-turn)
-        parts:
-          type: array
-          description: Ordered parts that constitute a single message
-          items:
-            $ref: '#/components/schemas/Part'
+          description: MIME type of the file (optional for YouTube URLs)
+          example: video/mp4
+        file_uri:
+          type: string
+          description: URI of the file from File API or YouTube URL
+          examples:
+          - https://generativelanguage.googleapis.com/v1beta/files/abc123
+          - https://www.youtube.com/watch?v=9hE5-98ZeCg
       required:
-      - parts
-    FilesPostRequestFile:
-      description: FilesPostRequestFile schema
-      type: object
-      properties:
-        display_name:
-          type: string
-          description: Display name for the file
+      - file_uri
     FilesPostRequest:
       description: FilesPostRequest schema
       type: object
       properties:
         file:
           $ref: '#/components/schemas/FilesPostRequestFile'
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-              description: HTTP status code
-            message:
-              type: string
-              description: Error message
-            status:
-              type: string
-              description: Error status
-    UsageMetadata:
-      type: object
-      properties:
-        promptTokenCount:
-          type: integer
-          description: Number of tokens in the prompt
-        candidatesTokenCount:
-          type: integer
-          description: Number of tokens in generated candidates
-        totalTokenCount:
-          type: integer
-          description: Total token count
-    ModelsPostRequest:
-      description: ModelsPostRequest schema
-      type: object
-      required:
-      - contents
-      properties:
-        contents:
-          type: array
-          description: The content to count tokens for
-          items:
-            $ref: '#/components/schemas/Content'
-    GenerationConfig:
-      type: object
-      description: Configuration options for model generation and outputs
-      properties:
-        stopSequences:
-          type: array
-          description: Set of character sequences that will stop output generation
-          items:
-            type: string
-          maxItems: 5
-        temperature:
-          type: number
-          format: float
-          description: Controls randomness of output (default 1.0 for Gemini 3 models)
-          minimum: 0.0
-          maximum: 2.0
-          default: 1.0
-        topP:
-          type: number
-          format: float
-          description: Maximum cumulative probability of tokens to consider
-          minimum: 0.0
-          maximum: 1.0
-        topK:
-          type: integer
-          description: Maximum number of tokens to consider
-          minimum: 1
-        maxOutputTokens:
-          type: integer
-          description: Maximum number of tokens to generate
-          minimum: 1
-        thinkingConfig:
-          $ref: '#/components/schemas/ThinkingConfig'
-          description: Configuration for thinking mode (Gemini 2.5 models)
-        response_mime_type:
-          type: string
-          description: MIME type for structured output (e.g., application/json)
-          enum:
-          - text/plain
-          - application/json
-          example: application/json
-        response_schema:
-          type: object
-          description: JSON schema for structured output format
-          additionalProperties: true
     VideoMetadata:
       type: object
       description: Metadata for customizing video processing
@@ -602,22 +594,30 @@ components:
               properties:
                 message:
                   type: string
-    FileData:
+    Candidate:
       type: object
-      description: Reference to a file uploaded via the File API or a YouTube URL
       properties:
-        mime_type:
+        content:
+          $ref: '#/components/schemas/Content'
+          description: Generated content
+        finishReason:
           type: string
-          description: MIME type of the file (optional for YouTube URLs)
-          example: video/mp4
-        file_uri:
-          type: string
-          description: URI of the file from File API or YouTube URL
-          examples:
-          - https://generativelanguage.googleapis.com/v1beta/files/abc123
-          - https://www.youtube.com/watch?v=9hE5-98ZeCg
-      required:
-      - file_uri
+          enum:
+          - FINISH_REASON_UNSPECIFIED
+          - STOP
+          - MAX_TOKENS
+          - SAFETY
+          - RECITATION
+          - OTHER
+          description: Reason why generation stopped
+        index:
+          type: integer
+          description: Index of the candidate
+        safetyRatings:
+          type: array
+          items:
+            $ref: '#/components/schemas/SafetyRating'
+          description: Safety ratings for the generated content
   examples:
     ModelsPostRequestExample:
       summary: Example request for POST /models/{model}:countTokens

@@ -168,13 +168,13 @@ components:
           type: string
         maxFolderSize:
           type: integer
+    SpreadsheetsValuesPutResponse:
+      description: SpreadsheetsValuesPutResponse schema
+      type: object
     SpreadsheetsValuesPutRequest:
       description: SpreadsheetsValuesPutRequest schema
       type: object
       example: null
-    SpreadsheetsValuesPutResponse:
-      description: SpreadsheetsValuesPutResponse schema
-      type: object
   securitySchemes:
     oauth2Auth:
       type: http

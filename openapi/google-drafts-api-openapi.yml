@@ -214,6 +214,102 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    GmailUsersDraftsPutResponseMessagePayloadBody:
+      description: GmailUsersDraftsPutResponseMessagePayloadBody schema
+      type: object
+      properties:
+        attachmentId:
+          type: string
+        size:
+          type: integer
+        data:
+          type: string
+    GmailUsersDraftsPutResponseMessage:
+      description: GmailUsersDraftsPutResponseMessage schema
+      type: object
+      properties:
+        id:
+          type: string
+        threadId:
+          type: string
+        labelIds:
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        internalDate:
+          type: string
+        payload:
+          $ref: '#/components/schemas/GmailUsersDraftsPutResponseMessagePayload'
+        sizeEstimate:
+          type: integer
+        raw:
+          type: string
+    GmailUsersDraftsPutResponseMessagePayload:
+      description: GmailUsersDraftsPutResponseMessagePayload schema
+      type: object
+      properties:
+        partId:
+          type: string
+        mimeType:
+          type: string
+        filename:
+          type: string
+        headers:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        body:
+          $ref: '#/components/schemas/GmailUsersDraftsPutResponseMessagePayloadBody'
+        parts:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+    UsersDraftsSendPostResponse:
+      description: UsersDraftsSendPostResponse schema
+      type: object
+      properties:
+        id:
+          type: string
+        threadId:
+          type: string
+        labelIds:
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        internalDate:
+          type: string
+        payload:
+          $ref: '#/components/schemas/UsersDraftsSendPostResponsePayload'
+        sizeEstimate:
+          type: integer
+        raw:
+          type: string
+    UsersDraftsSendPostResponsePayloadBody:
+      description: UsersDraftsSendPostResponsePayloadBody schema
+      type: object
+      properties:
+        attachmentId:
+          type: string
+        size:
+          type: integer
+        data:
+          type: string
     GmailUsersDraftsGetResponseMessage:
       description: GmailUsersDraftsGetResponseMessage schema
       type: object
@@ -237,6 +333,112 @@ components:
         sizeEstimate:
           type: integer
         raw:
+          type: string
+    UsersDraftsSendPostRequest:
+      description: UsersDraftsSendPostRequest schema
+      type: object
+      example:
+        id: elit Lorem
+        message:
+          id: elit
+          threadId: enim ut ut fugiat
+          labelIds:
+          - incididunt et non cupidatat
+          - laboris deserunt do nostrud
+          snippet: nostrud in
+          historyId: ullamco
+          internalDate: dolor ullamco elit fugiat
+          payload:
+            partId: consequat ipsum qui
+            mimeType: enim quis dolor aliqua veniam
+            filename: laboris ad
+            headers:
+            - name: labore aute nisi
+              value: reprehenderit esse ex elit
+            - name: sed
+              value: anim ut veniam elit
+            body:
+              attachmentId: irure
+              size: -58003592
+              data: officia laboris
+            parts:
+            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+          sizeEstimate: -74092231
+          raw: in enim sit pariatur
+    GmailUsersDraftsGetResponseMessagePayload:
+      description: GmailUsersDraftsGetResponseMessagePayload schema
+      type: object
+      properties:
+        partId:
+          type: string
+        mimeType:
+          type: string
+        filename:
+          type: string
+        headers:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        body:
+          $ref: '#/components/schemas/GmailUsersDraftsGetResponseMessagePayloadBody'
+        parts:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+    UsersDraftsSendPostResponsePayload:
+      description: UsersDraftsSendPostResponsePayload schema
+      type: object
+      properties:
+        partId:
+          type: string
+        mimeType:
+          type: string
+        filename:
+          type: string
+        headers:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        body:
+          $ref: '#/components/schemas/UsersDraftsSendPostResponsePayloadBody'
+        parts:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+    GmailUsersDraftsGetResponse:
+      description: GmailUsersDraftsGetResponse schema
+      type: object
+      properties:
+        id:
+          type: string
+        message:
+          $ref: '#/components/schemas/GmailUsersDraftsGetResponseMessage'
+    GmailUsersDraftsGetResponseMessagePayloadBody:
+      description: GmailUsersDraftsGetResponseMessagePayloadBody schema
+      type: object
+      properties:
+        attachmentId:
+          type: string
+        size:
+          type: integer
+        data:
           type: string
     GmailUsersDraftsGetResponse1:
       description: GmailUsersDraftsGetResponse1 schema
@@ -308,150 +510,6 @@ components:
           type: string
         resultSizeEstimate:
           type: integer
-    UsersDraftsSendPostResponsePayload:
-      description: UsersDraftsSendPostResponsePayload schema
-      type: object
-      properties:
-        partId:
-          type: string
-        mimeType:
-          type: string
-        filename:
-          type: string
-        headers:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-        body:
-          $ref: '#/components/schemas/UsersDraftsSendPostResponsePayloadBody'
-        parts:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
-    UsersDraftsSendPostRequest:
-      description: UsersDraftsSendPostRequest schema
-      type: object
-      example:
-        id: elit Lorem
-        message:
-          id: elit
-          threadId: enim ut ut fugiat
-          labelIds:
-          - incididunt et non cupidatat
-          - laboris deserunt do nostrud
-          snippet: nostrud in
-          historyId: ullamco
-          internalDate: dolor ullamco elit fugiat
-          payload:
-            partId: consequat ipsum qui
-            mimeType: enim quis dolor aliqua veniam
-            filename: laboris ad
-            headers:
-            - name: labore aute nisi
-              value: reprehenderit esse ex elit
-            - name: sed
-              value: anim ut veniam elit
-            body:
-              attachmentId: irure
-              size: -58003592
-              data: officia laboris
-            parts:
-            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-          sizeEstimate: -74092231
-          raw: in enim sit pariatur
-    GmailUsersDraftsGetResponseMessagePayload:
-      description: GmailUsersDraftsGetResponseMessagePayload schema
-      type: object
-      properties:
-        partId:
-          type: string
-        mimeType:
-          type: string
-        filename:
-          type: string
-        headers:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-        body:
-          $ref: '#/components/schemas/GmailUsersDraftsGetResponseMessagePayloadBody'
-        parts:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
-    GmailUsersDraftsPutResponseMessagePayloadBody:
-      description: GmailUsersDraftsPutResponseMessagePayloadBody schema
-      type: object
-      properties:
-        attachmentId:
-          type: string
-        size:
-          type: integer
-        data:
-          type: string
-    GmailUsersDraftsPutResponseMessagePayload:
-      description: GmailUsersDraftsPutResponseMessagePayload schema
-      type: object
-      properties:
-        partId:
-          type: string
-        mimeType:
-          type: string
-        filename:
-          type: string
-        headers:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-        body:
-          $ref: '#/components/schemas/GmailUsersDraftsPutResponseMessagePayloadBody'
-        parts:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
-    GmailUsersDraftsPutResponse:
-      description: GmailUsersDraftsPutResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        message:
-          $ref: '#/components/schemas/GmailUsersDraftsPutResponseMessage'
-    GmailUsersDraftsGetResponseMessagePayloadBody:
-      description: GmailUsersDraftsGetResponseMessagePayloadBody schema
-      type: object
-      properties:
-        attachmentId:
-          type: string
-        size:
-          type: integer
-        data:
-          type: string
     GmailUsersDraftsPutRequest:
       description: GmailUsersDraftsPutRequest schema
       type: object
@@ -484,72 +542,14 @@ components:
             - value: '<Circular reference to #/components/schemas/MessagePart detected>'
           sizeEstimate: -74092231
           raw: in enim sit pariatur
-    UsersDraftsSendPostResponsePayloadBody:
-      description: UsersDraftsSendPostResponsePayloadBody schema
-      type: object
-      properties:
-        attachmentId:
-          type: string
-        size:
-          type: integer
-        data:
-          type: string
-    GmailUsersDraftsPutResponseMessage:
-      description: GmailUsersDraftsPutResponseMessage schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/GmailUsersDraftsPutResponseMessagePayload'
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
-    UsersDraftsSendPostResponse:
-      description: UsersDraftsSendPostResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/UsersDraftsSendPostResponsePayload'
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
-    GmailUsersDraftsGetResponse:
-      description: GmailUsersDraftsGetResponse schema
+    GmailUsersDraftsPutResponse:
+      description: GmailUsersDraftsPutResponse schema
       type: object
       properties:
         id:
           type: string
         message:
-          $ref: '#/components/schemas/GmailUsersDraftsGetResponseMessage'
+          $ref: '#/components/schemas/GmailUsersDraftsPutResponseMessage'
   examples:
     GmailUsersDraftsGetResponseExample:
       summary: Successful 200 response

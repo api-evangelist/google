@@ -64,6 +64,69 @@ paths:
       operationId: postGmailV1UsersByUserIdMessagesByIdTrash
       x-operation-id-source: derived
 components:
+  schemas:
+    UsersMessagesTrashPostResponsePayload:
+      description: UsersMessagesTrashPostResponsePayload schema
+      type: object
+      properties:
+        partId:
+          type: string
+        mimeType:
+          type: string
+        filename:
+          type: string
+        headers:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        body:
+          $ref: '#/components/schemas/UsersMessagesTrashPostResponsePayloadBody'
+        parts:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+    UsersMessagesTrashPostResponse:
+      description: UsersMessagesTrashPostResponse schema
+      type: object
+      properties:
+        id:
+          type: string
+        threadId:
+          type: string
+        labelIds:
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        internalDate:
+          type: string
+        payload:
+          $ref: '#/components/schemas/UsersMessagesTrashPostResponsePayload'
+        sizeEstimate:
+          type: integer
+        raw:
+          type: string
+    UsersMessagesTrashPostResponsePayloadBody:
+      description: UsersMessagesTrashPostResponsePayloadBody schema
+      type: object
+      properties:
+        attachmentId:
+          type: string
+        size:
+          type: integer
+        data:
+          type: string
   examples:
     UsersMessagesTrashPostResponseExample:
       summary: Successful 200 response
@@ -94,69 +157,6 @@ components:
           - value: '<Circular reference to #/components/schemas/MessagePart detected>'
         sizeEstimate: 21128811
         raw: do laboris
-  schemas:
-    UsersMessagesTrashPostResponsePayload:
-      description: UsersMessagesTrashPostResponsePayload schema
-      type: object
-      properties:
-        partId:
-          type: string
-        mimeType:
-          type: string
-        filename:
-          type: string
-        headers:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-        body:
-          $ref: '#/components/schemas/UsersMessagesTrashPostResponsePayloadBody'
-        parts:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
-    UsersMessagesTrashPostResponsePayloadBody:
-      description: UsersMessagesTrashPostResponsePayloadBody schema
-      type: object
-      properties:
-        attachmentId:
-          type: string
-        size:
-          type: integer
-        data:
-          type: string
-    UsersMessagesTrashPostResponse:
-      description: UsersMessagesTrashPostResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/UsersMessagesTrashPostResponsePayload'
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
   securitySchemes:
     oauth2Auth:
       type: http
