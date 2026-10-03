@@ -49,6 +49,12 @@ paths:
         dispatcherRules: ColorsGetResponseExample
 components:
   schemas:
+    ColorsGetResponseEvent:
+      description: ColorsGetResponseEvent schema
+      type: object
+      properties:
+        Excepteure8:
+          $ref: '#/components/schemas/ColorsGetResponseEventExcepteure8'
     ColorsGetResponseCalendarLaborisaf:
       description: ColorsGetResponseCalendarLaborisaf schema
       type: object
@@ -57,12 +63,6 @@ components:
           type: string
         foreground:
           type: string
-    ColorsGetResponseEvent:
-      description: ColorsGetResponseEvent schema
-      type: object
-      properties:
-        Excepteure8:
-          $ref: '#/components/schemas/ColorsGetResponseEventExcepteure8'
     ColorsGetResponse:
       description: ColorsGetResponse schema
       type: object
@@ -76,6 +76,14 @@ components:
         updated:
           type: string
           format: date-time
+    ColorsGetResponseCalendarNulla2:
+      description: ColorsGetResponseCalendarNulla2 schema
+      type: object
+      properties:
+        background:
+          type: string
+        foreground:
+          type: string
     ColorsGetResponseCalendar:
       description: ColorsGetResponseCalendar schema
       type: object
@@ -86,8 +94,8 @@ components:
           $ref: '#/components/schemas/ColorsGetResponseCalendarNulla2'
         laborisaf:
           $ref: '#/components/schemas/ColorsGetResponseCalendarLaborisaf'
-    ColorsGetResponseCalendarNulla2:
-      description: ColorsGetResponseCalendarNulla2 schema
+    ColorsGetResponseCalendarQui15:
+      description: ColorsGetResponseCalendarQui15 schema
       type: object
       properties:
         background:
@@ -96,14 +104,6 @@ components:
           type: string
     ColorsGetResponseEventExcepteure8:
       description: ColorsGetResponseEventExcepteure8 schema
-      type: object
-      properties:
-        background:
-          type: string
-        foreground:
-          type: string
-    ColorsGetResponseCalendarQui15:
-      description: ColorsGetResponseCalendarQui15 schema
       type: object
       properties:
         background:

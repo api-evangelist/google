@@ -70,36 +70,7 @@ paths:
       operationId: postGmailV1UsersByUserIdSettingsCseKeypairs{keyPairId}:enable
       x-operation-id-source: derived
 components:
-  examples:
-    SettingsCseKeypairsPostResponseExample:
-      summary: Successful 200 response
-      value:
-        keyPairId: Lorem eiusmod
-        pkcs7: ex incididunt
-        pem: irure quis
-        subjectEmailAddresses:
-        - Excepteur Ut commodo aliquip
-        - eu Lorem nulla
-        enablementState: disabled
-        disableTime: cill
-        privateKeyMetadata:
-        - privateKeyMetadataId: proident fugiat eu dolore
-          kaclsKeyMetadata:
-            kaclsUri: voluptate ipsum ad
-            kaclsData: Duis laborum aute
-          hardwareKeyMetadata:
-            description: mollit la
-        - privateKeyMetadataId: nulla ullamco
-          kaclsKeyMetadata:
-            kaclsUri: minim in
-            kaclsData: sint eiusmod
-          hardwareKeyMetadata:
-            description: ut
   schemas:
-    SettingsCseKeypairsPostRequest:
-      description: SettingsCseKeypairsPostRequest schema
-      type: object
-      example: {}
     SettingsCseKeypairsPostResponse:
       description: SettingsCseKeypairsPostResponse schema
       type: object
@@ -137,6 +108,35 @@ components:
                 properties:
                   description:
                     type: string
+    SettingsCseKeypairsPostRequest:
+      description: SettingsCseKeypairsPostRequest schema
+      type: object
+      example: {}
+  examples:
+    SettingsCseKeypairsPostResponseExample:
+      summary: Successful 200 response
+      value:
+        keyPairId: Lorem eiusmod
+        pkcs7: ex incididunt
+        pem: irure quis
+        subjectEmailAddresses:
+        - Excepteur Ut commodo aliquip
+        - eu Lorem nulla
+        enablementState: disabled
+        disableTime: cill
+        privateKeyMetadata:
+        - privateKeyMetadataId: proident fugiat eu dolore
+          kaclsKeyMetadata:
+            kaclsUri: voluptate ipsum ad
+            kaclsData: Duis laborum aute
+          hardwareKeyMetadata:
+            description: mollit la
+        - privateKeyMetadataId: nulla ullamco
+          kaclsKeyMetadata:
+            kaclsUri: minim in
+            kaclsData: sint eiusmod
+          hardwareKeyMetadata:
+            description: ut
   securitySchemes:
     oauth2Auth:
       type: http

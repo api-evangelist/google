@@ -73,6 +73,11 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    SpreadsheetsSheetsPostRequest:
+      description: SpreadsheetsSheetsPostRequest schema
+      type: object
+      example:
+        destinationSpreadsheetId: eu fugiat
     SpreadsheetsSheetsPostResponseDataSourceSheetPropertiesDataExecutionStatus:
       description: SpreadsheetsSheetsPostResponseDataSourceSheetPropertiesDataExecutionStatus schema
       type: object
@@ -85,36 +90,6 @@ components:
           type: string
         state:
           type: string
-    SpreadsheetsSheetsPostResponseTabColorStyleRgbColor:
-      description: SpreadsheetsSheetsPostResponseTabColorStyleRgbColor schema
-      type: object
-      properties:
-        alpha:
-          type: number
-        blue:
-          type: number
-        green:
-          type: number
-        red:
-          type: number
-    SpreadsheetsSheetsPostResponseGridProperties:
-      description: SpreadsheetsSheetsPostResponseGridProperties schema
-      type: object
-      properties:
-        columnCount:
-          type: integer
-        columnGroupControlAfter:
-          type: boolean
-        frozenColumnCount:
-          type: integer
-        frozenRowCount:
-          type: integer
-        hideGridlines:
-          type: boolean
-        rowCount:
-          type: integer
-        rowGroupControlAfter:
-          type: boolean
     SpreadsheetsSheetsPostResponseTabColor:
       description: SpreadsheetsSheetsPostResponseTabColor schema
       type: object
@@ -155,11 +130,24 @@ components:
           $ref: '#/components/schemas/SpreadsheetsSheetsPostResponseTabColorStyleRgbColor'
         themeColor:
           type: string
-    SpreadsheetsSheetsPostRequest:
-      description: SpreadsheetsSheetsPostRequest schema
+    SpreadsheetsSheetsPostResponseGridProperties:
+      description: SpreadsheetsSheetsPostResponseGridProperties schema
       type: object
-      example:
-        destinationSpreadsheetId: eu fugiat
+      properties:
+        columnCount:
+          type: integer
+        columnGroupControlAfter:
+          type: boolean
+        frozenColumnCount:
+          type: integer
+        frozenRowCount:
+          type: integer
+        hideGridlines:
+          type: boolean
+        rowCount:
+          type: integer
+        rowGroupControlAfter:
+          type: boolean
     SpreadsheetsSheetsPostResponse:
       description: SpreadsheetsSheetsPostResponse schema
       type: object
@@ -184,6 +172,18 @@ components:
           $ref: '#/components/schemas/SpreadsheetsSheetsPostResponseTabColorStyle'
         title:
           type: string
+    SpreadsheetsSheetsPostResponseTabColorStyleRgbColor:
+      description: SpreadsheetsSheetsPostResponseTabColorStyleRgbColor schema
+      type: object
+      properties:
+        alpha:
+          type: number
+        blue:
+          type: number
+        green:
+          type: number
+        red:
+          type: number
   examples:
     SpreadsheetsSheetsPostResponseExample:
       summary: Successful 200 response

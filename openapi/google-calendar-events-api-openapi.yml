@@ -1376,12 +1376,48 @@ paths:
         dispatcherRules: CalendarsEventsWatchPostResponseExample
 components:
   schemas:
+    CalendarsEventsGetResponse1:
+      description: CalendarsEventsGetResponse1 schema
+      type: object
+    CalendarsEventsPutResponse:
+      description: CalendarsEventsPutResponse schema
+      type: object
+    CalendarsEventsImportPostRequest:
+      description: CalendarsEventsImportPostRequest schema
+      type: object
+      example: null
+    CalendarsEventsPutRequest:
+      description: CalendarsEventsPutRequest schema
+      type: object
+      example: null
+    CalendarsEventsWatchPostRequest:
+      description: CalendarsEventsWatchPostRequest schema
+      type: object
+      example:
+        address: incididunt sed consequat
+        expiration: velit ad aliq
+        id: velit eiusmod
+        kind: api#channel
+        params:
+          reprehenderit5c: non
+          sint_b: cupidatat do
+        payload: false
+        resourceId: aute
+        resourceUri: fugiat consequat
+        token: ullamco officia in
+        type: ex eiusmod adipisicing mollit
     CalendarsEventsPostRequest:
       description: CalendarsEventsPostRequest schema
       type: object
       example: null
     CalendarsEventsGetResponse:
       description: CalendarsEventsGetResponse schema
+      type: object
+    CalendarsEventsPatchResponse:
+      description: CalendarsEventsPatchResponse schema
+      type: object
+    CalendarsEventsInstancesGetResponse:
+      description: CalendarsEventsInstancesGetResponse schema
       type: object
     CalendarsEventsWatchPostResponseParams:
       description: CalendarsEventsWatchPostResponseParams schema
@@ -1391,22 +1427,15 @@ components:
           type: string
         sint_b:
           type: string
-    CalendarsEventsPutResponse:
-      description: CalendarsEventsPutResponse schema
-      type: object
-    CalendarsEventsImportPostRequest:
-      description: CalendarsEventsImportPostRequest schema
-      type: object
-      example: null
-    CalendarsEventsImportPostResponse:
-      description: CalendarsEventsImportPostResponse schema
+    CalendarsEventsPostResponse:
+      description: CalendarsEventsPostResponse schema
       type: object
     CalendarsEventsPatchRequest:
       description: CalendarsEventsPatchRequest schema
       type: object
       example: null
-    CalendarsEventsPatchResponse:
-      description: CalendarsEventsPatchResponse schema
+    CalendarsEventsImportPostResponse:
+      description: CalendarsEventsImportPostResponse schema
       type: object
     CalendarsEventsWatchPostResponse:
       description: CalendarsEventsWatchPostResponse schema
@@ -1432,58 +1461,14 @@ components:
           type: string
         type:
           type: string
-    CalendarsEventsGetResponse1:
-      description: CalendarsEventsGetResponse1 schema
-      type: object
-    CalendarsEventsWatchPostRequest:
-      description: CalendarsEventsWatchPostRequest schema
-      type: object
-      example:
-        address: incididunt sed consequat
-        expiration: velit ad aliq
-        id: velit eiusmod
-        kind: api#channel
-        params:
-          reprehenderit5c: non
-          sint_b: cupidatat do
-        payload: false
-        resourceId: aute
-        resourceUri: fugiat consequat
-        token: ullamco officia in
-        type: ex eiusmod adipisicing mollit
-    CalendarsEventsPostResponse:
-      description: CalendarsEventsPostResponse schema
+    CalendarsEventsQuickAddPostResponse:
+      description: CalendarsEventsQuickAddPostResponse schema
       type: object
     CalendarsEventsMovePostResponse:
       description: CalendarsEventsMovePostResponse schema
       type: object
-    CalendarsEventsPutRequest:
-      description: CalendarsEventsPutRequest schema
-      type: object
-      example: null
-    CalendarsEventsQuickAddPostResponse:
-      description: CalendarsEventsQuickAddPostResponse schema
-      type: object
-    CalendarsEventsInstancesGetResponse:
-      description: CalendarsEventsInstancesGetResponse schema
-      type: object
   examples:
     CalendarsEventsGetResponse1Example:
-      summary: Successful 200 response
-      value:
-        id: example-id
-        name: Example Name
-    CalendarsEventsPatchResponseExample:
-      summary: Successful 200 response
-      value:
-        id: example-id
-        name: Example Name
-    CalendarsEventsMovePostResponseExample:
-      summary: Successful 200 response
-      value:
-        id: example-id
-        name: Example Name
-    CalendarsEventsGetResponseExample:
       summary: Successful 200 response
       value:
         id: example-id
@@ -1493,7 +1478,32 @@ components:
       value:
         id: example-id
         name: Example Name
+    CalendarsEventsImportPostResponseExample:
+      summary: Successful 200 response
+      value:
+        id: example-id
+        name: Example Name
+    CalendarsEventsPatchResponseExample:
+      summary: Successful 200 response
+      value:
+        id: example-id
+        name: Example Name
     CalendarsEventsPutResponseExample:
+      summary: Successful 200 response
+      value:
+        id: example-id
+        name: Example Name
+    CalendarsEventsMovePostResponseExample:
+      summary: Successful 200 response
+      value:
+        id: example-id
+        name: Example Name
+    CalendarsEventsInstancesGetResponseExample:
+      summary: Successful 200 response
+      value:
+        id: example-id
+        name: Example Name
+    CalendarsEventsGetResponseExample:
       summary: Successful 200 response
       value:
         id: example-id
@@ -1518,16 +1528,6 @@ components:
         resourceUri: fugiat consequat
         token: ullamco officia in
         type: ex eiusmod adipisicing mollit
-    CalendarsEventsInstancesGetResponseExample:
-      summary: Successful 200 response
-      value:
-        id: example-id
-        name: Example Name
-    CalendarsEventsImportPostResponseExample:
-      summary: Successful 200 response
-      value:
-        id: example-id
-        name: Example Name
   securitySchemes:
     oauth2Auth:
       type: http

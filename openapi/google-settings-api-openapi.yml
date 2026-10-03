@@ -66,6 +66,18 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    UsersSettingsVacationPutRequest:
+      description: UsersSettingsVacationPutRequest schema
+      type: object
+      example:
+        enableAutoReply: false
+        responseSubject: ei
+        responseBodyPlainText: veniam reprehe
+        responseBodyHtml: id
+        restrictToContacts: false
+        restrictToDomain: true
+        startTime: est mollit
+        endTime: enim in aliqua Ut commodo
     UsersSettingsVacationPutResponse:
       description: UsersSettingsVacationPutResponse schema
       type: object
@@ -86,18 +98,6 @@ components:
           type: string
         endTime:
           type: string
-    UsersSettingsVacationPutRequest:
-      description: UsersSettingsVacationPutRequest schema
-      type: object
-      example:
-        enableAutoReply: false
-        responseSubject: ei
-        responseBodyPlainText: veniam reprehe
-        responseBodyHtml: id
-        restrictToContacts: false
-        restrictToDomain: true
-        startTime: est mollit
-        endTime: enim in aliqua Ut commodo
   examples:
     UsersSettingsVacationPutResponseExample:
       summary: Successful 200 response

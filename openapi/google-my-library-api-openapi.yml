@@ -831,44 +831,6 @@ components:
                   message:
                     type: string
                     example: User not found
-    BookshelvesResponse:
-      type: object
-      description: Response containing a list of bookshelves
-      required:
-      - kind
-      properties:
-        kind:
-          type: string
-          description: Resource type
-          enum:
-          - books#bookshelves
-          example: books#bookshelves
-        items:
-          type: array
-          description: A list of bookshelves
-          items:
-            $ref: '#/components/schemas/Bookshelf'
-    VolumesResponse:
-      type: object
-      description: Response containing a list of volumes from a search
-      required:
-      - kind
-      properties:
-        kind:
-          type: string
-          description: Resource type
-          enum:
-          - books#volumes
-          example: books#volumes
-        totalItems:
-          type: integer
-          description: Total number of volumes found. This might be greater than the number of volumes returned in this response if results have been paginated.
-          example: 1234
-        items:
-          type: array
-          description: A list of volumes
-          items:
-            $ref: '#/components/schemas/Volume'
     Bookshelf:
       type: object
       description: A bookshelf resource represents the metadata for a bookshelf, it does not include the volumes in the bookshelf
@@ -922,6 +884,44 @@ components:
           format: date-time
           description: Last time a volume was added or removed from this bookshelf (formatted UTC timestamp with millisecond resolution)
           example: '2024-01-15T10:30:00.000Z'
+    BookshelvesResponse:
+      type: object
+      description: Response containing a list of bookshelves
+      required:
+      - kind
+      properties:
+        kind:
+          type: string
+          description: Resource type
+          enum:
+          - books#bookshelves
+          example: books#bookshelves
+        items:
+          type: array
+          description: A list of bookshelves
+          items:
+            $ref: '#/components/schemas/Bookshelf'
+    VolumesResponse:
+      type: object
+      description: Response containing a list of volumes from a search
+      required:
+      - kind
+      properties:
+        kind:
+          type: string
+          description: Resource type
+          enum:
+          - books#volumes
+          example: books#volumes
+        totalItems:
+          type: integer
+          description: Total number of volumes found. This might be greater than the number of volumes returned in this response if results have been paginated.
+          example: 1234
+        items:
+          type: array
+          description: A list of volumes
+          items:
+            $ref: '#/components/schemas/Volume'
   securitySchemes:
     OAuth2:
       type: oauth2

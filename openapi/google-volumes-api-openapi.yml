@@ -247,27 +247,35 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    VolumesResponse:
+    Error:
       type: object
-      description: Response containing a list of volumes from a search
-      required:
-      - kind
+      description: Error response
       properties:
-        kind:
-          type: string
-          description: Resource type
-          enum:
-          - books#volumes
-          example: books#volumes
-        totalItems:
-          type: integer
-          description: Total number of volumes found. This might be greater than the number of volumes returned in this response if results have been paginated.
-          example: 1234
-        items:
-          type: array
-          description: A list of volumes
-          items:
-            $ref: '#/components/schemas/Volume'
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: HTTP status code
+              example: 404
+            message:
+              type: string
+              description: Error message
+              example: User not found
+            errors:
+              type: array
+              items:
+                type: object
+                properties:
+                  domain:
+                    type: string
+                    example: global
+                  reason:
+                    type: string
+                    example: notFound
+                  message:
+                    type: string
+                    example: User not found
     Volume:
       type: object
       description: A Volume represents information that Google Books hosts about a book or a magazine. It contains metadata, such as title and author, as well as personalized data, such as whether or not it has been purchased.
@@ -640,35 +648,27 @@ components:
             textSnippet:
               type: string
               description: A text snippet containing the search query.
-    Error:
+    VolumesResponse:
       type: object
-      description: Error response
+      description: Response containing a list of volumes from a search
+      required:
+      - kind
       properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-              description: HTTP status code
-              example: 404
-            message:
-              type: string
-              description: Error message
-              example: User not found
-            errors:
-              type: array
-              items:
-                type: object
-                properties:
-                  domain:
-                    type: string
-                    example: global
-                  reason:
-                    type: string
-                    example: notFound
-                  message:
-                    type: string
-                    example: User not found
+        kind:
+          type: string
+          description: Resource type
+          enum:
+          - books#volumes
+          example: books#volumes
+        totalItems:
+          type: integer
+          description: Total number of volumes found. This might be greater than the number of volumes returned in this response if results have been paginated.
+          example: 1234
+        items:
+          type: array
+          description: A list of volumes
+          items:
+            $ref: '#/components/schemas/Volume'
   securitySchemes:
     OAuth2:
       type: oauth2

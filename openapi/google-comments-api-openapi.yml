@@ -599,6 +599,40 @@ components:
           description: Output only. A link to the user's profile photo, if available.
           type: string
       type: object
+    Reply:
+      description: A reply to a comment on a file. Some resource methods (such as `replies.update`) require a `replyId`. Use the `replies.list` method to retrieve the ID for a reply.
+      properties:
+        action:
+          description: 'The action the reply performed to the parent comment. Valid values are: * `resolve` * `reopen`'
+          type: string
+        author:
+          $ref: '#/components/schemas/User'
+          description: Output only. The author of the reply. The author's email address and permission ID will not be populated.
+        content:
+          description: The plain text content of the reply. This field is used for setting the content, while `htmlContent` should be displayed. This is required on creates if no `action` is specified.
+          type: string
+        createdTime:
+          description: The time at which the reply was created (RFC 3339 date-time).
+          format: date-time
+          type: string
+        deleted:
+          description: Output only. Whether the reply has been deleted. A deleted reply has no content.
+          type: boolean
+        htmlContent:
+          description: Output only. The content of the reply with HTML formatting.
+          type: string
+        id:
+          description: Output only. The ID of the reply.
+          type: string
+        kind:
+          default: drive#reply
+          description: 'Output only. Identifies what kind of resource this is. Value: the fixed string `"drive#reply"`.'
+          type: string
+        modifiedTime:
+          description: The last time the reply was modified (RFC 3339 date-time).
+          format: date-time
+          type: string
+      type: object
     Comment:
       description: A comment on a file. Some resource methods (such as `comments.update`) require a `commentId`. Use the `comments.list` method to retrieve the ID for a comment in a file.
       properties:
@@ -665,40 +699,6 @@ components:
           type: string
         nextPageToken:
           description: The page token for the next page of comments. This will be absent if the end of the comments list has been reached. If the token is rejected for any reason, it should be discarded, and pagination should be restarted from the first page of results. The page token is typically valid for several hours. However, if new items are added or removed, your expected results might differ.
-          type: string
-      type: object
-    Reply:
-      description: A reply to a comment on a file. Some resource methods (such as `replies.update`) require a `replyId`. Use the `replies.list` method to retrieve the ID for a reply.
-      properties:
-        action:
-          description: 'The action the reply performed to the parent comment. Valid values are: * `resolve` * `reopen`'
-          type: string
-        author:
-          $ref: '#/components/schemas/User'
-          description: Output only. The author of the reply. The author's email address and permission ID will not be populated.
-        content:
-          description: The plain text content of the reply. This field is used for setting the content, while `htmlContent` should be displayed. This is required on creates if no `action` is specified.
-          type: string
-        createdTime:
-          description: The time at which the reply was created (RFC 3339 date-time).
-          format: date-time
-          type: string
-        deleted:
-          description: Output only. Whether the reply has been deleted. A deleted reply has no content.
-          type: boolean
-        htmlContent:
-          description: Output only. The content of the reply with HTML formatting.
-          type: string
-        id:
-          description: Output only. The ID of the reply.
-          type: string
-        kind:
-          default: drive#reply
-          description: 'Output only. Identifies what kind of resource this is. Value: the fixed string `"drive#reply"`.'
-          type: string
-        modifiedTime:
-          description: The last time the reply was modified (RFC 3339 date-time).
-          format: date-time
           type: string
       type: object
   securitySchemes:

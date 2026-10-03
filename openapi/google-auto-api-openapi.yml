@@ -117,13 +117,6 @@ components:
           type: string
         disposition:
           type: string
-    UsersSettingsAutoForwardingPutRequest:
-      description: UsersSettingsAutoForwardingPutRequest schema
-      type: object
-      example:
-        enabled: false
-        emailAddress: officia ullamco Ut laboris eu
-        disposition: trash
     UsersSettingsAutoForwardingGetResponse:
       description: UsersSettingsAutoForwardingGetResponse schema
       type: object
@@ -134,6 +127,13 @@ components:
           type: string
         disposition:
           type: string
+    UsersSettingsAutoForwardingPutRequest:
+      description: UsersSettingsAutoForwardingPutRequest schema
+      type: object
+      example:
+        enabled: false
+        emailAddress: officia ullamco Ut laboris eu
+        disposition: trash
   examples:
     UsersSettingsAutoForwardingGetResponseExample:
       summary: Successful 200 response

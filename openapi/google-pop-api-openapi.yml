@@ -65,19 +65,7 @@ paths:
       operationId: putGmailV1UsersByUserIdSettingsPop
       x-operation-id-source: derived
 components:
-  examples:
-    UsersSettingsPopPutResponseExample:
-      summary: Successful 200 response
-      value:
-        accessWindow: fromNowOn
-        disposition: dispositionUnspecified
   schemas:
-    UsersSettingsPopPutRequest:
-      description: UsersSettingsPopPutRequest schema
-      type: object
-      example:
-        accessWindow: fromNowOn
-        disposition: dispositionUnspecified
     UsersSettingsPopPutResponse:
       description: UsersSettingsPopPutResponse schema
       type: object
@@ -86,6 +74,18 @@ components:
           type: string
         disposition:
           type: string
+    UsersSettingsPopPutRequest:
+      description: UsersSettingsPopPutRequest schema
+      type: object
+      example:
+        accessWindow: fromNowOn
+        disposition: dispositionUnspecified
+  examples:
+    UsersSettingsPopPutResponseExample:
+      summary: Successful 200 response
+      value:
+        accessWindow: fromNowOn
+        disposition: dispositionUnspecified
   securitySchemes:
     oauth2Auth:
       type: http

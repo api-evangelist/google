@@ -93,6 +93,16 @@ components:
             properties:
               value:
                 type: string
+    UsersMessagesTrashPostResponsePayloadBody:
+      description: UsersMessagesTrashPostResponsePayloadBody schema
+      type: object
+      properties:
+        attachmentId:
+          type: string
+        size:
+          type: integer
+        data:
+          type: string
     UsersMessagesTrashPostResponse:
       description: UsersMessagesTrashPostResponse schema
       type: object
@@ -116,16 +126,6 @@ components:
         sizeEstimate:
           type: integer
         raw:
-          type: string
-    UsersMessagesTrashPostResponsePayloadBody:
-      description: UsersMessagesTrashPostResponsePayloadBody schema
-      type: object
-      properties:
-        attachmentId:
-          type: string
-        size:
-          type: integer
-        data:
           type: string
   examples:
     UsersMessagesTrashPostResponseExample:

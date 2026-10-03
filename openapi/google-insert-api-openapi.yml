@@ -66,6 +66,16 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    GmailUsersMessagesPostResponsePayloadBody:
+      description: GmailUsersMessagesPostResponsePayloadBody schema
+      type: object
+      properties:
+        attachmentId:
+          type: string
+        size:
+          type: integer
+        data:
+          type: string
     GmailUsersMessagesPostResponse:
       description: GmailUsersMessagesPostResponse schema
       type: object
@@ -89,44 +99,6 @@ components:
         sizeEstimate:
           type: integer
         raw:
-          type: string
-    GmailUsersMessagesPostResponsePayload:
-      description: GmailUsersMessagesPostResponsePayload schema
-      type: object
-      properties:
-        partId:
-          type: string
-        mimeType:
-          type: string
-        filename:
-          type: string
-        headers:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-        body:
-          $ref: '#/components/schemas/GmailUsersMessagesPostResponsePayloadBody'
-        parts:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
-    GmailUsersMessagesPostResponsePayloadBody:
-      description: GmailUsersMessagesPostResponsePayloadBody schema
-      type: object
-      properties:
-        attachmentId:
-          type: string
-        size:
-          type: integer
-        data:
           type: string
     GmailUsersMessagesPostRequest:
       description: GmailUsersMessagesPostRequest schema
@@ -158,6 +130,34 @@ components:
           - value: '<Circular reference to #/components/schemas/MessagePart detected>'
         sizeEstimate: 21128811
         raw: do laboris
+    GmailUsersMessagesPostResponsePayload:
+      description: GmailUsersMessagesPostResponsePayload schema
+      type: object
+      properties:
+        partId:
+          type: string
+        mimeType:
+          type: string
+        filename:
+          type: string
+        headers:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        body:
+          $ref: '#/components/schemas/GmailUsersMessagesPostResponsePayloadBody'
+        parts:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
   examples:
     GmailUsersMessagesPostResponseExample:
       summary: Successful 200 response

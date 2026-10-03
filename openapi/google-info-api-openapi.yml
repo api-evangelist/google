@@ -121,6 +121,16 @@ paths:
       x-operation-id-source: derived
 components:
   examples:
+    SettingsSendAsSmimeInfoPostResponseExample:
+      summary: Successful 200 response
+      value:
+        id: id
+        issuerCn: ipsum qui s
+        isDefault: false
+        expiration: dolore magna
+        pem: 'cillum labore '
+        pkcs12: in aute et
+        encryptedKeyPassword: cillum ut
     SettingsSendAsSmimeInfoGetResponse1Example:
       summary: Successful 200 response
       value:
@@ -139,16 +149,6 @@ components:
           pem: eu minim consequat sunt
           pkcs12: sunt anim ipsum nulla
           encryptedKeyPassword: laboris ex sint
-    SettingsSendAsSmimeInfoPostResponseExample:
-      summary: Successful 200 response
-      value:
-        id: id
-        issuerCn: ipsum qui s
-        isDefault: false
-        expiration: dolore magna
-        pem: 'cillum labore '
-        pkcs12: in aute et
-        encryptedKeyPassword: cillum ut
   schemas:
     SettingsSendAsSmimeInfoPostRequest:
       description: SettingsSendAsSmimeInfoPostRequest schema

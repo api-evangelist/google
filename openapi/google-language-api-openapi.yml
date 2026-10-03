@@ -65,22 +65,22 @@ paths:
       operationId: putGmailV1UsersByUserIdSettingsLanguage
       x-operation-id-source: derived
 components:
-  examples:
-    UsersSettingsLanguagePutResponseExample:
-      summary: Successful 200 response
-      value:
-        displayLanguage: occaecat adipisicing
   schemas:
+    UsersSettingsLanguagePutRequest:
+      description: UsersSettingsLanguagePutRequest schema
+      type: object
+      example:
+        displayLanguage: occaecat adipisicing
     UsersSettingsLanguagePutResponse:
       description: UsersSettingsLanguagePutResponse schema
       type: object
       properties:
         displayLanguage:
           type: string
-    UsersSettingsLanguagePutRequest:
-      description: UsersSettingsLanguagePutRequest schema
-      type: object
-      example:
+  examples:
+    UsersSettingsLanguagePutResponseExample:
+      summary: Successful 200 response
+      value:
         displayLanguage: occaecat adipisicing
   securitySchemes:
     oauth2Auth:

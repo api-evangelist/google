@@ -134,19 +134,6 @@ paths:
     - url: https://sheets.googleapis.com
       description: Google Sheets API Server
 components:
-  examples:
-    UsersSettingsImapPutResponseExample:
-      summary: Successful 200 response
-      value:
-        enabled: false
-        autoExpunge: false
-        expungeBehavior: deleteForever
-        maxFolderSize: -49364914
-    SpreadsheetsValuesPutResponseExample:
-      summary: Successful 200 response
-      value:
-        id: example-id
-        name: Example Name
   schemas:
     UsersSettingsImapPutRequest:
       description: UsersSettingsImapPutRequest schema
@@ -175,6 +162,19 @@ components:
       description: SpreadsheetsValuesPutRequest schema
       type: object
       example: null
+  examples:
+    UsersSettingsImapPutResponseExample:
+      summary: Successful 200 response
+      value:
+        enabled: false
+        autoExpunge: false
+        expungeBehavior: deleteForever
+        maxFolderSize: -49364914
+    SpreadsheetsValuesPutResponseExample:
+      summary: Successful 200 response
+      value:
+        id: example-id
+        name: Example Name
   securitySchemes:
     oauth2Auth:
       type: http

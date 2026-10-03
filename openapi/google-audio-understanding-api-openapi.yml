@@ -242,26 +242,87 @@ paths:
         dispatcherRules: SuccessExample
 components:
   schemas:
-    ThinkingConfig:
+    FileData:
       type: object
-      description: Configuration for thinking mode in Gemini 2.5 models
+      description: Reference to a file uploaded via the File API or a YouTube URL
       properties:
-        thinkingBudget:
-          type: integer
-          description: Thinking budget, set to 0 to disable thinking
-          minimum: 0
-          default: null
-    ModelsPostRequest:
-      description: ModelsPostRequest schema
-      type: object
+        mime_type:
+          type: string
+          description: MIME type of the file (optional for YouTube URLs)
+          example: video/mp4
+        file_uri:
+          type: string
+          description: URI of the file from File API or YouTube URL
+          examples:
+          - https://generativelanguage.googleapis.com/v1beta/files/abc123
+          - https://www.youtube.com/watch?v=9hE5-98ZeCg
       required:
-      - contents
+      - file_uri
+    Candidate:
+      type: object
       properties:
-        contents:
+        content:
+          $ref: '#/components/schemas/Content'
+          description: Generated content
+        finishReason:
+          type: string
+          enum:
+          - FINISH_REASON_UNSPECIFIED
+          - STOP
+          - MAX_TOKENS
+          - SAFETY
+          - RECITATION
+          - OTHER
+          description: Reason why generation stopped
+        index:
+          type: integer
+          description: Index of the candidate
+        safetyRatings:
           type: array
-          description: The content to count tokens for
           items:
-            $ref: '#/components/schemas/Content'
+            $ref: '#/components/schemas/SafetyRating'
+          description: Safety ratings for the generated content
+    Content:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+          - user
+          - model
+          description: The role of the content producer (optional for single-turn, required for multi-turn)
+        parts:
+          type: array
+          description: Ordered parts that constitute a single message
+          items:
+            $ref: '#/components/schemas/Part'
+      required:
+      - parts
+    SafetyRating:
+      type: object
+      properties:
+        category:
+          type: string
+          enum:
+          - HARM_CATEGORY_UNSPECIFIED
+          - HARM_CATEGORY_DEROGATORY
+          - HARM_CATEGORY_TOXICITY
+          - HARM_CATEGORY_VIOLENCE
+          - HARM_CATEGORY_SEXUAL
+          - HARM_CATEGORY_MEDICAL
+          - HARM_CATEGORY_DANGEROUS
+          - HARM_CATEGORY_HARASSMENT
+          - HARM_CATEGORY_HATE_SPEECH
+          - HARM_CATEGORY_SEXUALLY_EXPLICIT
+          - HARM_CATEGORY_DANGEROUS_CONTENT
+        probability:
+          type: string
+          enum:
+          - HARM_PROBABILITY_UNSPECIFIED
+          - NEGLIGIBLE
+          - LOW
+          - MEDIUM
+          - HIGH
     CountTokensResponse:
       type: object
       properties:
@@ -316,231 +377,6 @@ components:
           type: object
           description: JSON schema for structured output format
           additionalProperties: true
-    FilesPostRequest1:
-      description: FilesPostRequest1 schema
-      type: string
-      format: binary
-    Content:
-      type: object
-      properties:
-        role:
-          type: string
-          enum:
-          - user
-          - model
-          description: The role of the content producer (optional for single-turn, required for multi-turn)
-        parts:
-          type: array
-          description: Ordered parts that constitute a single message
-          items:
-            $ref: '#/components/schemas/Part'
-      required:
-      - parts
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-              description: HTTP status code
-            message:
-              type: string
-              description: Error message
-            status:
-              type: string
-              description: Error status
-    GenerateContentResponse:
-      type: object
-      properties:
-        candidates:
-          type: array
-          description: Generated content candidates
-          items:
-            $ref: '#/components/schemas/Candidate'
-        promptFeedback:
-          $ref: '#/components/schemas/PromptFeedback'
-          description: Feedback about the prompt
-        usageMetadata:
-          $ref: '#/components/schemas/UsageMetadata'
-          description: Token usage information
-    Part:
-      type: object
-      description: A part of the content, can be text, inline data, or file data
-      oneOf:
-      - type: object
-        required:
-        - text
-        properties:
-          text:
-            type: string
-            description: Text content
-      - type: object
-        required:
-        - inline_data
-        properties:
-          inline_data:
-            $ref: '#/components/schemas/InlineData'
-      - type: object
-        required:
-        - file_data
-        properties:
-          file_data:
-            $ref: '#/components/schemas/FileData'
-          video_metadata:
-            $ref: '#/components/schemas/VideoMetadata'
-            description: Optional metadata for video processing (clipping, FPS)
-    FilesPostRequestFile:
-      description: FilesPostRequestFile schema
-      type: object
-      properties:
-        display_name:
-          type: string
-          description: Display name for the file
-    PromptFeedback:
-      type: object
-      properties:
-        blockReason:
-          type: string
-          enum:
-          - BLOCK_REASON_UNSPECIFIED
-          - SAFETY
-          - OTHER
-          description: Reason why prompt was blocked
-        safetyRatings:
-          type: array
-          items:
-            $ref: '#/components/schemas/SafetyRating'
-          description: Safety ratings for the prompt
-    InlineData:
-      type: object
-      required:
-      - mime_type
-      - data
-      properties:
-        mime_type:
-          type: string
-          description: MIME type of the data
-          enum:
-          - image/jpeg
-          - image/png
-          - image/webp
-          - video/mp4
-          - video/mpeg
-          - video/mov
-          - video/avi
-          - video/x-flv
-          - video/mpg
-          - video/webm
-          - video/wmv
-          - video/3gpp
-          - audio/wav
-          - audio/mp3
-          - audio/aiff
-          - audio/aac
-          - audio/ogg
-          - audio/flac
-          - application/pdf
-        data:
-          type: string
-          format: byte
-          description: Base64 encoded data
-    SafetyRating:
-      type: object
-      properties:
-        category:
-          type: string
-          enum:
-          - HARM_CATEGORY_UNSPECIFIED
-          - HARM_CATEGORY_DEROGATORY
-          - HARM_CATEGORY_TOXICITY
-          - HARM_CATEGORY_VIOLENCE
-          - HARM_CATEGORY_SEXUAL
-          - HARM_CATEGORY_MEDICAL
-          - HARM_CATEGORY_DANGEROUS
-          - HARM_CATEGORY_HARASSMENT
-          - HARM_CATEGORY_HATE_SPEECH
-          - HARM_CATEGORY_SEXUALLY_EXPLICIT
-          - HARM_CATEGORY_DANGEROUS_CONTENT
-        probability:
-          type: string
-          enum:
-          - HARM_PROBABILITY_UNSPECIFIED
-          - NEGLIGIBLE
-          - LOW
-          - MEDIUM
-          - HIGH
-    UsageMetadata:
-      type: object
-      properties:
-        promptTokenCount:
-          type: integer
-          description: Number of tokens in the prompt
-        candidatesTokenCount:
-          type: integer
-          description: Number of tokens in generated candidates
-        totalTokenCount:
-          type: integer
-          description: Total token count
-    GenerateContentRequest:
-      type: object
-      required:
-      - contents
-      properties:
-        contents:
-          type: array
-          description: The content of the current conversation with the model
-          items:
-            $ref: '#/components/schemas/Content'
-        system_instruction:
-          $ref: '#/components/schemas/Content'
-          description: System instructions to guide model behavior
-        generationConfig:
-          $ref: '#/components/schemas/GenerationConfig'
-          description: Configuration options for model generation
-    FileData:
-      type: object
-      description: Reference to a file uploaded via the File API or a YouTube URL
-      properties:
-        mime_type:
-          type: string
-          description: MIME type of the file (optional for YouTube URLs)
-          example: video/mp4
-        file_uri:
-          type: string
-          description: URI of the file from File API or YouTube URL
-          examples:
-          - https://generativelanguage.googleapis.com/v1beta/files/abc123
-          - https://www.youtube.com/watch?v=9hE5-98ZeCg
-      required:
-      - file_uri
-    FilesPostRequest:
-      description: FilesPostRequest schema
-      type: object
-      properties:
-        file:
-          $ref: '#/components/schemas/FilesPostRequestFile'
-    VideoMetadata:
-      type: object
-      description: Metadata for customizing video processing
-      properties:
-        start_offset:
-          type: string
-          description: Start time offset for video clipping (format like "1250s")
-          pattern: ^\d+s$
-          example: 1250s
-        end_offset:
-          type: string
-          description: End time offset for video clipping (format like "1570s")
-          pattern: ^\d+s$
-          example: 1570s
-        fps:
-          type: number
-          format: float
-          description: Custom frame rate sampling (frames per second). Default is 1 FPS. Use <1 for long videos, >1 for rapidly changing visuals
-          minimum: 0.1
-          example: 5
     FileUploadResponse:
       type: object
       properties:
@@ -594,30 +430,194 @@ components:
               properties:
                 message:
                   type: string
-    Candidate:
+    FilesPostRequestFile:
+      description: FilesPostRequestFile schema
       type: object
       properties:
-        content:
+        display_name:
+          type: string
+          description: Display name for the file
+    InlineData:
+      type: object
+      required:
+      - mime_type
+      - data
+      properties:
+        mime_type:
+          type: string
+          description: MIME type of the data
+          enum:
+          - image/jpeg
+          - image/png
+          - image/webp
+          - video/mp4
+          - video/mpeg
+          - video/mov
+          - video/avi
+          - video/x-flv
+          - video/mpg
+          - video/webm
+          - video/wmv
+          - video/3gpp
+          - audio/wav
+          - audio/mp3
+          - audio/aiff
+          - audio/aac
+          - audio/ogg
+          - audio/flac
+          - application/pdf
+        data:
+          type: string
+          format: byte
+          description: Base64 encoded data
+    GenerateContentResponse:
+      type: object
+      properties:
+        candidates:
+          type: array
+          description: Generated content candidates
+          items:
+            $ref: '#/components/schemas/Candidate'
+        promptFeedback:
+          $ref: '#/components/schemas/PromptFeedback'
+          description: Feedback about the prompt
+        usageMetadata:
+          $ref: '#/components/schemas/UsageMetadata'
+          description: Token usage information
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: HTTP status code
+            message:
+              type: string
+              description: Error message
+            status:
+              type: string
+              description: Error status
+    FilesPostRequest1:
+      description: FilesPostRequest1 schema
+      type: string
+      format: binary
+    GenerateContentRequest:
+      type: object
+      required:
+      - contents
+      properties:
+        contents:
+          type: array
+          description: The content of the current conversation with the model
+          items:
+            $ref: '#/components/schemas/Content'
+        system_instruction:
           $ref: '#/components/schemas/Content'
-          description: Generated content
-        finishReason:
+          description: System instructions to guide model behavior
+        generationConfig:
+          $ref: '#/components/schemas/GenerationConfig'
+          description: Configuration options for model generation
+    Part:
+      type: object
+      description: A part of the content, can be text, inline data, or file data
+      oneOf:
+      - type: object
+        required:
+        - text
+        properties:
+          text:
+            type: string
+            description: Text content
+      - type: object
+        required:
+        - inline_data
+        properties:
+          inline_data:
+            $ref: '#/components/schemas/InlineData'
+      - type: object
+        required:
+        - file_data
+        properties:
+          file_data:
+            $ref: '#/components/schemas/FileData'
+          video_metadata:
+            $ref: '#/components/schemas/VideoMetadata'
+            description: Optional metadata for video processing (clipping, FPS)
+    FilesPostRequest:
+      description: FilesPostRequest schema
+      type: object
+      properties:
+        file:
+          $ref: '#/components/schemas/FilesPostRequestFile'
+    UsageMetadata:
+      type: object
+      properties:
+        promptTokenCount:
+          type: integer
+          description: Number of tokens in the prompt
+        candidatesTokenCount:
+          type: integer
+          description: Number of tokens in generated candidates
+        totalTokenCount:
+          type: integer
+          description: Total token count
+    VideoMetadata:
+      type: object
+      description: Metadata for customizing video processing
+      properties:
+        start_offset:
+          type: string
+          description: Start time offset for video clipping (format like "1250s")
+          pattern: ^\d+s$
+          example: 1250s
+        end_offset:
+          type: string
+          description: End time offset for video clipping (format like "1570s")
+          pattern: ^\d+s$
+          example: 1570s
+        fps:
+          type: number
+          format: float
+          description: Custom frame rate sampling (frames per second). Default is 1 FPS. Use <1 for long videos, >1 for rapidly changing visuals
+          minimum: 0.1
+          example: 5
+    PromptFeedback:
+      type: object
+      properties:
+        blockReason:
           type: string
           enum:
-          - FINISH_REASON_UNSPECIFIED
-          - STOP
-          - MAX_TOKENS
+          - BLOCK_REASON_UNSPECIFIED
           - SAFETY
-          - RECITATION
           - OTHER
-          description: Reason why generation stopped
-        index:
-          type: integer
-          description: Index of the candidate
+          description: Reason why prompt was blocked
         safetyRatings:
           type: array
           items:
             $ref: '#/components/schemas/SafetyRating'
-          description: Safety ratings for the generated content
+          description: Safety ratings for the prompt
+    ModelsPostRequest:
+      description: ModelsPostRequest schema
+      type: object
+      required:
+      - contents
+      properties:
+        contents:
+          type: array
+          description: The content to count tokens for
+          items:
+            $ref: '#/components/schemas/Content'
+    ThinkingConfig:
+      type: object
+      description: Configuration for thinking mode in Gemini 2.5 models
+      properties:
+        thinkingBudget:
+          type: integer
+          description: Thinking budget, set to 0 to disable thinking
+          minimum: 0
+          default: null
   examples:
     ModelsPostRequestExample:
       summary: Example request for POST /models/{model}:countTokens

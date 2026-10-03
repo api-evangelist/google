@@ -90,6 +90,41 @@ paths:
         dispatcherRules: SuccessExample
 components:
   schemas:
+    FileData:
+      type: object
+      description: Reference to a file uploaded via the File API or a YouTube URL
+      properties:
+        mime_type:
+          type: string
+          description: MIME type of the file (optional for YouTube URLs)
+          example: video/mp4
+        file_uri:
+          type: string
+          description: URI of the file from File API or YouTube URL
+          examples:
+          - https://generativelanguage.googleapis.com/v1beta/files/abc123
+          - https://www.youtube.com/watch?v=9hE5-98ZeCg
+      required:
+      - file_uri
+    AudioCandidate:
+      type: object
+      properties:
+        content:
+          $ref: '#/components/schemas/AudioContent'
+          description: Generated audio content
+        finishReason:
+          type: string
+          enum:
+          - FINISH_REASON_UNSPECIFIED
+          - STOP
+          - MAX_TOKENS
+          - SAFETY
+          - RECITATION
+          - OTHER
+          description: Reason why generation stopped
+        index:
+          type: integer
+          description: Index of the candidate
     SpeechGenerationConfig:
       type: object
       required:
@@ -108,32 +143,102 @@ components:
         speechConfig:
           $ref: '#/components/schemas/SpeechConfig'
           description: Configuration for speech output
-    Part:
+    SpeechGenerationRequest:
       type: object
-      description: A part of the content, can be text, inline data, or file data
-      oneOf:
-      - type: object
-        required:
-        - text
-        properties:
-          text:
-            type: string
-            description: Text content
-      - type: object
-        required:
-        - inline_data
-        properties:
-          inline_data:
-            $ref: '#/components/schemas/InlineData'
-      - type: object
-        required:
-        - file_data
-        properties:
-          file_data:
-            $ref: '#/components/schemas/FileData'
-          video_metadata:
-            $ref: '#/components/schemas/VideoMetadata'
-            description: Optional metadata for video processing (clipping, FPS)
+      required:
+      - contents
+      - generationConfig
+      properties:
+        contents:
+          type: array
+          description: Text content to convert to speech
+          items:
+            $ref: '#/components/schemas/Content'
+        generationConfig:
+          $ref: '#/components/schemas/SpeechGenerationConfig'
+          description: Configuration for speech generation
+    MultiSpeakerVoiceConfig:
+      type: object
+      required:
+      - speakerVoiceConfigs
+      properties:
+        speakerVoiceConfigs:
+          type: array
+          description: Voice configurations for each speaker (maximum 2)
+          minItems: 2
+          maxItems: 2
+          items:
+            $ref: '#/components/schemas/SpeakerVoiceConfig'
+    VoiceConfig:
+      type: object
+      required:
+      - prebuiltVoiceConfig
+      properties:
+        prebuiltVoiceConfig:
+          $ref: '#/components/schemas/PrebuiltVoiceConfig'
+    VideoMetadata:
+      type: object
+      description: Metadata for customizing video processing
+      properties:
+        start_offset:
+          type: string
+          description: Start time offset for video clipping (format like "1250s")
+          pattern: ^\d+s$
+          example: 1250s
+        end_offset:
+          type: string
+          description: End time offset for video clipping (format like "1570s")
+          pattern: ^\d+s$
+          example: 1570s
+        fps:
+          type: number
+          format: float
+          description: Custom frame rate sampling (frames per second). Default is 1 FPS. Use <1 for long videos, >1 for rapidly changing visuals
+          minimum: 0.1
+          example: 5
+    UsageMetadata:
+      type: object
+      properties:
+        promptTokenCount:
+          type: integer
+          description: Number of tokens in the prompt
+        candidatesTokenCount:
+          type: integer
+          description: Number of tokens in generated candidates
+        totalTokenCount:
+          type: integer
+          description: Total token count
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: HTTP status code
+            message:
+              type: string
+              description: Error message
+            status:
+              type: string
+              description: Error status
+    Content:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+          - user
+          - model
+          description: The role of the content producer (optional for single-turn, required for multi-turn)
+        parts:
+          type: array
+          description: Ordered parts that constitute a single message
+          items:
+            $ref: '#/components/schemas/Part'
+      required:
+      - parts
     PrebuiltVoiceConfig:
       type: object
       required:
@@ -174,90 +279,84 @@ components:
           - Sadaltager
           - Sulafat
           example: Kore
-    MultiSpeakerVoiceConfig:
+    SpeechConfig:
       type: object
-      required:
-      - speakerVoiceConfigs
+      description: Configuration for single or multi-speaker speech
+      oneOf:
+      - type: object
+        required:
+        - voiceConfig
+        properties:
+          voiceConfig:
+            $ref: '#/components/schemas/VoiceConfig'
+            description: Single-speaker voice configuration
+      - type: object
+        required:
+        - multiSpeakerVoiceConfig
+        properties:
+          multiSpeakerVoiceConfig:
+            $ref: '#/components/schemas/MultiSpeakerVoiceConfig'
+            description: Multi-speaker voice configuration (up to 2 speakers)
+    AudioContent:
+      type: object
       properties:
-        speakerVoiceConfigs:
+        parts:
           type: array
-          description: Voice configurations for each speaker (maximum 2)
-          minItems: 2
-          maxItems: 2
+          description: Audio data parts
           items:
-            $ref: '#/components/schemas/SpeakerVoiceConfig'
-    FileData:
+            type: object
+            properties:
+              inlineData:
+                type: object
+                required:
+                - mimeType
+                - data
+                properties:
+                  mimeType:
+                    type: string
+                    description: MIME type of the audio (PCM format)
+                    example: audio/pcm
+                  data:
+                    type: string
+                    format: byte
+                    description: Base64-encoded audio data (24kHz, 16-bit, mono PCM)
+    Part:
       type: object
-      description: Reference to a file uploaded via the File API or a YouTube URL
-      properties:
-        mime_type:
-          type: string
-          description: MIME type of the file (optional for YouTube URLs)
-          example: video/mp4
-        file_uri:
-          type: string
-          description: URI of the file from File API or YouTube URL
-          examples:
-          - https://generativelanguage.googleapis.com/v1beta/files/abc123
-          - https://www.youtube.com/watch?v=9hE5-98ZeCg
-      required:
-      - file_uri
-    Error:
+      description: A part of the content, can be text, inline data, or file data
+      oneOf:
+      - type: object
+        required:
+        - text
+        properties:
+          text:
+            type: string
+            description: Text content
+      - type: object
+        required:
+        - inline_data
+        properties:
+          inline_data:
+            $ref: '#/components/schemas/InlineData'
+      - type: object
+        required:
+        - file_data
+        properties:
+          file_data:
+            $ref: '#/components/schemas/FileData'
+          video_metadata:
+            $ref: '#/components/schemas/VideoMetadata'
+            description: Optional metadata for video processing (clipping, FPS)
+    SpeechGenerationResponse:
       type: object
       properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-              description: HTTP status code
-            message:
-              type: string
-              description: Error message
-            status:
-              type: string
-              description: Error status
-    SpeechGenerationRequest:
-      type: object
-      required:
-      - contents
-      - generationConfig
-      properties:
-        contents:
+        candidates:
           type: array
-          description: Text content to convert to speech
+          description: Generated audio candidates
           items:
-            $ref: '#/components/schemas/Content'
-        generationConfig:
-          $ref: '#/components/schemas/SpeechGenerationConfig'
-          description: Configuration for speech generation
-    VoiceConfig:
-      type: object
-      required:
-      - prebuiltVoiceConfig
-      properties:
-        prebuiltVoiceConfig:
-          $ref: '#/components/schemas/PrebuiltVoiceConfig'
-    VideoMetadata:
-      type: object
-      description: Metadata for customizing video processing
-      properties:
-        start_offset:
-          type: string
-          description: Start time offset for video clipping (format like "1250s")
-          pattern: ^\d+s$
-          example: 1250s
-        end_offset:
-          type: string
-          description: End time offset for video clipping (format like "1570s")
-          pattern: ^\d+s$
-          example: 1570s
-        fps:
-          type: number
-          format: float
-          description: Custom frame rate sampling (frames per second). Default is 1 FPS. Use <1 for long videos, >1 for rapidly changing visuals
-          minimum: 0.1
-          example: 5
+            $ref: '#/components/schemas/AudioCandidate'
+        usageMetadata:
+          $ref: '#/components/schemas/UsageMetadata'
+          description: Token usage information
     InlineData:
       type: object
       required:
@@ -304,105 +403,6 @@ components:
         voiceConfig:
           $ref: '#/components/schemas/VoiceConfig'
           description: Voice configuration for this speaker
-    AudioContent:
-      type: object
-      properties:
-        parts:
-          type: array
-          description: Audio data parts
-          items:
-            type: object
-            properties:
-              inlineData:
-                type: object
-                required:
-                - mimeType
-                - data
-                properties:
-                  mimeType:
-                    type: string
-                    description: MIME type of the audio (PCM format)
-                    example: audio/pcm
-                  data:
-                    type: string
-                    format: byte
-                    description: Base64-encoded audio data (24kHz, 16-bit, mono PCM)
-    UsageMetadata:
-      type: object
-      properties:
-        promptTokenCount:
-          type: integer
-          description: Number of tokens in the prompt
-        candidatesTokenCount:
-          type: integer
-          description: Number of tokens in generated candidates
-        totalTokenCount:
-          type: integer
-          description: Total token count
-    Content:
-      type: object
-      properties:
-        role:
-          type: string
-          enum:
-          - user
-          - model
-          description: The role of the content producer (optional for single-turn, required for multi-turn)
-        parts:
-          type: array
-          description: Ordered parts that constitute a single message
-          items:
-            $ref: '#/components/schemas/Part'
-      required:
-      - parts
-    SpeechConfig:
-      type: object
-      description: Configuration for single or multi-speaker speech
-      oneOf:
-      - type: object
-        required:
-        - voiceConfig
-        properties:
-          voiceConfig:
-            $ref: '#/components/schemas/VoiceConfig'
-            description: Single-speaker voice configuration
-      - type: object
-        required:
-        - multiSpeakerVoiceConfig
-        properties:
-          multiSpeakerVoiceConfig:
-            $ref: '#/components/schemas/MultiSpeakerVoiceConfig'
-            description: Multi-speaker voice configuration (up to 2 speakers)
-    AudioCandidate:
-      type: object
-      properties:
-        content:
-          $ref: '#/components/schemas/AudioContent'
-          description: Generated audio content
-        finishReason:
-          type: string
-          enum:
-          - FINISH_REASON_UNSPECIFIED
-          - STOP
-          - MAX_TOKENS
-          - SAFETY
-          - RECITATION
-          - OTHER
-          description: Reason why generation stopped
-        index:
-          type: integer
-          description: Index of the candidate
-    SpeechGenerationResponse:
-      type: object
-      properties:
-        candidates:
-          type: array
-          description: Generated audio candidates
-          items:
-            $ref: '#/components/schemas/AudioCandidate'
-        usageMetadata:
-          $ref: '#/components/schemas/UsageMetadata'
-          description: Token usage information
   securitySchemes:
     ApiKeyHeader:
       type: apiKey

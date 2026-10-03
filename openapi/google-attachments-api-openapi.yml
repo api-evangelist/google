@@ -69,13 +69,6 @@ paths:
       operationId: getGmailV1UsersByUserIdMessagesByMessageIdAttachmentsById
       x-operation-id-source: derived
 components:
-  examples:
-    UsersMessagesAttachmentsGetResponseExample:
-      summary: Successful 200 response
-      value:
-        attachmentId: pariatur velit id sint dolore
-        size: -61751759
-        data: laboris eiusmod
   schemas:
     UsersMessagesAttachmentsGetResponse:
       description: UsersMessagesAttachmentsGetResponse schema
@@ -87,6 +80,13 @@ components:
           type: integer
         data:
           type: string
+  examples:
+    UsersMessagesAttachmentsGetResponseExample:
+      summary: Successful 200 response
+      value:
+        attachmentId: pariatur velit id sint dolore
+        size: -61751759
+        data: laboris eiusmod
   securitySchemes:
     oauth2Auth:
       type: http
