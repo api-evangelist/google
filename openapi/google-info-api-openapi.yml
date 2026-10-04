@@ -120,35 +120,6 @@ paths:
       operationId: postGmailV1UsersByUserIdSettingsSendAsBySendAsEmailSmimeInfo
       x-operation-id-source: derived
 components:
-  examples:
-    SettingsSendAsSmimeInfoPostResponseExample:
-      summary: Successful 200 response
-      value:
-        id: id
-        issuerCn: ipsum qui s
-        isDefault: false
-        expiration: dolore magna
-        pem: 'cillum labore '
-        pkcs12: in aute et
-        encryptedKeyPassword: cillum ut
-    SettingsSendAsSmimeInfoGetResponse1Example:
-      summary: Successful 200 response
-      value:
-        smimeInfo:
-        - id: Lorem culpa eiusmod
-          issuerCn: dolore eiusmod laborum
-          isDefault: false
-          expiration: eiusmod incidid
-          pem: minim voluptate non
-          pkcs12: et Duis
-          encryptedKeyPassword: tempor proiden
-        - id: dolore
-          issuerCn: aliqua velit qui
-          isDefault: false
-          expiration: occaeca
-          pem: eu minim consequat sunt
-          pkcs12: sunt anim ipsum nulla
-          encryptedKeyPassword: laboris ex sint
   schemas:
     SettingsSendAsSmimeInfoPostRequest:
       description: SettingsSendAsSmimeInfoPostRequest schema
@@ -161,6 +132,24 @@ components:
         pem: 'cillum labore '
         pkcs12: in aute et
         encryptedKeyPassword: cillum ut
+    SettingsSendAsSmimeInfoPostResponse:
+      description: SettingsSendAsSmimeInfoPostResponse schema
+      type: object
+      properties:
+        id:
+          type: string
+        issuerCn:
+          type: string
+        isDefault:
+          type: boolean
+        expiration:
+          type: string
+        pem:
+          type: string
+        pkcs12:
+          type: string
+        encryptedKeyPassword:
+          type: string
     SettingsSendAsSmimeInfoGetResponse1:
       description: SettingsSendAsSmimeInfoGetResponse1 schema
       type: object
@@ -184,24 +173,35 @@ components:
                 type: string
               encryptedKeyPassword:
                 type: string
-    SettingsSendAsSmimeInfoPostResponse:
-      description: SettingsSendAsSmimeInfoPostResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        issuerCn:
-          type: string
-        isDefault:
-          type: boolean
-        expiration:
-          type: string
-        pem:
-          type: string
-        pkcs12:
-          type: string
-        encryptedKeyPassword:
-          type: string
+  examples:
+    SettingsSendAsSmimeInfoGetResponse1Example:
+      summary: Successful 200 response
+      value:
+        smimeInfo:
+        - id: Lorem culpa eiusmod
+          issuerCn: dolore eiusmod laborum
+          isDefault: false
+          expiration: eiusmod incidid
+          pem: minim voluptate non
+          pkcs12: et Duis
+          encryptedKeyPassword: tempor proiden
+        - id: dolore
+          issuerCn: aliqua velit qui
+          isDefault: false
+          expiration: occaeca
+          pem: eu minim consequat sunt
+          pkcs12: sunt anim ipsum nulla
+          encryptedKeyPassword: laboris ex sint
+    SettingsSendAsSmimeInfoPostResponseExample:
+      summary: Successful 200 response
+      value:
+        id: id
+        issuerCn: ipsum qui s
+        isDefault: false
+        expiration: dolore magna
+        pem: 'cillum labore '
+        pkcs12: in aute et
+        encryptedKeyPassword: cillum ut
   securitySchemes:
     oauth2Auth:
       type: http

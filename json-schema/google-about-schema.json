@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-about-schema.json",
+  "title": "About",
+  "description": "Information about the user, the user's Drive, and system capabilities.",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-about-api-openapi.yml#/components/schemas/About",
+  "properties": {
+    "appInstalled": {
+      "description": "Whether the user has installed the requesting app.",
+      "type": "boolean"
+    },
+    "canCreateDrives": {
+      "description": "Whether the user can create shared drives.",
+      "type": "boolean"
+    },
+    "canCreateTeamDrives": {
+      "deprecated": true,
+      "description": "Deprecated: Use `canCreateDrives` instead.",
+      "type": "boolean"
+    },
+    "driveThemes": {
+      "description": "A list of themes that are supported for shared drives.",
+      "items": {
+        "properties": {
+          "backgroundImageLink": {
+            "description": "A link to this theme's background image.",
+            "type": "string"
+          },
+          "colorRgb": {
+            "description": "The color of this theme as an RGB hex string.",
+            "type": "string"
+          },
+          "id": {
+            "description": "The ID of the theme.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "exportFormats": {
+      "additionalProperties": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "description": "A map of source MIME type to possible targets for all supported exports.",
+      "type": "object"
+    },
+    "folderColorPalette": {
+      "description": "The currently supported folder colors as RGB hex strings.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "importFormats": {
+      "additionalProperties": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "description": "A map of source MIME type to possible targets for all supported imports.",
+      "type": "object"
+    },
+    "kind": {
+      "default": "drive#about",
+      "description": "Identifies what kind of resource this is. Value: the fixed string `\"drive#about\"`.",
+      "type": "string"
+    },
+    "maxImportSizes": {
+      "additionalProperties": {
+        "format": "int64",
+        "type": "string"
+      },
+      "description": "A map of maximum import sizes by MIME type, in bytes.",
+      "type": "object"
+    },
+    "maxUploadSize": {
+      "description": "The maximum upload size in bytes.",
+      "format": "int64",
+      "type": "string"
+    },
+    "storageQuota": {
+      "description": "The user's storage quota limits and usage. All fields are measured in bytes.",
+      "properties": {
+        "limit": {
+          "description": "The usage limit, if applicable. This will not be present if the user has unlimited storage.",
+          "format": "int64",
+          "type": "string"
+        },
+        "usage": {
+          "description": "The total usage across all services.",
+          "format": "int64",
+          "type": "string"
+        },
+        "usageInDrive": {
+          "description": "The usage by all files in Google Drive.",
+          "format": "int64",
+          "type": "string"
+        },
+        "usageInDriveTrash": {
+          "description": "The usage by trashed files in Google Drive.",
+          "format": "int64",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "teamDriveThemes": {
+      "deprecated": true,
+      "description": "Deprecated: Use `driveThemes` instead.",
+      "items": {
+        "properties": {
+          "backgroundImageLink": {
+            "deprecated": true,
+            "description": "Deprecated: Use `driveThemes/backgroundImageLink` instead.",
+            "type": "string"
+          },
+          "colorRgb": {
+            "deprecated": true,
+            "description": "Deprecated: Use `driveThemes/colorRgb` instead.",
+            "type": "string"
+          },
+          "id": {
+            "deprecated": true,
+            "description": "Deprecated: Use `driveThemes/id` instead.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "user": {
+      "$ref": "#/$defs/User",
+      "description": "The authenticated user."
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "User": {
+      "description": "Information about a Drive user.",
+      "properties": {
+        "displayName": {
+          "description": "Output only. A plain text displayable name for this user.",
+          "type": "string"
+        },
+        "emailAddress": {
+          "description": "Output only. The email address of the user. This may not be present in certain contexts if the user has not made their email address visible to the requester.",
+          "type": "string"
+        },
+        "kind": {
+          "default": "drive#user",
+          "description": "Output only. Identifies what kind of resource this is. Value: the fixed string `\"drive#user\"`.",
+          "type": "string"
+        },
+        "me": {
+          "description": "Output only. Whether this user is the requesting user.",
+          "type": "boolean"
+        },
+        "permissionId": {
+          "description": "Output only. The user's ID as visible in Permission resources.",
+          "type": "string"
+        },
+        "photoLink": {
+          "description": "Output only. A link to the user's profile photo, if available.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

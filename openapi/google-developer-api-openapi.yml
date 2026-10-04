@@ -118,6 +118,191 @@ paths:
       operationId: postV4SpreadsheetsBySpreadsheetIdDeveloperMetadata:search
       x-operation-id-source: derived
 components:
+  schemas:
+    SpreadsheetsDeveloperMetadataGetResponseLocation:
+      description: SpreadsheetsDeveloperMetadataGetResponseLocation schema
+      type: object
+      properties:
+        dimensionRange:
+          $ref: '#/components/schemas/SpreadsheetsDeveloperMetadataGetResponseLocationDimensionRange'
+        locationType:
+          type: string
+        sheetId:
+          type: integer
+        spreadsheet:
+          type: boolean
+    SpreadsheetsDeveloperMetadatasearchPostResponse:
+      description: SpreadsheetsDeveloperMetadatasearchPostResponse schema
+      type: object
+      properties:
+        matchedDeveloperMetadata:
+          type: array
+          items:
+            type: object
+            properties:
+              dataFilters:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    a1Range:
+                      type: string
+                    developerMetadataLookup:
+                      type: object
+                      properties:
+                        locationMatchingStrategy:
+                          type: string
+                        locationType:
+                          type: string
+                        metadataId:
+                          type: integer
+                        metadataKey:
+                          type: string
+                        metadataLocation:
+                          type: object
+                          properties:
+                            dimensionRange:
+                              type: object
+                              properties:
+                                dimension:
+                                  type: string
+                                endIndex:
+                                  type: integer
+                                sheetId:
+                                  type: integer
+                                startIndex:
+                                  type: integer
+                            locationType:
+                              type: string
+                            sheetId:
+                              type: integer
+                            spreadsheet:
+                              type: boolean
+                        metadataValue:
+                          type: string
+                        visibility:
+                          type: string
+                    gridRange:
+                      type: object
+                      properties:
+                        endColumnIndex:
+                          type: integer
+                        endRowIndex:
+                          type: integer
+                        sheetId:
+                          type: integer
+                        startColumnIndex:
+                          type: integer
+                        startRowIndex:
+                          type: integer
+              developerMetadata:
+                type: object
+                properties:
+                  location:
+                    type: object
+                    properties:
+                      dimensionRange:
+                        type: object
+                        properties:
+                          dimension:
+                            type: string
+                          endIndex:
+                            type: integer
+                          sheetId:
+                            type: integer
+                          startIndex:
+                            type: integer
+                      locationType:
+                        type: string
+                      sheetId:
+                        type: integer
+                      spreadsheet:
+                        type: boolean
+                  metadataId:
+                    type: integer
+                  metadataKey:
+                    type: string
+                  metadataValue:
+                    type: string
+                  visibility:
+                    type: string
+    SpreadsheetsDeveloperMetadatasearchPostRequest:
+      description: SpreadsheetsDeveloperMetadatasearchPostRequest schema
+      type: object
+      example:
+        dataFilters:
+        - a1Range: aute
+          developerMetadataLookup:
+            locationMatchingStrategy: INTERSECTING_LOCATION
+            locationType: DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED
+            metadataId: -761178
+            metadataKey: consequat Duis
+            metadataLocation:
+              dimensionRange:
+                dimension: COLUMNS
+                endIndex: -22955243
+                sheetId: 41865153
+                startIndex: -49712859
+              locationType: SHEET
+              sheetId: 77477058
+              spreadsheet: true
+            metadataValue: tempor
+            visibility: DOCUMENT
+          gridRange:
+            endColumnIndex: -69789235
+            endRowIndex: -98601086
+            sheetId: 32219017
+            startColumnIndex: -61197874
+            startRowIndex: -91350843
+        - a1Range: Ut cu
+          developerMetadataLookup:
+            locationMatchingStrategy: INTERSECTING_LOCATION
+            locationType: SHEET
+            metadataId: -32999997
+            metadataKey: commodo sit esse consequat
+            metadataLocation:
+              dimensionRange:
+                dimension: ROWS
+                endIndex: 1730530
+                sheetId: -56140506
+                startIndex: 82831554
+              locationType: SPREADSHEET
+              sheetId: 58086209
+              spreadsheet: false
+            metadataValue: in pariatur in Ut
+            visibility: DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED
+          gridRange:
+            endColumnIndex: 81731062
+            endRowIndex: 51216059
+            sheetId: -87090690
+            startColumnIndex: -26697783
+            startRowIndex: -36015480
+    SpreadsheetsDeveloperMetadataGetResponseLocationDimensionRange:
+      description: SpreadsheetsDeveloperMetadataGetResponseLocationDimensionRange schema
+      type: object
+      properties:
+        dimension:
+          type: string
+        endIndex:
+          type: integer
+        sheetId:
+          type: integer
+        startIndex:
+          type: integer
+    SpreadsheetsDeveloperMetadataGetResponse:
+      description: SpreadsheetsDeveloperMetadataGetResponse schema
+      type: object
+      properties:
+        location:
+          $ref: '#/components/schemas/SpreadsheetsDeveloperMetadataGetResponseLocation'
+        metadataId:
+          type: integer
+        metadataKey:
+          type: string
+        metadataValue:
+          type: string
+        visibility:
+          type: string
   examples:
     SpreadsheetsDeveloperMetadatasearchPostResponseExample:
       summary: Successful 200 response
@@ -261,191 +446,6 @@ components:
         metadataKey: proident ex
         metadataValue: Lorem magna minim sunt
         visibility: DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED
-  schemas:
-    SpreadsheetsDeveloperMetadatasearchPostRequest:
-      description: SpreadsheetsDeveloperMetadatasearchPostRequest schema
-      type: object
-      example:
-        dataFilters:
-        - a1Range: aute
-          developerMetadataLookup:
-            locationMatchingStrategy: INTERSECTING_LOCATION
-            locationType: DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED
-            metadataId: -761178
-            metadataKey: consequat Duis
-            metadataLocation:
-              dimensionRange:
-                dimension: COLUMNS
-                endIndex: -22955243
-                sheetId: 41865153
-                startIndex: -49712859
-              locationType: SHEET
-              sheetId: 77477058
-              spreadsheet: true
-            metadataValue: tempor
-            visibility: DOCUMENT
-          gridRange:
-            endColumnIndex: -69789235
-            endRowIndex: -98601086
-            sheetId: 32219017
-            startColumnIndex: -61197874
-            startRowIndex: -91350843
-        - a1Range: Ut cu
-          developerMetadataLookup:
-            locationMatchingStrategy: INTERSECTING_LOCATION
-            locationType: SHEET
-            metadataId: -32999997
-            metadataKey: commodo sit esse consequat
-            metadataLocation:
-              dimensionRange:
-                dimension: ROWS
-                endIndex: 1730530
-                sheetId: -56140506
-                startIndex: 82831554
-              locationType: SPREADSHEET
-              sheetId: 58086209
-              spreadsheet: false
-            metadataValue: in pariatur in Ut
-            visibility: DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED
-          gridRange:
-            endColumnIndex: 81731062
-            endRowIndex: 51216059
-            sheetId: -87090690
-            startColumnIndex: -26697783
-            startRowIndex: -36015480
-    SpreadsheetsDeveloperMetadataGetResponseLocation:
-      description: SpreadsheetsDeveloperMetadataGetResponseLocation schema
-      type: object
-      properties:
-        dimensionRange:
-          $ref: '#/components/schemas/SpreadsheetsDeveloperMetadataGetResponseLocationDimensionRange'
-        locationType:
-          type: string
-        sheetId:
-          type: integer
-        spreadsheet:
-          type: boolean
-    SpreadsheetsDeveloperMetadataGetResponseLocationDimensionRange:
-      description: SpreadsheetsDeveloperMetadataGetResponseLocationDimensionRange schema
-      type: object
-      properties:
-        dimension:
-          type: string
-        endIndex:
-          type: integer
-        sheetId:
-          type: integer
-        startIndex:
-          type: integer
-    SpreadsheetsDeveloperMetadataGetResponse:
-      description: SpreadsheetsDeveloperMetadataGetResponse schema
-      type: object
-      properties:
-        location:
-          $ref: '#/components/schemas/SpreadsheetsDeveloperMetadataGetResponseLocation'
-        metadataId:
-          type: integer
-        metadataKey:
-          type: string
-        metadataValue:
-          type: string
-        visibility:
-          type: string
-    SpreadsheetsDeveloperMetadatasearchPostResponse:
-      description: SpreadsheetsDeveloperMetadatasearchPostResponse schema
-      type: object
-      properties:
-        matchedDeveloperMetadata:
-          type: array
-          items:
-            type: object
-            properties:
-              dataFilters:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    a1Range:
-                      type: string
-                    developerMetadataLookup:
-                      type: object
-                      properties:
-                        locationMatchingStrategy:
-                          type: string
-                        locationType:
-                          type: string
-                        metadataId:
-                          type: integer
-                        metadataKey:
-                          type: string
-                        metadataLocation:
-                          type: object
-                          properties:
-                            dimensionRange:
-                              type: object
-                              properties:
-                                dimension:
-                                  type: string
-                                endIndex:
-                                  type: integer
-                                sheetId:
-                                  type: integer
-                                startIndex:
-                                  type: integer
-                            locationType:
-                              type: string
-                            sheetId:
-                              type: integer
-                            spreadsheet:
-                              type: boolean
-                        metadataValue:
-                          type: string
-                        visibility:
-                          type: string
-                    gridRange:
-                      type: object
-                      properties:
-                        endColumnIndex:
-                          type: integer
-                        endRowIndex:
-                          type: integer
-                        sheetId:
-                          type: integer
-                        startColumnIndex:
-                          type: integer
-                        startRowIndex:
-                          type: integer
-              developerMetadata:
-                type: object
-                properties:
-                  location:
-                    type: object
-                    properties:
-                      dimensionRange:
-                        type: object
-                        properties:
-                          dimension:
-                            type: string
-                          endIndex:
-                            type: integer
-                          sheetId:
-                            type: integer
-                          startIndex:
-                            type: integer
-                      locationType:
-                        type: string
-                      sheetId:
-                        type: integer
-                      spreadsheet:
-                        type: boolean
-                  metadataId:
-                    type: integer
-                  metadataKey:
-                    type: string
-                  metadataValue:
-                    type: string
-                  visibility:
-                    type: string
   securitySchemes:
     oauth2Auth:
       type: http

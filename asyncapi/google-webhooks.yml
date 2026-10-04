@@ -1,0 +1,40 @@
+generated: '2026-10-03'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://platform.claude.com/docs/en/managed-agents/webhooks
+sources:
+- https://platform.claude.com/docs/en/managed-agents/webhooks
+- https://developers.googleblog.com/deliver-asynchronous-notifications-in-google-chat-using-webhooks/
+- https://platform.claude.com/docs/en/managed-agents/events-and-streaming
+- https://developers.google.com/community
+description: Google Managed Agents webhook event surface as documented on the Claude Platform.
+events:
+- event: session.status_run_started
+  description: Agent execution started; triggers at every session status transition to running.
+- event: session.status_idled
+  description: Agent awaiting input, for example, a tool permission approval or a new user message.
+- event: session.budget_reached
+  description: The session reached its budget and paused; fires at most once for each budget value you set.
+- event: session.status_rescheduled
+  description: A transient error occurred and the session is retrying automatically.
+- event: session.status_terminated
+  description: The session terminated, either because of an unrecoverable error or because it was archived.
+- event: session.thread_created
+  description: 'New multi‑agent thread opened: an additional agent called by the coordinator is starting work, or the session''s advisor is being
+    consulted.'
+- event: session.thread_idled
+  description: An agent in a multi‑agent interaction is waiting for input.
+- event: session.thread_terminated
+  description: A multi‑agent thread terminated, either because the thread was archived or because it exhausted its retries.
+- event: session.outcome_evaluation_ended
+  description: Outcome evaluation for a single iteration completed.
+- event: session.updated
+  description: Session properties changed (for example, its name or configuration was updated).
+- event: session.deleted
+  description: Session permanently deleted; there is no object left to fetch, so treat the event itself as final.
+delivery:
+  signature: Each delivery includes the headers webhook-id, webhook-timestamp, and webhook-signature; a 32‑byte whsec_‑prefixed signing secret
+    is generated at endpoint creation and used to verify the signature.
+  retries: Anthropic makes up to three delivery attempts per event with jittered exponential backoff between 5 and 120 seconds; after the final
+    failed attempt the event is dropped.
+docs: https://platform.claude.com/docs/en/managed-agents/webhooks

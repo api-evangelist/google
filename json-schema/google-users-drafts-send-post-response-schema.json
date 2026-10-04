@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-users-drafts-send-post-response-schema.json",
+  "title": "UsersDraftsSendPostResponse",
+  "description": "UsersDraftsSendPostResponse schema",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-drafts-api-openapi.yml#/components/schemas/UsersDraftsSendPostResponse",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "threadId": {
+      "type": "string"
+    },
+    "labelIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "snippet": {
+      "type": "string"
+    },
+    "historyId": {
+      "type": "string"
+    },
+    "internalDate": {
+      "type": "string"
+    },
+    "payload": {
+      "$ref": "#/$defs/UsersDraftsSendPostResponsePayload"
+    },
+    "sizeEstimate": {
+      "type": "integer"
+    },
+    "raw": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "UsersDraftsSendPostResponsePayload": {
+      "description": "UsersDraftsSendPostResponsePayload schema",
+      "type": "object",
+      "properties": {
+        "partId": {
+          "type": "string"
+        },
+        "mimeType": {
+          "type": "string"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "headers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "body": {
+          "$ref": "#/$defs/UsersDraftsSendPostResponsePayloadBody"
+        },
+        "parts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "UsersDraftsSendPostResponsePayloadBody": {
+      "description": "UsersDraftsSendPostResponsePayloadBody schema",
+      "type": "object",
+      "properties": {
+        "attachmentId": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "data": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

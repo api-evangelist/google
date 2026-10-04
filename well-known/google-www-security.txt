@@ -1,0 +1,6 @@
+Contact: https://hackerone.com/4f1f16ba-10d3-4d09-9ecc-c721aad90f24/embedded_submissions/new
+Expires: 2026-12-31T23:59:00.000Z
+Preferred-Languages: en
+Canonical: https://anthropic.com/.well-known/security.txt
+Policy: https://www.anthropic.com/responsible-disclosure-policy
+Hiring: https://www.anthropic.com/careers

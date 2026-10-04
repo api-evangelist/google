@@ -533,183 +533,14 @@ paths:
         dispatcherRules: SuccessExample
 components:
   schemas:
-    Label:
-      description: Representation of label and label fields.
+    StartPageToken:
       properties:
-        fields:
-          additionalProperties:
-            $ref: '#/components/schemas/LabelField'
-          description: A map of the fields on the label, keyed by the field's ID.
-          type: object
-        id:
-          description: The ID of the label.
-          type: string
         kind:
-          description: This is always drive#label
+          default: drive#startPageToken
+          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#startPageToken"`.'
           type: string
-        revisionId:
-          description: The revision ID of the label.
-          type: string
-      type: object
-    Drive:
-      description: Representation of a shared drive. Some resource methods (such as `drives.update`) require a `driveId`. Use the `drives.list` method to retrieve the ID for a shared drive.
-      properties:
-        backgroundImageFile:
-          description: An image file and cropping parameters from which a background image for this shared drive is set. This is a write only field; it can only be set on `drive.drives.update` requests that don't set `themeId`. When specified, all fields of the `backgroundImageFile` must be set.
-          properties:
-            id:
-              description: The ID of an image file in Google Drive to use for the background image.
-              type: string
-            width:
-              description: The width of the cropped image in the closed range of 0 to 1. This value represents the width of the cropped image divided by the width of the entire image. The height is computed by applying a width to height aspect ratio of 80 to 9. The resulting image must be at least 1280 pixels wide and 144 pixels high.
-              format: float
-              type: number
-            xCoordinate:
-              description: The X coordinate of the upper left corner of the cropping area in the background image. This is a value in the closed range of 0 to 1. This value represents the horizontal distance from the left side of the entire image to the left side of the cropping area divided by the width of the entire image.
-              format: float
-              type: number
-            yCoordinate:
-              description: The Y coordinate of the upper left corner of the cropping area in the background image. This is a value in the closed range of 0 to 1. This value represents the vertical distance from the top side of the entire image to the top side of the cropping area divided by the height of the entire image.
-              format: float
-              type: number
-          type: object
-        backgroundImageLink:
-          description: Output only. A short-lived link to this shared drive's background image.
-          type: string
-        capabilities:
-          description: Output only. Capabilities the current user has on this shared drive.
-          properties:
-            canAddChildren:
-              description: Output only. Whether the current user can add children to folders in this shared drive.
-              type: boolean
-            canChangeCopyRequiresWriterPermissionRestriction:
-              description: Output only. Whether the current user can change the `copyRequiresWriterPermission` restriction of this shared drive.
-              type: boolean
-            canChangeDomainUsersOnlyRestriction:
-              description: Output only. Whether the current user can change the `domainUsersOnly` restriction of this shared drive.
-              type: boolean
-            canChangeDriveBackground:
-              description: Output only. Whether the current user can change the background of this shared drive.
-              type: boolean
-            canChangeDriveMembersOnlyRestriction:
-              description: Output only. Whether the current user can change the `driveMembersOnly` restriction of this shared drive.
-              type: boolean
-            canChangeSharingFoldersRequiresOrganizerPermissionRestriction:
-              description: Output only. Whether the current user can change the `sharingFoldersRequiresOrganizerPermission` restriction of this shared drive.
-              type: boolean
-            canComment:
-              description: Output only. Whether the current user can comment on files in this shared drive.
-              type: boolean
-            canCopy:
-              description: Output only. Whether the current user can copy files in this shared drive.
-              type: boolean
-            canDeleteChildren:
-              description: Output only. Whether the current user can delete children from folders in this shared drive.
-              type: boolean
-            canDeleteDrive:
-              description: Output only. Whether the current user can delete this shared drive. Attempting to delete the shared drive may still fail if there are untrashed items inside the shared drive.
-              type: boolean
-            canDownload:
-              description: Output only. Whether the current user can download files in this shared drive.
-              type: boolean
-            canEdit:
-              description: Output only. Whether the current user can edit files in this shared drive
-              type: boolean
-            canListChildren:
-              description: Output only. Whether the current user can list the children of folders in this shared drive.
-              type: boolean
-            canManageMembers:
-              description: Output only. Whether the current user can add members to this shared drive or remove them or change their role.
-              type: boolean
-            canReadRevisions:
-              description: Output only. Whether the current user can read the revisions resource of files in this shared drive.
-              type: boolean
-            canRename:
-              description: Output only. Whether the current user can rename files or folders in this shared drive.
-              type: boolean
-            canRenameDrive:
-              description: Output only. Whether the current user can rename this shared drive.
-              type: boolean
-            canResetDriveRestrictions:
-              description: Output only. Whether the current user can reset the shared drive restrictions to defaults.
-              type: boolean
-            canShare:
-              description: Output only. Whether the current user can share files or folders in this shared drive.
-              type: boolean
-            canTrashChildren:
-              description: Output only. Whether the current user can trash children from folders in this shared drive.
-              type: boolean
-          type: object
-        colorRgb:
-          description: The color of this shared drive as an RGB hex string. It can only be set on a `drive.drives.update` request that does not set `themeId`.
-          type: string
-        createdTime:
-          description: The time at which the shared drive was created (RFC 3339 date-time).
-          format: date-time
-          type: string
-        hidden:
-          description: Whether the shared drive is hidden from default view.
-          type: boolean
-        id:
-          description: Output only. The ID of this shared drive which is also the ID of the top level folder of this shared drive.
-          type: string
-        kind:
-          default: drive#drive
-          description: 'Output only. Identifies what kind of resource this is. Value: the fixed string `"drive#drive"`.'
-          type: string
-        name:
-          description: The name of this shared drive.
-          type: string
-        orgUnitId:
-          description: Output only. The organizational unit of this shared drive. This field is only populated on `drives.list` responses when the `useDomainAdminAccess` parameter is set to `true`.
-          type: string
-        restrictions:
-          description: A set of restrictions that apply to this shared drive or items inside this shared drive. Note that restrictions can't be set when creating a shared drive. To add a restriction, first create a shared drive and then use `drives.update` to add restrictions.
-          properties:
-            adminManagedRestrictions:
-              description: Whether administrative privileges on this shared drive are required to modify restrictions.
-              type: boolean
-            copyRequiresWriterPermission:
-              description: Whether the options to copy, print, or download files inside this shared drive, should be disabled for readers and commenters. When this restriction is set to `true`, it will override the similarly named field to `true` for any file inside this shared drive.
-              type: boolean
-            domainUsersOnly:
-              description: Whether access to this shared drive and items inside this shared drive is restricted to users of the domain to which this shared drive belongs. This restriction may be overridden by other sharing policies controlled outside of this shared drive.
-              type: boolean
-            driveMembersOnly:
-              description: Whether access to items inside this shared drive is restricted to its members.
-              type: boolean
-            sharingFoldersRequiresOrganizerPermission:
-              description: If true, only users with the organizer role can share folders. If false, users with either the organizer role or the file organizer role can share folders.
-              type: boolean
-          type: object
-        themeId:
-          description: The ID of the theme from which the background image and color will be set. The set of possible `driveThemes` can be retrieved from a `drive.about.get` response. When not specified on a `drive.drives.create` request, a random theme is chosen from which the background image and color are set. This is a write-only field; it can only be set on requests that don't set `colorRgb` or `backgroundImageFile`.
-          type: string
-      type: object
-    ContentRestriction:
-      description: A restriction for accessing the content of the file.
-      properties:
-        ownerRestricted:
-          description: Whether the content restriction can only be modified or removed by a user who owns the file. For files in shared drives, any user with `organizer` capabilities can modify or remove this content restriction.
-          type: boolean
-        readOnly:
-          description: Whether the content of the file is read-only. If a file is read-only, a new revision of the file may not be added, comments may not be added or modified, and the title of the file may not be modified.
-          type: boolean
-        reason:
-          description: Reason for why the content of the file is restricted. This is only mutable on requests that also set `readOnly=true`.
-          type: string
-        restrictingUser:
-          $ref: '#/components/schemas/User'
-          description: Output only. The user who set the content restriction. Only populated if `readOnly` is true.
-        restrictionTime:
-          description: The time at which the content restriction was set (formatted RFC 3339 timestamp). Only populated if readOnly is true.
-          format: date-time
-          type: string
-        systemRestricted:
-          description: Output only. Whether the content restriction was applied by the system, for example due to an esignature. Users cannot modify or remove system restricted content restrictions.
-          type: boolean
-        type:
-          description: Output only. The type of the content restriction. Currently the only possible value is `globalContentRestriction`.
+        startPageToken:
+          description: The starting page token for listing future changes. The page token doesn't expire.
           type: string
       type: object
     Permission:
@@ -838,6 +669,44 @@ components:
           type: array
         valueType:
           description: 'The field type. While new values may be supported in the future, the following are currently allowed: * `dateString` * `integer` * `selection` * `text` * `user`'
+          type: string
+      type: object
+    Channel:
+      description: A notification channel used to watch for resource changes.
+      properties:
+        address:
+          description: The address where notifications are delivered for this channel.
+          type: string
+        expiration:
+          description: Date and time of notification channel expiration, expressed as a Unix timestamp, in milliseconds. Optional.
+          format: int64
+          type: string
+        id:
+          description: A UUID or similar unique string that identifies this channel.
+          type: string
+        kind:
+          default: api#channel
+          description: Identifies this as a notification channel used to watch for changes to a resource, which is `api#channel`.
+          type: string
+        params:
+          additionalProperties:
+            type: string
+          description: Additional parameters controlling delivery channel behavior. Optional.
+          type: object
+        payload:
+          description: A Boolean value to indicate whether payload is wanted. Optional.
+          type: boolean
+        resourceId:
+          description: An opaque ID that identifies the resource being watched on this channel. Stable across different API versions.
+          type: string
+        resourceUri:
+          description: A version-specific identifier for the watched resource.
+          type: string
+        token:
+          description: An arbitrary string delivered to the target address with each notification delivered over this channel. Optional.
+          type: string
+        type:
+          description: The type of delivery mechanism used for this channel. Valid values are "web_hook" or "webhook".
           type: string
       type: object
     TeamDrive:
@@ -976,44 +845,6 @@ components:
           description: The ID of the theme from which the background image and color will be set. The set of possible `teamDriveThemes` can be retrieved from a `drive.about.get` response. When not specified on a `drive.teamdrives.create` request, a random theme is chosen from which the background image and color are set. This is a write-only field; it can only be set on requests that don't set `colorRgb` or `backgroundImageFile`.
           type: string
       type: object
-    Channel:
-      description: A notification channel used to watch for resource changes.
-      properties:
-        address:
-          description: The address where notifications are delivered for this channel.
-          type: string
-        expiration:
-          description: Date and time of notification channel expiration, expressed as a Unix timestamp, in milliseconds. Optional.
-          format: int64
-          type: string
-        id:
-          description: A UUID or similar unique string that identifies this channel.
-          type: string
-        kind:
-          default: api#channel
-          description: Identifies this as a notification channel used to watch for changes to a resource, which is `api#channel`.
-          type: string
-        params:
-          additionalProperties:
-            type: string
-          description: Additional parameters controlling delivery channel behavior. Optional.
-          type: object
-        payload:
-          description: A Boolean value to indicate whether payload is wanted. Optional.
-          type: boolean
-        resourceId:
-          description: An opaque ID that identifies the resource being watched on this channel. Stable across different API versions.
-          type: string
-        resourceUri:
-          description: A version-specific identifier for the watched resource.
-          type: string
-        token:
-          description: An arbitrary string delivered to the target address with each notification delivered over this channel. Optional.
-          type: string
-        type:
-          description: The type of delivery mechanism used for this channel. Valid values are "web_hook" or "webhook".
-          type: string
-      type: object
     User:
       description: Information about a Drive user.
       properties:
@@ -1037,33 +868,225 @@ components:
           description: Output only. A link to the user's profile photo, if available.
           type: string
       type: object
-    StartPageToken:
+    Drive:
+      description: Representation of a shared drive. Some resource methods (such as `drives.update`) require a `driveId`. Use the `drives.list` method to retrieve the ID for a shared drive.
       properties:
-        kind:
-          default: drive#startPageToken
-          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#startPageToken"`.'
+        backgroundImageFile:
+          description: An image file and cropping parameters from which a background image for this shared drive is set. This is a write only field; it can only be set on `drive.drives.update` requests that don't set `themeId`. When specified, all fields of the `backgroundImageFile` must be set.
+          properties:
+            id:
+              description: The ID of an image file in Google Drive to use for the background image.
+              type: string
+            width:
+              description: The width of the cropped image in the closed range of 0 to 1. This value represents the width of the cropped image divided by the width of the entire image. The height is computed by applying a width to height aspect ratio of 80 to 9. The resulting image must be at least 1280 pixels wide and 144 pixels high.
+              format: float
+              type: number
+            xCoordinate:
+              description: The X coordinate of the upper left corner of the cropping area in the background image. This is a value in the closed range of 0 to 1. This value represents the horizontal distance from the left side of the entire image to the left side of the cropping area divided by the width of the entire image.
+              format: float
+              type: number
+            yCoordinate:
+              description: The Y coordinate of the upper left corner of the cropping area in the background image. This is a value in the closed range of 0 to 1. This value represents the vertical distance from the top side of the entire image to the top side of the cropping area divided by the height of the entire image.
+              format: float
+              type: number
+          type: object
+        backgroundImageLink:
+          description: Output only. A short-lived link to this shared drive's background image.
           type: string
-        startPageToken:
-          description: The starting page token for listing future changes. The page token doesn't expire.
+        capabilities:
+          description: Output only. Capabilities the current user has on this shared drive.
+          properties:
+            canAddChildren:
+              description: Output only. Whether the current user can add children to folders in this shared drive.
+              type: boolean
+            canChangeCopyRequiresWriterPermissionRestriction:
+              description: Output only. Whether the current user can change the `copyRequiresWriterPermission` restriction of this shared drive.
+              type: boolean
+            canChangeDomainUsersOnlyRestriction:
+              description: Output only. Whether the current user can change the `domainUsersOnly` restriction of this shared drive.
+              type: boolean
+            canChangeDriveBackground:
+              description: Output only. Whether the current user can change the background of this shared drive.
+              type: boolean
+            canChangeDriveMembersOnlyRestriction:
+              description: Output only. Whether the current user can change the `driveMembersOnly` restriction of this shared drive.
+              type: boolean
+            canChangeSharingFoldersRequiresOrganizerPermissionRestriction:
+              description: Output only. Whether the current user can change the `sharingFoldersRequiresOrganizerPermission` restriction of this shared drive.
+              type: boolean
+            canComment:
+              description: Output only. Whether the current user can comment on files in this shared drive.
+              type: boolean
+            canCopy:
+              description: Output only. Whether the current user can copy files in this shared drive.
+              type: boolean
+            canDeleteChildren:
+              description: Output only. Whether the current user can delete children from folders in this shared drive.
+              type: boolean
+            canDeleteDrive:
+              description: Output only. Whether the current user can delete this shared drive. Attempting to delete the shared drive may still fail if there are untrashed items inside the shared drive.
+              type: boolean
+            canDownload:
+              description: Output only. Whether the current user can download files in this shared drive.
+              type: boolean
+            canEdit:
+              description: Output only. Whether the current user can edit files in this shared drive
+              type: boolean
+            canListChildren:
+              description: Output only. Whether the current user can list the children of folders in this shared drive.
+              type: boolean
+            canManageMembers:
+              description: Output only. Whether the current user can add members to this shared drive or remove them or change their role.
+              type: boolean
+            canReadRevisions:
+              description: Output only. Whether the current user can read the revisions resource of files in this shared drive.
+              type: boolean
+            canRename:
+              description: Output only. Whether the current user can rename files or folders in this shared drive.
+              type: boolean
+            canRenameDrive:
+              description: Output only. Whether the current user can rename this shared drive.
+              type: boolean
+            canResetDriveRestrictions:
+              description: Output only. Whether the current user can reset the shared drive restrictions to defaults.
+              type: boolean
+            canShare:
+              description: Output only. Whether the current user can share files or folders in this shared drive.
+              type: boolean
+            canTrashChildren:
+              description: Output only. Whether the current user can trash children from folders in this shared drive.
+              type: boolean
+          type: object
+        colorRgb:
+          description: The color of this shared drive as an RGB hex string. It can only be set on a `drive.drives.update` request that does not set `themeId`.
+          type: string
+        createdTime:
+          description: The time at which the shared drive was created (RFC 3339 date-time).
+          format: date-time
+          type: string
+        hidden:
+          description: Whether the shared drive is hidden from default view.
+          type: boolean
+        id:
+          description: Output only. The ID of this shared drive which is also the ID of the top level folder of this shared drive.
+          type: string
+        kind:
+          default: drive#drive
+          description: 'Output only. Identifies what kind of resource this is. Value: the fixed string `"drive#drive"`.'
+          type: string
+        name:
+          description: The name of this shared drive.
+          type: string
+        orgUnitId:
+          description: Output only. The organizational unit of this shared drive. This field is only populated on `drives.list` responses when the `useDomainAdminAccess` parameter is set to `true`.
+          type: string
+        restrictions:
+          description: A set of restrictions that apply to this shared drive or items inside this shared drive. Note that restrictions can't be set when creating a shared drive. To add a restriction, first create a shared drive and then use `drives.update` to add restrictions.
+          properties:
+            adminManagedRestrictions:
+              description: Whether administrative privileges on this shared drive are required to modify restrictions.
+              type: boolean
+            copyRequiresWriterPermission:
+              description: Whether the options to copy, print, or download files inside this shared drive, should be disabled for readers and commenters. When this restriction is set to `true`, it will override the similarly named field to `true` for any file inside this shared drive.
+              type: boolean
+            domainUsersOnly:
+              description: Whether access to this shared drive and items inside this shared drive is restricted to users of the domain to which this shared drive belongs. This restriction may be overridden by other sharing policies controlled outside of this shared drive.
+              type: boolean
+            driveMembersOnly:
+              description: Whether access to items inside this shared drive is restricted to its members.
+              type: boolean
+            sharingFoldersRequiresOrganizerPermission:
+              description: If true, only users with the organizer role can share folders. If false, users with either the organizer role or the file organizer role can share folders.
+              type: boolean
+          type: object
+        themeId:
+          description: The ID of the theme from which the background image and color will be set. The set of possible `driveThemes` can be retrieved from a `drive.about.get` response. When not specified on a `drive.drives.create` request, a random theme is chosen from which the background image and color are set. This is a write-only field; it can only be set on requests that don't set `colorRgb` or `backgroundImageFile`.
           type: string
       type: object
-    ChangeList:
-      description: A list of changes for a user.
+    Change:
+      description: A change to a file or shared drive.
       properties:
-        changes:
-          description: The list of changes. If nextPageToken is populated, then this list may be incomplete and an additional page of results should be fetched.
-          items:
-            $ref: '#/components/schemas/Change'
-          type: array
+        changeType:
+          description: The type of the change. Possible values are `file` and `drive`.
+          type: string
+        drive:
+          $ref: '#/components/schemas/Drive'
+          description: The updated state of the shared drive. Present if the changeType is drive, the user is still a member of the shared drive, and the shared drive has not been deleted.
+        driveId:
+          description: The ID of the shared drive associated with this change.
+          type: string
+        file:
+          $ref: '#/components/schemas/File'
+          description: The updated state of the file. Present if the type is file and the file has not been removed from this list of changes.
+        fileId:
+          description: The ID of the file which has changed.
+          type: string
         kind:
-          default: drive#changeList
-          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#changeList"`.'
+          default: drive#change
+          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#change"`.'
           type: string
-        newStartPageToken:
-          description: The starting page token for future changes. This will be present only if the end of the current changes list has been reached. The page token doesn't expire.
+        removed:
+          description: Whether the file or shared drive has been removed from this list of changes, for example by deletion or loss of access.
+          type: boolean
+        teamDrive:
+          $ref: '#/components/schemas/TeamDrive'
+          deprecated: true
+          description: 'Deprecated: Use `drive` instead.'
+        teamDriveId:
+          deprecated: true
+          description: 'Deprecated: Use `driveId` instead.'
           type: string
-        nextPageToken:
-          description: The page token for the next page of changes. This will be absent if the end of the changes list has been reached. The page token doesn't expire.
+        time:
+          description: The time of this change (RFC 3339 date-time).
+          format: date-time
+          type: string
+        type:
+          deprecated: true
+          description: 'Deprecated: Use `changeType` instead.'
+          type: string
+      type: object
+    ContentRestriction:
+      description: A restriction for accessing the content of the file.
+      properties:
+        ownerRestricted:
+          description: Whether the content restriction can only be modified or removed by a user who owns the file. For files in shared drives, any user with `organizer` capabilities can modify or remove this content restriction.
+          type: boolean
+        readOnly:
+          description: Whether the content of the file is read-only. If a file is read-only, a new revision of the file may not be added, comments may not be added or modified, and the title of the file may not be modified.
+          type: boolean
+        reason:
+          description: Reason for why the content of the file is restricted. This is only mutable on requests that also set `readOnly=true`.
+          type: string
+        restrictingUser:
+          $ref: '#/components/schemas/User'
+          description: Output only. The user who set the content restriction. Only populated if `readOnly` is true.
+        restrictionTime:
+          description: The time at which the content restriction was set (formatted RFC 3339 timestamp). Only populated if readOnly is true.
+          format: date-time
+          type: string
+        systemRestricted:
+          description: Output only. Whether the content restriction was applied by the system, for example due to an esignature. Users cannot modify or remove system restricted content restrictions.
+          type: boolean
+        type:
+          description: Output only. The type of the content restriction. Currently the only possible value is `globalContentRestriction`.
+          type: string
+      type: object
+    Label:
+      description: Representation of label and label fields.
+      properties:
+        fields:
+          additionalProperties:
+            $ref: '#/components/schemas/LabelField'
+          description: A map of the fields on the label, keyed by the field's ID.
+          type: object
+        id:
+          description: The ID of the label.
+          type: string
+        kind:
+          description: This is always drive#label
+          type: string
+        revisionId:
+          description: The revision ID of the label.
           type: string
       type: object
     File:
@@ -1563,46 +1586,23 @@ components:
           description: Whether users with only `writer` permission can modify the file's permissions. Not populated for items in shared drives.
           type: boolean
       type: object
-    Change:
-      description: A change to a file or shared drive.
+    ChangeList:
+      description: A list of changes for a user.
       properties:
-        changeType:
-          description: The type of the change. Possible values are `file` and `drive`.
-          type: string
-        drive:
-          $ref: '#/components/schemas/Drive'
-          description: The updated state of the shared drive. Present if the changeType is drive, the user is still a member of the shared drive, and the shared drive has not been deleted.
-        driveId:
-          description: The ID of the shared drive associated with this change.
-          type: string
-        file:
-          $ref: '#/components/schemas/File'
-          description: The updated state of the file. Present if the type is file and the file has not been removed from this list of changes.
-        fileId:
-          description: The ID of the file which has changed.
-          type: string
+        changes:
+          description: The list of changes. If nextPageToken is populated, then this list may be incomplete and an additional page of results should be fetched.
+          items:
+            $ref: '#/components/schemas/Change'
+          type: array
         kind:
-          default: drive#change
-          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#change"`.'
+          default: drive#changeList
+          description: 'Identifies what kind of resource this is. Value: the fixed string `"drive#changeList"`.'
           type: string
-        removed:
-          description: Whether the file or shared drive has been removed from this list of changes, for example by deletion or loss of access.
-          type: boolean
-        teamDrive:
-          $ref: '#/components/schemas/TeamDrive'
-          deprecated: true
-          description: 'Deprecated: Use `drive` instead.'
-        teamDriveId:
-          deprecated: true
-          description: 'Deprecated: Use `driveId` instead.'
+        newStartPageToken:
+          description: The starting page token for future changes. This will be present only if the end of the current changes list has been reached. The page token doesn't expire.
           type: string
-        time:
-          description: The time of this change (RFC 3339 date-time).
-          format: date-time
-          type: string
-        type:
-          deprecated: true
-          description: 'Deprecated: Use `changeType` instead.'
+        nextPageToken:
+          description: The page token for the next page of changes. This will be absent if the end of the changes list has been reached. The page token doesn't expire.
           type: string
       type: object
   securitySchemes:

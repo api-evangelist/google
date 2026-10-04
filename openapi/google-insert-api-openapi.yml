@@ -76,6 +76,34 @@ components:
           type: integer
         data:
           type: string
+    GmailUsersMessagesPostResponsePayload:
+      description: GmailUsersMessagesPostResponsePayload schema
+      type: object
+      properties:
+        partId:
+          type: string
+        mimeType:
+          type: string
+        filename:
+          type: string
+        headers:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        body:
+          $ref: '#/components/schemas/GmailUsersMessagesPostResponsePayloadBody'
+        parts:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
     GmailUsersMessagesPostResponse:
       description: GmailUsersMessagesPostResponse schema
       type: object
@@ -130,34 +158,6 @@ components:
           - value: '<Circular reference to #/components/schemas/MessagePart detected>'
         sizeEstimate: 21128811
         raw: do laboris
-    GmailUsersMessagesPostResponsePayload:
-      description: GmailUsersMessagesPostResponsePayload schema
-      type: object
-      properties:
-        partId:
-          type: string
-        mimeType:
-          type: string
-        filename:
-          type: string
-        headers:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-        body:
-          $ref: '#/components/schemas/GmailUsersMessagesPostResponsePayloadBody'
-        parts:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
   examples:
     GmailUsersMessagesPostResponseExample:
       summary: Successful 200 response

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-calendars-acl-post-response-schema.json",
+  "title": "CalendarsAclPostResponse",
+  "description": "CalendarsAclPostResponse schema",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-calendar-acls-api-openapi.yml#/components/schemas/CalendarsAclPostResponse",
+  "type": "object",
+  "properties": {
+    "etag": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "scope": {
+      "$ref": "#/$defs/CalendarsAclPostResponseScope"
+    }
+  },
+  "$defs": {
+    "CalendarsAclPostResponseScope": {
+      "description": "CalendarsAclPostResponseScope schema",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

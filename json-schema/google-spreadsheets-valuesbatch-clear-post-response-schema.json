@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-spreadsheets-valuesbatch-clear-post-response-schema.json",
+  "title": "SpreadsheetsValuesbatchClearPostResponse",
+  "description": "SpreadsheetsValuesbatchClearPostResponse schema",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-batch-api-openapi.yml#/components/schemas/SpreadsheetsValuesbatchClearPostResponse",
+  "type": "object",
+  "properties": {
+    "clearedRanges": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "spreadsheetId": {
+      "type": "string"
+    }
+  }
+}

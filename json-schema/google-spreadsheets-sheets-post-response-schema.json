@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-spreadsheets-sheets-post-response-schema.json",
+  "title": "SpreadsheetsSheetsPostResponse",
+  "description": "SpreadsheetsSheetsPostResponse schema",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-copy-api-openapi.yml#/components/schemas/SpreadsheetsSheetsPostResponse",
+  "type": "object",
+  "properties": {
+    "dataSourceSheetProperties": {
+      "$ref": "#/$defs/SpreadsheetsSheetsPostResponseDataSourceSheetProperties"
+    },
+    "gridProperties": {
+      "$ref": "#/$defs/SpreadsheetsSheetsPostResponseGridProperties"
+    },
+    "hidden": {
+      "type": "boolean"
+    },
+    "index": {
+      "type": "integer"
+    },
+    "rightToLeft": {
+      "type": "boolean"
+    },
+    "sheetId": {
+      "type": "integer"
+    },
+    "sheetType": {
+      "type": "string"
+    },
+    "tabColor": {
+      "$ref": "#/$defs/SpreadsheetsSheetsPostResponseTabColor"
+    },
+    "tabColorStyle": {
+      "$ref": "#/$defs/SpreadsheetsSheetsPostResponseTabColorStyle"
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "SpreadsheetsSheetsPostResponseDataSourceSheetProperties": {
+      "description": "SpreadsheetsSheetsPostResponseDataSourceSheetProperties schema",
+      "type": "object",
+      "properties": {
+        "columns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "formula": {
+                "type": "string"
+              },
+              "reference": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "dataExecutionStatus": {
+          "$ref": "#/$defs/SpreadsheetsSheetsPostResponseDataSourceSheetPropertiesDataExecutionStatus"
+        },
+        "dataSourceId": {
+          "type": "string"
+        }
+      }
+    },
+    "SpreadsheetsSheetsPostResponseDataSourceSheetPropertiesDataExecutionStatus": {
+      "description": "SpreadsheetsSheetsPostResponseDataSourceSheetPropertiesDataExecutionStatus schema",
+      "type": "object",
+      "properties": {
+        "errorCode": {
+          "type": "string"
+        },
+        "errorMessage": {
+          "type": "string"
+        },
+        "lastRefreshTime": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        }
+      }
+    },
+    "SpreadsheetsSheetsPostResponseGridProperties": {
+      "description": "SpreadsheetsSheetsPostResponseGridProperties schema",
+      "type": "object",
+      "properties": {
+        "columnCount": {
+          "type": "integer"
+        },
+        "columnGroupControlAfter": {
+          "type": "boolean"
+        },
+        "frozenColumnCount": {
+          "type": "integer"
+        },
+        "frozenRowCount": {
+          "type": "integer"
+        },
+        "hideGridlines": {
+          "type": "boolean"
+        },
+        "rowCount": {
+          "type": "integer"
+        },
+        "rowGroupControlAfter": {
+          "type": "boolean"
+        }
+      }
+    },
+    "SpreadsheetsSheetsPostResponseTabColor": {
+      "description": "SpreadsheetsSheetsPostResponseTabColor schema",
+      "type": "object",
+      "properties": {
+        "alpha": {
+          "type": "number"
+        },
+        "blue": {
+          "type": "number"
+        },
+        "green": {
+          "type": "number"
+        },
+        "red": {
+          "type": "number"
+        }
+      }
+    },
+    "SpreadsheetsSheetsPostResponseTabColorStyle": {
+      "description": "SpreadsheetsSheetsPostResponseTabColorStyle schema",
+      "type": "object",
+      "properties": {
+        "rgbColor": {
+          "$ref": "#/$defs/SpreadsheetsSheetsPostResponseTabColorStyleRgbColor"
+        },
+        "themeColor": {
+          "type": "string"
+        }
+      }
+    },
+    "SpreadsheetsSheetsPostResponseTabColorStyleRgbColor": {
+      "description": "SpreadsheetsSheetsPostResponseTabColorStyleRgbColor schema",
+      "type": "object",
+      "properties": {
+        "alpha": {
+          "type": "number"
+        },
+        "blue": {
+          "type": "number"
+        },
+        "green": {
+          "type": "number"
+        },
+        "red": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

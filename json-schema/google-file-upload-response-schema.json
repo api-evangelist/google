@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-file-upload-response-schema.json",
+  "title": "FileUploadResponse",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-audio-understanding-api-openapi.yml#/components/schemas/FileUploadResponse",
+  "type": "object",
+  "properties": {
+    "file": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Resource name of the file"
+        },
+        "display_name": {
+          "type": "string",
+          "description": "Display name of the file"
+        },
+        "mime_type": {
+          "type": "string",
+          "description": "MIME type of the file"
+        },
+        "size_bytes": {
+          "type": "string",
+          "description": "Size of the file in bytes"
+        },
+        "create_time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp"
+        },
+        "update_time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp"
+        },
+        "expiration_time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Expiration timestamp"
+        },
+        "sha256_hash": {
+          "type": "string",
+          "description": "SHA-256 hash of the file"
+        },
+        "uri": {
+          "type": "string",
+          "description": "URI to use in generateContent requests"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "STATE_UNSPECIFIED",
+            "PROCESSING",
+            "ACTIVE",
+            "FAILED"
+          ],
+          "description": "Processing state of the file"
+        },
+        "error": {
+          "type": "object",
+          "description": "Error details if state is FAILED",
+          "properties": {
+            "message": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

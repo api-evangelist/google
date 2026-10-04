@@ -110,29 +110,25 @@ paths:
       operationId: putGmailV1UsersByUserIdSettingsSendAsBySendAsEmail
       x-operation-id-source: derived
 components:
-  schemas:
-    UsersSettingsSendAsPutResponse:
-      description: UsersSettingsSendAsPutResponse schema
-      type: object
-      properties:
-        sendAsEmail:
-          type: string
-        displayName:
-          type: string
-        replyToAddress:
-          type: string
-        signature:
-          type: string
-        isPrimary:
-          type: boolean
-        isDefault:
-          type: boolean
-        treatAsAlias:
-          type: boolean
+  examples:
+    UsersSettingsSendAsPutResponseExample:
+      summary: Successful 200 response
+      value:
+        sendAsEmail: ut nulla
+        displayName: Excepteur
+        replyToAddress: velit id culpa
+        signature: officia quis adipisicing
+        isPrimary: true
+        isDefault: true
+        treatAsAlias: false
         smtpMsa:
-          $ref: '#/components/schemas/UsersSettingsSendAsPutResponseSmtpMsa'
-        verificationStatus:
-          type: string
+          host: in elit
+          port: -34532702
+          username: aliqua laborum aliquip do
+          password: tempor dolor velit
+          securityMode: securityModeUnspecified
+        verificationStatus: pending
+  schemas:
     UsersSettingsSendAsPutResponseSmtpMsa:
       description: UsersSettingsSendAsPutResponseSmtpMsa schema
       type: object
@@ -165,24 +161,28 @@ components:
           password: tempor dolor velit
           securityMode: securityModeUnspecified
         verificationStatus: pending
-  examples:
-    UsersSettingsSendAsPutResponseExample:
-      summary: Successful 200 response
-      value:
-        sendAsEmail: ut nulla
-        displayName: Excepteur
-        replyToAddress: velit id culpa
-        signature: officia quis adipisicing
-        isPrimary: true
-        isDefault: true
-        treatAsAlias: false
+    UsersSettingsSendAsPutResponse:
+      description: UsersSettingsSendAsPutResponse schema
+      type: object
+      properties:
+        sendAsEmail:
+          type: string
+        displayName:
+          type: string
+        replyToAddress:
+          type: string
+        signature:
+          type: string
+        isPrimary:
+          type: boolean
+        isDefault:
+          type: boolean
+        treatAsAlias:
+          type: boolean
         smtpMsa:
-          host: in elit
-          port: -34532702
-          username: aliqua laborum aliquip do
-          password: tempor dolor velit
-          securityMode: securityModeUnspecified
-        verificationStatus: pending
+          $ref: '#/components/schemas/UsersSettingsSendAsPutResponseSmtpMsa'
+        verificationStatus:
+          type: string
   securitySchemes:
     oauth2Auth:
       type: http

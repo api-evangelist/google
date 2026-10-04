@@ -132,6 +132,15 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    SettingsCseIdentitiesPatchRequest:
+      description: SettingsCseIdentitiesPatchRequest schema
+      type: object
+      example:
+        emailAddress: aliquip quis id
+        primaryKeyPairId: in exercitation esse
+        signAndEncryptKeyPairs:
+          signingKeyPairId: est deserunt
+          encryptionKeyPairId: elit nulla esse ut
     UsersSettingsSendAsPatchResponse:
       description: UsersSettingsSendAsPatchResponse schema
       type: object
@@ -182,15 +191,6 @@ components:
           password: tempor dolor velit
           securityMode: securityModeUnspecified
         verificationStatus: pending
-    SettingsCseIdentitiesPatchRequest:
-      description: SettingsCseIdentitiesPatchRequest schema
-      type: object
-      example:
-        emailAddress: aliquip quis id
-        primaryKeyPairId: in exercitation esse
-        signAndEncryptKeyPairs:
-          signingKeyPairId: est deserunt
-          encryptionKeyPairId: elit nulla esse ut
     UsersSettingsSendAsPatchResponseSmtpMsa:
       description: UsersSettingsSendAsPatchResponseSmtpMsa schema
       type: object
@@ -214,6 +214,14 @@ components:
         encryptionKeyPairId:
           type: string
   examples:
+    SettingsCseIdentitiesPatchResponseExample:
+      summary: Successful 200 response
+      value:
+        emailAddress: aliquip quis id
+        primaryKeyPairId: in exercitation esse
+        signAndEncryptKeyPairs:
+          signingKeyPairId: est deserunt
+          encryptionKeyPairId: elit nulla esse ut
     UsersSettingsSendAsPatchResponseExample:
       summary: Successful 200 response
       value:
@@ -231,14 +239,6 @@ components:
           password: tempor dolor velit
           securityMode: securityModeUnspecified
         verificationStatus: pending
-    SettingsCseIdentitiesPatchResponseExample:
-      summary: Successful 200 response
-      value:
-        emailAddress: aliquip quis id
-        primaryKeyPairId: in exercitation esse
-        signAndEncryptKeyPairs:
-          signingKeyPairId: est deserunt
-          encryptionKeyPairId: elit nulla esse ut
   securitySchemes:
     oauth2Auth:
       type: http

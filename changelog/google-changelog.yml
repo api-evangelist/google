@@ -1,0 +1,54 @@
+generated: '2026-10-03'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://platform.claude.com/docs/en/release-notes/overview
+sources:
+- https://platform.claude.com/docs/en/release-notes/overview
+- https://platform.claude.com/docs/en/about-claude/models/migration-guide
+- https://platform.claude.com/docs/en/managed-agents/migration
+- https://docs.cloud.google.com/docs/migration
+entries:
+- breaking: false
+  highlights:
+  - We announced the deprecation of the Claude Sonnet 4.5 model ( claude-sonnet-4-5-20250929 ), with retirement on the Claude API scheduled for
+    November 30, 2026.
+  date: '2026-09-30'
+- breaking: true
+  highlights:
+  - We've launched Claude Sonnet 5.5 ( claude-sonnet-5-5 ).
+  - Code written for Claude Sonnet 5 can break on Claude Sonnet 5.5 in five ways.
+  - 'To turn off up-front thinking, send thinking: {"type": "between_tools"} instead of "disabled" , at high effort or below.'
+  date: '2026-09-28'
+- breaking: false
+  highlights:
+  - We're resuming billing for refusals that arrive before any output when stop_details.category is "bio" , "frontier_llm" , or "reasoning_extraction".
+  date: '2026-09-24'
+- breaking: false
+  highlights:
+  - Cache diagnostics is out of beta on the Claude API and no longer requires the cache-diagnosis-2026-04-07 beta header.
+  date: '2026-09-23'
+- breaking: true
+  highlights:
+  - We've launched Claude Opus 5.5 ( claude-opus-5-5 ), a model for long-running agentic coding and knowledge work.
+  - 'On Claude Opus 5.5, thinking can''t be disabled: thinking: {"type": "disabled"} and thinking: {"type": "enabled", ...} return a 400 error.'
+  date: '2026-09-22'
+- breaking: false
+  highlights:
+  - For cache diagnostics , a response to a request that sends the cache-diagnosis-2026-04-07 beta header now always includes the diagnostics
+    field.
+  date: '2026-09-18'
+- breaking: false
+  highlights:
+  - The Messages API can now compact a conversation on demand on the Claude API, in beta with the compact-2026-09-04 beta header.
+  date: '2026-09-14'
+- breaking: false
+  highlights:
+  - 'Claude Managed Agents permission policies now include auto : the server evaluates each agent or MCP tool call and runs it, denies it, or
+    pauses for your approval.'
+  date: '2026-09-10'
+- breaking: false
+  highlights:
+  - For cache diagnostics , the API now stores a request's fingerprint only when the request includes the diagnostics object.
+  date: '2026-09-09'
+note: Versioning scheme and current version are not specified on the provided pages.
+docs: https://platform.claude.com/docs/en/release-notes/overview

@@ -186,107 +186,6 @@ components:
           type: integer
         data:
           type: string
-    UsersMessagesModifyPostResponse:
-      description: UsersMessagesModifyPostResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/UsersMessagesModifyPostResponsePayload'
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
-    UsersMessagesModifyPostResponsePayloadBody:
-      description: UsersMessagesModifyPostResponsePayloadBody schema
-      type: object
-      properties:
-        attachmentId:
-          type: string
-        size:
-          type: integer
-        data:
-          type: string
-    UsersMessagesSendPostResponsePayloadBody:
-      description: UsersMessagesSendPostResponsePayloadBody schema
-      type: object
-      properties:
-        attachmentId:
-          type: string
-        size:
-          type: integer
-        data:
-          type: string
-    UsersMessagesSendPostResponsePayload:
-      description: UsersMessagesSendPostResponsePayload schema
-      type: object
-      properties:
-        partId:
-          type: string
-        mimeType:
-          type: string
-        filename:
-          type: string
-        headers:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-        body:
-          $ref: '#/components/schemas/UsersMessagesSendPostResponsePayloadBody'
-        parts:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
-    UsersMessagesSendPostRequest:
-      description: UsersMessagesSendPostRequest schema
-      type: object
-      example:
-        raw: '{{encodedMessage}}'
-    UsersMessagesSendPostResponse:
-      description: UsersMessagesSendPostResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/UsersMessagesSendPostResponsePayload'
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
     UsersMessagesModifyPostRequest:
       description: UsersMessagesModifyPostRequest schema
       type: object
@@ -297,58 +196,6 @@ components:
         removeLabelIds:
         - Lorem sit
         - sed
-    UsersMessagesUntrashPostResponse:
-      description: UsersMessagesUntrashPostResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/UsersMessagesUntrashPostResponsePayload'
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
-    UsersMessagesUntrashPostResponsePayload:
-      description: UsersMessagesUntrashPostResponsePayload schema
-      type: object
-      properties:
-        partId:
-          type: string
-        mimeType:
-          type: string
-        filename:
-          type: string
-        headers:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-        body:
-          $ref: '#/components/schemas/UsersMessagesUntrashPostResponsePayloadBody'
-        parts:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
     UsersMessagesModifyPostResponsePayload:
       description: UsersMessagesModifyPostResponsePayload schema
       type: object
@@ -377,6 +224,159 @@ components:
             properties:
               value:
                 type: string
+    UsersMessagesUntrashPostResponsePayload:
+      description: UsersMessagesUntrashPostResponsePayload schema
+      type: object
+      properties:
+        partId:
+          type: string
+        mimeType:
+          type: string
+        filename:
+          type: string
+        headers:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        body:
+          $ref: '#/components/schemas/UsersMessagesUntrashPostResponsePayloadBody'
+        parts:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+    UsersMessagesSendPostResponsePayloadBody:
+      description: UsersMessagesSendPostResponsePayloadBody schema
+      type: object
+      properties:
+        attachmentId:
+          type: string
+        size:
+          type: integer
+        data:
+          type: string
+    UsersMessagesModifyPostResponsePayloadBody:
+      description: UsersMessagesModifyPostResponsePayloadBody schema
+      type: object
+      properties:
+        attachmentId:
+          type: string
+        size:
+          type: integer
+        data:
+          type: string
+    UsersMessagesSendPostResponse:
+      description: UsersMessagesSendPostResponse schema
+      type: object
+      properties:
+        id:
+          type: string
+        threadId:
+          type: string
+        labelIds:
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        internalDate:
+          type: string
+        payload:
+          $ref: '#/components/schemas/UsersMessagesSendPostResponsePayload'
+        sizeEstimate:
+          type: integer
+        raw:
+          type: string
+    UsersMessagesUntrashPostResponse:
+      description: UsersMessagesUntrashPostResponse schema
+      type: object
+      properties:
+        id:
+          type: string
+        threadId:
+          type: string
+        labelIds:
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        internalDate:
+          type: string
+        payload:
+          $ref: '#/components/schemas/UsersMessagesUntrashPostResponsePayload'
+        sizeEstimate:
+          type: integer
+        raw:
+          type: string
+    UsersMessagesSendPostRequest:
+      description: UsersMessagesSendPostRequest schema
+      type: object
+      example:
+        raw: '{{encodedMessage}}'
+    UsersMessagesSendPostResponsePayload:
+      description: UsersMessagesSendPostResponsePayload schema
+      type: object
+      properties:
+        partId:
+          type: string
+        mimeType:
+          type: string
+        filename:
+          type: string
+        headers:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        body:
+          $ref: '#/components/schemas/UsersMessagesSendPostResponsePayloadBody'
+        parts:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+    UsersMessagesModifyPostResponse:
+      description: UsersMessagesModifyPostResponse schema
+      type: object
+      properties:
+        id:
+          type: string
+        threadId:
+          type: string
+        labelIds:
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        internalDate:
+          type: string
+        payload:
+          $ref: '#/components/schemas/UsersMessagesModifyPostResponsePayload'
+        sizeEstimate:
+          type: integer
+        raw:
+          type: string
   examples:
     UsersMessagesUntrashPostResponseExample:
       summary: Successful 200 response

@@ -66,6 +66,12 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    UsersSettingsForwardingAddressesPostRequest:
+      description: UsersSettingsForwardingAddressesPostRequest schema
+      type: object
+      example:
+        forwardingEmail: ad tempor dolor
+        verificationStatus: pending
     UsersSettingsForwardingAddressesPostResponse:
       description: UsersSettingsForwardingAddressesPostResponse schema
       type: object
@@ -74,12 +80,6 @@ components:
           type: string
         verificationStatus:
           type: string
-    UsersSettingsForwardingAddressesPostRequest:
-      description: UsersSettingsForwardingAddressesPostRequest schema
-      type: object
-      example:
-        forwardingEmail: ad tempor dolor
-        verificationStatus: pending
   examples:
     UsersSettingsForwardingAddressesPostResponseExample:
       summary: Successful 200 response

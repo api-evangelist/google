@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-channel-schema.json",
+  "title": "Channel",
+  "description": "A notification channel used to watch for resource changes.",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-changes-api-openapi.yml#/components/schemas/Channel",
+  "properties": {
+    "address": {
+      "description": "The address where notifications are delivered for this channel.",
+      "type": "string"
+    },
+    "expiration": {
+      "description": "Date and time of notification channel expiration, expressed as a Unix timestamp, in milliseconds. Optional.",
+      "format": "int64",
+      "type": "string"
+    },
+    "id": {
+      "description": "A UUID or similar unique string that identifies this channel.",
+      "type": "string"
+    },
+    "kind": {
+      "default": "api#channel",
+      "description": "Identifies this as a notification channel used to watch for changes to a resource, which is `api#channel`.",
+      "type": "string"
+    },
+    "params": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Additional parameters controlling delivery channel behavior. Optional.",
+      "type": "object"
+    },
+    "payload": {
+      "description": "A Boolean value to indicate whether payload is wanted. Optional.",
+      "type": "boolean"
+    },
+    "resourceId": {
+      "description": "An opaque ID that identifies the resource being watched on this channel. Stable across different API versions.",
+      "type": "string"
+    },
+    "resourceUri": {
+      "description": "A version-specific identifier for the watched resource.",
+      "type": "string"
+    },
+    "token": {
+      "description": "An arbitrary string delivered to the target address with each notification delivered over this channel. Optional.",
+      "type": "string"
+    },
+    "type": {
+      "description": "The type of delivery mechanism used for this channel. Valid values are \"web_hook\" or \"webhook\".",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

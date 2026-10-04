@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-spreadsheets-developer-metadatasearch-post-response-schema.json",
+  "title": "SpreadsheetsDeveloperMetadatasearchPostResponse",
+  "description": "SpreadsheetsDeveloperMetadatasearchPostResponse schema",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-developer-api-openapi.yml#/components/schemas/SpreadsheetsDeveloperMetadatasearchPostResponse",
+  "type": "object",
+  "properties": {
+    "matchedDeveloperMetadata": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "dataFilters": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "a1Range": {
+                  "type": "string"
+                },
+                "developerMetadataLookup": {
+                  "type": "object",
+                  "properties": {
+                    "locationMatchingStrategy": {
+                      "type": "string"
+                    },
+                    "locationType": {
+                      "type": "string"
+                    },
+                    "metadataId": {
+                      "type": "integer"
+                    },
+                    "metadataKey": {
+                      "type": "string"
+                    },
+                    "metadataLocation": {
+                      "type": "object",
+                      "properties": {
+                        "dimensionRange": {
+                          "type": "object",
+                          "properties": {
+                            "dimension": {
+                              "type": "string"
+                            },
+                            "endIndex": {
+                              "type": "integer"
+                            },
+                            "sheetId": {
+                              "type": "integer"
+                            },
+                            "startIndex": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "locationType": {
+                          "type": "string"
+                        },
+                        "sheetId": {
+                          "type": "integer"
+                        },
+                        "spreadsheet": {
+                          "type": "boolean"
+                        }
+                      }
+                    },
+                    "metadataValue": {
+                      "type": "string"
+                    },
+                    "visibility": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "gridRange": {
+                  "type": "object",
+                  "properties": {
+                    "endColumnIndex": {
+                      "type": "integer"
+                    },
+                    "endRowIndex": {
+                      "type": "integer"
+                    },
+                    "sheetId": {
+                      "type": "integer"
+                    },
+                    "startColumnIndex": {
+                      "type": "integer"
+                    },
+                    "startRowIndex": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "developerMetadata": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "object",
+                "properties": {
+                  "dimensionRange": {
+                    "type": "object",
+                    "properties": {
+                      "dimension": {
+                        "type": "string"
+                      },
+                      "endIndex": {
+                        "type": "integer"
+                      },
+                      "sheetId": {
+                        "type": "integer"
+                      },
+                      "startIndex": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "locationType": {
+                    "type": "string"
+                  },
+                  "sheetId": {
+                    "type": "integer"
+                  },
+                  "spreadsheet": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "metadataId": {
+                "type": "integer"
+              },
+              "metadataKey": {
+                "type": "string"
+              },
+              "metadataValue": {
+                "type": "string"
+              },
+              "visibility": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

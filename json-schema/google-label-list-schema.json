@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-label-list-schema.json",
+  "title": "LabelList",
+  "description": "A list of labels applied to a file.",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-files-api-openapi.yml#/components/schemas/LabelList",
+  "properties": {
+    "kind": {
+      "description": "This is always drive#labelList",
+      "type": "string"
+    },
+    "labels": {
+      "description": "The list of labels.",
+      "items": {
+        "$ref": "#/$defs/Label"
+      },
+      "type": "array"
+    },
+    "nextPageToken": {
+      "description": "The page token for the next page of labels. This field will be absent if the end of the list has been reached. If the token is rejected for any reason, it should be discarded, and pagination should be restarted from the first page of results. The page token is typically valid for several hours. However, if new items are added or removed, your expected results might differ.",
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "Label": {
+      "description": "Representation of label and label fields.",
+      "properties": {
+        "fields": {
+          "additionalProperties": {
+            "$ref": "#/$defs/LabelField"
+          },
+          "description": "A map of the fields on the label, keyed by the field's ID.",
+          "type": "object"
+        },
+        "id": {
+          "description": "The ID of the label.",
+          "type": "string"
+        },
+        "kind": {
+          "description": "This is always drive#label",
+          "type": "string"
+        },
+        "revisionId": {
+          "description": "The revision ID of the label.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LabelField": {
+      "description": "Representation of field, which is a typed key-value pair.",
+      "properties": {
+        "dateString": {
+          "description": "Only present if valueType is dateString. RFC 3339 formatted date: YYYY-MM-DD.",
+          "items": {
+            "format": "date",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "The identifier of this label field.",
+          "type": "string"
+        },
+        "integer": {
+          "description": "Only present if `valueType` is `integer`.",
+          "items": {
+            "format": "int64",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "description": "This is always drive#labelField.",
+          "type": "string"
+        },
+        "selection": {
+          "description": "Only present if `valueType` is `selection`",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "text": {
+          "description": "Only present if `valueType` is `text`.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "user": {
+          "description": "Only present if `valueType` is `user`.",
+          "items": {
+            "$ref": "#/$defs/User"
+          },
+          "type": "array"
+        },
+        "valueType": {
+          "description": "The field type. While new values may be supported in the future, the following are currently allowed: * `dateString` * `integer` * `selection` * `text` * `user`",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "User": {
+      "description": "Information about a Drive user.",
+      "properties": {
+        "displayName": {
+          "description": "Output only. A plain text displayable name for this user.",
+          "type": "string"
+        },
+        "emailAddress": {
+          "description": "Output only. The email address of the user. This may not be present in certain contexts if the user has not made their email address visible to the requester.",
+          "type": "string"
+        },
+        "kind": {
+          "default": "drive#user",
+          "description": "Output only. Identifies what kind of resource this is. Value: the fixed string `\"drive#user\"`.",
+          "type": "string"
+        },
+        "me": {
+          "description": "Output only. Whether this user is the requesting user.",
+          "type": "boolean"
+        },
+        "permissionId": {
+          "description": "Output only. The user's ID as visible in Permission resources.",
+          "type": "string"
+        },
+        "photoLink": {
+          "description": "Output only. A link to the user's profile photo, if available.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

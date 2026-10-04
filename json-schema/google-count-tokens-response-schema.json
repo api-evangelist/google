@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-count-tokens-response-schema.json",
+  "title": "CountTokensResponse",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-audio-understanding-api-openapi.yml#/components/schemas/CountTokensResponse",
+  "type": "object",
+  "properties": {
+    "totalTokens": {
+      "type": "integer",
+      "description": "Total number of tokens in the provided content"
+    },
+    "totalBillableCharacters": {
+      "type": "integer",
+      "description": "Total billable characters (for audio/video content)"
+    }
+  }
+}

@@ -1,0 +1,3570 @@
+generated: '2026-10-03'
+method: derived
+generator: derive-data-model.py
+source:
+- openapi/google-about-api-openapi.yml
+- openapi/google-activity-api-openapi.yml
+- openapi/google-address-api-openapi.yml
+- openapi/google-addresses-api-openapi.yml
+- openapi/google-append-api-openapi.yml
+- openapi/google-applications-api-openapi.yml
+- openapi/google-attachments-api-openapi.yml
+- openapi/google-audio-understanding-api-openapi.yml
+- openapi/google-auto-api-openapi.yml
+- openapi/google-batch-api-openapi.yml
+- openapi/google-bookshelves-api-openapi.yml
+- openapi/google-calendar-acl-rules-api-openapi.yml
+notation: has_one = property $ref; has_many = array of $ref; belongs_to = <entity>_id field
+summary:
+  entities: 400
+  entities_in_spec: 750
+  relationships: 575
+entities:
+- name: About
+  fields: 13
+  description: Information about the user, the user's Drive, and system capabilities.
+- name: Action
+  fields: 5
+  description: Information about the action.
+- name: ActionDetail
+  fields: 12
+  description: Data describing the type and additional information of an action.
+- name: Actor
+  fields: 5
+  description: The actor of a Drive activity.
+- name: Administrator
+  fields: 0
+  description: Empty message representing an administrator.
+- name: AnonymousUser
+  fields: 0
+  description: Empty message representing an anonymous user or indicating the authenticated user should be anonymized.
+- name: Anyone
+  fields: 0
+  description: Represents any user (including a logged out user).
+- name: App
+  fields: 24
+  description: The `apps` resource provides a list of apps that a user has installed, with information about each
+    app's supported MIME types, file extensions, and other details. Some resource methods (such as `apps.
+- name: AppIcons
+  fields: 3
+- name: AppList
+  fields: 4
+  description: A list of third-party applications which the user has installed or given access to Google Drive.
+- name: ApplicationReference
+  fields: 1
+  description: Activity in applications other than Drive.
+- name: AppliedLabelChange
+  fields: 1
+  description: Label changes that were made on the Target.
+- name: AppliedLabelChangeDetail
+  fields: 4
+  description: A change made to a Label on the Target.
+- name: Assignment
+  fields: 2
+  description: A comment with an assignment.
+- name: AudioCandidate
+  fields: 3
+- name: AudioContent
+  fields: 1
+- name: AutoText
+  fields: 5
+  description: A ParagraphElement representing a spot in the text that's dynamically replaced with content that
+    can change over time, like a page number.
+- name: Background
+  fields: 1
+  description: Represents the background of a document.
+- name: BackgroundSuggestionState
+  fields: 1
+  description: A mask that indicates which of the fields on the base Background have been changed in this suggestion.
+    For any field set to true, the Backgound has a new suggested value.
+- name: BatchUpdateDocumentRequest
+  fields: 2
+  description: Request message for BatchUpdateDocument.
+- name: BatchUpdateDocumentResponse
+  fields: 3
+  description: Response message from a BatchUpdateDocument request.
+- name: Body
+  fields: 1
+  description: The document body. The body typically contains the full document contents except for headers, footers,
+    and footnotes.
+- name: Bookshelf
+  fields: 10
+  description: A bookshelf resource represents the metadata for a bookshelf, it does not include the volumes in
+    the bookshelf
+- name: BookshelvesResponse
+  fields: 2
+  description: Response containing a list of bookshelves
+- name: Bullet
+  fields: 3
+  description: Describes the bullet of a paragraph.
+- name: BulletSuggestionState
+  fields: 3
+  description: A mask that indicates which of the fields on the base Bullet have been changed in this suggestion.
+    For any field set to true, there's a new suggested value.
+- name: CalendarsAclGetResponse
+  fields: 5
+  description: CalendarsAclGetResponse schema
+- name: CalendarsAclGetResponseScope
+  fields: 2
+  description: CalendarsAclGetResponseScope schema
+- name: CalendarsAclPatchResponse
+  fields: 5
+  description: CalendarsAclPatchResponse schema
+- name: CalendarsAclPatchResponseScope
+  fields: 2
+  description: CalendarsAclPatchResponseScope schema
+- name: CalendarsAclPostResponse
+  fields: 5
+  description: CalendarsAclPostResponse schema
+- name: CalendarsAclPostResponseScope
+  fields: 2
+  description: CalendarsAclPostResponseScope schema
+- name: CalendarsAclPutResponse
+  fields: 5
+  description: CalendarsAclPutResponse schema
+- name: CalendarsAclPutResponseScope
+  fields: 2
+  description: CalendarsAclPutResponseScope schema
+- name: CalendarsAclWatchPostResponse
+  fields: 10
+  description: CalendarsAclWatchPostResponse schema
+- name: CalendarsAclWatchPostResponseParams
+  fields: 2
+  description: CalendarsAclWatchPostResponseParams schema
+- name: CalendarsEventsWatchPostResponse
+  fields: 10
+  description: CalendarsEventsWatchPostResponse schema
+- name: CalendarsEventsWatchPostResponseParams
+  fields: 2
+  description: CalendarsEventsWatchPostResponseParams schema
+- name: CalendarsGetResponse
+  fields: 8
+  description: CalendarsGetResponse schema
+- name: CalendarsGetResponseConferenceProperties
+  fields: 1
+  description: CalendarsGetResponseConferenceProperties schema
+- name: CalendarsPatchResponse
+  fields: 8
+  description: CalendarsPatchResponse schema
+- name: CalendarsPatchResponseConferenceProperties
+  fields: 1
+  description: CalendarsPatchResponseConferenceProperties schema
+- name: CalendarsPostResponse
+  fields: 8
+  description: CalendarsPostResponse schema
+- name: CalendarsPostResponseConferenceProperties
+  fields: 1
+  description: CalendarsPostResponseConferenceProperties schema
+- name: CalendarsPutResponse
+  fields: 8
+  description: CalendarsPutResponse schema
+- name: CalendarsPutResponseConferenceProperties
+  fields: 1
+  description: CalendarsPutResponseConferenceProperties schema
+- name: Candidate
+  fields: 4
+- name: Change
+  fields: 11
+  description: A change to a file or shared drive.
+- name: ChangeList
+  fields: 4
+  description: A list of changes for a user.
+- name: Color
+  fields: 1
+  description: A solid color.
+- name: ColorsGetResponse
+  fields: 4
+  description: ColorsGetResponse schema
+- name: ColorsGetResponseCalendar
+  fields: 3
+  description: ColorsGetResponseCalendar schema
+- name: ColorsGetResponseCalendarLaborisaf
+  fields: 2
+  description: ColorsGetResponseCalendarLaborisaf schema
+- name: ColorsGetResponseCalendarNulla2
+  fields: 2
+  description: ColorsGetResponseCalendarNulla2 schema
+- name: ColorsGetResponseCalendarQui15
+  fields: 2
+  description: ColorsGetResponseCalendarQui15 schema
+- name: ColorsGetResponseEvent
+  fields: 1
+  description: ColorsGetResponseEvent schema
+- name: ColorsGetResponseEventExcepteure8
+  fields: 2
+  description: ColorsGetResponseEventExcepteure8 schema
+- name: ColumnBreak
+  fields: 4
+  description: A ParagraphElement representing a column break. A column break makes the subsequent text start at
+    the top of the next column.
+- name: Comment
+  fields: 4
+  description: A change about comments on an object.
+- name: CommentList
+  fields: 3
+  description: A list of comments on a file.
+- name: ConsolidationStrategy
+  fields: 2
+  description: How the individual activities are consolidated. If a set of activities is related they can be consolidated
+    into one combined activity, such as one actor performing the same action on multiple targets,
+- name: Content
+  fields: 2
+- name: ContentRestriction
+  fields: 7
+  description: A restriction for accessing the content of the file.
+- name: Copy
+  fields: 1
+  description: An object was created by copying an existing object.
+- name: Create
+  fields: 3
+  description: An object was created.
+- name: CreateFooterRequest
+  fields: 2
+  description: Creates a Footer. The new footer is applied to the SectionStyle at the location of the SectionBreak
+    if specified, otherwise it is applied to the DocumentStyle. If a footer of the specified type alread
+- name: CreateFooterResponse
+  fields: 1
+  description: The result of creating a footer.
+- name: CreateFootnoteRequest
+  fields: 2
+  description: Creates a Footnote segment and inserts a new FootnoteReference to it at the given location. The new
+    Footnote segment will contain a space followed by a newline character.
+- name: CreateFootnoteResponse
+  fields: 1
+  description: The result of creating a footnote.
+- name: CreateHeaderRequest
+  fields: 2
+  description: Creates a Header. The new header is applied to the SectionStyle at the location of the SectionBreak
+    if specified, otherwise it is applied to the DocumentStyle. If a header of the specified type alread
+- name: CreateHeaderResponse
+  fields: 1
+  description: The result of creating a header.
+- name: CreateNamedRangeRequest
+  fields: 2
+  description: Creates a NamedRange referencing the given range.
+- name: CreateNamedRangeResponse
+  fields: 1
+  description: The result of creating a named range.
+- name: CreateParagraphBulletsRequest
+  fields: 2
+  description: Creates bullets for all of the paragraphs that overlap with the given range. The nesting level of
+    each paragraph will be determined by counting leading tabs in front of each paragraph. To avoid excess
+- name: CropProperties
+  fields: 5
+  description: The crop properties of an image. The crop rectangle is represented using fractional offsets from
+    the original content's 4 edges. - If the offset is in the interval (0, 1), the corresponding edge of cr
+- name: CropPropertiesSuggestionState
+  fields: 5
+  description: A mask that indicates which of the fields on the base CropProperties have been changed in this suggestion.
+    For any field set to true, there's a new suggested value.
+- name: DataLeakPreventionChange
+  fields: 1
+  description: A change in the object's data leak prevention status.
+- name: Date
+  fields: 1
+  description: Wrapper for Date Field value.
+- name: Delete
+  fields: 1
+  description: An object was deleted.
+- name: DeleteContentRangeRequest
+  fields: 1
+  description: Deletes content from the document.
+- name: DeleteFooterRequest
+  fields: 1
+  description: Deletes a Footer from the document.
+- name: DeleteHeaderRequest
+  fields: 1
+  description: Deletes a Header from the document.
+- name: DeleteNamedRangeRequest
+  fields: 2
+  description: Deletes a NamedRange.
+- name: DeleteParagraphBulletsRequest
+  fields: 1
+  description: Deletes bullets from all of the paragraphs that overlap with the given range. The nesting level of
+    each paragraph will be visually preserved by adding indent to the start of the corresponding paragrap
+- name: DeletePositionedObjectRequest
+  fields: 1
+  description: Deletes a PositionedObject from the document.
+- name: DeleteTableColumnRequest
+  fields: 1
+  description: Deletes a column from a table.
+- name: DeleteTableRowRequest
+  fields: 1
+  description: Deletes a row from a table.
+- name: Dimension
+  fields: 2
+  description: A magnitude in a single direction in the specified units.
+- name: Document
+  fields: 16
+  description: A Google Docs document.
+- name: DocumentStyle
+  fields: 18
+  description: The style of the document.
+- name: DocumentStyleSuggestionState
+  fields: 18
+  description: A mask that indicates which of the fields on the base DocumentStyle have been changed in this suggestion.
+    For any field set to true, there's a new suggested value.
+- name: Domain
+  fields: 2
+  description: Information about a domain.
+- name: Drive
+  fields: 3
+  description: Information about a shared drive.
+- name: DriveActivity
+  fields: 6
+  description: A single Drive activity comprising one or more Actions by one or more Actors on one or more Targets.
+    Some Action groupings occur spontaneously, such as moving an item into a shared folder triggering a
+- name: DriveFile
+  fields: 0
+  description: A Drive item which is a file.
+- name: DriveFolder
+  fields: 1
+  description: A Drive item which is a folder.
+- name: DriveItem
+  fields: 8
+  description: A Drive item, such as a file or folder.
+- name: DriveItemReference
+  fields: 6
+  description: A lightweight reference to a Drive item, such as a file or folder.
+- name: DriveList
+  fields: 3
+  description: A list of shared drives.
+- name: DriveReference
+  fields: 2
+  description: A lightweight reference to a shared drive.
+- name: Edit
+  fields: 0
+  description: An empty message indicating an object was edited.
+- name: EmbeddedDrawingProperties
+  fields: 0
+  description: The properties of an embedded drawing and used to differentiate the object type. An embedded drawing
+    is one that's created and edited within a document. Note that extensive details are not supported.
+- name: EmbeddedDrawingPropertiesSuggestionState
+  fields: 0
+  description: A mask that indicates which of the fields on the base EmbeddedDrawingProperties have been changed
+    in this suggestion. For any field set to true, there's a new suggested value.
+- name: EmbeddedObject
+  fields: 11
+  description: An embedded object in the document.
+- name: EmbeddedObjectBorder
+  fields: 4
+  description: A border around an EmbeddedObject.
+- name: EmbeddedObjectBorderSuggestionState
+  fields: 4
+  description: A mask that indicates which of the fields on the base EmbeddedObjectBorder have been changed in this
+    suggestion. For any field set to true, there's a new suggested value.
+- name: EmbeddedObjectSuggestionState
+  fields: 11
+  description: A mask that indicates which of the fields on the base EmbeddedObject have been changed in this suggestion.
+    For any field set to true, there's a new suggested value.
+- name: EndOfSegmentLocation
+  fields: 1
+  description: Location at the end of a body, header, footer or footnote. The location is immediately before the
+    last newline in the document segment.
+- name: Equation
+  fields: 2
+  description: A ParagraphElement representing an equation.
+- name: FieldValue
+  fields: 8
+  description: Contains a value of a Field.
+- name: FieldValueChange
+  fields: 4
+  description: Change to a Field value.
+- name: File
+  fields: 0
+  description: This item is deprecated; please see `DriveFile` instead.
+- name: FileComment
+  fields: 4
+  description: A comment on a file.
+- name: FileList
+  fields: 4
+  description: A list of files.
+- name: FilesPostRequest
+  fields: 1
+  description: FilesPostRequest schema
+- name: FilesPostRequestFile
+  fields: 1
+  description: FilesPostRequestFile schema
+- name: Folder
+  fields: 1
+  description: This item is deprecated; please see `DriveFolder` instead.
+- name: Footer
+  fields: 2
+  description: A document footer.
+- name: Footnote
+  fields: 2
+  description: A document footnote.
+- name: FootnoteReference
+  fields: 6
+  description: A ParagraphElement representing a footnote reference. A footnote reference is the inline content
+    rendered with a number and is used to identify the footnote.
+- name: FreeBusyPostResponse
+  fields: 5
+  description: FreeBusyPostResponse schema
+- name: FreeBusyPostResponseCalendars
+  fields: 2
+  description: FreeBusyPostResponseCalendars schema
+- name: FreeBusyPostResponseCalendarsEa8A
+  fields: 2
+  description: FreeBusyPostResponseCalendarsEa8A schema
+- name: FreeBusyPostResponseCalendarsTempor
+  fields: 2
+  description: FreeBusyPostResponseCalendarsTempor schema
+- name: FreeBusyPostResponseGroups
+  fields: 2
+  description: FreeBusyPostResponseGroups schema
+- name: FreeBusyPostResponseGroupsAmet0
+  fields: 2
+  description: FreeBusyPostResponseGroupsAmet0 schema
+- name: FreeBusyPostResponseGroupsOccaecat3
+  fields: 2
+  description: FreeBusyPostResponseGroupsOccaecat3 schema
+- name: GenerateContentRequest
+  fields: 3
+- name: GenerateContentResponse
+  fields: 3
+- name: GenerationConfig
+  fields: 8
+  description: Configuration options for model generation and outputs
+- name: GmailUsersDraftsGetResponse
+  fields: 2
+  description: GmailUsersDraftsGetResponse schema
+- name: GmailUsersDraftsGetResponseMessage
+  fields: 9
+  description: GmailUsersDraftsGetResponseMessage schema
+- name: GmailUsersDraftsGetResponseMessagePayload
+  fields: 6
+  description: GmailUsersDraftsGetResponseMessagePayload schema
+- name: GmailUsersDraftsGetResponseMessagePayloadBody
+  fields: 3
+  description: GmailUsersDraftsGetResponseMessagePayloadBody schema
+- name: GmailUsersDraftsPostResponse
+  fields: 2
+  description: GmailUsersDraftsPostResponse schema
+- name: GmailUsersDraftsPostResponseMessage
+  fields: 9
+  description: GmailUsersDraftsPostResponseMessage schema
+- name: GmailUsersDraftsPostResponseMessagePayload
+  fields: 6
+  description: GmailUsersDraftsPostResponseMessagePayload schema
+- name: GmailUsersDraftsPostResponseMessagePayloadBody
+  fields: 3
+  description: GmailUsersDraftsPostResponseMessagePayloadBody schema
+- name: GmailUsersDraftsPutResponse
+  fields: 2
+  description: GmailUsersDraftsPutResponse schema
+- name: GmailUsersDraftsPutResponseMessage
+  fields: 9
+  description: GmailUsersDraftsPutResponseMessage schema
+- name: GmailUsersDraftsPutResponseMessagePayload
+  fields: 6
+  description: GmailUsersDraftsPutResponseMessagePayload schema
+- name: GmailUsersDraftsPutResponseMessagePayloadBody
+  fields: 3
+  description: GmailUsersDraftsPutResponseMessagePayloadBody schema
+- name: GmailUsersLabelsGetResponse1
+  fields: 10
+  description: GmailUsersLabelsGetResponse1 schema
+- name: GmailUsersLabelsGetResponse1Color
+  fields: 2
+  description: GmailUsersLabelsGetResponse1Color schema
+- name: GmailUsersLabelsPatchResponse
+  fields: 10
+  description: GmailUsersLabelsPatchResponse schema
+- name: GmailUsersLabelsPatchResponseColor
+  fields: 2
+  description: GmailUsersLabelsPatchResponseColor schema
+- name: GmailUsersLabelsPostResponse
+  fields: 10
+  description: GmailUsersLabelsPostResponse schema
+- name: GmailUsersLabelsPostResponseColor
+  fields: 2
+  description: GmailUsersLabelsPostResponseColor schema
+- name: GmailUsersMessagesGetResponse1
+  fields: 9
+  description: GmailUsersMessagesGetResponse1 schema
+- name: GmailUsersMessagesGetResponse1Payload
+  fields: 6
+  description: GmailUsersMessagesGetResponse1Payload schema
+- name: GmailUsersMessagesPostResponse
+  fields: 9
+  description: GmailUsersMessagesPostResponse schema
+- name: GmailUsersMessagesPostResponsePayload
+  fields: 6
+  description: GmailUsersMessagesPostResponsePayload schema
+- name: GoogleAppsDriveLabelsV2BadgeColors
+  fields: 3
+  description: The color derived from BadgeConfig and changed to the closest recommended supported color.
+- name: GoogleAppsDriveLabelsV2BadgeConfig
+  fields: 2
+  description: Badge status of the label.
+- name: GoogleAppsDriveLabelsV2DateLimits
+  fields: 2
+  description: Limits for date Field type.
+- name: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequest
+  fields: 5
+  description: The set of requests for updating aspects of a Label. If any request is not valid, no requests will
+    be applied.
+- name: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestCreateFieldRequest
+  fields: 1
+  description: Request to create a Field within a Label.
+- name: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestCreateSelectionChoiceRequest
+  fields: 2
+  description: Request to create a Selection Choice.
+- name: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestDisableFieldRequest
+  fields: 3
+  description: Request to disable the Field.
+- name: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestDisableSelectionChoiceRequest
+  fields: 4
+  description: Request to disable a Choice.
+- name: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestRequest
+  fields: 12
+  description: A single kind of update to apply to a Label.
+- name: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateFieldPropertiesRequest
+  fields: 3
+  description: Request to update Field properties.
+- name: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateFieldTypeRequest
+  fields: 7
+  description: Request to change the type of a Field.
+- name: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateLabelPropertiesRequest
+  fields: 2
+  description: Updates basic properties of a Label.
+- name: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateSelectionChoicePropertiesRequest
+  fields: 4
+  description: Request to update a Choice properties.
+- name: GoogleAppsDriveLabelsV2DeltaUpdateLabelResponse
+  fields: 2
+  description: Response for Label update.
+- name: GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseResponse
+  fields: 12
+  description: A single response from an update.
+- name: GoogleAppsDriveLabelsV2DisableLabelRequest
+  fields: 5
+  description: Request to deprecate a published Label.
+- name: GoogleAppsDriveLabelsV2Field
+  fields: 20
+  description: Defines a field that has a display name, data type, and other configuration options. This field defines
+    the kind of metadata that may be set on a Drive item.
+- name: GoogleAppsDriveLabelsV2FieldDateOptions
+  fields: 4
+  description: Options for the date field type.
+- name: GoogleAppsDriveLabelsV2FieldIntegerOptions
+  fields: 2
+  description: Options for the Integer field type.
+- name: GoogleAppsDriveLabelsV2FieldLimits
+  fields: 9
+  description: Field constants governing the structure of a Field; such as, the maximum title length, minimum and
+    maximum field values or length, etc.
+- name: GoogleAppsDriveLabelsV2FieldListOptions
+  fields: 1
+  description: Options for a multi-valued variant of an associated field type.
+- name: GoogleAppsDriveLabelsV2FieldProperties
+  fields: 3
+  description: The basic properties of the field.
+- name: GoogleAppsDriveLabelsV2FieldSelectionOptions
+  fields: 2
+  description: Options for the selection field type.
+- name: GoogleAppsDriveLabelsV2FieldSelectionOptionsChoice
+  fields: 15
+  description: Selection field choice.
+- name: GoogleAppsDriveLabelsV2FieldSelectionOptionsChoiceDisplayHints
+  fields: 6
+  description: UI display hints for rendering an option.
+- name: GoogleAppsDriveLabelsV2FieldSelectionOptionsChoiceProperties
+  fields: 4
+  description: Basic properties of the choice.
+- name: GoogleAppsDriveLabelsV2FieldTextOptions
+  fields: 2
+  description: Options for the Text field type.
+- name: GoogleAppsDriveLabelsV2FieldUserOptions
+  fields: 1
+  description: Options for the user field type.
+- name: GoogleAppsDriveLabelsV2Label
+  fields: 22
+  description: A label defines a taxonomy that can be applied to Drive items in order to organize and search across
+    items. Labels can be simple strings, or can contain fields that describe additional metadata that c
+- name: GoogleAppsDriveLabelsV2LabelLock
+  fields: 8
+  description: A Lock that can be applied to a Label, Field, or Choice.
+- name: GoogleAppsDriveLabelsV2LabelPermission
+  fields: 6
+  description: The permission that applies to a principal (user, group, audience) on a label.
+- name: GoogleAppsDriveLabelsV2LabelProperties
+  fields: 2
+  description: Basic properties of the label.
+- name: GoogleAppsDriveLabelsV2Lifecycle
+  fields: 3
+  description: 'The lifecycle state of an object, such as label, field, or choice. The lifecycle enforces the following
+    transitions: * `UNPUBLISHED_DRAFT` (starting state) * `UNPUBLISHED_DRAFT` -> `PUBLISHED` * `UNPU'
+- name: GoogleAppsDriveLabelsV2LifecycleDisabledPolicy
+  fields: 2
+  description: The policy that governs how to treat a disabled label, field, or selection choice in different contexts.
+- name: GoogleAppsDriveLabelsV2ListLimits
+  fields: 1
+  description: Limits for list-variant of a Field type.
+- name: GoogleAppsDriveLabelsV2LockStatus
+  fields: 1
+  description: Contains information about whether a label component should be considered locked.
+- name: GoogleAppsDriveLabelsV2SelectionLimits
+  fields: 5
+  description: Limits for selection Field type.
+- name: GoogleAppsDriveLabelsV2UpdateLabelPermissionRequest
+  fields: 3
+  description: Updates a Label Permission. Permissions affect the Label resource as a whole, are not revisioned,
+    and do not require publishing.
+- name: GoogleAppsDriveLabelsV2UserInfo
+  fields: 1
+  description: Information about a user.
+- name: GoogleAppsDriveLabelsV2UserLimits
+  fields: 1
+  description: Limits for Field.Type.USER.
+- name: GoogleAppsDriveLabelsV2WriteControl
+  fields: 1
+  description: Provides control over how write requests are executed. When not specified, the last write wins.
+- name: GoogleTypeColor
+  fields: 4
+  description: Represents a color in the RGBA color space. This representation is designed for simplicity of conversion
+    to and from color representations in various languages over compactness. For example, the field
+- name: GoogleTypeDate
+  fields: 3
+  description: Represents a whole or partial calendar date, such as a birthday. The time of day and time zone are
+    either specified elsewhere or are insignificant. The date is relative to the Gregorian Calendar. This
+- name: Header
+  fields: 2
+  description: A document header.
+- name: HorizontalRule
+  fields: 4
+  description: A ParagraphElement representing a horizontal line.
+- name: ImageCandidate
+  fields: 4
+- name: ImageContent
+  fields: 2
+- name: ImageGenerationConfig
+  fields: 2
+  description: Configuration options for image generation
+- name: ImageGenerationRequest
+  fields: 2
+- name: ImageGenerationResponse
+  fields: 3
+- name: ImageProperties
+  fields: 7
+  description: The properties of an image.
+- name: ImagePropertiesSuggestionState
+  fields: 7
+  description: A mask that indicates which of the fields on the base ImageProperties have been changed in this suggestion.
+    For any field set to true, there's a new suggested value.
+- name: Impersonation
+  fields: 1
+  description: Information about an impersonation, where an admin acts on behalf of an end user. Information about
+    the acting admin is not currently available.
+- name: InlineObject
+  fields: 5
+  description: An object that appears inline with text. An InlineObject contains an EmbeddedObject such as an image.
+- name: InlineObjectElement
+  fields: 5
+  description: A ParagraphElement that contains an InlineObject.
+- name: InlineObjectProperties
+  fields: 1
+  description: Properties of an InlineObject.
+- name: InlineObjectPropertiesSuggestionState
+  fields: 1
+  description: A mask that indicates which of the fields on the base InlineObjectProperties have been changed in
+    this suggestion. For any field set to true, there's a new suggested value.
+- name: InsertInlineImageRequest
+  fields: 4
+  description: Inserts an InlineObject containing an image at the given location.
+- name: InsertPageBreakRequest
+  fields: 2
+  description: Inserts a page break followed by a newline at the specified location.
+- name: InsertSectionBreakRequest
+  fields: 3
+  description: Inserts a section break at the given location. A newline character will be inserted before the section
+    break.
+- name: InsertTableColumnRequest
+  fields: 2
+  description: Inserts an empty column into a table.
+- name: InsertTableRequest
+  fields: 4
+  description: Inserts a table at the specified location. A newline character will be inserted before the inserted
+    table.
+- name: InsertTableRowRequest
+  fields: 2
+  description: Inserts an empty row into a table.
+- name: InsertTextRequest
+  fields: 3
+  description: Inserts text at the specified location.
+- name: Label
+  fields: 4
+  description: Representation of label and label fields.
+- name: LabelModification
+  fields: 4
+  description: A modification to a label on a file. A LabelModification can be used to apply a label to a file,
+    update an existing label on a file, or remove a label from a file.
+- name: Legacy
+  fields: 0
+  description: A strategy that consolidates activities using the grouping rules from the legacy V1 Activity API.
+    Similar actions occurring within a window of time can be grouped across multiple targets (such as movi
+- name: LinkedContentReference
+  fields: 1
+  description: A reference to the external linked source content.
+- name: LinkedContentReferenceSuggestionState
+  fields: 1
+  description: A mask that indicates which of the fields on the base LinkedContentReference have been changed in
+    this suggestion. For any field set to true, there's a new suggested value.
+- name: List
+  fields: 4
+  description: A List represents the list attributes for a group of paragraphs that all belong to the same list.
+    A paragraph that's part of a list has a reference to the list's ID in its bullet.
+- name: ListProperties
+  fields: 1
+  description: The properties of a list that describe the look and feel of bullets belonging to paragraphs associated
+    with a list.
+- name: ListPropertiesSuggestionState
+  fields: 1
+  description: A mask that indicates which of the fields on the base ListProperties have been changed in this suggestion.
+    For any field set to true, there's a new suggested value.
+- name: Location
+  fields: 2
+  description: A particular location in the document.
+- name: MergeTableCellsRequest
+  fields: 1
+  description: Merges cells in a Table.
+- name: Move
+  fields: 2
+  description: An object was moved.
+- name: NamedRange
+  fields: 3
+  description: 'A collection of Ranges with the same named range ID. Named ranges allow developers to associate
+    parts of a document with an arbitrary user-defined label so their contents can be programmatically read '
+- name: NamedStyle
+  fields: 3
+  description: A named style. Paragraphs in the document can inherit their TextStyle and ParagraphStyle from this
+    named style when they have the same named style type.
+- name: NamedStyleSuggestionState
+  fields: 3
+  description: A suggestion state of a NamedStyle message.
+- name: NamedStyles
+  fields: 1
+  description: The named styles. Paragraphs in the document can inherit their TextStyle and ParagraphStyle from
+    these named styles.
+- name: NamedStylesSuggestionState
+  fields: 1
+  description: The suggestion state of a NamedStyles message.
+- name: NestingLevel
+  fields: 8
+  description: Contains properties describing the look and feel of a list bullet at a given level of nesting.
+- name: NestingLevelSuggestionState
+  fields: 8
+  description: A mask that indicates which of the fields on the base NestingLevel have been changed in this suggestion.
+    For any field set to true, there's a new suggested value.
+- name: OptionalColor
+  fields: 1
+  description: A color that can either be fully opaque or fully transparent.
+- name: Owner
+  fields: 4
+  description: Information about the owner of a Drive item.
+- name: PageBreak
+  fields: 4
+  description: A ParagraphElement representing a page break. A page break makes the subsequent text start at the
+    top of the next page.
+- name: Paragraph
+  fields: 7
+  description: A StructuralElement representing a paragraph. A paragraph is a range of content that's terminated
+    with a newline character.
+- name: ParagraphBorder
+  fields: 4
+  description: A border around a paragraph.
+- name: ParagraphElement
+  fields: 12
+  description: A ParagraphElement describes content within a Paragraph.
+- name: ParagraphStyle
+  fields: 22
+  description: 'Styles that apply to a whole paragraph. Inherited paragraph styles are represented as unset fields
+    in this message. A paragraph style''s parent depends on where the paragraph style is defined: * The Pa'
+- name: ParagraphStyleSuggestionState
+  fields: 21
+  description: A mask that indicates which of the fields on the base ParagraphStyle have been changed in this suggestion.
+    For any field set to true, there's a new suggested value.
+- name: Part
+  fields: 0
+  description: A part of the content, can be text, inline data, or file data
+- name: Permission
+  fields: 6
+  description: The permission setting of an object.
+- name: PermissionChange
+  fields: 2
+  description: A change of the permission setting on an item.
+- name: Person
+  fields: 6
+  description: A person or email address mentioned in a document. These mentions behave as a single, immutable element
+    containing the person's name or email address.
+- name: PinTableHeaderRowsRequest
+  fields: 2
+  description: Updates the number of pinned table header rows in a table.
+- name: PositionedObject
+  fields: 5
+  description: An object that's tethered to a Paragraph and positioned relative to the beginning of the paragraph.
+    A PositionedObject contains an EmbeddedObject such as an image.
+- name: PositionedObjectPositioning
+  fields: 3
+  description: The positioning of a PositionedObject. The positioned object is positioned relative to the beginning
+    of the Paragraph it's tethered to.
+- name: PositionedObjectProperties
+  fields: 2
+  description: Properties of a PositionedObject.
+- name: PositionedObjectPropertiesSuggestionState
+  fields: 2
+  description: A mask that indicates which of the fields on the base PositionedObjectProperties have been changed
+    in this suggestion. For any field set to true, there's a new suggested value.
+- name: PromptFeedback
+  fields: 2
+- name: Range
+  fields: 3
+  description: Specifies a contiguous range of text.
+- name: ReplaceAllTextRequest
+  fields: 2
+  description: Replaces all instances of text matching a criteria with replace text.
+- name: ReplaceNamedRangeContentRequest
+  fields: 3
+  description: Replaces the contents of the specified NamedRange or NamedRanges with the given replacement content.
+    Note that an individual NamedRange may consist of multiple discontinuous ranges. In this case, only
+- name: Reply
+  fields: 9
+  description: A reply to a comment on a file. Some resource methods (such as `replies.update`) require a `replyId`.
+    Use the `replies.list` method to retrieve the ID for a reply.
+- name: Request
+  fields: 33
+  description: A single update to apply to a document.
+- name: Response
+  fields: 7
+  description: A single response from an update.
+- name: Revision
+  fields: 14
+  description: The metadata for a revision to a file. Some resource methods (such as `revisions.update`) require
+    a `revisionId`. Use the `revisions.list` method to retrieve the ID for a revision.
+- name: RichLink
+  fields: 6
+  description: A link to a Google resource (such as a file in Drive, a YouTube video, or a Calendar event).
+- name: SafetyRating
+  fields: 2
+- name: SectionBreak
+  fields: 3
+  description: A StructuralElement representing a section break. A section is a range of content that has the same
+    SectionStyle. A section break represents the start of a new section, and the section style applies t
+- name: SectionColumnProperties
+  fields: 2
+  description: Properties that apply to a section's column.
+- name: SectionStyle
+  fields: 18
+  description: The styling that applies to a section.
+- name: Selection
+  fields: 2
+  description: Wrapper for Selection Field value as combined value/display_name pair for selected choice.
+- name: SelectionList
+  fields: 1
+  description: Wrapper for SelectionList Field value.
+- name: SettingsChange
+  fields: 1
+  description: Information about settings changes.
+- name: Shading
+  fields: 1
+  description: The shading of a paragraph.
+- name: SingleUser
+  fields: 1
+  description: Wrapper for User Field value.
+- name: Size
+  fields: 2
+  description: A width and height.
+- name: SizeSuggestionState
+  fields: 2
+  description: A mask that indicates which of the fields on the base Size have been changed in this suggestion.
+    For any field set to true, the Size has a new suggested value.
+- name: SpeakerVoiceConfig
+  fields: 2
+- name: SpeechGenerationConfig
+  fields: 2
+- name: SpeechGenerationRequest
+  fields: 2
+- name: SpeechGenerationResponse
+  fields: 2
+- name: SpreadsheetsDeveloperMetadataGetResponseLocation
+  fields: 4
+  description: SpreadsheetsDeveloperMetadataGetResponseLocation schema
+- name: SpreadsheetsGetResponseProperties
+  fields: 7
+  description: SpreadsheetsGetResponseProperties schema
+- name: SpreadsheetsGetResponsePropertiesDefaultFormat
+  fields: 12
+  description: SpreadsheetsGetResponsePropertiesDefaultFormat schema
+- name: SpreadsheetsGetResponsePropertiesDefaultFormatBackgroundColorStyle
+  fields: 2
+  description: SpreadsheetsGetResponsePropertiesDefaultFormatBackgroundColorStyle schema
+- name: SpreadsheetsGetResponsePropertiesDefaultFormatBorders
+  fields: 4
+  description: SpreadsheetsGetResponsePropertiesDefaultFormatBorders schema
+- name: SpreadsheetsGetResponsePropertiesDefaultFormatBordersBottom
+  fields: 4
+  description: SpreadsheetsGetResponsePropertiesDefaultFormatBordersBottom schema
+- name: SpreadsheetsGetResponsePropertiesDefaultFormatBordersBottomColorStyle
+  fields: 2
+  description: SpreadsheetsGetResponsePropertiesDefaultFormatBordersBottomColorStyle schema
+- name: SpreadsheetsGetResponsePropertiesDefaultFormatBordersLeft
+  fields: 4
+  description: SpreadsheetsGetResponsePropertiesDefaultFormatBordersLeft schema
+- name: SpreadsheetsGetResponsePropertiesDefaultFormatBordersLeftColorStyle
+  fields: 2
+  description: SpreadsheetsGetResponsePropertiesDefaultFormatBordersLeftColorStyle schema
+- name: SpreadsheetsGetResponsePropertiesDefaultFormatBordersRight
+  fields: 4
+  description: SpreadsheetsGetResponsePropertiesDefaultFormatBordersRight schema
+- name: SpreadsheetsGetResponsePropertiesDefaultFormatBordersRightColorStyle
+  fields: 2
+  description: SpreadsheetsGetResponsePropertiesDefaultFormatBordersRightColorStyle schema
+- name: SpreadsheetsGetResponsePropertiesDefaultFormatBordersTop
+  fields: 4
+  description: SpreadsheetsGetResponsePropertiesDefaultFormatBordersTop schema
+- name: SpreadsheetsGetResponsePropertiesDefaultFormatBordersTopColorStyle
+  fields: 2
+  description: SpreadsheetsGetResponsePropertiesDefaultFormatBordersTopColorStyle schema
+- name: SpreadsheetsGetResponsePropertiesDefaultFormatTextFormat
+  fields: 9
+  description: SpreadsheetsGetResponsePropertiesDefaultFormatTextFormat schema
+- name: SpreadsheetsGetResponsePropertiesDefaultFormatTextFormatForegroundColorStyle
+  fields: 2
+  description: SpreadsheetsGetResponsePropertiesDefaultFormatTextFormatForegroundColorStyle schema
+- name: SpreadsheetsPostResponse1UpdatedSpreadsheet
+  fields: 8
+  description: SpreadsheetsPostResponse1UpdatedSpreadsheet schema
+- name: SpreadsheetsPostResponse1UpdatedSpreadsheetProperties
+  fields: 7
+  description: SpreadsheetsPostResponse1UpdatedSpreadsheetProperties schema
+- name: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormat
+  fields: 12
+  description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormat schema
+- name: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColorStyle
+  fields: 2
+  description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColorStyle schema
+- name: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBorders
+  fields: 4
+  description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBorders schema
+- name: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottom
+  fields: 4
+  description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottom schema
+- name: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColorStyle
+  fields: 2
+  description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColorStyle schema
+- name: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeft
+  fields: 4
+  description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeft schema
+- name: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColorStyle
+  fields: 2
+  description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColorStyle schema
+- name: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRight
+  fields: 4
+  description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRight schema
+- name: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColorStyle
+  fields: 2
+  description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColorStyle schema
+- name: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTop
+  fields: 4
+  description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTop schema
+- name: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColorStyle
+  fields: 2
+  description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColorStyle schema
+- name: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormat
+  fields: 9
+  description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormat schema
+- name: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColorStyle
+  fields: 2
+  description: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColorStyle
+    schema
+- name: SpreadsheetsPostResponse2Properties
+  fields: 7
+  description: SpreadsheetsPostResponse2Properties schema
+- name: SpreadsheetsPostResponse2PropertiesDefaultFormat
+  fields: 12
+  description: SpreadsheetsPostResponse2PropertiesDefaultFormat schema
+- name: SpreadsheetsPostResponse2PropertiesDefaultFormatBackgroundColorStyle
+  fields: 2
+  description: SpreadsheetsPostResponse2PropertiesDefaultFormatBackgroundColorStyle schema
+- name: SpreadsheetsPostResponse2PropertiesDefaultFormatBorders
+  fields: 4
+  description: SpreadsheetsPostResponse2PropertiesDefaultFormatBorders schema
+- name: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersBottom
+  fields: 4
+  description: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersBottom schema
+- name: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersBottomColorStyle
+  fields: 2
+  description: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersBottomColorStyle schema
+- name: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersLeft
+  fields: 4
+  description: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersLeft schema
+- name: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersLeftColorStyle
+  fields: 2
+  description: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersLeftColorStyle schema
+- name: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersRight
+  fields: 4
+  description: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersRight schema
+- name: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersRightColorStyle
+  fields: 2
+  description: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersRightColorStyle schema
+- name: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersTop
+  fields: 4
+  description: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersTop schema
+- name: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersTopColorStyle
+  fields: 2
+  description: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersTopColorStyle schema
+- name: SpreadsheetsPostResponse2PropertiesDefaultFormatTextFormat
+  fields: 9
+  description: SpreadsheetsPostResponse2PropertiesDefaultFormatTextFormat schema
+- name: SpreadsheetsPostResponse2PropertiesDefaultFormatTextFormatForegroundColorStyle
+  fields: 2
+  description: SpreadsheetsPostResponse2PropertiesDefaultFormatTextFormatForegroundColorStyle schema
+- name: SpreadsheetsPostResponseProperties
+  fields: 7
+  description: SpreadsheetsPostResponseProperties schema
+- name: SpreadsheetsPostResponsePropertiesDefaultFormat
+  fields: 12
+  description: SpreadsheetsPostResponsePropertiesDefaultFormat schema
+- name: SpreadsheetsPostResponsePropertiesDefaultFormatBackgroundColorStyle
+  fields: 2
+  description: SpreadsheetsPostResponsePropertiesDefaultFormatBackgroundColorStyle schema
+- name: SpreadsheetsPostResponsePropertiesDefaultFormatBorders
+  fields: 4
+  description: SpreadsheetsPostResponsePropertiesDefaultFormatBorders schema
+- name: SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottom
+  fields: 4
+  description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottom schema
+- name: SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColorStyle
+  fields: 2
+  description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColorStyle schema
+- name: SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeft
+  fields: 4
+  description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeft schema
+- name: SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColorStyle
+  fields: 2
+  description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColorStyle schema
+- name: SpreadsheetsPostResponsePropertiesDefaultFormatBordersRight
+  fields: 4
+  description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersRight schema
+- name: SpreadsheetsPostResponsePropertiesDefaultFormatBordersRightColorStyle
+  fields: 2
+  description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersRightColorStyle schema
+- name: SpreadsheetsPostResponsePropertiesDefaultFormatBordersTop
+  fields: 4
+  description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersTop schema
+- name: SpreadsheetsPostResponsePropertiesDefaultFormatBordersTopColorStyle
+  fields: 2
+  description: SpreadsheetsPostResponsePropertiesDefaultFormatBordersTopColorStyle schema
+- name: SpreadsheetsPostResponsePropertiesDefaultFormatTextFormat
+  fields: 9
+  description: SpreadsheetsPostResponsePropertiesDefaultFormatTextFormat schema
+- name: SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatForegroundColorStyle
+  fields: 2
+  description: SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatForegroundColorStyle schema
+- name: SpreadsheetsSheetsPostResponse
+  fields: 10
+  description: SpreadsheetsSheetsPostResponse schema
+- name: SpreadsheetsSheetsPostResponseDataSourceSheetProperties
+  fields: 3
+  description: SpreadsheetsSheetsPostResponseDataSourceSheetProperties schema
+- name: SpreadsheetsSheetsPostResponseTabColorStyle
+  fields: 2
+  description: SpreadsheetsSheetsPostResponseTabColorStyle schema
+- name: StructuralElement
+  fields: 6
+  description: A StructuralElement describes content that provides structure to the document.
+- name: SuggestedBullet
+  fields: 2
+  description: A suggested change to a Bullet.
+- name: SuggestedDocumentStyle
+  fields: 2
+  description: A suggested change to the DocumentStyle.
+- name: SuggestedInlineObjectProperties
+  fields: 2
+  description: A suggested change to InlineObjectProperties.
+- name: SuggestedListProperties
+  fields: 2
+  description: A suggested change to ListProperties.
+- name: SuggestedNamedStyles
+  fields: 2
+  description: A suggested change to the NamedStyles.
+- name: SuggestedParagraphStyle
+  fields: 2
+  description: A suggested change to a ParagraphStyle.
+- name: SuggestedPositionedObjectProperties
+  fields: 2
+  description: A suggested change to PositionedObjectProperties.
+- name: SuggestedTableCellStyle
+  fields: 2
+  description: A suggested change to a TableCellStyle.
+- name: SuggestedTableRowStyle
+  fields: 2
+  description: A suggested change to a TableRowStyle.
+- name: SuggestedTextStyle
+  fields: 2
+  description: A suggested change to a TextStyle.
+- name: TabStop
+  fields: 2
+  description: A tab stop within a paragraph.
+- name: Table
+  fields: 6
+  description: A StructuralElement representing a table.
+- name: TableCell
+  fields: 7
+  description: The contents and style of a cell in a Table.
+- name: TableCellBorder
+  fields: 3
+  description: A border around a table cell. Table cell borders cannot be transparent. To hide a table cell border,
+    make its width 0.
+- name: TableCellLocation
+  fields: 3
+  description: Location of a single cell within a table.
+- name: TableCellStyle
+  fields: 12
+  description: The style of a TableCell. Inherited table cell styles are represented as unset fields in this message.
+    A table cell style can inherit from the table's style.
+- name: TableColumnProperties
+  fields: 2
+  description: The properties of a column in a table.
+- name: TableOfContents
+  fields: 3
+  description: A StructuralElement representing a table of contents.
+- name: TableRange
+  fields: 3
+  description: 'A table range represents a reference to a subset of a table. It''s important to note that the cells
+    specified by a table range do not necessarily form a rectangle. For example, let''s say we have a 3 x '
+- name: TableRow
+  fields: 7
+  description: The contents and style of a row in a Table.
+- name: TableRowStyle
+  fields: 3
+  description: Styles that apply to a table row.
+- name: TableStyle
+  fields: 1
+  description: Styles that apply to a table.
+- name: Target
+  fields: 4
+  description: Information about the target of activity. For more information on how activity history is shared
+    with users, see [Activity history visibility](https://developers.google.com/drive/activity/v2#activityh
+- name: TargetReference
+  fields: 3
+  description: A lightweight reference to the target of activity.
+- name: TeamDrive
+  fields: 3
+  description: This item is deprecated; please see `Drive` instead.
+- name: TeamDriveReference
+  fields: 2
+  description: This item is deprecated; please see `DriveReference` instead.
+- name: Text
+  fields: 1
+  description: Wrapper for Text Field value.
+- name: TextList
+  fields: 1
+  description: Wrapper for Text List Field value.
+- name: TextRun
+  fields: 5
+  description: A ParagraphElement that represents a run of text that all has the same styling.
+- name: TextStyle
+  fields: 11
+  description: 'Represents the styling that can be applied to text. Inherited text styles are represented as unset
+    fields in this message. A text style''s parent depends on where the text style is defined: * The TextS'
+- name: TextStyleSuggestionState
+  fields: 11
+  description: A mask that indicates which of the fields on the base TextStyle have been changed in this suggestion.
+    For any field set to true, there's a new suggested value.
+- name: TimeRange
+  fields: 2
+  description: Information about time ranges.
+- name: UnmergeTableCellsRequest
+  fields: 1
+  description: Unmerges cells in a Table.
+- name: UpdateDocumentStyleRequest
+  fields: 2
+  description: Updates the DocumentStyle.
+- name: UpdateParagraphStyleRequest
+  fields: 3
+  description: Update the styling of all paragraphs that overlap with the given range.
+- name: UpdateSectionStyleRequest
+  fields: 3
+  description: Updates the SectionStyle.
+- name: UpdateTableCellStyleRequest
+  fields: 4
+  description: Updates the style of a range of table cells.
+- name: UpdateTableColumnPropertiesRequest
+  fields: 4
+  description: Updates the TableColumnProperties of columns in a table.
+- name: UpdateTableRowStyleRequest
+  fields: 4
+  description: Updates the TableRowStyle of rows in a table.
+- name: UpdateTextStyleRequest
+  fields: 3
+  description: Update the styling of text.
+- name: UsageMetadata
+  fields: 3
+- name: User
+  fields: 6
+  description: Information about a Drive user.
+- name: UserList
+  fields: 1
+  description: Wrapper for UserList Field value.
+- name: UsersDraftsSendPostResponse
+  fields: 9
+  description: UsersDraftsSendPostResponse schema
+- name: UsersDraftsSendPostResponsePayload
+  fields: 6
+  description: UsersDraftsSendPostResponsePayload schema
+- name: UsersMeCalendarListGetResponse
+  fields: 19
+  description: UsersMeCalendarListGetResponse schema
+- name: UsersMeCalendarListPatchResponse
+  fields: 19
+  description: UsersMeCalendarListPatchResponse schema
+- name: UsersMeCalendarListPostResponse
+  fields: 19
+  description: UsersMeCalendarListPostResponse schema
+- name: UsersMeCalendarListPutResponse
+  fields: 19
+  description: UsersMeCalendarListPutResponse schema
+- name: UsersMessagesImportPostResponse
+  fields: 9
+  description: UsersMessagesImportPostResponse schema
+- name: UsersMessagesImportPostResponsePayload
+  fields: 6
+  description: UsersMessagesImportPostResponsePayload schema
+- name: UsersMessagesModifyPostResponse
+  fields: 9
+  description: UsersMessagesModifyPostResponse schema
+- name: UsersMessagesModifyPostResponsePayload
+  fields: 6
+  description: UsersMessagesModifyPostResponsePayload schema
+- name: UsersMessagesSendPostResponse
+  fields: 9
+  description: UsersMessagesSendPostResponse schema
+- name: UsersMessagesSendPostResponsePayload
+  fields: 6
+  description: UsersMessagesSendPostResponsePayload schema
+- name: UsersMessagesTrashPostResponse
+  fields: 9
+  description: UsersMessagesTrashPostResponse schema
+- name: UsersMessagesTrashPostResponsePayload
+  fields: 6
+  description: UsersMessagesTrashPostResponsePayload schema
+- name: UsersMessagesUntrashPostResponse
+  fields: 9
+  description: UsersMessagesUntrashPostResponse schema
+- name: UsersMessagesUntrashPostResponsePayload
+  fields: 6
+  description: UsersMessagesUntrashPostResponsePayload schema
+- name: UsersSettingsFiltersGetResponse
+  fields: 3
+  description: UsersSettingsFiltersGetResponse schema
+- name: UsersSettingsFiltersPostResponse
+  fields: 3
+  description: UsersSettingsFiltersPostResponse schema
+- name: VoiceConfig
+  fields: 1
+- name: WriteControl
+  fields: 2
+  description: Provides control over how write requests are executed.
+relationships:
+- from: User
+  to: Permission
+  type: belongs_to
+  via: permissionId
+- from: About
+  to: User
+  type: has_one
+  via: user
+- from: Impersonation
+  to: User
+  type: has_one
+  via: impersonatedUser
+- from: Owner
+  to: Domain
+  type: has_one
+  via: domain
+- from: Owner
+  to: DriveReference
+  type: has_one
+  via: drive
+- from: Owner
+  to: TeamDriveReference
+  type: has_one
+  via: teamDrive
+- from: Owner
+  to: User
+  type: has_one
+  via: user
+- from: AppliedLabelChange
+  to: AppliedLabelChangeDetail
+  type: has_many
+  via: changes
+- from: UserList
+  to: SingleUser
+  type: has_many
+  via: values
+- from: DriveItem
+  to: DriveFile
+  type: has_one
+  via: driveFile
+- from: DriveItem
+  to: DriveFolder
+  type: has_one
+  via: driveFolder
+- from: DriveItem
+  to: File
+  type: has_one
+  via: file
+- from: DriveItem
+  to: Folder
+  type: has_one
+  via: folder
+- from: DriveItem
+  to: Owner
+  type: has_one
+  via: owner
+- from: Target
+  to: Drive
+  type: has_one
+  via: drive
+- from: Target
+  to: DriveItem
+  type: has_one
+  via: driveItem
+- from: Target
+  to: FileComment
+  type: has_one
+  via: fileComment
+- from: Target
+  to: TeamDrive
+  type: has_one
+  via: teamDrive
+- from: Move
+  to: TargetReference
+  type: has_many
+  via: addedParents
+- from: Move
+  to: TargetReference
+  type: has_many
+  via: removedParents
+- from: PermissionChange
+  to: Permission
+  type: has_many
+  via: addedPermissions
+- from: PermissionChange
+  to: Permission
+  type: has_many
+  via: removedPermissions
+- from: Domain
+  to: Legacy
+  type: belongs_to
+  via: legacyId
+- from: TextList
+  to: Text
+  type: has_many
+  via: values
+- from: Permission
+  to: Anyone
+  type: has_one
+  via: anyone
+- from: Permission
+  to: Domain
+  type: has_one
+  via: domain
+- from: Permission
+  to: User
+  type: has_one
+  via: user
+- from: TargetReference
+  to: DriveReference
+  type: has_one
+  via: drive
+- from: TargetReference
+  to: DriveItemReference
+  type: has_one
+  via: driveItem
+- from: TargetReference
+  to: TeamDriveReference
+  type: has_one
+  via: teamDrive
+- from: AppliedLabelChangeDetail
+  to: FieldValueChange
+  type: has_many
+  via: fieldChanges
+- from: Copy
+  to: TargetReference
+  type: has_one
+  via: originalObject
+- from: Actor
+  to: Administrator
+  type: has_one
+  via: administrator
+- from: Actor
+  to: AnonymousUser
+  type: has_one
+  via: anonymous
+- from: Actor
+  to: Impersonation
+  type: has_one
+  via: impersonation
+- from: Actor
+  to: User
+  type: has_one
+  via: user
+- from: Drive
+  to: DriveItem
+  type: has_one
+  via: root
+- from: SelectionList
+  to: Selection
+  type: has_many
+  via: values
+- from: ConsolidationStrategy
+  to: Legacy
+  type: has_one
+  via: legacy
+- from: Action
+  to: Actor
+  type: has_one
+  via: actor
+- from: Action
+  to: ActionDetail
+  type: has_one
+  via: detail
+- from: Action
+  to: Target
+  type: has_one
+  via: target
+- from: Action
+  to: TimeRange
+  type: has_one
+  via: timeRange
+- from: FieldValueChange
+  to: FieldValue
+  type: has_one
+  via: newValue
+- from: FieldValueChange
+  to: FieldValue
+  type: has_one
+  via: oldValue
+- from: FileComment
+  to: DriveItem
+  type: has_one
+  via: parent
+- from: Comment
+  to: Assignment
+  type: has_one
+  via: assignment
+- from: Comment
+  to: User
+  type: has_many
+  via: mentionedUsers
+- from: Assignment
+  to: User
+  type: has_one
+  via: assignedUser
+- from: Create
+  to: Copy
+  type: has_one
+  via: copy
+- from: ActionDetail
+  to: AppliedLabelChange
+  type: has_one
+  via: appliedLabelChange
+- from: ActionDetail
+  to: Comment
+  type: has_one
+  via: comment
+- from: ActionDetail
+  to: Create
+  type: has_one
+  via: create
+- from: ActionDetail
+  to: Delete
+  type: has_one
+  via: delete
+- from: ActionDetail
+  to: DataLeakPreventionChange
+  type: has_one
+  via: dlpChange
+- from: ActionDetail
+  to: Edit
+  type: has_one
+  via: edit
+- from: ActionDetail
+  to: Move
+  type: has_one
+  via: move
+- from: ActionDetail
+  to: PermissionChange
+  type: has_one
+  via: permissionChange
+- from: ActionDetail
+  to: ApplicationReference
+  type: has_one
+  via: reference
+- from: ActionDetail
+  to: SettingsChange
+  type: has_one
+  via: settingsChange
+- from: TeamDrive
+  to: DriveItem
+  type: has_one
+  via: root
+- from: DriveActivity
+  to: Action
+  type: has_many
+  via: actions
+- from: DriveActivity
+  to: Actor
+  type: has_many
+  via: actors
+- from: DriveActivity
+  to: ActionDetail
+  type: has_one
+  via: primaryActionDetail
+- from: DriveActivity
+  to: Target
+  type: has_many
+  via: targets
+- from: DriveActivity
+  to: TimeRange
+  type: has_one
+  via: timeRange
+- from: FieldValue
+  to: Date
+  type: has_one
+  via: date
+- from: FieldValue
+  to: Selection
+  type: has_one
+  via: selection
+- from: FieldValue
+  to: SelectionList
+  type: has_one
+  via: selectionList
+- from: FieldValue
+  to: Text
+  type: has_one
+  via: text
+- from: FieldValue
+  to: TextList
+  type: has_one
+  via: textList
+- from: FieldValue
+  to: SingleUser
+  type: has_one
+  via: user
+- from: FieldValue
+  to: UserList
+  type: has_one
+  via: userList
+- from: DriveItemReference
+  to: DriveFile
+  type: has_one
+  via: driveFile
+- from: DriveItemReference
+  to: DriveFolder
+  type: has_one
+  via: driveFolder
+- from: DriveItemReference
+  to: File
+  type: has_one
+  via: file
+- from: DriveItemReference
+  to: Folder
+  type: has_one
+  via: folder
+- from: App
+  to: AppIcons
+  type: has_many
+  via: icons
+- from: AppList
+  to: App
+  type: has_many
+  via: items
+- from: Candidate
+  to: Content
+  type: has_one
+  via: content
+- from: Candidate
+  to: SafetyRating
+  type: has_many
+  via: safetyRatings
+- from: Content
+  to: Part
+  type: has_many
+  via: parts
+- from: GenerateContentResponse
+  to: Candidate
+  type: has_many
+  via: candidates
+- from: GenerateContentResponse
+  to: PromptFeedback
+  type: has_one
+  via: promptFeedback
+- from: GenerateContentResponse
+  to: UsageMetadata
+  type: has_one
+  via: usageMetadata
+- from: GenerateContentRequest
+  to: Content
+  type: has_many
+  via: contents
+- from: GenerateContentRequest
+  to: Content
+  type: has_one
+  via: system_instruction
+- from: GenerateContentRequest
+  to: GenerationConfig
+  type: has_one
+  via: generationConfig
+- from: FilesPostRequest
+  to: FilesPostRequestFile
+  type: has_one
+  via: file
+- from: PromptFeedback
+  to: SafetyRating
+  type: has_many
+  via: safetyRatings
+- from: SpreadsheetsPostResponse1UpdatedSpreadsheetProperties
+  to: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormat
+  type: has_one
+  via: defaultFormat
+- from: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBorders
+  to: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottom
+  type: has_one
+  via: bottom
+- from: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBorders
+  to: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeft
+  type: has_one
+  via: left
+- from: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBorders
+  to: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRight
+  type: has_one
+  via: right
+- from: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBorders
+  to: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTop
+  type: has_one
+  via: top
+- from: SpreadsheetsPostResponse1UpdatedSpreadsheet
+  to: SpreadsheetsPostResponse1UpdatedSpreadsheetProperties
+  type: has_one
+  via: properties
+- from: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormat
+  to: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColorStyle
+  type: has_one
+  via: foregroundColorStyle
+- from: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTop
+  to: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColorStyle
+  type: has_one
+  via: colorStyle
+- from: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeft
+  to: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColorStyle
+  type: has_one
+  via: colorStyle
+- from: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormat
+  to: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColorStyle
+  type: has_one
+  via: backgroundColorStyle
+- from: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormat
+  to: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBorders
+  type: has_one
+  via: borders
+- from: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormat
+  to: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormat
+  type: has_one
+  via: textFormat
+- from: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRight
+  to: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColorStyle
+  type: has_one
+  via: colorStyle
+- from: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottom
+  to: SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColorStyle
+  type: has_one
+  via: colorStyle
+- from: BookshelvesResponse
+  to: Bookshelf
+  type: has_many
+  via: items
+- from: CalendarsAclPatchResponse
+  to: CalendarsAclPatchResponseScope
+  type: has_one
+  via: scope
+- from: CalendarsAclPutResponse
+  to: CalendarsAclPutResponseScope
+  type: has_one
+  via: scope
+- from: CalendarsAclGetResponse
+  to: CalendarsAclGetResponseScope
+  type: has_one
+  via: scope
+- from: CalendarsAclWatchPostResponse
+  to: CalendarsAclWatchPostResponseParams
+  type: has_one
+  via: params
+- from: CalendarsAclPostResponse
+  to: CalendarsAclPostResponseScope
+  type: has_one
+  via: scope
+- from: CalendarsEventsWatchPostResponse
+  to: CalendarsEventsWatchPostResponseParams
+  type: has_one
+  via: params
+- from: CalendarsPostResponse
+  to: CalendarsPostResponseConferenceProperties
+  type: has_one
+  via: conferenceProperties
+- from: CalendarsPutResponse
+  to: CalendarsPutResponseConferenceProperties
+  type: has_one
+  via: conferenceProperties
+- from: CalendarsGetResponse
+  to: CalendarsGetResponseConferenceProperties
+  type: has_one
+  via: conferenceProperties
+- from: CalendarsPatchResponse
+  to: CalendarsPatchResponseConferenceProperties
+  type: has_one
+  via: conferenceProperties
+- from: Label
+  to: Revision
+  type: belongs_to
+  via: revisionId
+- from: ContentRestriction
+  to: User
+  type: has_one
+  via: restrictingUser
+- from: ChangeList
+  to: Change
+  type: has_many
+  via: changes
+- from: Change
+  to: Drive
+  type: has_one
+  via: drive
+- from: Change
+  to: Drive
+  type: belongs_to
+  via: driveId
+- from: Change
+  to: File
+  type: has_one
+  via: file
+- from: Change
+  to: File
+  type: belongs_to
+  via: fileId
+- from: Change
+  to: TeamDrive
+  type: has_one
+  via: teamDrive
+- from: Change
+  to: TeamDrive
+  type: belongs_to
+  via: teamDriveId
+- from: ColorsGetResponseEvent
+  to: ColorsGetResponseEventExcepteure8
+  type: has_one
+  via: Excepteure8
+- from: ColorsGetResponse
+  to: ColorsGetResponseCalendar
+  type: has_one
+  via: calendar
+- from: ColorsGetResponse
+  to: ColorsGetResponseEvent
+  type: has_one
+  via: event
+- from: ColorsGetResponseCalendar
+  to: ColorsGetResponseCalendarQui15
+  type: has_one
+  via: qui_15
+- from: ColorsGetResponseCalendar
+  to: ColorsGetResponseCalendarNulla2
+  type: has_one
+  via: nulla_2
+- from: ColorsGetResponseCalendar
+  to: ColorsGetResponseCalendarLaborisaf
+  type: has_one
+  via: laborisaf
+- from: Reply
+  to: User
+  type: has_one
+  via: author
+- from: CommentList
+  to: Comment
+  type: has_many
+  via: comments
+- from: SpreadsheetsSheetsPostResponse
+  to: SpreadsheetsSheetsPostResponseDataSourceSheetProperties
+  type: has_one
+  via: dataSourceSheetProperties
+- from: SpreadsheetsSheetsPostResponse
+  to: SpreadsheetsSheetsPostResponseTabColorStyle
+  type: has_one
+  via: tabColorStyle
+- from: GmailUsersDraftsPostResponse
+  to: GmailUsersDraftsPostResponseMessage
+  type: has_one
+  via: message
+- from: GmailUsersDraftsPostResponseMessagePayload
+  to: Part
+  type: belongs_to
+  via: partId
+- from: GmailUsersDraftsPostResponseMessagePayload
+  to: GmailUsersDraftsPostResponseMessagePayloadBody
+  type: has_one
+  via: body
+- from: GmailUsersLabelsPostResponse
+  to: GmailUsersLabelsPostResponseColor
+  type: has_one
+  via: color
+- from: GmailUsersDraftsPostResponseMessage
+  to: Label
+  type: belongs_to
+  via: labelIds
+- from: GmailUsersDraftsPostResponseMessage
+  to: GmailUsersDraftsPostResponseMessagePayload
+  type: has_one
+  via: payload
+- from: SpreadsheetsPostResponsePropertiesDefaultFormatTextFormat
+  to: SpreadsheetsPostResponsePropertiesDefaultFormatTextFormatForegroundColorStyle
+  type: has_one
+  via: foregroundColorStyle
+- from: SpreadsheetsPostResponsePropertiesDefaultFormatBordersRight
+  to: SpreadsheetsPostResponsePropertiesDefaultFormatBordersRightColorStyle
+  type: has_one
+  via: colorStyle
+- from: SpreadsheetsPostResponseProperties
+  to: SpreadsheetsPostResponsePropertiesDefaultFormat
+  type: has_one
+  via: defaultFormat
+- from: SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottom
+  to: SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottomColorStyle
+  type: has_one
+  via: colorStyle
+- from: SpreadsheetsPostResponsePropertiesDefaultFormat
+  to: SpreadsheetsPostResponsePropertiesDefaultFormatBackgroundColorStyle
+  type: has_one
+  via: backgroundColorStyle
+- from: SpreadsheetsPostResponsePropertiesDefaultFormat
+  to: SpreadsheetsPostResponsePropertiesDefaultFormatBorders
+  type: has_one
+  via: borders
+- from: SpreadsheetsPostResponsePropertiesDefaultFormat
+  to: SpreadsheetsPostResponsePropertiesDefaultFormatTextFormat
+  type: has_one
+  via: textFormat
+- from: SpreadsheetsPostResponsePropertiesDefaultFormatBorders
+  to: SpreadsheetsPostResponsePropertiesDefaultFormatBordersBottom
+  type: has_one
+  via: bottom
+- from: SpreadsheetsPostResponsePropertiesDefaultFormatBorders
+  to: SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeft
+  type: has_one
+  via: left
+- from: SpreadsheetsPostResponsePropertiesDefaultFormatBorders
+  to: SpreadsheetsPostResponsePropertiesDefaultFormatBordersRight
+  type: has_one
+  via: right
+- from: SpreadsheetsPostResponsePropertiesDefaultFormatBorders
+  to: SpreadsheetsPostResponsePropertiesDefaultFormatBordersTop
+  type: has_one
+  via: top
+- from: SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeft
+  to: SpreadsheetsPostResponsePropertiesDefaultFormatBordersLeftColorStyle
+  type: has_one
+  via: colorStyle
+- from: SpreadsheetsPostResponsePropertiesDefaultFormatBordersTop
+  to: SpreadsheetsPostResponsePropertiesDefaultFormatBordersTopColorStyle
+  type: has_one
+  via: colorStyle
+- from: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersTop
+  to: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersTopColorStyle
+  type: has_one
+  via: colorStyle
+- from: SpreadsheetsPostResponse2PropertiesDefaultFormatTextFormat
+  to: SpreadsheetsPostResponse2PropertiesDefaultFormatTextFormatForegroundColorStyle
+  type: has_one
+  via: foregroundColorStyle
+- from: SpreadsheetsPostResponse2PropertiesDefaultFormat
+  to: SpreadsheetsPostResponse2PropertiesDefaultFormatBackgroundColorStyle
+  type: has_one
+  via: backgroundColorStyle
+- from: SpreadsheetsPostResponse2PropertiesDefaultFormat
+  to: SpreadsheetsPostResponse2PropertiesDefaultFormatBorders
+  type: has_one
+  via: borders
+- from: SpreadsheetsPostResponse2PropertiesDefaultFormat
+  to: SpreadsheetsPostResponse2PropertiesDefaultFormatTextFormat
+  type: has_one
+  via: textFormat
+- from: SpreadsheetsPostResponse2PropertiesDefaultFormatBorders
+  to: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersBottom
+  type: has_one
+  via: bottom
+- from: SpreadsheetsPostResponse2PropertiesDefaultFormatBorders
+  to: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersLeft
+  type: has_one
+  via: left
+- from: SpreadsheetsPostResponse2PropertiesDefaultFormatBorders
+  to: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersRight
+  type: has_one
+  via: right
+- from: SpreadsheetsPostResponse2PropertiesDefaultFormatBorders
+  to: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersTop
+  type: has_one
+  via: top
+- from: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersBottom
+  to: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersBottomColorStyle
+  type: has_one
+  via: colorStyle
+- from: SpreadsheetsPostResponse2Properties
+  to: SpreadsheetsPostResponse2PropertiesDefaultFormat
+  type: has_one
+  via: defaultFormat
+- from: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersLeft
+  to: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersLeftColorStyle
+  type: has_one
+  via: colorStyle
+- from: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersRight
+  to: SpreadsheetsPostResponse2PropertiesDefaultFormatBordersRightColorStyle
+  type: has_one
+  via: colorStyle
+- from: SuggestedTableRowStyle
+  to: TableRowStyle
+  type: has_one
+  via: tableRowStyle
+- from: Background
+  to: OptionalColor
+  type: has_one
+  via: color
+- from: TableCell
+  to: StructuralElement
+  type: has_many
+  via: content
+- from: TableCell
+  to: TableCellStyle
+  type: has_one
+  via: tableCellStyle
+- from: InsertInlineImageRequest
+  to: EndOfSegmentLocation
+  type: has_one
+  via: endOfSegmentLocation
+- from: InsertInlineImageRequest
+  to: Location
+  type: has_one
+  via: location
+- from: InsertInlineImageRequest
+  to: Size
+  type: has_one
+  via: objectSize
+- from: DocumentStyleSuggestionState
+  to: BackgroundSuggestionState
+  type: has_one
+  via: backgroundSuggestionState
+- from: DocumentStyleSuggestionState
+  to: SizeSuggestionState
+  type: has_one
+  via: pageSizeSuggestionState
+- from: TableCellLocation
+  to: Location
+  type: has_one
+  via: tableStartLocation
+- from: UpdateTableCellStyleRequest
+  to: TableCellStyle
+  type: has_one
+  via: tableCellStyle
+- from: UpdateTableCellStyleRequest
+  to: TableRange
+  type: has_one
+  via: tableRange
+- from: UpdateTableCellStyleRequest
+  to: Location
+  type: has_one
+  via: tableStartLocation
+- from: InsertTableRequest
+  to: EndOfSegmentLocation
+  type: has_one
+  via: endOfSegmentLocation
+- from: InsertTableRequest
+  to: Location
+  type: has_one
+  via: location
+- from: SuggestedTextStyle
+  to: TextStyle
+  type: has_one
+  via: textStyle
+- from: SuggestedTextStyle
+  to: TextStyleSuggestionState
+  type: has_one
+  via: textStyleSuggestionState
+- from: ImagePropertiesSuggestionState
+  to: CropPropertiesSuggestionState
+  type: has_one
+  via: cropPropertiesSuggestionState
+- from: ParagraphStyle
+  to: ParagraphBorder
+  type: has_one
+  via: borderBetween
+- from: ParagraphStyle
+  to: ParagraphBorder
+  type: has_one
+  via: borderBottom
+- from: ParagraphStyle
+  to: ParagraphBorder
+  type: has_one
+  via: borderLeft
+- from: ParagraphStyle
+  to: ParagraphBorder
+  type: has_one
+  via: borderRight
+- from: ParagraphStyle
+  to: ParagraphBorder
+  type: has_one
+  via: borderTop
+- from: ParagraphStyle
+  to: Dimension
+  type: has_one
+  via: indentEnd
+- from: ParagraphStyle
+  to: Dimension
+  type: has_one
+  via: indentFirstLine
+- from: ParagraphStyle
+  to: Dimension
+  type: has_one
+  via: indentStart
+- from: ParagraphStyle
+  to: Shading
+  type: has_one
+  via: shading
+- from: ParagraphStyle
+  to: Dimension
+  type: has_one
+  via: spaceAbove
+- from: ParagraphStyle
+  to: Dimension
+  type: has_one
+  via: spaceBelow
+- from: ParagraphStyle
+  to: TabStop
+  type: has_many
+  via: tabStops
+- from: SectionBreak
+  to: SectionStyle
+  type: has_one
+  via: sectionStyle
+- from: UpdateParagraphStyleRequest
+  to: ParagraphStyle
+  type: has_one
+  via: paragraphStyle
+- from: UpdateParagraphStyleRequest
+  to: Range
+  type: has_one
+  via: range
+- from: InsertTextRequest
+  to: EndOfSegmentLocation
+  type: has_one
+  via: endOfSegmentLocation
+- from: InsertTextRequest
+  to: Location
+  type: has_one
+  via: location
+- from: CreateHeaderRequest
+  to: Location
+  type: has_one
+  via: sectionBreakLocation
+- from: Paragraph
+  to: Bullet
+  type: has_one
+  via: bullet
+- from: Paragraph
+  to: ParagraphElement
+  type: has_many
+  via: elements
+- from: Paragraph
+  to: ParagraphStyle
+  type: has_one
+  via: paragraphStyle
+- from: Paragraph
+  to: PositionedObject
+  type: belongs_to
+  via: positionedObjectIds
+- from: TableCellStyle
+  to: OptionalColor
+  type: has_one
+  via: backgroundColor
+- from: TableCellStyle
+  to: TableCellBorder
+  type: has_one
+  via: borderBottom
+- from: TableCellStyle
+  to: TableCellBorder
+  type: has_one
+  via: borderLeft
+- from: TableCellStyle
+  to: TableCellBorder
+  type: has_one
+  via: borderRight
+- from: TableCellStyle
+  to: TableCellBorder
+  type: has_one
+  via: borderTop
+- from: TableCellStyle
+  to: Dimension
+  type: has_one
+  via: paddingBottom
+- from: TableCellStyle
+  to: Dimension
+  type: has_one
+  via: paddingLeft
+- from: TableCellStyle
+  to: Dimension
+  type: has_one
+  via: paddingRight
+- from: TableCellStyle
+  to: Dimension
+  type: has_one
+  via: paddingTop
+- from: InsertTableColumnRequest
+  to: TableCellLocation
+  type: has_one
+  via: tableCellLocation
+- from: NestingLevelSuggestionState
+  to: TextStyleSuggestionState
+  type: has_one
+  via: textStyleSuggestionState
+- from: BatchUpdateDocumentResponse
+  to: Document
+  type: belongs_to
+  via: documentId
+- from: BatchUpdateDocumentResponse
+  to: Response
+  type: has_many
+  via: replies
+- from: BatchUpdateDocumentResponse
+  to: WriteControl
+  type: has_one
+  via: writeControl
+- from: ParagraphBorder
+  to: OptionalColor
+  type: has_one
+  via: color
+- from: ParagraphBorder
+  to: Dimension
+  type: has_one
+  via: padding
+- from: ParagraphBorder
+  to: Dimension
+  type: has_one
+  via: width
+- from: InlineObjectPropertiesSuggestionState
+  to: EmbeddedObjectSuggestionState
+  type: has_one
+  via: embeddedObjectSuggestionState
+- from: DeleteHeaderRequest
+  to: Header
+  type: belongs_to
+  via: headerId
+- from: UnmergeTableCellsRequest
+  to: TableRange
+  type: has_one
+  via: tableRange
+- from: List
+  to: ListProperties
+  type: has_one
+  via: listProperties
+- from: EmbeddedObject
+  to: EmbeddedDrawingProperties
+  type: has_one
+  via: embeddedDrawingProperties
+- from: EmbeddedObject
+  to: EmbeddedObjectBorder
+  type: has_one
+  via: embeddedObjectBorder
+- from: EmbeddedObject
+  to: ImageProperties
+  type: has_one
+  via: imageProperties
+- from: EmbeddedObject
+  to: LinkedContentReference
+  type: has_one
+  via: linkedContentReference
+- from: EmbeddedObject
+  to: Dimension
+  type: has_one
+  via: marginBottom
+- from: EmbeddedObject
+  to: Dimension
+  type: has_one
+  via: marginLeft
+- from: EmbeddedObject
+  to: Dimension
+  type: has_one
+  via: marginRight
+- from: EmbeddedObject
+  to: Dimension
+  type: has_one
+  via: marginTop
+- from: EmbeddedObject
+  to: Size
+  type: has_one
+  via: size
+- from: ListProperties
+  to: NestingLevel
+  type: has_many
+  via: nestingLevels
+- from: UpdateDocumentStyleRequest
+  to: DocumentStyle
+  type: has_one
+  via: documentStyle
+- from: SuggestedDocumentStyle
+  to: DocumentStyle
+  type: has_one
+  via: documentStyle
+- from: SuggestedDocumentStyle
+  to: DocumentStyleSuggestionState
+  type: has_one
+  via: documentStyleSuggestionState
+- from: SuggestedNamedStyles
+  to: NamedStyles
+  type: has_one
+  via: namedStyles
+- from: SuggestedNamedStyles
+  to: NamedStylesSuggestionState
+  type: has_one
+  via: namedStylesSuggestionState
+- from: TableRange
+  to: TableCellLocation
+  type: has_one
+  via: tableCellLocation
+- from: TextStyle
+  to: OptionalColor
+  type: has_one
+  via: backgroundColor
+- from: TextStyle
+  to: Dimension
+  type: has_one
+  via: fontSize
+- from: TextStyle
+  to: OptionalColor
+  type: has_one
+  via: foregroundColor
+- from: TableOfContents
+  to: StructuralElement
+  type: has_many
+  via: content
+- from: InlineObject
+  to: InlineObjectProperties
+  type: has_one
+  via: inlineObjectProperties
+- from: ListPropertiesSuggestionState
+  to: NestingLevelSuggestionState
+  type: has_many
+  via: nestingLevelsSuggestionStates
+- from: SuggestedInlineObjectProperties
+  to: InlineObjectProperties
+  type: has_one
+  via: inlineObjectProperties
+- from: SuggestedInlineObjectProperties
+  to: InlineObjectPropertiesSuggestionState
+  type: has_one
+  via: inlineObjectPropertiesSuggestionState
+- from: ReplaceNamedRangeContentRequest
+  to: NamedRange
+  type: belongs_to
+  via: namedRangeId
+- from: Footnote
+  to: StructuralElement
+  type: has_many
+  via: content
+- from: UpdateTableColumnPropertiesRequest
+  to: TableColumnProperties
+  type: has_one
+  via: tableColumnProperties
+- from: UpdateTableColumnPropertiesRequest
+  to: Location
+  type: has_one
+  via: tableStartLocation
+- from: ImageProperties
+  to: CropProperties
+  type: has_one
+  via: cropProperties
+- from: CreateFootnoteRequest
+  to: EndOfSegmentLocation
+  type: has_one
+  via: endOfSegmentLocation
+- from: CreateFootnoteRequest
+  to: Location
+  type: has_one
+  via: location
+- from: InsertPageBreakRequest
+  to: EndOfSegmentLocation
+  type: has_one
+  via: endOfSegmentLocation
+- from: InsertPageBreakRequest
+  to: Location
+  type: has_one
+  via: location
+- from: MergeTableCellsRequest
+  to: TableRange
+  type: has_one
+  via: tableRange
+- from: FootnoteReference
+  to: Footnote
+  type: belongs_to
+  via: footnoteId
+- from: FootnoteReference
+  to: TextStyle
+  type: has_one
+  via: textStyle
+- from: TableCellBorder
+  to: OptionalColor
+  type: has_one
+  via: color
+- from: TableCellBorder
+  to: Dimension
+  type: has_one
+  via: width
+- from: NamedStyles
+  to: NamedStyle
+  type: has_many
+  via: styles
+- from: TableRowStyle
+  to: Dimension
+  type: has_one
+  via: minRowHeight
+- from: NamedStylesSuggestionState
+  to: NamedStyleSuggestionState
+  type: has_many
+  via: stylesSuggestionStates
+- from: TableColumnProperties
+  to: Dimension
+  type: has_one
+  via: width
+- from: TableStyle
+  to: TableColumnProperties
+  type: has_many
+  via: tableColumnProperties
+- from: InsertSectionBreakRequest
+  to: EndOfSegmentLocation
+  type: has_one
+  via: endOfSegmentLocation
+- from: InsertSectionBreakRequest
+  to: Location
+  type: has_one
+  via: location
+- from: DeleteTableRowRequest
+  to: TableCellLocation
+  type: has_one
+  via: tableCellLocation
+- from: CreateHeaderResponse
+  to: Header
+  type: belongs_to
+  via: headerId
+- from: Bullet
+  to: List
+  type: belongs_to
+  via: listId
+- from: Bullet
+  to: TextStyle
+  type: has_one
+  via: textStyle
+- from: TabStop
+  to: Dimension
+  type: has_one
+  via: offset
+- from: ColumnBreak
+  to: TextStyle
+  type: has_one
+  via: textStyle
+- from: RichLink
+  to: TextStyle
+  type: has_one
+  via: textStyle
+- from: Response
+  to: CreateFooterResponse
+  type: has_one
+  via: createFooter
+- from: Response
+  to: CreateFootnoteResponse
+  type: has_one
+  via: createFootnote
+- from: Response
+  to: CreateHeaderResponse
+  type: has_one
+  via: createHeader
+- from: Response
+  to: CreateNamedRangeResponse
+  type: has_one
+  via: createNamedRange
+- from: PositionedObjectProperties
+  to: EmbeddedObject
+  type: has_one
+  via: embeddedObject
+- from: PositionedObjectProperties
+  to: PositionedObjectPositioning
+  type: has_one
+  via: positioning
+- from: NamedStyleSuggestionState
+  to: ParagraphStyleSuggestionState
+  type: has_one
+  via: paragraphStyleSuggestionState
+- from: NamedStyleSuggestionState
+  to: TextStyleSuggestionState
+  type: has_one
+  via: textStyleSuggestionState
+- from: PositionedObjectPositioning
+  to: Dimension
+  type: has_one
+  via: leftOffset
+- from: PositionedObjectPositioning
+  to: Dimension
+  type: has_one
+  via: topOffset
+- from: Size
+  to: Dimension
+  type: has_one
+  via: height
+- from: Size
+  to: Dimension
+  type: has_one
+  via: width
+- from: Header
+  to: StructuralElement
+  type: has_many
+  via: content
+- from: CreateParagraphBulletsRequest
+  to: Range
+  type: has_one
+  via: range
+- from: Shading
+  to: OptionalColor
+  type: has_one
+  via: backgroundColor
+- from: SectionColumnProperties
+  to: Dimension
+  type: has_one
+  via: paddingEnd
+- from: SectionColumnProperties
+  to: Dimension
+  type: has_one
+  via: width
+- from: TextRun
+  to: TextStyle
+  type: has_one
+  via: textStyle
+- from: HorizontalRule
+  to: TextStyle
+  type: has_one
+  via: textStyle
+- from: InsertTableRowRequest
+  to: TableCellLocation
+  type: has_one
+  via: tableCellLocation
+- from: CreateNamedRangeRequest
+  to: Range
+  type: has_one
+  via: range
+- from: NamedStyle
+  to: ParagraphStyle
+  type: has_one
+  via: paragraphStyle
+- from: NamedStyle
+  to: TextStyle
+  type: has_one
+  via: textStyle
+- from: SectionStyle
+  to: SectionColumnProperties
+  type: has_many
+  via: columnProperties
+- from: SectionStyle
+  to: Dimension
+  type: has_one
+  via: marginBottom
+- from: SectionStyle
+  to: Dimension
+  type: has_one
+  via: marginFooter
+- from: SectionStyle
+  to: Dimension
+  type: has_one
+  via: marginHeader
+- from: SectionStyle
+  to: Dimension
+  type: has_one
+  via: marginLeft
+- from: SectionStyle
+  to: Dimension
+  type: has_one
+  via: marginRight
+- from: SectionStyle
+  to: Dimension
+  type: has_one
+  via: marginTop
+- from: Document
+  to: Body
+  type: has_one
+  via: body
+- from: Document
+  to: DocumentStyle
+  type: has_one
+  via: documentStyle
+- from: Document
+  to: NamedStyles
+  type: has_one
+  via: namedStyles
+- from: Document
+  to: Revision
+  type: belongs_to
+  via: revisionId
+- from: Footer
+  to: StructuralElement
+  type: has_many
+  via: content
+- from: DeleteTableColumnRequest
+  to: TableCellLocation
+  type: has_one
+  via: tableCellLocation
+- from: EmbeddedObjectBorder
+  to: OptionalColor
+  type: has_one
+  via: color
+- from: EmbeddedObjectBorder
+  to: Dimension
+  type: has_one
+  via: width
+- from: CreateFooterRequest
+  to: Location
+  type: has_one
+  via: sectionBreakLocation
+- from: DeleteNamedRangeRequest
+  to: NamedRange
+  type: belongs_to
+  via: namedRangeId
+- from: DeleteParagraphBulletsRequest
+  to: Range
+  type: has_one
+  via: range
+- from: Table
+  to: TableRow
+  type: has_many
+  via: tableRows
+- from: Table
+  to: TableStyle
+  type: has_one
+  via: tableStyle
+- from: DeleteFooterRequest
+  to: Footer
+  type: belongs_to
+  via: footerId
+- from: AutoText
+  to: TextStyle
+  type: has_one
+  via: textStyle
+- from: UpdateTableRowStyleRequest
+  to: TableRowStyle
+  type: has_one
+  via: tableRowStyle
+- from: UpdateTableRowStyleRequest
+  to: Location
+  type: has_one
+  via: tableStartLocation
+- from: Person
+  to: TextStyle
+  type: has_one
+  via: textStyle
+- from: PositionedObject
+  to: PositionedObjectProperties
+  type: has_one
+  via: positionedObjectProperties
+- from: SuggestedTableCellStyle
+  to: TableCellStyle
+  type: has_one
+  via: tableCellStyle
+- from: NamedRange
+  to: Range
+  type: has_many
+  via: ranges
+- from: BatchUpdateDocumentRequest
+  to: Request
+  type: has_many
+  via: requests
+- from: BatchUpdateDocumentRequest
+  to: WriteControl
+  type: has_one
+  via: writeControl
+- from: CreateNamedRangeResponse
+  to: NamedRange
+  type: belongs_to
+  via: namedRangeId
+- from: StructuralElement
+  to: Paragraph
+  type: has_one
+  via: paragraph
+- from: StructuralElement
+  to: SectionBreak
+  type: has_one
+  via: sectionBreak
+- from: StructuralElement
+  to: Table
+  type: has_one
+  via: table
+- from: StructuralElement
+  to: TableOfContents
+  type: has_one
+  via: tableOfContents
+- from: SuggestedParagraphStyle
+  to: ParagraphStyle
+  type: has_one
+  via: paragraphStyle
+- from: SuggestedParagraphStyle
+  to: ParagraphStyleSuggestionState
+  type: has_one
+  via: paragraphStyleSuggestionState
+- from: InlineObjectProperties
+  to: EmbeddedObject
+  type: has_one
+  via: embeddedObject
+- from: PinTableHeaderRowsRequest
+  to: Location
+  type: has_one
+  via: tableStartLocation
+- from: DeleteContentRangeRequest
+  to: Range
+  type: has_one
+  via: range
+- from: DocumentStyle
+  to: Background
+  type: has_one
+  via: background
+- from: DocumentStyle
+  to: Dimension
+  type: has_one
+  via: marginBottom
+- from: DocumentStyle
+  to: Dimension
+  type: has_one
+  via: marginFooter
+- from: DocumentStyle
+  to: Dimension
+  type: has_one
+  via: marginHeader
+- from: DocumentStyle
+  to: Dimension
+  type: has_one
+  via: marginLeft
+- from: DocumentStyle
+  to: Dimension
+  type: has_one
+  via: marginRight
+- from: DocumentStyle
+  to: Dimension
+  type: has_one
+  via: marginTop
+- from: DocumentStyle
+  to: Size
+  type: has_one
+  via: pageSize
+- from: UpdateSectionStyleRequest
+  to: Range
+  type: has_one
+  via: range
+- from: UpdateSectionStyleRequest
+  to: SectionStyle
+  type: has_one
+  via: sectionStyle
+- from: PositionedObjectPropertiesSuggestionState
+  to: EmbeddedObjectSuggestionState
+  type: has_one
+  via: embeddedObjectSuggestionState
+- from: ParagraphElement
+  to: AutoText
+  type: has_one
+  via: autoText
+- from: ParagraphElement
+  to: ColumnBreak
+  type: has_one
+  via: columnBreak
+- from: ParagraphElement
+  to: Equation
+  type: has_one
+  via: equation
+- from: ParagraphElement
+  to: FootnoteReference
+  type: has_one
+  via: footnoteReference
+- from: ParagraphElement
+  to: HorizontalRule
+  type: has_one
+  via: horizontalRule
+- from: ParagraphElement
+  to: InlineObjectElement
+  type: has_one
+  via: inlineObjectElement
+- from: ParagraphElement
+  to: PageBreak
+  type: has_one
+  via: pageBreak
+- from: ParagraphElement
+  to: Person
+  type: has_one
+  via: person
+- from: ParagraphElement
+  to: RichLink
+  type: has_one
+  via: richLink
+- from: ParagraphElement
+  to: TextRun
+  type: has_one
+  via: textRun
+- from: SuggestedPositionedObjectProperties
+  to: PositionedObjectProperties
+  type: has_one
+  via: positionedObjectProperties
+- from: SuggestedPositionedObjectProperties
+  to: PositionedObjectPropertiesSuggestionState
+  type: has_one
+  via: positionedObjectPropertiesSuggestionState
+- from: CreateFootnoteResponse
+  to: Footnote
+  type: belongs_to
+  via: footnoteId
+- from: BulletSuggestionState
+  to: TextStyleSuggestionState
+  type: has_one
+  via: textStyleSuggestionState
+- from: PageBreak
+  to: TextStyle
+  type: has_one
+  via: textStyle
+- from: SuggestedBullet
+  to: Bullet
+  type: has_one
+  via: bullet
+- from: SuggestedBullet
+  to: BulletSuggestionState
+  type: has_one
+  via: bulletSuggestionState
+- from: Body
+  to: StructuralElement
+  type: has_many
+  via: content
+- from: InlineObjectElement
+  to: InlineObject
+  type: belongs_to
+  via: inlineObjectId
+- from: InlineObjectElement
+  to: TextStyle
+  type: has_one
+  via: textStyle
+- from: NestingLevel
+  to: Dimension
+  type: has_one
+  via: indentFirstLine
+- from: NestingLevel
+  to: Dimension
+  type: has_one
+  via: indentStart
+- from: NestingLevel
+  to: TextStyle
+  type: has_one
+  via: textStyle
+- from: CreateFooterResponse
+  to: Footer
+  type: belongs_to
+  via: footerId
+- from: UpdateTextStyleRequest
+  to: Range
+  type: has_one
+  via: range
+- from: UpdateTextStyleRequest
+  to: TextStyle
+  type: has_one
+  via: textStyle
+- from: SuggestedListProperties
+  to: ListProperties
+  type: has_one
+  via: listProperties
+- from: SuggestedListProperties
+  to: ListPropertiesSuggestionState
+  type: has_one
+  via: listPropertiesSuggestionState
+- from: TableRow
+  to: TableCell
+  type: has_many
+  via: tableCells
+- from: TableRow
+  to: TableRowStyle
+  type: has_one
+  via: tableRowStyle
+- from: Request
+  to: CreateFooterRequest
+  type: has_one
+  via: createFooter
+- from: Request
+  to: CreateFootnoteRequest
+  type: has_one
+  via: createFootnote
+- from: Request
+  to: CreateHeaderRequest
+  type: has_one
+  via: createHeader
+- from: Request
+  to: CreateNamedRangeRequest
+  type: has_one
+  via: createNamedRange
+- from: Request
+  to: CreateParagraphBulletsRequest
+  type: has_one
+  via: createParagraphBullets
+- from: Request
+  to: DeleteContentRangeRequest
+  type: has_one
+  via: deleteContentRange
+- from: Request
+  to: DeleteFooterRequest
+  type: has_one
+  via: deleteFooter
+- from: Request
+  to: DeleteHeaderRequest
+  type: has_one
+  via: deleteHeader
+- from: Request
+  to: DeleteNamedRangeRequest
+  type: has_one
+  via: deleteNamedRange
+- from: Request
+  to: DeleteParagraphBulletsRequest
+  type: has_one
+  via: deleteParagraphBullets
+- from: Request
+  to: DeletePositionedObjectRequest
+  type: has_one
+  via: deletePositionedObject
+- from: Request
+  to: DeleteTableColumnRequest
+  type: has_one
+  via: deleteTableColumn
+- from: Request
+  to: DeleteTableRowRequest
+  type: has_one
+  via: deleteTableRow
+- from: Request
+  to: InsertInlineImageRequest
+  type: has_one
+  via: insertInlineImage
+- from: Request
+  to: InsertPageBreakRequest
+  type: has_one
+  via: insertPageBreak
+- from: Request
+  to: InsertSectionBreakRequest
+  type: has_one
+  via: insertSectionBreak
+- from: Request
+  to: InsertTableRequest
+  type: has_one
+  via: insertTable
+- from: Request
+  to: InsertTableColumnRequest
+  type: has_one
+  via: insertTableColumn
+- from: Request
+  to: InsertTableRowRequest
+  type: has_one
+  via: insertTableRow
+- from: Request
+  to: InsertTextRequest
+  type: has_one
+  via: insertText
+- from: Request
+  to: MergeTableCellsRequest
+  type: has_one
+  via: mergeTableCells
+- from: Request
+  to: PinTableHeaderRowsRequest
+  type: has_one
+  via: pinTableHeaderRows
+- from: Request
+  to: ReplaceAllTextRequest
+  type: has_one
+  via: replaceAllText
+- from: Request
+  to: ReplaceNamedRangeContentRequest
+  type: has_one
+  via: replaceNamedRangeContent
+- from: Request
+  to: UnmergeTableCellsRequest
+  type: has_one
+  via: unmergeTableCells
+- from: Request
+  to: UpdateDocumentStyleRequest
+  type: has_one
+  via: updateDocumentStyle
+- from: Request
+  to: UpdateParagraphStyleRequest
+  type: has_one
+  via: updateParagraphStyle
+- from: Request
+  to: UpdateSectionStyleRequest
+  type: has_one
+  via: updateSectionStyle
+- from: Request
+  to: UpdateTableCellStyleRequest
+  type: has_one
+  via: updateTableCellStyle
+- from: Request
+  to: UpdateTableColumnPropertiesRequest
+  type: has_one
+  via: updateTableColumnProperties
+- from: Request
+  to: UpdateTableRowStyleRequest
+  type: has_one
+  via: updateTableRowStyle
+- from: Request
+  to: UpdateTextStyleRequest
+  type: has_one
+  via: updateTextStyle
+- from: OptionalColor
+  to: Color
+  type: has_one
+  via: color
+- from: EmbeddedObjectSuggestionState
+  to: EmbeddedDrawingPropertiesSuggestionState
+  type: has_one
+  via: embeddedDrawingPropertiesSuggestionState
+- from: EmbeddedObjectSuggestionState
+  to: EmbeddedObjectBorderSuggestionState
+  type: has_one
+  via: embeddedObjectBorderSuggestionState
+- from: EmbeddedObjectSuggestionState
+  to: ImagePropertiesSuggestionState
+  type: has_one
+  via: imagePropertiesSuggestionState
+- from: EmbeddedObjectSuggestionState
+  to: LinkedContentReferenceSuggestionState
+  type: has_one
+  via: linkedContentReferenceSuggestionState
+- from: EmbeddedObjectSuggestionState
+  to: SizeSuggestionState
+  type: has_one
+  via: sizeSuggestionState
+- from: GmailUsersDraftsPutResponseMessagePayload
+  to: Part
+  type: belongs_to
+  via: partId
+- from: GmailUsersDraftsPutResponseMessagePayload
+  to: GmailUsersDraftsPutResponseMessagePayloadBody
+  type: has_one
+  via: body
+- from: GmailUsersDraftsGetResponseMessage
+  to: Label
+  type: belongs_to
+  via: labelIds
+- from: GmailUsersDraftsGetResponseMessage
+  to: GmailUsersDraftsGetResponseMessagePayload
+  type: has_one
+  via: payload
+- from: GmailUsersDraftsGetResponse
+  to: GmailUsersDraftsGetResponseMessage
+  type: has_one
+  via: message
+- from: GmailUsersDraftsPutResponseMessage
+  to: Label
+  type: belongs_to
+  via: labelIds
+- from: GmailUsersDraftsPutResponseMessage
+  to: GmailUsersDraftsPutResponseMessagePayload
+  type: has_one
+  via: payload
+- from: GmailUsersDraftsPutResponse
+  to: GmailUsersDraftsPutResponseMessage
+  type: has_one
+  via: message
+- from: UsersDraftsSendPostResponse
+  to: Label
+  type: belongs_to
+  via: labelIds
+- from: UsersDraftsSendPostResponse
+  to: UsersDraftsSendPostResponsePayload
+  type: has_one
+  via: payload
+- from: UsersDraftsSendPostResponsePayload
+  to: Part
+  type: belongs_to
+  via: partId
+- from: GmailUsersDraftsGetResponseMessagePayload
+  to: Part
+  type: belongs_to
+  via: partId
+- from: GmailUsersDraftsGetResponseMessagePayload
+  to: GmailUsersDraftsGetResponseMessagePayloadBody
+  type: has_one
+  via: body
+- from: DriveList
+  to: Drive
+  type: has_many
+  via: drives
+- from: LabelModification
+  to: Label
+  type: belongs_to
+  via: labelId
+- from: FileList
+  to: File
+  type: has_many
+  via: files
+- from: FreeBusyPostResponseGroups
+  to: FreeBusyPostResponseGroupsAmet0
+  type: has_one
+  via: amet_0
+- from: FreeBusyPostResponseGroups
+  to: FreeBusyPostResponseGroupsOccaecat3
+  type: has_one
+  via: occaecat_3
+- from: FreeBusyPostResponseCalendars
+  to: FreeBusyPostResponseCalendarsEa8A
+  type: has_one
+  via: ea8_a
+- from: FreeBusyPostResponseCalendars
+  to: FreeBusyPostResponseCalendarsTempor
+  type: has_one
+  via: tempor__
+- from: FreeBusyPostResponse
+  to: FreeBusyPostResponseCalendars
+  type: has_one
+  via: calendars
+- from: FreeBusyPostResponse
+  to: FreeBusyPostResponseGroups
+  type: has_one
+  via: groups
+- from: GmailUsersLabelsGetResponse1
+  to: GmailUsersLabelsGetResponse1Color
+  type: has_one
+  via: color
+- from: GmailUsersMessagesGetResponse1
+  to: Label
+  type: belongs_to
+  via: labelIds
+- from: GmailUsersMessagesGetResponse1
+  to: GmailUsersMessagesGetResponse1Payload
+  type: has_one
+  via: payload
+- from: GmailUsersMessagesGetResponse1Payload
+  to: Part
+  type: belongs_to
+  via: partId
+- from: SpreadsheetsGetResponsePropertiesDefaultFormatBordersLeft
+  to: SpreadsheetsGetResponsePropertiesDefaultFormatBordersLeftColorStyle
+  type: has_one
+  via: colorStyle
+- from: SpreadsheetsGetResponsePropertiesDefaultFormatBorders
+  to: SpreadsheetsGetResponsePropertiesDefaultFormatBordersBottom
+  type: has_one
+  via: bottom
+- from: SpreadsheetsGetResponsePropertiesDefaultFormatBorders
+  to: SpreadsheetsGetResponsePropertiesDefaultFormatBordersLeft
+  type: has_one
+  via: left
+- from: SpreadsheetsGetResponsePropertiesDefaultFormatBorders
+  to: SpreadsheetsGetResponsePropertiesDefaultFormatBordersRight
+  type: has_one
+  via: right
+- from: SpreadsheetsGetResponsePropertiesDefaultFormatBorders
+  to: SpreadsheetsGetResponsePropertiesDefaultFormatBordersTop
+  type: has_one
+  via: top
+- from: SpreadsheetsGetResponseProperties
+  to: SpreadsheetsGetResponsePropertiesDefaultFormat
+  type: has_one
+  via: defaultFormat
+- from: SpreadsheetsGetResponsePropertiesDefaultFormatBordersRight
+  to: SpreadsheetsGetResponsePropertiesDefaultFormatBordersRightColorStyle
+  type: has_one
+  via: colorStyle
+- from: SpreadsheetsGetResponsePropertiesDefaultFormatTextFormat
+  to: SpreadsheetsGetResponsePropertiesDefaultFormatTextFormatForegroundColorStyle
+  type: has_one
+  via: foregroundColorStyle
+- from: SpreadsheetsGetResponsePropertiesDefaultFormatBordersBottom
+  to: SpreadsheetsGetResponsePropertiesDefaultFormatBordersBottomColorStyle
+  type: has_one
+  via: colorStyle
+- from: SpreadsheetsGetResponsePropertiesDefaultFormat
+  to: SpreadsheetsGetResponsePropertiesDefaultFormatBackgroundColorStyle
+  type: has_one
+  via: backgroundColorStyle
+- from: SpreadsheetsGetResponsePropertiesDefaultFormat
+  to: SpreadsheetsGetResponsePropertiesDefaultFormatBorders
+  type: has_one
+  via: borders
+- from: SpreadsheetsGetResponsePropertiesDefaultFormat
+  to: SpreadsheetsGetResponsePropertiesDefaultFormatTextFormat
+  type: has_one
+  via: textFormat
+- from: SpreadsheetsGetResponsePropertiesDefaultFormatBordersTop
+  to: SpreadsheetsGetResponsePropertiesDefaultFormatBordersTopColorStyle
+  type: has_one
+  via: colorStyle
+- from: ImageCandidate
+  to: ImageContent
+  type: has_one
+  via: content
+- from: ImageCandidate
+  to: SafetyRating
+  type: has_many
+  via: safetyRatings
+- from: ImageGenerationResponse
+  to: ImageCandidate
+  type: has_many
+  via: candidates
+- from: ImageGenerationResponse
+  to: PromptFeedback
+  type: has_one
+  via: promptFeedback
+- from: ImageGenerationResponse
+  to: UsageMetadata
+  type: has_one
+  via: usageMetadata
+- from: ImageContent
+  to: Part
+  type: has_many
+  via: parts
+- from: ImageGenerationRequest
+  to: Content
+  type: has_many
+  via: contents
+- from: ImageGenerationRequest
+  to: ImageGenerationConfig
+  type: has_one
+  via: generationConfig
+- from: UsersMessagesImportPostResponse
+  to: Label
+  type: belongs_to
+  via: labelIds
+- from: UsersMessagesImportPostResponse
+  to: UsersMessagesImportPostResponsePayload
+  type: has_one
+  via: payload
+- from: UsersMessagesImportPostResponsePayload
+  to: Part
+  type: belongs_to
+  via: partId
+- from: GmailUsersMessagesPostResponse
+  to: Label
+  type: belongs_to
+  via: labelIds
+- from: GmailUsersMessagesPostResponse
+  to: GmailUsersMessagesPostResponsePayload
+  type: has_one
+  via: payload
+- from: GmailUsersMessagesPostResponsePayload
+  to: Part
+  type: belongs_to
+  via: partId
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestCreateFieldRequest
+  to: GoogleAppsDriveLabelsV2Field
+  type: has_one
+  via: field
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateFieldTypeRequest
+  to: GoogleAppsDriveLabelsV2FieldDateOptions
+  type: has_one
+  via: dateOptions
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateFieldTypeRequest
+  to: GoogleAppsDriveLabelsV2FieldIntegerOptions
+  type: has_one
+  via: integerOptions
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateFieldTypeRequest
+  to: GoogleAppsDriveLabelsV2FieldSelectionOptions
+  type: has_one
+  via: selectionOptions
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateFieldTypeRequest
+  to: GoogleAppsDriveLabelsV2FieldTextOptions
+  type: has_one
+  via: textOptions
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateFieldTypeRequest
+  to: GoogleAppsDriveLabelsV2FieldUserOptions
+  type: has_one
+  via: userOptions
+- from: GoogleAppsDriveLabelsV2LabelLock
+  to: GoogleAppsDriveLabelsV2UserInfo
+  type: has_one
+  via: creator
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestDisableFieldRequest
+  to: GoogleAppsDriveLabelsV2LifecycleDisabledPolicy
+  type: has_one
+  via: disabledPolicy
+- from: GoogleAppsDriveLabelsV2FieldSelectionOptionsChoiceProperties
+  to: GoogleAppsDriveLabelsV2BadgeConfig
+  type: has_one
+  via: badgeConfig
+- from: GoogleAppsDriveLabelsV2Lifecycle
+  to: GoogleAppsDriveLabelsV2LifecycleDisabledPolicy
+  type: has_one
+  via: disabledPolicy
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestRequest
+  to: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestCreateFieldRequest
+  type: has_one
+  via: createField
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestRequest
+  to: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestCreateSelectionChoiceRequest
+  type: has_one
+  via: createSelectionChoice
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestRequest
+  to: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestDisableFieldRequest
+  type: has_one
+  via: disableField
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestRequest
+  to: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestDisableSelectionChoiceRequest
+  type: has_one
+  via: disableSelectionChoice
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestRequest
+  to: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateFieldPropertiesRequest
+  type: has_one
+  via: updateField
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestRequest
+  to: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateFieldTypeRequest
+  type: has_one
+  via: updateFieldType
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestRequest
+  to: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateLabelPropertiesRequest
+  type: has_one
+  via: updateLabel
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestRequest
+  to: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateSelectionChoicePropertiesRequest
+  type: has_one
+  via: updateSelectionChoiceProperties
+- from: GoogleAppsDriveLabelsV2FieldUserOptions
+  to: GoogleAppsDriveLabelsV2FieldListOptions
+  type: has_one
+  via: listOptions
+- from: GoogleAppsDriveLabelsV2FieldDateOptions
+  to: GoogleTypeDate
+  type: has_one
+  via: maxValue
+- from: GoogleAppsDriveLabelsV2FieldDateOptions
+  to: GoogleTypeDate
+  type: has_one
+  via: minValue
+- from: GoogleAppsDriveLabelsV2BadgeColors
+  to: GoogleTypeColor
+  type: has_one
+  via: backgroundColor
+- from: GoogleAppsDriveLabelsV2BadgeColors
+  to: GoogleTypeColor
+  type: has_one
+  via: foregroundColor
+- from: GoogleAppsDriveLabelsV2BadgeColors
+  to: GoogleTypeColor
+  type: has_one
+  via: soloColor
+- from: GoogleAppsDriveLabelsV2UpdateLabelPermissionRequest
+  to: GoogleAppsDriveLabelsV2LabelPermission
+  type: has_one
+  via: labelPermission
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestCreateSelectionChoiceRequest
+  to: GoogleAppsDriveLabelsV2FieldSelectionOptionsChoice
+  type: has_one
+  via: choice
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequest
+  to: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestRequest
+  type: has_many
+  via: requests
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequest
+  to: GoogleAppsDriveLabelsV2WriteControl
+  type: has_one
+  via: writeControl
+- from: GoogleAppsDriveLabelsV2BadgeConfig
+  to: GoogleTypeColor
+  type: has_one
+  via: color
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateLabelPropertiesRequest
+  to: GoogleAppsDriveLabelsV2LabelProperties
+  type: has_one
+  via: properties
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateFieldPropertiesRequest
+  to: GoogleAppsDriveLabelsV2FieldProperties
+  type: has_one
+  via: properties
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelResponse
+  to: GoogleAppsDriveLabelsV2DeltaUpdateLabelResponseResponse
+  type: has_many
+  via: responses
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelResponse
+  to: GoogleAppsDriveLabelsV2Label
+  type: has_one
+  via: updatedLabel
+- from: GoogleAppsDriveLabelsV2FieldSelectionOptions
+  to: GoogleAppsDriveLabelsV2FieldSelectionOptionsChoice
+  type: has_many
+  via: choices
+- from: GoogleAppsDriveLabelsV2FieldSelectionOptions
+  to: GoogleAppsDriveLabelsV2FieldListOptions
+  type: has_one
+  via: listOptions
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestDisableSelectionChoiceRequest
+  to: GoogleAppsDriveLabelsV2LifecycleDisabledPolicy
+  type: has_one
+  via: disabledPolicy
+- from: GoogleAppsDriveLabelsV2Field
+  to: GoogleAppsDriveLabelsV2UserInfo
+  type: has_one
+  via: creator
+- from: GoogleAppsDriveLabelsV2Field
+  to: GoogleAppsDriveLabelsV2FieldDateOptions
+  type: has_one
+  via: dateOptions
+- from: GoogleAppsDriveLabelsV2Field
+  to: GoogleAppsDriveLabelsV2UserInfo
+  type: has_one
+  via: disabler
+- from: GoogleAppsDriveLabelsV2Field
+  to: GoogleAppsDriveLabelsV2FieldIntegerOptions
+  type: has_one
+  via: integerOptions
+- from: GoogleAppsDriveLabelsV2Field
+  to: GoogleAppsDriveLabelsV2Lifecycle
+  type: has_one
+  via: lifecycle
+- from: GoogleAppsDriveLabelsV2Field
+  to: GoogleAppsDriveLabelsV2LockStatus
+  type: has_one
+  via: lockStatus
+- from: GoogleAppsDriveLabelsV2Field
+  to: GoogleAppsDriveLabelsV2FieldProperties
+  type: has_one
+  via: properties
+- from: GoogleAppsDriveLabelsV2Field
+  to: GoogleAppsDriveLabelsV2UserInfo
+  type: has_one
+  via: publisher
+- from: GoogleAppsDriveLabelsV2Field
+  to: GoogleAppsDriveLabelsV2FieldSelectionOptions
+  type: has_one
+  via: selectionOptions
+- from: GoogleAppsDriveLabelsV2Field
+  to: GoogleAppsDriveLabelsV2FieldTextOptions
+  type: has_one
+  via: textOptions
+- from: GoogleAppsDriveLabelsV2Field
+  to: GoogleAppsDriveLabelsV2UserInfo
+  type: has_one
+  via: updater
+- from: GoogleAppsDriveLabelsV2Field
+  to: GoogleAppsDriveLabelsV2FieldUserOptions
+  type: has_one
+  via: userOptions
+- from: GoogleAppsDriveLabelsV2FieldSelectionOptionsChoiceDisplayHints
+  to: GoogleAppsDriveLabelsV2BadgeColors
+  type: has_one
+  via: badgeColors
+- from: GoogleAppsDriveLabelsV2FieldSelectionOptionsChoiceDisplayHints
+  to: GoogleAppsDriveLabelsV2BadgeColors
+  type: has_one
+  via: darkBadgeColors
+- from: GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateSelectionChoicePropertiesRequest
+  to: GoogleAppsDriveLabelsV2FieldSelectionOptionsChoiceProperties
+  type: has_one
+  via: properties
+- from: GoogleAppsDriveLabelsV2DisableLabelRequest
+  to: GoogleAppsDriveLabelsV2LifecycleDisabledPolicy
+  type: has_one
+  via: disabledPolicy
+- from: GoogleAppsDriveLabelsV2DisableLabelRequest
+  to: GoogleAppsDriveLabelsV2WriteControl
+  type: has_one
+  via: writeControl
+- from: GoogleAppsDriveLabelsV2Label
+  to: GoogleAppsDriveLabelsV2UserInfo
+  type: has_one
+  via: creator
+- from: GoogleAppsDriveLabelsV2Label
+  to: GoogleAppsDriveLabelsV2UserInfo
+  type: has_one
+  via: disabler
+- from: GoogleAppsDriveLabelsV2Label
+  to: GoogleAppsDriveLabelsV2Field
+  type: has_many
+  via: fields
+- from: GoogleAppsDriveLabelsV2Label
+  to: GoogleAppsDriveLabelsV2Lifecycle
+  type: has_one
+  via: lifecycle
+- from: GoogleAppsDriveLabelsV2Label
+  to: GoogleAppsDriveLabelsV2LockStatus
+  type: has_one
+  via: lockStatus
+- from: GoogleAppsDriveLabelsV2Label
+  to: GoogleAppsDriveLabelsV2LabelProperties
+  type: has_one
+  via: properties
+- from: GoogleAppsDriveLabelsV2Label
+  to: GoogleAppsDriveLabelsV2UserInfo
+  type: has_one
+  via: publisher
+- from: GoogleAppsDriveLabelsV2Label
+  to: GoogleAppsDriveLabelsV2UserInfo
+  type: has_one
+  via: revisionCreator
+- from: GoogleAppsDriveLabelsV2Label
+  to: Revision
+  type: belongs_to
+  via: revisionId
+- from: GoogleAppsDriveLabelsV2FieldSelectionOptionsChoice
+  to: GoogleAppsDriveLabelsV2UserInfo
+  type: has_one
+  via: creator
+- from: GoogleAppsDriveLabelsV2FieldSelectionOptionsChoice
+  to: GoogleAppsDriveLabelsV2UserInfo
+  type: has_one
+  via: disabler
+- from: GoogleAppsDriveLabelsV2FieldSelectionOptionsChoice
+  to: GoogleAppsDriveLabelsV2FieldSelectionOptionsChoiceDisplayHints
+  type: has_one
+  via: displayHints
+- from: GoogleAppsDriveLabelsV2FieldSelectionOptionsChoice
+  to: GoogleAppsDriveLabelsV2Lifecycle
+  type: has_one
+  via: lifecycle
+- from: GoogleAppsDriveLabelsV2FieldSelectionOptionsChoice
+  to: GoogleAppsDriveLabelsV2LockStatus
+  type: has_one
+  via: lockStatus
+- from: GoogleAppsDriveLabelsV2FieldSelectionOptionsChoice
+  to: GoogleAppsDriveLabelsV2FieldSelectionOptionsChoiceProperties
+  type: has_one
+  via: properties
+- from: GoogleAppsDriveLabelsV2FieldSelectionOptionsChoice
+  to: GoogleAppsDriveLabelsV2UserInfo
+  type: has_one
+  via: publisher
+- from: GoogleAppsDriveLabelsV2FieldSelectionOptionsChoice
+  to: GoogleAppsDriveLabelsV2UserInfo
+  type: has_one
+  via: updater
+- from: GmailUsersLabelsPatchResponse
+  to: GmailUsersLabelsPatchResponseColor
+  type: has_one
+  via: color
+- from: GoogleAppsDriveLabelsV2DateLimits
+  to: GoogleTypeDate
+  type: has_one
+  via: maxValue
+- from: GoogleAppsDriveLabelsV2DateLimits
+  to: GoogleTypeDate
+  type: has_one
+  via: minValue
+- from: GoogleAppsDriveLabelsV2FieldLimits
+  to: GoogleAppsDriveLabelsV2DateLimits
+  type: has_one
+  via: dateLimits
+- from: GoogleAppsDriveLabelsV2FieldLimits
+  to: GoogleAppsDriveLabelsV2SelectionLimits
+  type: has_one
+  via: selectionLimits
+- from: GoogleAppsDriveLabelsV2FieldLimits
+  to: GoogleAppsDriveLabelsV2UserLimits
+  type: has_one
+  via: userLimits
+- from: GoogleAppsDriveLabelsV2UserLimits
+  to: GoogleAppsDriveLabelsV2ListLimits
+  type: has_one
+  via: listLimits
+- from: GoogleAppsDriveLabelsV2SelectionLimits
+  to: GoogleAppsDriveLabelsV2ListLimits
+  type: has_one
+  via: listLimits
+- from: UsersMessagesModifyPostResponse
+  to: Label
+  type: belongs_to
+  via: labelIds
+- from: UsersMessagesModifyPostResponse
+  to: UsersMessagesModifyPostResponsePayload
+  type: has_one
+  via: payload
+- from: UsersMessagesSendPostResponsePayload
+  to: Part
+  type: belongs_to
+  via: partId
+- from: UsersMessagesSendPostResponse
+  to: Label
+  type: belongs_to
+  via: labelIds
+- from: UsersMessagesSendPostResponse
+  to: UsersMessagesSendPostResponsePayload
+  type: has_one
+  via: payload
+- from: UsersMessagesUntrashPostResponse
+  to: Label
+  type: belongs_to
+  via: labelIds
+- from: UsersMessagesUntrashPostResponse
+  to: UsersMessagesUntrashPostResponsePayload
+  type: has_one
+  via: payload
+- from: UsersMessagesUntrashPostResponsePayload
+  to: Part
+  type: belongs_to
+  via: partId
+- from: UsersMessagesModifyPostResponsePayload
+  to: Part
+  type: belongs_to
+  via: partId
+- from: Revision
+  to: User
+  type: has_one
+  via: lastModifyingUser
+- from: AudioCandidate
+  to: AudioContent
+  type: has_one
+  via: content
+- from: SpeechGenerationRequest
+  to: Content
+  type: has_many
+  via: contents
+- from: SpeechGenerationRequest
+  to: SpeechGenerationConfig
+  type: has_one
+  via: generationConfig
+- from: SpeechGenerationResponse
+  to: AudioCandidate
+  type: has_many
+  via: candidates
+- from: SpeechGenerationResponse
+  to: UsageMetadata
+  type: has_one
+  via: usageMetadata
+- from: SpeakerVoiceConfig
+  to: VoiceConfig
+  type: has_one
+  via: voiceConfig
+- from: UsersMessagesTrashPostResponsePayload
+  to: Part
+  type: belongs_to
+  via: partId
+- from: UsersMessagesTrashPostResponse
+  to: Label
+  type: belongs_to
+  via: labelIds
+- from: UsersMessagesTrashPostResponse
+  to: UsersMessagesTrashPostResponsePayload
+  type: has_one
+  via: payload
+- from: UsersMeCalendarListGetResponse
+  to: Color
+  type: belongs_to
+  via: colorId
+- from: UsersMeCalendarListPostResponse
+  to: Color
+  type: belongs_to
+  via: colorId
+- from: UsersMeCalendarListPatchResponse
+  to: Color
+  type: belongs_to
+  via: colorId
+- from: UsersMeCalendarListPutResponse
+  to: Color
+  type: belongs_to
+  via: colorId

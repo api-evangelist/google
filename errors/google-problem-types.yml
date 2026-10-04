@@ -1,0 +1,52 @@
+generated: '2026-10-03'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/google-about-api-openapi.yml
+- openapi/google-activity-api-openapi.yml
+- openapi/google-address-api-openapi.yml
+- openapi/google-addresses-api-openapi.yml
+- openapi/google-append-api-openapi.yml
+- openapi/google-applications-api-openapi.yml
+- openapi/google-attachments-api-openapi.yml
+- openapi/google-audio-understanding-api-openapi.yml
+- openapi/google-auto-api-openapi.yml
+- openapi/google-batch-api-openapi.yml
+- openapi/google-bookshelves-api-openapi.yml
+- openapi/google-calendar-acl-rules-api-openapi.yml
+format: custom
+envelope:
+  media_type: application/json
+  schema: Error
+coverage:
+  operations: 220
+  statuses_declared: 4
+problems:
+- status: 400
+  title: Bad Request
+  description: Bad Request
+  operations: 18
+  media_types:
+  - application/json
+  schema: Error
+- status: 401
+  title: Unauthorized
+  description: Unauthorized
+  operations: 19
+  media_types:
+  - application/json
+  schema: Error
+- status: 404
+  title: Not Found
+  description: Bookshelf not found
+  operations: 11
+  media_types:
+  - application/json
+  schema: Error
+- status: 429
+  title: Too Many Requests
+  description: Too many requests
+  operations: 3
+  media_types:
+  - application/json
+  schema: Error

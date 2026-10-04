@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-gmail-users-drafts-put-response-schema.json",
+  "title": "GmailUsersDraftsPutResponse",
+  "description": "GmailUsersDraftsPutResponse schema",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-drafts-api-openapi.yml#/components/schemas/GmailUsersDraftsPutResponse",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "message": {
+      "$ref": "#/$defs/GmailUsersDraftsPutResponseMessage"
+    }
+  },
+  "$defs": {
+    "GmailUsersDraftsPutResponseMessage": {
+      "description": "GmailUsersDraftsPutResponseMessage schema",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "threadId": {
+          "type": "string"
+        },
+        "labelIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "snippet": {
+          "type": "string"
+        },
+        "historyId": {
+          "type": "string"
+        },
+        "internalDate": {
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/$defs/GmailUsersDraftsPutResponseMessagePayload"
+        },
+        "sizeEstimate": {
+          "type": "integer"
+        },
+        "raw": {
+          "type": "string"
+        }
+      }
+    },
+    "GmailUsersDraftsPutResponseMessagePayload": {
+      "description": "GmailUsersDraftsPutResponseMessagePayload schema",
+      "type": "object",
+      "properties": {
+        "partId": {
+          "type": "string"
+        },
+        "mimeType": {
+          "type": "string"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "headers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "body": {
+          "$ref": "#/$defs/GmailUsersDraftsPutResponseMessagePayloadBody"
+        },
+        "parts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "GmailUsersDraftsPutResponseMessagePayloadBody": {
+      "description": "GmailUsersDraftsPutResponseMessagePayloadBody schema",
+      "type": "object",
+      "properties": {
+        "attachmentId": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "data": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

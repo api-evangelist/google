@@ -70,11 +70,32 @@ paths:
       operationId: postGmailV1UsersByUserIdSettingsCseKeypairs{keyPairId}:disable
       x-operation-id-source: derived
 components:
+  examples:
+    SettingsCseKeypairsPostResponse1Example:
+      summary: Successful 200 response
+      value:
+        keyPairId: Lorem eiusmod
+        pkcs7: ex incididunt
+        pem: irure quis
+        subjectEmailAddresses:
+        - Excepteur Ut commodo aliquip
+        - eu Lorem nulla
+        enablementState: disabled
+        disableTime: cill
+        privateKeyMetadata:
+        - privateKeyMetadataId: proident fugiat eu dolore
+          kaclsKeyMetadata:
+            kaclsUri: voluptate ipsum ad
+            kaclsData: Duis laborum aute
+          hardwareKeyMetadata:
+            description: mollit la
+        - privateKeyMetadataId: nulla ullamco
+          kaclsKeyMetadata:
+            kaclsUri: minim in
+            kaclsData: sint eiusmod
+          hardwareKeyMetadata:
+            description: ut
   schemas:
-    SettingsCseKeypairsPostRequest1:
-      description: SettingsCseKeypairsPostRequest1 schema
-      type: object
-      example: {}
     SettingsCseKeypairsPostResponse1:
       description: SettingsCseKeypairsPostResponse1 schema
       type: object
@@ -112,31 +133,10 @@ components:
                 properties:
                   description:
                     type: string
-  examples:
-    SettingsCseKeypairsPostResponse1Example:
-      summary: Successful 200 response
-      value:
-        keyPairId: Lorem eiusmod
-        pkcs7: ex incididunt
-        pem: irure quis
-        subjectEmailAddresses:
-        - Excepteur Ut commodo aliquip
-        - eu Lorem nulla
-        enablementState: disabled
-        disableTime: cill
-        privateKeyMetadata:
-        - privateKeyMetadataId: proident fugiat eu dolore
-          kaclsKeyMetadata:
-            kaclsUri: voluptate ipsum ad
-            kaclsData: Duis laborum aute
-          hardwareKeyMetadata:
-            description: mollit la
-        - privateKeyMetadataId: nulla ullamco
-          kaclsKeyMetadata:
-            kaclsUri: minim in
-            kaclsData: sint eiusmod
-          hardwareKeyMetadata:
-            description: ut
+    SettingsCseKeypairsPostRequest1:
+      description: SettingsCseKeypairsPostRequest1 schema
+      type: object
+      example: {}
   securitySchemes:
     oauth2Auth:
       type: http

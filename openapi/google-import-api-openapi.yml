@@ -66,30 +66,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    UsersMessagesImportPostResponse:
-      description: UsersMessagesImportPostResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/UsersMessagesImportPostResponsePayload'
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
     UsersMessagesImportPostResponsePayload:
       description: UsersMessagesImportPostResponsePayload schema
       type: object
@@ -118,15 +94,29 @@ components:
             properties:
               value:
                 type: string
-    UsersMessagesImportPostResponsePayloadBody:
-      description: UsersMessagesImportPostResponsePayloadBody schema
+    UsersMessagesImportPostResponse:
+      description: UsersMessagesImportPostResponse schema
       type: object
       properties:
-        attachmentId:
+        id:
           type: string
-        size:
+        threadId:
+          type: string
+        labelIds:
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        internalDate:
+          type: string
+        payload:
+          $ref: '#/components/schemas/UsersMessagesImportPostResponsePayload'
+        sizeEstimate:
           type: integer
-        data:
+        raw:
           type: string
     UsersMessagesImportPostRequest:
       description: UsersMessagesImportPostRequest schema
@@ -158,6 +148,16 @@ components:
           - value: '<Circular reference to #/components/schemas/MessagePart detected>'
         sizeEstimate: 21128811
         raw: do laboris
+    UsersMessagesImportPostResponsePayloadBody:
+      description: UsersMessagesImportPostResponsePayloadBody schema
+      type: object
+      properties:
+        attachmentId:
+          type: string
+        size:
+          type: integer
+        data:
+          type: string
   examples:
     UsersMessagesImportPostResponseExample:
       summary: Successful 200 response

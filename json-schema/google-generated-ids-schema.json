@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-generated-ids-schema.json",
+  "title": "GeneratedIds",
+  "description": "A list of generated file IDs which can be provided in create requests.",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-files-api-openapi.yml#/components/schemas/GeneratedIds",
+  "properties": {
+    "ids": {
+      "description": "The IDs generated for the requesting user in the specified space.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "kind": {
+      "default": "drive#generatedIds",
+      "description": "Identifies what kind of resource this is. Value: the fixed string `\"drive#generatedIds\"`.",
+      "type": "string"
+    },
+    "space": {
+      "description": "The type of file that can be created with these IDs.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

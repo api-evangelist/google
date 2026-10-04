@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-spreadsheets-values-post-response-schema.json",
+  "title": "SpreadsheetsValuesPostResponse",
+  "description": "SpreadsheetsValuesPostResponse schema",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-append-api-openapi.yml#/components/schemas/SpreadsheetsValuesPostResponse",
+  "type": "object"
+}

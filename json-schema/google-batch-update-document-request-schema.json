@@ -1,0 +1,1496 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-batch-update-document-request-schema.json",
+  "title": "BatchUpdateDocumentRequest",
+  "description": "Request message for BatchUpdateDocument.",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-documents-api-openapi.yml#/components/schemas/BatchUpdateDocumentRequest",
+  "properties": {
+    "requests": {
+      "description": "A list of updates to apply to the document.",
+      "items": {
+        "$ref": "#/$defs/Request"
+      },
+      "type": "array"
+    },
+    "writeControl": {
+      "$ref": "#/$defs/WriteControl",
+      "description": "Provides control over how write requests are executed."
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "Background": {
+      "description": "Represents the background of a document.",
+      "properties": {
+        "color": {
+          "$ref": "#/$defs/OptionalColor",
+          "description": "The background color."
+        }
+      },
+      "type": "object"
+    },
+    "Color": {
+      "description": "A solid color.",
+      "properties": {
+        "rgbColor": {
+          "$ref": "#/$defs/RgbColor",
+          "description": "The RGB color value."
+        }
+      },
+      "type": "object"
+    },
+    "CreateFooterRequest": {
+      "description": "Creates a Footer. The new footer is applied to the SectionStyle at the location of the SectionBreak if specified, otherwise it is applied to the DocumentStyle. If a footer of the specified type already exists, a 400 bad request error is returned.",
+      "properties": {
+        "sectionBreakLocation": {
+          "$ref": "#/$defs/Location",
+          "description": "The location of the SectionBreak immediately preceding the section whose SectionStyle this footer should belong to. If this is unset or refers to the first section break in the document, the footer applies to the document style."
+        },
+        "type": {
+          "description": "The type of footer to create.",
+          "enum": [
+            "HEADER_FOOTER_TYPE_UNSPECIFIED",
+            "DEFAULT"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CreateFootnoteRequest": {
+      "description": "Creates a Footnote segment and inserts a new FootnoteReference to it at the given location. The new Footnote segment will contain a space followed by a newline character.",
+      "properties": {
+        "endOfSegmentLocation": {
+          "$ref": "#/$defs/EndOfSegmentLocation",
+          "description": "Inserts the footnote reference at the end of the document body. Footnote references cannot be inserted inside a header, footer or footnote. Since footnote references can only be inserted in the body, the segment ID field must be empty."
+        },
+        "location": {
+          "$ref": "#/$defs/Location",
+          "description": "Inserts the footnote reference at a specific index in the document. The footnote reference must be inserted inside the bounds of an existing Paragraph. For instance, it cannot be inserted at a table's start index (i.e. between the table and its preceding paragraph). Footnote references cannot be inserted inside an equation, header, footer or footnote. Since footnote references can only be inserted in the body, the segment ID field must be empty."
+        }
+      },
+      "type": "object"
+    },
+    "CreateHeaderRequest": {
+      "description": "Creates a Header. The new header is applied to the SectionStyle at the location of the SectionBreak if specified, otherwise it is applied to the DocumentStyle. If a header of the specified type already exists, a 400 bad request error is returned.",
+      "properties": {
+        "sectionBreakLocation": {
+          "$ref": "#/$defs/Location",
+          "description": "The location of the SectionBreak which begins the section this header should belong to. If `section_break_location' is unset or if it refers to the first section break in the document body, the header applies to the DocumentStyle"
+        },
+        "type": {
+          "description": "The type of header to create.",
+          "enum": [
+            "HEADER_FOOTER_TYPE_UNSPECIFIED",
+            "DEFAULT"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CreateNamedRangeRequest": {
+      "description": "Creates a NamedRange referencing the given range.",
+      "properties": {
+        "name": {
+          "description": "The name of the NamedRange. Names do not need to be unique. Names must be at least 1 character and no more than 256 characters, measured in UTF-16 code units.",
+          "type": "string"
+        },
+        "range": {
+          "$ref": "#/$defs/Range",
+          "description": "The range to apply the name to."
+        }
+      },
+      "type": "object"
+    },
+    "CreateParagraphBulletsRequest": {
+      "description": "Creates bullets for all of the paragraphs that overlap with the given range. The nesting level of each paragraph will be determined by counting leading tabs in front of each paragraph. To avoid excess space between the bullet and the corresponding paragraph, these leading tabs are removed by this request. This may change the indices of parts of the text. If the paragraph immediately before paragraphs being updated is in a list with a matching preset, the paragraphs being updated are added to that preceding list.",
+      "properties": {
+        "bulletPreset": {
+          "description": "The kinds of bullet glyphs to be used.",
+          "enum": [
+            "BULLET_GLYPH_PRESET_UNSPECIFIED",
+            "BULLET_DISC_CIRCLE_SQUARE",
+            "BULLET_DIAMONDX_ARROW3D_SQUARE",
+            "BULLET_CHECKBOX",
+            "BULLET_ARROW_DIAMOND_DISC",
+            "BULLET_STAR_CIRCLE_SQUARE",
+            "BULLET_ARROW3D_CIRCLE_SQUARE",
+            "BULLET_LEFTTRIANGLE_DIAMOND_DISC",
+            "BULLET_DIAMONDX_HOLLOWDIAMOND_SQUARE",
+            "BULLET_DIAMOND_CIRCLE_SQUARE",
+            "NUMBERED_DECIMAL_ALPHA_ROMAN",
+            "NUMBERED_DECIMAL_ALPHA_ROMAN_PARENS",
+            "NUMBERED_DECIMAL_NESTED",
+            "NUMBERED_UPPERALPHA_ALPHA_ROMAN",
+            "NUMBERED_UPPERROMAN_UPPERALPHA_DECIMAL",
+            "NUMBERED_ZERODECIMAL_ALPHA_ROMAN"
+          ],
+          "type": "string"
+        },
+        "range": {
+          "$ref": "#/$defs/Range",
+          "description": "The range to apply the bullet preset to."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteContentRangeRequest": {
+      "description": "Deletes content from the document.",
+      "properties": {
+        "range": {
+          "$ref": "#/$defs/Range",
+          "description": "The range of content to delete. Deleting text that crosses a paragraph boundary may result in changes to paragraph styles, lists, positioned objects and bookmarks as the two paragraphs are merged. Attempting to delete certain ranges can result in an invalid document structure in which case a 400 bad request error is returned. Some examples of invalid delete requests include: * Deleting one code unit of a surrogate pair. * Deleting the last newline character of a Body, Header, Footer, Footnote, TableCell or TableOfContents. * Deleting the start or end of a Table, TableOfContents or Equation without deleting the entire element. * Deleting the newline character before a Table, TableOfContents or SectionBreak without deleting the element. * Deleting individual rows or cells of a table. Deleting the content within a table cell is allowed."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteFooterRequest": {
+      "description": "Deletes a Footer from the document.",
+      "properties": {
+        "footerId": {
+          "description": "The id of the footer to delete. If this footer is defined on DocumentStyle, the reference to this footer is removed, resulting in no footer of that type for the first section of the document. If this footer is defined on a SectionStyle, the reference to this footer is removed and the footer of that type is now continued from the previous section.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DeleteHeaderRequest": {
+      "description": "Deletes a Header from the document.",
+      "properties": {
+        "headerId": {
+          "description": "The id of the header to delete. If this header is defined on DocumentStyle, the reference to this header is removed, resulting in no header of that type for the first section of the document. If this header is defined on a SectionStyle, the reference to this header is removed and the header of that type is now continued from the previous section.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DeleteNamedRangeRequest": {
+      "description": "Deletes a NamedRange.",
+      "properties": {
+        "name": {
+          "description": "The name of the range(s) to delete. All named ranges with the given name will be deleted.",
+          "type": "string"
+        },
+        "namedRangeId": {
+          "description": "The ID of the named range to delete.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DeleteParagraphBulletsRequest": {
+      "description": "Deletes bullets from all of the paragraphs that overlap with the given range. The nesting level of each paragraph will be visually preserved by adding indent to the start of the corresponding paragraph.",
+      "properties": {
+        "range": {
+          "$ref": "#/$defs/Range",
+          "description": "The range to delete bullets from."
+        }
+      },
+      "type": "object"
+    },
+    "DeletePositionedObjectRequest": {
+      "description": "Deletes a PositionedObject from the document.",
+      "properties": {
+        "objectId": {
+          "description": "The ID of the positioned object to delete.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DeleteTableColumnRequest": {
+      "description": "Deletes a column from a table.",
+      "properties": {
+        "tableCellLocation": {
+          "$ref": "#/$defs/TableCellLocation",
+          "description": "The reference table cell location from which the column will be deleted. The column this cell spans will be deleted. If this is a merged cell that spans multiple columns, all columns that the cell spans will be deleted. If no columns remain in the table after this deletion, the whole table is deleted."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteTableRowRequest": {
+      "description": "Deletes a row from a table.",
+      "properties": {
+        "tableCellLocation": {
+          "$ref": "#/$defs/TableCellLocation",
+          "description": "The reference table cell location from which the row will be deleted. The row this cell spans will be deleted. If this is a merged cell that spans multiple rows, all rows that the cell spans will be deleted. If no rows remain in the table after this deletion, the whole table is deleted."
+        }
+      },
+      "type": "object"
+    },
+    "Dimension": {
+      "description": "A magnitude in a single direction in the specified units.",
+      "properties": {
+        "magnitude": {
+          "description": "The magnitude.",
+          "format": "double",
+          "type": "number"
+        },
+        "unit": {
+          "description": "The units for magnitude.",
+          "enum": [
+            "UNIT_UNSPECIFIED",
+            "PT"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DocumentStyle": {
+      "description": "The style of the document.",
+      "properties": {
+        "background": {
+          "$ref": "#/$defs/Background",
+          "description": "The background of the document. Documents cannot have a transparent background color."
+        },
+        "defaultFooterId": {
+          "description": "The ID of the default footer. If not set, there's no default footer. This property is read-only.",
+          "type": "string"
+        },
+        "defaultHeaderId": {
+          "description": "The ID of the default header. If not set, there's no default header. This property is read-only.",
+          "type": "string"
+        },
+        "evenPageFooterId": {
+          "description": "The ID of the footer used only for even pages. The value of use_even_page_header_footer determines whether to use the default_footer_id or this value for the footer on even pages. If not set, there's no even page footer. This property is read-only.",
+          "type": "string"
+        },
+        "evenPageHeaderId": {
+          "description": "The ID of the header used only for even pages. The value of use_even_page_header_footer determines whether to use the default_header_id or this value for the header on even pages. If not set, there's no even page header. This property is read-only.",
+          "type": "string"
+        },
+        "firstPageFooterId": {
+          "description": "The ID of the footer used only for the first page. If not set then a unique footer for the first page does not exist. The value of use_first_page_header_footer determines whether to use the default_footer_id or this value for the footer on the first page. If not set, there's no first page footer. This property is read-only.",
+          "type": "string"
+        },
+        "firstPageHeaderId": {
+          "description": "The ID of the header used only for the first page. If not set then a unique header for the first page does not exist. The value of use_first_page_header_footer determines whether to use the default_header_id or this value for the header on the first page. If not set, there's no first page header. This property is read-only.",
+          "type": "string"
+        },
+        "marginBottom": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The bottom page margin. Updating the bottom page margin on the document style clears the bottom page margin on all section styles."
+        },
+        "marginFooter": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The amount of space between the bottom of the page and the contents of the footer."
+        },
+        "marginHeader": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The amount of space between the top of the page and the contents of the header."
+        },
+        "marginLeft": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The left page margin. Updating the left page margin on the document style clears the left page margin on all section styles. It may also cause columns to resize in all sections."
+        },
+        "marginRight": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The right page margin. Updating the right page margin on the document style clears the right page margin on all section styles. It may also cause columns to resize in all sections."
+        },
+        "marginTop": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The top page margin. Updating the top page margin on the document style clears the top page margin on all section styles."
+        },
+        "pageNumberStart": {
+          "description": "The page number from which to start counting the number of pages.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "pageSize": {
+          "$ref": "#/$defs/Size",
+          "description": "The size of a page in the document."
+        },
+        "useCustomHeaderFooterMargins": {
+          "description": "Indicates whether DocumentStyle margin_header, SectionStyle margin_header and DocumentStyle margin_footer, SectionStyle margin_footer are respected. When false, the default values in the Docs editor for header and footer margin are used. This property is read-only.",
+          "type": "boolean"
+        },
+        "useEvenPageHeaderFooter": {
+          "description": "Indicates whether to use the even page header / footer IDs for the even pages.",
+          "type": "boolean"
+        },
+        "useFirstPageHeaderFooter": {
+          "description": "Indicates whether to use the first page header / footer IDs for the first page.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "EndOfSegmentLocation": {
+      "description": "Location at the end of a body, header, footer or footnote. The location is immediately before the last newline in the document segment.",
+      "properties": {
+        "segmentId": {
+          "description": "The ID of the header, footer or footnote the location is in. An empty segment ID signifies the document's body.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "InsertInlineImageRequest": {
+      "description": "Inserts an InlineObject containing an image at the given location.",
+      "properties": {
+        "endOfSegmentLocation": {
+          "$ref": "#/$defs/EndOfSegmentLocation",
+          "description": "Inserts the text at the end of a header, footer or the document body. Inline images cannot be inserted inside a footnote."
+        },
+        "location": {
+          "$ref": "#/$defs/Location",
+          "description": "Inserts the image at a specific index in the document. The image must be inserted inside the bounds of an existing Paragraph. For instance, it cannot be inserted at a table's start index (i.e. between the table and its preceding paragraph). Inline images cannot be inserted inside a footnote or equation."
+        },
+        "objectSize": {
+          "$ref": "#/$defs/Size",
+          "description": "The size that the image should appear as in the document. This property is optional and the final size of the image in the document is determined by the following rules: * If neither width nor height is specified, then a default size of the image is calculated based on its resolution. * If one dimension is specified then the other dimension is calculated to preserve the aspect ratio of the image. * If both width and height are specified, the image is scaled to fit within the provided dimensions while maintaining its aspect ratio."
+        },
+        "uri": {
+          "description": "The image URI. The image is fetched once at insertion time and a copy is stored for display inside the document. Images must be less than 50MB in size, cannot exceed 25 megapixels, and must be in one of PNG, JPEG, or GIF format. The provided URI must be publicly accessible and at most 2 kB in length. The URI itself is saved with the image, and exposed via the ImageProperties.content_uri field.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "InsertPageBreakRequest": {
+      "description": "Inserts a page break followed by a newline at the specified location.",
+      "properties": {
+        "endOfSegmentLocation": {
+          "$ref": "#/$defs/EndOfSegmentLocation",
+          "description": "Inserts the page break at the end of the document body. Page breaks cannot be inserted inside a footnote, header or footer. Since page breaks can only be inserted inside the body, the segment ID field must be empty."
+        },
+        "location": {
+          "$ref": "#/$defs/Location",
+          "description": "Inserts the page break at a specific index in the document. The page break must be inserted inside the bounds of an existing Paragraph. For instance, it cannot be inserted at a table's start index (i.e. between the table and its preceding paragraph). Page breaks cannot be inserted inside a table, equation, footnote, header or footer. Since page breaks can only be inserted inside the body, the segment ID field must be empty."
+        }
+      },
+      "type": "object"
+    },
+    "InsertSectionBreakRequest": {
+      "description": "Inserts a section break at the given location. A newline character will be inserted before the section break.",
+      "properties": {
+        "endOfSegmentLocation": {
+          "$ref": "#/$defs/EndOfSegmentLocation",
+          "description": "Inserts a newline and a section break at the end of the document body. Section breaks cannot be inserted inside a footnote, header or footer. Because section breaks can only be inserted inside the body, the segment ID field must be empty."
+        },
+        "location": {
+          "$ref": "#/$defs/Location",
+          "description": "Inserts a newline and a section break at a specific index in the document. The section break must be inserted inside the bounds of an existing Paragraph. For instance, it cannot be inserted at a table's start index (i.e. between the table and its preceding paragraph). Section breaks cannot be inserted inside a table, equation, footnote, header, or footer. Since section breaks can only be inserted inside the body, the segment ID field must be empty."
+        },
+        "sectionType": {
+          "description": "The type of section to insert.",
+          "enum": [
+            "SECTION_TYPE_UNSPECIFIED",
+            "CONTINUOUS",
+            "NEXT_PAGE"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "InsertTableColumnRequest": {
+      "description": "Inserts an empty column into a table.",
+      "properties": {
+        "insertRight": {
+          "description": "Whether to insert new column to the right of the reference cell location. - `True`: insert to the right. - `False`: insert to the left.",
+          "type": "boolean"
+        },
+        "tableCellLocation": {
+          "$ref": "#/$defs/TableCellLocation",
+          "description": "The reference table cell location from which columns will be inserted. A new column will be inserted to the left (or right) of the column where the reference cell is. If the reference cell is a merged cell, a new column will be inserted to the left (or right) of the merged cell."
+        }
+      },
+      "type": "object"
+    },
+    "InsertTableRequest": {
+      "description": "Inserts a table at the specified location. A newline character will be inserted before the inserted table.",
+      "properties": {
+        "columns": {
+          "description": "The number of columns in the table.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "endOfSegmentLocation": {
+          "$ref": "#/$defs/EndOfSegmentLocation",
+          "description": "Inserts the table at the end of the given header, footer or document body. A newline character will be inserted before the inserted table. Tables cannot be inserted inside a footnote."
+        },
+        "location": {
+          "$ref": "#/$defs/Location",
+          "description": "Inserts the table at a specific model index. A newline character will be inserted before the inserted table, therefore the table start index will be at the specified location index + 1. The table must be inserted inside the bounds of an existing Paragraph. For instance, it cannot be inserted at a table's start index (i.e. between an existing table and its preceding paragraph). Tables cannot be inserted inside a footnote or equation."
+        },
+        "rows": {
+          "description": "The number of rows in the table.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "InsertTableRowRequest": {
+      "description": "Inserts an empty row into a table.",
+      "properties": {
+        "insertBelow": {
+          "description": "Whether to insert new row below the reference cell location. - `True`: insert below the cell. - `False`: insert above the cell.",
+          "type": "boolean"
+        },
+        "tableCellLocation": {
+          "$ref": "#/$defs/TableCellLocation",
+          "description": "The reference table cell location from which rows will be inserted. A new row will be inserted above (or below) the row where the reference cell is. If the reference cell is a merged cell, a new row will be inserted above (or below) the merged cell."
+        }
+      },
+      "type": "object"
+    },
+    "InsertTextRequest": {
+      "description": "Inserts text at the specified location.",
+      "properties": {
+        "endOfSegmentLocation": {
+          "$ref": "#/$defs/EndOfSegmentLocation",
+          "description": "Inserts the text at the end of a header, footer, footnote or the document body."
+        },
+        "location": {
+          "$ref": "#/$defs/Location",
+          "description": "Inserts the text at a specific index in the document. Text must be inserted inside the bounds of an existing Paragraph. For instance, text cannot be inserted at a table's start index (i.e. between the table and its preceding paragraph). The text must be inserted in the preceding paragraph."
+        },
+        "text": {
+          "description": "The text to be inserted. Inserting a newline character will implicitly create a new Paragraph at that index. The paragraph style of the new paragraph will be copied from the paragraph at the current insertion index, including lists and bullets. Text styles for inserted text will be determined automatically, generally preserving the styling of neighboring text. In most cases, the text style for the inserted text will match the text immediately before the insertion index. Some control characters (U+0000-U+0008, U+000C-U+001F) and characters from the Unicode Basic Multilingual Plane Private Use Area (U+E000-U+F8FF) will be stripped out of the inserted text.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Link": {
+      "description": "A reference to another portion of a document or an external URL resource.",
+      "properties": {
+        "bookmarkId": {
+          "description": "The ID of a bookmark in this document.",
+          "type": "string"
+        },
+        "headingId": {
+          "description": "The ID of a heading in this document.",
+          "type": "string"
+        },
+        "url": {
+          "description": "An external URL.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Location": {
+      "description": "A particular location in the document.",
+      "properties": {
+        "index": {
+          "description": "The zero-based index, in UTF-16 code units. The index is relative to the beginning of the segment specified by segment_id.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "segmentId": {
+          "description": "The ID of the header, footer or footnote the location is in. An empty segment ID signifies the document's body.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MergeTableCellsRequest": {
+      "description": "Merges cells in a Table.",
+      "properties": {
+        "tableRange": {
+          "$ref": "#/$defs/TableRange",
+          "description": "The table range specifying which cells of the table to merge. Any text in the cells being merged will be concatenated and stored in the \"head\" cell of the range. This is the upper-left cell of the range when the content direction is left to right, and the upper-right cell of the range otherwise. If the range is non-rectangular (which can occur in some cases where the range covers cells that are already merged or where the table is non-rectangular), a 400 bad request error is returned."
+        }
+      },
+      "type": "object"
+    },
+    "OptionalColor": {
+      "description": "A color that can either be fully opaque or fully transparent.",
+      "properties": {
+        "color": {
+          "$ref": "#/$defs/Color",
+          "description": "If set, this will be used as an opaque color. If unset, this represents a transparent color."
+        }
+      },
+      "type": "object"
+    },
+    "ParagraphBorder": {
+      "description": "A border around a paragraph.",
+      "properties": {
+        "color": {
+          "$ref": "#/$defs/OptionalColor",
+          "description": "The color of the border."
+        },
+        "dashStyle": {
+          "description": "The dash style of the border.",
+          "enum": [
+            "DASH_STYLE_UNSPECIFIED",
+            "SOLID",
+            "DOT",
+            "DASH"
+          ],
+          "type": "string"
+        },
+        "padding": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The padding of the border."
+        },
+        "width": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The width of the border."
+        }
+      },
+      "type": "object"
+    },
+    "ParagraphStyle": {
+      "description": "Styles that apply to a whole paragraph. Inherited paragraph styles are represented as unset fields in this message. A paragraph style's parent depends on where the paragraph style is defined: * The ParagraphStyle on a Paragraph inherits from the paragraph's corresponding named style type. * The ParagraphStyle on a named style inherits from the normal text named style. * The ParagraphStyle of the normal text named style inherits from the default paragraph style in the Docs editor. * The ParagraphStyle on a Paragraph element that's contained in a table may inherit its paragraph style from the table style. If the paragraph style does not inherit from a parent, unsetting fields will revert the style to a value matching the defaults in the Docs editor.",
+      "properties": {
+        "alignment": {
+          "description": "The text alignment for this paragraph.",
+          "enum": [
+            "ALIGNMENT_UNSPECIFIED",
+            "START",
+            "CENTER",
+            "END",
+            "JUSTIFIED"
+          ],
+          "type": "string"
+        },
+        "avoidWidowAndOrphan": {
+          "description": "Whether to avoid widows and orphans for the paragraph. If unset, the value is inherited from the parent.",
+          "type": "boolean"
+        },
+        "borderBetween": {
+          "$ref": "#/$defs/ParagraphBorder",
+          "description": "The border between this paragraph and the next and previous paragraphs. If unset, the value is inherited from the parent. The between border is rendered when the adjacent paragraph has the same border and indent properties. Paragraph borders cannot be partially updated. When changing a paragraph border, the new border must be specified in its entirety."
+        },
+        "borderBottom": {
+          "$ref": "#/$defs/ParagraphBorder",
+          "description": "The border at the bottom of this paragraph. If unset, the value is inherited from the parent. The bottom border is rendered when the paragraph below has different border and indent properties. Paragraph borders cannot be partially updated. When changing a paragraph border, the new border must be specified in its entirety."
+        },
+        "borderLeft": {
+          "$ref": "#/$defs/ParagraphBorder",
+          "description": "The border to the left of this paragraph. If unset, the value is inherited from the parent. Paragraph borders cannot be partially updated. When changing a paragraph border, the new border must be specified in its entirety."
+        },
+        "borderRight": {
+          "$ref": "#/$defs/ParagraphBorder",
+          "description": "The border to the right of this paragraph. If unset, the value is inherited from the parent. Paragraph borders cannot be partially updated. When changing a paragraph border, the new border must be specified in its entirety."
+        },
+        "borderTop": {
+          "$ref": "#/$defs/ParagraphBorder",
+          "description": "The border at the top of this paragraph. If unset, the value is inherited from the parent. The top border is rendered when the paragraph above has different border and indent properties. Paragraph borders cannot be partially updated. When changing a paragraph border, the new border must be specified in its entirety."
+        },
+        "direction": {
+          "description": "The text direction of this paragraph. If unset, the value defaults to LEFT_TO_RIGHT since paragraph direction is not inherited.",
+          "enum": [
+            "CONTENT_DIRECTION_UNSPECIFIED",
+            "LEFT_TO_RIGHT",
+            "RIGHT_TO_LEFT"
+          ],
+          "type": "string"
+        },
+        "headingId": {
+          "description": "The heading ID of the paragraph. If empty, then this paragraph is not a heading. This property is read-only.",
+          "type": "string"
+        },
+        "indentEnd": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The amount of indentation for the paragraph on the side that corresponds to the end of the text, based on the current paragraph direction. If unset, the value is inherited from the parent."
+        },
+        "indentFirstLine": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The amount of indentation for the first line of the paragraph. If unset, the value is inherited from the parent."
+        },
+        "indentStart": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The amount of indentation for the paragraph on the side that corresponds to the start of the text, based on the current paragraph direction. If unset, the value is inherited from the parent."
+        },
+        "keepLinesTogether": {
+          "description": "Whether all lines of the paragraph should be laid out on the same page or column if possible. If unset, the value is inherited from the parent.",
+          "type": "boolean"
+        },
+        "keepWithNext": {
+          "description": "Whether at least a part of this paragraph should be laid out on the same page or column as the next paragraph if possible. If unset, the value is inherited from the parent.",
+          "type": "boolean"
+        },
+        "lineSpacing": {
+          "description": "The amount of space between lines, as a percentage of normal, where normal is represented as 100.0. If unset, the value is inherited from the parent.",
+          "format": "float",
+          "type": "number"
+        },
+        "namedStyleType": {
+          "description": "The named style type of the paragraph. Since updating the named style type affects other properties within ParagraphStyle, the named style type is applied before the other properties are updated.",
+          "enum": [
+            "NAMED_STYLE_TYPE_UNSPECIFIED",
+            "NORMAL_TEXT",
+            "TITLE",
+            "SUBTITLE",
+            "HEADING_1",
+            "HEADING_2",
+            "HEADING_3",
+            "HEADING_4",
+            "HEADING_5",
+            "HEADING_6"
+          ],
+          "type": "string"
+        },
+        "pageBreakBefore": {
+          "description": "Whether the current paragraph should always start at the beginning of a page. If unset, the value is inherited from the parent. Attempting to update page_break_before for paragraphs in unsupported regions, including Table, Header, Footer and Footnote, can result in an invalid document state that returns a 400 bad request error.",
+          "type": "boolean"
+        },
+        "shading": {
+          "$ref": "#/$defs/Shading",
+          "description": "The shading of the paragraph. If unset, the value is inherited from the parent."
+        },
+        "spaceAbove": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The amount of extra space above the paragraph. If unset, the value is inherited from the parent."
+        },
+        "spaceBelow": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The amount of extra space below the paragraph. If unset, the value is inherited from the parent."
+        },
+        "spacingMode": {
+          "description": "The spacing mode for the paragraph.",
+          "enum": [
+            "SPACING_MODE_UNSPECIFIED",
+            "NEVER_COLLAPSE",
+            "COLLAPSE_LISTS"
+          ],
+          "type": "string"
+        },
+        "tabStops": {
+          "description": "A list of the tab stops for this paragraph. The list of tab stops is not inherited. This property is read-only.",
+          "items": {
+            "$ref": "#/$defs/TabStop"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "PinTableHeaderRowsRequest": {
+      "description": "Updates the number of pinned table header rows in a table.",
+      "properties": {
+        "pinnedHeaderRowsCount": {
+          "description": "The number of table rows to pin, where 0 implies that all rows are unpinned.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "tableStartLocation": {
+          "$ref": "#/$defs/Location",
+          "description": "The location where the table starts in the document."
+        }
+      },
+      "type": "object"
+    },
+    "Range": {
+      "description": "Specifies a contiguous range of text.",
+      "properties": {
+        "endIndex": {
+          "description": "The zero-based end index of this range, exclusive, in UTF-16 code units. In all current uses, an end index must be provided. This field is an Int32Value in order to accommodate future use cases with open-ended ranges.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "segmentId": {
+          "description": "The ID of the header, footer, or footnote that this range is contained in. An empty segment ID signifies the document's body.",
+          "type": "string"
+        },
+        "startIndex": {
+          "description": "The zero-based start index of this range, in UTF-16 code units. In all current uses, a start index must be provided. This field is an Int32Value in order to accommodate future use cases with open-ended ranges.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "ReplaceAllTextRequest": {
+      "description": "Replaces all instances of text matching a criteria with replace text.",
+      "properties": {
+        "containsText": {
+          "$ref": "#/$defs/SubstringMatchCriteria",
+          "description": "Finds text in the document matching this substring."
+        },
+        "replaceText": {
+          "description": "The text that will replace the matched text.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ReplaceImageRequest": {
+      "description": "Replaces an existing image with a new image. Replacing an image removes some image effects from the existing image in order to mirror the behavior of the Docs editor.",
+      "properties": {
+        "imageObjectId": {
+          "description": "The ID of the existing image that will be replaced. The ID can be retrieved from the response of a get request.",
+          "type": "string"
+        },
+        "imageReplaceMethod": {
+          "description": "The replacement method.",
+          "enum": [
+            "IMAGE_REPLACE_METHOD_UNSPECIFIED",
+            "CENTER_CROP"
+          ],
+          "type": "string"
+        },
+        "uri": {
+          "description": "The URI of the new image. The image is fetched once at insertion time and a copy is stored for display inside the document. Images must be less than 50MB, cannot exceed 25 megapixels, and must be in PNG, JPEG, or GIF format. The provided URI can't surpass 2 KB in length. The URI is saved with the image, and exposed through the ImageProperties.source_uri field.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ReplaceNamedRangeContentRequest": {
+      "description": "Replaces the contents of the specified NamedRange or NamedRanges with the given replacement content. Note that an individual NamedRange may consist of multiple discontinuous ranges. In this case, only the content in the first range will be replaced. The other ranges and their content will be deleted. In cases where replacing or deleting any ranges would result in an invalid document structure, a 400 bad request error is returned.",
+      "properties": {
+        "namedRangeId": {
+          "description": "The ID of the named range whose content will be replaced. If there is no named range with the given ID a 400 bad request error is returned.",
+          "type": "string"
+        },
+        "namedRangeName": {
+          "description": "The name of the NamedRanges whose content will be replaced. If there are multiple named ranges with the given name, then the content of each one will be replaced. If there are no named ranges with the given name, then the request will be a no-op.",
+          "type": "string"
+        },
+        "text": {
+          "description": "Replaces the content of the specified named range(s) with the given text.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Request": {
+      "description": "A single update to apply to a document.",
+      "properties": {
+        "createFooter": {
+          "$ref": "#/$defs/CreateFooterRequest",
+          "description": "Creates a footer."
+        },
+        "createFootnote": {
+          "$ref": "#/$defs/CreateFootnoteRequest",
+          "description": "Creates a footnote."
+        },
+        "createHeader": {
+          "$ref": "#/$defs/CreateHeaderRequest",
+          "description": "Creates a header."
+        },
+        "createNamedRange": {
+          "$ref": "#/$defs/CreateNamedRangeRequest",
+          "description": "Creates a named range."
+        },
+        "createParagraphBullets": {
+          "$ref": "#/$defs/CreateParagraphBulletsRequest",
+          "description": "Creates bullets for paragraphs."
+        },
+        "deleteContentRange": {
+          "$ref": "#/$defs/DeleteContentRangeRequest",
+          "description": "Deletes content from the document."
+        },
+        "deleteFooter": {
+          "$ref": "#/$defs/DeleteFooterRequest",
+          "description": "Deletes a footer from the document."
+        },
+        "deleteHeader": {
+          "$ref": "#/$defs/DeleteHeaderRequest",
+          "description": "Deletes a header from the document."
+        },
+        "deleteNamedRange": {
+          "$ref": "#/$defs/DeleteNamedRangeRequest",
+          "description": "Deletes a named range."
+        },
+        "deleteParagraphBullets": {
+          "$ref": "#/$defs/DeleteParagraphBulletsRequest",
+          "description": "Deletes bullets from paragraphs."
+        },
+        "deletePositionedObject": {
+          "$ref": "#/$defs/DeletePositionedObjectRequest",
+          "description": "Deletes a positioned object from the document."
+        },
+        "deleteTableColumn": {
+          "$ref": "#/$defs/DeleteTableColumnRequest",
+          "description": "Deletes a column from a table."
+        },
+        "deleteTableRow": {
+          "$ref": "#/$defs/DeleteTableRowRequest",
+          "description": "Deletes a row from a table."
+        },
+        "insertInlineImage": {
+          "$ref": "#/$defs/InsertInlineImageRequest",
+          "description": "Inserts an inline image at the specified location."
+        },
+        "insertPageBreak": {
+          "$ref": "#/$defs/InsertPageBreakRequest",
+          "description": "Inserts a page break at the specified location."
+        },
+        "insertSectionBreak": {
+          "$ref": "#/$defs/InsertSectionBreakRequest",
+          "description": "Inserts a section break at the specified location."
+        },
+        "insertTable": {
+          "$ref": "#/$defs/InsertTableRequest",
+          "description": "Inserts a table at the specified location."
+        },
+        "insertTableColumn": {
+          "$ref": "#/$defs/InsertTableColumnRequest",
+          "description": "Inserts an empty column into a table."
+        },
+        "insertTableRow": {
+          "$ref": "#/$defs/InsertTableRowRequest",
+          "description": "Inserts an empty row into a table."
+        },
+        "insertText": {
+          "$ref": "#/$defs/InsertTextRequest",
+          "description": "Inserts text at the specified location."
+        },
+        "mergeTableCells": {
+          "$ref": "#/$defs/MergeTableCellsRequest",
+          "description": "Merges cells in a table."
+        },
+        "pinTableHeaderRows": {
+          "$ref": "#/$defs/PinTableHeaderRowsRequest",
+          "description": "Updates the number of pinned header rows in a table."
+        },
+        "replaceAllText": {
+          "$ref": "#/$defs/ReplaceAllTextRequest",
+          "description": "Replaces all instances of the specified text."
+        },
+        "replaceImage": {
+          "$ref": "#/$defs/ReplaceImageRequest",
+          "description": "Replaces an image in the document."
+        },
+        "replaceNamedRangeContent": {
+          "$ref": "#/$defs/ReplaceNamedRangeContentRequest",
+          "description": "Replaces the content in a named range."
+        },
+        "unmergeTableCells": {
+          "$ref": "#/$defs/UnmergeTableCellsRequest",
+          "description": "Unmerges cells in a table."
+        },
+        "updateDocumentStyle": {
+          "$ref": "#/$defs/UpdateDocumentStyleRequest",
+          "description": "Updates the style of the document."
+        },
+        "updateParagraphStyle": {
+          "$ref": "#/$defs/UpdateParagraphStyleRequest",
+          "description": "Updates the paragraph style at the specified range."
+        },
+        "updateSectionStyle": {
+          "$ref": "#/$defs/UpdateSectionStyleRequest",
+          "description": "Updates the section style of the specified range."
+        },
+        "updateTableCellStyle": {
+          "$ref": "#/$defs/UpdateTableCellStyleRequest",
+          "description": "Updates the style of table cells."
+        },
+        "updateTableColumnProperties": {
+          "$ref": "#/$defs/UpdateTableColumnPropertiesRequest",
+          "description": "Updates the properties of columns in a table."
+        },
+        "updateTableRowStyle": {
+          "$ref": "#/$defs/UpdateTableRowStyleRequest",
+          "description": "Updates the row style in a table."
+        },
+        "updateTextStyle": {
+          "$ref": "#/$defs/UpdateTextStyleRequest",
+          "description": "Updates the text style at the specified range."
+        }
+      },
+      "type": "object"
+    },
+    "RgbColor": {
+      "description": "An RGB color.",
+      "properties": {
+        "blue": {
+          "description": "The blue component of the color, from 0.0 to 1.0.",
+          "format": "float",
+          "type": "number"
+        },
+        "green": {
+          "description": "The green component of the color, from 0.0 to 1.0.",
+          "format": "float",
+          "type": "number"
+        },
+        "red": {
+          "description": "The red component of the color, from 0.0 to 1.0.",
+          "format": "float",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "SectionColumnProperties": {
+      "description": "Properties that apply to a section's column.",
+      "properties": {
+        "paddingEnd": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The padding at the end of the column."
+        },
+        "width": {
+          "$ref": "#/$defs/Dimension",
+          "description": "Output only. The width of the column."
+        }
+      },
+      "type": "object"
+    },
+    "SectionStyle": {
+      "description": "The styling that applies to a section.",
+      "properties": {
+        "columnProperties": {
+          "description": "The section's columns properties. If empty, the section contains one column with the default properties in the Docs editor. A section can be updated to have no more than 3 columns. When updating this property, setting a concrete value is required. Unsetting this property will result in a 400 bad request error.",
+          "items": {
+            "$ref": "#/$defs/SectionColumnProperties"
+          },
+          "type": "array"
+        },
+        "columnSeparatorStyle": {
+          "description": "The style of column separators. This style can be set even when there's one column in the section. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error.",
+          "enum": [
+            "COLUMN_SEPARATOR_STYLE_UNSPECIFIED",
+            "NONE",
+            "BETWEEN_EACH_COLUMN"
+          ],
+          "type": "string"
+        },
+        "contentDirection": {
+          "description": "The content direction of this section. If unset, the value defaults to LEFT_TO_RIGHT. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error.",
+          "enum": [
+            "CONTENT_DIRECTION_UNSPECIFIED",
+            "LEFT_TO_RIGHT",
+            "RIGHT_TO_LEFT"
+          ],
+          "type": "string"
+        },
+        "defaultFooterId": {
+          "description": "The ID of the default footer. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset in the first SectionBreak, it inherits from DocumentStyle's default_footer_id. This property is read-only.",
+          "type": "string"
+        },
+        "defaultHeaderId": {
+          "description": "The ID of the default header. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset in the first SectionBreak, it inherits from DocumentStyle's default_header_id. This property is read-only.",
+          "type": "string"
+        },
+        "evenPageFooterId": {
+          "description": "The ID of the footer used only for even pages. If the value of DocumentStyle's use_even_page_header_footer is true, this value is used for the footers on even pages in the section. If it is false, the footers on even pages use the default_footer_id. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset in the first SectionBreak, it inherits from DocumentStyle's even_page_footer_id. This property is read-only.",
+          "type": "string"
+        },
+        "evenPageHeaderId": {
+          "description": "The ID of the header used only for even pages. If the value of DocumentStyle's use_even_page_header_footer is true, this value is used for the headers on even pages in the section. If it is false, the headers on even pages use the default_header_id. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset in the first SectionBreak, it inherits from DocumentStyle's even_page_header_id. This property is read-only.",
+          "type": "string"
+        },
+        "firstPageFooterId": {
+          "description": "The ID of the footer used only for the first page of the section. If use_first_page_header_footer is true, this value is used for the footer on the first page of the section. If it's false, the footer on the first page of the section uses the default_footer_id. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset in the first SectionBreak, it inherits from DocumentStyle's first_page_footer_id. This property is read-only.",
+          "type": "string"
+        },
+        "firstPageHeaderId": {
+          "description": "The ID of the header used only for the first page of the section. If use_first_page_header_footer is true, this value is used for the header on the first page of the section. If it's false, the header on the first page of the section uses the default_header_id. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset in the first SectionBreak, it inherits from DocumentStyle's first_page_header_id. This property is read-only.",
+          "type": "string"
+        },
+        "marginBottom": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The bottom page margin of the section. If unset, the value defaults to margin_bottom from DocumentStyle. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error."
+        },
+        "marginFooter": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The footer margin of the section. If unset, the value defaults to margin_footer from DocumentStyle. If updated, use_custom_header_footer_margins is set to true on DocumentStyle. The value of use_custom_header_footer_margins on DocumentStyle indicates if a footer margin is being respected for this section When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error."
+        },
+        "marginHeader": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The header margin of the section. If unset, the value defaults to margin_header from DocumentStyle. If updated, use_custom_header_footer_margins is set to true on DocumentStyle. The value of use_custom_header_footer_margins on DocumentStyle indicates if a header margin is being respected for this section. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error."
+        },
+        "marginLeft": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The left page margin of the section. If unset, the value defaults to margin_left from DocumentStyle. Updating the left margin causes columns in this section to resize. Since the margin affects column width, it's applied before column properties. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error."
+        },
+        "marginRight": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The right page margin of the section. If unset, the value defaults to margin_right from DocumentStyle. Updating the right margin causes columns in this section to resize. Since the margin affects column width, it's applied before column properties. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error."
+        },
+        "marginTop": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The top page margin of the section. If unset, the value defaults to margin_top from DocumentStyle. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error."
+        },
+        "pageNumberStart": {
+          "description": "The page number from which to start counting the number of pages for this section. If unset, page numbering continues from the previous section. If the value is unset in the first SectionBreak, refer to DocumentStyle's page_number_start. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "sectionType": {
+          "description": "Output only. The type of section.",
+          "enum": [
+            "SECTION_TYPE_UNSPECIFIED",
+            "CONTINUOUS",
+            "NEXT_PAGE"
+          ],
+          "type": "string"
+        },
+        "useFirstPageHeaderFooter": {
+          "description": "Indicates whether to use the first page header / footer IDs for the first page of the section. If unset, it inherits from DocumentStyle's use_first_page_header_footer for the first section. If the value is unset for subsequent sectors, it should be interpreted as false. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Shading": {
+      "description": "The shading of a paragraph.",
+      "properties": {
+        "backgroundColor": {
+          "$ref": "#/$defs/OptionalColor",
+          "description": "The background color of this paragraph shading."
+        }
+      },
+      "type": "object"
+    },
+    "Size": {
+      "description": "A width and height.",
+      "properties": {
+        "height": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The height of the object."
+        },
+        "width": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The width of the object."
+        }
+      },
+      "type": "object"
+    },
+    "SubstringMatchCriteria": {
+      "description": "A criteria that matches a specific string of text in the document.",
+      "properties": {
+        "matchCase": {
+          "description": "Indicates whether the search should respect case: - `True`: the search is case sensitive. - `False`: the search is case insensitive.",
+          "type": "boolean"
+        },
+        "text": {
+          "description": "The text to search for in the document.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TabStop": {
+      "description": "A tab stop within a paragraph.",
+      "properties": {
+        "alignment": {
+          "description": "The alignment of this tab stop. If unset, the value defaults to START.",
+          "enum": [
+            "TAB_STOP_ALIGNMENT_UNSPECIFIED",
+            "START",
+            "CENTER",
+            "END"
+          ],
+          "type": "string"
+        },
+        "offset": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The offset between this tab stop and the start margin."
+        }
+      },
+      "type": "object"
+    },
+    "TableCellBorder": {
+      "description": "A border around a table cell. Table cell borders cannot be transparent. To hide a table cell border, make its width 0.",
+      "properties": {
+        "color": {
+          "$ref": "#/$defs/OptionalColor",
+          "description": "The color of the border. This color cannot be transparent."
+        },
+        "dashStyle": {
+          "description": "The dash style of the border.",
+          "enum": [
+            "DASH_STYLE_UNSPECIFIED",
+            "SOLID",
+            "DOT",
+            "DASH"
+          ],
+          "type": "string"
+        },
+        "width": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The width of the border."
+        }
+      },
+      "type": "object"
+    },
+    "TableCellLocation": {
+      "description": "Location of a single cell within a table.",
+      "properties": {
+        "columnIndex": {
+          "description": "The zero-based column index. For example, the second column in the table has a column index of 1.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "rowIndex": {
+          "description": "The zero-based row index. For example, the second row in the table has a row index of 1.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "tableStartLocation": {
+          "$ref": "#/$defs/Location",
+          "description": "The location where the table starts in the document."
+        }
+      },
+      "type": "object"
+    },
+    "TableCellStyle": {
+      "description": "The style of a TableCell. Inherited table cell styles are represented as unset fields in this message. A table cell style can inherit from the table's style.",
+      "properties": {
+        "backgroundColor": {
+          "$ref": "#/$defs/OptionalColor",
+          "description": "The background color of the cell."
+        },
+        "borderBottom": {
+          "$ref": "#/$defs/TableCellBorder",
+          "description": "The bottom border of the cell."
+        },
+        "borderLeft": {
+          "$ref": "#/$defs/TableCellBorder",
+          "description": "The left border of the cell."
+        },
+        "borderRight": {
+          "$ref": "#/$defs/TableCellBorder",
+          "description": "The right border of the cell."
+        },
+        "borderTop": {
+          "$ref": "#/$defs/TableCellBorder",
+          "description": "The top border of the cell."
+        },
+        "columnSpan": {
+          "description": "The column span of the cell. This property is read-only.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "contentAlignment": {
+          "description": "The alignment of the content in the table cell. The default alignment matches the alignment for newly created table cells in the Docs editor.",
+          "enum": [
+            "CONTENT_ALIGNMENT_UNSPECIFIED",
+            "CONTENT_ALIGNMENT_UNSUPPORTED",
+            "TOP",
+            "MIDDLE",
+            "BOTTOM"
+          ],
+          "type": "string"
+        },
+        "paddingBottom": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The bottom padding of the cell."
+        },
+        "paddingLeft": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The left padding of the cell."
+        },
+        "paddingRight": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The right padding of the cell."
+        },
+        "paddingTop": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The top padding of the cell."
+        },
+        "rowSpan": {
+          "description": "The row span of the cell. This property is read-only.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "TableColumnProperties": {
+      "description": "The properties of a column in a table.",
+      "properties": {
+        "width": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The width of the column. Set when the column's `width_type` is FIXED_WIDTH."
+        },
+        "widthType": {
+          "description": "The width type of the column.",
+          "enum": [
+            "WIDTH_TYPE_UNSPECIFIED",
+            "EVENLY_DISTRIBUTED",
+            "FIXED_WIDTH"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TableRange": {
+      "description": "A table range represents a reference to a subset of a table. It's important to note that the cells specified by a table range do not necessarily form a rectangle. For example, let's say we have a 3 x 3 table where all the cells of the last row are merged together. The table looks like this: [ ] A table range with table cell location = (table_start_location, row = 0, column = 0), row span = 3 and column span = 2 specifies the following cells: x x [ x x x ]",
+      "properties": {
+        "columnSpan": {
+          "description": "The column span of the table range.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "rowSpan": {
+          "description": "The row span of the table range.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "tableCellLocation": {
+          "$ref": "#/$defs/TableCellLocation",
+          "description": "The cell location where the table range starts."
+        }
+      },
+      "type": "object"
+    },
+    "TableRowStyle": {
+      "description": "Styles that apply to a table row.",
+      "properties": {
+        "minRowHeight": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The minimum height of the row. The row will be rendered in the Docs editor at a height equal to or greater than this value in order to show all the content in the row's cells."
+        },
+        "preventOverflow": {
+          "description": "Whether the row cannot overflow across page or column boundaries.",
+          "type": "boolean"
+        },
+        "tableHeader": {
+          "description": "Whether the row is a table header.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "TextStyle": {
+      "description": "Represents the styling that can be applied to text. Inherited text styles are represented as unset fields in this message. A text style's parent depends on where the text style is defined: * The TextStyle of text in a Paragraph inherits from the paragraph's corresponding named style type. * The TextStyle on a named style inherits from the normal text named style. * The TextStyle of the normal text named style inherits from the default text style in the Docs editor. * The TextStyle on a Paragraph element that's contained in a table may inherit its text style from the table style. If the text style does not inherit from a parent, unsetting fields will revert the style to a value matching the defaults in the Docs editor.",
+      "properties": {
+        "backgroundColor": {
+          "$ref": "#/$defs/OptionalColor",
+          "description": "The background color of the text. If set, the color is either an RGB color or transparent, depending on the `color` field."
+        },
+        "baselineOffset": {
+          "description": "The text's vertical offset from its normal position. Text with `SUPERSCRIPT` or `SUBSCRIPT` baseline offsets is automatically rendered in a smaller font size, computed based on the `font_size` field. Changes in this field don't affect the `font_size`.",
+          "enum": [
+            "BASELINE_OFFSET_UNSPECIFIED",
+            "NONE",
+            "SUPERSCRIPT",
+            "SUBSCRIPT"
+          ],
+          "type": "string"
+        },
+        "bold": {
+          "description": "Whether or not the text is rendered as bold.",
+          "type": "boolean"
+        },
+        "fontSize": {
+          "$ref": "#/$defs/Dimension",
+          "description": "The size of the text's font."
+        },
+        "foregroundColor": {
+          "$ref": "#/$defs/OptionalColor",
+          "description": "The foreground color of the text. If set, the color is either an RGB color or transparent, depending on the `color` field."
+        },
+        "italic": {
+          "description": "Whether or not the text is italicized.",
+          "type": "boolean"
+        },
+        "link": {
+          "$ref": "#/$defs/Link",
+          "description": "The hyperlink destination of the text. If unset, there's no link. Links are not inherited from parent text. Changing the link in an update request causes some other changes to the text style of the range: * When setting a link, the text foreground color will be updated to the default link color and the text will be underlined. If these fields are modified in the same request, those values will be used instead of the link defaults. * Setting a link on a text range that overlaps with an existing link will also update the existing link to point to the new URL. * Links are not settable on newline characters. As a result, setting a link on a text range that crosses a paragraph boundary, such as `\"ABC\\n123\"`, will separate the newline character(s) into their own text runs. The link will be applied separately to the runs before and after the newline. * Removing a link will update the text style of the range to match the style of the preceding text (or the default text styles if the preceding text is another link) unless different styles are being set in the same request."
+        },
+        "smallCaps": {
+          "description": "Whether or not the text is in small capital letters.",
+          "type": "boolean"
+        },
+        "strikethrough": {
+          "description": "Whether or not the text is struck through.",
+          "type": "boolean"
+        },
+        "underline": {
+          "description": "Whether or not the text is underlined.",
+          "type": "boolean"
+        },
+        "weightedFontFamily": {
+          "$ref": "#/$defs/WeightedFontFamily",
+          "description": "The font family and rendered weight of the text. If an update request specifies values for both `weighted_font_family` and `bold`, the `weighted_font_family` is applied first, then `bold`. If `weighted_font_family#weight` is not set, it defaults to `400`. If `weighted_font_family` is set, then `weighted_font_family#font_family` must also be set with a non-empty value. Otherwise, a 400 bad request error is returned."
+        }
+      },
+      "type": "object"
+    },
+    "UnmergeTableCellsRequest": {
+      "description": "Unmerges cells in a Table.",
+      "properties": {
+        "tableRange": {
+          "$ref": "#/$defs/TableRange",
+          "description": "The table range specifying which cells of the table to unmerge. All merged cells in this range will be unmerged, and cells that are already unmerged will not be affected. If the range has no merged cells, the request will do nothing. If there is text in any of the merged cells, the text will remain in the \"head\" cell of the resulting block of unmerged cells. The \"head\" cell is the upper-left cell when the content direction is from left to right, and the upper-right otherwise."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateDocumentStyleRequest": {
+      "description": "Updates the DocumentStyle.",
+      "properties": {
+        "documentStyle": {
+          "$ref": "#/$defs/DocumentStyle",
+          "description": "The styles to set on the document. Certain document style changes may cause other changes in order to mirror the behavior of the Docs editor. See the documentation of DocumentStyle for more information."
+        },
+        "fields": {
+          "description": "The fields that should be updated. At least one field must be specified. The root `document_style` is implied and should not be specified. A single `\"*\"` can be used as short-hand for listing every field. For example to update the background, set `fields` to `\"background\"`.",
+          "format": "google-fieldmask",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateParagraphStyleRequest": {
+      "description": "Update the styling of all paragraphs that overlap with the given range.",
+      "properties": {
+        "fields": {
+          "description": "The fields that should be updated. At least one field must be specified. The root `paragraph_style` is implied and should not be specified. A single `\"*\"` can be used as short-hand for listing every field. For example, to update the paragraph style's alignment property, set `fields` to `\"alignment\"`. To reset a property to its default value, include its field name in the field mask but leave the field itself unset.",
+          "format": "google-fieldmask",
+          "type": "string"
+        },
+        "paragraphStyle": {
+          "$ref": "#/$defs/ParagraphStyle",
+          "description": "The styles to set on the paragraphs. Certain paragraph style changes may cause other changes in order to mirror the behavior of the Docs editor. See the documentation of ParagraphStyle for more information."
+        },
+        "range": {
+          "$ref": "#/$defs/Range",
+          "description": "The range overlapping the paragraphs to style."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateSectionStyleRequest": {
+      "description": "Updates the SectionStyle.",
+      "properties": {
+        "fields": {
+          "description": "The fields that should be updated. At least one field must be specified. The root `section_style` is implied and must not be specified. A single `\"*\"` can be used as short-hand for listing every field. For example to update the left margin, set `fields` to `\"margin_left\"`.",
+          "format": "google-fieldmask",
+          "type": "string"
+        },
+        "range": {
+          "$ref": "#/$defs/Range",
+          "description": "The range overlapping the sections to style. Because section breaks can only be inserted inside the body, the segment ID field must be empty."
+        },
+        "sectionStyle": {
+          "$ref": "#/$defs/SectionStyle",
+          "description": "The styles to be set on the section. Certain section style changes may cause other changes in order to mirror the behavior of the Docs editor. See the documentation of SectionStyle for more information."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateTableCellStyleRequest": {
+      "description": "Updates the style of a range of table cells.",
+      "properties": {
+        "fields": {
+          "description": "The fields that should be updated. At least one field must be specified. The root `tableCellStyle` is implied and should not be specified. A single `\"*\"` can be used as short-hand for listing every field. For example to update the table cell background color, set `fields` to `\"backgroundColor\"`. To reset a property to its default value, include its field name in the field mask but leave the field itself unset.",
+          "format": "google-fieldmask",
+          "type": "string"
+        },
+        "tableCellStyle": {
+          "$ref": "#/$defs/TableCellStyle",
+          "description": "The style to set on the table cells. When updating borders, if a cell shares a border with an adjacent cell, the corresponding border property of the adjacent cell is updated as well. Borders that are merged and invisible are not updated. Since updating a border shared by adjacent cells in the same request can cause conflicting border updates, border updates are applied in the following order: - `border_right` - `border_left` - `border_bottom` - `border_top`"
+        },
+        "tableRange": {
+          "$ref": "#/$defs/TableRange",
+          "description": "The table range representing the subset of the table to which the updates are applied."
+        },
+        "tableStartLocation": {
+          "$ref": "#/$defs/Location",
+          "description": "The location where the table starts in the document. When specified, the updates are applied to all the cells in the table."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateTableColumnPropertiesRequest": {
+      "description": "Updates the TableColumnProperties of columns in a table.",
+      "properties": {
+        "columnIndices": {
+          "description": "The list of zero-based column indices whose property should be updated. If no indices are specified, all columns will be updated.",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "fields": {
+          "description": "The fields that should be updated. At least one field must be specified. The root `tableColumnProperties` is implied and should not be specified. A single `\"*\"` can be used as short-hand for listing every field. For example to update the column width, set `fields` to `\"width\"`.",
+          "format": "google-fieldmask",
+          "type": "string"
+        },
+        "tableColumnProperties": {
+          "$ref": "#/$defs/TableColumnProperties",
+          "description": "The table column properties to update. If the value of `table_column_properties#width` is less than 5 points (5/72 inch), a 400 bad request error is returned."
+        },
+        "tableStartLocation": {
+          "$ref": "#/$defs/Location",
+          "description": "The location where the table starts in the document."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateTableRowStyleRequest": {
+      "description": "Updates the TableRowStyle of rows in a table.",
+      "properties": {
+        "fields": {
+          "description": "The fields that should be updated. At least one field must be specified. The root `tableRowStyle` is implied and should not be specified. A single `\"*\"` can be used as short-hand for listing every field. For example to update the minimum row height, set `fields` to `\"min_row_height\"`.",
+          "format": "google-fieldmask",
+          "type": "string"
+        },
+        "rowIndices": {
+          "description": "The list of zero-based row indices whose style should be updated. If no indices are specified, all rows will be updated.",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "tableRowStyle": {
+          "$ref": "#/$defs/TableRowStyle",
+          "description": "The styles to be set on the rows."
+        },
+        "tableStartLocation": {
+          "$ref": "#/$defs/Location",
+          "description": "The location where the table starts in the document."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateTextStyleRequest": {
+      "description": "Update the styling of text.",
+      "properties": {
+        "fields": {
+          "description": "The fields that should be updated. At least one field must be specified. The root `text_style` is implied and should not be specified. A single `\"*\"` can be used as short-hand for listing every field. For example, to update the text style to bold, set `fields` to `\"bold\"`. To reset a property to its default value, include its field name in the field mask but leave the field itself unset.",
+          "format": "google-fieldmask",
+          "type": "string"
+        },
+        "range": {
+          "$ref": "#/$defs/Range",
+          "description": "The range of text to style. The range may be extended to include adjacent newlines. If the range fully contains a paragraph belonging to a list, the paragraph's bullet is also updated with the matching text style. Ranges cannot be inserted inside a relative UpdateTextStyleRequest."
+        },
+        "textStyle": {
+          "$ref": "#/$defs/TextStyle",
+          "description": "The styles to set on the text. If the value for a particular style matches that of the parent, that style will be set to inherit. Certain text style changes may cause other changes in order to to mirror the behavior of the Docs editor. See the documentation of TextStyle for more information."
+        }
+      },
+      "type": "object"
+    },
+    "WeightedFontFamily": {
+      "description": "Represents a font family and weight of text.",
+      "properties": {
+        "fontFamily": {
+          "description": "The font family of the text. The font family can be any font from the Font menu in Docs or from [Google Fonts] (https://fonts.google.com/). If the font name is unrecognized, the text is rendered in `Arial`.",
+          "type": "string"
+        },
+        "weight": {
+          "description": "The weight of the font. This field can have any value that's a multiple of `100` between `100` and `900`, inclusive. This range corresponds to the numerical values described in the CSS 2.1 Specification, [section 15.6](https://www.w3.org/TR/CSS21/fonts.html#font-boldness), with non-numerical values disallowed. The default value is `400` (\"normal\"). The font weight makes up just one component of the rendered font weight. A combination of the `weight` and the text style's resolved `bold` value determine the rendered weight, after accounting for inheritance: * If the text is bold and the weight is less than `400`, the rendered weight is 400. * If the text is bold and the weight is greater than or equal to `400` but is less than `700`, the rendered weight is `700`. * If the weight is greater than or equal to `700`, the rendered weight is equal to the weight. * If the text is not bold, the rendered weight is equal to the weight.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "WriteControl": {
+      "description": "Provides control over how write requests are executed.",
+      "properties": {
+        "requiredRevisionId": {
+          "description": "The optional revision ID of the document the write request is applied to. If this is not the latest revision of the document, the request is not processed and returns a 400 bad request error. When a required revision ID is returned in a response, it indicates the revision ID of the document after the request was applied.",
+          "type": "string"
+        },
+        "targetRevisionId": {
+          "description": "The optional target revision ID of the document the write request is applied to. If collaborator changes have occurred after the document was read using the API, the changes produced by this write request are applied against the collaborator changes. This results in a new revision of the document that incorporates both the collaborator changes and the changes in the request, with the Docs server resolving conflicting changes. When using target revision ID, the API client can be thought of as another collaborator of the document. The target revision ID can only be used to write to recent versions of a document. If the target revision is too far behind the latest revision, the request is not processed and returns a 400 bad request error. The request should be tried again after retrieving the latest version of the document. Usually a revision ID remains valid for use as a target revision for several minutes after it's read, but for frequently edited documents this window might be shorter.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

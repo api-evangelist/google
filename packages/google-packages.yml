@@ -1,0 +1,41 @@
+generated: '2026-10-03'
+method: probed
+generator: harvest-packages.py
+source: registry metadata endpoints (registry.npmjs.org, pypi.org, rubygems.org, api.nuget.org, packagist.org, crates.io)
+ownership_rule: 'official: true only when the registry metadata (homepage, repository, author, URLs) names the provider''s domain (agentic-access/google-agentic-access.yml,
+  anthropic.com, authentication/google-authentication.yml, capabilities/google-capability-edges.yml, discord.com, gemini.google, google.com, google.dev,
+  googleblog.com, linkedin.com, plans/google-plans-pricing.yml, scopes/google-scopes.yml, security/google-domain-security.yml, security/google-vulnerability-disclosure.yml,
+  x.com, youtube.com) or its accepted GitHub org.'
+packages:
+- name: google
+  registry: npm
+  url: https://www.npmjs.com/package/google
+  language: JavaScript
+  official: true
+  version: 2.1.0
+  published: '2016-08-11'
+  evidence: metadata names google.com
+- name: google
+  registry: pypi
+  url: https://pypi.org/project/google/
+  language: Python
+  official: false
+  version: 3.0.0
+  published: '2020-07-11'
+  evidence: 'name match only: the metadata names neither the provider''s domain nor its GitHub org'
+- name: google
+  registry: rubygems
+  url: https://rubygems.org/gems/google
+  language: Ruby
+  official: false
+  version: 1.0.10
+  published: '2012-05-25'
+  evidence: 'name match only: the metadata names neither the provider''s domain nor its GitHub org'
+- name: google
+  registry: crates
+  url: https://crates.io/crates/google
+  language: Rust
+  official: false
+  version: 0.0.0
+  published: '2024-04-19'
+  evidence: 'name match only: the metadata names neither the provider''s domain nor its GitHub org'

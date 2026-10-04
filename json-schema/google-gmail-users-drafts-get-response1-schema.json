@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-gmail-users-drafts-get-response1-schema.json",
+  "title": "GmailUsersDraftsGetResponse1",
+  "description": "GmailUsersDraftsGetResponse1 schema",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-drafts-api-openapi.yml#/components/schemas/GmailUsersDraftsGetResponse1",
+  "type": "object",
+  "properties": {
+    "drafts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "message": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "threadId": {
+                "type": "string"
+              },
+              "labelIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "snippet": {
+                "type": "string"
+              },
+              "historyId": {
+                "type": "string"
+              },
+              "internalDate": {
+                "type": "string"
+              },
+              "payload": {
+                "type": "object",
+                "properties": {
+                  "partId": {
+                    "type": "string"
+                  },
+                  "mimeType": {
+                    "type": "string"
+                  },
+                  "filename": {
+                    "type": "string"
+                  },
+                  "headers": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "body": {
+                    "type": "object",
+                    "properties": {
+                      "attachmentId": {
+                        "type": "string"
+                      },
+                      "size": {
+                        "type": "integer"
+                      },
+                      "data": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "parts": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "sizeEstimate": {
+                "type": "integer"
+              },
+              "raw": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "nextPageToken": {
+      "type": "string"
+    },
+    "resultSizeEstimate": {
+      "type": "integer"
+    }
+  }
+}

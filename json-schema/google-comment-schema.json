@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-comment-schema.json",
+  "title": "Comment",
+  "description": "A comment on a file. Some resource methods (such as `comments.update`) require a `commentId`. Use the `comments.list` method to retrieve the ID for a comment in a file.",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-comments-api-openapi.yml#/components/schemas/Comment",
+  "properties": {
+    "anchor": {
+      "description": "A region of the document represented as a JSON string. For details on defining anchor properties, refer to [Manage comments and replies](https://developers.google.com/drive/api/v3/manage-comments).",
+      "type": "string"
+    },
+    "author": {
+      "$ref": "#/$defs/User",
+      "description": "Output only. The author of the comment. The author's email address and permission ID will not be populated."
+    },
+    "content": {
+      "description": "The plain text content of the comment. This field is used for setting the content, while `htmlContent` should be displayed.",
+      "type": "string"
+    },
+    "createdTime": {
+      "description": "The time at which the comment was created (RFC 3339 date-time).",
+      "format": "date-time",
+      "type": "string"
+    },
+    "deleted": {
+      "description": "Output only. Whether the comment has been deleted. A deleted comment has no content.",
+      "type": "boolean"
+    },
+    "htmlContent": {
+      "description": "Output only. The content of the comment with HTML formatting.",
+      "type": "string"
+    },
+    "id": {
+      "description": "Output only. The ID of the comment.",
+      "type": "string"
+    },
+    "kind": {
+      "default": "drive#comment",
+      "description": "Output only. Identifies what kind of resource this is. Value: the fixed string `\"drive#comment\"`.",
+      "type": "string"
+    },
+    "modifiedTime": {
+      "description": "The last time the comment or any of its replies was modified (RFC 3339 date-time).",
+      "format": "date-time",
+      "type": "string"
+    },
+    "quotedFileContent": {
+      "description": "The file content to which the comment refers, typically within the anchor region. For a text file, for example, this would be the text at the location of the comment.",
+      "properties": {
+        "mimeType": {
+          "description": "The MIME type of the quoted content.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The quoted content itself. This is interpreted as plain text if set through the API.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "replies": {
+      "description": "Output only. The full list of replies to the comment in chronological order.",
+      "items": {
+        "$ref": "#/$defs/Reply"
+      },
+      "type": "array"
+    },
+    "resolved": {
+      "description": "Output only. Whether the comment has been resolved by one of its replies.",
+      "type": "boolean"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "Reply": {
+      "description": "A reply to a comment on a file. Some resource methods (such as `replies.update`) require a `replyId`. Use the `replies.list` method to retrieve the ID for a reply.",
+      "properties": {
+        "action": {
+          "description": "The action the reply performed to the parent comment. Valid values are: * `resolve` * `reopen`",
+          "type": "string"
+        },
+        "author": {
+          "$ref": "#/$defs/User",
+          "description": "Output only. The author of the reply. The author's email address and permission ID will not be populated."
+        },
+        "content": {
+          "description": "The plain text content of the reply. This field is used for setting the content, while `htmlContent` should be displayed. This is required on creates if no `action` is specified.",
+          "type": "string"
+        },
+        "createdTime": {
+          "description": "The time at which the reply was created (RFC 3339 date-time).",
+          "format": "date-time",
+          "type": "string"
+        },
+        "deleted": {
+          "description": "Output only. Whether the reply has been deleted. A deleted reply has no content.",
+          "type": "boolean"
+        },
+        "htmlContent": {
+          "description": "Output only. The content of the reply with HTML formatting.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Output only. The ID of the reply.",
+          "type": "string"
+        },
+        "kind": {
+          "default": "drive#reply",
+          "description": "Output only. Identifies what kind of resource this is. Value: the fixed string `\"drive#reply\"`.",
+          "type": "string"
+        },
+        "modifiedTime": {
+          "description": "The last time the reply was modified (RFC 3339 date-time).",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "User": {
+      "description": "Information about a Drive user.",
+      "properties": {
+        "displayName": {
+          "description": "Output only. A plain text displayable name for this user.",
+          "type": "string"
+        },
+        "emailAddress": {
+          "description": "Output only. The email address of the user. This may not be present in certain contexts if the user has not made their email address visible to the requester.",
+          "type": "string"
+        },
+        "kind": {
+          "default": "drive#user",
+          "description": "Output only. Identifies what kind of resource this is. Value: the fixed string `\"drive#user\"`.",
+          "type": "string"
+        },
+        "me": {
+          "description": "Output only. Whether this user is the requesting user.",
+          "type": "boolean"
+        },
+        "permissionId": {
+          "description": "Output only. The user's ID as visible in Permission resources.",
+          "type": "string"
+        },
+        "photoLink": {
+          "description": "Output only. A link to the user's profile photo, if available.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

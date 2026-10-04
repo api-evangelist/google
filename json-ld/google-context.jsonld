@@ -1,0 +1,1165 @@
+{
+  "@context": {
+    "@vocab": "https://google.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "google": "https://google.com/schema#",
+    "User": "google:User",
+    "displayName": {
+      "@id": "google:displayName",
+      "@type": "xsd:string"
+    },
+    "emailAddress": {
+      "@id": "google:emailAddress",
+      "@type": "xsd:string"
+    },
+    "kind": {
+      "@id": "google:kind",
+      "@type": "xsd:string"
+    },
+    "me": {
+      "@id": "google:me",
+      "@type": "xsd:boolean"
+    },
+    "permissionId": {
+      "@id": "google:permissionId",
+      "@type": "xsd:string"
+    },
+    "photoLink": {
+      "@id": "google:photoLink",
+      "@type": "xsd:string"
+    },
+    "About": "google:About",
+    "appInstalled": {
+      "@id": "google:appInstalled",
+      "@type": "xsd:boolean"
+    },
+    "canCreateDrives": {
+      "@id": "google:canCreateDrives",
+      "@type": "xsd:boolean"
+    },
+    "canCreateTeamDrives": {
+      "@id": "google:canCreateTeamDrives",
+      "@type": "xsd:boolean"
+    },
+    "driveThemes": {
+      "@id": "google:driveThemes",
+      "@container": "@list"
+    },
+    "exportFormats": {
+      "@id": "google:exportFormats"
+    },
+    "folderColorPalette": {
+      "@id": "google:folderColorPalette",
+      "@container": "@list"
+    },
+    "importFormats": {
+      "@id": "google:importFormats"
+    },
+    "maxImportSizes": {
+      "@id": "google:maxImportSizes"
+    },
+    "maxUploadSize": {
+      "@id": "google:maxUploadSize",
+      "@type": "xsd:string"
+    },
+    "storageQuota": {
+      "@id": "google:storageQuota"
+    },
+    "teamDriveThemes": {
+      "@id": "google:teamDriveThemes",
+      "@container": "@list"
+    },
+    "user": {
+      "@id": "google:user",
+      "@type": "@id"
+    },
+    "Impersonation": "google:Impersonation",
+    "impersonatedUser": {
+      "@id": "google:impersonatedUser",
+      "@type": "@id"
+    },
+    "Owner": "google:Owner",
+    "domain": {
+      "@id": "google:domain",
+      "@type": "@id"
+    },
+    "drive": {
+      "@id": "google:drive",
+      "@type": "@id"
+    },
+    "teamDrive": {
+      "@id": "google:teamDrive",
+      "@type": "@id"
+    },
+    "AppliedLabelChange": "google:AppliedLabelChange",
+    "changes": {
+      "@id": "google:changes",
+      "@container": "@list"
+    },
+    "Date": "google:Date",
+    "value": {
+      "@id": "google:value",
+      "@type": "xsd:string"
+    },
+    "Rename": "google:Rename",
+    "newTitle": {
+      "@id": "google:newTitle",
+      "@type": "xsd:string"
+    },
+    "oldTitle": {
+      "@id": "google:oldTitle",
+      "@type": "xsd:string"
+    },
+    "SystemEvent": "google:SystemEvent",
+    "type": {
+      "@id": "google:type",
+      "@type": "xsd:string"
+    },
+    "QueryDriveActivityRequest": "google:QueryDriveActivityRequest",
+    "ancestorName": {
+      "@id": "google:ancestorName",
+      "@type": "xsd:string"
+    },
+    "consolidationStrategy": {
+      "@id": "google:consolidationStrategy",
+      "@type": "@id"
+    },
+    "filter": {
+      "@id": "google:filter",
+      "@type": "xsd:string"
+    },
+    "itemName": {
+      "@id": "google:itemName",
+      "@type": "xsd:string"
+    },
+    "pageSize": {
+      "@id": "google:pageSize",
+      "@type": "xsd:integer"
+    },
+    "pageToken": {
+      "@id": "google:pageToken",
+      "@type": "xsd:string"
+    },
+    "UserList": "google:UserList",
+    "values": {
+      "@id": "google:values",
+      "@container": "@list"
+    },
+    "Selection": "google:Selection",
+    "DriveItem": "google:DriveItem",
+    "driveFile": {
+      "@id": "google:driveFile",
+      "@type": "@id"
+    },
+    "driveFolder": {
+      "@id": "google:driveFolder",
+      "@type": "@id"
+    },
+    "file": {
+      "@id": "google:file",
+      "@type": "@id"
+    },
+    "folder": {
+      "@id": "google:folder",
+      "@type": "@id"
+    },
+    "mimeType": {
+      "@id": "google:mimeType",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "google:name",
+      "@type": "xsd:string"
+    },
+    "owner": {
+      "@id": "google:owner",
+      "@type": "@id"
+    },
+    "title": {
+      "@id": "google:title",
+      "@type": "xsd:string"
+    },
+    "Text": "google:Text",
+    "SettingsChange": "google:SettingsChange",
+    "restrictionChanges": {
+      "@id": "google:restrictionChanges",
+      "@container": "@list"
+    },
+    "Target": "google:Target",
+    "driveItem": {
+      "@id": "google:driveItem",
+      "@type": "@id"
+    },
+    "fileComment": {
+      "@id": "google:fileComment",
+      "@type": "@id"
+    },
+    "Move": "google:Move",
+    "addedParents": {
+      "@id": "google:addedParents",
+      "@container": "@list"
+    },
+    "removedParents": {
+      "@id": "google:removedParents",
+      "@container": "@list"
+    },
+    "Delete": "google:Delete",
+    "PermissionChange": "google:PermissionChange",
+    "addedPermissions": {
+      "@id": "google:addedPermissions",
+      "@container": "@list"
+    },
+    "removedPermissions": {
+      "@id": "google:removedPermissions",
+      "@container": "@list"
+    },
+    "KnownUser": "google:KnownUser",
+    "isCurrentUser": {
+      "@id": "google:isCurrentUser",
+      "@type": "xsd:boolean"
+    },
+    "personName": {
+      "@id": "google:personName",
+      "@type": "xsd:string"
+    },
+    "DriveReference": "google:DriveReference",
+    "Domain": "google:Domain",
+    "legacyId": {
+      "@id": "google:legacyId",
+      "@type": "xsd:string"
+    },
+    "TextList": "google:TextList",
+    "Permission": "google:Permission",
+    "allowDiscovery": {
+      "@id": "google:allowDiscovery",
+      "@type": "xsd:boolean"
+    },
+    "anyone": {
+      "@id": "google:anyone",
+      "@type": "@id"
+    },
+    "group": {
+      "@id": "google:group",
+      "@type": "@id"
+    },
+    "role": {
+      "@id": "google:role",
+      "@type": "xsd:string"
+    },
+    "Folder": "google:Folder",
+    "TargetReference": "google:TargetReference",
+    "Restore": "google:Restore",
+    "ApplicationReference": "google:ApplicationReference",
+    "Integer": "google:Integer",
+    "RestrictionChange": "google:RestrictionChange",
+    "feature": {
+      "@id": "google:feature",
+      "@type": "xsd:string"
+    },
+    "newRestriction": {
+      "@id": "google:newRestriction",
+      "@type": "xsd:string"
+    },
+    "Group": "google:Group",
+    "email": {
+      "@id": "google:email",
+      "@type": "xsd:string"
+    },
+    "SingleUser": "google:SingleUser",
+    "AppliedLabelChangeDetail": "google:AppliedLabelChangeDetail",
+    "fieldChanges": {
+      "@id": "google:fieldChanges",
+      "@container": "@list"
+    },
+    "label": {
+      "@id": "google:label",
+      "@type": "xsd:string"
+    },
+    "types": {
+      "@id": "google:types",
+      "@container": "@list"
+    },
+    "Copy": "google:Copy",
+    "originalObject": {
+      "@id": "google:originalObject",
+      "@type": "@id"
+    },
+    "Actor": "google:Actor",
+    "administrator": {
+      "@id": "google:administrator",
+      "@type": "@id"
+    },
+    "anonymous": {
+      "@id": "google:anonymous",
+      "@type": "@id"
+    },
+    "impersonation": {
+      "@id": "google:impersonation",
+      "@type": "@id"
+    },
+    "system": {
+      "@id": "google:system",
+      "@type": "@id"
+    },
+    "Drive": "google:Drive",
+    "root": {
+      "@id": "google:root",
+      "@type": "@id"
+    },
+    "TimeRange": "google:TimeRange",
+    "endTime": {
+      "@id": "google:endTime",
+      "@type": "xsd:string"
+    },
+    "startTime": {
+      "@id": "google:startTime",
+      "@type": "xsd:string"
+    },
+    "Suggestion": "google:Suggestion",
+    "subtype": {
+      "@id": "google:subtype",
+      "@type": "xsd:string"
+    },
+    "DataLeakPreventionChange": "google:DataLeakPreventionChange",
+    "SelectionList": "google:SelectionList",
+    "ConsolidationStrategy": "google:ConsolidationStrategy",
+    "legacy": {
+      "@id": "google:legacy",
+      "@type": "@id"
+    },
+    "none": {
+      "@id": "google:none",
+      "@type": "@id"
+    },
+    "Action": "google:Action",
+    "actor": {
+      "@id": "google:actor",
+      "@type": "@id"
+    },
+    "detail": {
+      "@id": "google:detail",
+      "@type": "@id"
+    },
+    "target": {
+      "@id": "google:target",
+      "@type": "@id"
+    },
+    "timeRange": {
+      "@id": "google:timeRange",
+      "@type": "@id"
+    },
+    "timestamp": {
+      "@id": "google:timestamp",
+      "@type": "xsd:string"
+    },
+    "QueryDriveActivityResponse": "google:QueryDriveActivityResponse",
+    "activities": {
+      "@id": "google:activities",
+      "@container": "@list"
+    },
+    "nextPageToken": {
+      "@id": "google:nextPageToken",
+      "@type": "xsd:string"
+    },
+    "FieldValueChange": "google:FieldValueChange",
+    "fieldId": {
+      "@id": "google:fieldId",
+      "@type": "xsd:string"
+    },
+    "newValue": {
+      "@id": "google:newValue",
+      "@type": "@id"
+    },
+    "oldValue": {
+      "@id": "google:oldValue",
+      "@type": "@id"
+    },
+    "FileComment": "google:FileComment",
+    "legacyCommentId": {
+      "@id": "google:legacyCommentId",
+      "@type": "xsd:string"
+    },
+    "legacyDiscussionId": {
+      "@id": "google:legacyDiscussionId",
+      "@type": "xsd:string"
+    },
+    "linkToDiscussion": {
+      "@id": "google:linkToDiscussion",
+      "@type": "xsd:string"
+    },
+    "parent": {
+      "@id": "google:parent",
+      "@type": "@id"
+    },
+    "Post": "google:Post",
+    "TeamDriveReference": "google:TeamDriveReference",
+    "Comment": "google:Comment",
+    "assignment": {
+      "@id": "google:assignment",
+      "@type": "@id"
+    },
+    "mentionedUsers": {
+      "@id": "google:mentionedUsers",
+      "@container": "@list"
+    },
+    "post": {
+      "@id": "google:post",
+      "@type": "@id"
+    },
+    "suggestion": {
+      "@id": "google:suggestion",
+      "@type": "@id"
+    },
+    "Assignment": "google:Assignment",
+    "assignedUser": {
+      "@id": "google:assignedUser",
+      "@type": "@id"
+    },
+    "Create": "google:Create",
+    "copy": {
+      "@id": "google:copy",
+      "@type": "@id"
+    },
+    "new": {
+      "@id": "google:new",
+      "@type": "@id"
+    },
+    "upload": {
+      "@id": "google:upload",
+      "@type": "@id"
+    },
+    "ActionDetail": "google:ActionDetail",
+    "appliedLabelChange": {
+      "@id": "google:appliedLabelChange",
+      "@type": "@id"
+    },
+    "comment": {
+      "@id": "google:comment",
+      "@type": "@id"
+    },
+    "create": {
+      "@id": "google:create",
+      "@type": "@id"
+    },
+    "delete": {
+      "@id": "google:delete",
+      "@type": "@id"
+    },
+    "dlpChange": {
+      "@id": "google:dlpChange",
+      "@type": "@id"
+    },
+    "edit": {
+      "@id": "google:edit",
+      "@type": "@id"
+    },
+    "move": {
+      "@id": "google:move",
+      "@type": "@id"
+    },
+    "permissionChange": {
+      "@id": "google:permissionChange",
+      "@type": "@id"
+    },
+    "reference": {
+      "@id": "google:reference",
+      "@type": "@id"
+    },
+    "rename": {
+      "@id": "google:rename",
+      "@type": "@id"
+    },
+    "restore": {
+      "@id": "google:restore",
+      "@type": "@id"
+    },
+    "settingsChange": {
+      "@id": "google:settingsChange",
+      "@type": "@id"
+    },
+    "TeamDrive": "google:TeamDrive",
+    "DriveActivity": "google:DriveActivity",
+    "actions": {
+      "@id": "google:actions",
+      "@container": "@list"
+    },
+    "actors": {
+      "@id": "google:actors",
+      "@container": "@list"
+    },
+    "primaryActionDetail": {
+      "@id": "google:primaryActionDetail",
+      "@type": "@id"
+    },
+    "targets": {
+      "@id": "google:targets",
+      "@container": "@list"
+    },
+    "DriveFolder": "google:DriveFolder",
+    "FieldValue": "google:FieldValue",
+    "date": {
+      "@id": "google:date",
+      "@type": "@id"
+    },
+    "integer": {
+      "@id": "google:integer",
+      "@type": "@id"
+    },
+    "selection": {
+      "@id": "google:selection",
+      "@type": "@id"
+    },
+    "selectionList": {
+      "@id": "google:selectionList",
+      "@type": "@id"
+    },
+    "text": {
+      "@id": "google:text",
+      "@type": "@id"
+    },
+    "textList": {
+      "@id": "google:textList",
+      "@type": "@id"
+    },
+    "userList": {
+      "@id": "google:userList",
+      "@type": "@id"
+    },
+    "DriveItemReference": "google:DriveItemReference",
+    "UsersSettingsForwardingAddressesPostResponse": "google:UsersSettingsForwardingAddressesPostResponse",
+    "forwardingEmail": {
+      "@id": "google:forwardingEmail",
+      "@type": "xsd:string"
+    },
+    "verificationStatus": {
+      "@id": "google:verificationStatus",
+      "@type": "xsd:string"
+    },
+    "UsersSettingsForwardingAddressesGetResponse": "google:UsersSettingsForwardingAddressesGetResponse",
+    "UsersSettingsForwardingAddressesGetResponse1": "google:UsersSettingsForwardingAddressesGetResponse1",
+    "forwardingAddresses": {
+      "@id": "google:forwardingAddresses",
+      "@container": "@list"
+    },
+    "App": "google:App",
+    "authorized": {
+      "@id": "google:authorized",
+      "@type": "xsd:boolean"
+    },
+    "createInFolderTemplate": {
+      "@id": "google:createInFolderTemplate",
+      "@type": "xsd:string"
+    },
+    "createUrl": {
+      "@id": "google:createUrl",
+      "@type": "xsd:string"
+    },
+    "hasDriveWideScope": {
+      "@id": "google:hasDriveWideScope",
+      "@type": "xsd:boolean"
+    },
+    "icons": {
+      "@id": "google:icons",
+      "@container": "@list"
+    },
+    "id": {
+      "@id": "google:id",
+      "@type": "xsd:string"
+    },
+    "installed": {
+      "@id": "google:installed",
+      "@type": "xsd:boolean"
+    },
+    "longDescription": {
+      "@id": "google:longDescription",
+      "@type": "xsd:string"
+    },
+    "objectType": {
+      "@id": "google:objectType",
+      "@type": "xsd:string"
+    },
+    "openUrlTemplate": {
+      "@id": "google:openUrlTemplate",
+      "@type": "xsd:string"
+    },
+    "primaryFileExtensions": {
+      "@id": "google:primaryFileExtensions",
+      "@container": "@list"
+    },
+    "primaryMimeTypes": {
+      "@id": "google:primaryMimeTypes",
+      "@container": "@list"
+    },
+    "productId": {
+      "@id": "google:productId",
+      "@type": "xsd:string"
+    },
+    "productUrl": {
+      "@id": "google:productUrl",
+      "@type": "xsd:string"
+    },
+    "secondaryFileExtensions": {
+      "@id": "google:secondaryFileExtensions",
+      "@container": "@list"
+    },
+    "secondaryMimeTypes": {
+      "@id": "google:secondaryMimeTypes",
+      "@container": "@list"
+    },
+    "shortDescription": {
+      "@id": "google:shortDescription",
+      "@type": "xsd:string"
+    },
+    "supportsCreate": {
+      "@id": "google:supportsCreate",
+      "@type": "xsd:boolean"
+    },
+    "supportsImport": {
+      "@id": "google:supportsImport",
+      "@type": "xsd:boolean"
+    },
+    "supportsMultiOpen": {
+      "@id": "google:supportsMultiOpen",
+      "@type": "xsd:boolean"
+    },
+    "supportsOfflineCreate": {
+      "@id": "google:supportsOfflineCreate",
+      "@type": "xsd:boolean"
+    },
+    "useByDefault": {
+      "@id": "google:useByDefault",
+      "@type": "xsd:boolean"
+    },
+    "AppList": "google:AppList",
+    "defaultAppIds": {
+      "@id": "google:defaultAppIds",
+      "@container": "@list"
+    },
+    "items": {
+      "@id": "google:items",
+      "@container": "@list"
+    },
+    "selfLink": {
+      "@id": "google:selfLink",
+      "@type": "xsd:string"
+    },
+    "AppIcons": "google:AppIcons",
+    "category": {
+      "@id": "google:category",
+      "@type": "xsd:string"
+    },
+    "iconUrl": {
+      "@id": "google:iconUrl",
+      "@type": "xsd:string"
+    },
+    "size": {
+      "@id": "google:size",
+      "@type": "xsd:integer"
+    },
+    "UsersMessagesAttachmentsGetResponse": "google:UsersMessagesAttachmentsGetResponse",
+    "attachmentId": {
+      "@id": "google:attachmentId",
+      "@type": "xsd:string"
+    },
+    "data": {
+      "@id": "google:data",
+      "@type": "xsd:string"
+    },
+    "FileData": "google:FileData",
+    "mime_type": {
+      "@id": "google:mime_type",
+      "@type": "xsd:string"
+    },
+    "file_uri": {
+      "@id": "google:file_uri",
+      "@type": "xsd:string"
+    },
+    "Candidate": "google:Candidate",
+    "content": {
+      "@id": "google:content",
+      "@type": "@id"
+    },
+    "finishReason": {
+      "@id": "google:finishReason",
+      "@type": "xsd:string"
+    },
+    "index": {
+      "@id": "google:index",
+      "@type": "xsd:integer"
+    },
+    "safetyRatings": {
+      "@id": "google:safetyRatings",
+      "@container": "@list"
+    },
+    "Content": "google:Content",
+    "parts": {
+      "@id": "google:parts",
+      "@container": "@list"
+    },
+    "SafetyRating": "google:SafetyRating",
+    "probability": {
+      "@id": "google:probability",
+      "@type": "xsd:string"
+    },
+    "CountTokensResponse": "google:CountTokensResponse",
+    "totalTokens": {
+      "@id": "google:totalTokens",
+      "@type": "xsd:integer"
+    },
+    "totalBillableCharacters": {
+      "@id": "google:totalBillableCharacters",
+      "@type": "xsd:integer"
+    },
+    "GenerationConfig": "google:GenerationConfig",
+    "stopSequences": {
+      "@id": "google:stopSequences",
+      "@container": "@list"
+    },
+    "temperature": {
+      "@id": "google:temperature",
+      "@type": "xsd:decimal"
+    },
+    "topP": {
+      "@id": "google:topP",
+      "@type": "xsd:decimal"
+    },
+    "topK": {
+      "@id": "google:topK",
+      "@type": "xsd:integer"
+    },
+    "maxOutputTokens": {
+      "@id": "google:maxOutputTokens",
+      "@type": "xsd:integer"
+    },
+    "thinkingConfig": {
+      "@id": "google:thinkingConfig",
+      "@type": "@id"
+    },
+    "response_mime_type": {
+      "@id": "google:response_mime_type",
+      "@type": "xsd:string"
+    },
+    "response_schema": {
+      "@id": "google:response_schema"
+    },
+    "FileUploadResponse": "google:FileUploadResponse",
+    "FilesPostRequestFile": "google:FilesPostRequestFile",
+    "display_name": {
+      "@id": "google:display_name",
+      "@type": "xsd:string"
+    },
+    "InlineData": "google:InlineData",
+    "GenerateContentResponse": "google:GenerateContentResponse",
+    "candidates": {
+      "@id": "google:candidates",
+      "@container": "@list"
+    },
+    "promptFeedback": {
+      "@id": "google:promptFeedback",
+      "@type": "@id"
+    },
+    "usageMetadata": {
+      "@id": "google:usageMetadata",
+      "@type": "@id"
+    },
+    "Error": "google:Error",
+    "error": {
+      "@id": "google:error"
+    },
+    "GenerateContentRequest": "google:GenerateContentRequest",
+    "contents": {
+      "@id": "google:contents",
+      "@container": "@list"
+    },
+    "system_instruction": {
+      "@id": "google:system_instruction",
+      "@type": "@id"
+    },
+    "generationConfig": {
+      "@id": "google:generationConfig",
+      "@type": "@id"
+    },
+    "FilesPostRequest": "google:FilesPostRequest",
+    "UsageMetadata": "google:UsageMetadata",
+    "promptTokenCount": {
+      "@id": "google:promptTokenCount",
+      "@type": "xsd:integer"
+    },
+    "candidatesTokenCount": {
+      "@id": "google:candidatesTokenCount",
+      "@type": "xsd:integer"
+    },
+    "totalTokenCount": {
+      "@id": "google:totalTokenCount",
+      "@type": "xsd:integer"
+    },
+    "VideoMetadata": "google:VideoMetadata",
+    "start_offset": {
+      "@id": "google:start_offset",
+      "@type": "xsd:string"
+    },
+    "end_offset": {
+      "@id": "google:end_offset",
+      "@type": "xsd:string"
+    },
+    "fps": {
+      "@id": "google:fps",
+      "@type": "xsd:decimal"
+    },
+    "PromptFeedback": "google:PromptFeedback",
+    "blockReason": {
+      "@id": "google:blockReason",
+      "@type": "xsd:string"
+    },
+    "ModelsPostRequest": "google:ModelsPostRequest",
+    "ThinkingConfig": "google:ThinkingConfig",
+    "thinkingBudget": {
+      "@id": "google:thinkingBudget",
+      "@type": "xsd:integer"
+    },
+    "UsersSettingsAutoForwardingPutResponse": "google:UsersSettingsAutoForwardingPutResponse",
+    "enabled": {
+      "@id": "google:enabled",
+      "@type": "xsd:boolean"
+    },
+    "disposition": {
+      "@id": "google:disposition",
+      "@type": "xsd:string"
+    },
+    "UsersSettingsAutoForwardingGetResponse": "google:UsersSettingsAutoForwardingGetResponse",
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatNumberFormat": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatNumberFormat",
+    "pattern": {
+      "@id": "google:pattern",
+      "@type": "xsd:string"
+    },
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextRotation": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextRotation",
+    "angle": {
+      "@id": "google:angle",
+      "@type": "xsd:integer"
+    },
+    "vertical": {
+      "@id": "google:vertical",
+      "@type": "xsd:boolean"
+    },
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetProperties": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetProperties",
+    "autoRecalc": {
+      "@id": "google:autoRecalc",
+      "@type": "xsd:string"
+    },
+    "defaultFormat": {
+      "@id": "google:defaultFormat",
+      "@type": "@id"
+    },
+    "iterativeCalculationSettings": {
+      "@id": "google:iterativeCalculationSettings",
+      "@type": "@id"
+    },
+    "locale": {
+      "@id": "google:locale",
+      "@type": "xsd:string"
+    },
+    "spreadsheetTheme": {
+      "@id": "google:spreadsheetTheme",
+      "@type": "@id"
+    },
+    "timeZone": {
+      "@id": "google:timeZone",
+      "@type": "xsd:string"
+    },
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColor": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColor",
+    "alpha": {
+      "@id": "google:alpha",
+      "@type": "xsd:decimal"
+    },
+    "blue": {
+      "@id": "google:blue",
+      "@type": "xsd:decimal"
+    },
+    "green": {
+      "@id": "google:green",
+      "@type": "xsd:decimal"
+    },
+    "red": {
+      "@id": "google:red",
+      "@type": "xsd:decimal"
+    },
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColorStyleRgbColor": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColorStyleRgbColor",
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesIterativeCalculationSettings": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesIterativeCalculationSettings",
+    "convergenceThreshold": {
+      "@id": "google:convergenceThreshold",
+      "@type": "xsd:decimal"
+    },
+    "maxIterations": {
+      "@id": "google:maxIterations",
+      "@type": "xsd:integer"
+    },
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColor": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColor",
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColorStyleRgbColor": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColorStyleRgbColor",
+    "SpreadsheetsPostResponse1": "google:SpreadsheetsPostResponse1",
+    "replies": {
+      "@id": "google:replies",
+      "@container": "@list"
+    },
+    "spreadsheetId": {
+      "@id": "google:spreadsheetId",
+      "@type": "xsd:string"
+    },
+    "updatedSpreadsheet": {
+      "@id": "google:updatedSpreadsheet",
+      "@type": "@id"
+    },
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesSpreadsheetTheme": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesSpreadsheetTheme",
+    "primaryFontFamily": {
+      "@id": "google:primaryFontFamily",
+      "@type": "xsd:string"
+    },
+    "themeColors": {
+      "@id": "google:themeColors",
+      "@container": "@list"
+    },
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColor": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColor",
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColorStyleRgbColor": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColorStyleRgbColor",
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatLink": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatLink",
+    "uri": {
+      "@id": "google:uri",
+      "@type": "xsd:string"
+    },
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColorStyle": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColorStyle",
+    "rgbColor": {
+      "@id": "google:rgbColor",
+      "@type": "@id"
+    },
+    "themeColor": {
+      "@id": "google:themeColor",
+      "@type": "xsd:string"
+    },
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColorStyle": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColorStyle",
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBorders": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBorders",
+    "bottom": {
+      "@id": "google:bottom",
+      "@type": "@id"
+    },
+    "left": {
+      "@id": "google:left",
+      "@type": "@id"
+    },
+    "right": {
+      "@id": "google:right",
+      "@type": "@id"
+    },
+    "top": {
+      "@id": "google:top",
+      "@type": "@id"
+    },
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColor": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColor",
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColorStyle": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRightColorStyle",
+    "SpreadsheetsPostResponse1UpdatedSpreadsheet": "google:SpreadsheetsPostResponse1UpdatedSpreadsheet",
+    "dataSourceSchedules": {
+      "@id": "google:dataSourceSchedules",
+      "@container": "@list"
+    },
+    "dataSources": {
+      "@id": "google:dataSources",
+      "@container": "@list"
+    },
+    "developerMetadata": {
+      "@id": "google:developerMetadata",
+      "@container": "@list"
+    },
+    "namedRanges": {
+      "@id": "google:namedRanges",
+      "@container": "@list"
+    },
+    "properties": {
+      "@id": "google:properties",
+      "@type": "@id"
+    },
+    "sheets": {
+      "@id": "google:sheets",
+      "@container": "@list"
+    },
+    "spreadsheetUrl": {
+      "@id": "google:spreadsheetUrl",
+      "@type": "xsd:string"
+    },
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColor": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColor",
+    "SpreadsheetsValuesbatchClearByDataFilterPostResponse": "google:SpreadsheetsValuesbatchClearByDataFilterPostResponse",
+    "clearedRanges": {
+      "@id": "google:clearedRanges",
+      "@container": "@list"
+    },
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormat": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormat",
+    "bold": {
+      "@id": "google:bold",
+      "@type": "xsd:boolean"
+    },
+    "fontFamily": {
+      "@id": "google:fontFamily",
+      "@type": "xsd:string"
+    },
+    "fontSize": {
+      "@id": "google:fontSize",
+      "@type": "xsd:integer"
+    },
+    "foregroundColor": {
+      "@id": "google:foregroundColor",
+      "@type": "@id"
+    },
+    "foregroundColorStyle": {
+      "@id": "google:foregroundColorStyle",
+      "@type": "@id"
+    },
+    "italic": {
+      "@id": "google:italic",
+      "@type": "xsd:boolean"
+    },
+    "link": {
+      "@id": "google:link",
+      "@type": "@id"
+    },
+    "strikethrough": {
+      "@id": "google:strikethrough",
+      "@type": "xsd:boolean"
+    },
+    "underline": {
+      "@id": "google:underline",
+      "@type": "xsd:boolean"
+    },
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColorStyle": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColorStyle",
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColorStyleRgbColor": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTopColorStyleRgbColor",
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColorStyle": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottomColorStyle",
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTop": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersTop",
+    "color": {
+      "@id": "google:color",
+      "@type": "@id"
+    },
+    "colorStyle": {
+      "@id": "google:colorStyle",
+      "@type": "@id"
+    },
+    "style": {
+      "@id": "google:style",
+      "@type": "xsd:string"
+    },
+    "width": {
+      "@id": "google:width",
+      "@type": "xsd:integer"
+    },
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColorStyleRgbColor": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColorStyleRgbColor",
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeft": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeft",
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormat": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormat",
+    "backgroundColor": {
+      "@id": "google:backgroundColor",
+      "@type": "@id"
+    },
+    "backgroundColorStyle": {
+      "@id": "google:backgroundColorStyle",
+      "@type": "@id"
+    },
+    "borders": {
+      "@id": "google:borders",
+      "@type": "@id"
+    },
+    "horizontalAlignment": {
+      "@id": "google:horizontalAlignment",
+      "@type": "xsd:string"
+    },
+    "hyperlinkDisplayType": {
+      "@id": "google:hyperlinkDisplayType",
+      "@type": "xsd:string"
+    },
+    "numberFormat": {
+      "@id": "google:numberFormat",
+      "@type": "@id"
+    },
+    "padding": {
+      "@id": "google:padding",
+      "@type": "@id"
+    },
+    "textDirection": {
+      "@id": "google:textDirection",
+      "@type": "xsd:string"
+    },
+    "textFormat": {
+      "@id": "google:textFormat",
+      "@type": "@id"
+    },
+    "textRotation": {
+      "@id": "google:textRotation",
+      "@type": "@id"
+    },
+    "verticalAlignment": {
+      "@id": "google:verticalAlignment",
+      "@type": "xsd:string"
+    },
+    "wrapStrategy": {
+      "@id": "google:wrapStrategy",
+      "@type": "xsd:string"
+    },
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatPadding": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatPadding",
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRight": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersRight",
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColorStyle": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersLeftColorStyle",
+    "SpreadsheetsValuesbatchClearPostResponse": "google:SpreadsheetsValuesbatchClearPostResponse",
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColorStyleRgbColor": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBackgroundColorStyleRgbColor",
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottom": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatBordersBottom",
+    "SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColor": "google:SpreadsheetsPostResponse1UpdatedSpreadsheetPropertiesDefaultFormatTextFormatForegroundColor",
+    "Volume": "google:Volume",
+    "etag": {
+      "@id": "google:etag",
+      "@type": "xsd:string"
+    },
+    "volumeInfo": {
+      "@id": "google:volumeInfo"
+    },
+    "userInfo": {
+      "@id": "google:userInfo"
+    },
+    "saleInfo": {
+      "@id": "google:saleInfo"
+    },
+    "accessInfo": {
+      "@id": "google:accessInfo"
+    },
+    "searchInfo": {
+      "@id": "google:searchInfo"
+    },
+    "Bookshelf": "google:Bookshelf",
+    "description": {
+      "@id": "google:description",
+      "@type": "xsd:string"
+    },
+    "access": {
+      "@id": "google:access",
+      "@type": "xsd:string"
+    },
+    "updated": {
+      "@id": "google:updated",
+      "@type": "xsd:dateTime"
+    },
+    "created": {
+      "@id": "google:created",
+      "@type": "xsd:dateTime"
+    },
+    "volumeCount": {
+      "@id": "google:volumeCount",
+      "@type": "xsd:integer"
+    },
+    "volumesLastUpdated": {
+      "@id": "google:volumesLastUpdated",
+      "@type": "xsd:dateTime"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Google API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Google's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-03) from openapi/google-about-api-openapi.yml, openapi/google-activity-api-openapi.yml, openapi/google-address-api-openapi.yml.",
+  "dcterms:created": "2026-10-03",
+  "dcterms:source": [
+    "openapi/google-about-api-openapi.yml",
+    "openapi/google-activity-api-openapi.yml",
+    "openapi/google-address-api-openapi.yml",
+    "openapi/google-addresses-api-openapi.yml",
+    "openapi/google-append-api-openapi.yml"
+  ]
+}

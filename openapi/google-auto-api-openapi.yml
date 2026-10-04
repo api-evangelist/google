@@ -106,34 +106,6 @@ paths:
       operationId: putGmailV1UsersByUserIdSettingsAutoForwarding
       x-operation-id-source: derived
 components:
-  schemas:
-    UsersSettingsAutoForwardingPutResponse:
-      description: UsersSettingsAutoForwardingPutResponse schema
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        emailAddress:
-          type: string
-        disposition:
-          type: string
-    UsersSettingsAutoForwardingGetResponse:
-      description: UsersSettingsAutoForwardingGetResponse schema
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        emailAddress:
-          type: string
-        disposition:
-          type: string
-    UsersSettingsAutoForwardingPutRequest:
-      description: UsersSettingsAutoForwardingPutRequest schema
-      type: object
-      example:
-        enabled: false
-        emailAddress: officia ullamco Ut laboris eu
-        disposition: trash
   examples:
     UsersSettingsAutoForwardingGetResponseExample:
       summary: Successful 200 response
@@ -147,6 +119,34 @@ components:
         enabled: false
         emailAddress: officia ullamco Ut laboris eu
         disposition: trash
+  schemas:
+    UsersSettingsAutoForwardingPutRequest:
+      description: UsersSettingsAutoForwardingPutRequest schema
+      type: object
+      example:
+        enabled: false
+        emailAddress: officia ullamco Ut laboris eu
+        disposition: trash
+    UsersSettingsAutoForwardingGetResponse:
+      description: UsersSettingsAutoForwardingGetResponse schema
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        emailAddress:
+          type: string
+        disposition:
+          type: string
+    UsersSettingsAutoForwardingPutResponse:
+      description: UsersSettingsAutoForwardingPutResponse schema
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        emailAddress:
+          type: string
+        disposition:
+          type: string
   securitySchemes:
     oauth2Auth:
       type: http

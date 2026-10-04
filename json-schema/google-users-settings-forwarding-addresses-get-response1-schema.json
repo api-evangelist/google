@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-users-settings-forwarding-addresses-get-response1-schema.json",
+  "title": "UsersSettingsForwardingAddressesGetResponse1",
+  "description": "UsersSettingsForwardingAddressesGetResponse1 schema",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-addresses-api-openapi.yml#/components/schemas/UsersSettingsForwardingAddressesGetResponse1",
+  "type": "object",
+  "properties": {
+    "forwardingAddresses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "forwardingEmail": {
+            "type": "string"
+          },
+          "verificationStatus": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -57,31 +57,14 @@ paths:
         dispatcherRules: FreeBusyPostResponseExample
 components:
   schemas:
-    FreeBusyPostResponseGroups:
-      description: FreeBusyPostResponseGroups schema
+    FreeBusyPostResponseCalendars:
+      description: FreeBusyPostResponseCalendars schema
       type: object
       properties:
-        amet_0:
-          $ref: '#/components/schemas/FreeBusyPostResponseGroupsAmet0'
-        occaecat_3:
-          $ref: '#/components/schemas/FreeBusyPostResponseGroupsOccaecat3'
-    FreeBusyPostResponseGroupsAmet0:
-      description: FreeBusyPostResponseGroupsAmet0 schema
-      type: object
-      properties:
-        calendars:
-          type: array
-          items:
-            type: string
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              domain:
-                type: string
-              reason:
-                type: string
+        ea8_a:
+          $ref: '#/components/schemas/FreeBusyPostResponseCalendarsEa8A'
+        tempor__:
+          $ref: '#/components/schemas/FreeBusyPostResponseCalendarsTempor'
     FreeBusyPostResponseCalendarsEa8A:
       description: FreeBusyPostResponseCalendarsEa8A schema
       type: object
@@ -106,6 +89,40 @@ components:
                 type: string
               reason:
                 type: string
+    FreeBusyPostResponseGroupsAmet0:
+      description: FreeBusyPostResponseGroupsAmet0 schema
+      type: object
+      properties:
+        calendars:
+          type: array
+          items:
+            type: string
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              domain:
+                type: string
+              reason:
+                type: string
+    FreeBusyPostResponseGroupsOccaecat3:
+      description: FreeBusyPostResponseGroupsOccaecat3 schema
+      type: object
+      properties:
+        calendars:
+          type: array
+          items:
+            type: string
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              domain:
+                type: string
+              reason:
+                type: string
     FreeBusyPostRequest:
       description: FreeBusyPostRequest schema
       type: object
@@ -118,6 +135,22 @@ components:
         timeMax: '1974-03-05T08:59:00.048Z'
         timeMin: '1992-03-30T15:21:47.410Z'
         timeZone: UTC
+    FreeBusyPostResponse:
+      description: FreeBusyPostResponse schema
+      type: object
+      properties:
+        calendars:
+          $ref: '#/components/schemas/FreeBusyPostResponseCalendars'
+        groups:
+          $ref: '#/components/schemas/FreeBusyPostResponseGroups'
+        kind:
+          type: string
+        timeMax:
+          type: string
+          format: date-time
+        timeMin:
+          type: string
+          format: date-time
     FreeBusyPostResponseCalendarsTempor:
       description: FreeBusyPostResponseCalendarsTempor schema
       type: object
@@ -142,47 +175,14 @@ components:
                 type: string
               reason:
                 type: string
-    FreeBusyPostResponseCalendars:
-      description: FreeBusyPostResponseCalendars schema
+    FreeBusyPostResponseGroups:
+      description: FreeBusyPostResponseGroups schema
       type: object
       properties:
-        ea8_a:
-          $ref: '#/components/schemas/FreeBusyPostResponseCalendarsEa8A'
-        tempor__:
-          $ref: '#/components/schemas/FreeBusyPostResponseCalendarsTempor'
-    FreeBusyPostResponse:
-      description: FreeBusyPostResponse schema
-      type: object
-      properties:
-        calendars:
-          $ref: '#/components/schemas/FreeBusyPostResponseCalendars'
-        groups:
-          $ref: '#/components/schemas/FreeBusyPostResponseGroups'
-        kind:
-          type: string
-        timeMax:
-          type: string
-          format: date-time
-        timeMin:
-          type: string
-          format: date-time
-    FreeBusyPostResponseGroupsOccaecat3:
-      description: FreeBusyPostResponseGroupsOccaecat3 schema
-      type: object
-      properties:
-        calendars:
-          type: array
-          items:
-            type: string
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              domain:
-                type: string
-              reason:
-                type: string
+        amet_0:
+          $ref: '#/components/schemas/FreeBusyPostResponseGroupsAmet0'
+        occaecat_3:
+          $ref: '#/components/schemas/FreeBusyPostResponseGroupsOccaecat3'
   examples:
     FreeBusyPostResponseExample:
       summary: Successful 200 response

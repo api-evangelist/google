@@ -75,23 +75,113 @@ paths:
         dispatcher: FALLBACK
         dispatcherRules: ModelsPostResponseExample
 components:
+  examples:
+    ModelsPostResponseExample:
+      summary: Successful 200 response
+      value: string-value
   schemas:
-    FileData:
+    Error:
       type: object
-      description: Reference to a file uploaded via the File API or a YouTube URL
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: HTTP status code
+            message:
+              type: string
+              description: Error message
+            status:
+              type: string
+              description: Error status
+    GenerateContentRequest:
+      type: object
+      required:
+      - contents
+      properties:
+        contents:
+          type: array
+          description: The content of the current conversation with the model
+          items:
+            $ref: '#/components/schemas/Content'
+        system_instruction:
+          $ref: '#/components/schemas/Content'
+          description: System instructions to guide model behavior
+        generationConfig:
+          $ref: '#/components/schemas/GenerationConfig'
+          description: Configuration options for model generation
+    ThinkingConfig:
+      type: object
+      description: Configuration for thinking mode in Gemini 2.5 models
+      properties:
+        thinkingBudget:
+          type: integer
+          description: Thinking budget, set to 0 to disable thinking
+          minimum: 0
+          default: null
+    InlineData:
+      type: object
+      required:
+      - mime_type
+      - data
       properties:
         mime_type:
           type: string
-          description: MIME type of the file (optional for YouTube URLs)
-          example: video/mp4
-        file_uri:
+          description: MIME type of the data
+          enum:
+          - image/jpeg
+          - image/png
+          - image/webp
+          - video/mp4
+          - video/mpeg
+          - video/mov
+          - video/avi
+          - video/x-flv
+          - video/mpg
+          - video/webm
+          - video/wmv
+          - video/3gpp
+          - audio/wav
+          - audio/mp3
+          - audio/aiff
+          - audio/aac
+          - audio/ogg
+          - audio/flac
+          - application/pdf
+        data:
           type: string
-          description: URI of the file from File API or YouTube URL
-          examples:
-          - https://generativelanguage.googleapis.com/v1beta/files/abc123
-          - https://www.youtube.com/watch?v=9hE5-98ZeCg
-      required:
-      - file_uri
+          format: byte
+          description: Base64 encoded data
+    ModelsPostResponse:
+      type: string
+      description: Server-Sent Events stream of GenerateContentResponse objects
+    Part:
+      type: object
+      description: A part of the content, can be text, inline data, or file data
+      oneOf:
+      - type: object
+        required:
+        - text
+        properties:
+          text:
+            type: string
+            description: Text content
+      - type: object
+        required:
+        - inline_data
+        properties:
+          inline_data:
+            $ref: '#/components/schemas/InlineData'
+      - type: object
+        required:
+        - file_data
+        properties:
+          file_data:
+            $ref: '#/components/schemas/FileData'
+          video_metadata:
+            $ref: '#/components/schemas/VideoMetadata'
+            description: Optional metadata for video processing (clipping, FPS)
     VideoMetadata:
       type: object
       description: Metadata for customizing video processing
@@ -112,21 +202,22 @@ components:
           description: Custom frame rate sampling (frames per second). Default is 1 FPS. Use <1 for long videos, >1 for rapidly changing visuals
           minimum: 0.1
           example: 5
-    Error:
+    FileData:
       type: object
+      description: Reference to a file uploaded via the File API or a YouTube URL
       properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-              description: HTTP status code
-            message:
-              type: string
-              description: Error message
-            status:
-              type: string
-              description: Error status
+        mime_type:
+          type: string
+          description: MIME type of the file (optional for YouTube URLs)
+          example: video/mp4
+        file_uri:
+          type: string
+          description: URI of the file from File API or YouTube URL
+          examples:
+          - https://generativelanguage.googleapis.com/v1beta/files/abc123
+          - https://www.youtube.com/watch?v=9hE5-98ZeCg
+      required:
+      - file_uri
     Content:
       type: object
       properties:
@@ -188,97 +279,6 @@ components:
           type: object
           description: JSON schema for structured output format
           additionalProperties: true
-    ModelsPostResponse:
-      type: string
-      description: Server-Sent Events stream of GenerateContentResponse objects
-    GenerateContentRequest:
-      type: object
-      required:
-      - contents
-      properties:
-        contents:
-          type: array
-          description: The content of the current conversation with the model
-          items:
-            $ref: '#/components/schemas/Content'
-        system_instruction:
-          $ref: '#/components/schemas/Content'
-          description: System instructions to guide model behavior
-        generationConfig:
-          $ref: '#/components/schemas/GenerationConfig'
-          description: Configuration options for model generation
-    Part:
-      type: object
-      description: A part of the content, can be text, inline data, or file data
-      oneOf:
-      - type: object
-        required:
-        - text
-        properties:
-          text:
-            type: string
-            description: Text content
-      - type: object
-        required:
-        - inline_data
-        properties:
-          inline_data:
-            $ref: '#/components/schemas/InlineData'
-      - type: object
-        required:
-        - file_data
-        properties:
-          file_data:
-            $ref: '#/components/schemas/FileData'
-          video_metadata:
-            $ref: '#/components/schemas/VideoMetadata'
-            description: Optional metadata for video processing (clipping, FPS)
-    ThinkingConfig:
-      type: object
-      description: Configuration for thinking mode in Gemini 2.5 models
-      properties:
-        thinkingBudget:
-          type: integer
-          description: Thinking budget, set to 0 to disable thinking
-          minimum: 0
-          default: null
-    InlineData:
-      type: object
-      required:
-      - mime_type
-      - data
-      properties:
-        mime_type:
-          type: string
-          description: MIME type of the data
-          enum:
-          - image/jpeg
-          - image/png
-          - image/webp
-          - video/mp4
-          - video/mpeg
-          - video/mov
-          - video/avi
-          - video/x-flv
-          - video/mpg
-          - video/webm
-          - video/wmv
-          - video/3gpp
-          - audio/wav
-          - audio/mp3
-          - audio/aiff
-          - audio/aac
-          - audio/ogg
-          - audio/flac
-          - application/pdf
-        data:
-          type: string
-          format: byte
-          description: Base64 encoded data
-  examples:
-    ModelsPostResponseExample:
-      summary: Successful 200 response
-      value: string-value
   securitySchemes:
     ApiKeyHeader:
       type: apiKey

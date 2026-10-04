@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-calendars-get-response-schema.json",
+  "title": "CalendarsGetResponse",
+  "description": "CalendarsGetResponse schema",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-calendars-api-openapi.yml#/components/schemas/CalendarsGetResponse",
+  "type": "object",
+  "properties": {
+    "conferenceProperties": {
+      "$ref": "#/$defs/CalendarsGetResponseConferenceProperties"
+    },
+    "description": {
+      "type": "string"
+    },
+    "etag": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "timeZone": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "CalendarsGetResponseConferenceProperties": {
+      "description": "CalendarsGetResponseConferenceProperties schema",
+      "type": "object",
+      "properties": {
+        "allowedConferenceSolutionTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

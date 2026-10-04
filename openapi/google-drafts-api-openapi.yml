@@ -214,90 +214,16 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    GmailUsersDraftsPutResponseMessagePayload:
-      description: GmailUsersDraftsPutResponseMessagePayload schema
+    GmailUsersDraftsPutResponseMessagePayloadBody:
+      description: GmailUsersDraftsPutResponseMessagePayloadBody schema
       type: object
       properties:
-        partId:
+        attachmentId:
           type: string
-        mimeType:
-          type: string
-        filename:
-          type: string
-        headers:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-        body:
-          $ref: '#/components/schemas/GmailUsersDraftsPutResponseMessagePayloadBody'
-        parts:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
-    GmailUsersDraftsGetResponseMessage:
-      description: GmailUsersDraftsGetResponseMessage schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/GmailUsersDraftsGetResponseMessagePayload'
-        sizeEstimate:
+        size:
           type: integer
-        raw:
+        data:
           type: string
-    GmailUsersDraftsPutRequest:
-      description: GmailUsersDraftsPutRequest schema
-      type: object
-      example:
-        id: elit Lorem
-        message:
-          id: elit
-          threadId: enim ut ut fugiat
-          labelIds:
-          - incididunt et non cupidatat
-          - laboris deserunt do nostrud
-          snippet: nostrud in
-          historyId: ullamco
-          internalDate: dolor ullamco elit fugiat
-          payload:
-            partId: consequat ipsum qui
-            mimeType: enim quis dolor aliqua veniam
-            filename: laboris ad
-            headers:
-            - name: labore aute nisi
-              value: reprehenderit esse ex elit
-            - name: sed
-              value: anim ut veniam elit
-            body:
-              attachmentId: irure
-              size: -58003592
-              data: officia laboris
-            parts:
-            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-          sizeEstimate: -74092231
-          raw: in enim sit pariatur
     GmailUsersDraftsGetResponse:
       description: GmailUsersDraftsGetResponse schema
       type: object
@@ -308,170 +234,6 @@ components:
           $ref: '#/components/schemas/GmailUsersDraftsGetResponseMessage'
     UsersDraftsSendPostResponsePayloadBody:
       description: UsersDraftsSendPostResponsePayloadBody schema
-      type: object
-      properties:
-        attachmentId:
-          type: string
-        size:
-          type: integer
-        data:
-          type: string
-    UsersDraftsSendPostRequest:
-      description: UsersDraftsSendPostRequest schema
-      type: object
-      example:
-        id: elit Lorem
-        message:
-          id: elit
-          threadId: enim ut ut fugiat
-          labelIds:
-          - incididunt et non cupidatat
-          - laboris deserunt do nostrud
-          snippet: nostrud in
-          historyId: ullamco
-          internalDate: dolor ullamco elit fugiat
-          payload:
-            partId: consequat ipsum qui
-            mimeType: enim quis dolor aliqua veniam
-            filename: laboris ad
-            headers:
-            - name: labore aute nisi
-              value: reprehenderit esse ex elit
-            - name: sed
-              value: anim ut veniam elit
-            body:
-              attachmentId: irure
-              size: -58003592
-              data: officia laboris
-            parts:
-            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-          sizeEstimate: -74092231
-          raw: in enim sit pariatur
-    GmailUsersDraftsPutResponseMessage:
-      description: GmailUsersDraftsPutResponseMessage schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/GmailUsersDraftsPutResponseMessagePayload'
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
-    GmailUsersDraftsPutResponse:
-      description: GmailUsersDraftsPutResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        message:
-          $ref: '#/components/schemas/GmailUsersDraftsPutResponseMessage'
-    UsersDraftsSendPostResponse:
-      description: UsersDraftsSendPostResponse schema
-      type: object
-      properties:
-        id:
-          type: string
-        threadId:
-          type: string
-        labelIds:
-          type: array
-          items:
-            type: string
-        snippet:
-          type: string
-        historyId:
-          type: string
-        internalDate:
-          type: string
-        payload:
-          $ref: '#/components/schemas/UsersDraftsSendPostResponsePayload'
-        sizeEstimate:
-          type: integer
-        raw:
-          type: string
-    UsersDraftsSendPostResponsePayload:
-      description: UsersDraftsSendPostResponsePayload schema
-      type: object
-      properties:
-        partId:
-          type: string
-        mimeType:
-          type: string
-        filename:
-          type: string
-        headers:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-        body:
-          $ref: '#/components/schemas/UsersDraftsSendPostResponsePayloadBody'
-        parts:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
-    GmailUsersDraftsGetResponseMessagePayload:
-      description: GmailUsersDraftsGetResponseMessagePayload schema
-      type: object
-      properties:
-        partId:
-          type: string
-        mimeType:
-          type: string
-        filename:
-          type: string
-        headers:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-        body:
-          $ref: '#/components/schemas/GmailUsersDraftsGetResponseMessagePayloadBody'
-        parts:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
-    GmailUsersDraftsGetResponseMessagePayloadBody:
-      description: GmailUsersDraftsGetResponseMessagePayloadBody schema
-      type: object
-      properties:
-        attachmentId:
-          type: string
-        size:
-          type: integer
-        data:
-          type: string
-    GmailUsersDraftsPutResponseMessagePayloadBody:
-      description: GmailUsersDraftsPutResponseMessagePayloadBody schema
       type: object
       properties:
         attachmentId:
@@ -550,36 +312,245 @@ components:
           type: string
         resultSizeEstimate:
           type: integer
-  examples:
-    UsersDraftsSendPostResponseExample:
-      summary: Successful 200 response
-      value:
-        id: eu incididunt laborum irure
-        threadId: magna Ut officia
+    UsersDraftsSendPostRequest:
+      description: UsersDraftsSendPostRequest schema
+      type: object
+      example:
+        id: elit Lorem
+        message:
+          id: elit
+          threadId: enim ut ut fugiat
+          labelIds:
+          - incididunt et non cupidatat
+          - laboris deserunt do nostrud
+          snippet: nostrud in
+          historyId: ullamco
+          internalDate: dolor ullamco elit fugiat
+          payload:
+            partId: consequat ipsum qui
+            mimeType: enim quis dolor aliqua veniam
+            filename: laboris ad
+            headers:
+            - name: labore aute nisi
+              value: reprehenderit esse ex elit
+            - name: sed
+              value: anim ut veniam elit
+            body:
+              attachmentId: irure
+              size: -58003592
+              data: officia laboris
+            parts:
+            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+          sizeEstimate: -74092231
+          raw: in enim sit pariatur
+    GmailUsersDraftsGetResponseMessage:
+      description: GmailUsersDraftsGetResponseMessage schema
+      type: object
+      properties:
+        id:
+          type: string
+        threadId:
+          type: string
         labelIds:
-        - mollit amet dolore cupidatat
-        - cupidatat deserunt mollit
-        snippet: ut dolor
-        historyId: nisi tempor do
-        internalDate: cupidatat officia anim
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        internalDate:
+          type: string
         payload:
-          partId: dolore velit incididunt est a
-          mimeType: sit dolor mollit
-          filename: ea commodo dolor nisi
-          headers:
-          - name: quis id velit laborum
-            value: et voluptate dolor ea
-          - name: sit nostrud
-            value: deserunt fugiat ex
-          body:
-            attachmentId: id nulla consequat
-            size: -93837667
-            data: ad in occaecat
-          parts:
-          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-        sizeEstimate: 21128811
-        raw: do laboris
+          $ref: '#/components/schemas/GmailUsersDraftsGetResponseMessagePayload'
+        sizeEstimate:
+          type: integer
+        raw:
+          type: string
+    GmailUsersDraftsGetResponseMessagePayload:
+      description: GmailUsersDraftsGetResponseMessagePayload schema
+      type: object
+      properties:
+        partId:
+          type: string
+        mimeType:
+          type: string
+        filename:
+          type: string
+        headers:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        body:
+          $ref: '#/components/schemas/GmailUsersDraftsGetResponseMessagePayloadBody'
+        parts:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+    UsersDraftsSendPostResponsePayload:
+      description: UsersDraftsSendPostResponsePayload schema
+      type: object
+      properties:
+        partId:
+          type: string
+        mimeType:
+          type: string
+        filename:
+          type: string
+        headers:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        body:
+          $ref: '#/components/schemas/UsersDraftsSendPostResponsePayloadBody'
+        parts:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+    GmailUsersDraftsPutRequest:
+      description: GmailUsersDraftsPutRequest schema
+      type: object
+      example:
+        id: elit Lorem
+        message:
+          id: elit
+          threadId: enim ut ut fugiat
+          labelIds:
+          - incididunt et non cupidatat
+          - laboris deserunt do nostrud
+          snippet: nostrud in
+          historyId: ullamco
+          internalDate: dolor ullamco elit fugiat
+          payload:
+            partId: consequat ipsum qui
+            mimeType: enim quis dolor aliqua veniam
+            filename: laboris ad
+            headers:
+            - name: labore aute nisi
+              value: reprehenderit esse ex elit
+            - name: sed
+              value: anim ut veniam elit
+            body:
+              attachmentId: irure
+              size: -58003592
+              data: officia laboris
+            parts:
+            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+          sizeEstimate: -74092231
+          raw: in enim sit pariatur
+    UsersDraftsSendPostResponse:
+      description: UsersDraftsSendPostResponse schema
+      type: object
+      properties:
+        id:
+          type: string
+        threadId:
+          type: string
+        labelIds:
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        internalDate:
+          type: string
+        payload:
+          $ref: '#/components/schemas/UsersDraftsSendPostResponsePayload'
+        sizeEstimate:
+          type: integer
+        raw:
+          type: string
+    GmailUsersDraftsPutResponseMessagePayload:
+      description: GmailUsersDraftsPutResponseMessagePayload schema
+      type: object
+      properties:
+        partId:
+          type: string
+        mimeType:
+          type: string
+        filename:
+          type: string
+        headers:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        body:
+          $ref: '#/components/schemas/GmailUsersDraftsPutResponseMessagePayloadBody'
+        parts:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+    GmailUsersDraftsPutResponseMessage:
+      description: GmailUsersDraftsPutResponseMessage schema
+      type: object
+      properties:
+        id:
+          type: string
+        threadId:
+          type: string
+        labelIds:
+          type: array
+          items:
+            type: string
+        snippet:
+          type: string
+        historyId:
+          type: string
+        internalDate:
+          type: string
+        payload:
+          $ref: '#/components/schemas/GmailUsersDraftsPutResponseMessagePayload'
+        sizeEstimate:
+          type: integer
+        raw:
+          type: string
+    GmailUsersDraftsPutResponse:
+      description: GmailUsersDraftsPutResponse schema
+      type: object
+      properties:
+        id:
+          type: string
+        message:
+          $ref: '#/components/schemas/GmailUsersDraftsPutResponseMessage'
+    GmailUsersDraftsGetResponseMessagePayloadBody:
+      description: GmailUsersDraftsGetResponseMessagePayloadBody schema
+      type: object
+      properties:
+        attachmentId:
+          type: string
+        size:
+          type: integer
+        data:
+          type: string
+  examples:
     GmailUsersDraftsPutResponseExample:
       summary: Successful 200 response
       value:
@@ -611,37 +582,35 @@ components:
             - value: '<Circular reference to #/components/schemas/MessagePart detected>'
           sizeEstimate: -74092231
           raw: in enim sit pariatur
-    GmailUsersDraftsGetResponseExample:
+    UsersDraftsSendPostResponseExample:
       summary: Successful 200 response
       value:
-        id: elit Lorem
-        message:
-          id: elit
-          threadId: enim ut ut fugiat
-          labelIds:
-          - incididunt et non cupidatat
-          - laboris deserunt do nostrud
-          snippet: nostrud in
-          historyId: ullamco
-          internalDate: dolor ullamco elit fugiat
-          payload:
-            partId: consequat ipsum qui
-            mimeType: enim quis dolor aliqua veniam
-            filename: laboris ad
-            headers:
-            - name: labore aute nisi
-              value: reprehenderit esse ex elit
-            - name: sed
-              value: anim ut veniam elit
-            body:
-              attachmentId: irure
-              size: -58003592
-              data: officia laboris
-            parts:
-            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
-          sizeEstimate: -74092231
-          raw: in enim sit pariatur
+        id: eu incididunt laborum irure
+        threadId: magna Ut officia
+        labelIds:
+        - mollit amet dolore cupidatat
+        - cupidatat deserunt mollit
+        snippet: ut dolor
+        historyId: nisi tempor do
+        internalDate: cupidatat officia anim
+        payload:
+          partId: dolore velit incididunt est a
+          mimeType: sit dolor mollit
+          filename: ea commodo dolor nisi
+          headers:
+          - name: quis id velit laborum
+            value: et voluptate dolor ea
+          - name: sit nostrud
+            value: deserunt fugiat ex
+          body:
+            attachmentId: id nulla consequat
+            size: -93837667
+            data: ad in occaecat
+          parts:
+          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+          - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+        sizeEstimate: 21128811
+        raw: do laboris
     GmailUsersDraftsGetResponse1Example:
       summary: Successful 200 response
       value:
@@ -704,6 +673,37 @@ components:
             raw: ipsum dolor qui
         nextPageToken: veniam laborum labore Ut aliquip
         resultSizeEstimate: 46963148
+    GmailUsersDraftsGetResponseExample:
+      summary: Successful 200 response
+      value:
+        id: elit Lorem
+        message:
+          id: elit
+          threadId: enim ut ut fugiat
+          labelIds:
+          - incididunt et non cupidatat
+          - laboris deserunt do nostrud
+          snippet: nostrud in
+          historyId: ullamco
+          internalDate: dolor ullamco elit fugiat
+          payload:
+            partId: consequat ipsum qui
+            mimeType: enim quis dolor aliqua veniam
+            filename: laboris ad
+            headers:
+            - name: labore aute nisi
+              value: reprehenderit esse ex elit
+            - name: sed
+              value: anim ut veniam elit
+            body:
+              attachmentId: irure
+              size: -58003592
+              data: officia laboris
+            parts:
+            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+            - value: '<Circular reference to #/components/schemas/MessagePart detected>'
+          sizeEstimate: -74092231
+          raw: in enim sit pariatur
   securitySchemes:
     oauth2Auth:
       type: http

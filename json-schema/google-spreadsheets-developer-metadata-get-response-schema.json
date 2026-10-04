@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-spreadsheets-developer-metadata-get-response-schema.json",
+  "title": "SpreadsheetsDeveloperMetadataGetResponse",
+  "description": "SpreadsheetsDeveloperMetadataGetResponse schema",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-developer-api-openapi.yml#/components/schemas/SpreadsheetsDeveloperMetadataGetResponse",
+  "type": "object",
+  "properties": {
+    "location": {
+      "$ref": "#/$defs/SpreadsheetsDeveloperMetadataGetResponseLocation"
+    },
+    "metadataId": {
+      "type": "integer"
+    },
+    "metadataKey": {
+      "type": "string"
+    },
+    "metadataValue": {
+      "type": "string"
+    },
+    "visibility": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "SpreadsheetsDeveloperMetadataGetResponseLocation": {
+      "description": "SpreadsheetsDeveloperMetadataGetResponseLocation schema",
+      "type": "object",
+      "properties": {
+        "dimensionRange": {
+          "$ref": "#/$defs/SpreadsheetsDeveloperMetadataGetResponseLocationDimensionRange"
+        },
+        "locationType": {
+          "type": "string"
+        },
+        "sheetId": {
+          "type": "integer"
+        },
+        "spreadsheet": {
+          "type": "boolean"
+        }
+      }
+    },
+    "SpreadsheetsDeveloperMetadataGetResponseLocationDimensionRange": {
+      "description": "SpreadsheetsDeveloperMetadataGetResponseLocationDimensionRange schema",
+      "type": "object",
+      "properties": {
+        "dimension": {
+          "type": "string"
+        },
+        "endIndex": {
+          "type": "integer"
+        },
+        "sheetId": {
+          "type": "integer"
+        },
+        "startIndex": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-app-list-schema.json",
+  "title": "AppList",
+  "description": "A list of third-party applications which the user has installed or given access to Google Drive.",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-applications-api-openapi.yml#/components/schemas/AppList",
+  "properties": {
+    "defaultAppIds": {
+      "description": "The list of app IDs that the user has specified to use by default. The list is in reverse-priority order (lowest to highest).",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "items": {
+      "description": "The list of apps.",
+      "items": {
+        "$ref": "#/$defs/App"
+      },
+      "type": "array"
+    },
+    "kind": {
+      "default": "drive#appList",
+      "description": "Output only. Identifies what kind of resource this is. Value: the fixed string \"drive#appList\".",
+      "type": "string"
+    },
+    "selfLink": {
+      "description": "A link back to this list.",
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "App": {
+      "description": "The `apps` resource provides a list of apps that a user has installed, with information about each app's supported MIME types, file extensions, and other details. Some resource methods (such as `apps.get`) require an `appId`. Use the `apps.list` method to retrieve the ID for an installed application.",
+      "properties": {
+        "authorized": {
+          "description": "Whether the app is authorized to access data on the user's Drive.",
+          "type": "boolean"
+        },
+        "createInFolderTemplate": {
+          "description": "The template URL to create a file with this app in a given folder. The template contains the {folderId} to be replaced by the folder ID house the new file.",
+          "type": "string"
+        },
+        "createUrl": {
+          "description": "The URL to create a file with this app.",
+          "type": "string"
+        },
+        "hasDriveWideScope": {
+          "description": "Whether the app has Drive-wide scope. An app with Drive-wide scope can access all files in the user's Drive.",
+          "type": "boolean"
+        },
+        "icons": {
+          "description": "The various icons for the app.",
+          "items": {
+            "$ref": "#/$defs/AppIcons"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "The ID of the app.",
+          "type": "string"
+        },
+        "installed": {
+          "description": "Whether the app is installed.",
+          "type": "boolean"
+        },
+        "kind": {
+          "default": "drive#app",
+          "description": "Output only. Identifies what kind of resource this is. Value: the fixed string \"drive#app\".",
+          "type": "string"
+        },
+        "longDescription": {
+          "description": "A long description of the app.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the app.",
+          "type": "string"
+        },
+        "objectType": {
+          "description": "The type of object this app creates such as a Chart. If empty, the app name should be used instead.",
+          "type": "string"
+        },
+        "openUrlTemplate": {
+          "description": "The template URL for opening files with this app. The template contains {ids} or {exportIds} to be replaced by the actual file IDs. For more information, see Open Files for the full documentation.",
+          "type": "string"
+        },
+        "primaryFileExtensions": {
+          "description": "The list of primary file extensions.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "primaryMimeTypes": {
+          "description": "The list of primary MIME types.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "productId": {
+          "description": "The ID of the product listing for this app.",
+          "type": "string"
+        },
+        "productUrl": {
+          "description": "A link to the product listing for this app.",
+          "type": "string"
+        },
+        "secondaryFileExtensions": {
+          "description": "The list of secondary file extensions.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "secondaryMimeTypes": {
+          "description": "The list of secondary MIME types.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "shortDescription": {
+          "description": "A short description of the app.",
+          "type": "string"
+        },
+        "supportsCreate": {
+          "description": "Whether this app supports creating objects.",
+          "type": "boolean"
+        },
+        "supportsImport": {
+          "description": "Whether this app supports importing from Google Docs.",
+          "type": "boolean"
+        },
+        "supportsMultiOpen": {
+          "description": "Whether this app supports opening more than one file.",
+          "type": "boolean"
+        },
+        "supportsOfflineCreate": {
+          "description": "Whether this app supports creating files when offline.",
+          "type": "boolean"
+        },
+        "useByDefault": {
+          "description": "Whether the app is selected as the default handler for the types it supports.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "AppIcons": {
+      "properties": {
+        "category": {
+          "description": "Category of the icon. Allowed values are: * `application` - The icon for the application. * `document` - The icon for a file associated with the app. * `documentShared` - The icon for a shared file associated with the app.",
+          "type": "string"
+        },
+        "iconUrl": {
+          "description": "URL for the icon.",
+          "type": "string"
+        },
+        "size": {
+          "description": "Size of the icon. Represented as the maximum of the width and height.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,275 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-generate-content-response-schema.json",
+  "title": "GenerateContentResponse",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-audio-understanding-api-openapi.yml#/components/schemas/GenerateContentResponse",
+  "type": "object",
+  "properties": {
+    "candidates": {
+      "type": "array",
+      "description": "Generated content candidates",
+      "items": {
+        "$ref": "#/$defs/Candidate"
+      }
+    },
+    "promptFeedback": {
+      "$ref": "#/$defs/PromptFeedback",
+      "description": "Feedback about the prompt"
+    },
+    "usageMetadata": {
+      "$ref": "#/$defs/UsageMetadata",
+      "description": "Token usage information"
+    }
+  },
+  "$defs": {
+    "Candidate": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "$ref": "#/$defs/Content",
+          "description": "Generated content"
+        },
+        "finishReason": {
+          "type": "string",
+          "enum": [
+            "FINISH_REASON_UNSPECIFIED",
+            "STOP",
+            "MAX_TOKENS",
+            "SAFETY",
+            "RECITATION",
+            "OTHER"
+          ],
+          "description": "Reason why generation stopped"
+        },
+        "index": {
+          "type": "integer",
+          "description": "Index of the candidate"
+        },
+        "safetyRatings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SafetyRating"
+          },
+          "description": "Safety ratings for the generated content"
+        }
+      }
+    },
+    "Content": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "type": "string",
+          "enum": [
+            "user",
+            "model"
+          ],
+          "description": "The role of the content producer (optional for single-turn, required for multi-turn)"
+        },
+        "parts": {
+          "type": "array",
+          "description": "Ordered parts that constitute a single message",
+          "items": {
+            "$ref": "#/$defs/Part"
+          }
+        }
+      },
+      "required": [
+        "parts"
+      ]
+    },
+    "FileData": {
+      "type": "object",
+      "description": "Reference to a file uploaded via the File API or a YouTube URL",
+      "properties": {
+        "mime_type": {
+          "type": "string",
+          "description": "MIME type of the file (optional for YouTube URLs)"
+        },
+        "file_uri": {
+          "type": "string",
+          "description": "URI of the file from File API or YouTube URL"
+        }
+      },
+      "required": [
+        "file_uri"
+      ]
+    },
+    "InlineData": {
+      "type": "object",
+      "required": [
+        "mime_type",
+        "data"
+      ],
+      "properties": {
+        "mime_type": {
+          "type": "string",
+          "description": "MIME type of the data",
+          "enum": [
+            "image/jpeg",
+            "image/png",
+            "image/webp",
+            "video/mp4",
+            "video/mpeg",
+            "video/mov",
+            "video/avi",
+            "video/x-flv",
+            "video/mpg",
+            "video/webm",
+            "video/wmv",
+            "video/3gpp",
+            "audio/wav",
+            "audio/mp3",
+            "audio/aiff",
+            "audio/aac",
+            "audio/ogg",
+            "audio/flac",
+            "application/pdf"
+          ]
+        },
+        "data": {
+          "type": "string",
+          "format": "byte",
+          "description": "Base64 encoded data"
+        }
+      }
+    },
+    "Part": {
+      "type": "object",
+      "description": "A part of the content, can be text, inline data, or file data",
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "text"
+          ],
+          "properties": {
+            "text": {
+              "type": "string",
+              "description": "Text content"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "inline_data"
+          ],
+          "properties": {
+            "inline_data": {
+              "$ref": "#/$defs/InlineData"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "file_data"
+          ],
+          "properties": {
+            "file_data": {
+              "$ref": "#/$defs/FileData"
+            },
+            "video_metadata": {
+              "$ref": "#/$defs/VideoMetadata",
+              "description": "Optional metadata for video processing (clipping, FPS)"
+            }
+          }
+        }
+      ]
+    },
+    "PromptFeedback": {
+      "type": "object",
+      "properties": {
+        "blockReason": {
+          "type": "string",
+          "enum": [
+            "BLOCK_REASON_UNSPECIFIED",
+            "SAFETY",
+            "OTHER"
+          ],
+          "description": "Reason why prompt was blocked"
+        },
+        "safetyRatings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SafetyRating"
+          },
+          "description": "Safety ratings for the prompt"
+        }
+      }
+    },
+    "SafetyRating": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string",
+          "enum": [
+            "HARM_CATEGORY_UNSPECIFIED",
+            "HARM_CATEGORY_DEROGATORY",
+            "HARM_CATEGORY_TOXICITY",
+            "HARM_CATEGORY_VIOLENCE",
+            "HARM_CATEGORY_SEXUAL",
+            "HARM_CATEGORY_MEDICAL",
+            "HARM_CATEGORY_DANGEROUS",
+            "HARM_CATEGORY_HARASSMENT",
+            "HARM_CATEGORY_HATE_SPEECH",
+            "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+            "HARM_CATEGORY_DANGEROUS_CONTENT"
+          ]
+        },
+        "probability": {
+          "type": "string",
+          "enum": [
+            "HARM_PROBABILITY_UNSPECIFIED",
+            "NEGLIGIBLE",
+            "LOW",
+            "MEDIUM",
+            "HIGH"
+          ]
+        }
+      }
+    },
+    "UsageMetadata": {
+      "type": "object",
+      "properties": {
+        "promptTokenCount": {
+          "type": "integer",
+          "description": "Number of tokens in the prompt"
+        },
+        "candidatesTokenCount": {
+          "type": "integer",
+          "description": "Number of tokens in generated candidates"
+        },
+        "totalTokenCount": {
+          "type": "integer",
+          "description": "Total token count"
+        }
+      }
+    },
+    "VideoMetadata": {
+      "type": "object",
+      "description": "Metadata for customizing video processing",
+      "properties": {
+        "start_offset": {
+          "type": "string",
+          "description": "Start time offset for video clipping (format like \"1250s\")",
+          "pattern": "^\\d+s$"
+        },
+        "end_offset": {
+          "type": "string",
+          "description": "End time offset for video clipping (format like \"1570s\")",
+          "pattern": "^\\d+s$"
+        },
+        "fps": {
+          "type": "number",
+          "format": "float",
+          "description": "Custom frame rate sampling (frames per second). Default is 1 FPS. Use <1 for long videos, >1 for rapidly changing visuals",
+          "minimum": 0.1
+        }
+      }
+    }
+  }
+}

@@ -72,6 +72,12 @@ paths:
       operationId: postV4SpreadsheetsBySpreadsheetIdValues{range}:append
       x-operation-id-source: derived
 components:
+  examples:
+    SpreadsheetsValuesPostResponseExample:
+      summary: Successful 200 response
+      value:
+        id: example-id
+        name: Example Name
   schemas:
     SpreadsheetsValuesPostResponse:
       description: SpreadsheetsValuesPostResponse schema
@@ -80,12 +86,6 @@ components:
       description: SpreadsheetsValuesPostRequest schema
       type: object
       example: null
-  examples:
-    SpreadsheetsValuesPostResponseExample:
-      summary: Successful 200 response
-      value:
-        id: example-id
-        name: Example Name
   securitySchemes:
     oauth2Auth:
       type: http

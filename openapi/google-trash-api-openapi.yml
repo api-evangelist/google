@@ -65,34 +65,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    UsersMessagesTrashPostResponsePayload:
-      description: UsersMessagesTrashPostResponsePayload schema
-      type: object
-      properties:
-        partId:
-          type: string
-        mimeType:
-          type: string
-        filename:
-          type: string
-        headers:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-        body:
-          $ref: '#/components/schemas/UsersMessagesTrashPostResponsePayloadBody'
-        parts:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
     UsersMessagesTrashPostResponsePayloadBody:
       description: UsersMessagesTrashPostResponsePayloadBody schema
       type: object
@@ -127,6 +99,34 @@ components:
           type: integer
         raw:
           type: string
+    UsersMessagesTrashPostResponsePayload:
+      description: UsersMessagesTrashPostResponsePayload schema
+      type: object
+      properties:
+        partId:
+          type: string
+        mimeType:
+          type: string
+        filename:
+          type: string
+        headers:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        body:
+          $ref: '#/components/schemas/UsersMessagesTrashPostResponsePayloadBody'
+        parts:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
   examples:
     UsersMessagesTrashPostResponseExample:
       summary: Successful 200 response

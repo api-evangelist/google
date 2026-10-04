@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-bookshelves-response-schema.json",
+  "title": "BookshelvesResponse",
+  "description": "Response containing a list of bookshelves",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-bookshelves-api-openapi.yml#/components/schemas/BookshelvesResponse",
+  "type": "object",
+  "required": [
+    "kind"
+  ],
+  "properties": {
+    "kind": {
+      "type": "string",
+      "description": "Resource type",
+      "enum": [
+        "books#bookshelves"
+      ]
+    },
+    "items": {
+      "type": "array",
+      "description": "A list of bookshelves",
+      "items": {
+        "$ref": "#/$defs/Bookshelf"
+      }
+    }
+  },
+  "$defs": {
+    "Bookshelf": {
+      "type": "object",
+      "description": "A bookshelf resource represents the metadata for a bookshelf, it does not include the volumes in the bookshelf",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "description": "Resource type for bookshelf metadata",
+          "enum": [
+            "books#bookshelf"
+          ]
+        },
+        "id": {
+          "type": "integer",
+          "description": "ID of this bookshelf"
+        },
+        "selfLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to this resource"
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of this bookshelf"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of this bookshelf"
+        },
+        "access": {
+          "type": "string",
+          "description": "Whether this bookshelf is PUBLIC or PRIVATE",
+          "enum": [
+            "PUBLIC",
+            "PRIVATE"
+          ]
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last modified time of this bookshelf (formatted UTC timestamp with millisecond resolution)"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Created time for this bookshelf (formatted UTC timestamp with millisecond resolution)"
+        },
+        "volumeCount": {
+          "type": "integer",
+          "description": "Number of volumes in this bookshelf"
+        },
+        "volumesLastUpdated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last time a volume was added or removed from this bookshelf (formatted UTC timestamp with millisecond resolution)"
+        }
+      }
+    }
+  }
+}

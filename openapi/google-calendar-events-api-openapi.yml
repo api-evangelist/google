@@ -1375,21 +1375,76 @@ paths:
         dispatcher: FALLBACK
         dispatcherRules: CalendarsEventsWatchPostResponseExample
 components:
+  examples:
+    CalendarsEventsPatchResponseExample:
+      summary: Successful 200 response
+      value:
+        id: example-id
+        name: Example Name
+    CalendarsEventsGetResponse1Example:
+      summary: Successful 200 response
+      value:
+        id: example-id
+        name: Example Name
+    CalendarsEventsInstancesGetResponseExample:
+      summary: Successful 200 response
+      value:
+        id: example-id
+        name: Example Name
+    CalendarsEventsImportPostResponseExample:
+      summary: Successful 200 response
+      value:
+        id: example-id
+        name: Example Name
+    CalendarsEventsPostResponseExample:
+      summary: Successful 200 response
+      value:
+        id: example-id
+        name: Example Name
+    CalendarsEventsGetResponseExample:
+      summary: Successful 200 response
+      value:
+        id: example-id
+        name: Example Name
+    CalendarsEventsPutResponseExample:
+      summary: Successful 200 response
+      value:
+        id: example-id
+        name: Example Name
+    CalendarsEventsMovePostResponseExample:
+      summary: Successful 200 response
+      value:
+        id: example-id
+        name: Example Name
+    CalendarsEventsWatchPostResponseExample:
+      summary: Successful 200 response
+      value:
+        address: incididunt sed consequat
+        expiration: velit ad aliq
+        id: velit eiusmod
+        kind: api#channel
+        params:
+          reprehenderit5c: non
+          sint_b: cupidatat do
+        payload: false
+        resourceId: aute
+        resourceUri: fugiat consequat
+        token: ullamco officia in
+        type: ex eiusmod adipisicing mollit
+    CalendarsEventsQuickAddPostResponseExample:
+      summary: Successful 200 response
+      value:
+        id: example-id
+        name: Example Name
   schemas:
-    CalendarsEventsGetResponse1:
-      description: CalendarsEventsGetResponse1 schema
+    CalendarsEventsWatchPostResponseParams:
+      description: CalendarsEventsWatchPostResponseParams schema
       type: object
-    CalendarsEventsPutResponse:
-      description: CalendarsEventsPutResponse schema
-      type: object
-    CalendarsEventsImportPostRequest:
-      description: CalendarsEventsImportPostRequest schema
-      type: object
-      example: null
-    CalendarsEventsPutRequest:
-      description: CalendarsEventsPutRequest schema
-      type: object
-      example: null
+      properties:
+        reprehenderit5c:
+          type: string
+        sint_b:
+          type: string
     CalendarsEventsWatchPostRequest:
       description: CalendarsEventsWatchPostRequest schema
       type: object
@@ -1406,37 +1461,34 @@ components:
         resourceUri: fugiat consequat
         token: ullamco officia in
         type: ex eiusmod adipisicing mollit
-    CalendarsEventsPostRequest:
-      description: CalendarsEventsPostRequest schema
+    CalendarsEventsPostResponse:
+      description: CalendarsEventsPostResponse schema
+      type: object
+    CalendarsEventsQuickAddPostResponse:
+      description: CalendarsEventsQuickAddPostResponse schema
+      type: object
+    CalendarsEventsPutRequest:
+      description: CalendarsEventsPutRequest schema
+      type: object
+      example: null
+    CalendarsEventsImportPostRequest:
+      description: CalendarsEventsImportPostRequest schema
+      type: object
+      example: null
+    CalendarsEventsPatchRequest:
+      description: CalendarsEventsPatchRequest schema
       type: object
       example: null
     CalendarsEventsGetResponse:
       description: CalendarsEventsGetResponse schema
       type: object
-    CalendarsEventsPatchResponse:
-      description: CalendarsEventsPatchResponse schema
+    CalendarsEventsPutResponse:
+      description: CalendarsEventsPutResponse schema
       type: object
-    CalendarsEventsInstancesGetResponse:
-      description: CalendarsEventsInstancesGetResponse schema
-      type: object
-    CalendarsEventsWatchPostResponseParams:
-      description: CalendarsEventsWatchPostResponseParams schema
-      type: object
-      properties:
-        reprehenderit5c:
-          type: string
-        sint_b:
-          type: string
-    CalendarsEventsPostResponse:
-      description: CalendarsEventsPostResponse schema
-      type: object
-    CalendarsEventsPatchRequest:
-      description: CalendarsEventsPatchRequest schema
+    CalendarsEventsPostRequest:
+      description: CalendarsEventsPostRequest schema
       type: object
       example: null
-    CalendarsEventsImportPostResponse:
-      description: CalendarsEventsImportPostResponse schema
-      type: object
     CalendarsEventsWatchPostResponse:
       description: CalendarsEventsWatchPostResponse schema
       type: object
@@ -1461,73 +1513,21 @@ components:
           type: string
         type:
           type: string
-    CalendarsEventsQuickAddPostResponse:
-      description: CalendarsEventsQuickAddPostResponse schema
+    CalendarsEventsGetResponse1:
+      description: CalendarsEventsGetResponse1 schema
       type: object
     CalendarsEventsMovePostResponse:
       description: CalendarsEventsMovePostResponse schema
       type: object
-  examples:
-    CalendarsEventsGetResponse1Example:
-      summary: Successful 200 response
-      value:
-        id: example-id
-        name: Example Name
-    CalendarsEventsPostResponseExample:
-      summary: Successful 200 response
-      value:
-        id: example-id
-        name: Example Name
-    CalendarsEventsImportPostResponseExample:
-      summary: Successful 200 response
-      value:
-        id: example-id
-        name: Example Name
-    CalendarsEventsPatchResponseExample:
-      summary: Successful 200 response
-      value:
-        id: example-id
-        name: Example Name
-    CalendarsEventsPutResponseExample:
-      summary: Successful 200 response
-      value:
-        id: example-id
-        name: Example Name
-    CalendarsEventsMovePostResponseExample:
-      summary: Successful 200 response
-      value:
-        id: example-id
-        name: Example Name
-    CalendarsEventsInstancesGetResponseExample:
-      summary: Successful 200 response
-      value:
-        id: example-id
-        name: Example Name
-    CalendarsEventsGetResponseExample:
-      summary: Successful 200 response
-      value:
-        id: example-id
-        name: Example Name
-    CalendarsEventsQuickAddPostResponseExample:
-      summary: Successful 200 response
-      value:
-        id: example-id
-        name: Example Name
-    CalendarsEventsWatchPostResponseExample:
-      summary: Successful 200 response
-      value:
-        address: incididunt sed consequat
-        expiration: velit ad aliq
-        id: velit eiusmod
-        kind: api#channel
-        params:
-          reprehenderit5c: non
-          sint_b: cupidatat do
-        payload: false
-        resourceId: aute
-        resourceUri: fugiat consequat
-        token: ullamco officia in
-        type: ex eiusmod adipisicing mollit
+    CalendarsEventsInstancesGetResponse:
+      description: CalendarsEventsInstancesGetResponse schema
+      type: object
+    CalendarsEventsPatchResponse:
+      description: CalendarsEventsPatchResponse schema
+      type: object
+    CalendarsEventsImportPostResponse:
+      description: CalendarsEventsImportPostResponse schema
+      type: object
   securitySchemes:
     oauth2Auth:
       type: http

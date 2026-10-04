@@ -1,0 +1,12 @@
+generated: '2026-10-03'
+method: generated
+generator: extract-docs-artifacts.py skills (local)
+source: openapi/google-create-api-openapi.yml
+skills:
+- file: skills/google-data-get-and-update-sheet-by-data-filter.md
+  name: google-data-get-and-update-sheet-by-data-filter
+  api: openapi/google-data-api-openapi.yml
+  operations:
+  - postV4SpreadsheetsBySpreadsheetIdValues:batchGetByDataFilter
+  - postV4SpreadsheetsBySpreadsheetIdValues:batchUpdateByDataFilter
+  - postV4Spreadsheets{spreadsheetId}:getByDataFilter

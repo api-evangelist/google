@@ -1,0 +1,417 @@
+generated: '2026-10-03'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/google-about-api-openapi.yml
+- openapi/google-activity-api-openapi.yml
+- openapi/google-address-api-openapi.yml
+- openapi/google-addresses-api-openapi.yml
+- openapi/google-append-api-openapi.yml
+vocabulary:
+  name: Google Domain Vocabulary
+  description: 'Terms declared by Google''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-03'
+  terms:
+  - term: About
+    definition: Operations related to About
+    tags:
+    - Resource Group
+    source: openapi/google-about-api-openapi.yml
+  - term: Activity
+    definition: Operations related to Activity
+    tags:
+    - Resource Group
+    source: openapi/google-activity-api-openapi.yml
+  - term: Address
+    definition: Operations related to Address
+    tags:
+    - Resource Group
+    source: openapi/google-address-api-openapi.yml
+  - term: Addresses
+    definition: Operations related to Addresses
+    tags:
+    - Resource Group
+    source: openapi/google-addresses-api-openapi.yml
+  - term: Append
+    definition: Operations related to Append
+    tags:
+    - Resource Group
+    source: openapi/google-append-api-openapi.yml
+  - term: Attachments
+    definition: Operations related to Attachments
+    tags:
+    - Resource Group
+    source: openapi/google-attachments-api-openapi.yml
+  - term: Audio Understanding
+    definition: Operations related to Audio Understanding
+    tags:
+    - Resource Group
+    source: openapi/google-audio-understanding-api-openapi.yml
+  - term: Auto
+    definition: Operations related to Auto
+    tags:
+    - Resource Group
+    source: openapi/google-auto-api-openapi.yml
+  - term: Batch
+    definition: Operations related to Batch
+    tags:
+    - Resource Group
+    source: openapi/google-batch-api-openapi.yml
+  - term: Calendar Events
+    definition: Operations related to Calendarscalendaridevents
+    tags:
+    - Resource Group
+    source: openapi/google-calendar-events-api-openapi.yml
+  - term: Calendars
+    definition: Operations related to Calendars
+    tags:
+    - Resource Group
+    source: openapi/google-calendars-api-openapi.yml
+  - term: Changes
+    definition: Operations related to Changes
+    tags:
+    - Resource Group
+    source: openapi/google-changes-api-openapi.yml
+  - term: Clear
+    definition: Operations related to Clear
+    tags:
+    - Resource Group
+    source: openapi/google-clear-api-openapi.yml
+  - term: Colors
+    definition: Operations related to Default
+    tags:
+    - Resource Group
+    source: openapi/google-colors-api-openapi.yml
+  - term: Comments
+    definition: Operations related to Comments
+    tags:
+    - Resource Group
+    source: openapi/google-comments-api-openapi.yml
+  - term: Content Generation
+    definition: Operations related to Content Generation
+    tags:
+    - Resource Group
+    source: openapi/google-content-generation-api-openapi.yml
+  - term: Copy
+    definition: Operations related to Copy
+    tags:
+    - Resource Group
+    source: openapi/google-copy-api-openapi.yml
+  - term: Create
+    definition: Operations related to Create
+    tags:
+    - Resource Group
+    source: openapi/google-create-api-openapi.yml
+  - term: Data
+    definition: Operations related to Data
+    tags:
+    - Resource Group
+    source: openapi/google-data-api-openapi.yml
+  - term: Delegates
+    definition: Operations related to Delegates
+    tags:
+    - Resource Group
+    source: openapi/google-delegates-api-openapi.yml
+  - term: Deletes
+    definition: Operations related to Deletes
+    tags:
+    - Resource Group
+    source: openapi/google-deletes-api-openapi.yml
+  - term: Developer
+    definition: Operations related to Developer
+    tags:
+    - Resource Group
+    source: openapi/google-developer-api-openapi.yml
+  - term: Disables
+    definition: Operations related to Disables
+    tags:
+    - Resource Group
+    source: openapi/google-disables-api-openapi.yml
+  - term: Documents
+    definition: Operations related to Documents
+    tags:
+    - Resource Group
+    source: openapi/google-documents-api-openapi.yml
+  - term: Drafts
+    definition: Operations related to Drafts
+    tags:
+    - Resource Group
+    source: openapi/google-drafts-api-openapi.yml
+  - term: Drives
+    definition: Operations related to Drives
+    tags:
+    - Resource Group
+    source: openapi/google-drives-api-openapi.yml
+  - term: Enables
+    definition: Operations related to Enables
+    tags:
+    - Resource Group
+    source: openapi/google-enables-api-openapi.yml
+  - term: File API
+    definition: Operations related to File Api
+    tags:
+    - Resource Group
+    source: openapi/google-file-api-api-openapi.yml
+  - term: Files
+    definition: Operations related to Files
+    tags:
+    - Resource Group
+    source: openapi/google-files-api-openapi.yml
+  - term: Get
+    definition: Operations related to Get
+    tags:
+    - Resource Group
+    source: openapi/google-get-api-openapi.yml
+  - term: History
+    definition: Operations related to History
+    tags:
+    - Resource Group
+    source: openapi/google-history-api-openapi.yml
+  - term: Image Generation
+    definition: Operations related to Image Generation
+    tags:
+    - Resource Group
+    source: openapi/google-image-generation-api-openapi.yml
+  - term: Import
+    definition: Operations related to Import
+    tags:
+    - Resource Group
+    source: openapi/google-import-api-openapi.yml
+  - term: Info
+    definition: Operations related to Info
+    tags:
+    - Resource Group
+    source: openapi/google-info-api-openapi.yml
+  - term: Insert
+    definition: Operations related to Insert
+    tags:
+    - Resource Group
+    source: openapi/google-insert-api-openapi.yml
+  - term: Labels
+    definition: Operations related to Labels
+    tags:
+    - Resource Group
+    source: openapi/google-labels-api-openapi.yml
+  - term: Language
+    definition: Operations related to Language
+    tags:
+    - Resource Group
+    source: openapi/google-language-api-openapi.yml
+  - term: Limits
+    definition: Operations related to Limits
+    tags:
+    - Resource Group
+    source: openapi/google-limits-api-openapi.yml
+  - term: Lists
+    definition: Operations related to Lists
+    tags:
+    - Resource Group
+    source: openapi/google-lists-api-openapi.yml
+  - term: Messages
+    definition: Operations related to Messages
+    tags:
+    - Resource Group
+    source: openapi/google-messages-api-openapi.yml
+  - term: Modify
+    definition: Operations related to Modify
+    tags:
+    - Resource Group
+    source: openapi/google-modify-api-openapi.yml
+  - term: Notifications
+    definition: Operations related to Notifications
+    tags:
+    - Resource Group
+    source: openapi/google-notifications-api-openapi.yml
+  - term: Obliterate
+    definition: Operations related to Obliterate
+    tags:
+    - Resource Group
+    source: openapi/google-obliterate-api-openapi.yml
+  - term: Patch
+    definition: Operations related to Patch
+    tags:
+    - Resource Group
+    source: openapi/google-patch-api-openapi.yml
+  - term: Permissions
+    definition: Operations related to Permissions
+    tags:
+    - Resource Group
+    source: openapi/google-permissions-api-openapi.yml
+  - term: Pop
+    definition: Operations related to Pop
+    tags:
+    - Resource Group
+    source: openapi/google-pop-api-openapi.yml
+  - term: Replies
+    definition: Operations related to Replies
+    tags:
+    - Resource Group
+    source: openapi/google-replies-api-openapi.yml
+  - term: Revisions
+    definition: Operations related to Revisions
+    tags:
+    - Resource Group
+    source: openapi/google-revisions-api-openapi.yml
+  - term: Send
+    definition: Operations related to Send
+    tags:
+    - Resource Group
+    source: openapi/google-send-api-openapi.yml
+  - term: Sets
+    definition: Operations related to Sets
+    tags:
+    - Resource Group
+    source: openapi/google-sets-api-openapi.yml
+  - term: Settings
+    definition: Operations related to Settings
+    tags:
+    - Resource Group
+    source: openapi/google-settings-api-openapi.yml
+  - term: Speech Generation
+    definition: Operations related to Speech Generation
+    tags:
+    - Resource Group
+    source: openapi/google-speech-generation-api-openapi.yml
+  - term: Team Drives
+    definition: Operations related to Teamdrives
+    tags:
+    - Resource Group
+    source: openapi/google-team-drives-api-openapi.yml
+  - term: Threads
+    definition: Operations related to Threads
+    tags:
+    - Resource Group
+    source: openapi/google-threads-api-openapi.yml
+  - term: Trash
+    definition: Operations related to Trash
+    tags:
+    - Resource Group
+    source: openapi/google-trash-api-openapi.yml
+  - term: Update
+    definition: Operations related to Update
+    tags:
+    - Resource Group
+    source: openapi/google-update-api-openapi.yml
+  - term: User Calendars
+    definition: Operations related to Usersmecalendarlist
+    tags:
+    - Resource Group
+    source: openapi/google-user-calendars-api-openapi.yml
+  - term: User Settings
+    definition: Operations related to Usersmesettings
+    tags:
+    - Resource Group
+    source: openapi/google-user-settings-api-openapi.yml
+  - term: Users
+    definition: Operations related to Users
+    tags:
+    - Resource Group
+    source: openapi/google-users-api-openapi.yml
+  - term: User
+    definition: Information about a Drive user.
+    tags:
+    - Object
+    source: openapi/google-about-api-openapi.yml#/components/schemas/User
+  - term: Impersonation
+    definition: Information about an impersonation, where an admin acts on behalf of an end user. Information about the acting admin is not currently
+      available.
+    tags:
+    - Object
+    source: openapi/google-activity-api-openapi.yml#/components/schemas/Impersonation
+  - term: AnonymousUser
+    definition: Empty message representing an anonymous user or indicating the authenticated user should be anonymized.
+    tags:
+    - Object
+    source: openapi/google-activity-api-openapi.yml#/components/schemas/AnonymousUser
+  - term: Owner
+    definition: Information about the owner of a Drive item.
+    tags:
+    - Object
+    source: openapi/google-activity-api-openapi.yml#/components/schemas/Owner
+  - term: AppliedLabelChange
+    definition: Label changes that were made on the Target.
+    tags:
+    - Object
+    source: openapi/google-activity-api-openapi.yml#/components/schemas/AppliedLabelChange
+  - term: Date
+    definition: Wrapper for Date Field value.
+    tags:
+    - Object
+    source: openapi/google-activity-api-openapi.yml#/components/schemas/Date
+  - term: Rename
+    definition: An object was renamed.
+    tags:
+    - Object
+    source: openapi/google-activity-api-openapi.yml#/components/schemas/Rename
+  - term: SystemEvent
+    definition: Event triggered by system operations instead of end users.
+    tags:
+    - Object
+    source: openapi/google-activity-api-openapi.yml#/components/schemas/SystemEvent
+  - term: QueryDriveActivityRequest
+    definition: The request message for querying Drive activity.
+    tags:
+    - Object
+    source: openapi/google-activity-api-openapi.yml#/components/schemas/QueryDriveActivityRequest
+  - term: UserList
+    definition: Wrapper for UserList Field value.
+    tags:
+    - Object
+    source: openapi/google-activity-api-openapi.yml#/components/schemas/UserList
+  - term: Selection
+    definition: Wrapper for Selection Field value as combined value/display_name pair for selected choice.
+    tags:
+    - Object
+    source: openapi/google-activity-api-openapi.yml#/components/schemas/Selection
+  - term: DriveItem
+    definition: A Drive item, such as a file or folder.
+    tags:
+    - Object
+    source: openapi/google-activity-api-openapi.yml#/components/schemas/DriveItem
+  - term: Text
+    definition: Wrapper for Text Field value.
+    tags:
+    - Object
+    source: openapi/google-activity-api-openapi.yml#/components/schemas/Text
+  - term: SettingsChange
+    definition: Information about settings changes.
+    tags:
+    - Object
+    source: openapi/google-activity-api-openapi.yml#/components/schemas/SettingsChange
+  - term: Target
+    definition: Information about the target of activity. For more information on how activity history is shared with users, see [Activity history
+      visibility](https://developers.google.com/drive/activity/v2#activityhistory).
+    tags:
+    - Object
+    source: openapi/google-activity-api-openapi.yml#/components/schemas/Target
+  - term: Move
+    definition: An object was moved.
+    tags:
+    - Object
+    source: openapi/google-activity-api-openapi.yml#/components/schemas/Move
+  - term: Delete
+    definition: An object was deleted.
+    tags:
+    - Object
+    source: openapi/google-activity-api-openapi.yml#/components/schemas/Delete
+  - term: PermissionChange
+    definition: A change of the permission setting on an item.
+    tags:
+    - Object
+    source: openapi/google-activity-api-openapi.yml#/components/schemas/PermissionChange
+  - term: KnownUser
+    definition: A known user.
+    tags:
+    - Object
+    source: openapi/google-activity-api-openapi.yml#/components/schemas/KnownUser
+  - term: DriveReference
+    definition: A lightweight reference to a shared drive.
+    tags:
+    - Object
+    source: openapi/google-activity-api-openapi.yml#/components/schemas/DriveReference
+  - term: UnknownUser
+    definition: A user about whom nothing is currently known.
+    tags:
+    - Object
+    source: openapi/google-activity-api-openapi.yml#/components/schemas/UnknownUser

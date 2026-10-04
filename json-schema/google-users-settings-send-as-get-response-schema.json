@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-users-settings-send-as-get-response-schema.json",
+  "title": "UsersSettingsSendAsGetResponse",
+  "description": "UsersSettingsSendAsGetResponse schema",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-get-api-openapi.yml#/components/schemas/UsersSettingsSendAsGetResponse",
+  "type": "object",
+  "properties": {
+    "sendAsEmail": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "replyToAddress": {
+      "type": "string"
+    },
+    "signature": {
+      "type": "string"
+    },
+    "isPrimary": {
+      "type": "boolean"
+    },
+    "isDefault": {
+      "type": "boolean"
+    },
+    "treatAsAlias": {
+      "type": "boolean"
+    },
+    "smtpMsa": {
+      "$ref": "#/$defs/UsersSettingsSendAsGetResponseSmtpMsa"
+    },
+    "verificationStatus": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "UsersSettingsSendAsGetResponseSmtpMsa": {
+      "description": "UsersSettingsSendAsGetResponseSmtpMsa schema",
+      "type": "object",
+      "properties": {
+        "host": {
+          "type": "string"
+        },
+        "port": {
+          "type": "integer"
+        },
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "securityMode": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-calendars-acl-watch-post-response-schema.json",
+  "title": "CalendarsAclWatchPostResponse",
+  "description": "CalendarsAclWatchPostResponse schema",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-calendar-acls-api-openapi.yml#/components/schemas/CalendarsAclWatchPostResponse",
+  "type": "object",
+  "properties": {
+    "address": {
+      "type": "string"
+    },
+    "expiration": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "params": {
+      "$ref": "#/$defs/CalendarsAclWatchPostResponseParams"
+    },
+    "payload": {
+      "type": "boolean"
+    },
+    "resourceId": {
+      "type": "string"
+    },
+    "resourceUri": {
+      "type": "string"
+    },
+    "token": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "CalendarsAclWatchPostResponseParams": {
+      "description": "CalendarsAclWatchPostResponseParams schema",
+      "type": "object",
+      "properties": {
+        "reprehenderit5c": {
+          "type": "string"
+        },
+        "sint_b": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

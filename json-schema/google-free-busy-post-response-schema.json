@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google/main/json-schema/google-free-busy-post-response-schema.json",
+  "title": "FreeBusyPostResponse",
+  "description": "FreeBusyPostResponse schema",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/google-free-busy-api-openapi.yml#/components/schemas/FreeBusyPostResponse",
+  "type": "object",
+  "properties": {
+    "calendars": {
+      "$ref": "#/$defs/FreeBusyPostResponseCalendars"
+    },
+    "groups": {
+      "$ref": "#/$defs/FreeBusyPostResponseGroups"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "timeMax": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "timeMin": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "$defs": {
+    "FreeBusyPostResponseCalendars": {
+      "description": "FreeBusyPostResponseCalendars schema",
+      "type": "object",
+      "properties": {
+        "ea8_a": {
+          "$ref": "#/$defs/FreeBusyPostResponseCalendarsEa8A"
+        },
+        "tempor__": {
+          "$ref": "#/$defs/FreeBusyPostResponseCalendarsTempor"
+        }
+      }
+    },
+    "FreeBusyPostResponseCalendarsEa8A": {
+      "description": "FreeBusyPostResponseCalendarsEa8A schema",
+      "type": "object",
+      "properties": {
+        "busy": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "end": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "start": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "domain": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "FreeBusyPostResponseCalendarsTempor": {
+      "description": "FreeBusyPostResponseCalendarsTempor schema",
+      "type": "object",
+      "properties": {
+        "busy": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "end": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "start": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "domain": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "FreeBusyPostResponseGroups": {
+      "description": "FreeBusyPostResponseGroups schema",
+      "type": "object",
+      "properties": {
+        "amet_0": {
+          "$ref": "#/$defs/FreeBusyPostResponseGroupsAmet0"
+        },
+        "occaecat_3": {
+          "$ref": "#/$defs/FreeBusyPostResponseGroupsOccaecat3"
+        }
+      }
+    },
+    "FreeBusyPostResponseGroupsAmet0": {
+      "description": "FreeBusyPostResponseGroupsAmet0 schema",
+      "type": "object",
+      "properties": {
+        "calendars": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "domain": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "FreeBusyPostResponseGroupsOccaecat3": {
+      "description": "FreeBusyPostResponseGroupsOccaecat3 schema",
+      "type": "object",
+      "properties": {
+        "calendars": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "domain": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
