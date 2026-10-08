@@ -92,3 +92,93 @@ rate_limit_statements:
 - A minimum of 1 KB is assessed for each request, independent of the message sizes in the request.
 - The number of partitions across all Lite topics in a reservation must be no greater than the number
   of capacity units reserved.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - subscription
+  units:
+  - compute
+  - data
+  plans:
+  - name: Pub/Sub throughput (Message Delivery Basic)
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - other
+  - name: BigQuery subscriptions throughput
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - other
+  - name: Cloud Storage subscriptions throughput
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - other
+  - name: Import topics (Kinesis Data Streams)
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - other
+  - name: Import topics (Cloud Storage, Azure Event Hubs, AWS MSK, Confluent Cloud)
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - other
+  - name: Storage
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - month
+  - name: UDF Single Message Transform
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - other
+  - name: AI Inference Single Message Transform
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - other
+  - name: Pub/Sub Lite throughput
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Pub/Sub Lite storage, per zone
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
