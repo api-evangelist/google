@@ -219,6 +219,42 @@ edges:
       - update or create
   detected_by: sweep-cdp.py
   first_seen: '2026-10-14'
+- partner_name: Connectivity Standards Alliance (Matter)
+  partner: null
+  type: contract
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://on.dcl.csa-iot.org/dcl/vendorinfo/vendors/24582
+  category: Matter certified products
+  contract_reference:
+    register: CSA Distributed Compliance Ledger (Matter certification)
+    spec_file: null
+    standard: Matter
+    role: Matter certified vendor
+    vendor_id: 24582
+    registered_name: Google LLC
+    legal_name: Google LLC
+    landing_page: https://google.com/
+    identity_source: model product/support URLs
+    matched_domain: google.com
+    matched_by: domain+name-among-holders
+    certified_models: 2
+    certified_products:
+    - product: Thermostat
+      device_type_id: 769
+      models: 2
+      revoked_models: 0
+      latest_certification: '2026-09-23'
+      transports:
+      - wi-fi
+      examples:
+      - Google Nest Thermostat
+      - Nest Learning Thermostat 4th gen
+      lapsed: false
+    signal_note: certified_products = one entry per device type (diversity), not per model
+    detected_by: sweep-iot.py
+    detected: '2026-10-14'
 method: searched
 checked:
 - https://docs.mparticle.com/integrations/firebase/event/
@@ -226,6 +262,7 @@ checked:
 - https://hightouch.com/docs/destinations/gcs
 - https://marketplace.atlassian.com/
 - https://marketplace.visualstudio.com/vscode
+- https://on.dcl.csa-iot.org/dcl/vendorinfo/vendors
 - https://www.twilio.com/docs/segment/connections/destinations/catalog/google-cloud-function
 source:
 - https://docs.mparticle.com/integrations/firebase/event/
