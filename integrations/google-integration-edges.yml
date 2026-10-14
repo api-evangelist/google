@@ -1,0 +1,172 @@
+generated: '2026-10-14'
+edges:
+- partner_name: Open Geospatial Consortium
+  partner: ogc
+  detected_by: sweep-geospatial.py
+  first_seen: '2026-10-14'
+  partner_match: register
+  type: register
+  direction: partner-built
+  channel: standard-directory
+  relationship: standard-participant
+  evidence: https://portal.ogc.org/public_ogc/compliance/implementing.php?org_match=Google
+  conformance:
+    organization: Google
+    domain: google.com
+    products: 3
+    compliant_specs: []
+    implementing_specs:
+    - KML 2.1 Reference - An OGC Best Practice 2.1.0
+    - KML 2.2.0
+    - Web Feature Service 2.0 Interface Standard (also ISO 19142) 2.0
+    - Web Map Service (WMS) Implementation Specification 1.3.0
+    - Web Map Service 1.0
+    - Web Map Service 1.1.1
+    - Web Map Tile Service Implementation Standard 1.0.0
+    products_list:
+    - name: Google Maps Engine
+      version: '1.0'
+      type: Server
+      pid: '1123'
+      valid_until: null
+      compliant: []
+    - name: Google Earth
+      version: '7.0'
+      type: Client (Desktop, Mobile, or Web)
+      pid: '1124'
+      valid_until: null
+      compliant: []
+    - name: Google Earth Enterprise
+      version: '4.4'
+      type: Server
+      pid: '1125'
+      valid_until: null
+      compliant: []
+  match:
+    method: domain+name-among-holders
+    domain: google.com
+  contract_reference:
+    register: portal.ogc.org/public_ogc/compliance
+    spec_file: null
+    role: implementation-registration
+    registered_name: Google
+    register_id: Google
+    detected_by: sweep-geospatial.py
+    detected: '2026-10-14'
+- partner_name: Twilio Segment
+  partner: segment
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://www.twilio.com/docs/segment/connections/destinations/catalog/google-cloud-function
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - google-cloud-function
+      status: PUBLIC_BETA
+      partner_owned: false
+      connection_modes:
+      - cloud:mobile
+      - cloud:server
+      - cloud:web
+      accepted_methods:
+      - Alias
+      - Group
+      - Identify
+      - Page
+      - Track
+      component_owners:
+      - SEGMENT
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: mParticle
+  partner: mparticle
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://docs.mparticle.com/integrations/firebase/event/
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - firebase
+      - google-enhanced-conversions
+      integration_types:
+      - event
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Hightouch
+  partner: hightouch
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://hightouch.com/docs/destinations/gcs
+  coverage_role:
+  - destination
+  - source
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - gcs
+      - google-retail
+      status: released
+      sync_types:
+      - Any data set
+      - Products
+      sync_modes:
+      - all
+      - diff
+      - insert
+      - upsert
+    source:
+      catalog_entries:
+      - gcs-source
+      status: released
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Census
+  partner: getcensus
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/alloydb
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - alloydb
+      - google-cloud-storage
+      - google-datastore
+      sync_behaviours:
+      - mirror
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+method: searched
+checked:
+- https://docs.mparticle.com/integrations/firebase/event/
+- https://fivetran.com/docs/activations/destinations/available-destinations/alloydb
+- https://hightouch.com/docs/destinations/gcs
+- https://www.twilio.com/docs/segment/connections/destinations/catalog/google-cloud-function
+source:
+- https://docs.mparticle.com/integrations/firebase/event/
+- https://fivetran.com/docs/activations/destinations/available-destinations/alloydb
+- https://hightouch.com/docs/destinations/gcs
+- https://www.twilio.com/docs/segment/connections/destinations/catalog/google-cloud-function
