@@ -130,6 +130,30 @@
     detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
+- slug: google-atlassian-marketplace
+  label: Atlassian Marketplace
+  partner: atlassian
+  partner_name: Atlassian Marketplace
+  type: marketplace
+  marketplace: atlassian
+  channel: partner-built
+  evidence: https://marketplace.atlassian.com/vendors/1215440/google-llc
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: google-visual-studio-code-marketplace
+  label: Visual Studio Code Marketplace
+  partner: vs-code-marketplace
+  partner_name: Visual Studio Code Marketplace
+  type: marketplace
+  marketplace: vscode
+  channel: partner-built
+  evidence: https://marketplace.visualstudio.com/publishers/Google
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
 - slug: google-twilio-segment
   label: Twilio Segment
   partner: segment
@@ -176,29 +200,5 @@
   evidence: https://fivetran.com/docs/activations/destinations/available-destinations/alloydb
   source: edge
   relationship: connector-coverage
-  status: not-a-workflow
-  arazzo: null
-- slug: google-atlassian-marketplace
-  label: Atlassian Marketplace
-  partner: atlassian
-  partner_name: Atlassian Marketplace
-  type: marketplace
-  marketplace: atlassian
-  channel: partner-built
-  evidence: https://marketplace.atlassian.com/vendors/1215440/google-llc
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: google-visual-studio-code-marketplace
-  label: Visual Studio Code Marketplace
-  partner: vs-code-marketplace
-  partner_name: Visual Studio Code Marketplace
-  type: marketplace
-  marketplace: vscode
-  channel: partner-built
-  evidence: https://marketplace.visualstudio.com/publishers/Google
-  source: edge
-  relationship: platform-app
   status: not-a-workflow
   arazzo: null

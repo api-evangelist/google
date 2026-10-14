@@ -53,6 +53,66 @@ edges:
     register_id: Google
     detected_by: sweep-geospatial.py
     detected: '2026-10-14'
+- partner_name: Atlassian Marketplace
+  partner: atlassian
+  partner_match: aggregator
+  type: marketplace
+  marketplace: atlassian
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://marketplace.atlassian.com/vendors/1215440/google-llc
+  listing_count: 4
+  apps:
+  - Google Chat for Jira Cloud
+  - User Identity Accessor for Jira Cloud
+  - User Identity Accessor for Confluence Cloud
+  - Security Command Center for Jira Cloud
+  publisher_name: Google LLC
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: Visual Studio Code Marketplace
+  partner: vs-code-marketplace
+  partner_match: aggregator
+  type: marketplace
+  marketplace: vscode
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://marketplace.visualstudio.com/publishers/Google
+  listing_count: 10
+  apps:
+  - Gemini Code Assist
+  - Gemini CLI Companion
+  - Google Antigravity
+  - Colab
+  - ARB Editor
+  publisher_name: Google
+  badges:
+  - Verified publisher
+  - Verified domain
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: Visual Studio Code Marketplace
+  partner: vs-code-marketplace
+  partner_match: aggregator
+  type: marketplace
+  marketplace: vscode
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://marketplace.visualstudio.com/publishers/GoogleCloudTools
+  listing_count: 3
+  apps:
+  - Google Cloud Code
+  - Google Cloud Data Agent Kit
+  - Firebase SQL Connect
+  publisher_name: Google Cloud
+  badges:
+  - Verified publisher
+  - Verified domain
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
 - partner_name: Twilio Segment
   partner: segment
   partner_match: aggregator
@@ -159,66 +219,6 @@ edges:
       - update or create
   detected_by: sweep-cdp.py
   first_seen: '2026-10-14'
-- partner_name: Atlassian Marketplace
-  partner: atlassian
-  partner_match: aggregator
-  type: marketplace
-  marketplace: atlassian
-  channel: partner-built
-  relationship: platform-app
-  direction: third-party
-  evidence: https://marketplace.atlassian.com/vendors/1215440/google-llc
-  listing_count: 4
-  apps:
-  - Google Chat for Jira Cloud
-  - User Identity Accessor for Jira Cloud
-  - User Identity Accessor for Confluence Cloud
-  - Security Command Center for Jira Cloud
-  publisher_name: Google LLC
-  detected_by: sweep-devtools.py
-  detected: '2026-10-14'
-- partner_name: Visual Studio Code Marketplace
-  partner: vs-code-marketplace
-  partner_match: aggregator
-  type: marketplace
-  marketplace: vscode
-  channel: partner-built
-  relationship: platform-app
-  direction: third-party
-  evidence: https://marketplace.visualstudio.com/publishers/Google
-  listing_count: 10
-  apps:
-  - Gemini Code Assist
-  - Gemini CLI Companion
-  - Google Antigravity
-  - Colab
-  - ARB Editor
-  publisher_name: Google
-  badges:
-  - Verified publisher
-  - Verified domain
-  detected_by: sweep-devtools.py
-  detected: '2026-10-14'
-- partner_name: Visual Studio Code Marketplace
-  partner: vs-code-marketplace
-  partner_match: aggregator
-  type: marketplace
-  marketplace: vscode
-  channel: partner-built
-  relationship: platform-app
-  direction: third-party
-  evidence: https://marketplace.visualstudio.com/publishers/GoogleCloudTools
-  listing_count: 3
-  apps:
-  - Google Cloud Code
-  - Google Cloud Data Agent Kit
-  - Firebase SQL Connect
-  publisher_name: Google Cloud
-  badges:
-  - Verified publisher
-  - Verified domain
-  detected_by: sweep-devtools.py
-  detected: '2026-10-14'
 method: searched
 checked:
 - https://docs.mparticle.com/integrations/firebase/event/
