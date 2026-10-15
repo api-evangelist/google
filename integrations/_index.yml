@@ -267,7 +267,7 @@
     other_apps:
     - google-apps-for-work
     - google-groups
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: google-n8n
   label: n8n
@@ -292,7 +292,7 @@
     node_path: Google/Contacts
     trigger: false
     builder: n8n (built-in node)
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: google-pipedream
   label: Pipedream
@@ -318,7 +318,7 @@
     actions: true
     sources: true
     builder: Pipedream repo (component)
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: google-fincen-msb-registration
   label: FinCEN (MSB registration)
