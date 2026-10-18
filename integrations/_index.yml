@@ -494,7 +494,7 @@
       type: source
       lapsed: false
       cloud: true
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: google-fivetran
   label: Fivetran
@@ -520,7 +520,7 @@
     - connectors/files/google-cloud-storage
     vendor_link: https://cloud.google.com/storage/
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: google-meltano
   label: Meltano
@@ -553,5 +553,5 @@
     - bronze
     - silver
     builder: 'community (Meltano Hub variant maintainers: airbyte, datateer)'
-  status: pending-partner-spec
+  status: not-a-workflow
   arazzo: null
