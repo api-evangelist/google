@@ -1,58 +1,5 @@
 generated: '2026-10-14'
 edges:
-- partner_name: Open Geospatial Consortium
-  partner: ogc
-  detected_by: sweep-geospatial.py
-  first_seen: '2026-10-14'
-  partner_match: register
-  type: register
-  direction: partner-built
-  channel: standard-directory
-  relationship: standard-participant
-  evidence: https://portal.ogc.org/public_ogc/compliance/implementing.php?org_match=Google
-  conformance:
-    organization: Google
-    domain: google.com
-    products: 3
-    compliant_specs: []
-    implementing_specs:
-    - KML 2.1 Reference - An OGC Best Practice 2.1.0
-    - KML 2.2.0
-    - Web Feature Service 2.0 Interface Standard (also ISO 19142) 2.0
-    - Web Map Service (WMS) Implementation Specification 1.3.0
-    - Web Map Service 1.0
-    - Web Map Service 1.1.1
-    - Web Map Tile Service Implementation Standard 1.0.0
-    products_list:
-    - name: Google Maps Engine
-      version: '1.0'
-      type: Server
-      pid: '1123'
-      valid_until: null
-      compliant: []
-    - name: Google Earth
-      version: '7.0'
-      type: Client (Desktop, Mobile, or Web)
-      pid: '1124'
-      valid_until: null
-      compliant: []
-    - name: Google Earth Enterprise
-      version: '4.4'
-      type: Server
-      pid: '1125'
-      valid_until: null
-      compliant: []
-  match:
-    method: domain+name-among-holders
-    domain: google.com
-  contract_reference:
-    register: portal.ogc.org/public_ogc/compliance
-    spec_file: null
-    role: implementation-registration
-    registered_name: Google
-    register_id: Google
-    detected_by: sweep-geospatial.py
-    detected: '2026-10-14'
 - partner_name: Atlassian Marketplace
   partner: atlassian
   partner_match: aggregator
@@ -113,6 +60,39 @@ edges:
   - Verified domain
   detected_by: sweep-devtools.py
   detected: '2026-10-14'
+- partner_name: FinCEN (MSB registration)
+  partner: null
+  partner_match: register
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://msb.fincen.gov/
+  category: Money services business
+  contract_reference:
+    register: FinCEN MSB Registrant Search (msb.fincen.gov, full list export)
+    spec_file: null
+    standard: FinCEN MSB registration (US Bank Secrecy Act)
+    role: fincen-msb-registrant
+    registered_name: Google Payment Corp.
+    dba_name: null
+    register_id: Google Payment Corp.
+    matched_domain: google.com
+    matched_by: domain+name-among-holders
+    identity: wikidata Q1048294 'Google Checkout' P856 https://checkout.google.com
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
+    msb_activities:
+    - 409 money transmitter
+    - 414 provider of prepaid access
+    - 499 other
+    states_of_activity: 59
+    received_date: 12/19/2024
+    signal_note: 'participation only: an MSB registration is not a licence or a certification; activities and states
+      are context, never counted'
+    detected_by: sweep-regtech-aml.py
+    detected: '2026-10-15'
+  detected_by: sweep-regtech-aml.py
+  first_seen: '2026-10-15'
 - partner_name: Twilio Segment
   partner: segment
   partner_match: aggregator
@@ -219,154 +199,159 @@ edges:
       - update or create
   detected_by: sweep-cdp.py
   first_seen: '2026-10-14'
-- partner_name: Connectivity Standards Alliance (Matter)
-  partner: null
-  type: contract
+- partner_name: Airbyte
+  partner: airbyte
+  partner_match: aggregator
+  type: marketplace
+  marketplace: airbyte-registry
+  channel: elt-connector
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://docs.airbyte.com/integrations/sources/gcs
+  category: null
+  contract_reference:
+    register: Airbyte connector registry (connectors.airbyte.com cloud_registry.json + oss_registry.json)
+    spec_file: null
+    role: elt-connector:airbyte-certified
+    registered_name: Google Cloud Storage (GCS)
+    matched_domain: google.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    connectors:
+    - airbyte/destination-gcs
+    - airbyte/source-gcs
+    - airbyte/source-google-directory
+    - airbyte/source-google-webfonts
+    support_level:
+    - certified
+    - community
+    release_stage:
+    - alpha
+    - beta
+    in_cloud: true
+    builder: Airbyte (certified)
+    standard: Airbyte certified connector
+    certified_products:
+    - product: Airbyte certified source
+      type: source
+      lapsed: false
+      cloud: true
+  detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
+- partner_name: Fivetran
+  partner: fivetran
+  partner_match: aggregator
+  type: marketplace
+  marketplace: fivetran-connectors
+  channel: elt-connector
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://fivetran.com/docs/connectors/files/google-cloud-storage
+  category: null
+  contract_reference:
+    register: Fivetran connectors (fivetran.com/docs/connectors, docs-sitemap.xml + Partner-Built program)
+    spec_file: null
+    role: elt-connector:fivetran
+    registered_name: Google Cloud Storage
+    matched_domain: google.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    connector_paths:
+    - connectors/files/google-cloud-storage
+    vendor_link: https://cloud.google.com/storage/
+    builder: Fivetran
+  detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
+- partner_name: Meltano
+  partner: meltano
+  partner_match: aggregator
+  type: marketplace
+  marketplace: meltano-hub
+  channel: elt-connector
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://hub.meltano.com/extractors/tap-google-directory--airbyte
+  category: null
+  contract_reference:
+    register: Meltano Hub (github.com/meltano/hub _data/meltano extractors + loaders)
+    spec_file: null
+    role: elt-connector:meltano-hub
+    registered_name: Google Directory
+    matched_domain: google.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    plugins:
+    - tap-google-directory--airbyte
+    - tap-google-webfonts--airbyte
+    - target-gcs--datateer
+    maintenance_status:
+    - active
+    - beta
+    quality:
+    - bronze
+    - silver
+    builder: 'community (Meltano Hub variant maintainers: airbyte, datateer)'
+  detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
+- partner_name: Open Geospatial Consortium
+  partner: ogc
+  detected_by: sweep-geospatial.py
+  first_seen: '2026-10-14'
+  partner_match: register
+  type: register
+  direction: partner-built
   channel: standard-directory
   relationship: standard-participant
-  direction: partner-built
-  evidence: https://on.dcl.csa-iot.org/dcl/vendorinfo/vendors/24582
-  category: Matter certified products
+  evidence: https://portal.ogc.org/public_ogc/compliance/implementing.php?org_match=Google
+  conformance:
+    organization: Google
+    domain: google.com
+    products: 3
+    compliant_specs: []
+    implementing_specs:
+    - KML 2.1 Reference - An OGC Best Practice 2.1.0
+    - KML 2.2.0
+    - Web Feature Service 2.0 Interface Standard (also ISO 19142) 2.0
+    - Web Map Service (WMS) Implementation Specification 1.3.0
+    - Web Map Service 1.0
+    - Web Map Service 1.1.1
+    - Web Map Tile Service Implementation Standard 1.0.0
+    products_list:
+    - name: Google Maps Engine
+      version: '1.0'
+      type: Server
+      pid: '1123'
+      valid_until: null
+      compliant: []
+    - name: Google Earth
+      version: '7.0'
+      type: Client (Desktop, Mobile, or Web)
+      pid: '1124'
+      valid_until: null
+      compliant: []
+    - name: Google Earth Enterprise
+      version: '4.4'
+      type: Server
+      pid: '1125'
+      valid_until: null
+      compliant: []
+  match:
+    method: domain+name-among-holders
+    domain: google.com
   contract_reference:
-    register: CSA Distributed Compliance Ledger (Matter certification)
+    register: portal.ogc.org/public_ogc/compliance
     spec_file: null
-    standard: Matter
-    role: Matter certified vendor
-    vendor_id: 24582
-    registered_name: Google LLC
-    legal_name: Google LLC
-    landing_page: https://google.com/
-    identity_source: model product/support URLs
-    matched_domain: google.com
-    matched_by: domain+name-among-holders
-    certified_models: 2
-    certified_products:
-    - product: Thermostat
-      device_type_id: 769
-      models: 2
-      revoked_models: 0
-      latest_certification: '2026-09-23'
-      transports:
-      - wi-fi
-      examples:
-      - Google Nest Thermostat
-      - Nest Learning Thermostat 4th gen
-      lapsed: false
-    signal_note: certified_products = one entry per device type (diversity), not per model
-    detected_by: sweep-iot.py
-    detected: '2026-10-14'
-- partner_name: Zapier
-  partner: zapier
-  partner_match: aggregator
-  type: marketplace
-  marketplace: zapier-directory
-  channel: ipaas-listing
-  relationship: ipaas-bridge
-  direction: third-party
-  evidence: https://zapier.com/apps/google-contacts/integrations
-  category: null
-  contract_reference:
-    register: Zapier app directory (zapier.com/api/v4/apps)
-    spec_file: null
-    role: ipaas-connector:zapier
-    registered_name: Google Contacts
-    matched_domain: google.com
-    matched_by: domain+name-among-holders
-    detected_by: sweep-workflow-automation.py
-    detected: '2026-10-15'
-    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
-    app_slug: google-contacts
-    beta: false
-    builder: unknown (not in the directory record)
-    other_apps:
-    - google-apps-for-work
-    - google-groups
-  detected_by: sweep-workflow-automation.py
-  first_seen: '2026-10-15'
-- partner_name: n8n
-  partner: n8n
-  partner_match: aggregator
-  type: marketplace
-  marketplace: n8n-nodes-base
-  channel: open-source-node
-  relationship: ipaas-bridge
-  direction: third-party
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Google/Contacts
-  category: null
-  contract_reference:
-    register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
-    spec_file: null
-    role: ipaas-connector:n8n-nodes-base
-    registered_name: Google Contacts
-    matched_domain: google.com
-    matched_by: domain+name-among-holders
-    detected_by: sweep-workflow-automation.py
-    detected: '2026-10-15'
-    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
-    node_path: Google/Contacts
-    trigger: false
-    builder: n8n (built-in node)
-  detected_by: sweep-workflow-automation.py
-  first_seen: '2026-10-15'
-- partner_name: Pipedream
-  partner: pipedream
-  partner_match: aggregator
-  type: marketplace
-  marketplace: pipedream-components
-  channel: open-source-node
-  relationship: ipaas-bridge
-  direction: third-party
-  evidence: https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/google_cloud
-  category: null
-  contract_reference:
-    register: Pipedream components (PipedreamHQ/pipedream components/)
-    spec_file: null
-    role: ipaas-connector:pipedream
-    registered_name: google cloud
-    matched_domain: google.com
-    matched_by: domain+name-among-holders
-    detected_by: sweep-workflow-automation.py
-    detected: '2026-10-15'
-    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
-    app_slug: google_cloud
-    actions: true
-    sources: true
-    builder: Pipedream repo (component)
-  detected_by: sweep-workflow-automation.py
-  first_seen: '2026-10-15'
-- partner_name: FinCEN (MSB registration)
-  partner: null
-  partner_match: register
-  type: contract
-  channel: regulator-register
-  relationship: standard-participant
-  direction: partner-built
-  evidence: https://msb.fincen.gov/
-  category: Money services business
-  contract_reference:
-    register: FinCEN MSB Registrant Search (msb.fincen.gov, full list export)
-    spec_file: null
-    standard: FinCEN MSB registration (US Bank Secrecy Act)
-    role: fincen-msb-registrant
-    registered_name: Google Payment Corp.
-    dba_name: null
-    register_id: Google Payment Corp.
-    matched_domain: google.com
-    matched_by: domain+name-among-holders
-    identity: wikidata Q1048294 'Google Checkout' P856 https://checkout.google.com
-    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
-    msb_activities:
-    - 409 money transmitter
-    - 414 provider of prepaid access
-    - 499 other
-    states_of_activity: 59
-    received_date: 12/19/2024
-    signal_note: 'participation only: an MSB registration is not a licence or a certification; activities and states
-      are context, never counted'
-    detected_by: sweep-regtech-aml.py
-    detected: '2026-10-15'
-  detected_by: sweep-regtech-aml.py
-  first_seen: '2026-10-15'
+    role: implementation-registration
+    registered_name: Google
+    register_id: Google
+    detected_by: sweep-geospatial.py
+    detected: '2026-10-19'
 - partner_name: FedRAMP
   partner: null
   partner_match: register
@@ -469,106 +454,131 @@ edges:
     detected: '2026-10-15'
   detected_by: sweep-gov-cloud.py
   first_seen: '2026-10-15'
-- partner_name: Airbyte
-  partner: airbyte
-  partner_match: aggregator
-  type: marketplace
-  marketplace: airbyte-registry
-  channel: elt-connector
-  relationship: ipaas-bridge
-  direction: third-party
-  evidence: https://docs.airbyte.com/integrations/sources/gcs
-  category: null
+- partner_name: Connectivity Standards Alliance (Matter)
+  partner: null
+  type: contract
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://on.dcl.csa-iot.org/dcl/vendorinfo/vendors/24582
+  category: Matter certified products
   contract_reference:
-    register: Airbyte connector registry (connectors.airbyte.com cloud_registry.json + oss_registry.json)
+    register: CSA Distributed Compliance Ledger (Matter certification)
     spec_file: null
-    role: elt-connector:airbyte-certified
-    registered_name: Google Cloud Storage (GCS)
+    standard: Matter
+    role: Matter certified vendor
+    vendor_id: 24582
+    registered_name: Google LLC
+    legal_name: Google LLC
+    landing_page: https://google.com/
+    identity_source: model product/support URLs
     matched_domain: google.com
     matched_by: domain+name-among-holders
-    detected_by: sweep-data-integration.py
-    detected: '2026-10-18'
-    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
-    connectors:
-    - airbyte/destination-gcs
-    - airbyte/source-gcs
-    - airbyte/source-google-directory
-    - airbyte/source-google-webfonts
-    support_level:
-    - certified
-    - community
-    release_stage:
-    - alpha
-    - beta
-    in_cloud: true
-    builder: Airbyte (certified)
-    standard: Airbyte certified connector
+    certified_models: 6
     certified_products:
-    - product: Airbyte certified source
-      type: source
+    - product: Thermostat
+      device_type_id: 769
+      models: 2
+      revoked_models: 0
+      latest_certification: '2026-09-23'
+      transports:
+      - wi-fi
+      examples:
+      - Google Nest Thermostat
+      - Nest Learning Thermostat 4th gen
       lapsed: false
-      cloud: true
-  detected_by: sweep-data-integration.py
-  first_seen: '2026-10-18'
-- partner_name: Fivetran
-  partner: fivetran
+    - product: unspecified device type
+      device_type_id: null
+      models: 4
+      revoked_models: 0
+      latest_certification: '2026-04-30'
+      transports:
+      - bluetooth
+      - wi-fi
+      examples: null
+      lapsed: false
+    signal_note: certified_products = one entry per device type (diversity), not per model
+    detected_by: sweep-iot.py
+    detected: '2026-10-19'
+- partner_name: Zapier
+  partner: zapier
   partner_match: aggregator
   type: marketplace
-  marketplace: fivetran-connectors
-  channel: elt-connector
+  marketplace: zapier-directory
+  channel: ipaas-listing
   relationship: ipaas-bridge
   direction: third-party
-  evidence: https://fivetran.com/docs/connectors/files/google-cloud-storage
+  evidence: https://zapier.com/apps/google-contacts/integrations
   category: null
   contract_reference:
-    register: Fivetran connectors (fivetran.com/docs/connectors, docs-sitemap.xml + Partner-Built program)
+    register: Zapier app directory (zapier.com/api/v4/apps)
     spec_file: null
-    role: elt-connector:fivetran
-    registered_name: Google Cloud Storage
+    role: ipaas-connector:zapier
+    registered_name: Google Contacts
     matched_domain: google.com
     matched_by: domain+name-among-holders
-    detected_by: sweep-data-integration.py
-    detected: '2026-10-18'
-    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
-    connector_paths:
-    - connectors/files/google-cloud-storage
-    vendor_link: https://cloud.google.com/storage/
-    builder: Fivetran
-  detected_by: sweep-data-integration.py
-  first_seen: '2026-10-18'
-- partner_name: Meltano
-  partner: meltano
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: google-contacts
+    beta: false
+    builder: unknown (not in the directory record)
+    other_apps:
+    - google-apps-for-work
+    - google-groups
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
+- partner_name: n8n
+  partner: n8n
   partner_match: aggregator
   type: marketplace
-  marketplace: meltano-hub
-  channel: elt-connector
+  marketplace: n8n-nodes-base
+  channel: open-source-node
   relationship: ipaas-bridge
   direction: third-party
-  evidence: https://hub.meltano.com/extractors/tap-google-directory--airbyte
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Google/Contacts
   category: null
   contract_reference:
-    register: Meltano Hub (github.com/meltano/hub _data/meltano extractors + loaders)
+    register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
-    role: elt-connector:meltano-hub
-    registered_name: Google Directory
+    role: ipaas-connector:n8n-nodes-base
+    registered_name: Google Contacts
     matched_domain: google.com
     matched_by: domain+name-among-holders
-    detected_by: sweep-data-integration.py
-    detected: '2026-10-18'
-    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
-    plugins:
-    - tap-google-directory--airbyte
-    - tap-google-webfonts--airbyte
-    - target-gcs--datateer
-    maintenance_status:
-    - active
-    - beta
-    quality:
-    - bronze
-    - silver
-    builder: 'community (Meltano Hub variant maintainers: airbyte, datateer)'
-  detected_by: sweep-data-integration.py
-  first_seen: '2026-10-18'
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    node_path: Google/Contacts
+    trigger: false
+    builder: n8n (built-in node)
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
+- partner_name: Pipedream
+  partner: pipedream
+  partner_match: aggregator
+  type: marketplace
+  marketplace: pipedream-components
+  channel: open-source-node
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/google_cloud
+  category: null
+  contract_reference:
+    register: Pipedream components (PipedreamHQ/pipedream components/)
+    spec_file: null
+    role: ipaas-connector:pipedream
+    registered_name: google cloud
+    matched_domain: google.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: google_cloud
+    actions: true
+    sources: true
+    builder: Pipedream repo (component)
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
 method: searched
 checked:
 - https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
@@ -578,8 +588,10 @@ checked:
 - https://fivetran.com/docs/activations/destinations/available-destinations/alloydb
 - https://fivetran.com/docs/connectors/partner-built-program
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
+- https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/
 - https://github.com/meltano/hub
 - https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/
+- https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/
 - https://govramp.org/program-participants
 - https://hightouch.com/docs/destinations/gcs
 - https://kantarainitiative.org/trust-status-list/
