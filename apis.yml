@@ -1135,7 +1135,7 @@ apis:
   tags:
   - API Gateway
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  baseURL: https://api.example.com
+  baseURL: https://apigateway.googleapis.com
   contact:
   - FN: Cloud Gateway Support
     url: https://cloud.google.com/api-gateway/docs/support
@@ -1720,7 +1720,7 @@ apis:
   name: Google About API
   description: Operations related to About
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/drive/v3
   tags:
   - About
   properties:
@@ -1758,7 +1758,7 @@ apis:
   name: Google Activity API
   description: Operations related to Activity
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://driveactivity.googleapis.com
   tags:
   - Activity
   properties:
@@ -1798,7 +1798,7 @@ apis:
   name: Google Address API
   description: Operations related to Address
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Address
   properties:
@@ -1838,7 +1838,7 @@ apis:
   name: Google Addresses API
   description: Operations related to Addresses
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Addresses
   properties:
@@ -1878,7 +1878,7 @@ apis:
   name: Google Append API
   description: Operations related to Append
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://sheets.googleapis.com
   tags:
   - Append
   properties:
@@ -1918,7 +1918,7 @@ apis:
   name: Google Applications API
   description: The Applications API from Google — 2 operation(s) for applications.
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/drive/v3
   tags:
   - Application
   tags_raw:
@@ -1960,7 +1960,7 @@ apis:
   name: Google Attachments API
   description: Operations related to Attachments
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Attachments
   properties:
@@ -1998,7 +1998,7 @@ apis:
   name: Google Audio Understanding API
   description: Operations related to Audio Understanding
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://generativelanguage.googleapis.com/v1beta
   tags:
   - Audio Understanding
   properties:
@@ -2046,7 +2046,7 @@ apis:
   name: Google Auto API
   description: Operations related to Auto
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Auto
   properties:
@@ -2088,7 +2088,7 @@ apis:
   name: Google Batch API
   description: Operations related to Batch
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Batch
   properties:
@@ -2136,7 +2136,7 @@ apis:
   name: Google Bookshelves API
   description: The Bookshelves API from Google — 3 operation(s) for bookshelves.
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/books/v1
   tags:
   - Bookshelves
   properties:
@@ -2178,7 +2178,7 @@ apis:
   name: Google Calendar ACL Rules API
   description: The Calendar ACL Rules API from Google — 1 operation(s) for calendar acl rules.
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/calendar/v3
   tags:
   - Calendar ACL Rules
   properties:
@@ -2224,7 +2224,7 @@ apis:
   name: Google Calendar ACLs API
   description: The Calendar ACLs API from Google — 2 operation(s) for calendar acls.
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/calendar/v3
   tags:
   - Calendar ACLs
   properties:
@@ -2270,7 +2270,7 @@ apis:
   name: Google Calendar Events API
   description: Operations related to Calendarscalendaridevents
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/calendar/v3
   tags:
   - Calendar Events
   properties:
@@ -2318,7 +2318,7 @@ apis:
   name: Google Calendars API
   description: Operations related to Calendars
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/calendar/v3
   tags:
   - Calendar
   tags_raw:
@@ -2368,7 +2368,7 @@ apis:
   name: Google Changes API
   description: Operations related to Changes
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/drive/v3
   tags:
   - Changes
   properties:
@@ -2410,7 +2410,7 @@ apis:
   name: Google Channels API
   description: The Channels API from Google — 1 operation(s) for channels.
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/calendar/v3
   tags:
   - Channels
   properties:
@@ -2448,7 +2448,7 @@ apis:
   name: Google Clear API
   description: Operations related to Clear
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://sheets.googleapis.com
   tags:
   - Clear
   properties:
@@ -2488,7 +2488,7 @@ apis:
   name: Google Colors API
   description: Operations related to Default
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/calendar/v3
   tags:
   - Colors
   properties:
@@ -2526,7 +2526,7 @@ apis:
   name: Google Comments API
   description: Operations related to Comments
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/drive/v3
   tags:
   - Comments
   properties:
@@ -2564,7 +2564,7 @@ apis:
   name: Google Content Generation API
   description: Operations related to Content Generation
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://generativelanguage.googleapis.com/v1beta
   tags:
   - Content Generation
   properties:
@@ -2604,7 +2604,7 @@ apis:
   name: Google Copy API
   description: Operations related to Copy
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://sheets.googleapis.com
   tags:
   - Copy
   properties:
@@ -2644,7 +2644,7 @@ apis:
   name: Google Create API
   description: Operations related to Create
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags: []
   tags_raw:
   - Create
@@ -2693,7 +2693,7 @@ apis:
   name: Google Data API
   description: Operations related to Data
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://sheets.googleapis.com
   tags:
   - Data
   properties:
@@ -2741,7 +2741,7 @@ apis:
   name: Google Delegates API
   description: Operations related to Delegates
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Delegates
   properties:
@@ -2781,7 +2781,7 @@ apis:
   name: Google Deletes API
   description: Operations related to Deletes
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags: []
   tags_raw:
   - Deletes
@@ -2818,7 +2818,7 @@ apis:
   name: Google Developer API
   description: Operations related to Developer
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://sheets.googleapis.com
   tags:
   - Developers
   tags_raw:
@@ -2862,7 +2862,7 @@ apis:
   name: Google Disables API
   description: Operations related to Disables
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Disables
   properties:
@@ -2902,7 +2902,7 @@ apis:
   name: Google Documents API
   description: Operations related to Documents
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://docs.googleapis.com
   tags:
   - Documents
   properties:
@@ -2944,7 +2944,7 @@ apis:
   name: Google Drafts API
   description: Operations related to Drafts
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Drafts
   properties:
@@ -2992,7 +2992,7 @@ apis:
   name: Google Drives API
   description: Operations related to Drives
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/drive/v3
   tags:
   - Drives
   properties:
@@ -3032,7 +3032,7 @@ apis:
   name: Google Enables API
   description: Operations related to Enables
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Enables
   properties:
@@ -3072,7 +3072,7 @@ apis:
   name: Google File Api
   description: Operations related to File Api
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://generativelanguage.googleapis.com/v1beta
   tags:
   - File API
   tags_raw:
@@ -3112,7 +3112,7 @@ apis:
   name: Google Files API
   description: Operations related to Files
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/drive/v3
   tags:
   - File
   tags_raw:
@@ -3162,7 +3162,7 @@ apis:
   name: Google Free Busy API
   description: The Free Busy API from Google — 1 operation(s) for free busy.
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/calendar/v3
   tags:
   - Free Busy
   properties:
@@ -3202,7 +3202,7 @@ apis:
   name: Google Get API
   description: Operations related to Get
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags: []
   tags_raw:
   - Get
@@ -3251,7 +3251,7 @@ apis:
   name: Google History API
   description: Operations related to History
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - History
   properties:
@@ -3289,7 +3289,7 @@ apis:
   name: Google Image Generation API
   description: Operations related to Image Generation
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://generativelanguage.googleapis.com/v1beta
   tags:
   - Image Generation
   tags_raw:
@@ -3332,7 +3332,7 @@ apis:
   name: Google Import API
   description: Operations related to Import
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Import
   properties:
@@ -3372,7 +3372,7 @@ apis:
   name: Google Info API
   description: Operations related to Info
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Info
   properties:
@@ -3414,7 +3414,7 @@ apis:
   name: Google Insert API
   description: Operations related to Insert
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Insert
   properties:
@@ -3452,7 +3452,7 @@ apis:
   name: Google Labels API
   description: Operations related to Labels
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://drivelabels.googleapis.com
   tags:
   - Labels
   properties:
@@ -3488,7 +3488,7 @@ apis:
   name: Google Language API
   description: Operations related to Language
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Language
   properties:
@@ -3524,7 +3524,7 @@ apis:
   name: Google Limits API
   description: Operations related to Limits
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://drivelabels.googleapis.com
   tags:
   - Limits
   properties:
@@ -3560,7 +3560,7 @@ apis:
   name: Google Lists API
   description: Operations related to Lists
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - List
   tags_raw:
@@ -3598,7 +3598,7 @@ apis:
   name: Google Messages API
   description: Operations related to Messages
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Message
   tags_raw:
@@ -3636,7 +3636,7 @@ apis:
   name: Google Modify API
   description: Operations related to Modify
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Modify
   properties:
@@ -3672,7 +3672,7 @@ apis:
   name: Google My Library API
   description: The My Library API from Google — 7 operation(s) for my library.
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/books/v1
   tags:
   - My Library
   properties:
@@ -3708,7 +3708,7 @@ apis:
   name: Google Notifications API
   description: Operations related to Notifications
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Notification
   tags_raw:
@@ -3746,7 +3746,7 @@ apis:
   name: Google Obliterate API
   description: Operations related to Obliterate
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Obliterate
   properties:
@@ -3782,7 +3782,7 @@ apis:
   name: Google Patch API
   description: Operations related to Patch
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags: []
   tags_raw:
   - Patch
@@ -3819,7 +3819,7 @@ apis:
   name: Google Permissions API
   description: Operations related to Permissions
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/drive/v3
   tags:
   - Permissions
   properties:
@@ -3855,7 +3855,7 @@ apis:
   name: Google Pop API
   description: Operations related to Pop
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Pop
   properties:
@@ -3891,7 +3891,7 @@ apis:
   name: Google Replies API
   description: Operations related to Replies
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/drive/v3
   tags:
   - Replies
   properties:
@@ -3927,7 +3927,7 @@ apis:
   name: Google Revisions API
   description: Operations related to Revisions
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/drive/v3
   tags:
   - Revisions
   properties:
@@ -3963,7 +3963,7 @@ apis:
   name: Google Send API
   description: Operations related to Send
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Send
   properties:
@@ -3999,7 +3999,7 @@ apis:
   name: Google Sets API
   description: Operations related to Sets
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Sets
   properties:
@@ -4035,7 +4035,7 @@ apis:
   name: Google Settings API
   description: Operations related to Settings
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Settings
   properties:
@@ -4071,7 +4071,7 @@ apis:
   name: Google Speech Generation API
   description: Operations related to Speech Generation
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://generativelanguage.googleapis.com/v1beta
   tags:
   - Speech Generation
   properties:
@@ -4107,7 +4107,7 @@ apis:
   name: Google Team Drives API
   description: Operations related to Teamdrives
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/drive/v3
   tags:
   - Team Drives
   properties:
@@ -4143,7 +4143,7 @@ apis:
   name: Google Threads API
   description: Operations related to Threads
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Threads
   properties:
@@ -4179,7 +4179,7 @@ apis:
   name: Google Trash API
   description: Operations related to Trash
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags:
   - Trash
   properties:
@@ -4215,7 +4215,7 @@ apis:
   name: Google Update API
   description: Operations related to Update
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://gmail.googleapis.com
   tags: []
   tags_raw:
   - Update
@@ -4252,7 +4252,7 @@ apis:
   name: Google User Calendars API
   description: Operations related to Usersmecalendarlist
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/calendar/v3
   tags:
   - User Calendars
   properties:
@@ -4288,7 +4288,7 @@ apis:
   name: Google User Settings API
   description: Operations related to Usersmesettings
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/calendar/v3
   tags:
   - User Settings
   properties:
@@ -4324,7 +4324,7 @@ apis:
   name: Google Users API
   description: Operations related to Users
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://drivelabels.googleapis.com
   tags:
   - User
   tags_raw:
@@ -4362,7 +4362,7 @@ apis:
   name: Google Volumes API
   description: The Volumes API from Google — 2 operation(s) for volumes.
   humanURL: https://cloud.google.com/api-gateway/docs
-  baseURL: https://api.example.com
+  baseURL: https://www.googleapis.com/books/v1
   tags:
   - Volumes
   properties:
