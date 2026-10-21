@@ -711,9 +711,97 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-official-clis.py
   first_seen: '2026-10-20'
+- partner_name: Docker Hub (docker-verified-publisher)
+  partner: docker-hub
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: docker-verified-publisher
+  evidence: https://hub.docker.com/u/google
+  mirror_of: docker-hub/integrations/docker-hub-integration-edges.yml
+  apps:
+  - google/cadvisor
+  - google/cloud-sdk
+  - google/apparmor-loader
+  - google/docker-registry
+  - google/pause
+  - google/shaka-packager
+  - google/dart
+  - google/guestbook-python-redis
+  - google/alloydbomni
+  - google/deepvariant
+  - google/webfundamentals
+  - google/mysql
+  - google/docker-registry-gcs
+  - google/fluentd-bigquery-sample
+  - google/ipython-predictions
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: Docker Verified Publisher
+  badges:
+  - Docker Verified Publisher
+- partner_name: Eclipse Foundation (open-vsx)
+  partner: eclipse
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: open-vsx
+  evidence: https://open-vsx.org/namespace/Google
+  mirror_of: eclipse/integrations/eclipse-integration-edges.yml
+  apps:
+  - Gemini Code Assist
+  - Gemini CLI Companion
+  - Colab
+  - ChromiumIDE
+  - Google Antigravity
+  - GN Language
+  - ARB Editor
+  - Looker by Google Cloud
+  - AIDL
+  - Packet Description Language
+  - SELinux Policy
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: IDE / developer extension marketplace listing
+  badges:
+  - Verified namespace
+- partner_name: JetBrains (jetbrains-marketplace)
+  partner: jetbrains
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: jetbrains-marketplace
+  evidence: https://plugins.jetbrains.com/vendor/Google
+  mirror_of: jetbrains/integrations/jetbrains-integration-edges.yml
+  apps:
+  - Flutter
+  - Dart
+  - google-java-format
+  - Google Cloud Code
+  - Gemini Code Assist
+  - Cloud Workstations
+  - Bazel for Android Studio
+  - GN Language
+  - Google Home Extension Preview
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: IDE / developer extension marketplace listing
+  badges:
+  - Verified vendor
 method: searched
 checked:
-- https://cdn.winget.microsoft.com/cache
 - https://cloudsecurityalliance.org/star/registry
 - https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
 - https://connectors.airbyte.com/files/registries/v0/oss_registry.json
@@ -722,12 +810,8 @@ checked:
 - https://fivetran.com/docs-sitemap.xml
 - https://fivetran.com/docs/activations/destinations/available-destinations/alloydb
 - https://fivetran.com/docs/connectors/partner-built-program
-- https://formulae.brew.sh/api/cask.json
-- https://formulae.brew.sh/api/formula.json
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
 - https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/
-- https://github.com/ScoopInstaller/Extras
-- https://github.com/ScoopInstaller/Main
 - https://github.com/meltano/hub
 - https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/
 - https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/
@@ -738,13 +822,21 @@ checked:
 - https://marketplace.visualstudio.com/vscode
 - https://msb.fincen.gov/
 - https://on.dcl.csa-iot.org/dcl/vendorinfo/vendors
-- https://pypi.org/pypi
 - https://raw.githubusercontent.com/18F/fedramp-data/4b73d9247fd6360759960e4690e3ce4ca858e0fa/data/data.json
-- https://registry.npmjs.org
 - https://www.access-dvs-register.service.gov.uk/register/download-register
 - https://www.applytosupply.digitalmarketplace.service.gov.uk/g-cloud-15/suppliers
 - https://www.twilio.com/docs/segment/connections/destinations/catalog/google-cloud-function
 - https://zapier.com/api/v4/apps/
+- https://cdn.winget.microsoft.com/cache
+- https://formulae.brew.sh/api/cask.json
+- https://formulae.brew.sh/api/formula.json
+- https://github.com/ScoopInstaller/Extras
+- https://github.com/ScoopInstaller/Main
+- https://pypi.org/pypi
+- https://registry.npmjs.org
+- docker-hub/integrations/docker-hub-integration-edges.yml
+- eclipse/integrations/eclipse-integration-edges.yml
+- jetbrains/integrations/jetbrains-integration-edges.yml
 source:
 - https://docs.mparticle.com/integrations/firebase/event/
 - https://fivetran.com/docs/activations/destinations/available-destinations/alloydb
