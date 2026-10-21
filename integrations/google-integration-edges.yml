@@ -800,6 +800,31 @@ edges:
   category: IDE / developer extension marketplace listing
   badges:
   - Verified vendor
+- partner_name: UK G-Cloud 14 (Digital Marketplace)
+  partner: null
+  partner_match: register
+  type: marketplace
+  marketplace: g-cloud
+  channel: distribution
+  relationship: distribution-channel
+  direction: third-party
+  evidence: https://www.applytosupply.digitalmarketplace.service.gov.uk/g-cloud-14/supplier/720213
+  category: UK public-sector procurement framework
+  contract_reference:
+    register: UK G-Cloud 14 supplier list (Digital Marketplace)
+    spec_file: null
+    role: g-cloud-supplier
+    registered_name: Google Cloud EMEA Limited
+    register_id: '720213'
+    matched_domain: google.com
+    matched_by: domain+name-among-holders
+    domain_source: contact-email
+    signal_note: a framework award is distribution (selling to the public sector), not an integration; kept out
+      of position shares
+    detected_by: sweep-uk-g-cloud-suppliers.py
+    detected: '2026-10-21'
+  detected_by: sweep-uk-g-cloud-suppliers.py
+  first_seen: '2026-10-21'
 method: searched
 checked:
 - https://cloudsecurityalliance.org/star/registry
@@ -837,6 +862,10 @@ checked:
 - docker-hub/integrations/docker-hub-integration-edges.yml
 - eclipse/integrations/eclipse-integration-edges.yml
 - jetbrains/integrations/jetbrains-integration-edges.yml
+- https://iasme.co.uk/cyber-essentials/ncsc-certificate-search/
+- https://www.applytosupply.digitalmarketplace.service.gov.uk/g-cloud-14/suppliers
+- https://www.crowncommercial.gov.uk/agreements
+- https://www.ncsc.gov.uk/cyberessentials/search
 source:
 - https://docs.mparticle.com/integrations/firebase/event/
 - https://fivetran.com/docs/activations/destinations/available-destinations/alloydb
