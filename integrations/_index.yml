@@ -762,3 +762,209 @@
     detected: '2026-10-21'
   status: not-a-workflow
   arazzo: null
+- slug: google-ismap
+  label: ISMAP
+  partner_name: ISMAP
+  category: Japan government cloud security assessment (ISMAP)
+  type: contract
+  channel: regulator-register
+  evidence: https://www.ismap.go.jp/csm?id=cloud_service_list
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: ISMAP / ISMAP-LIU cloud service lists (www.ismap.go.jp)
+    standard: ISMAP
+    spec_file: null
+    role: ismap-registered
+    registrations:
+    - register_number: C21-0004-2
+      registration_type: ISMAP
+      service: Google Cloud Platform
+      registered_name: Google LLC
+      service_url: https://cloud.google.com/
+      matched_domain: google.com
+      matched_by: domain+name-among-holders
+      evidence_url: https://www.ismap.go.jp/csm?id=cloud_service_list
+      scope_of_statement: https://www.ismap.go.jp/sys_attachment.do?sys_id=95a2661d83f47a10aa68c6a8beaad3c3
+    - register_number: C21-0005-2
+      registration_type: ISMAP
+      service: Google Workspace
+      registered_name: Google LLC
+      service_url: https://workspace.google.com/
+      matched_domain: google.com
+      matched_by: domain+name-among-holders
+      evidence_url: https://www.ismap.go.jp/csm?id=cloud_service_list
+      scope_of_statement: https://www.ismap.go.jp/sys_attachment.do?sys_id=c9522a652b2107d0f0bbfd69fe91bfe1
+    - register_number: C21-0029-2
+      registration_type: ISMAP
+      service: Bare Metal Solution
+      registered_name: Google LLC
+      service_url: https://cloud.google.com/bare-metal
+      matched_domain: google.com
+      matched_by: domain+name-among-holders
+      evidence_url: https://www.ismap.go.jp/csm?id=cloud_service_list
+      scope_of_statement: https://www.ismap.go.jp/sys_attachment.do?sys_id=64b74adb2b360710434ff14a6e91bf35
+    - register_number: C22-0042-2
+      registration_type: ISMAP
+      service: Firebase
+      registered_name: Google LLC
+      service_url: https://firebase.google.com
+      matched_domain: google.com
+      matched_by: domain+name-among-holders
+      evidence_url: https://www.ismap.go.jp/csm?id=cloud_service_list
+      scope_of_statement: https://www.ismap.go.jp/sys_attachment.do?sys_id=556d86142be7aa10f0bbfd69fe91bfee
+    - register_number: C23-0058-2
+      registration_type: ISMAP
+      service: Looker Data Platform
+      registered_name: Google LLC
+      service_url: https://cloud.google.com/looker
+      matched_domain: google.com
+      matched_by: domain+name-among-holders
+      evidence_url: https://www.ismap.go.jp/csm?id=cloud_service_list
+      scope_of_statement: https://www.ismap.go.jp/sys_attachment.do?sys_id=1ffded812b188710f0bbfd69fe91bfb9
+    - register_number: C26-0114-2
+      registration_type: ISMAP
+      service: Gemini Enterprise (including Agentspace) and Gemini Notebook Enterprise
+      registered_name: Google LLC
+      service_url: https://cloud.google.com/gemini-enterprise
+      matched_domain: google.com
+      matched_by: domain+name-among-holders
+      evidence_url: https://www.ismap.go.jp/csm?id=cloud_service_list
+      scope_of_statement: https://www.ismap.go.jp/sys_attachment.do?sys_id=f66abd0d2b588710f0bbfd69fe91bf57
+    signal_note: certified_products = one entry per ISMAP registration TYPE (ISMAP, ISMAP-LIU), never per service;
+      services are context, never counted. The lists carry current registrations only (a filed renewal keeps a registration
+      valid), so lapsed is always false
+    certified_products:
+    - product: ISMAP
+      standard: ISMAP
+      registration_type: ISMAP
+      lapsed: false
+    detected_by: sweep-japan-ismap-tisax-assessments.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
+- slug: google-raycast
+  label: Raycast
+  partner: raycast
+  partner_name: Raycast
+  category: Raycast Store extension (community wrapper)
+  type: marketplace
+  marketplace: raycast-store
+  channel: connector-listing
+  evidence: https://www.raycast.com/mblode/google-search
+  source: edge
+  relationship: connector-coverage
+  contract_reference:
+    register: Raycast Store (raycast/extensions monorepo + store_listings JSON)
+    spec_file: null
+    role: raycast-community-wrapper
+    builder: community
+    authors:
+    - Kang
+    - aic
+    - developerlover
+    - jonah_tweed
+    - koinzhang
+    - kyle_samani
+    - leandro.maia
+    - mblode
+    - ojowwalker77
+    - ridemountainpig
+    matched_domain: google.com
+    matched_by: domain+name-among-holders
+    monorepo_commit: 84f9ac51336a8c69f70974a75bc067c0feae3658
+    listings:
+    - title: Google Search
+      store_url: https://www.raycast.com/mblode/google-search
+      installs: 153883
+      categories:
+      - Web
+      source: https://github.com/raycast/extensions/tree/84f9ac51336a8c69f70974a75bc067c0feae3658/extensions/google-search/
+      author: mblode
+    - title: Google Lens
+      store_url: https://www.raycast.com/ridemountainpig/google-lens
+      installs: 5829
+      categories:
+      - Productivity
+      - Media
+      - Web
+      source: https://github.com/raycast/extensions/tree/84f9ac51336a8c69f70974a75bc067c0feae3658/extensions/google-lens/
+      author: ridemountainpig
+    - title: Google Trends
+      store_url: https://www.raycast.com/Kang/google-trends
+      installs: 5819
+      categories: []
+      source: https://github.com/raycast/extensions/tree/84f9ac51336a8c69f70974a75bc067c0feae3658/extensions/google-trends/
+      author: Kang
+    - title: Google Advanced Search
+      store_url: https://www.raycast.com/developerlover/google-advanced-search
+      installs: 2034
+      categories:
+      - Productivity
+      - Web
+      source: https://github.com/raycast/extensions/tree/84f9ac51336a8c69f70974a75bc067c0feae3658/extensions/google-advanced-search/
+      author: developerlover
+    - title: Google Scholar
+      store_url: https://www.raycast.com/leandro.maia/google-scholar
+      installs: 1454
+      categories: []
+      source: https://github.com/raycast/extensions/tree/84f9ac51336a8c69f70974a75bc067c0feae3658/extensions/google-scholar/
+      author: leandro.maia
+    - title: Google Cloud CLI
+      store_url: https://www.raycast.com/ojowwalker77/g-cloud
+      installs: 955
+      categories:
+      - Developer Tools
+      source: https://github.com/raycast/extensions/tree/84f9ac51336a8c69f70974a75bc067c0feae3658/extensions/g-cloud/
+      author: ojowwalker77
+    - title: Google Contacts
+      store_url: https://www.raycast.com/aic/google-contacts
+      installs: 526
+      categories:
+      - Productivity
+      - Communication
+      - AI Extensions
+      source: https://github.com/raycast/extensions/tree/84f9ac51336a8c69f70974a75bc067c0feae3658/extensions/google-contacts/
+      author: aic
+      ai_tools: true
+    - title: Google Maven Repository
+      store_url: https://www.raycast.com/koinzhang/google-maven-repository
+      installs: 288
+      categories:
+      - Developer Tools
+      - Documentation
+      source: https://github.com/raycast/extensions/tree/84f9ac51336a8c69f70974a75bc067c0feae3658/extensions/google-maven-repository/
+      author: koinzhang
+    - title: Google Finance
+      store_url: https://www.raycast.com/kyle_samani/google-finance
+      installs: 231
+      categories:
+      - Finance
+      source: https://github.com/raycast/extensions/tree/84f9ac51336a8c69f70974a75bc067c0feae3658/extensions/google-finance/
+      author: kyle_samani
+    - title: Google Find Hub
+      store_url: https://www.raycast.com/jonah_tweed/google-find-hub
+      installs: 22
+      categories:
+      - Applications
+      - Productivity
+      source: https://github.com/raycast/extensions/tree/84f9ac51336a8c69f70974a75bc067c0feae3658/extensions/google-find-hub/
+      author: jonah_tweed
+    categories:
+    - AI Extensions
+    - Applications
+    - Communication
+    - Developer Tools
+    - Documentation
+    - Finance
+    - Media
+    - Productivity
+    - Web
+    identity_note: the extension's own source calls a host on the product's domain AND its title / package name
+      passes partner_link's name check; built by Raycast community developers, not the vendor
+    signal_note: 'coverage: Raycast''s store reaches the product through community-built extensions; one edge per
+      (product, store); install / listing counts are context, never counted'
+    detected_by: sweep-raycast-store-extensions.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
