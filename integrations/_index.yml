@@ -968,3 +968,47 @@
     detected: '2026-10-22'
   status: not-a-workflow
   arazzo: null
+- slug: google-apis-guru-openapi-directory
+  label: APIs.guru OpenAPI Directory
+  partner: apis-guru
+  partner_name: APIs.guru OpenAPI Directory
+  category: API definition directory listing (OpenAPI)
+  type: register
+  channel: standard-directory
+  evidence: https://apis.guru/
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: APIs.guru OpenAPI Directory
+    spec_file: null
+    standard: APIs.guru OpenAPI Directory
+    role: listed-in-directory
+    directory_provider: google.com
+    matched_domain: google.com
+    matched_by: domain+name-among-holders
+    apis_listed: 283
+    version_count: 466
+    first_added: '2023-03-04'
+    last_updated: '2023-04-21'
+    origin_publisher_hosted: true
+    origin_hosts:
+    - travelpartner.googleapis.com
+    categories: []
+    own_openapi_files: 67
+    listings:
+    - key: google.com
+      title: Travel Partner API
+      preferred: v3
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/google.com/v3/openapi.json
+      origin_url: https://travelpartner.googleapis.com/$discovery/rest?version=v3
+      openapi_version: 3.0.0
+    signal_note: 'participation only: a community directory listing (APIs.guru collects definitions; the provider
+      did not file them). Signals: version_count, apis_listed, origin_publisher_hosted.'
+    detected_by: sweep-openapi-directory-apis-guru.py
+    detected: '2026-10-22'
+    also_directory_providers:
+    - googleapis.com
+    - walletobjects.googleapis.com
+  status: not-a-workflow
+  arazzo: null

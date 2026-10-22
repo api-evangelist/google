@@ -1045,6 +1045,49 @@ edges:
   - Google Finance
   - Google Find Hub
   direction: partner-built
+- partner_name: APIs.guru OpenAPI Directory
+  partner: apis-guru
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: third-party
+  evidence: https://apis.guru/
+  category: API definition directory listing (OpenAPI)
+  contract_reference:
+    register: APIs.guru OpenAPI Directory
+    spec_file: null
+    standard: APIs.guru OpenAPI Directory
+    role: listed-in-directory
+    directory_provider: google.com
+    matched_domain: google.com
+    matched_by: domain+name-among-holders
+    apis_listed: 283
+    version_count: 466
+    first_added: '2023-03-04'
+    last_updated: '2023-04-21'
+    origin_publisher_hosted: true
+    origin_hosts:
+    - travelpartner.googleapis.com
+    categories: []
+    own_openapi_files: 67
+    listings:
+    - key: google.com
+      title: Travel Partner API
+      preferred: v3
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/google.com/v3/openapi.json
+      origin_url: https://travelpartner.googleapis.com/$discovery/rest?version=v3
+      openapi_version: 3.0.0
+    signal_note: 'participation only: a community directory listing (APIs.guru collects definitions; the provider
+      did not file them). Signals: version_count, apis_listed, origin_publisher_hosted.'
+    detected_by: sweep-openapi-directory-apis-guru.py
+    detected: '2026-10-22'
+    also_directory_providers:
+    - googleapis.com
+    - walletobjects.googleapis.com
+  detected_by: sweep-openapi-directory-apis-guru.py
+  first_seen: '2026-10-22'
 method: searched
 checked:
 - https://cloudsecurityalliance.org/star/registry
@@ -1090,6 +1133,8 @@ checked:
 - https://www.ismap.go.jp/csm?id=cloud_service_list_liu
 - https://github.com/raycast/extensions/tree/84f9ac51336a8c69f70974a75bc067c0feae3658/extensions
 - https://www.raycast.com/api/v1/store_listings
+- https://api.apis.guru/v2/list.json
+- https://api.apis.guru/v2/providers.json
 source:
 - https://docs.mparticle.com/integrations/firebase/event/
 - https://fivetran.com/docs/activations/destinations/available-destinations/alloydb
