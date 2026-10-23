@@ -1,0 +1,7 @@
+---
+title: "Announcing MCP support in Apigee hybrid: agentic tools that run in your own cluster"
+url: "https://developers.googleblog.com/announcing-mcp-support-in-apigee-hybrid-agentic-tools-that-run-in-your-own-cluster/"
+date: "2026-10-17"
+feed_url: "https://developers.googleblog.com/feeds/posts/default"
+---
+Apigee hybrid 1.17.0 introduces native Model Context Protocol (MCP) support, enabling the MCP data plane to run directly within your own Kubernetes cluster. This architecture ensures that AI agent request traffic and tool execution remain entirely inside your infrastructure while pulling configuration updates from the control plane. Developers can expose OpenAPI 3.0.x specifications as discoverable MCP tools, leverage existing security policies and API products, and trace end-to-end requests using W3C trace context headers.
