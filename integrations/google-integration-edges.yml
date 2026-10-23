@@ -711,95 +711,6 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-official-clis.py
   first_seen: '2026-10-20'
-- partner_name: Docker Hub (docker-verified-publisher)
-  partner: docker-hub
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: docker-verified-publisher
-  evidence: https://hub.docker.com/u/google
-  mirror_of: docker-hub/integrations/docker-hub-integration-edges.yml
-  apps:
-  - google/cadvisor
-  - google/cloud-sdk
-  - google/apparmor-loader
-  - google/docker-registry
-  - google/pause
-  - google/shaka-packager
-  - google/dart
-  - google/guestbook-python-redis
-  - google/alloydbomni
-  - google/deepvariant
-  - google/webfundamentals
-  - google/mysql
-  - google/docker-registry-gcs
-  - google/fluentd-bigquery-sample
-  - google/ipython-predictions
-  listing_count: 1
-  detected: '2026-10-20'
-  detected_by: mirror-platform-listings.py
-  category: Docker Verified Publisher
-  badges:
-  - Docker Verified Publisher
-- partner_name: Eclipse Foundation (open-vsx)
-  partner: eclipse
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: open-vsx
-  evidence: https://open-vsx.org/namespace/Google
-  mirror_of: eclipse/integrations/eclipse-integration-edges.yml
-  apps:
-  - Gemini Code Assist
-  - Gemini CLI Companion
-  - Colab
-  - ChromiumIDE
-  - Google Antigravity
-  - GN Language
-  - ARB Editor
-  - Looker by Google Cloud
-  - AIDL
-  - Packet Description Language
-  - SELinux Policy
-  listing_count: 1
-  detected: '2026-10-20'
-  detected_by: mirror-platform-listings.py
-  category: IDE / developer extension marketplace listing
-  badges:
-  - Verified namespace
-- partner_name: JetBrains (jetbrains-marketplace)
-  partner: jetbrains
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: jetbrains-marketplace
-  evidence: https://plugins.jetbrains.com/vendor/Google
-  mirror_of: jetbrains/integrations/jetbrains-integration-edges.yml
-  apps:
-  - Flutter
-  - Dart
-  - google-java-format
-  - Google Cloud Code
-  - Gemini Code Assist
-  - Cloud Workstations
-  - Bazel for Android Studio
-  - GN Language
-  - Google Home Extension Preview
-  listing_count: 1
-  detected: '2026-10-20'
-  detected_by: mirror-platform-listings.py
-  category: IDE / developer extension marketplace listing
-  badges:
-  - Verified vendor
 - partner_name: UK G-Cloud 14 (Digital Marketplace)
   partner: null
   partner_match: register
@@ -1088,6 +999,113 @@ edges:
     - walletobjects.googleapis.com
   detected_by: sweep-openapi-directory-apis-guru.py
   first_seen: '2026-10-22'
+- partner_name: Docker Hub (docker-verified-publisher)
+  partner: docker-hub
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: docker-verified-publisher
+  evidence: https://hub.docker.com/u/google
+  mirror_of: docker-hub/integrations/docker-hub-integration-edges.yml
+  apps:
+  - google/cadvisor
+  - google/cloud-sdk
+  - google/apparmor-loader
+  - google/docker-registry
+  - google/pause
+  - google/shaka-packager
+  - google/dart
+  - google/guestbook-python-redis
+  - google/alloydbomni
+  - google/deepvariant
+  - google/webfundamentals
+  - google/mysql
+  - google/docker-registry-gcs
+  - google/fluentd-bigquery-sample
+  - google/ipython-predictions
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: Docker Verified Publisher
+  badges:
+  - Docker Verified Publisher
+- partner_name: Eclipse Foundation (open-vsx)
+  partner: eclipse
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: open-vsx
+  evidence: https://open-vsx.org/namespace/Google
+  mirror_of: eclipse/integrations/eclipse-integration-edges.yml
+  apps:
+  - Gemini Code Assist
+  - Gemini CLI Companion
+  - Colab
+  - ChromiumIDE
+  - Google Antigravity
+  - GN Language
+  - ARB Editor
+  - Looker by Google Cloud
+  - AIDL
+  - Packet Description Language
+  - SELinux Policy
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: IDE / developer extension marketplace listing
+  badges:
+  - Verified namespace
+- partner_name: JetBrains (jetbrains-marketplace)
+  partner: jetbrains
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: jetbrains-marketplace
+  evidence: https://plugins.jetbrains.com/vendor/Google
+  mirror_of: jetbrains/integrations/jetbrains-integration-edges.yml
+  apps:
+  - Flutter
+  - Dart
+  - google-java-format
+  - Google Cloud Code
+  - Gemini Code Assist
+  - Cloud Workstations
+  - Bazel for Android Studio
+  - GN Language
+  - Google Home Extension Preview
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: IDE / developer extension marketplace listing
+  badges:
+  - Verified vendor
+- partner_name: Ansible (ansible-galaxy)
+  partner: ansible
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: ansible-galaxy
+  evidence: https://galaxy.ansible.com/ui/repo/published/google/cloud/
+  mirror_of: ansible/integrations/ansible-integration-edges.yml
+  apps:
+  - google.cloud
+  - google.cloud_collection
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: configuration-management content listing (Ansible collection)
 method: searched
 checked:
 - https://cloudsecurityalliance.org/star/registry
@@ -1135,6 +1153,7 @@ checked:
 - https://www.raycast.com/api/v1/store_listings
 - https://api.apis.guru/v2/list.json
 - https://api.apis.guru/v2/providers.json
+- ansible/integrations/ansible-integration-edges.yml
 source:
 - https://docs.mparticle.com/integrations/firebase/event/
 - https://fivetran.com/docs/activations/destinations/available-destinations/alloydb
