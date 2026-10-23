@@ -1052,3 +1052,102 @@
     - google_wifi
   status: not-a-workflow
   arazzo: null
+- slug: google-arch-user-repository-aur
+  label: Arch User Repository (AUR)
+  partner_name: Arch User Repository (AUR)
+  category: official CLI (Arch User Repository (AUR))
+  type: register
+  channel: package-registry
+  evidence: https://aur.archlinux.org/packages/google-cloud-cli
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Arch User Repository (AUR) (public package index)
+    spec_file: null
+    packages:
+    - name: google-cloud-cli
+      kind: aur
+      version: 588.0.0-1
+      released: '2026-10-09'
+      released_field: AUR LastModified
+      out_of_date: false
+      lapsed: false
+      page: https://aur.archlinux.org/packages/google-cloud-cli
+      upstream: https://cloud.google.com/cli/
+      cli: 'AUR description: A core set of command-line tools for the Google Cloud Platform. Includes only gc'
+      repo_leg: domain:google.com
+      publisher_leg: artifact-domain:google.com
+      matched_by: domain+name-among-holders
+    - name: google-cloud-cli-bq
+      kind: aur
+      version: 588.0.0-1
+      released: '2026-10-09'
+      released_field: AUR LastModified
+      out_of_date: false
+      lapsed: false
+      page: https://aur.archlinux.org/packages/google-cloud-cli-bq
+      upstream: https://cloud.google.com/cli/
+      cli: 'AUR description: BigQuery Command Line Tool'
+      repo_leg: domain:google.com
+      publisher_leg: artifact-domain:google.com
+      matched_by: domain+name-among-holders
+    - name: google-cloud-cli-bundled-python3-unix
+      kind: aur
+      version: 588.0.0-1
+      released: '2026-10-09'
+      released_field: AUR LastModified
+      out_of_date: false
+      lapsed: false
+      page: https://aur.archlinux.org/packages/google-cloud-cli-bundled-python3-unix
+      upstream: https://cloud.google.com/cli/
+      cli: 'AUR description: gcloud Bundled Python 3.12'
+      repo_leg: domain:google.com
+      publisher_leg: artifact-domain:google.com
+      matched_by: domain+name-among-holders
+    - name: google-cloud-cli-component-gke-gcloud-auth-plugin
+      kind: aur
+      version: 588.0.0-1
+      released: '2026-10-09'
+      released_field: AUR LastModified
+      out_of_date: false
+      lapsed: false
+      page: https://aur.archlinux.org/packages/google-cloud-cli-component-gke-gcloud-auth-plugin
+      upstream: https://cloud.google.com/cli/
+      cli: 'AUR description: gke-gcloud-auth-plugin'
+      repo_leg: domain:google.com
+      publisher_leg: artifact-domain:google.com
+      matched_by: domain+name-among-holders
+    - name: google-cloud-cli-gke-gcloud-auth-plugin
+      kind: aur
+      version: 542.0.0-1
+      released: '2025-10-07'
+      released_field: AUR LastModified
+      out_of_date: false
+      lapsed: false
+      page: https://aur.archlinux.org/packages/google-cloud-cli-gke-gcloud-auth-plugin
+      upstream: https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke
+      cli: 'AUR description: A google-cloud-cli component that provides a kubectl authentication plugin for G'
+      repo_leg: domain:google.com
+      publisher_leg: artifact-domain:google.com
+      matched_by: domain+name-among-holders
+    - name: google-cloud-cli-gsutil
+      kind: aur
+      version: 588.0.0-1
+      released: '2026-10-09'
+      released_field: AUR LastModified
+      out_of_date: false
+      lapsed: false
+      page: https://aur.archlinux.org/packages/google-cloud-cli-gsutil
+      upstream: https://cloud.google.com/cli/
+      cli: 'AUR description: Cloud Storage Command Line Tool: gsutil is not the recommended CLI for Cloud Sto'
+      repo_leg: domain:google.com
+      publisher_leg: artifact-domain:google.com
+      matched_by: domain+name-among-holders
+    current: true
+    signal_note: 'the provider''s own command-line tool packaged for Arch Linux (community-maintained PKGBUILD whose
+      upstream and source artifact are the provider''s): distribution, not an integration; lapsed = flagged out-of-date
+      or not updated in 24 months'
+    detected_by: sweep-aur-vendor-cli-packages.py
+    detected: '2026-10-23'
+  status: not-a-workflow
+  arazzo: null
