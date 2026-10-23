@@ -1106,6 +1106,33 @@ edges:
   detected: '2026-10-22'
   detected_by: mirror-platform-listings.py
   category: configuration-management content listing (Ansible collection)
+- partner_name: IFTTT
+  partner: ifttt
+  partner_match: aggregator
+  type: marketplace
+  marketplace: ifttt-services
+  channel: ipaas-listing
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://ifttt.com/google_contacts
+  category: null
+  contract_reference:
+    register: IFTTT service directory (ifttt.com/explore/services; ifttt.com/<service>)
+    spec_file: null
+    role: ipaas-connector:ifttt
+    registered_name: Google Contacts
+    matched_domain: google.com
+    matched_by: domain+name-among-holders
+    app_slug: google_contacts
+    ifttt_category: Mobile devices & accessories
+    builder: unknown (the service page does not say who built it)
+    detected_by: sweep-ifttt-services.py
+    detected: '2026-10-23'
+    signal_note: one edge per (provider, platform); triggers, actions and applet counts are context, never read
+    other_apps:
+    - google_wifi
+  detected_by: sweep-ifttt-services.py
+  first_seen: '2026-10-23'
 method: searched
 checked:
 - https://cloudsecurityalliance.org/star/registry
@@ -1154,6 +1181,9 @@ checked:
 - https://api.apis.guru/v2/list.json
 - https://api.apis.guru/v2/providers.json
 - ansible/integrations/ansible-integration-edges.yml
+- https://ifttt.com/explore/services
+- https://ifttt.com/google_contacts
+- https://ifttt.com/sitemap_services.xml
 source:
 - https://docs.mparticle.com/integrations/firebase/event/
 - https://fivetran.com/docs/activations/destinations/available-destinations/alloydb
